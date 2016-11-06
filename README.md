@@ -1,4 +1,4 @@
-![Stacer](https://raw.githubusercontent.com/oguzhaninan/Stacer-Ubuntu-System-Optimizer/master/style/img/icon.png)
+![Stacer](https://raw.githubusercontent.com/oguzhaninan/Stacer-Ubuntu-System-Optimizer/master/header.png)
 # Stacer
 Ubuntu System Optimizer
 
