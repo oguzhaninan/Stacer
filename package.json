@@ -14,12 +14,12 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/oguzhaninan/Stacer-Ubuntu-System-Optimizer.git"
+    "url": "https://github.com/oguzhaninan/Stacer.git"
   },
   "bugs": {
-    "url": "https://github.com/oguzhaninan/Stacer-Ubuntu-System-Optimizer/issues"
+    "url": "https://github.com/oguzhaninan/Stacer/issues"
   },
-  "homepage": "https://github.com/oguzhaninan/Stacer-Ubuntu-System-Optimizer",
+  "homepage": "https://github.com/oguzhaninan/Stacer",
   "dependencies": {
     "cpu-usage": "^0.1.0",
     "diskspace": "^1.0.3",
