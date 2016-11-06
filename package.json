@@ -1,0 +1,35 @@
+{
+  "name": "Stacer",
+  "productName": "Stacer",
+  "version": "1.0.0",
+  "description": "Ubuntu System Optimizer",
+  "license": "MIT",
+  "main": "main.js",
+  "author": "Oguzhan Inan <oguzhan3488@gmail.com>",
+  "keywords": [
+    "ubuntu",
+    "system",
+    "optimizer",
+    "linux"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/oguzhaninan/Stacer-Ubuntu-System-Optimizer.git"
+  },
+  "bugs": {
+    "url": "https://github.com/oguzhaninan/Stacer-Ubuntu-System-Optimizer/issues"
+  },
+  "homepage": "https://github.com/oguzhaninan/Stacer-Ubuntu-System-Optimizer",
+  "dependencies": {
+    "cpu-usage": "^0.1.0",
+    "diskspace": "^1.0.3",
+    "exec": "^0.2.1",
+    "jquery": "^3.1.1",
+    "systeminformation": "^3.6.0"
+  },
+  "build": {
+    "appId": "stacer",
+    "category": "system.optimizer"
+  }
+
+}

@@ -1,0 +1,530 @@
+body * {
+    outline: 0;
+}
+
+@font-face {
+    font-family: 'Open Sans';
+    src: url(../font/OpenSans-Regular.ttf) format("truetype");
+}
+
+body {
+    overflow: hidden;
+    float: left;
+    padding: 50px 0 0 0;
+    background-color: #202b33;
+    font-family: 'Open Sans', sans-serif;
+    -webkit-user-select: none;
+}
+
+.cont {
+    width: 200px;
+    float: left;
+    border-radius: 4px;
+    font-size: 16px;
+    color: white;
+    margin: 15px;
+    background-color: #293945;
+    padding: 20px 30px 50px 30px;
+    font-weight: bold;
+}
+
+.system-info {
+    font-weight: bold;
+    width: 300px;
+    float: left;
+    display: block;
+    font-size: 16px;
+    color: white;
+    margin: 20px;
+    padding: 15px 25px 15px 25px;
+}
+
+.system-info ul {
+    padding: 0;
+    color: #748390;
+    list-style: none;
+    font-weight: normal;
+    line-height: 30px;
+}
+
+#title-bar {
+    margin: 0;
+    z-index: 999;
+    background-color: #202b33;
+    position: fixed;
+    padding: 13px 0;
+    -webkit-app-region: drag;
+    width: 100%;
+    color: #748390;
+    font-size: 16px;
+    text-align: center;
+    height: 20px;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+}
+
+#close-btn, #min-btn {
+    -webkit-app-region: no-drag;
+    float: left;
+    width: 15px;
+    height: 15px;
+    z-index: 999999;
+    border: 0;
+    margin: 5px 0 0 25px;
+    border-radius: 50px;
+}
+
+#close-btn {
+    background-color: #ff5c5c;
+}
+
+#close-btn:hover {
+    background-color: #c14645;
+}
+
+#close-btn:active {
+    background-color: #ab2a2a;
+}
+
+#min-btn {
+    background-color: #ffbd4c;
+    margin: 5px 0px 0 8px;
+    margin-left: 8px;
+}
+
+#min-btn:hover {
+    background-color: #c08e38;
+}
+
+#min-btn:active {
+    background-color: #b3760f;
+}
+
+#down-bar, #up-bar {
+    margin: 15px 0;
+    width: 350px;
+    height: 13px;
+    clear: left;
+    position: relative;
+    float: left;
+}
+
+.tdl-holder {
+    color: #748390;
+    font-size: 12px;
+    border: 1px solid #3d474e;
+}
+
+.tdl-holder ul, .tdl-holder li {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.tdl-holder li {
+    border-bottom: 1px solid #3d474e;
+    color: #748390;
+}
+
+.tdl-holder li span {
+    margin-left: 25px;
+    display: block;
+}
+
+.tdl-holder label {
+    cursor: pointer;
+    display: block;
+    line-height: 30px;
+    padding: 0 15px;
+    position: relative;
+}
+
+.tdl-holder input[type="checkbox"],
+.cleaner-sidebar input[type="checkbox"] {
+    display: none;
+}
+
+.tdl-holder i,
+.cleaner-sidebar i {
+    background-color: #748390;
+    border-radius: 50%;
+    display: block;
+    height: 12px;
+    position: absolute;
+    top: 9px;
+    width: 12px;
+    z-index: 1;
+}
+
+.tdl-holder input[type="checkbox"]:checked+i::after,
+.cleaner-sidebar input[type="checkbox"]:checked+i::after {
+    background-color: #293945;
+    border-radius: 50%;
+    content: '';
+    display: block;
+    height: 6px;
+    left: 3px;
+    position: absolute;
+    top: 3px;
+    width: 6px;
+    z-index: 2;
+}
+
+#cleaner-table {
+    float: right;
+    margin: 10px 10px 0 0;
+    width: 650px;
+    height: 500px;
+}
+
+
+
+
+#uninstaller-table,
+#system-service-table,
+#startup-apps-table{
+    width: 700px;
+    height: 530px;
+    /*border: 1px solid #3d474e;*/
+    margin: 15px auto 0 auto;
+}
+
+#startup-apps-table{
+    width: 500px;
+    height: 450px;
+}
+
+#uninstaller-table ul,
+#system-service-table ul,
+#startup-apps-table ul{
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+#uninstaller-table ul li,
+#system-service-table ul li,
+#startup-apps-table ul li{
+    font-size:15px;
+    color:#aeb5bf;
+    margin: 10px 3px;
+    background-color: #293945;
+    cursor: pointer;
+    border-radius: 4px;
+    display: block;
+    /*border-bottom: 1px solid #3d474e;*/
+    padding: 10px 15px 10px 50px;
+    position: relative;
+    background-image: url(../img/package.png);
+    background-repeat: no-repeat;
+    background-position: 13px 7px;
+}
+
+#system-service-list li label {
+  float: right;
+  cursor: move;
+}
+
+#startup-apps-table ul li{
+  background-position: 13px 7px;
+  background-image: url(../img/app.png);
+}
+
+#system-service-table ul li{
+  background-position: 13px 9px;
+  background-image: url(../img/service.png);
+}
+
+#uninstaller-table ul li:hover,
+#system-service-table ul li:hover,
+#startup-apps-table ul li:hover{
+    background-color:#3d474e;
+}
+
+#uninstaller-table li a,
+#startup-apps-table li a {
+    display: block;
+    background-repeat: no-repeat;
+    float: right;
+}
+
+#uninstaller-table li a {
+    width: 24px;
+    height: 24px;
+    margin-top: -2px;
+    background-image: url(../img/app-uninstall.png);
+}
+
+#startup-apps-table li a {
+    width: 20px;
+    height: 20px;
+    margin-top: 1px;
+    background-image: url(../img/app-unstart.png);
+}
+
+#uninstaller-table .tdl-content,
+#system-service-table .tdl-content,
+#startup-apps-table .tdl-content{
+    height:490px;
+}
+
+#installed-packages-title,
+#system-service-title,
+#startup-apps-title{
+    display: block;
+    /*background-color: #293945;*/
+    height: 20px;
+    padding: 10px 15px;
+    font-size: 14px;
+    color:#aeb5bf;
+}
+
+#packages-search,
+#system-service-search{
+    border-radius: 50px;
+    background-color: #202b33;
+    font-size: 13px;
+    border: 1px solid #3d474e;
+    float: right;
+    padding: 5px 10px;
+    /*border: 0;*/
+    margin-top: -3px;
+    color: #aeb5bf;
+}
+
+
+
+
+
+.switch {
+  display: none;
+}
+.switch + label,
+.switch + label::after {
+  display: inline-block;
+  position: relative;
+  width: 44px;
+  height: 22px;
+  box-sizing: border-box;
+  background-color: #EF4836;
+  border: 2px solid #EF4836;
+  border-radius: 9999px;
+  transition: 300ms;
+}
+.switch + label::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  background: #fff;
+  width: 18px;
+  height: 18px;
+  border: none;
+  box-shadow: 0 5px 5px -1px rgba(0, 0, 0, 0.2), 0 0 0 2px #EF4836;
+}
+.switch:checked + label {
+  border: 2px solid #4BD865;
+  box-shadow: inset 0 0 0 calc(13px) #4BD865;
+}
+.switch:checked + label::after {
+  left: calc(22px);
+  box-shadow: 0 5px 5px -1px rgba(0, 0, 0, 0.2), 0 0 0 2px #4BD865;
+}
+.switch:not(:checked) + label:hover:active {
+  box-shadow: inset 0 0 0 calc(13px) #DDD;
+}
+.switch + label:hover:active::after {
+  width: calc(23px);
+}
+.switch:checked + label:hover:active::after {
+  left: calc(17px);
+}
+
+
+
+
+
+
+#installed-packages-list li a.loader {
+  border: 4px solid #f3f3f3;
+  border-radius: 50%;
+  background-image: none;
+  border-top: 4px solid #3498db;
+  width: 16px;
+  height: 16px;
+  -webkit-animation: spin 1s linear infinite;
+  animation: spin 1s linear infinite;
+}
+
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+#clean-btn, #system-scan-btn {
+    clear: right;
+    float: right;
+    margin: 10px 10px 0 0;
+    border-radius: 5px;
+    padding: 10px 25px;
+    color: #aeb5bf;
+    cursor: pointer;
+    position: relative;
+    background-color: #293945;
+    border: 0;
+}
+
+#system-scan-btn {
+    float: left;
+    clear: left;
+    margin-left: 10px;
+}
+
+.scroll{
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.scroll::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+}
+
+.scroll::-webkit-scrollbar {
+    width: 10px;
+}
+
+.scroll::-webkit-scrollbar-thumb {
+    background-color: #3d474e;
+    border-radius: 10px;
+}
+
+#nav {
+    float: left;
+    width: 770px;
+    padding: 0 50px;
+    margin: 0 0 20px 0;
+}
+
+#nav li {
+    float: left;
+    color: #eee;
+    padding: 0px 20px;
+    display: inline;
+}
+
+#nav li label:after {
+    transition: width .5s ease, background-color .5s ease
+}
+
+#nav li label {
+    cursor: pointer;
+    display: block;
+    float: left;
+    font-size: 16px;
+    transition: 0.9s ease;
+    padding: 6px;
+}
+
+#nav li label:hover {
+    cursor: pointer;
+    color: white;
+}
+
+.nav-active, #nav li label:hover {
+    color: #47b1f3;
+    border-bottom: 1px solid #47b1f3;
+}
+
+#dashboard-content,
+#system-cleaner-content,
+#startup-apps-content,
+#system-service-content,
+#uninstaller-content {
+    float: left;
+    width: 100%;
+}
+
+.cleaner-sidebar {
+    margin: 10px 0 0 10px;
+    width: 180px;
+    float: left;
+    position: relative;
+    border: 1px solid #3d474e;
+}
+
+.cleaner-sidebar ul {
+    float: left;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.cleaner-sidebar ul li {
+    padding: 0;
+    margin: 0;
+}
+
+.cleaner-sidebar ul li label {
+    display: block;
+    padding: 10px 0px 10px 15px;
+    width: 165px;
+    font-size: 15px;
+    color: #aeb5bf;
+    cursor: pointer;
+    position: relative;
+}
+
+.cleaner-sidebar i {
+    margin: 6px 0 0 0;
+}
+
+.cleaner-sidebar span {
+    margin-left: 25px;
+}
+
+.cleaner-sidebar span span {
+    margin: 0;
+    padding: 0;
+    position: relative;
+    font-size: 12px;
+}
+
+.cleaner-sidebar ul li label:last-child {
+    border-bottom: 0;
+}
+
+.cleaner-sidebar ul li label:hover {
+    background-color: #293945;
+    color: #2285c3;
+}
+
+.dn {
+    display: none;
+}
+
+
+/*Datatable */
+
+#example {
+    background-color: #293945;
+    color: #a4abb5;
+}
+
+.dataTables_filter {
+    color: #999;
+}
+
+.input-sm {
+    border-radius: 3px;
+    border: 0;
+    color: #999;
+    padding: 4px;
+    background-color: #293945;
+}
