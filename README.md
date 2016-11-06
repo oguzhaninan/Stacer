@@ -18,3 +18,23 @@ Ubuntu System Optimizer
 
 ## Uninstalling
 - Run `sudo dpkg -r Stacer`
+
+## Screenshots
+
+### Sudo Login
+![s1](https://raw.githubusercontent.com/oguzhaninan/Stacer-Ubuntu-System-Optimizer/master/Screenshots/Screenshot1.png)
+
+### Dashboard
+![s1](https://raw.githubusercontent.com/oguzhaninan/Stacer-Ubuntu-System-Optimizer/master/Screenshots/Screenshot2.png)
+
+### System Cleaner
+![s1](https://raw.githubusercontent.com/oguzhaninan/Stacer-Ubuntu-System-Optimizer/master/Screenshots/Screenshot3.png)
+
+### Startup Apps
+![s1](https://raw.githubusercontent.com/oguzhaninan/Stacer-Ubuntu-System-Optimizer/master/Screenshots/Screenshot4.png)
+
+### Services
+![s1](https://raw.githubusercontent.com/oguzhaninan/Stacer-Ubuntu-System-Optimizer/master/Screenshots/Screenshot5.png)
+
+### Uninstaller
+![s1](https://raw.githubusercontent.com/oguzhaninan/Stacer-Ubuntu-System-Optimizer/master/Screenshots/Screenshot6.png)
