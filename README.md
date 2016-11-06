@@ -16,3 +16,5 @@ Ubuntu System Optimizer
 2. Run `sudo dpkg --install Stacer-1.0.0-x64.deb` on the downloaded package.
 3. Launch Stacer using the installed `Stacer` command.
 
+## Uninstalling
+- Run `sudo dpkg -r Stacer`
