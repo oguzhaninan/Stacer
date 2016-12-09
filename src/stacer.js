@@ -41,7 +41,7 @@ var downBar = new prog.Line("#down-bar", {
         autoStyleContainer: false
     },
     step: (state, bar) => {
-        bar.setText(down + 'kb/s')
+        bar.setText(Math.abs(down).toString() + 'kb/s')
     }
 });
 
@@ -68,7 +68,7 @@ var upBar = new prog.Line("#up-bar", {
         autoStyleContainer: false
     },
     step: (state, bar) => {
-        bar.setText(up + 'kb/s')
+        bar.setText(Math.abs(up).toString() + 'kb/s')
     }
 });
 
@@ -76,8 +76,8 @@ setInterval(() => {
     si.networkStats('enp3s0', (data) => {
         down = (data.rx_sec / 1024).toFixed(2)
         up = (data.tx_sec / 1024).toFixed(2)
-        downBar.animate(down / 700)
-        upBar.animate(up / 700)
+        downBar.animate(down / 1000)
+        upBar.animate(up / 1000)
     })
 }, 1500);
 
