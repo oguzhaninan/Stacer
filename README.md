@@ -17,6 +17,14 @@ Ubuntu System Optimizer
 2. Run `sudo dpkg --install Stacer_1.0.1_amd64.deb` on the downloaded package.
 3. Launch Stacer using the installed `Stacer` command.
 
+## Manual Installing
+
+1. `git clone https://github.com/oguzhaninan/Stacer.git`
+2. `cd Stacer`
+3. `npm install`
+4. `npm start`
+
+
 ## Uninstalling
 - Run `sudo apt-get --purge remove Stacer`
 
