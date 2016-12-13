@@ -1,0 +1,43 @@
+{
+  "name": "Stacer",
+  "productName": "Stacer",
+  "version": "1.0.1",
+  "description": "Ubuntu System Optimizer",
+  "license": "MIT",
+  "main": "main.js",
+  "author": "Oguzhan Inan <oguzhan3488@gmail.com>",
+  "keywords": [
+    "ubuntu",
+    "system",
+    "optimizer"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/oguzhaninan/Stacer.git"
+  },
+  "bugs": {
+    "url": "https://github.com/oguzhaninan/Stacer/issues"
+  },
+  "homepage": "https://github.com/oguzhaninan/Stacer",
+  "build": {
+    "appId": "Stacer"
+  },
+  "dependencies": {
+    "cpu-usage": "^0.1.0",
+    "diskspace": "^1.0.3",
+    "exec": "^0.2.1",
+    "jquery": "^3.1.1",
+    "progressbar.js": "^1.0.1",
+    "systeminformation": "^3.13.0"
+  },
+  "scripts": {
+    "start": "electron .",
+		"package-x86": "electron-packager . --overwrite --platform=linux --arch=ia32 --icon=assets/img/icon.png --prune=true --out=release-builds --version=1.4.11",
+    "package-x64": "electron-packager . --overwrite --platform=linux --arch=x64 --icon=assets/img/icon.png --prune=true --out=release-builds --version=1.4.11",
+		"build-x86":   "electron-installer-debian --src release-builds/Stacer-linux-ia32/ --arch i386 --dest dist/installers/ --icon assets/img/icon.png",
+    "build-x64":   "electron-installer-debian --src release-builds/Stacer-linux-x64/ --arch amd64 --dest dist/installers/ --icon assets/img/icon.png",
+    "release-x86": "npm run package-x86 && npm run build-x86",
+    "release-x64": "npm run package-x64 && npm run build-x64",
+    "clean": "rm -r release-builds/ dist/"
+  }
+}
