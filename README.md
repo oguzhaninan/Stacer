@@ -1,4 +1,5 @@
-![Stacer](https://raw.githubusercontent.com/oguzhaninan/Stacer-Ubuntu-System-Optimizer/master/header.png)
+<img src="https://raw.githubusercontent.com/oguzhaninan/Stacer/master/Screenshots/header1.png" width="500">
+
 # Stacer
 Ubuntu System Optimizer
 
@@ -8,16 +9,16 @@ Ubuntu System Optimizer
 
 1. Download `stacer_1.0.0_i386.deb` from the [Stacer releases page](https://github.com/oguzhaninan/Stacer/releases).
 2. Run `sudo dpkg --install stacer_1.0.0_i386.deb` on the downloaded package.
-3. Launch Stacer using the installed `/usr/share/stacer/Stacer` command.
+3. Launch Stacer using the installed `Stacer` command.
 
 ### Debian Linux x64 (Ubuntu)
 
-1. Download `stacer_1.0.0_amd64.deb` from the [Stacer releases page](https://github.com/oguzhaninan/Stacer/releases).
-2. Run `sudo dpkg --install stacer_1.0.0_amd64.deb` on the downloaded package.
-3. Launch Stacer using the installed `/usr/share/stacer/Stacer` command.
+1. Download `Stacer_1.0.1_amd64.deb` from the [Stacer releases page](https://github.com/oguzhaninan/Stacer/releases).
+2. Run `sudo dpkg --install Stacer_1.0.1_amd64.deb` on the downloaded package.
+3. Launch Stacer using the installed `Stacer` command.
 
 ## Uninstalling
-- Run `sudo apt-get --purge remove stacer`
+- Run `sudo apt-get --purge remove Stacer`
 
 ## Screenshots
 
