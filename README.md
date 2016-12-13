@@ -23,19 +23,19 @@ Ubuntu System Optimizer
 ## Screenshots
 
 ### Sudo Login
-![s1](https://raw.githubusercontent.com/oguzhaninan/Stacer/master/Screenshots/Screenshot1.png)
+![s1](https://raw.githubusercontent.com/oguzhaninan/Stacer/master/Screenshots/Screenshot-1.png)
 
 ### Dashboard
-![s1](https://raw.githubusercontent.com/oguzhaninan/Stacer/master/Screenshots/Screenshot2.png)
+![s2](https://raw.githubusercontent.com/oguzhaninan/Stacer/master/Screenshots/Screenshot-2.png)
 
 ### System Cleaner
-![s1](https://raw.githubusercontent.com/oguzhaninan/Stacer/master/Screenshots/Screenshot3.png)
+![s3](https://raw.githubusercontent.com/oguzhaninan/Stacer/master/Screenshots/Screenshot-3.png)
 
 ### Startup Apps
-![s1](https://raw.githubusercontent.com/oguzhaninan/Stacer/master/Screenshots/Screenshot4.png)
+![s1](https://raw.githubusercontent.com/oguzhaninan/Stacer/master/Screenshots/Screenshot-4.png)
 
 ### Services
-![s1](https://raw.githubusercontent.com/oguzhaninan/Stacer/master/Screenshots/Screenshot5.png)
+![s1](https://raw.githubusercontent.com/oguzhaninan/Stacer/master/Screenshots/Screenshot-5.png)
 
 ### Uninstaller
-![s1](https://raw.githubusercontent.com/oguzhaninan/Stacer/master/Screenshots/Screenshot6.png)
+![s1](https://raw.githubusercontent.com/oguzhaninan/Stacer/master/Screenshots/Screenshot-6.png)
