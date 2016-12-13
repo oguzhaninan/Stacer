@@ -7,8 +7,8 @@ Ubuntu System Optimizer
 
 ### Debian Linux x86 (Ubuntu)
 
-1. Download `stacer_1.0.0_i386.deb` from the [Stacer releases page](https://github.com/oguzhaninan/Stacer/releases).
-2. Run `sudo dpkg --install stacer_1.0.0_i386.deb` on the downloaded package.
+1. Download `Stacer_1.0.1_i386.deb` from the [Stacer releases page](https://github.com/oguzhaninan/Stacer/releases).
+2. Run `sudo dpkg --install Stacer_1.0.1_i386.deb` on the downloaded package.
 3. Launch Stacer using the installed `Stacer` command.
 
 ### Debian Linux x64 (Ubuntu)
