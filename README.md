@@ -2,6 +2,7 @@
 [![Dependency Status](https://www.versioneye.com/user/projects/5853e0f04d6466004b1b9e3a/badge.svg)](https://www.versioneye.com/user/projects/5853e0f04d6466004b1b9e3a)
 [![bitHound Overall Score](https://www.bithound.io/github/oguzhaninan/Stacer/badges/score.svg)](https://www.bithound.io/github/oguzhaninan/Stacer)
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/62f67866ba864392b3d8d615d5052de8)](https://www.codacy.com/app/oguzhan3488/Stacer?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=oguzhaninan/Stacer&amp;utm_campaign=badger)
+[![Platform (GNU/Linux)](https://img.shields.io/badge/platform-GNU/Linux-blue.svg)](http://www.kernel.org)
 
 </br>
 <img src="https://raw.githubusercontent.com/oguzhaninan/Stacer/master/Screenshots/header1.png" width="500">
