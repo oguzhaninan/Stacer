@@ -6,6 +6,8 @@
 
 </br>
 <img src="https://raw.githubusercontent.com/oguzhaninan/Stacer/master/Screenshots/header1.png" width="500">
+</br>
+[![Download Stacer](https://a.fsdn.com/con/app/sf-download-button)](https://sourceforge.net/projects/stacer/files/latest/download)
 
 # Stacer
 Ubuntu System Optimizer
