@@ -1,4 +1,9 @@
-[![Awesome](https://cdn.rawgit.com/sindresorhus/awesome/d7305f38d29fed78fa85652e3a63e154dd8e8829/media/badge.svg)](https://github.com/sindresorhus/awesome-electron) </br>
+[![Awesome](https://cdn.rawgit.com/sindresorhus/awesome/d7305f38d29fed78fa85652e3a63e154dd8e8829/media/badge.svg)](https://github.com/sindresorhus/awesome-electron) 
+
+[![Dependency Status](https://www.versioneye.com/user/projects/5853e0f04d6466004b1b9e3a/badge.svg)](https://www.versioneye.com/user/projects/5853e0f04d6466004b1b9e3a)
+
+
+</br>
 <img src="https://raw.githubusercontent.com/oguzhaninan/Stacer/master/Screenshots/header1.png" width="500">
 
 # Stacer
