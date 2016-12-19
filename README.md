@@ -7,10 +7,19 @@
 </p>
 
 
-[![Download Stacer](https://a.fsdn.com/con/app/sf-download-button)](https://sourceforge.net/projects/stacer/files/latest/download)
+<p align="center">
+    <a href="https://github.com/sindresorhus/awesome-electron"><img alt="Awesome" src="https://cdn.rawgit.com/sindresorhus/awesome/d7305f38d29fed78fa85652e3a63e154dd8e8829/media/badge.svg"></a>
+        <a href="https://www.versioneye.com/user/projects/5853e0f04d6466004b1b9e3a"><img alt="Dependency Status" src="https://www.versioneye.com/user/projects/5853e0f04d6466004b1b9e3a/badge.svg"></a>
+            <a href="https://www.bithound.io/github/oguzhaninan/Stacer"><img alt="bitHound Overall Score" src="https://www.bithound.io/github/oguzhaninan/Stacer/badges/score.svg"></a>
+                <a href="https://www.codacy.com/app/oguzhan3488/Stacer?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=oguzhaninan/Stacer&amp;utm_campaign=badger"><img alt="Codacy Badge" src="https://api.codacy.com/project/badge/Grade/62f67866ba864392b3d8d615d5052de8"></a>
+                    <a href="http://www.kernel.org"><img alt="Platform (GNU/Linux)" src="https://img.shields.io/badge/platform-GNU/Linux-blue.svg"></a>
+</p>
 
-# Stacer
-Ubuntu System Optimizer
+<p align="center">
+    <a href="https://sourceforge.net/projects/stacer/files/latest/download" ><img src="https://a.fsdn.com/con/app/sf-download-button" /></a>
+</p>
+
+---
 
 ## Installing
 
