@@ -1,11 +1,8 @@
 const {
     app,
-    BrowserWindow
-} = require("electron")
-
-const {
+    BrowserWindow,
     ipcMain
-} = require('electron')
+} = require("electron")
 
 let win
 
