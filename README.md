@@ -3,7 +3,7 @@
     <img src="https://raw.githubusercontent.com/oguzhaninan/Stacer/master/Screenshots/header1.png" width="500">    
 </p>
 <p align="center">
-  Ubuntu System Optimizer
+  <b>Ubuntu System Optimizer</b>
 </p>
 
 
