@@ -1,0 +1,18 @@
+language: node_js
+node_js:
+- '0.11'
+before_install:
+- npm install -g npm
+before_script:
+- npm install
+- npm install -g mocha grunt-cli testem
+script:
+- if [[ $TRAVIS_PULL_REQUEST != 'false' ]]; then testem ci -l phantomjs; fi
+- if [[ $TRAVIS_PULL_REQUEST == 'false' ]]; then grunt sauce; fi
+notifications:
+  email:
+  - kimmobrunfeldt+progressbar@gmail.com
+env:
+  global:
+  - secure: I/NAJpZ+wySjPYYLAqsHfMrueU0HbvOZx1FAJgxHtm3Nkz6/mzL+8ZW/FSi9/XaxkqJLaWAmCqvbVZsrw4qAfb2KKq/Ymf6eEhdTHfCJs+hLf32qM2FENS3LGPu7uJ8y1/7WKhV0VotBttB6AhaH/SNuZ4d8yBDGbriZtvnBT5c=
+  - secure: SLhd3YYQXk5jD+ubnDatUAfeTGjSu6H3y30g7n0TryueNx5qBsBLAbeqAJ92JqZx3QEBAJ0vTJyhr66gJu9dG+G7US3O/KPjYXBHcDbVv0PEXibnWhxI8BLK8PIDQvGm2dwf4/6j0gDqNoWCnjBrhdgj481iR2z2cpR07A8Koew=

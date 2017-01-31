@@ -1,0 +1,12 @@
+{
+  "framework": "mocha",
+  "src_files": [
+    "test/test-*.js"
+  ],
+  "test_page": "test/testem.html",
+  "routes": {
+    "/node_modules": "node_modules"
+  },
+  "before_tests": "browserify --debug test/test-all.js -o test/browserified-tests.js",
+  "on_exit": "rm test/browserified-tests.js"
+}

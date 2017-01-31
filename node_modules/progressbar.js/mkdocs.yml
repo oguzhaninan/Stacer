@@ -1,0 +1,23 @@
+site_name: ProgressBar.js
+repo_url: https://github.com/kimmobrunfeldt/progressbar.js
+
+pages:
+  - Home: index.md
+  - API References:
+    - General information: api/general.md
+    - ProgressBar.Line, Circle, SemiCircle: api/shape.md
+    - ProgressBar.Path: api/path.md
+    - Parameters in detail: api/parameters.md
+  - Developers:
+    - Contributing: contributing.md
+
+theme: readthedocs
+
+strict: true
+
+markdown_extensions:
+  - admonition
+  - toc:
+      permalink: True
+  - mdx_sections
+  - pymdownx.superfences

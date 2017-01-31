@@ -1,0 +1,24 @@
+#!/usr/bin/env node
+
+var getSize = require('../');
+var argv = require('minimist')(process.argv.slice(2));
+var path = require('path');
+// --folder or -f or last argument passed
+var folder = argv.folder || argv.f || argv._[argv._.length - 1];
+
+if (!folder) {
+  console.error('missing folder argument');
+  console.error('\n  Usage:\n');
+  console.error('get-folder-size --folder=/home/alex/www');
+  process.exit(1);
+}
+
+if (argv.ignore) {
+  var ignore = new RegExp(argv.ignore);
+}
+
+getSize(path.resolve(folder), ignore, function(err, bytes) {
+  if (err) { throw err; }
+
+  console.log((bytes / 1024 / 1024).toFixed(2) + ' Mb');
+});

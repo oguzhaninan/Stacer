@@ -1,0 +1,29 @@
+{
+  "globals": {
+    "SHIFTY_DEBUG_NOW": true,
+    "root": true,
+    "Tweenable": true,
+    "module": true,
+    "define": true
+  },
+
+  "asi": false,
+  "boss": true,
+  "browser": true,
+  "curly": true,
+  "eqeqeq": true,
+  "eqnull": true,
+  "immed": true,
+  "lastsemic": true,
+  "latedef": true,
+  "laxbreak": true,
+  "laxcomma": true,
+  "maxlen": 80,
+  "newcap": true,
+  "noarg": true,
+  "nomen": false,
+  "plusplus": false,
+  "sub": true,
+  "undef": true,
+  "white": false
+}

@@ -11,14 +11,14 @@
 </div>
 
 <script>
-$("#sudoPassBtn").click(function() {
-  if($("#sudoPass").val() != ""){
-    sudoPass = $("#sudoPass").val()
-    $("#sudoPop").remove()
+$('#sudoPassBtn').click(function () {
+  if ($('#sudoPass').val() != '') {
+    sudoPass = $('#sudoPass').val();
+    $('#sudoPop').remove();
   }
-})
+});
 
-$(document).keypress(function(e) {
+$(document).keypress(function (e) {
   if(e.which == 13) {
     sudoPass = $("#sudoPass").val()
     $("#sudoPop").remove()

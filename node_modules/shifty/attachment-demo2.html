@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+        <style type="text/css">
+            html, document, body {
+                margin: 0;
+                padding: 0;
+                border: 0;
+                background-color: #ffffff;
+                width: 100%;
+                height: 100%;
+                overflow: hidden;
+            }
+
+            .fig {
+                position: absolute;
+                left: 160px;
+                top: 240px;
+                width: 10px;
+                height: 10px;
+                display: block;
+            }
+
+            .view {
+                width: 100%;
+                height: 100%;
+                overflow: hidden;
+                position: absolute;
+                left: 0;
+                top: 0;
+
+                /*
+                    Enforce hardware acceleration on mobile browsers;
+                */
+                -webkit-transform: translate3d(0,0,0);
+                -webkit-transform: translateZ(0);                
+                transform: translate3d(0,0,0);
+                transform: translateZ(0);
+            }        
+        </style>
+    </head>
+    <body>
+        <div class="view">
+            <div class="fig" id="fig1"></div>
+            <div class="fig" id="fig2"></div>
+            <div class="fig" id="fig3"></div>
+            <div class="fig" id="fig4"></div>
+            <div class="fig" id="fig5"></div>
+            <div class="fig" id="fig6"></div>
+            <div class="fig" id="fig7"></div>
+            <div class="fig" id="fig8"></div>
+            <div class="fig" id="fig9"></div>
+            <div class="fig" id="fig10"></div>
+            <div class="fig" id="fig11"></div>
+            <div class="fig" id="fig12"></div>
+            <div class="fig" id="fig13"></div>
+            <div class="fig" id="fig14"></div>
+            <div class="fig" id="fig15"></div>
+            <div class="fig" id="fig16"></div>
+            <div class="fig" id="fig17"></div>
+            <div class="fig" id="fig18"></div>
+            <div class="fig" id="fig19"></div>
+            <div class="fig" id="fig20"></div>
+        </div>
+        <script src="dist/shifty.min.js"></script>
+        <script>
+            var TA = []; // Array of tweenables;
+            var TP = []; // Current state;
+            var TE = []; // Elements;
+            
+            document.addEventListener("DOMContentLoaded", domReady, false);
+            
+            function domReady() {
+	            for (var i=1; i<=20; i++) {
+	            	TE[i] = document.getElementById('fig' + i.toString());
+	                TA[i] = new Tweenable();
+	                TA[i].setConfig({     
+
+	                    // We attach (and thus, cache) the corresponding DOM element for each Tweenable insance;
+	                    attachment : [i, TE[i]],
+	                    
+	                    from : {
+	                        'x' : 0,
+	                        'y' : 0,
+	                        'rot' : 0,
+	                        'scale' : 1.0,
+	                        'backgroundColor' : '#ff0000'
+	                    },        
+
+	                    to : {
+	                        'x' : 320 * Math.random() - 160,
+	                        'y' : 480* Math.random() - 240,
+	                        'rot' : Math.random() * 360,
+	                        'scale' : Math.random() * 4.5 + 0.5,
+	                        'backgroundColor' : '#ffff00'
+	                    },        
+
+	                    duration : (2000 * Math.random() + 500),        
+
+	                    step : function(currentState, currentAttachment) {       
+	                        if (!currentAttachment) 
+	                            return;	                            
+	    			TP[currentAttachment[0]] = currentState;                        
+	                    },        
+
+	                    easing : 'bounce'
+
+	                });
+	            }
+
+	            for (var i=1; i<=20; i++) {
+	                TA[i].tween();
+	            }
+            }
+            setInterval(function(){
+            	for (var i=1; i<=20; i++) {
+            		var ce = TE[i];
+            		var cp = TP[i];
+	                ce.style.webkitTransform = 'translate(' + cp.x + 'px, ' + cp.y + 'px) scale(' + cp.scale + ') rotate(' + cp.rot + 'deg)';
+	                ce.style.backgroundColor = cp.backgroundColor;	
+            	}
+	    }, 1000/60);
+        </script>
+    </body>
+</html>

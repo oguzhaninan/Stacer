@@ -1,0 +1,1241 @@
+{
+    "project": {
+        "name": "Shifty",
+        "description": "A teeny tiny tweening engine in JavaScript.",
+        "version": "1.5.3",
+        "url": "http://jeremyckahn.github.io/shifty",
+        "logo": "../../asset/img/shifty-logo-200.png"
+    },
+    "files": {
+        "dist/shifty.js": {
+            "name": "dist/shifty.js",
+            "modules": {
+                "Tweenable": 1,
+                "Tweenable.token": 1
+            },
+            "classes": {
+                "Tweenable": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        }
+    },
+    "modules": {
+        "Tweenable": {
+            "name": "Tweenable",
+            "submodules": {
+                "Tweenable.token": 1
+            },
+            "classes": {
+                "Tweenable": 1
+            },
+            "fors": {},
+            "namespaces": {},
+            "tag": "module",
+            "file": "dist/shifty.js",
+            "line": 260,
+            "description": "Tweenable constructor."
+        },
+        "Tweenable.token": {
+            "name": "Tweenable.token",
+            "submodules": {},
+            "classes": {
+                "Tweenable": 1
+            },
+            "fors": {},
+            "is_submodule": 1,
+            "namespaces": {},
+            "module": "Tweenable",
+            "namespace": "",
+            "file": "dist/shifty.js",
+            "line": 260,
+            "description": "This module adds string interpolation support to Shifty.\n\nThe Token extension allows Shifty to tween numbers inside of strings.  Among\nother things, this allows you to animate CSS properties.  For example, you\ncan do this:\n\n    var tweenable = new Tweenable();\n    tweenable.tween({\n      from: { transform: 'translateX(45px)' },\n      to: { transform: 'translateX(90xp)' }\n    });\n\n`translateX(45)` will be tweened to `translateX(90)`.  To demonstrate:\n\n    var tweenable = new Tweenable();\n    tweenable.tween({\n      from: { transform: 'translateX(45px)' },\n      to: { transform: 'translateX(90px)' },\n      step: function (state) {\n        console.log(state.transform);\n      }\n    });\n\nThe above snippet will log something like this in the console:\n\n    translateX(60.3px)\n    ...\n    translateX(76.05px)\n    ...\n    translateX(90px)\n\nAnother use for this is animating colors:\n\n    var tweenable = new Tweenable();\n    tweenable.tween({\n      from: { color: 'rgb(0,255,0)' },\n      to: { color: 'rgb(255,0,255)' },\n      step: function (state) {\n        console.log(state.color);\n      }\n    });\n\nThe above snippet will log something like this:\n\n    rgb(84,170,84)\n    ...\n    rgb(170,84,170)\n    ...\n    rgb(255,0,255)\n\nThis extension also supports hexadecimal colors, in both long (`#ff00ff`)\nand short (`#f0f`) forms.  Be aware that hexadecimal input values will be\nconverted into the equivalent RGB output values.  This is done to optimize\nfor performance.\n\n    var tweenable = new Tweenable();\n    tweenable.tween({\n      from: { color: '#0f0' },\n      to: { color: '#f0f' },\n      step: function (state) {\n        console.log(state.color);\n      }\n    });\n\nThis snippet will generate the same output as the one before it because\nequivalent values were supplied (just in hexadecimal form rather than RGB):\n\n    rgb(84,170,84)\n    ...\n    rgb(170,84,170)\n    ...\n    rgb(255,0,255)\n\n## Easing support\n\nEasing works somewhat differently in the Token extension.  This is because\nsome CSS properties have multiple values in them, and you might need to\ntween each value along its own easing curve.  A basic example:\n\n    var tweenable = new Tweenable();\n    tweenable.tween({\n      from: { transform: 'translateX(0px) translateY(0px)' },\n      to: { transform:   'translateX(100px) translateY(100px)' },\n      easing: { transform: 'easeInQuad' },\n      step: function (state) {\n        console.log(state.transform);\n      }\n    });\n\nThe above snippet will create values like this:\n\n    translateX(11.56px) translateY(11.56px)\n    ...\n    translateX(46.24px) translateY(46.24px)\n    ...\n    translateX(100px) translateY(100px)\n\nIn this case, the values for `translateX` and `translateY` are always the\nsame for each step of the tween, because they have the same start and end\npoints and both use the same easing curve.  We can also tween `translateX`\nand `translateY` along independent curves:\n\n    var tweenable = new Tweenable();\n    tweenable.tween({\n      from: { transform: 'translateX(0px) translateY(0px)' },\n      to: { transform:   'translateX(100px) translateY(100px)' },\n      easing: { transform: 'easeInQuad bounce' },\n      step: function (state) {\n        console.log(state.transform);\n      }\n    });\n\nThe above snippet will create values like this:\n\n    translateX(10.89px) translateY(82.35px)\n    ...\n    translateX(44.89px) translateY(86.73px)\n    ...\n    translateX(100px) translateY(100px)\n\n`translateX` and `translateY` are not in sync anymore, because `easeInQuad`\nwas specified for `translateX` and `bounce` for `translateY`.  Mixing and\nmatching easing curves can make for some interesting motion in your\nanimations.\n\nThe order of the space-separated easing curves correspond the token values\nthey apply to.  If there are more token values than easing curves listed,\nthe last easing curve listed is used."
+        }
+    },
+    "classes": {
+        "Tweenable": {
+            "name": "Tweenable",
+            "shortname": "Tweenable",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "Tweenable",
+            "file": "dist/shifty.js",
+            "line": 260,
+            "description": "Tweenable constructor.",
+            "params": [
+                {
+                    "name": "opt_initialState",
+                    "description": "The values that the initial tween should\nstart at if a `from` object is not provided to `{{#crossLink\n\"Tweenable/tween:method\"}}{{/crossLink}}` or `{{#crossLink\n\"Tweenable/setConfig:method\"}}{{/crossLink}}`.",
+                    "type": "Object="
+                },
+                {
+                    "name": "opt_config",
+                    "description": "Configuration object to be passed to\n`{{#crossLink \"Tweenable/setConfig:method\"}}{{/crossLink}}`.",
+                    "type": "Object="
+                }
+            ],
+            "is_constructor": 1,
+            "submodule": "Tweenable.token"
+        }
+    },
+    "classitems": [
+        {
+            "file": "dist/shifty.js",
+            "line": 5,
+            "description": "Shifty Core\nBy Jeremy Kahn - jeremyckahn@gmail.com",
+            "class": "Tweenable"
+        },
+        {
+            "file": "dist/shifty.js",
+            "line": 47,
+            "description": "Handy shortcut for doing a for-in loop. This is not a \"normal\" each\nfunction, it is optimized for Shifty.  The iterator function only receives\nthe property name, not the value.",
+            "params": [
+                {
+                    "name": "obj",
+                    "description": "",
+                    "type": "Object"
+                },
+                {
+                    "name": "fn",
+                    "description": "",
+                    "type": "Function(string)"
+                }
+            ],
+            "access": "private",
+            "tagname": "",
+            "class": "Tweenable"
+        },
+        {
+            "file": "dist/shifty.js",
+            "line": 64,
+            "description": "Perform a shallow copy of Object properties.",
+            "params": [
+                {
+                    "name": "targetObject",
+                    "description": "The object to copy into",
+                    "type": "Object"
+                },
+                {
+                    "name": "srcObject",
+                    "description": "The object to copy from",
+                    "type": "Object"
+                }
+            ],
+            "return": {
+                "description": "A reference to the augmented `targetObj` Object",
+                "type": "Object"
+            },
+            "access": "private",
+            "tagname": "",
+            "class": "Tweenable"
+        },
+        {
+            "file": "dist/shifty.js",
+            "line": 79,
+            "description": "Copies each property from src onto target, but only if the property to\ncopy to target is undefined.",
+            "params": [
+                {
+                    "name": "target",
+                    "description": "Missing properties in this Object are filled in",
+                    "type": "Object"
+                },
+                {
+                    "name": "src",
+                    "description": "",
+                    "type": "Object"
+                }
+            ],
+            "access": "private",
+            "tagname": "",
+            "class": "Tweenable"
+        },
+        {
+            "file": "dist/shifty.js",
+            "line": 94,
+            "description": "Calculates the interpolated tween values of an Object for a given\ntimestamp.",
+            "params": [
+                {
+                    "name": "forPosition",
+                    "description": "The position to compute the state for.",
+                    "type": "Number"
+                },
+                {
+                    "name": "currentState",
+                    "description": "Current state properties.",
+                    "type": "Object"
+                },
+                {
+                    "name": "originalState:",
+                    "description": "The original state properties the Object is\ntweening from.",
+                    "type": "Object"
+                },
+                {
+                    "name": "targetState:",
+                    "description": "The destination state properties the Object\nis tweening to.",
+                    "type": "Object"
+                },
+                {
+                    "name": "duration:",
+                    "description": "The length of the tween in milliseconds.",
+                    "type": "Number"
+                },
+                {
+                    "name": "timestamp:",
+                    "description": "The UNIX epoch time at which the tween began.",
+                    "type": "Number"
+                },
+                {
+                    "name": "easing:",
+                    "description": "This Object's keys must correspond to the keys in\ntargetState.",
+                    "type": "Object"
+                }
+            ],
+            "access": "private",
+            "tagname": "",
+            "class": "Tweenable"
+        },
+        {
+            "file": "dist/shifty.js",
+            "line": 137,
+            "description": "Tweens a single property.",
+            "params": [
+                {
+                    "name": "start",
+                    "description": "The value that the tween started from.",
+                    "type": "Number"
+                },
+                {
+                    "name": "end",
+                    "description": "The value that the tween should end at.",
+                    "type": "Number"
+                },
+                {
+                    "name": "easingFunc",
+                    "description": "The easing curve to apply to the tween.",
+                    "type": "Function"
+                },
+                {
+                    "name": "position",
+                    "description": "The normalized position (between 0.0 and 1.0) to\ncalculate the midpoint of 'start' and 'end' against.",
+                    "type": "Number"
+                }
+            ],
+            "return": {
+                "description": "The tweened value.",
+                "type": "Number"
+            },
+            "access": "private",
+            "tagname": "",
+            "class": "Tweenable"
+        },
+        {
+            "file": "dist/shifty.js",
+            "line": 151,
+            "description": "Applies a filter to Tweenable instance.",
+            "params": [
+                {
+                    "name": "tweenable",
+                    "description": "The `Tweenable` instance to call the filter\nupon.",
+                    "type": "Tweenable"
+                },
+                {
+                    "name": "filterName",
+                    "description": "The name of the filter to apply.",
+                    "type": "String"
+                }
+            ],
+            "access": "private",
+            "tagname": "",
+            "class": "Tweenable"
+        },
+        {
+            "file": "dist/shifty.js",
+            "line": 173,
+            "description": "Handles the update logic for one step of a tween.",
+            "params": [
+                {
+                    "name": "tweenable",
+                    "description": "",
+                    "type": "Tweenable"
+                },
+                {
+                    "name": "timestamp",
+                    "description": "",
+                    "type": "Number"
+                },
+                {
+                    "name": "delay",
+                    "description": "",
+                    "type": "Number"
+                },
+                {
+                    "name": "duration",
+                    "description": "",
+                    "type": "Number"
+                },
+                {
+                    "name": "currentState",
+                    "description": "",
+                    "type": "Object"
+                },
+                {
+                    "name": "originalState",
+                    "description": "",
+                    "type": "Object"
+                },
+                {
+                    "name": "targetState",
+                    "description": "",
+                    "type": "Object"
+                },
+                {
+                    "name": "easing",
+                    "description": "",
+                    "type": "Object"
+                },
+                {
+                    "name": "step",
+                    "description": "",
+                    "type": "Function(Object, *, number)"
+                },
+                {
+                    "name": "}",
+                    "description": "schedule",
+                    "type": "Function(Function,number)"
+                },
+                {
+                    "name": "opt_currentTimeOverride",
+                    "description": "Needed for accurate timestamp in\nTweenable#seek.",
+                    "type": "Number="
+                }
+            ],
+            "access": "private",
+            "tagname": "",
+            "class": "Tweenable"
+        },
+        {
+            "file": "dist/shifty.js",
+            "line": 232,
+            "description": "Creates a usable easing Object from a string, a function or another easing\nObject.  If `easing` is an Object, then this function clones it and fills\nin the missing properties with `\"linear\"`.",
+            "params": [
+                {
+                    "name": "fromTweenParams",
+                    "description": "",
+                    "type": "Object.<string|Function>"
+                },
+                {
+                    "name": "easing",
+                    "description": "",
+                    "type": "Object|string|Function"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Object.<string|Function>"
+            },
+            "access": "private",
+            "tagname": "",
+            "class": "Tweenable"
+        },
+        {
+            "file": "dist/shifty.js",
+            "line": 285,
+            "description": "Configure and start a tween.",
+            "itemtype": "method",
+            "name": "tween",
+            "params": [
+                {
+                    "name": "opt_config",
+                    "description": "Configuration object to be passed to\n`{{#crossLink \"Tweenable/setConfig:method\"}}{{/crossLink}}`.",
+                    "type": "Object="
+                }
+            ],
+            "chainable": 1,
+            "class": "Tweenable",
+            "module": "Tweenable"
+        },
+        {
+            "file": "dist/shifty.js",
+            "line": 308,
+            "description": "Configure a tween that will start at some point in the future.",
+            "itemtype": "method",
+            "name": "setConfig",
+            "params": [
+                {
+                    "name": "config",
+                    "description": "The following values are valid:\n- __from__ (_Object=_): Starting position.  If omitted, `{{#crossLink\n  \"Tweenable/get:method\"}}get(){{/crossLink}}` is used.\n- __to__ (_Object=_): Ending position.\n- __duration__ (_number=_): How many milliseconds to animate for.\n- __delay__ (_delay=_): How many milliseconds to wait before starting the\n  tween.\n- __start__ (_Function(Object, *)_): Function to execute when the tween\n  begins.  Receives the state of the tween as the first parameter and\n  `attachment` as the second parameter.\n- __step__ (_Function(Object, *, number)_): Function to execute on every\n  tick.  Receives `{{#crossLink\n  \"Tweenable/get:method\"}}get(){{/crossLink}}` as the first parameter,\n  `attachment` as the second parameter, and the time elapsed since the\n  start of the tween as the third. This function is not called on the\n  final step of the animation, but `finish` is.\n- __finish__ (_Function(Object, *)_): Function to execute upon tween\n  completion.  Receives the state of the tween as the first parameter and\n  `attachment` as the second parameter.\n- __easing__ (_Object.<string|Function>|string|Function=_): Easing curve\n  name(s) or function(s) to use for the tween.\n- __attachment__ (_*_): Cached value that is passed to the\n  `step`/`start`/`finish` methods.",
+                    "type": "Object"
+                }
+            ],
+            "chainable": 1,
+            "class": "Tweenable",
+            "module": "Tweenable"
+        },
+        {
+            "file": "dist/shifty.js",
+            "line": 389,
+            "itemtype": "method",
+            "name": "get",
+            "return": {
+                "description": "The current state.",
+                "type": "Object"
+            },
+            "class": "Tweenable",
+            "module": "Tweenable"
+        },
+        {
+            "file": "dist/shifty.js",
+            "line": 397,
+            "itemtype": "method",
+            "name": "set",
+            "params": [
+                {
+                    "name": "state",
+                    "description": "The current state.",
+                    "type": "Object"
+                }
+            ],
+            "class": "Tweenable",
+            "module": "Tweenable"
+        },
+        {
+            "file": "dist/shifty.js",
+            "line": 405,
+            "description": "Pause a tween.  Paused tweens can be resumed from the point at which they\nwere paused.  This is different from `{{#crossLink\n\"Tweenable/stop:method\"}}{{/crossLink}}`, as that method\ncauses a tween to start over when it is resumed.",
+            "itemtype": "method",
+            "name": "pause",
+            "chainable": 1,
+            "class": "Tweenable",
+            "module": "Tweenable"
+        },
+        {
+            "file": "dist/shifty.js",
+            "line": 419,
+            "description": "Resume a paused tween.",
+            "itemtype": "method",
+            "name": "resume",
+            "chainable": 1,
+            "class": "Tweenable",
+            "module": "Tweenable"
+        },
+        {
+            "file": "dist/shifty.js",
+            "line": 437,
+            "description": "Move the state of the animation to a specific point in the tween's\ntimeline.  If the animation is not running, this will cause the `step`\nhandlers to be called.",
+            "itemtype": "method",
+            "name": "seek",
+            "params": [
+                {
+                    "name": "millisecond",
+                    "description": "The millisecond of the animation to seek\nto.  This must not be less than `0`.",
+                    "type": "Millisecond"
+                }
+            ],
+            "chainable": 1,
+            "class": "Tweenable",
+            "module": "Tweenable"
+        },
+        {
+            "file": "dist/shifty.js",
+            "line": 481,
+            "description": "Stops and cancels a tween.",
+            "params": [
+                {
+                    "name": "gotoEnd",
+                    "description": "If `false` or omitted, the tween just stops at\nits current state, and the `finish` handler is not invoked.  If `true`,\nthe tweened object's values are instantly set to the target values, and\n`finish` is invoked.",
+                    "type": "Boolean="
+                }
+            ],
+            "itemtype": "method",
+            "name": "stop",
+            "chainable": 1,
+            "class": "Tweenable",
+            "module": "Tweenable"
+        },
+        {
+            "file": "dist/shifty.js",
+            "line": 521,
+            "itemtype": "method",
+            "name": "isPlaying",
+            "return": {
+                "description": "Whether or not a tween is running.",
+                "type": "Boolean"
+            },
+            "class": "Tweenable",
+            "module": "Tweenable"
+        },
+        {
+            "file": "dist/shifty.js",
+            "line": 529,
+            "description": "Set a custom schedule function.\n\nIf a custom function is not set,\n[`requestAnimationFrame`](https://developer.mozilla.org/en-US/docs/Web/API/window.requestAnimationFrame)\nis used if available, otherwise\n[`setTimeout`](https://developer.mozilla.org/en-US/docs/Web/API/Window.setTimeout)\nis used.",
+            "itemtype": "method",
+            "name": "setScheduleFunction",
+            "params": [
+                {
+                    "name": "scheduleFunction",
+                    "description": "The function to be\nused to schedule the next frame to be rendered.",
+                    "type": "Function(Function,number)"
+                }
+            ],
+            "class": "Tweenable",
+            "module": "Tweenable"
+        },
+        {
+            "file": "dist/shifty.js",
+            "line": 545,
+            "description": "`delete` all \"own\" properties.  Call this when the `Tweenable` instance\nis no longer needed to free memory.",
+            "itemtype": "method",
+            "name": "dispose",
+            "class": "Tweenable",
+            "module": "Tweenable"
+        },
+        {
+            "file": "dist/shifty.js",
+            "line": 559,
+            "description": "Filters are used for transforming the properties of a tween at various\npoints in a Tweenable's life cycle.  See the README for more info on this.",
+            "access": "private",
+            "tagname": "",
+            "class": "Tweenable",
+            "module": "Tweenable"
+        },
+        {
+            "file": "dist/shifty.js",
+            "line": 566,
+            "description": "This object contains all of the tweens available to Shifty.  It is\nextensible - simply attach properties to the `Tweenable.prototype.formula`\nObject following the same format as `linear`.\n\n`pos` should be a normalized `number` (between 0 and 1).",
+            "itemtype": "property",
+            "name": "formula",
+            "type": "{Object(function)}",
+            "class": "Tweenable",
+            "module": "Tweenable"
+        },
+        {
+            "file": "dist/shifty.js",
+            "line": 820,
+            "description": "The Bezier magic in this file is adapted/copied almost wholesale from\n[Scripty2](https://github.com/madrobby/scripty2/blob/master/src/effects/transitions/cubic-bezier.js),\nwhich was adapted from Apple code (which probably came from\n[here](http://opensource.apple.com/source/WebCore/WebCore-955.66/platform/graphics/UnitBezier.h)).\nSpecial thanks to Apple and Thomas Fuchs for much of this code.",
+            "class": "Tweenable",
+            "module": "Tweenable"
+        },
+        {
+            "file": "dist/shifty.js",
+            "line": 828,
+            "description": "Copyright (c) 2006 Apple Computer, Inc. All rights reserved.\n\nRedistribution and use in source and binary forms, with or without\nmodification, are permitted provided that the following conditions are met:\n\n1. Redistributions of source code must retain the above copyright notice,\nthis list of conditions and the following disclaimer.\n\n2. Redistributions in binary form must reproduce the above copyright notice,\nthis list of conditions and the following disclaimer in the documentation\nand/or other materials provided with the distribution.\n\n3. Neither the name of the copyright holder(s) nor the names of any\ncontributors may be used to endorse or promote products derived from\nthis software without specific prior written permission.\n\nTHIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS \"AS IS\"\nAND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE\nIMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE\nARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE\nLIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR\nCONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF\nSUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS\nINTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN\nCONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)\nARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE\nPOSSIBILITY OF SUCH DAMAGE.",
+            "class": "Tweenable",
+            "module": "Tweenable"
+        },
+        {
+            "file": "dist/shifty.js",
+            "line": 927,
+            "description": "getCubicBezierTransition(x1, y1, x2, y2) -> Function\n\nGenerates a transition easing function that is compatible\nwith WebKit's CSS transitions `-webkit-transition-timing-function`\nCSS property.\n\nThe W3C has more information about CSS3 transition timing functions:\nhttp://www.w3.org/TR/css3-transitions/#transition-timing-function_tag",
+            "params": [
+                {
+                    "name": "x1",
+                    "description": "",
+                    "type": "Number"
+                },
+                {
+                    "name": "y1",
+                    "description": "",
+                    "type": "Number"
+                },
+                {
+                    "name": "x2",
+                    "description": "",
+                    "type": "Number"
+                },
+                {
+                    "name": "y2",
+                    "description": "",
+                    "type": "Number"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Function"
+            },
+            "access": "private",
+            "tagname": "",
+            "class": "Tweenable",
+            "module": "Tweenable"
+        },
+        {
+            "file": "dist/shifty.js",
+            "line": 951,
+            "description": "Create a Bezier easing function and attach it to `{{#crossLink\n\"Tweenable/formula:property\"}}Tweenable#formula{{/crossLink}}`.  This\nfunction gives you total control over the easing curve.  Matthew Lein's\n[Ceaser](http://matthewlein.com/ceaser/) is a useful tool for visualizing\nthe curves you can make with this function.",
+            "itemtype": "method",
+            "name": "setBezierFunction",
+            "params": [
+                {
+                    "name": "name",
+                    "description": "The name of the easing curve.  Overwrites the old\neasing function on `{{#crossLink\n\"Tweenable/formula:property\"}}Tweenable#formula{{/crossLink}}` if it\nexists.",
+                    "type": "String"
+                },
+                {
+                    "name": "x1",
+                    "description": "",
+                    "type": "Number"
+                },
+                {
+                    "name": "y1",
+                    "description": "",
+                    "type": "Number"
+                },
+                {
+                    "name": "x2",
+                    "description": "",
+                    "type": "Number"
+                },
+                {
+                    "name": "y2",
+                    "description": "",
+                    "type": "Number"
+                }
+            ],
+            "return": {
+                "description": "The easing function that was attached to\nTweenable.prototype.formula.",
+                "type": "Function"
+            },
+            "class": "Tweenable",
+            "module": "Tweenable"
+        },
+        {
+            "file": "dist/shifty.js",
+            "line": 981,
+            "description": "`delete` an easing function from `{{#crossLink\n\"Tweenable/formula:property\"}}Tweenable#formula{{/crossLink}}`.  Be\ncareful with this method, as it `delete`s whatever easing formula matches\n`name` (which means you can delete standard Shifty easing functions).",
+            "itemtype": "method",
+            "name": "unsetBezierFunction",
+            "params": [
+                {
+                    "name": "name",
+                    "description": "The name of the easing function to delete.",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Function"
+            },
+            "class": "Tweenable",
+            "module": "Tweenable"
+        },
+        {
+            "file": "dist/shifty.js",
+            "line": 1010,
+            "description": "Compute the midpoint of two Objects.  This method effectively calculates a\nspecific frame of animation that `{{#crossLink\n\"Tweenable/tween:method\"}}{{/crossLink}}` does many times over the course\nof a full tween.\n\n    var interpolatedValues = Tweenable.interpolate({\n      width: '100px',\n      opacity: 0,\n      color: '#fff'\n    }, {\n      width: '200px',\n      opacity: 1,\n      color: '#000'\n    }, 0.5);\n\n    console.log(interpolatedValues);\n    // {opacity: 0.5, width: \"150px\", color: \"rgb(127,127,127)\"}",
+            "static": 1,
+            "itemtype": "method",
+            "name": "interpolate",
+            "params": [
+                {
+                    "name": "from",
+                    "description": "The starting values to tween from.",
+                    "type": "Object"
+                },
+                {
+                    "name": "targetState",
+                    "description": "The ending values to tween to.",
+                    "type": "Object"
+                },
+                {
+                    "name": "position",
+                    "description": "The normalized position value (between `0.0` and\n`1.0`) to interpolate the values between `from` and `to` for.  `from`\nrepresents `0` and `to` represents `1`.",
+                    "type": "Number"
+                },
+                {
+                    "name": "easing",
+                    "description": "The easing\ncurve(s) to calculate the midpoint against.  You can reference any easing\nfunction attached to `Tweenable.prototype.formula`, or provide the easing\nfunction(s) directly.  If omitted, this defaults to \"linear\".",
+                    "type": "Object.<string|Function>|string|Function"
+                },
+                {
+                    "name": "opt_delay",
+                    "description": "Optional delay to pad the beginning of the\ninterpolated tween with.  This increases the range of `position` from (`0`\nthrough `1`) to (`0` through `1 + opt_delay`).  So, a delay of `0.5` would\nincrease all valid values of `position` to numbers between `0` and `1.5`.",
+                    "type": "Number="
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Object"
+            },
+            "class": "Tweenable",
+            "module": "Tweenable"
+        },
+        {
+            "file": "dist/shifty.js",
+            "line": 1217,
+            "typedef": "{{\n  formatString: string\n  chunkNames: Array.<string>\n}}",
+            "access": "private",
+            "tagname": "",
+            "class": "Tweenable",
+            "module": "Tweenable",
+            "submodule": "Tweenable.token"
+        },
+        {
+            "file": "dist/shifty.js",
+            "line": 1241,
+            "params": [
+                {
+                    "name": "rawValues",
+                    "description": "",
+                    "type": "Array.number"
+                },
+                {
+                    "name": "prefix",
+                    "description": "",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Array.<string>"
+            },
+            "access": "private",
+            "tagname": "",
+            "class": "Tweenable",
+            "module": "Tweenable",
+            "submodule": "Tweenable.token"
+        },
+        {
+            "file": "dist/shifty.js",
+            "line": 1261,
+            "params": [
+                {
+                    "name": "formattedString",
+                    "description": "",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "String"
+            },
+            "access": "private",
+            "tagname": "",
+            "class": "Tweenable",
+            "module": "Tweenable",
+            "submodule": "Tweenable.token"
+        },
+        {
+            "file": "dist/shifty.js",
+            "line": 1291,
+            "description": "Convert all hex color values within a string to an rgb string.",
+            "params": [
+                {
+                    "name": "stateObject",
+                    "description": "",
+                    "type": "Object"
+                }
+            ],
+            "return": {
+                "description": "The modified obj",
+                "type": "Object"
+            },
+            "access": "private",
+            "tagname": "",
+            "class": "Tweenable",
+            "module": "Tweenable",
+            "submodule": "Tweenable.token"
+        },
+        {
+            "file": "dist/shifty.js",
+            "line": 1309,
+            "params": [
+                {
+                    "name": "str",
+                    "description": "",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "String"
+            },
+            "access": "private",
+            "tagname": "",
+            "class": "Tweenable",
+            "module": "Tweenable",
+            "submodule": "Tweenable.token"
+        },
+        {
+            "file": "dist/shifty.js",
+            "line": 1319,
+            "params": [
+                {
+                    "name": "hexString",
+                    "description": "",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "String"
+            },
+            "access": "private",
+            "tagname": "",
+            "class": "Tweenable",
+            "module": "Tweenable",
+            "submodule": "Tweenable.token"
+        },
+        {
+            "file": "dist/shifty.js",
+            "line": 1331,
+            "description": "Convert a hexadecimal string to an array with three items, one each for\nthe red, blue, and green decimal values.",
+            "params": [
+                {
+                    "name": "hex",
+                    "description": "A hexadecimal string.",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "The converted Array of RGB values if `hex` is a\nvalid string, or an Array of three 0's.",
+                "type": "Array.<number>"
+            },
+            "access": "private",
+            "tagname": "",
+            "class": "Tweenable",
+            "module": "Tweenable",
+            "submodule": "Tweenable.token"
+        },
+        {
+            "file": "dist/shifty.js",
+            "line": 1359,
+            "description": "Convert a base-16 number to base-10.",
+            "params": [
+                {
+                    "name": "hex",
+                    "description": "The value to convert",
+                    "type": "Number|String"
+                }
+            ],
+            "return": {
+                "description": "The base-10 equivalent of `hex`.",
+                "type": "Number"
+            },
+            "access": "private",
+            "tagname": "",
+            "class": "Tweenable",
+            "module": "Tweenable",
+            "submodule": "Tweenable.token"
+        },
+        {
+            "file": "dist/shifty.js",
+            "line": 1371,
+            "description": "Runs a filter operation on all chunks of a string that match a RegExp",
+            "params": [
+                {
+                    "name": "pattern",
+                    "description": "",
+                    "type": "RegExp"
+                },
+                {
+                    "name": "unfilteredString",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "filter",
+                    "description": "",
+                    "type": "Function(string)"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "String"
+            },
+            "access": "private",
+            "tagname": "",
+            "class": "Tweenable",
+            "module": "Tweenable",
+            "submodule": "Tweenable.token"
+        },
+        {
+            "file": "dist/shifty.js",
+            "line": 1399,
+            "description": "Check for floating point values within rgb strings and rounds them.",
+            "params": [
+                {
+                    "name": "formattedString",
+                    "description": "",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "String"
+            },
+            "access": "private",
+            "tagname": "",
+            "class": "Tweenable",
+            "module": "Tweenable",
+            "submodule": "Tweenable.token"
+        },
+        {
+            "file": "dist/shifty.js",
+            "line": 1411,
+            "params": [
+                {
+                    "name": "rgbChunk",
+                    "description": "",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "String"
+            },
+            "access": "private",
+            "tagname": "",
+            "class": "Tweenable",
+            "module": "Tweenable",
+            "submodule": "Tweenable.token"
+        },
+        {
+            "file": "dist/shifty.js",
+            "line": 1431,
+            "params": [
+                {
+                    "name": "stateObject",
+                    "description": "",
+                    "type": "Object"
+                }
+            ],
+            "return": {
+                "description": "An Object of formatManifests that correspond to\nthe string properties of stateObject",
+                "type": "Object"
+            },
+            "access": "private",
+            "tagname": "",
+            "class": "Tweenable",
+            "module": "Tweenable",
+            "submodule": "Tweenable.token"
+        },
+        {
+            "file": "dist/shifty.js",
+            "line": 1457,
+            "params": [
+                {
+                    "name": "stateObject",
+                    "description": "",
+                    "type": "Object"
+                },
+                {
+                    "name": "formatManifests",
+                    "description": "",
+                    "type": "Object"
+                }
+            ],
+            "access": "private",
+            "tagname": "",
+            "class": "Tweenable",
+            "module": "Tweenable",
+            "submodule": "Tweenable.token"
+        },
+        {
+            "file": "dist/shifty.js",
+            "line": 1476,
+            "params": [
+                {
+                    "name": "stateObject",
+                    "description": "",
+                    "type": "Object"
+                },
+                {
+                    "name": "formatManifests",
+                    "description": "",
+                    "type": "Object"
+                }
+            ],
+            "access": "private",
+            "tagname": "",
+            "class": "Tweenable",
+            "module": "Tweenable",
+            "submodule": "Tweenable.token"
+        },
+        {
+            "file": "dist/shifty.js",
+            "line": 1494,
+            "params": [
+                {
+                    "name": "stateObject",
+                    "description": "",
+                    "type": "Object"
+                },
+                {
+                    "name": "chunkNames",
+                    "description": "",
+                    "type": "Array.<string>"
+                }
+            ],
+            "return": {
+                "description": "The extracted value chunks.",
+                "type": "Object"
+            },
+            "access": "private",
+            "tagname": "",
+            "class": "Tweenable",
+            "module": "Tweenable",
+            "submodule": "Tweenable.token"
+        },
+        {
+            "file": "dist/shifty.js",
+            "line": 1515,
+            "params": [
+                {
+                    "name": "stateObject",
+                    "description": "",
+                    "type": "Object"
+                },
+                {
+                    "name": "chunkNames",
+                    "description": "",
+                    "type": "Array.<string>"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Array.<number>"
+            },
+            "access": "private",
+            "tagname": "",
+            "class": "Tweenable",
+            "module": "Tweenable",
+            "submodule": "Tweenable.token"
+        },
+        {
+            "file": "dist/shifty.js",
+            "line": 1533,
+            "params": [
+                {
+                    "name": "formatString",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "rawValues",
+                    "description": "",
+                    "type": "Array.<number>"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "String"
+            },
+            "access": "private",
+            "tagname": "",
+            "class": "Tweenable",
+            "module": "Tweenable",
+            "submodule": "Tweenable.token"
+        },
+        {
+            "file": "dist/shifty.js",
+            "line": 1552,
+            "description": "Note: It's the duty of the caller to convert the Array elements of the\nreturn value into numbers.  This is a performance optimization.",
+            "params": [
+                {
+                    "name": "formattedString",
+                    "description": "",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Array.<string>|null"
+            },
+            "access": "private",
+            "tagname": "",
+            "class": "Tweenable",
+            "module": "Tweenable",
+            "submodule": "Tweenable.token"
+        },
+        {
+            "file": "dist/shifty.js",
+            "line": 1565,
+            "params": [
+                {
+                    "name": "easingObject",
+                    "description": "",
+                    "type": "Object"
+                },
+                {
+                    "name": "tokenData",
+                    "description": "",
+                    "type": "Object"
+                }
+            ],
+            "access": "private",
+            "tagname": "",
+            "class": "Tweenable",
+            "module": "Tweenable",
+            "submodule": "Tweenable.token"
+        },
+        {
+            "file": "dist/shifty.js",
+            "line": 1597,
+            "params": [
+                {
+                    "name": "easingObject",
+                    "description": "",
+                    "type": "Object"
+                },
+                {
+                    "name": "tokenData",
+                    "description": "",
+                    "type": "Object"
+                }
+            ],
+            "access": "private",
+            "tagname": "",
+            "class": "Tweenable",
+            "module": "Tweenable",
+            "submodule": "Tweenable.token"
+        }
+    ],
+    "warnings": [
+        {
+            "message": "unknown tag: typedef",
+            "line": " dist/shifty.js:1217"
+        },
+        {
+            "message": "replacing incorrect tag: returns with return",
+            "line": " dist/shifty.js:1331"
+        },
+        {
+            "message": "replacing incorrect tag: returns with return",
+            "line": " dist/shifty.js:1359"
+        },
+        {
+            "message": "Missing item type\nShifty Core\nBy Jeremy Kahn - jeremyckahn@gmail.com",
+            "line": " dist/shifty.js:5"
+        },
+        {
+            "message": "Missing item type\nHandy shortcut for doing a for-in loop. This is not a \"normal\" each\nfunction, it is optimized for Shifty.  The iterator function only receives\nthe property name, not the value.",
+            "line": " dist/shifty.js:47"
+        },
+        {
+            "message": "Missing item type\nPerform a shallow copy of Object properties.",
+            "line": " dist/shifty.js:64"
+        },
+        {
+            "message": "Missing item type\nCopies each property from src onto target, but only if the property to\ncopy to target is undefined.",
+            "line": " dist/shifty.js:79"
+        },
+        {
+            "message": "Missing item type\nCalculates the interpolated tween values of an Object for a given\ntimestamp.",
+            "line": " dist/shifty.js:94"
+        },
+        {
+            "message": "Missing item type\nTweens a single property.",
+            "line": " dist/shifty.js:137"
+        },
+        {
+            "message": "Missing item type\nApplies a filter to Tweenable instance.",
+            "line": " dist/shifty.js:151"
+        },
+        {
+            "message": "Missing item type\nHandles the update logic for one step of a tween.",
+            "line": " dist/shifty.js:173"
+        },
+        {
+            "message": "Missing item type\nCreates a usable easing Object from a string, a function or another easing\nObject.  If `easing` is an Object, then this function clones it and fills\nin the missing properties with `\"linear\"`.",
+            "line": " dist/shifty.js:232"
+        },
+        {
+            "message": "Missing item type\nFilters are used for transforming the properties of a tween at various\npoints in a Tweenable's life cycle.  See the README for more info on this.",
+            "line": " dist/shifty.js:559"
+        },
+        {
+            "message": "Missing item type\nThe Bezier magic in this file is adapted/copied almost wholesale from\n[Scripty2](https://github.com/madrobby/scripty2/blob/master/src/effects/transitions/cubic-bezier.js),\nwhich was adapted from Apple code (which probably came from\n[here](http://opensource.apple.com/source/WebCore/WebCore-955.66/platform/graphics/UnitBezier.h)).\nSpecial thanks to Apple and Thomas Fuchs for much of this code.",
+            "line": " dist/shifty.js:820"
+        },
+        {
+            "message": "Missing item type\nCopyright (c) 2006 Apple Computer, Inc. All rights reserved.\n\nRedistribution and use in source and binary forms, with or without\nmodification, are permitted provided that the following conditions are met:\n\n1. Redistributions of source code must retain the above copyright notice,\nthis list of conditions and the following disclaimer.\n\n2. Redistributions in binary form must reproduce the above copyright notice,\nthis list of conditions and the following disclaimer in the documentation\nand/or other materials provided with the distribution.\n\n3. Neither the name of the copyright holder(s) nor the names of any\ncontributors may be used to endorse or promote products derived from\nthis software without specific prior written permission.\n\nTHIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS \"AS IS\"\nAND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE\nIMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE\nARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE\nLIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR\nCONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF\nSUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS\nINTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN\nCONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)\nARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE\nPOSSIBILITY OF SUCH DAMAGE.",
+            "line": " dist/shifty.js:828"
+        },
+        {
+            "message": "Missing item type\ngetCubicBezierTransition(x1, y1, x2, y2) -> Function\n\nGenerates a transition easing function that is compatible\nwith WebKit's CSS transitions `-webkit-transition-timing-function`\nCSS property.\n\nThe W3C has more information about CSS3 transition timing functions:\nhttp://www.w3.org/TR/css3-transitions/#transition-timing-function_tag",
+            "line": " dist/shifty.js:927"
+        },
+        {
+            "message": "Missing item type",
+            "line": " dist/shifty.js:1217"
+        },
+        {
+            "message": "Missing item type",
+            "line": " dist/shifty.js:1241"
+        },
+        {
+            "message": "Missing item type",
+            "line": " dist/shifty.js:1261"
+        },
+        {
+            "message": "Missing item type\nConvert all hex color values within a string to an rgb string.",
+            "line": " dist/shifty.js:1291"
+        },
+        {
+            "message": "Missing item type",
+            "line": " dist/shifty.js:1309"
+        },
+        {
+            "message": "Missing item type",
+            "line": " dist/shifty.js:1319"
+        },
+        {
+            "message": "Missing item type\nConvert a hexadecimal string to an array with three items, one each for\nthe red, blue, and green decimal values.",
+            "line": " dist/shifty.js:1331"
+        },
+        {
+            "message": "Missing item type\nConvert a base-16 number to base-10.",
+            "line": " dist/shifty.js:1359"
+        },
+        {
+            "message": "Missing item type\nRuns a filter operation on all chunks of a string that match a RegExp",
+            "line": " dist/shifty.js:1371"
+        },
+        {
+            "message": "Missing item type\nCheck for floating point values within rgb strings and rounds them.",
+            "line": " dist/shifty.js:1399"
+        },
+        {
+            "message": "Missing item type",
+            "line": " dist/shifty.js:1411"
+        },
+        {
+            "message": "Missing item type",
+            "line": " dist/shifty.js:1431"
+        },
+        {
+            "message": "Missing item type",
+            "line": " dist/shifty.js:1457"
+        },
+        {
+            "message": "Missing item type",
+            "line": " dist/shifty.js:1476"
+        },
+        {
+            "message": "Missing item type",
+            "line": " dist/shifty.js:1494"
+        },
+        {
+            "message": "Missing item type",
+            "line": " dist/shifty.js:1515"
+        },
+        {
+            "message": "Missing item type",
+            "line": " dist/shifty.js:1533"
+        },
+        {
+            "message": "Missing item type\nNote: It's the duty of the caller to convert the Array elements of the\nreturn value into numbers.  This is a performance optimization.",
+            "line": " dist/shifty.js:1552"
+        },
+        {
+            "message": "Missing item type",
+            "line": " dist/shifty.js:1565"
+        },
+        {
+            "message": "Missing item type",
+            "line": " dist/shifty.js:1597"
+        }
+    ]
+}
