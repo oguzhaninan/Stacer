@@ -1,7 +1,7 @@
 const {
     app,
     BrowserWindow,
-    ipcMain
+    ipcMain,
 } = require("electron")
 
 let win
@@ -11,7 +11,7 @@ function createWindow() {
     win = new BrowserWindow({
         width: 886,
         height: 700,
-        frame: false,
+        frame: true,
         minWidth: 920,
         minHeight: 700,
         maxWidth: 920,
@@ -21,7 +21,7 @@ function createWindow() {
         center: true,
         icon: './assets/img/icon.png'
     })
-
+	win.setMenu(null);
     win.loadURL(`file://${__dirname}/index.html`)
 
     win.on("closed", () => {

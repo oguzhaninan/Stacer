@@ -1,0 +1,59 @@
+{
+    "env": {
+        "browser":    true,
+        "amd":        true,
+        "node":       true
+    },
+
+    "globals": {
+        "define":     false,
+        "require":    true,
+
+        "alert":      true,
+        "console":    true,
+        "module":     true,
+
+        "describe":   true,
+        "it":         true,
+        "before":     true,
+        "beforeEach": true,
+        "after":      true,
+        "afterEach":  true,
+        "expect":     true,
+        "should":     true,
+
+        "Promise":    true, // allow possibly overwriting Promise
+    },
+
+    "rules": {
+        "dot-notation":         0, // allow obj['somePropertyName']
+        "new-cap":              0, // do not require 'new' keyword, allows i.e. "var promise = $.Deferred()"
+        "no-alert":             0, // disencourage alert() and confirm()
+        "no-console":           0,
+        "no-mixed-spaces-and-tabs": 1,
+        "semi-spacing": [2, {"before": false, "after": true}],
+        "no-spaced-func":       1,
+        "no-undef":             1,
+        "no-shadow":            1,
+        "no-trailing-spaces":   1,
+        "no-extra-parens":      1,
+        "no-underscore-dangle": 0, // allow _variableName
+        "no-new":               0,
+        "no-nested-ternary":    1,
+        "no-process-exit":      0,
+
+        // requires local variable names to be used, but allows unused arguments
+        "no-unused-vars":       [2, { "vars": "all", "args": "none" }],
+        "no-use-before-define": 0,
+
+        // disable requirements for strict spacing rules in object properties or assignments
+        "key-spacing":          0,
+        "no-multi-spaces":      0,
+
+        "quotes":               0, // allow both single and double quotes
+        "space-after-keywords": 1,
+        "space-infix-ops":      1,
+        "space-return-throw-case": 1,
+        "strict":               0
+    }
+}
