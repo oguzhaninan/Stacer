@@ -25,26 +25,25 @@
 
 ### Debian Linux x86 (Ubuntu)
 
-1. Download `Stacer_1.0.1_i386.deb` from the [Stacer releases page](https://github.com/oguzhaninan/Stacer/releases).
-2. Run `sudo dpkg --install Stacer_1.0.1_i386.deb` on the downloaded package.
+1. Download `Stacer_1.0.2_i386.deb` from the [Stacer releases page](https://github.com/oguzhaninan/Stacer/releases).
+2. Run `sudo dpkg --install Stacer_1.0.2_i386.deb` on the downloaded package.
 3. Launch Stacer using the installed `Stacer` command.
 
 ### Debian Linux x64 (Ubuntu)
 
-1. Download `Stacer_1.0.1_amd64.deb` from the [Stacer releases page](https://github.com/oguzhaninan/Stacer/releases).
-2. Run `sudo dpkg --install Stacer_1.0.1_amd64.deb` on the downloaded package.
+1. Download `Stacer_1.0.2_amd64.deb` from the [Stacer releases page](https://github.com/oguzhaninan/Stacer/releases).
+2. Run `sudo dpkg --install Stacer_1.0.2_amd64.deb` on the downloaded package.
 3. Launch Stacer using the installed `Stacer` command.
 
 ## Manual Installing
 
 1. `git clone https://github.com/oguzhaninan/Stacer.git`
 2. `cd Stacer`
-3. `npm install`
-4. `npm start`
+3. `npm install && npm start`
 
 
 ## Uninstalling
-- Run `sudo apt-get --purge remove Stacer`
+- Run `sudo dpkg -r Stacer`
 
 ## Screenshots
 
