@@ -1,21 +1,32 @@
 const {app, ipcRenderer} = require('electron')
 
+const fs          = require('fs')
 const os          = require('os')
 const libCpuUsage = require('cpu-usage')
 const diskspace   = require('diskspace')
 const si          = require('systeminformation')
-const exec        = require('exec')
+const { spawn, spawnSync }   = require('child_process')
 const prog        = require('progressbar.js')
+const sudo        = require('sudo-prompt')
 
 require('./libs/fast-search')
 require('./libs/amaran.min')
 
+var commands =
+{
+  aptCacheScanning:      "/var/cache/apt/archives/",
+  crashReportsScanning : "/var/crash/",
+  systemLogsScanning:    "/var/log/",
+  appCacheScanning:       os.homedir() + "/.cache/",
+  autostartApps:          os.homedir() + "/.config/autostart/",
+  getInstalledPackages: "dpkg --get-selections | cut -f1",
+  getAllService:        "service --status-all | tr -d [*] | tr -d ' '",
+  removePackage:        "apt-get remove --purge -y "
+}
+
 /*
  * Properties
  */
-
-var sudoPass = ""
-
 var prop =
 {
    // Durations
@@ -30,26 +41,6 @@ var prop =
    memBarColor:  '#ff9939',
    diskBarColor: '#dc175d',
    trailColor:   '#202b33'
-}
-
-var commands =
-{
-  // Scan commands
-  aptCacheScanning: "ls /var/cache/apt/archives/*.deb",
-  crashReportsScanning : "ls /var/crash",
-  systemLogsScanning: "ls /var/log/*.*",
-  appCacheScanning: "ls " + os.homedir() + "/.cache",
-
-  //
-  getInstalledPackages: " dpkg --get-selections | cut -f1",
-  getAllService: " service --status-all | tr -d [*] | tr -d ' '",
-  removePackage: " apt-get remove --purge -y ",
-  autostartApps: "ls " + os.homedir() + "/.config/autostart",
-  removeAutostartApp: " rm "+ os.homedir() + "/.config/autostart/",
-  removeAptCache: " rm /var/cache/apt/archives/",
-  removeAppCache: " rm -r " + os.homedir() + "/.cache/",
-  removeLogFile: " rm /var/log/",
-  removeCrashFile: " rm /var/crash/"
 }
 
 var memInfo = ""
@@ -87,9 +78,9 @@ function getLength( name )
  return $(".tdl-content input[name=" + name + "]").length
 }
 
-function sudoCommand( command )
+function Command( command )
 {
- return "echo " + sudoPass + " | sudo -S" + command
+ return 'bash -c "' + command + '"'
 }
 
 function selectAllCheckbox( allId , checkName )
@@ -227,14 +218,14 @@ function networkBars()
   /*
    * Network down and upload speed setter
    */
-  setInterval( function()
+  setInterval( () =>
   {
-      si.networkStats(defaultNetwork, function(data)
+      si.networkStats(defaultNetwork, (data) =>
       {
           down = (data.rx_sec / 1024).toFixed(2)
           up   = (data.tx_sec / 1024).toFixed(2)
-          downBar.animate(down / 1000)
-          upBar.animate(up / 1000)
+          downBar.animate(down / 1500)
+          upBar.animate(up / 1500)
       })
   }, prop.networkBarsDuration);
 }
@@ -261,13 +252,14 @@ function systemInformationBars()
    */
   setInterval( function()
   {
-    var totalMem = os.totalmem()
-    var freeMem  = os.freemem()
-    var usedMem  = totalMem - freeMem
+    si.mem( ( ram ) => {
+      var usedMem  = new Number( ram.available )
+      var totalMem = new Number( ram.used )
 
-    memInfo = (usedMem  / 1073741824).toFixed(2) + "GB/" +
-              (totalMem / 1073741824).toFixed(2) + "GB"
-    memBar.animate(usedMem / totalMem)
+      memInfo = (usedMem / 1000000000 ).toFixed(2) + '/' + (totalMem / 1000000000 ).toFixed(2) + "GB"
+      memBar.animate(usedMem / totalMem)
+    })
+
   }, prop.memDuration);
 
   /*
@@ -352,22 +344,28 @@ function systemCleanerPage()
      * System apt cache scanning
      */
     if ($("#apt-cache-choose").is(":checked"))
-    {
-      exec( commands.aptCacheScanning , function(err, stdout, code)
-        {
-          addListTitle( "select-all-cache" , "Select All (Apt Caches)" )
+    {      
+      fs.readdir( commands.aptCacheScanning , 'utf8', (err, files) =>
+      {
+        addListTitle( "select-all-cache" , "Select All (Apt Caches)" )
 
+        if ( ! err )
+        {
           var i = 1
-          stdout.split("\n").forEach(function( line )
-          {
-            if (line != "")
-            {
-              addListElement( "apt-cache-check" , line.replace("/var/cache/apt/archives/", "") )
-              setCount("#apt-cache-choose" , i++)
-            }
+          files.filter( ( file ) => file.endsWith('.deb') )
+              .forEach( ( file ) => 
+          {          
+            addListElement( "apt-cache-check" , file )
+            setCount("#apt-cache-choose" , i++)
           })
+
           selectAllCheckbox('select-all-cache', 'apt-cache-check')
-        })
+        } 
+        else
+        {
+            console.log(err);
+        }
+      })
     }
 
     /*
@@ -375,20 +373,25 @@ function systemCleanerPage()
      */
     if ($("#crash-rep-choose").is(":checked"))
     {
-      exec( commands.crashReportsScanning , function(err, stdout, code)
+      fs.readdir( commands.crashReportsScanning , 'utf8', (err, files) =>
+      {
+        addListTitle( "select-all-crash" , "Select All (Crash Reports)" )
+        
+        if ( ! err )
         {
-          addListTitle( "select-all-crash" , "Select All (Crash Reports)" )
-
           var i = 1
-          stdout.split("\n").forEach(function( line )
-          {
-            if (line != "")
-            {
-              addListElement( "crash-check" , line )
-              setCount("#crash-rep-choose" , i++)
-            }
+          files.forEach( ( file ) =>
+          {          
+            addListElement( "crash-check" , file )
+            setCount("#crash-rep-choose" , i++)
           })
+
           selectAllCheckbox('select-all-crash', 'crash-check')
+        } 
+        else
+        {
+          console.log(err);
+        }
       })
     }
 
@@ -397,21 +400,26 @@ function systemCleanerPage()
      */
     if ($("#sys-logs-choose").is(":checked"))
     {
-      exec( commands.systemLogsScanning , function(err, stdout, code)
+      fs.readdir( commands.systemLogsScanning , 'utf8', (err, files) =>
+      {
+        addListTitle( "select-all-logs" , "Select All (System Logs)" )        
+        
+        if ( ! err )
         {
-          addListTitle( "select-all-logs" , "Select All (System Logs)" )
-
           var i = 1
-          stdout.split("\n").forEach(function( line )
-          {
-              if (line != "")
-              {
-                  addListElement( "log-check" , line.replace("/var/log/", "") )
-                  setCount("#sys-logs-choose" , i++)
-              }
+          files.forEach( ( file ) =>
+          {          
+            addListElement( "log-check" , file )
+            setCount("#sys-logs-choose" , i++)
           })
+
           selectAllCheckbox('select-all-logs', 'log-check')
-        })
+        } 
+        else
+        {
+          console.log(err);
+        }
+      })
     }
 
     /*
@@ -419,20 +427,25 @@ function systemCleanerPage()
      */
     if ($("#app-cache-choose").is(":checked"))
     {
-      exec( commands.appCacheScanning , function(err, stdout, code)
+      fs.readdir( commands.appCacheScanning , 'utf8', (err, files) =>
+      {
+        addListTitle( "select-all-app-cache" , "Select All (App Caches)" )      
+        
+        if ( ! err )
         {
-          addListTitle( "select-all-app-cache" , "Select All (App Caches)" )
-
           var i = 1
-          stdout.split("\n").forEach(function( line )
-          {
-              if (line != "")
-              {
-                  addListElement( "app-cache-check" , line )
-                  setCount("#app-cache-choose" , i++)
-              }
+          files.forEach( ( file ) =>
+          {          
+            addListElement( "app-cache-check" , file )
+            setCount("#app-cache-choose" , i++)
           })
+
           selectAllCheckbox('select-all-app-cache', 'app-cache-check')
+        } 
+        else
+        {
+          console.log(err);
+        }
       })
     }
   })
@@ -450,16 +463,22 @@ function systemCleanerPage()
 
     if( appCheckeds.length != 0 )
     {
+      var filesToRemove = ''
       appCheckeds.each(function(c, check)
       {
-        var appCacheFile = getFileName(this)
-        exec(sudoCommand( commands.removeAppCache + appCacheFile ),
-          function(err, stdout, code)
-          {
-              removeElement(check)
-              setCount("#app-cache-choose" , --appLen)
-          })
+        const appCacheFile = getFileName(check)
+
+        filesToRemove += ' rm -r ' + commands.appCacheScanning + appCacheFile + ';'
+
+        removeElement(check)
+        setCount("#app-cache-choose" , --appLen)
       })
+
+      sudo.exec( Command(filesToRemove) , {name: 'Stacer'},
+            (error, stdout, stderr) =>
+        {
+          
+        })
     }
 
     /*
@@ -470,16 +489,22 @@ function systemCleanerPage()
 
     if( aptCheckeds.length != 0 )
     {
-      aptCheckeds.each(function(c, check)
+      var filesToRemove = ''
+      aptCheckeds.each( (c, check) =>
       {
-        var cacheFile = getFileName(this)
-        exec(sudoCommand( commands.removeAptCache + cacheFile ),
-          function(err, stdout, code)
-          {
-              removeElement(check)
-              setCount("#apt-cache-choose" , --aptLen)
-          })
+        const cacheFile = getFileName(check)
+        
+        filesToRemove += ' rm ' + commands.aptCacheScanning + cacheFile + ';'
+
+        setCount("#apt-cache-choose" , --aptLen)
+        removeElement(check)
       })
+
+      sudo.exec( Command(filesToRemove) , {name: 'Stacer'},
+            (error, stdout, stderr) =>
+        {
+          
+        })
     }
 
     /*
@@ -490,36 +515,48 @@ function systemCleanerPage()
 
     if( logCheckeds.length != 0 )
     {
+      var filesToRemove = ''
       logCheckeds.each(function(c, check)
       {
-        var logFile = getFileName(this)
-        exec(sudoCommand( commands.removeLogFile + logFile),
-          function(err, stdout, code)
-          {
-              removeElement(check)
-              setCount("#sys-logs-choose" , --logLen)
-          })
+        const logFile = getFileName(check)
+
+        filesToRemove += ' rm -r ' + commands.systemLogsScanning + logFile + ';'
+
+        removeElement(check)
+        setCount("#sys-logs-choose" , --logLen)
       })
+
+      sudo.exec( Command(filesToRemove) , {name: 'Stacer'},
+            (error, stdout, stderr) =>
+        {
+          
+        })
     }
 
     /*
      * System Crash Clean
      */
     var crashCheckeds = getCheckeds("crash-check")
-    var crashLen      = getLength("log-check")
+    var crashLen      = getLength("crash-check")
 
     if( crashCheckeds.length != 0 )
     {
+      var filesToRemove = ''
       crashCheckeds.each(function(c, check)
       {
-        var crashFile = getFileName(this)
-        exec(sudoCommand( commands.removeCrashFile + crashFile),
-          function(err, stdout, code)
-          {
-              removeElement(check)
-              setCount("#crash-rep-choose" , --crashLen)
-          })
+        const crashFile = getFileName(check)
+
+        filesToRemove += ' rm ' + commands.crashReportsScanning + crashFile + ';'
+
+        removeElement(check)
+        setCount("#crash-rep-choose" , --crashLen)        
       })
+
+      sudo.exec( Command(filesToRemove) , {name: 'Stacer'},
+            (error, stdout, stderr) =>
+        {
+          
+        })
     }
   })
 }
@@ -529,36 +566,43 @@ function systemCleanerPage()
  */
 function startupAppsPage()
 {
-  exec( commands.autostartApps , function(err, stdout, code)
+  try
+  {
+    var files = fs.readdirSync( commands.autostartApps )
+
+    files.filter( ( file ) => file.endsWith('.desktop') )
+         .forEach(( file ) =>
     {
-      stdout.split("\n").forEach( function(line)
+      try
       {
-        if (line != "")
-        {
-          exec('cat ' + os.homedir() + '/.config/autostart/' + line + ' | grep Name=',
-            function(err, stdout, code) {
-              var appName = stdout.split("\n")[0].replace("Name=", "");
-              $("#startup-apps-list")
-              .append( $("<li>").append( appName , $("<a>").attr("name" , line)))
-          })
-        }
-      })
+        var data = fs.readFileSync(commands.autostartApps + '/' + file).toString()
+      
+        var appName = data.match(/\Name=.*/g)[0].replace('Name=', '')
+        $('#startup-apps-list').append( $("<li>").append( appName , $("<a>").attr("name" , file) ) )
+      }
+      catch(err){}      
     })
 
-    setTimeout(function () {
-      $("#startup-apps-list li a").click( function()
+    $("#startup-apps-list li a").click( function()
+    {
+      var _this      = $(this)
+      var startupApp = _this.attr("name")
+      var appName    = _this.parent("li").text()
+
+      try
       {
-        var _this      = $(this)
-        var startupApp = _this.attr("name")
-        var appName    = _this.parent("li").text()
-        exec( sudoCommand( commands.removeAutostartApp + startupApp ),
-        function(err, stdout, code)
-        {
-          _this.parent("li").remove()
-          showMessage( appName + " is deleted." )
-        })
-      })
-    }, 3000)
+        fs.unlink( commands.autostartApps +  startupApp )
+
+        _this.parent("li").remove()
+        showMessage( appName + " is deleted." )
+      }
+      catch(er){}
+
+    })
+  }
+  catch (error) {
+    console.log(error)
+  }
 }
 
 /*
@@ -567,49 +611,51 @@ function startupAppsPage()
 function servicesPage()
 {
   var isServ = false
-  exec( commands.getAllService ,
-    function(err, stdout, code)
-    {
-      var list = stdout.split("\n")
-      var listCount = list.length
-      list.forEach(function(line)
-      {
-        if (line != "")
-        {
-          var service = line.substring(1, line.length)
-          var isRun   = line.substring(0, 1) == "+" ? "checked" : ""
-          $("#system-service-list").append(
-            '<li>' + service +
-            '<input type="checkbox" class="switch" id="'+service+'" '+isRun+'/>'+
-            '<label for="'+service+'"></label></li>')
-        }
-      })
-      setTimeout(function () {
-        $("#system-service-list li .switch").change(function()
-        {
-          if (!isServ)
-          {
-            isServ = true
-            var _this = $(this)
-            var task = _this.is(":checked") ? "start" : "stop"
-            var service = _this.parent("li").text()
-            exec( sudoCommand( " service " + service + " " + task ),
-              function(err, stdout, code)
-              {
-                isServ = false
-                showMessage( service + ' service ' + task + (_this.is(":checked") ? 'ed' : 'ped') )
-              })
-          }
-          else
-          {
-            showMessage( "Another process continues." )
-          }
-        })
-      }, 3000)
 
-      $("#system-service-title span").text("System Services (" + listCount + ")")
-      $('#system-service-search').fastLiveFilter('#system-service-list')
-    })
+  const services = spawnSync('bash', ['-c', commands.getAllService]).stdout.toString().split('\n').filter( ( s ) => s != '')
+  
+  const serviceCount = services.length
+  
+  services.forEach( ( serv ) => 
+  {
+    var service = serv.substring(1)
+    var isRun   = serv.substring(0, 1) == "+" ? "checked" : ""
+
+    $("#system-service-list").append(
+      '<li>' + service +
+      '<input type="checkbox" class="switch" id="'+service+'" '+isRun+'/>'+
+      '<label for="'+service+'"></label></li>')
+  })
+
+  $("#system-service-list li .switch").change(function()
+  {
+    if ( ! isServ)
+    {
+      isServ = true
+      var _this = $(this)
+      var task = _this.is(":checked") ? "start" : "stop"
+      var service = _this.parent("li").text()
+      
+      sudo.exec( Command( "service " + service + " " + task ) , {name: 'Stacer'},
+                (error, stdout, stderr) =>
+      {
+        if(stderr)
+          showMessage( "Operation not successful." )
+        else
+          showMessage( service + ' service ' + task + (_this.is(":checked") ? 'ed' : 'ped') )
+        
+        isServ = false
+      })
+
+      $("#system-service-title span").text("System Services (" + serviceCount + ")")
+    }
+    else
+    {
+      showMessage( "Another process continues." )
+    }
+  })
+  
+  $('#system-service-search').fastLiveFilter('#system-service-list')
 }
 
 /*
@@ -617,48 +663,52 @@ function servicesPage()
  */
 function uninstallerPage()
 {
-  var isInstalling = false;
-  exec( commands.getInstalledPackages , function(err, stdout, code)
-    {
-      var list = stdout.split("\n")
-      var listCount = list.length
-      list.forEach(function(line)
+  var isInstalling = false
+
+  const packages = spawnSync('bash', ['-c', commands.getInstalledPackages]).stdout.toString().split('\n').filter( ( s ) => s != '')
+
+  var packagesCount = packages.length
+
+      packages.forEach( ( package ) =>
       {
-        if (line != "")
+        $("#installed-packages-list")
+          .append( $("<li>").append( package , $("<a>") ) )
+        
+      })
+
+      $("#installed-packages-list li a").click(function()
+      {
+        if ( ! isInstalling)
         {
-          $("#installed-packages-list")
-          .append( $("<li>").append( line , $("<a>") ) )
+          isInstalling = true
+          var _this = $(this)
+          _this.addClass("loader")
+          var appName = _this.parent("li").text()
+
+
+          sudo.exec( Command( commands.removePackage + appName ) , {name: 'Stacer'},
+                (error, stdout, stderr) =>
+          {
+            if(stderr)
+              showMessage( "Operation not successful." )
+            else
+            {
+              _this.parent("li").remove()
+              showMessage( appName + " package uninstalled." )
+              $("#installed-packages-title span").text("System Installed Packages (" + --packagesCount + ")")
+            }
+            
+            isInstalling = false
+          })             
+        }
+        else
+        {
+          showMessage( "Another process continues." )
         }
       })
 
-      setTimeout(function () {
-        $("#installed-packages-list li a").click(function()
-        {
-          if (!isInstalling)
-          {
-            isInstalling = true
-            var _this = $(this)
-            _this.addClass("loader")
-            var appName = _this.parent("li").text()
-            exec( sudoCommand( commands.removePackage + appName),
-              function(err, stdout, code)
-              {
-                _this.parent("li").remove()
-                showMessage( appName + " package uninstalled." )
-                isInstalling = false
-                $("#installed-packages-title span").text("System Installed Packages (" + --listCount + ")")
-            })
-          }
-          else
-          {
-            showMessage( "Another process continues." )
-          }
-        })
-      }, 3000)
-
-      $("#installed-packages-title span").text("System Installed Packages (" + listCount + ")")
+      $("#installed-packages-title span").text("System Installed Packages (" + packagesCount + ")")
       $('#packages-search').fastLiveFilter('#installed-packages-list')
-    })
 }
 
 //---- Page Functions -----//
@@ -668,8 +718,6 @@ function uninstallerPage()
  */
 $(document).ready(function()
 {
-  $("body").append($('<div>').load("./pages/login.html"))
-
   navigationClicks()
 
   dashboardPage()
@@ -686,20 +734,8 @@ $(document).ready(function()
   $("#uninstaller-content").load( "./pages/uninstaller.html",
   function() { uninstallerPage() })
 
-  /*
-   * Close Button
-   */
-  $("#close-btn").click(function()
-  {
-    ipcRenderer.send('close-app')
-  })
-
-  /*
-   * Minimize Button
-   */
-  $("#min-btn").click(function()
-  {
-    ipcRenderer.send('minimize-app')
-  })
-
+  setTimeout( () =>{ 
+    $('#loading').remove()
+  }, 3000);
+  
 })
