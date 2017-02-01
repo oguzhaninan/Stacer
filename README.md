@@ -47,20 +47,17 @@
 
 ## Screenshots
 
-### Sudo Login
-![s1](https://raw.githubusercontent.com/oguzhaninan/Stacer/master/Screenshots/Screenshot-v1.0.2-1.png)
-
 ### Dashboard
-![s2](https://raw.githubusercontent.com/oguzhaninan/Stacer/master/Screenshots/Screenshot-v1.0.2-2.png)
+![s2](https://raw.githubusercontent.com/oguzhaninan/Stacer/master/Screenshots/Screenshot-v1.0.2-1.png)
 
 ### System Cleaner
-![s3](https://raw.githubusercontent.com/oguzhaninan/Stacer/master/Screenshots/Screenshot-v1.0.2-3.png)
+![s3](https://raw.githubusercontent.com/oguzhaninan/Stacer/master/Screenshots/Screenshot-v1.0.2-2.png)
 
 ### Startup Apps
-![s1](https://raw.githubusercontent.com/oguzhaninan/Stacer/master/Screenshots/Screenshot-v1.0.2-4.png)
+![s1](https://raw.githubusercontent.com/oguzhaninan/Stacer/master/Screenshots/Screenshot-v1.0.2-3.png)
 
 ### Services
-![s1](https://raw.githubusercontent.com/oguzhaninan/Stacer/master/Screenshots/Screenshot-v1.0.2-5.png)
+![s1](https://raw.githubusercontent.com/oguzhaninan/Stacer/master/Screenshots/Screenshot-v1.0.2-4.png)
 
 ### Uninstaller
-![s1](https://raw.githubusercontent.com/oguzhaninan/Stacer/master/Screenshots/Screenshot-v1.0.2-6.png)
+![s1](https://raw.githubusercontent.com/oguzhaninan/Stacer/master/Screenshots/Screenshot-v1.0.2-5.png)
