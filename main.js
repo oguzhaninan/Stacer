@@ -10,8 +10,6 @@ let win
 
 function createWindow() {
 
-    const screenSize = electron.screen.getPrimaryDisplay().size;
-
     const _width = 886, _height = 650
     win = new BrowserWindow({
         width: _width,
@@ -25,11 +23,15 @@ function createWindow() {
         icon: './assets/img/icon.png'
     })
 
-    if( screenSize )
+    try{
+        const screenSize = electron.screen.getPrimaryDisplay().size;
         win.setPosition( (screenSize.width  - _width )  / 2,
-                         (screenSize.height - _height ) / 2 )
-    else
+                        (screenSize.height - _height ) / 2 )
+    }
+    catch(er)
+    {
         win.center()
+    }        
 
     win.setMenu(null);
 
