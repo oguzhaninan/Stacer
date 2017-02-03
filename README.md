@@ -47,7 +47,9 @@
 
 ## Screenshots
 
-![](https://github.com/oguzhaninan/Stacer/blob/master/Screenshots/stacer.gif)
+<p align="center">
+    <img src="https://github.com/oguzhaninan/Stacer/blob/master/Screenshots/stacer.gif" width="500">    
+</p>
 
 ### Dashboard
 ![s2](https://raw.githubusercontent.com/oguzhaninan/Stacer/master/Screenshots/Screenshot-v1.0.2-1.png)
