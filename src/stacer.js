@@ -9,39 +9,9 @@ const { spawn, spawnSync }   = require('child_process')
 const prog        = require('progressbar.js')
 const sudo        = require('sudo-prompt')
 
+var { prop, commands } = require('./src/config')
 require('./libs/fast-search')
 require('./libs/amaran.min')
-
-var commands =
-{
-  aptCacheScanning:      "/var/cache/apt/archives/",
-  crashReportsScanning : "/var/crash/",
-  systemLogsScanning:    "/var/log/",
-  appCacheScanning:       os.homedir() + "/.cache/",
-  autostartApps:          os.homedir() + "/.config/autostart/",
-  getInstalledPackages: "dpkg --get-selections | cut -f1",
-  getAllService:        "service --status-all | tr -d [*] | tr -d ' '",
-  removePackage:        "apt-get remove --purge -y "
-}
-
-/*
- * Properties
- */
-var prop =
-{
-   // Durations
-   networkBarsDuration: 600,
-   upBarDuration: 600,
-   cpuDuration: 1200,
-   memDuration: 1500,
-   diskDuration: 10000,
-   // Colors
-   netwrokBarColor: '#2bab51',
-   cpuBarColor:  '#2bab51',
-   memBarColor:  '#ff9939',
-   diskBarColor: '#dc175d',
-   trailColor:   '#202b33'
-}
 
 var memInfo = ""
 var dTotal  = ""
@@ -188,7 +158,7 @@ function networkBars()
       },
       step: function(state, bar)
       {
-          bar.setText(Math.abs(down).toString() + ' kb/s')
+          bar.setText(Math.abs(down).toString() + ' kB/s')
       }
   });
 
@@ -211,7 +181,7 @@ function networkBars()
       },
       step: function(state, bar)
       {
-          bar.setText(Math.abs(up).toString() + ' kb/s')
+          bar.setText(Math.abs(up).toString() + ' kB/s')
       }
   });
 
@@ -224,15 +194,14 @@ function networkBars()
       {
           down = (data.rx_sec / 1024).toFixed(2)
           up   = (data.tx_sec / 1024).toFixed(2)
-          downBar.animate(down / 1500)
-          upBar.animate(up / 1500)
+          downBar.animate(down / 2000)
+          upBar.animate(up / 2000)
       })
   }, prop.networkBarsDuration);
 }
 
 function systemInformationBars()
 {
-
   /*
    * Create the circle bars
    */
@@ -250,13 +219,19 @@ function systemInformationBars()
   /*
    * Memory value setter
    */
+  function prettySize( size ){
+    return ( size / ( Math.pow(1024, 3) ) ).toFixed(2)
+  }
+
   setInterval( function()
   {
-    si.mem( ( ram ) => {
-      var usedMem  = new Number( ram.available )
-      var totalMem = new Number( ram.used )
+    si.mem( ( ram ) => 
+    {
+      var usedMem  = ram.total - ram.available
+      var totalMem = ram.total
 
-      memInfo = (usedMem / 1000000000 ).toFixed(2) + '/' + (totalMem / 1000000000 ).toFixed(2) + "GB"
+
+      memInfo = prettySize(usedMem) + ' / ' + prettySize(totalMem) + "GB"
       memBar.animate(usedMem / totalMem)
     })
 
@@ -270,9 +245,9 @@ function systemInformationBars()
     diskspace.check('/', function(err, total, free, status)
     {
       var used = total-free
-      dTotal = (total / 1000000000).toFixed(2) + "GB"
-      dUsed  = (used  / 1000000000).toFixed(2) + "GB"
-      diskBar.animate(used / total);
+      dUsed  = (used  / 1000000000).toFixed(1)
+      dTotal = (total / 1000000000).toFixed(1) + "GB"
+      diskBar.animate( used / total );
     });
   }
   diskInfo()
@@ -285,7 +260,7 @@ function systemInformationBars()
     $(".system-info ul").append($("<li>").append("Hostname: "     + os.hostname()))
     $(".system-info ul").append($("<li>").append("Platform: "     + os.platform() + os.arch()))
     $(".system-info ul").append($("<li>").append("Distribution: " + sys.distro ))
-    $(".system-info ul").append($("<li>").append("Total RAM: "    + (os.totalmem() / 1073741824).toFixed(2) + " GB"))
+    $(".system-info ul").append($("<li>").append("Total RAM: "    + prettySize( os.totalmem() ) + " GB"))
     $(".system-info ul").append($("<li>").append("CPU Model: "    + os.cpus()[0].model))
     $(".system-info ul").append($("<li>").append("CPU Cores: "    + os.cpus().length))
   })
@@ -568,41 +543,43 @@ function startupAppsPage()
 {
   try
   {
-    var files = fs.readdirSync( commands.autostartApps )
+    fs.readdir( commands.autostartApps, (err, files) => {
 
-    files.filter( ( file ) => file.endsWith('.desktop') )
-         .forEach(( file ) =>
-    {
-      try
+      files.filter( ( file ) => file.endsWith('.desktop') )
+          .forEach(( file ) =>
       {
-        var data = fs.readFileSync(commands.autostartApps + '/' + file).toString()
-      
-        var appName = data.match(/\Name=.*/g)[0].replace('Name=', '')
-        $('#startup-apps-list').append( $("<li>").append( appName , $("<a>").attr("name" , file) ) )
-      }
-      catch(err){}      
-    })
+        try
+        {
+          var data = fs.readFileSync(commands.autostartApps + '/' + file).toString()
+        
+          var appName = data.match(/\Name=.*/g)[0].replace('Name=', '')
+          $('#startup-apps-list').append( $("<li>").append( appName , $("<a>").attr("name" , file) ) )
+        }
+        catch(err){}      
+      })
 
-    $("#startup-apps-list li a").click( function()
-    {
-      var _this      = $(this)
-      var startupApp = _this.attr("name")
-      var appName    = _this.parent("li").text()
-
-      try
+      $("#startup-apps-list li a").click( function()
       {
-        fs.unlink( commands.autostartApps +  startupApp )
+        var _this      = $(this)
+        var startupApp = _this.attr("name")
+        var appName    = _this.parent("li").text()
 
-        _this.parent("li").remove()
-        showMessage( appName + " is deleted." )
-      }
-      catch(er){}
+        try
+        {
+          fs.unlink( commands.autostartApps +  startupApp )
 
+          _this.parent("li").remove()
+          showMessage( appName + " is deleted." )
+        }
+        catch(er){}
+
+      })
     })
   }
   catch (error) {
     console.log(error)
   }
+  
 }
 
 /*
@@ -612,50 +589,55 @@ function servicesPage()
 {
   var isServ = false
 
-  const services = spawnSync('bash', ['-c', commands.getAllService]).stdout.toString().split('\n').filter( ( s ) => s != '')
+  const services = spawn('bash', ['-c', commands.getAllService])
   
-  const serviceCount = services.length
+  services.stdout.on('data', ( data ) => {
+    data = data.toString().split('\n').filter( ( s ) => s != '')
+
+    const serviceCount = data.length
   
-  services.forEach( ( serv ) => 
-  {
-    var service = serv.substring(1)
-    var isRun   = serv.substring(0, 1) == "+" ? "checked" : ""
-
-    $("#system-service-list").append(
-      '<li>' + service +
-      '<input type="checkbox" class="switch" id="'+service+'" '+isRun+'/>'+
-      '<label for="'+service+'"></label></li>')
-  })
-
-  $("#system-service-list li .switch").change(function()
-  {
-    if ( ! isServ)
+    data.forEach( ( serv ) => 
     {
-      isServ = true
-      var _this = $(this)
-      var task = _this.is(":checked") ? "start" : "stop"
-      var service = _this.parent("li").text()
-      
-      sudo.exec( Command( "service " + service + " " + task ) , {name: 'Stacer'},
-                (error, stdout, stderr) =>
+      var service = serv.substring(1)
+      var isRun   = serv.substring(0, 1) == "+" ? "checked" : ""
+
+      $("#system-service-list").append(
+        '<li>' + service +
+        '<input type="checkbox" class="switch" id="'+service+'" '+isRun+'/>'+
+        '<label for="'+service+'"></label></li>')
+    })
+
+    $("#system-service-list li .switch").change(function()
+    {
+      if ( ! isServ)
       {
-        if(stderr)
-          showMessage( "Operation not successful." )
-        else
-          showMessage( service + ' service ' + task + (_this.is(":checked") ? 'ed' : 'ped') )
+        isServ = true
+        var _this = $(this)
+        var task = _this.is(":checked") ? "start" : "stop"
+        var service = _this.parent("li").text()
         
-        isServ = false
-      })
+        sudo.exec( Command( "service " + service + " " + task ) , {name: 'Stacer'},
+                  (error, stdout, stderr) =>
+        {
+          if(stderr)
+            showMessage( "Operation not successful." )
+          else
+            showMessage( service + ' service ' + task + (_this.is(":checked") ? 'ed' : 'ped') )
+          
+          isServ = false
+        })
 
-      $("#system-service-title span").text("System Services (" + serviceCount + ")")
-    }
-    else
-    {
-      showMessage( "Another process continues." )
-    }
+        $("#system-service-title span").text("System Services (" + serviceCount + ")")
+      }
+      else
+      {
+        showMessage( "Another process continues." )
+      }
+    })
+
+    $('#system-service-search').fastLiveFilter('#system-service-list')
   })
   
-  $('#system-service-search').fastLiveFilter('#system-service-list')
 }
 
 /*
@@ -665,50 +647,56 @@ function uninstallerPage()
 {
   var isInstalling = false
 
-  const packages = spawnSync('bash', ['-c', commands.getInstalledPackages]).stdout.toString().split('\n').filter( ( s ) => s != '')
+  const packages = spawn('bash', ['-c', commands.getInstalledPackages])
 
-  var packagesCount = packages.length
+  packages.stdout.on('data', (data) => {
+    data = data.toString().split('\n').filter( ( s ) => s != '')
 
-      packages.forEach( ( package ) =>
+    var packagesCount = data.length
+
+    data.forEach( ( package ) =>
+    {
+      $("#installed-packages-list")
+        .append( $("<li>").append( package , $("<a>") ) )
+      
+    })
+
+    $("#installed-packages-list li a").click(function()
+    {
+      if ( ! isInstalling)
       {
-        $("#installed-packages-list")
-          .append( $("<li>").append( package , $("<a>") ) )
-        
-      })
+        isInstalling = true
+        var _this = $(this)
+        _this.addClass("loader")
+        var appName = _this.parent("li").text()
 
-      $("#installed-packages-list li a").click(function()
-      {
-        if ( ! isInstalling)
+
+        sudo.exec( Command( commands.removePackage + appName ) , {name: 'Stacer'},
+              (error, stdout, stderr) =>
         {
-          isInstalling = true
-          var _this = $(this)
-          _this.addClass("loader")
-          var appName = _this.parent("li").text()
-
-
-          sudo.exec( Command( commands.removePackage + appName ) , {name: 'Stacer'},
-                (error, stdout, stderr) =>
+          if(stderr)
+            showMessage( "Operation not successful." )
+          else
           {
-            if(stderr)
-              showMessage( "Operation not successful." )
-            else
-            {
-              _this.parent("li").remove()
-              showMessage( appName + " package uninstalled." )
-              $("#installed-packages-title span").text("System Installed Packages (" + --packagesCount + ")")
-            }
-            
-            isInstalling = false
-          })             
-        }
-        else
-        {
-          showMessage( "Another process continues." )
-        }
-      })
+            _this.parent("li").remove()
+            showMessage( appName + " package uninstalled." )
+            $("#installed-packages-title span").text("System Installed Packages (" + --packagesCount + ")")
+          }
+          
+          isInstalling = false
+        })             
+      }
+      else
+      {
+        showMessage( "Another process continues." )
+      }
+    })
 
-      $("#installed-packages-title span").text("System Installed Packages (" + packagesCount + ")")
-      $('#packages-search').fastLiveFilter('#installed-packages-list')
+    $("#installed-packages-title span").text("System Installed Packages (" + packagesCount + ")")
+    $('#packages-search').fastLiveFilter('#installed-packages-list')
+  })
+
+      
 }
 
 //---- Page Functions -----//
@@ -716,26 +704,22 @@ function uninstallerPage()
 /*
  * Main
  */
-$(document).ready(function()
+$( document ).ready(function()
 {
   navigationClicks()
 
   dashboardPage()
 
-  $("#system-cleaner-content").load( "./pages/system-cleaner.html",
-  function() { systemCleanerPage() })
+  $("#system-cleaner-content").load( "./pages/system-cleaner.html", () => { systemCleanerPage() })
 
-  $("#startup-apps-content").load( "./pages/startup-apps.html",
-  function() { startupAppsPage() })
+  $("#startup-apps-content").load( "./pages/startup-apps.html", () => { startupAppsPage() })
 
-  $("#system-service-content").load( "./pages/system-services.html",
-  function() { servicesPage() })
+  $("#system-service-content").load( "./pages/system-services.html", () => { servicesPage() })
 
-  $("#uninstaller-content").load( "./pages/uninstaller.html",
-  function() { uninstallerPage() })
-
-  setTimeout( () =>{ 
+  $("#uninstaller-content").load( "./pages/uninstaller.html", () => { uninstallerPage() })
+ 
+  setTimeout( ( ) => {
     $('#loading').remove()
-  }, 3000);
+  }, 3500);
   
 })
