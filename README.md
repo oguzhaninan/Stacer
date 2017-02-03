@@ -26,13 +26,13 @@
 ### Debian Linux x86 (Ubuntu)
 
 1. Download `Stacer_1.0.2_i386.deb` from the [Stacer releases page](https://github.com/oguzhaninan/Stacer/releases).
-2. Run `sudo dpkg --install Stacer_1.0.2_i386.deb` on the downloaded package.
+2. Run `sudo dpkg --install Stacer_1.0.3_i386.deb` on the downloaded package.
 3. Launch Stacer using the installed `Stacer` command.
 
 ### Debian Linux x64 (Ubuntu)
 
 1. Download `Stacer_1.0.2_amd64.deb` from the [Stacer releases page](https://github.com/oguzhaninan/Stacer/releases).
-2. Run `sudo dpkg --install Stacer_1.0.2_amd64.deb` on the downloaded package.
+2. Run `sudo dpkg --install Stacer_1.0.3_amd64.deb` on the downloaded package.
 3. Launch Stacer using the installed `Stacer` command.
 
 ## Manual Installing
