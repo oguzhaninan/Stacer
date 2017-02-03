@@ -16,7 +16,7 @@
 </p>
 
 <p align="center">
-    <a href="https://sourceforge.net/projects/stacer/files/v1.0.2/" ><img src="https://a.fsdn.com/con/app/sf-download-button" /></a>
+    <a href="https://sourceforge.net/projects/stacer/files/v1.0.3/" ><img src="https://a.fsdn.com/con/app/sf-download-button" /></a>
 </p>
 
 ---
