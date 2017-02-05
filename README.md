@@ -6,7 +6,6 @@
   <b>Ubuntu System Optimizer</b>
 </p>
 
-
 <p align="center">
     <a href="https://github.com/sindresorhus/awesome-electron"><img alt="Awesome" src="https://cdn.rawgit.com/sindresorhus/awesome/d7305f38d29fed78fa85652e3a63e154dd8e8829/media/badge.svg"></a>
         <a href="https://www.versioneye.com/user/projects/5853e0f04d6466004b1b9e3a"><img alt="Dependency Status" src="https://www.versioneye.com/user/projects/5853e0f04d6466004b1b9e3a/badge.svg"></a>
@@ -18,8 +17,24 @@
 <p align="center">
     <a href="https://sourceforge.net/projects/stacer/files/v1.0.3/" ><img src="https://a.fsdn.com/con/app/sf-download-button" /></a>
 </p>
-
 ---
+
+## Reviews
+<p align="left">
+    <a href="http://www.omgubuntu.co.uk/2017/01/stacer-system-optimizer-for-ubuntu"><img width="70px" src="http://www.omgubuntu.co.uk/wp-content/themes/omgunified-ubuntu/images/logo.png"></a>
+        
+    <a href="http://www.diolinux.com.br/2017/02/stacer-um-programa-para-otimizar-o-ubuntu.html"><img width="170px" src="http://coletivo.semanadolinux.com.br/images/site/diolinux.png"></a>
+    
+    <a href="https://www.genbeta.com/linux/stacer-una-app-todo-en-uno-que-te-deja-monitorizar-y-optimizar-el-sistema-en-ubuntu"><img width="160px" src="http://seanfee.com/wp-content/uploads/2014/04/Logo_genbeta.jpg"></a>
+    
+    <a href="http://blog.desdelinux.net/optimizar-debian-ubuntu-linux-mint-derivados-stacer/"><img width="130px" src="http://computerhoy.com/sites/computerhoy.com/themes/computerhoy/logo-puntocom.png"></a>
+    
+    <a href="http://www.dobreprogramy.pl/Stacer-program-do-optymalizacji-Ubuntu-ktory-wyglada-jakby-uciekl-z-Windowsa,News,78941.html"><img width="160px" src="http://storage.dobreprogramy.pl/artykuly/9urodziny/logoDP-napis.png"></a>
+
+    <a href="http://computerhoy.com/noticias/software/stacer-herramienta-que-te-permite-optimizar-ubuntu-57974"><img width="160px" src="http://i.imgur.com/eV1WxYZ.png"></a>
+    
+
+</p>
 
 ## Installing
 
