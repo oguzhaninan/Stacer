@@ -27,11 +27,11 @@
     
     <a href="https://www.genbeta.com/linux/stacer-una-app-todo-en-uno-que-te-deja-monitorizar-y-optimizar-el-sistema-en-ubuntu"><img width="160px" src="http://seanfee.com/wp-content/uploads/2014/04/Logo_genbeta.jpg"></a>
     
-    <a href="http://blog.desdelinux.net/optimizar-debian-ubuntu-linux-mint-derivados-stacer/"><img width="130px" src="http://computerhoy.com/sites/computerhoy.com/themes/computerhoy/logo-puntocom.png"></a>
+    <a href="http://computerhoy.com/noticias/software/stacer-herramienta-que-te-permite-optimizar-ubuntu-57974"><img width="130px" src="http://computerhoy.com/sites/computerhoy.com/themes/computerhoy/logo-puntocom.png"></a>
     
     <a href="http://www.dobreprogramy.pl/Stacer-program-do-optymalizacji-Ubuntu-ktory-wyglada-jakby-uciekl-z-Windowsa,News,78941.html"><img width="160px" src="http://storage.dobreprogramy.pl/artykuly/9urodziny/logoDP-napis.png"></a>
 
-    <a href="http://computerhoy.com/noticias/software/stacer-herramienta-que-te-permite-optimizar-ubuntu-57974"><img width="160px" src="http://i.imgur.com/eV1WxYZ.png"></a>
+    <a href="http://blog.desdelinux.net/optimizar-debian-ubuntu-linux-mint-derivados-stacer/"><img width="160px" src="http://i.imgur.com/eV1WxYZ.png"></a>
     
 
 </p>
