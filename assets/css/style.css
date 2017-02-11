@@ -28,7 +28,27 @@ body {
     font-weight: bold;
 }
 
-.system-info {
+.info {
+    font-weight: bold;
+    width: 300px;
+    float: left;
+    display: none;
+    font-size: 16px;
+    color: white;
+    margin: 20px;
+    padding: 15px 25px 15px 25px;
+
+}
+
+.info ul{
+    padding: 0;
+    color: #748390;
+    list-style: none;
+    font-weight: normal;
+    line-height: 30px;
+}
+
+#system-info {
     font-weight: bold;
     width: 300px;
     float: left;
@@ -39,7 +59,7 @@ body {
     padding: 15px 25px 15px 25px;
 }
 
-.system-info ul {
+#system-info ul {
     padding: 0;
     color: #748390;
     list-style: none;
