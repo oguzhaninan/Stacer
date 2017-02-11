@@ -345,7 +345,7 @@ function systemInformationBars()
       fsName = fileSystem[0].fs
       $("#disk-info ul").prepend($("<li>").append("Filesystem Type: " + fileSystem[0].type))
       $("#disk-info ul").prepend($("<li>").append("Filesystem Name: " + fsName))
-      $("#disk-info ul").prepend($("<li>").append("Home Dir: " + os.homedir()))
+      $("#disk-info ul").prepend($("<li>").append("Home Directory: " + os.homedir()))
   });
 
   si.blockDevices(function(blockDevices)
@@ -358,9 +358,9 @@ function systemInformationBars()
           }
 
       }
-      $("#disk-info ul").append($("<li>").append("Filesystem Physical Type: " + blockDevices[index].physical))
-      $("#disk-info ul").append($("<li>").append("Filesystem Model: " + blockDevices[index].model))
-      $("#disk-info ul").append($("<li>").append("Filesystem Protocol: " + blockDevices[index].protocol))
+      $("#disk-info ul").append($("<li>").append("Physical Type: " + blockDevices[index].physical))
+      $("#disk-info ul").append($("<li>").append("Device Model: " + blockDevices[index].model))
+      $("#disk-info ul").append($("<li>").append("Device Protocol: " + blockDevices[index].protocol))
   });
 
     /*
