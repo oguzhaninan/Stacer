@@ -380,7 +380,6 @@ function systemInformationBars()
           $("#system-info").show("fast")
       }
   })
-
 }
 
 /*
@@ -391,11 +390,11 @@ function navigationClicks()
   var active = "nav-active"
   $("#nav > li > label").click( function()
   {
-    if ( ! $(this).hasClass(active ) )
+    if( ! $(this).hasClass(active) )
     {
       var data = $(this).attr("id")
       $(".content").hide("fast")
-      $("div[data-nav=" + data + "]").show("fast")
+      $('div[data-nav=' + data + ']').show("fast")
 
       $("#nav > li > label").removeClass( active )
       $(this).addClass( active )
