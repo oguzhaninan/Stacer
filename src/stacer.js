@@ -255,14 +255,130 @@ function systemInformationBars()
 
 
   //System info
+  si.users(function(userList)
+  {
+    var userName = os.homedir().split("/")[2]
+    var index = 0
+    for (var item in userList)
+     {
+        if (userList[item].user == userName)
+        {
+          index = item
+        }
+    }
+    $("#system-info ul").append($("<li>").append("User: "     + userList[index].user))
+    $("#system-info ul").append($("<li>").append("Terminal: "     + userList[index].tty))
+    $("#system-info ul").append($("<li>").append("Login Time: " + userList[index].date + " " + user[0].time ))
+  })
+
   si.osInfo(function(sys)
   {
-    $(".system-info ul").append($("<li>").append("Hostname: "     + os.hostname()))
-    $(".system-info ul").append($("<li>").append("Platform: "     + os.platform() + os.arch()))
-    $(".system-info ul").append($("<li>").append("Distribution: " + sys.distro ))
-    $(".system-info ul").append($("<li>").append("Total RAM: "    + prettySize( os.totalmem() ) + " GB"))
-    $(".system-info ul").append($("<li>").append("CPU Model: "    + os.cpus()[0].model))
-    $(".system-info ul").append($("<li>").append("CPU Cores: "    + os.cpus().length))
+    $("#system-info ul").append($("<li>").append("Hostname: "     + os.hostname()))
+    $("#system-info ul").append($("<li>").append("Platform: "     + os.platform() + os.arch()))
+    $("#system-info ul").append($("<li>").append("Distribution: " + sys.distro ))
+  })
+  si.battery(function(battery)
+  {
+    if (battery.hasbattery)
+    {
+      $("#system-info ul").append($("<li>").append("Battry Charge: "     + battery.percent.toFixed(2) + "% Charging: " + battery.ischarging))
+    }
+  })
+
+  //Cpu info
+  function createCpuInfo()
+  {
+      $("#cpu-info ul").append($("<li>").append("CPU Model: "    + os.cpus()[0].model))
+      $("#cpu-info ul").append($("<li>").append("CPU Cores: "    + os.cpus().length))
+      $("#cpu-info ul").append($("<li id='cpuTemp'>").append("#"))
+      $("#cpu-info ul").append($("<li id='cpuLoad'>").append("#"))
+  }
+  createCpuInfo()
+
+  /*
+   * cpu info setter
+   */
+  setInterval( function()
+    {
+      if ( $("#cpu-cont").is(":visible") ) {
+          si.cpuTemperature( ( temp ) => {
+              $("#cpuTemp").text("CPU Main Temp: " + temp.main + "\u00B0 C")
+          })
+          si.currentLoad( ( curLoad ) => {
+              $("#cpuLoad").text("CPU Load: " + curLoad.currentload.toFixed(3) + " %")
+          })
+      }
+  }, prop.cpuDuration);
+
+  //Memory info
+  function createMemInfo()
+  {
+      $("#mem-info ul").append($("<li>").append("Total RAM: "    + prettySize( os.totalmem() ) + " GB"))
+      $("#mem-info ul").append($("<li id='freeRam'>").append("#"))
+      $("#mem-info ul").append($("<li id='usedRam'>").append("#"))
+      $("#mem-info ul").append($("<li id='totalSwap'>").append("#"))
+      $("#mem-info ul").append($("<li id='freeSwap'>").append("#"))
+  }
+  createMemInfo()
+
+  /*
+   * memory info setter
+   */
+  setInterval( function()
+  {
+      if ( $("#mem-cont").is(":visible") ) {
+          si.mem( ( mem ) => {
+              $("#freeRam").text("Available RAM: " + prettySize(mem.available) + " GB")
+              $("#usedRam").text("Used RAM: " + prettySize(mem.total - mem.available)+ " GB")
+              $("#totalSwap").text("Total Swap: " + prettySize(mem.swaptotal)+ " GB")
+              $("#freeSwap").text("Free Swap: " + prettySize(mem.swapfree)+ " GB")
+
+          })
+      }
+
+  }, prop.memDuration);
+
+  //FileSystem info
+  var fsName = ""
+  si.fsSize(function(fileSystem)
+  {
+      fsName = fileSystem[0].fs
+      $("#disk-info ul").prepend($("<li>").append("Filesystem Type: " + fileSystem[0].type))
+      $("#disk-info ul").prepend($("<li>").append("Filesystem Name: " + fsName))
+      $("#disk-info ul").prepend($("<li>").append("Home Directory: " + os.homedir()))
+  });
+
+  si.blockDevices(function(blockDevices)
+  {
+      var index = 0
+      for (var item in blockDevices) {
+          if (blockDevices[item].name == fsName)
+          {
+            index = item
+          }
+
+      }
+      $("#disk-info ul").append($("<li>").append("Physical Type: " + blockDevices[index].physical))
+      $("#disk-info ul").append($("<li>").append("Device Model: " + blockDevices[index].model))
+      $("#disk-info ul").append($("<li>").append("Device Protocol: " + blockDevices[index].protocol))
+  });
+
+    /*
+   * Info navigation handler
+   */
+  $(".cont").click(function () {
+      var id = "#" + $(this).attr("id").split("-")[0] + "-info"
+      if ( $(id).is(":hidden") ) {
+          if ($(".info" + id).length) {
+              $(".info").hide("fast")
+              $(id).show("fast")
+          }
+      }
+      else
+      {
+          $(".info").hide("fast")
+          $("#system-info").show("fast")
+      }
   })
 }
 
