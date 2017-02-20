@@ -10,7 +10,7 @@ let win
 
 function createWindow() {
 
-    const _width = 886, _height = 650
+    const _width = 890, _height = 650
     win = new BrowserWindow({
         width: _width,
         height: _height,
@@ -31,11 +31,11 @@ function createWindow() {
     catch(er)
     {
         win.center()
-    }        
+    }
 
-    win.setMenu(null);
+    win.setMenu(null)
 
-    win.loadURL(`file://${__dirname}/index.html`)
+    win.loadURL(`file://${__dirname}/dist/index.html`)
 
     win.on("closed", () => {
       win = null
