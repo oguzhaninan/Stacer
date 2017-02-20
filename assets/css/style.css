@@ -16,9 +16,21 @@ body {
     -webkit-user-select: none;
 }
 
-.cont {
-    width: 200px;
+.fl {
     float: left;
+}
+
+.fr {
+    float: right;
+}
+
+.w100{
+  width: 100%;
+}
+
+.cont ,
+.line-cont {
+    width: 200px;
     border-radius: 4px;
     font-size: 16px;
     color: white;
@@ -28,9 +40,18 @@ body {
     font-weight: bold;
 }
 
+.line-cont {
+    width:350px;
+    padding-bottom:40px;
+}
+
+.line-cont > span:first-child {
+    float: left;
+}
+
 .system-info {
     font-weight: bold;
-    width: 300px;
+    width: 330px;
     float: left;
     display: block;
     font-size: 16px;
@@ -47,62 +68,8 @@ body {
     line-height: 30px;
 }
 
-#title-bar {
-    margin: 0;
-    z-index: 999;
-    background-color: #202b33;
-    position: fixed;
-    padding: 13px 0;
-    -webkit-app-region: drag;
-    width: 100%;
-    color: #748390;
-    font-size: 16px;
-    text-align: center;
-    height: 20px;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-}
-
-#close-btn, #min-btn {
-    -webkit-app-region: no-drag;
-    float: left;
-    width: 15px;
-    height: 15px;
-    z-index: 999999;
-    border: 0;
-    margin: 5px 0 0 25px;
-    border-radius: 50px;
-}
-
-#close-btn {
-    background-color: #ff5c5c;
-}
-
-#close-btn:hover {
-    background-color: #c14645;
-}
-
-#close-btn:active {
-    background-color: #ab2a2a;
-}
-
-#min-btn {
-    background-color: #ffbd4c;
-    margin: 5px 0px 0 8px;
-    margin-left: 8px;
-}
-
-#min-btn:hover {
-    background-color: #c08e38;
-}
-
-#min-btn:active {
-    background-color: #b3760f;
-}
-
-#down-bar, #up-bar {
+#down-bar,
+#up-bar {
     margin: 15px 0;
     width: 350px;
     height: 13px;
@@ -174,11 +141,23 @@ body {
 
 #cleaner-table {
     float: right;
-    margin: 10px 10px 0 0;
+    margin: 10px 10px 0px 0px;
     width: 650px;
     height: 500px;
 }
 
+
+
+.empty-list{
+  font-size: 22px;
+  text-align: center;
+  padding: 180px 0px;
+  color: #748390;
+  display: block;
+  background-image: url(../img/not-found.png);
+  background-repeat: no-repeat;
+  background-position: 186px 15px;
+}
 
 
 
@@ -187,13 +166,11 @@ body {
 #startup-apps-table{
     width: 700px;
     height: 530px;
-    /*border: 1px solid #3d474e;*/
-    margin: 15px auto 0 auto;
+    margin: 15px auto 50px auto;
 }
 
 #startup-apps-table{
     width: 500px;
-    height: 450px;
 }
 
 #uninstaller-table ul,
@@ -221,7 +198,8 @@ body {
     background-position: 13px 7px;
 }
 
-#system-service-list li label {
+#startup-apps-table ul li label,
+#system-service-table ul li label{
   float: right;
   cursor: move;
 }
@@ -254,13 +232,6 @@ body {
     height: 24px;
     margin-top: -2px;
     background-image: url(../img/app-uninstall.png);
-}
-
-#startup-apps-table li a {
-    width: 20px;
-    height: 20px;
-    margin-top: 1px;
-    background-image: url(../img/app-unstart.png);
 }
 
 #uninstaller-table .tdl-content,
@@ -331,7 +302,7 @@ body {
   box-shadow: 0 5px 5px -1px rgba(0, 0, 0, 0.2), 0 0 0 2px #4BD865;
 }
 .switch:not(:checked) + label:hover:active {
-  box-shadow: inset 0 0 0 calc(13px) #DDD;
+  box-shadow: inset 0 0 0 calc(13px) #EF4836;
 }
 .switch + label:hover:active::after {
   width: calc(23px);
@@ -377,8 +348,6 @@ a.loader {
 
 #system-scan-btn {
     float: left;
-    clear: left;
-    margin-left: 10px;
 }
 
 .scroll{
@@ -404,7 +373,7 @@ a.loader {
     float: left;
     width: 770px;
     padding: 0 50px;
-    margin: 0 0 20px 0;
+    margin: 0 0 15px 0;
     text-align: center;
 }
 
@@ -436,11 +405,7 @@ a.loader {
     border-bottom: 1px solid #47b1f3;
 }
 
-#dashboard-content,
-#system-cleaner-content,
-#startup-apps-content,
-#system-service-content,
-#uninstaller-content {
+.content {
     float: left;
     width: 100%;
 }
@@ -450,7 +415,6 @@ a.loader {
     width: 180px;
     float: left;
     position: relative;
-    border: 1px solid #3d474e;
 }
 
 .cleaner-sidebar ul {
@@ -458,6 +422,7 @@ a.loader {
     list-style: none;
     margin: 0;
     padding: 0;
+    border: 1px solid #3d474e;
 }
 
 .cleaner-sidebar ul li {
@@ -501,26 +466,6 @@ a.loader {
 
 .dn {
     display: none;
-}
-
-
-/*Datatable */
-
-#example {
-    background-color: #293945;
-    color: #a4abb5;
-}
-
-.dataTables_filter {
-    color: #999;
-}
-
-.input-sm {
-    border-radius: 3px;
-    border: 0;
-    color: #999;
-    padding: 4px;
-    background-color: #293945;
 }
 
 /*LOADING*/
@@ -912,4 +857,46 @@ a.loader {
             transform: scale(1, 5);
     background: #195c53;
   }
+}
+
+.slide-fade-enter-active {
+  transition: all .2s ease;
+}
+.slide-fade-leave-active {
+  transition: all .2s ease;
+}
+.slide-fade-enter, .slide-fade-leave-to {
+  opacity: 0;
+}
+
+.update-check{
+  background-color: #16a085;
+  text-align: left;
+  margin-top: -40px;
+  padding: 7px 0;
+}
+
+.update-check span{
+  float: left;
+  display: block;
+  color: #202b33;
+  padding: 3px 20px;
+  margin: 0;
+}
+
+.update-check button{
+  color: #fff;
+  border:0;
+  cursor: pointer;
+  font-size: 15px;
+  float: right;
+  display: block;
+  background-color: #202b33;
+  border-radius: 4px;
+  padding: 6px 15px;
+  margin-right: 8px;
+}
+
+.update-check button:hover{
+  background-color: #293945;
 }
