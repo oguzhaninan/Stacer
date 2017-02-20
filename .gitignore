@@ -1,4 +1,5 @@
 node_modules/
 *.lock
 release-builds/
-dist/
+dest/
+dist/*.js
