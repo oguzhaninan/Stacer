@@ -14,12 +14,10 @@ let packagesList = [],
 const packages = spawn('bash', ['-c', commands.getInstalledPackages])
 
 packages.stdout.on('data', (data) => {
-    packagesList.splice(0, packagesList.length)    
+    packagesList.splice(0, packagesList.length)
     data = data.toString().split('\n').filter((s) => s != '')
 
-    data.forEach( ( item ) =>
-        packagesList.push(item)
-    )
+    packagesList.push(...data)
 })
 
 
@@ -47,14 +45,16 @@ Vue.component('uninstaller', {
                     }
                     else {
                         this.searchString = e.target.className = ''
-                        delete this.packagesList[ this.packagesList.indexOf(packageName) ]
+                        var i = this.packagesList.indexOf(packageName)
+                        if(i != -1) this.packagesList.splice(i, 1)
+
                         showMessage( `${packageName} package uninstalled.`, 'success' )
                     }
                     isBusy = false
                 })
             }
             else {
-                showMessage( 'Another process continues.', 'success' )
+                showMessage( 'Another process continues.', 'error' )
             }
         }
     },

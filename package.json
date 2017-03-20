@@ -31,7 +31,8 @@
     "progressbar.js": "^1.0.1",
     "properties-reader": "^0.0.15",
     "sudo-prompt": "^6.2.1",
-    "systeminformation": "^3.13.0"
+    "systeminformation": "^3.13.0",
+    "vuex": "^2.2.1"
   },
   "scripts": {
     "start": "electron .",

@@ -16,6 +16,10 @@ body {
     -webkit-user-select: none;
 }
 
+[v-cloak] {
+  display: none;
+}
+
 .fl {
     float: left;
 }
@@ -492,7 +496,7 @@ a.loader {
 }
 
 #loader-7{
-    text-align: center; 
+    text-align: center;
     margin-top:30px;
 }
 

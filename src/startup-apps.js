@@ -8,7 +8,6 @@ import properties from 'properties-reader'
 
 let apps = []
 
-
 function getApps() {
     try {
         fs.readdir( commands.autostartApps, ( err, files ) => {
@@ -20,17 +19,17 @@ function getApps() {
                     try {
                         var entry = properties(commands.autostartApps+ '/' + file)
 
-                        if ( entry.get('Desktop Entry.Name') != null ) 
-                        {                            
+                        if ( entry.get('Desktop Entry.Name') != null )
+                        {
                             let appName = entry.get('Desktop Entry.Name')
                             let isStart = entry.get('Desktop Entry.X-GNOME-Autostart-enabled')
-                            
+
                             if ( appName != null ){
                                 apps.push( {
                                     name: appName,
                                     file: file,
                                     isStart: ( isStart != null ? isStart: true )
-                                })                                
+                                })
                             }
                         }
                     }

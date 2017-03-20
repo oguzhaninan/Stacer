@@ -57,7 +57,7 @@
 								<label>
 									<input type="checkbox" @change="checkAllAptCaches"><i></i>
 									<span style="font-size:14px; color:#aeb5bf;">
-										Select All (Apt Cache) 
+										Select All (Apt Cache)
 									</span>
 								</label>
 							</li>
@@ -74,7 +74,7 @@
 									<input type="checkbox" @change="checkAllCrashReports">
 									<i></i>
 									<span style="font-size:14px; color:#aeb5bf;">
-										Select All (Crash Reports) 
+										Select All (Crash Reports)
 									</span>
 								</label>
 							</li>
@@ -90,7 +90,7 @@
 								<label>
 									<input type="checkbox" @change="checkAllSystemLogs"><i></i>
 									<span style="font-size:14px; color:#aeb5bf;">
-										Select All (System Logs)  
+										Select All (System Logs)
 									</span>
 								</label>
 							</li>
@@ -134,7 +134,7 @@
 					No startup apps found.
 				</span>
 				<ul v-show="apps.length">
-					<li v-for="app in apps"> 
+					<li v-for="app in apps">
 						{{ app.name }}
 						<input type="checkbox" class="switch" :id="app.file" :checked="app.isStart" @change="statusChange" />
 						<label :for="app.file"></label>
@@ -156,7 +156,7 @@
 						No service found.
 					</span>
 					<ul v-show="filteredServices.length">
-						<li v-for="service in filteredServices" > 
+						<li v-for="service in filteredServices" >
 							{{ service.name }}
 							<input type="checkbox" class="switch" :id="service.name" :checked="service.isRun" @change="statusChange" />
 							<label :for="service.name"></label>
@@ -189,8 +189,8 @@
 
 <body>
 
-	<div id="main" class="fl w100">
-		
+	<div id="main" class="fl w100" v-cloak>
+
 		<ul id="nav">
 			<li><label :class="{'nav-active': activeNav == 1}" @click="activeNav = 1">Dashboard</label></li>
 			<li><label :class="{'nav-active': activeNav == 2}" @click="activeNav = 2">System Cleaner</label></li>

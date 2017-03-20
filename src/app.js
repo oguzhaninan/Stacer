@@ -4,7 +4,7 @@ import services from './services'
 import uninstaller from './uninstaller'
 import systemCleaner from './system-cleaner'
 
-import { spawn } from 'child_process'
+import { shell } from 'child_process'
 
 new Vue({
     el: '#main',
@@ -15,7 +15,7 @@ new Vue({
     methods: {
         download_update() {
             // open the link on browser
-            spawn('xdg-open', ['https://github.com/oguzhaninan/Stacer/releases/latest'])
+            shell.openExternal('https://github.com/oguzhaninan/Stacer/releases/latest')
         }
     },
     mounted() {
