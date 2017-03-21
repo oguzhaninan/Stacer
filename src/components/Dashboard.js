@@ -1,5 +1,6 @@
 import si from 'systeminformation'
 import { SemiCircle, Line } from 'progressbar.js'
+import { shell } from 'child_process'
 import { prop } from '../config'
 import helpers  from '../helpers'
 //Components
@@ -10,16 +11,16 @@ import CpuBar from './CpuBar'
 import MemoryBar from './MemoryBar'
 import DiskBar from './DiskBar'
 
-				// <disk-bar/>
 export default {
 	template: `<div>
+					<cpu-bar/>
+					<memory-bar/>
+					<disk-bar/>
+
 					<down-bar/>
 					<system-info/>
 					<up-bar/>
 
-					<cpu-bar/>
-					<memory-bar/>
-					
 					<!--Update Check-->
 					<div class="fl w100 update-check" v-show="update_check">
 						<span>There are updates currently available.</span>
@@ -41,13 +42,22 @@ export default {
 		'memory-bar': MemoryBar,
 		'disk-bar': DiskBar
 	},
-	created() {
-
-	},
 	methods: {
 		// open the link on browser
         download_update() {
             shell.openExternal('https://github.com/oguzhaninan/Stacer/releases/latest')
         }
-    }
+    },
+	created() {
+		// Update check
+        try {
+            $.getJSON('https://api.github.com/repos/oguzhaninan/Stacer/releases/latest', ( data ) => {
+                let currentVersion = require('../package.json').version.toString()
+                let releaseVersion = data.tag_name.substr(1).toString()
+
+                this.update_check = (currentVersion != releaseVersion)
+            })
+        }
+        catch(error) { console.log(error) }
+	 }
 }

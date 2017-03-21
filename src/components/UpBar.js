@@ -15,7 +15,7 @@ export default {
 			strokeWidth: 5,
 			easing: 'easeInOut',
 			duration: prop.networkBarsDuration,
-			color: prop.netwrokBarColor,
+			color: prop.networkBarColor,
 			trailColor: prop.trailColor,
 			text: {
 				style: {

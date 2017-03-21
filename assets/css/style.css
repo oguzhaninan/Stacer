@@ -495,12 +495,12 @@ a.loader {
     margin-top:230px;
 }
 
-#loader-7{
+#loader{
     text-align: center;
     margin-top:30px;
 }
 
-#loader-7 span {
+#loader span {
   display: inline-block;
   height: 15px;
   width: 15px;
@@ -508,140 +508,140 @@ a.loader {
   border-radius: 0px;
 }
 
-#loader-7 span:nth-child(1) {
+#loader span:nth-child(1) {
   -webkit-animation: temp 1s 0.05s infinite cubic-bezier(0.005, 0.56, 0.58, 1.59);
           animation: temp 1s 0.05s infinite cubic-bezier(0.005, 0.56, 0.58, 1.59);
   width: 7.5px;
   height: 7.5px;
   margin: 0 2px;
 }
-#loader-7 span:nth-child(2) {
+#loader span:nth-child(2) {
   -webkit-animation: temp 1s 0.1s infinite cubic-bezier(0.005, 0.56, 0.58, 1.59);
           animation: temp 1s 0.1s infinite cubic-bezier(0.005, 0.56, 0.58, 1.59);
   width: 7.5px;
   height: 7.5px;
   margin: 0 2px;
 }
-#loader-7 span:nth-child(3) {
+#loader span:nth-child(3) {
   -webkit-animation: temp 1s 0.15s infinite cubic-bezier(0.005, 0.56, 0.58, 1.59);
           animation: temp 1s 0.15s infinite cubic-bezier(0.005, 0.56, 0.58, 1.59);
   width: 7.5px;
   height: 7.5px;
   margin: 0 2px;
 }
-#loader-7 span:nth-child(4) {
+#loader span:nth-child(4) {
   -webkit-animation: temp 1s 0.2s infinite cubic-bezier(0.005, 0.56, 0.58, 1.59);
           animation: temp 1s 0.2s infinite cubic-bezier(0.005, 0.56, 0.58, 1.59);
   width: 7.5px;
   height: 7.5px;
   margin: 0 2px;
 }
-#loader-7 span:nth-child(5) {
+#loader span:nth-child(5) {
   -webkit-animation: temp 1s 0.25s infinite cubic-bezier(0.005, 0.56, 0.58, 1.59);
           animation: temp 1s 0.25s infinite cubic-bezier(0.005, 0.56, 0.58, 1.59);
   width: 7.5px;
   height: 7.5px;
   margin: 0 2px;
 }
-#loader-7 span:nth-child(6) {
+#loader span:nth-child(6) {
   -webkit-animation: temp 1s 0.3s infinite cubic-bezier(0.005, 0.56, 0.58, 1.59);
           animation: temp 1s 0.3s infinite cubic-bezier(0.005, 0.56, 0.58, 1.59);
   width: 7.5px;
   height: 7.5px;
   margin: 0 2px;
 }
-#loader-7 span:nth-child(7) {
+#loader span:nth-child(7) {
   -webkit-animation: temp 1s 0.35s infinite cubic-bezier(0.005, 0.56, 0.58, 1.59);
           animation: temp 1s 0.35s infinite cubic-bezier(0.005, 0.56, 0.58, 1.59);
   width: 7.5px;
   height: 7.5px;
   margin: 0 2px;
 }
-#loader-7 span:nth-child(8) {
+#loader span:nth-child(8) {
   -webkit-animation: temp 1s 0.4s infinite cubic-bezier(0.005, 0.56, 0.58, 1.59);
           animation: temp 1s 0.4s infinite cubic-bezier(0.005, 0.56, 0.58, 1.59);
   width: 7.5px;
   height: 7.5px;
   margin: 0 2px;
 }
-#loader-7 span:nth-child(9) {
+#loader span:nth-child(9) {
   -webkit-animation: temp 1s 0.45s infinite cubic-bezier(0.005, 0.56, 0.58, 1.59);
           animation: temp 1s 0.45s infinite cubic-bezier(0.005, 0.56, 0.58, 1.59);
   width: 7.5px;
   height: 7.5px;
   margin: 0 2px;
 }
-#loader-7 span:nth-child(10) {
+#loader span:nth-child(10) {
   -webkit-animation: temp 1s 0.5s infinite cubic-bezier(0.005, 0.56, 0.58, 1.59);
           animation: temp 1s 0.5s infinite cubic-bezier(0.005, 0.56, 0.58, 1.59);
   width: 7.5px;
   height: 7.5px;
   margin: 0 2px;
 }
-#loader-7 span:nth-child(11) {
+#loader span:nth-child(11) {
   -webkit-animation: temp 1s 0.55s infinite cubic-bezier(0.005, 0.56, 0.58, 1.59);
           animation: temp 1s 0.55s infinite cubic-bezier(0.005, 0.56, 0.58, 1.59);
   width: 7.5px;
   height: 7.5px;
   margin: 0 2px;
 }
-#loader-7 span:nth-child(12) {
+#loader span:nth-child(12) {
   -webkit-animation: temp 1s 0.6s infinite cubic-bezier(0.005, 0.56, 0.58, 1.59);
           animation: temp 1s 0.6s infinite cubic-bezier(0.005, 0.56, 0.58, 1.59);
   width: 7.5px;
   height: 7.5px;
   margin: 0 2px;
 }
-#loader-7 span:nth-child(13) {
+#loader span:nth-child(13) {
   -webkit-animation: temp 1s 0.65s infinite cubic-bezier(0.005, 0.56, 0.58, 1.59);
           animation: temp 1s 0.65s infinite cubic-bezier(0.005, 0.56, 0.58, 1.59);
   width: 7.5px;
   height: 7.5px;
   margin: 0 2px;
 }
-#loader-7 span:nth-child(14) {
+#loader span:nth-child(14) {
   -webkit-animation: temp 1s 0.7s infinite cubic-bezier(0.005, 0.56, 0.58, 1.59);
           animation: temp 1s 0.7s infinite cubic-bezier(0.005, 0.56, 0.58, 1.59);
   width: 7.5px;
   height: 7.5px;
   margin: 0 2px;
 }
-#loader-7 span:nth-child(15) {
+#loader span:nth-child(15) {
   -webkit-animation: temp 1s 0.75s infinite cubic-bezier(0.005, 0.56, 0.58, 1.59);
           animation: temp 1s 0.75s infinite cubic-bezier(0.005, 0.56, 0.58, 1.59);
   width: 7.5px;
   height: 7.5px;
   margin: 0 2px;
 }
-#loader-7 span:nth-child(16) {
+#loader span:nth-child(16) {
   -webkit-animation: temp 1s 0.8s infinite cubic-bezier(0.005, 0.56, 0.58, 1.59);
           animation: temp 1s 0.8s infinite cubic-bezier(0.005, 0.56, 0.58, 1.59);
   width: 7.5px;
   height: 7.5px;
   margin: 0 2px;
 }
-#loader-7 span:nth-child(17) {
+#loader span:nth-child(17) {
   -webkit-animation: temp 1s 0.85s infinite cubic-bezier(0.005, 0.56, 0.58, 1.59);
           animation: temp 1s 0.85s infinite cubic-bezier(0.005, 0.56, 0.58, 1.59);
   width: 7.5px;
   height: 7.5px;
   margin: 0 2px;
 }
-#loader-7 span:nth-child(18) {
+#loader span:nth-child(18) {
   -webkit-animation: temp 1s 0.9s infinite cubic-bezier(0.005, 0.56, 0.58, 1.59);
           animation: temp 1s 0.9s infinite cubic-bezier(0.005, 0.56, 0.58, 1.59);
   width: 7.5px;
   height: 7.5px;
   margin: 0 2px;
 }
-#loader-7 span:nth-child(19) {
+#loader span:nth-child(19) {
   -webkit-animation: temp 1s 0.95s infinite cubic-bezier(0.005, 0.56, 0.58, 1.59);
           animation: temp 1s 0.95s infinite cubic-bezier(0.005, 0.56, 0.58, 1.59);
   width: 7.5px;
   height: 7.5px;
   margin: 0 2px;
 }
-#loader-7 span:nth-child(20) {
+#loader span:nth-child(20) {
   -webkit-animation: temp 1s 1s infinite cubic-bezier(0.005, 0.56, 0.58, 1.59);
           animation: temp 1s 1s infinite cubic-bezier(0.005, 0.56, 0.58, 1.59);
   width: 7.5px;

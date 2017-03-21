@@ -52,11 +52,14 @@ export default {
                 this.isBusy = true
                 sudo.exec( command( `service ${serviceName} ${status}` ) , {name: 'Stacer'},
                             (error, stdout, stderr) => {
-                    if(stderr)
+                    if(stderr) {
+						e.target.checked = ! status
                         showMessage( 'Operation not successful.', 'error')
-                    else
+					}
+                    else {
                         showMessage( serviceName + ' service ' + status + (e.target.checked ? 'ed' : 'ped'), 'success')
-                    
+					}
+
                     this.isBusy = false
                 })
             } else {

@@ -9,7 +9,7 @@ exports.prettyDiskSize = ( size ) => {
   return ( size / Math.pow(1000, 3)).toFixed(1)
 }
 
-exports.showMessage = ( message , status) => {
+exports.showMessage = ( message , status ) => {
     $.amaran({
         'theme'     :'colorful',
         'content'   :{

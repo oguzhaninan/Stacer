@@ -53,7 +53,12 @@ exports.default = {
 			if (!this.isBusy) {
 				this.isBusy = true;
 				_sudoPrompt2.default.exec((0, _helpers.command)('service ' + serviceName + ' ' + status), { name: 'Stacer' }, function (error, stdout, stderr) {
-					if (stderr) (0, _helpers.showMessage)('Operation not successful.', 'error');else (0, _helpers.showMessage)(serviceName + ' service ' + status + (e.target.checked ? 'ed' : 'ped'), 'success');
+					if (stderr) {
+						e.target.checked = !status;
+						(0, _helpers.showMessage)('Operation not successful.', 'error');
+					} else {
+						(0, _helpers.showMessage)(serviceName + ' service ' + status + (e.target.checked ? 'ed' : 'ped'), 'success');
+					}
 
 					_this2.isBusy = false;
 				});
