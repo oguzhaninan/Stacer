@@ -1,4 +1,4 @@
-// import Dashboard from './components/Dashboard'
+import Dashboard from './components/Dashboard'
 // import dashboard from './dashboard'
 import StartupApps from './components/StartupApps'
 import Services from './components/Services'
@@ -11,14 +11,13 @@ new Vue({
     el: '#main',
     data: {
         activeNav: 1,
-        update_check: false
     },
     components: {
         'uninstaller': Uninstaller,
         'services': Services,
         'startup-apps': StartupApps,
-        'system-cleaner': SystemCleaner
-        // 'dashboard': Dashboard
+        'system-cleaner': SystemCleaner,
+        'dashboard': Dashboard,
     },
     methods: {
         download_update() {

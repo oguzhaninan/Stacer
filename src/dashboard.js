@@ -5,23 +5,8 @@ import { SemiCircle, Line } from 'progressbar.js'
 import { prop } from './config'
 import helpers  from './helpers'
 
-
 let memInfo, dTotal, dUsed, down, up, information = []
 
-/**
- * System info
- */
-si.osInfo( ( o ) => {
-    information.push( "Hostname: " + o.hostname )
-    information.push( "Platform: " + o.platform + " " + o.arch )
-    information.push( "Distribution: " + o.distro + " " + o.release )
-    information.push( "Kernel Release: " + o.kernel )
-    si.cpu( ( c ) => {
-      information.push( "Cpu Model: " + c.manufacturer + " " + c.brand )
-      information.push( "Cpu Speed: " + c.speed + "GHz" )
-      information.push( "Cpu Cores: " + c.cores )
-  })
-})
 /**
  * Create circle bar function
 */
@@ -107,7 +92,7 @@ exports.networkBars = ( ) =>
       },
       step: ( state, bar ) => {
           bar.setText(Math.abs(up).toString() + ' kB/s')
-      } 
+      }
   })
 
   /*
@@ -181,25 +166,3 @@ exports.systemBars = () =>
 
 }
 
-
-/**
- * Components
- */
-Vue.component('circle-bar', {
-    template: '#circle-bar',
-    props: ['text']
-})
-
-Vue.component('line-bar', {
-    template: '#line-bar',
-    props: ['text', 'name'] 
-})    
-
-Vue.component('system-info', {
-    template: '#system-info',
-    data() {
-      return {
-          information: information
-      }
-    }
-})

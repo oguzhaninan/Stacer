@@ -1,1 +1,53 @@
-'use strict';Object.defineProperty(exports,'__esModule',{value:true});var _systeminformation=require('systeminformation');var _systeminformation2=_interopRequireDefault(_systeminformation);var _progressbar=require('progressbar.js');var _config=require('../config');var _helpers=require('../helpers');var _helpers2=_interopRequireDefault(_helpers);var _SystemInfo=require('./SystemInfo');var _SystemInfo2=_interopRequireDefault(_SystemInfo);function _interopRequireDefault(obj){return obj&&obj.__esModule?obj:{default:obj}}exports.default={template:'<div>\n\t\t\t\t<circle-bar text="CPU" id="cpu-cont"></circle-bar>\n\t\t\t\t<circle-bar text="MEMORY" id="mem-cont"></circle-bar>\n\t\t\t\t<circle-bar text="DISK" id="disk-cont"></circle-bar>\n\t\t\t\t<line-bar name="down-bar" text="DOWNLOAD"></line-bar>\n\t\t\t\t<system-info/>\n\t\t\t\t<line-bar name="up-bar" text="UPLOAD"></line-bar>\n\t\t\t\t\n\t\t\t\t<!--Update Check-->\n\t\t\t\t<div class="fl w100 update-check" v-show="update_check">\n\t\t\t\t\t<span>There are updates currently available.</span>\n\t\t\t\t\t<button @click="download_update">\n\t\t\t\t\t\tDownload Update\n\t\t\t\t\t</button>\n\t\t\t\t</div>\n\t\t\t</div>',components:{'system-info':_SystemInfo2.default}};
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+
+var _systeminformation = require('systeminformation');
+
+var _systeminformation2 = _interopRequireDefault(_systeminformation);
+
+var _progressbar = require('progressbar.js');
+
+var _config = require('../config');
+
+var _helpers = require('../helpers');
+
+var _helpers2 = _interopRequireDefault(_helpers);
+
+var _SystemInfo = require('./SystemInfo');
+
+var _SystemInfo2 = _interopRequireDefault(_SystemInfo);
+
+var _UpBar = require('./UpBar');
+
+var _UpBar2 = _interopRequireDefault(_UpBar);
+
+var _DownBar = require('./DownBar');
+
+var _DownBar2 = _interopRequireDefault(_DownBar);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+exports.default = {
+	template: '<div>\n\t\t\t\t<down-bar/>\n\t\t\t\t<system-info/>\n\t\t\t\t<up-bar/>\n\n\t\t\t\t<!--Update Check-->\n\t\t\t\t<div class="fl w100 update-check" v-show="update_check">\n\t\t\t\t\t<span>There are updates currently available.</span>\n\t\t\t\t\t<button @click="download_update">\n\t\t\t\t\t\tDownload Update\n\t\t\t\t\t</button>\n\t\t\t\t</div>\n\t\t\t</div>',
+	data: function data() {
+		return {
+			update_check: false
+		};
+	},
+
+	components: {
+		'system-info': _SystemInfo2.default,
+		'up-bar': _UpBar2.default,
+		'down-bar': _DownBar2.default
+	},
+	created: function created() {},
+
+	methods: {
+		download_update: function download_update() {
+			shell.openExternal('https://github.com/oguzhaninan/Stacer/releases/latest');
+		}
+	}
+};
