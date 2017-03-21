@@ -45,6 +45,7 @@ exports.default = {
 			setInterval(function () {
 				_systeminformation2.default.networkStats(defaultNetwork, function (data) {
 					_this.downSpeed = (data.rx_sec / 1024).toFixed(2);
+
 					downBar.animate(_this.downSpeed / 2000);
 				});
 			}, _config.prop.networkBarsDuration);

@@ -47,79 +47,8 @@ function circleBar( id, color, duration ) {
 
   return cBar
 }
-
-
-exports.networkBars = ( ) =>
-{
-  /*
-  * Create network down speed
-  */
-  let downBar = new Line('#down-bar', {
-      strokeWidth: 5,
-      easing: 'easeInOut',
-      duration: prop.networkBarsDuration,
-      color: prop.netwrokBarColor,
-      trailColor: prop.trailColor,
-      text: {
-        style: {
-            color: '#999',
-            position: 'absolute',
-            right: '0',
-            marginTop: '5px'
-        }
-      },
-      step: (state, bar) => {
-          bar.setText(Math.abs(down).toString() + ' kB/s')
-      }
-  })
-
-  /*
-  * Create network upload speed
-  */
-  let upBar = new Line("#up-bar", {
-      strokeWidth: 5,
-      easing: 'easeInOut',
-      duration: prop.networkBarsDuration,
-      color: prop.netwrokBarColor,
-      trailColor: prop.trailColor,
-      text: {
-        style: {
-            color: '#999',
-            position: 'absolute',
-            right: '0',
-            marginTop: '5px'
-        }
-      },
-      step: ( state, bar ) => {
-          bar.setText(Math.abs(up).toString() + ' kB/s')
-      }
-  })
-
-  /*
-  * Network down and upload speed setter
-  */
-  setInterval( () => {
-      si.networkInterfaceDefault( ( defaultNetwork ) => {
-        setTimeout( () => {
-          si.networkStats(defaultNetwork, ( data ) =>
-          {
-              down = (data.rx_sec / 1024).toFixed(2)
-              up   = (data.tx_sec / 1024).toFixed(2)
-              downBar.animate(down / 2000)
-              upBar.animate(up / 2000)
-          })
-        }, 1000) })
-  }, prop.networkBarsDuration)
-  
-}
-
 exports.systemBars = () =>
 {
-  /*
-  * Create the circle bars
-  */
-  let cpuBar  = circleBar('#cpu-cont', prop.cpuBarColor , prop.cpuDuration )
-
   let memBar  = circleBar('#mem-cont', prop.memBarColor , prop.memDuration )
 
   let diskBar = circleBar('#disk-cont',prop.diskBarColor ,prop.diskDuration )
@@ -128,26 +57,11 @@ exports.systemBars = () =>
   /*
   * Cpu value setter
   */
-  setInterval( () => 
-  {
-    si.currentLoad( ( val ) => {
-      cpuBar.animate(val.currentload / 100)
-    })
-  }, prop.cpuDuration)
+ 
 
   /*
   * Memory value setter
   */
-  setInterval( () => {
-    si.mem( ( ram ) => 
-    {
-      let usedMem  = ram.total - ram.available
-      let totalMem = ram.total
-
-      memInfo = helpers.prettyMemSize(usedMem) + ' / ' + helpers.prettyMemSize(totalMem) + 'GB'
-      memBar.animate(usedMem / totalMem)
-    })
-  }, prop.memDuration);
 
   /*
   * Disk value setter

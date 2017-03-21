@@ -40,10 +40,12 @@ exports.default = {
 				bar.setText(Math.abs(_this.upSpeed).toString() + ' kB/s');
 			}
 		});
+
 		_systeminformation2.default.networkInterfaceDefault(function (defaultNetwork) {
 			setInterval(function () {
 				_systeminformation2.default.networkStats(defaultNetwork, function (data) {
 					_this.upSpeed = (data.tx_sec / 1024).toFixed(2);
+
 					upBar.animate(_this.upSpeed / 2000);
 				});
 			}, _config.prop.networkBarsDuration);

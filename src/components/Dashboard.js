@@ -6,24 +6,28 @@ import helpers  from '../helpers'
 import SystemInfo from './SystemInfo'
 import UpBar from './UpBar'
 import DownBar from './DownBar'
+import CpuBar from './CpuBar'
+import MemoryBar from './MemoryBar'
+import DiskBar from './DiskBar'
 
-				// <circle-bar text="CPU" id="cpu-cont"/>
-				// <circle-bar text="MEMORY" id="mem-cont"/>
-				// <circle-bar text="DISK" id="disk-cont"/>
+				// <disk-bar/>
 export default {
 	template: `<div>
-				<down-bar/>
-				<system-info/>
-				<up-bar/>
+					<down-bar/>
+					<system-info/>
+					<up-bar/>
 
-				<!--Update Check-->
-				<div class="fl w100 update-check" v-show="update_check">
-					<span>There are updates currently available.</span>
-					<button @click="download_update">
-						Download Update
-					</button>
-				</div>
-			</div>`,
+					<cpu-bar/>
+					<memory-bar/>
+					
+					<!--Update Check-->
+					<div class="fl w100 update-check" v-show="update_check">
+						<span>There are updates currently available.</span>
+						<button @click="download_update">
+							Download Update
+						</button>
+					</div>
+				</div>`,
 	data() {
 		return({
         	update_check: false
@@ -32,7 +36,10 @@ export default {
 	components: {
 		'system-info': SystemInfo,
 		'up-bar': UpBar,
-		'down-bar': DownBar
+		'down-bar': DownBar,
+		'cpu-bar': CpuBar,
+		'memory-bar': MemoryBar,
+		'disk-bar': DiskBar
 	},
 	created() {
 

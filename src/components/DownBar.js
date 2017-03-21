@@ -1,5 +1,5 @@
 import si from 'systeminformation'
-import { SemiCircle, Line } from 'progressbar.js'
+import { Line } from 'progressbar.js'
 import { prop } from '../config'
 
 export default {
@@ -33,6 +33,7 @@ export default {
 		// Get network name
 		si.networkInterfaceDefault( defaultNetwork => {
 			setInterval( () => {				
+				// get down speed
 				si.networkStats(defaultNetwork, data => {
 					this.downSpeed = (data.rx_sec / 1024).toFixed(2)
 					// down bar update
