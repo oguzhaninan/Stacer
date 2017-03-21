@@ -1,5 +1,5 @@
 import dashboard from './dashboard'
-import startupApps from './startup-apps'
+import StartupApps from './components/StartupApps'
 import Services from './components/Services'
 import Uninstaller from './components/Uninstaller'
 import systemCleaner from './system-cleaner'
@@ -14,7 +14,8 @@ new Vue({
     },
     components: {
         'uninstaller': Uninstaller,
-        'services': Services
+        'services': Services,
+        'startup-apps': StartupApps
     },
     methods: {
         download_update() {

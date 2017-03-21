@@ -46,13 +46,12 @@ export default {
         //Service status change switch button function         
         statusChange( e ) {
             let serviceName = e.target.id
-            let status  = e.target.checked ? 'start' : 'stop'
+            let status = e.target.checked ? 'start' : 'stop'
 
             if( ! this.isBusy ){
                 this.isBusy = true
                 sudo.exec( command( `service ${serviceName} ${status}` ) , {name: 'Stacer'},
-                            (error, stdout, stderr) =>
-                {
+                            (error, stdout, stderr) => {
                     if(stderr)
                         showMessage( 'Operation not successful.', 'error')
                     else
@@ -60,7 +59,7 @@ export default {
                     
                     this.isBusy = false
                 })
-            }else {
+            } else {
                 showMessage( 'Another process continues.' , 'error')
             }
         }

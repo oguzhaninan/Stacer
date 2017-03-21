@@ -126,23 +126,7 @@
 			</div>
 		</script>
 	<!-- System Cleaner Page Components -->
-
-	<!-- Startup Apps Page Components -->
-		<script type="text/x-template" id="startup-apps">
-			<div class="tdl-content scroll">
-				<span class="fl w100 empty-list" v-show="! apps.length" >
-					No startup apps found.
-				</span>
-				<ul v-show="apps.length">
-					<li v-for="app in apps">
-						{{ app.name }}
-						<input type="checkbox" class="switch" :id="app.file" :checked="app.isStart" @change="statusChange" />
-						<label :for="app.file"></label>
-					</li>
-				</ul>
-			</div>
-		</script>
-	<!-- Startup Apps Page Components -->
+	
 
 </head>
 
@@ -194,13 +178,8 @@
 
 		<!--System Startup Apps Page-->
 		<transition name="slide-fade">
-			<div v-show="activeNav == 3" class="content">
-				<div id="startup-apps-table">
-					<div id="startup-apps-title">
-						<span style="padding:0;">System Startup Applications</span>
-					</div>
-					<startup-apps></startup-apps>
-				</div>
+			<div v-show="activeNav == 3" class="content">				
+				<startup-apps></startup-apps>
 			</div>
 		</transition>
 

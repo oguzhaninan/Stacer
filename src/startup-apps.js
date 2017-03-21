@@ -3,7 +3,6 @@ import { commands } from './config'
 import { showMessage } from './helpers'
 import chokidar from 'chokidar'
 import fs from 'fs'
-
 import properties from 'properties-reader'
 
 let apps = []
@@ -11,10 +10,10 @@ let apps = []
 function getApps() {
     try {
         fs.readdir( commands.autostartApps, ( err, files ) => {
-            if( ! err ){
+            if( ! err ) {
                 apps.splice(0, apps.length) // array clear
-                files.filter( ( file ) => file.endsWith('.desktop') )
-                     .forEach(( file ) =>
+                files.filter( file => file.endsWith('.desktop') )
+                     .forEach( file =>
                 {
                     try {
                         var entry = properties(commands.autostartApps+ '/' + file)
