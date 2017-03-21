@@ -50,6 +50,20 @@ export default {
 						</div>
 					</transition>
 
+					<!--Startup Loading-->
+					<div id="loading">
+						<span class="loader_text"> Loading... </span>
+						<div id="loader">
+							<span></span><span></span><span></span>
+							<span></span><span></span><span></span>
+							<span></span><span></span><span></span>
+							<span></span><span></span><span></span>
+							<span></span><span></span><span></span>
+							<span></span><span></span><span></span>
+							<span></span><span></span>
+						</div>
+					</div>
+
 				</div>`,
 	data() {
 		return({ activeNav: 1 })

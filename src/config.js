@@ -1,8 +1,7 @@
 
 import { homedir } from 'os'
 
-exports.commands =
-{
+exports.commands = {
   aptCachePath:         "/var/cache/apt/archives/",
   crashReportsPath :    "/var/crash/",
   systemLogsPath:       "/var/log/",
