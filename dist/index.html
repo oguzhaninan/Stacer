@@ -144,47 +144,6 @@
 		</script>
 	<!-- Startup Apps Page Components -->
 
-	<!-- Services Pages Components -->
-		<script type="text/x-template" id="services">
-			<div id="system-service-table">
-				<div id="system-service-title">
-					<span style="padding:0;">System Services ({{ filteredServices.length }})</span>
-					<input type="text" id="system-service-search" v-model="searchString" placeholder="Search..." />
-				</div>
-				<div class="tdl-content scroll">
-					<span class="fl w100 empty-list" v-show="! filteredServices.length" >
-						No service found.
-					</span>
-					<ul v-show="filteredServices.length">
-						<li v-for="service in filteredServices" >
-							{{ service.name }}
-							<input type="checkbox" class="switch" :id="service.name" :checked="service.isRun" @change="statusChange" />
-							<label :for="service.name"></label>
-						</li>
-					</ul>
-				</div>
-			</div>
-		</script>
-	<!-- Services Pages Components -->
-
-	<!-- Uninstaller Pages Components -->
-		<script type="text/x-template" id="uninstaller">
-			<div id="uninstaller-table">
-				<div id="installed-packages-title">
-					<span style="padding:0;">System Installed Packages ({{ filteredPackages.length }})</span>
-					<input type="text" id="packages-search" v-model="searchString" placeholder="Search..." />
-				</div>
-				<div class="tdl-content scroll">
-					<ul>
-						<li v-for="package in filteredPackages" > {{ package }}
-							<a :name="package" @click="removePackage"></a>
-						</li>
-					</ul>
-				</div>
-			</div>
-		</script>
-	<!-- Uninstaller Pages Components -->
-
 </head>
 
 <body>

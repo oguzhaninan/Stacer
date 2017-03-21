@@ -33,7 +33,7 @@ function createWindow() {
         win.center()
     }
 
-    win.setMenu(null)
+    // win.setMenu(null)
 
     win.loadURL(`file://${__dirname}/dist/index.html`)
 

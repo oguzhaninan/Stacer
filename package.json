@@ -35,7 +35,7 @@
     "vuex": "^2.2.1"
   },
   "scripts": {
-    "start": "electron .",
+    "start": "npm run build; electron .",
     "build": "babel src/ -d dist/",
     "clean": "rm dist/*.js",
     "package-x86": "electron-packager . --overwrite --platform=linux --arch=ia32 --icon=assets/img/icon.png --prune=true --out=release-builds --version=1.4.15",
