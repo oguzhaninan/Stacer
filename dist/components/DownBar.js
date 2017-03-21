@@ -37,14 +37,14 @@ exports.default = {
 				}
 			},
 			step: function step(state, bar) {
-				bar.setText(Math.abs(_this.downSpeed).toString() + ' kB/s');
+				bar.setText(_this.downSpeed.toString() + ' kB/s');
 			}
 		});
 
 		_systeminformation2.default.networkInterfaceDefault(function (defaultNetwork) {
 			setInterval(function () {
 				_systeminformation2.default.networkStats(defaultNetwork, function (data) {
-					_this.downSpeed = (data.rx_sec / 1024).toFixed(2);
+					_this.downSpeed = Math.abs(data.rx_sec / 1024).toFixed(2);
 
 					downBar.animate(_this.downSpeed / 2000);
 				});

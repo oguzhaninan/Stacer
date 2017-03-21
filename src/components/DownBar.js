@@ -26,7 +26,7 @@ export default {
 				}
 			},
 			step: (state, bar) => {
-				bar.setText(Math.abs(this.downSpeed).toString() + ' kB/s')
+				bar.setText(this.downSpeed.toString() + ' kB/s')
 			}
 		})
 
@@ -35,7 +35,7 @@ export default {
 			setInterval( () => {				
 				// get down speed
 				si.networkStats(defaultNetwork, data => {
-					this.downSpeed = (data.rx_sec / 1024).toFixed(2)
+					this.downSpeed = Math.abs(data.rx_sec / 1024).toFixed(2)
 					// down bar update
 					downBar.animate(this.downSpeed / 2000)
 				}) 

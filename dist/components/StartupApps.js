@@ -32,7 +32,6 @@ exports.default = {
 	created: function created() {
 		var _this = this;
 
-		this.getApps();
 		_chokidar2.default.watch(_config.commands.autostartApps, { persistent: true, ignoreInitial: true }).on('add', function (path) {
 			_this.getApps();
 		}).on('unlink', function (path) {

@@ -1,8 +1,15 @@
 import si from 'systeminformation'
-import { SemiCircle, Line } from 'progressbar.js'
-import { shell } from 'electron'
-import { prop } from '../config'
-import helpers  from '../helpers'
+import {
+	SemiCircle,
+	Line
+} from 'progressbar.js'
+import {
+	shell
+} from 'electron'
+import {
+	prop
+} from '../config'
+import helpers from '../helpers'
 //Components
 import SystemInfo from './SystemInfo'
 import UpBar from './UpBar'
@@ -30,8 +37,8 @@ export default {
 					</div>
 				</div>`,
 	data() {
-		return({
-        	update_check: false
+		return ({
+			update_check: false
 		})
 	},
 	components: {
@@ -44,20 +51,21 @@ export default {
 	},
 	methods: {
 		// open the link on browser
-        download_update() {
-            shell.openExternal('https://github.com/oguzhaninan/Stacer/releases/latest')
-        }
-    },
+		download_update() {
+			shell.openExternal('https://github.com/oguzhaninan/Stacer/releases/latest')
+		}
+	},
 	created() {
 		// Update check
-        try {
-            $.getJSON('https://api.github.com/repos/oguzhaninan/Stacer/releases/latest', ( data ) => {
-                let currentVersion = require('../../package.json').version.toString()
-                let releaseVersion = data.tag_name.substr(1).toString()
+		try {
+			$.getJSON('https://api.github.com/repos/oguzhaninan/Stacer/releases/latest', data => {
+				let currentVersion = require('../../package.json').version.toString()
+				let releaseVersion = data.tag_name.substr(1).toString()
 
-                this.update_check = (currentVersion != releaseVersion)
-            })
-        }
-        catch(error) { console.log(error) }
-	 }
+				this.update_check = (currentVersion != releaseVersion)
+			})
+		} catch (error) {
+			console.log(error)
+		}
+	}
 }

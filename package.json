@@ -1,14 +1,13 @@
 {
   "name": "Stacer",
   "productName": "Stacer",
-  "version": "1.0.24",
-  "description": "Ubuntu System Optimizer and Monitoring",
+  "version": "1.0.4",
+  "description": "Linux System Optimizer and Monitoring",
   "license": "MIT",
   "main": "main.js",
   "author": "Oguzhan Inan <oguzhan3488@gmail.com>",
   "keywords": [
     "linux",
-    "ubuntu",
     "system",
     "optimizer",
     "monitoring"
