@@ -1,13 +1,104 @@
-
 import { spawn } from 'child_process'
 import sudo from 'sudo-prompt'
 import fs from 'fs'
-import { commands } from './config'
-import { command, showMessage } from './helpers'
+import { commands } from '../config'
+import { command, showMessage } from '../helpers'
 
-Vue.component('system-cleaner', {
-    template: '#system-cleaner',
-    data () {
+export default {
+	template: `<div>
+				<div class="cleaner-sidebar">
+					<ul>
+						<li><label><input type="checkbox" v-model:checked="aptCacheSelect"><i></i>
+						<span> Apt Cache ({{ aptCachesList.length }}) </span></label></li>
+
+						<li><label><input type="checkbox" v-model:checked="crashReportsSelect"><i></i>
+						<span> Crash Reports ({{ crashReportsList.length }}) </span></label></li>
+
+						<li><label><input type="checkbox" v-model:checked="systemLogsSelect"><i></i>
+						<span> System Logs ({{ systemLogsList.length }}) </span></label></li>
+
+						<li><label><input type="checkbox" v-model:checked="appCacheSelect"><i></i>
+						<span> App Cache ({{ appCachesList.length }}) </span></label></li>
+					</ul>
+
+					<input type="button" id="system-scan-btn" @click="systemScan" value="System Scan" />
+				</div>
+
+				<div class="tdl-holder scroll" id="cleaner-table">
+					<div class="tdl-content">
+						<ul>
+							<li v-show="aptCachesList.length" style="background-color: #293945;">
+								<label>
+									<input type="checkbox" @change="checkAllAptCaches"><i></i>
+									<span style="font-size:14px; color:#aeb5bf;">
+										Select All (Apt Cache)
+									</span>
+								</label>
+							</li>
+							<li v-for="cacheName in aptCachesList">
+								<label>
+									<input type="checkbox" :value="cacheName" v-model="checkedAptCaches"  >
+									<i></i>
+									<span> {{ cacheName }} </span>
+								</label>
+							</li>
+
+							<li v-show="crashReportsList.length" style="background-color: #293945;">
+								<label>
+									<input type="checkbox" @change="checkAllCrashReports">
+									<i></i>
+									<span style="font-size:14px; color:#aeb5bf;">
+										Select All (Crash Reports)
+									</span>
+								</label>
+							</li>
+							<li v-for="crashName in crashReportsList">
+								<label>
+									<input type="checkbox" :value="crashName" v-model="checkedCrashReports">
+									<i></i>
+									<span> {{ crashName }} </span>
+								</label>
+							</li>
+
+							<li v-show="systemLogsList.length" style="background-color: #293945;">
+								<label>
+									<input type="checkbox" @change="checkAllSystemLogs"><i></i>
+									<span style="font-size:14px; color:#aeb5bf;">
+										Select All (System Logs)
+									</span>
+								</label>
+							</li>
+							<li v-for="logName in systemLogsList">
+								<label>
+									<input type="checkbox" :value="logName" v-model="checkedSystemLogs">
+									<i></i>
+									<span> {{ logName }} </span>
+								</label>
+							</li>
+
+							<li v-show="appCachesList.length" style="background-color: #293945;">
+								<label>
+									<input type="checkbox" @change="checkAllAppCaches"><i></i>
+									<span style="font-size:14px; color:#aeb5bf;">
+										Select All (App Caches)
+									</span>
+								</label>
+							</li>
+							<li v-for="appName in appCachesList">
+								<label>
+									<input type="checkbox" :value="appName" v-model="checkedAppCaches">
+									<i></i>
+									<span>
+										{{ appName }}
+									</span>
+								</label>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<input type="button" id="clean-btn" @click="systemClean" value="Clean" />
+			</div>`,
+	data () {
         return {
             aptCacheSelect: false,
             crashReportsSelect: false,
@@ -155,4 +246,4 @@ Vue.component('system-cleaner', {
                 this.checkedAppCaches.push(...this.appCachesList)
         }
     }
-})
+}

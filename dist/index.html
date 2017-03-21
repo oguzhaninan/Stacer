@@ -2,131 +2,12 @@
 <html>
 <head>
 	<meta charset="UTF-8">
-
 	<script>
 		window.$ = window.jQuery = require('jquery');
 	</script>
 
 	<link rel="stylesheet" type="text/css" href="../assets/css/style.css">
 	<link rel="stylesheet" type="text/css" href="../assets/css/amaran.min.css">
-
-	<!-- Dashboard Page Components -->
-		<script type="text/x-template" id="circle-bar">
-			<div class="cont fl">{{ text }}</div>
-		</script>
-
-		<script type="text/x-template" id="line-bar">
-			<div class="line-cont fr">
-				<span>{{ text }}</span>
-				<div v-bind:id="name"></div>
-			</div>
-		</script>
-
-		<script type="text/x-template" id="system-info">
-			<div class="system-info">SYSTEM INFO
-				<ul> <li v-for="info in information"> {{ info }} </li> </ul>
-			</div>
-		</script>
-	<!-- Dashboard Page Components -->
-
-	<!-- System Cleaner Page Components -->
-		<script type="text/x-template" id="system-cleaner">
-			<div>
-				<div class="cleaner-sidebar">
-					<ul>
-						<li><label><input type="checkbox" v-model:checked="aptCacheSelect"><i></i>
-						<span> Apt Cache ({{ aptCachesList.length }}) </span></label></li>
-
-						<li><label><input type="checkbox" v-model:checked="crashReportsSelect"><i></i>
-						<span> Crash Reports ({{ crashReportsList.length }}) </span></label></li>
-
-						<li><label><input type="checkbox" v-model:checked="systemLogsSelect"><i></i>
-						<span> System Logs ({{ systemLogsList.length }}) </span></label></li>
-
-						<li><label><input type="checkbox" v-model:checked="appCacheSelect"><i></i>
-						<span> App Cache ({{ appCachesList.length }}) </span></label></li>
-					</ul>
-
-					<input type="button" id="system-scan-btn" @click="systemScan" value="System Scan" />
-				</div>
-
-				<div class="tdl-holder scroll" id="cleaner-table">
-					<div class="tdl-content">
-						<ul>
-							<li v-show="aptCachesList.length" style="background-color: #293945;">
-								<label>
-									<input type="checkbox" @change="checkAllAptCaches"><i></i>
-									<span style="font-size:14px; color:#aeb5bf;">
-										Select All (Apt Cache)
-									</span>
-								</label>
-							</li>
-							<li v-for="cacheName in aptCachesList">
-								<label>
-									<input type="checkbox" :value="cacheName" v-model="checkedAptCaches"  >
-									<i></i>
-									<span> {{ cacheName }} </span>
-								</label>
-							</li>
-
-							<li v-show="crashReportsList.length" style="background-color: #293945;">
-								<label>
-									<input type="checkbox" @change="checkAllCrashReports">
-									<i></i>
-									<span style="font-size:14px; color:#aeb5bf;">
-										Select All (Crash Reports)
-									</span>
-								</label>
-							</li>
-							<li v-for="crashName in crashReportsList">
-								<label>
-									<input type="checkbox" :value="crashName" v-model="checkedCrashReports">
-									<i></i>
-									<span> {{ crashName }} </span>
-								</label>
-							</li>
-
-							<li v-show="systemLogsList.length" style="background-color: #293945;">
-								<label>
-									<input type="checkbox" @change="checkAllSystemLogs"><i></i>
-									<span style="font-size:14px; color:#aeb5bf;">
-										Select All (System Logs)
-									</span>
-								</label>
-							</li>
-							<li v-for="logName in systemLogsList">
-								<label>
-									<input type="checkbox" :value="logName" v-model="checkedSystemLogs">
-									<i></i>
-									<span> {{ logName }} </span>
-								</label>
-							</li>
-
-							<li v-show="appCachesList.length" style="background-color: #293945;">
-								<label>
-									<input type="checkbox" @change="checkAllAppCaches"><i></i>
-									<span style="font-size:14px; color:#aeb5bf;">
-										Select All (App Caches)
-									</span>
-								</label>
-							</li>
-							<li v-for="appName in appCachesList">
-								<label>
-									<input type="checkbox" :value="appName" v-model="checkedAppCaches">
-									<i></i>
-									<span>
-										{{ appName }}
-									</span>
-								</label>
-							</li>
-						</ul>
-					</div>
-				</div>
-				<input type="button" id="clean-btn" @click="systemClean" value="Clean" />
-			</div>
-		</script>
-	<!-- System Cleaner Page Components -->
-	
 
 </head>
 
@@ -145,55 +26,35 @@
 		<!--Dashboard Page-->
 		<transition name="slide-fade">
 			<div v-show="activeNav == 1" class="content">
-
-				<circle-bar text="CPU" id="cpu-cont"></circle-bar>
-
-				<circle-bar text="MEMORY" id="mem-cont"></circle-bar>
-
-				<circle-bar text="DISK" id="disk-cont"></circle-bar>
-
-				<line-bar name="down-bar" text="DOWNLOAD"></line-bar>
-
-				<system-info></system-info>
-
-				<line-bar name="up-bar" text="UPLOAD"></line-bar>
-
-				<!--Update Check-->
-				<div class="fl w100 update-check" v-show="update_check">
-					<span>There are updates currently available.</span>
-					<button @click="download_update">
-						Download Update
-					</button>
-				</div>
-
+				<dashboard/>
 			</div>
 		</transition>
 
 		<!--System Cleaner Page-->
 		<transition name="slide-fade">
 			<div v-show="activeNav == 2" class="content">
-				<system-cleaner></system-cleaner>
+				<system-cleaner/>
 			</div>
 		</transition>
 
 		<!--System Startup Apps Page-->
 		<transition name="slide-fade">
 			<div v-show="activeNav == 3" class="content">				
-				<startup-apps></startup-apps>
+				<startup-apps/>
 			</div>
 		</transition>
 
 		<!--Services Page-->
 		<transition name="slide-fade">
 			<div v-show="activeNav == 4" class="content">
-				<services></services>
+				<services/>
 			</div>
 		</transition>
 
 		<!--Packages Page-->
 		<transition name="slide-fade">
 			<div v-show="activeNav == 5" class="content">
-				<uninstaller></uninstaller>
+				<uninstaller/>
 			</div>
 		</transition>
 

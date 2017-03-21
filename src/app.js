@@ -1,8 +1,9 @@
-import dashboard from './dashboard'
+// import Dashboard from './components/Dashboard'
+// import dashboard from './dashboard'
 import StartupApps from './components/StartupApps'
 import Services from './components/Services'
 import Uninstaller from './components/Uninstaller'
-import systemCleaner from './system-cleaner'
+import SystemCleaner from './components/SystemCleaner'
 
 import { shell } from 'child_process'
 
@@ -15,7 +16,9 @@ new Vue({
     components: {
         'uninstaller': Uninstaller,
         'services': Services,
-        'startup-apps': StartupApps
+        'startup-apps': StartupApps,
+        'system-cleaner': SystemCleaner
+        // 'dashboard': Dashboard
     },
     methods: {
         download_update() {
@@ -24,9 +27,7 @@ new Vue({
         }
     },
     mounted() {
-        /**
-         * Update check
-         */
+        // Update check
         try {
             $.getJSON('https://api.github.com/repos/oguzhaninan/Stacer/releases/latest', ( data ) => {
                 let currentVersion = require('../package.json').version.toString()
@@ -37,11 +38,9 @@ new Vue({
         }
         catch(error) { console.log(error) }
 
-        /**
-         * Dashboard Page
-         */
-        dashboard.systemBars()
-        dashboard.networkBars()
+        // Dashboard Page
+        // dashboard.systemBars()
+        // dashboard.networkBars()
     }
 })
 
