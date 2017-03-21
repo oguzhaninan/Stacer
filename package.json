@@ -1,7 +1,7 @@
 {
   "name": "Stacer",
   "productName": "Stacer",
-  "version": "1.0.4",
+  "version": "1.0.24",
   "description": "Ubuntu System Optimizer and Monitoring",
   "license": "MIT",
   "main": "main.js",

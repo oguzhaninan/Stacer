@@ -2,13 +2,29 @@
 <html>
 <head>
 	<meta charset="UTF-8">
+	<title>Stacer</title>
 	<script> window.$ = window.jQuery = require('jquery'); </script>
 	<link rel="stylesheet" type="text/css" href="../assets/css/style.css">
 	<link rel="stylesheet" type="text/css" href="../assets/css/amaran.min.css">
 </head>
 
 <body>
-	<app v-cloak />	
+	<app v-cloak></app>
+
+	<!--Startup Loading-->
+	<div id="loading">
+		<span class="loader_text"> Loading... </span>
+		<div id="loader">
+			<span></span><span></span><span></span>
+			<span></span><span></span><span></span>
+			<span></span><span></span><span></span>
+			<span></span><span></span><span></span>
+			<span></span><span></span><span></span>
+			<span></span><span></span><span></span>
+			<span></span><span></span>
+		</div>
+	</div>
+
 </body>
 
 <!-- Scripts -->

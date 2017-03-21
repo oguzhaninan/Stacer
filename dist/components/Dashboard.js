@@ -10,7 +10,7 @@ var _systeminformation2 = _interopRequireDefault(_systeminformation);
 
 var _progressbar = require('progressbar.js');
 
-var _child_process = require('child_process');
+var _electron = require('electron');
 
 var _config = require('../config');
 
@@ -62,7 +62,7 @@ exports.default = {
 	},
 	methods: {
 		download_update: function download_update() {
-			_child_process.shell.openExternal('https://github.com/oguzhaninan/Stacer/releases/latest');
+			_electron.shell.openExternal('https://github.com/oguzhaninan/Stacer/releases/latest');
 		}
 	},
 	created: function created() {
@@ -70,7 +70,7 @@ exports.default = {
 
 		try {
 			$.getJSON('https://api.github.com/repos/oguzhaninan/Stacer/releases/latest', function (data) {
-				var currentVersion = require('../package.json').version.toString();
+				var currentVersion = require('../../package.json').version.toString();
 				var releaseVersion = data.tag_name.substr(1).toString();
 
 				_this.update_check = currentVersion != releaseVersion;

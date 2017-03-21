@@ -7,9 +7,9 @@ new Vue({
     },
     components: {
         'app': App
+    },
+    mounted() {
+        $('#loading').remove()
     }
 })
-
-setTimeout(() => {
-    $('#loading').remove()
-}, 3000);
+ 
