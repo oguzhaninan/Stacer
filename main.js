@@ -23,17 +23,16 @@ function createWindow() {
         icon: './assets/img/icon.png'
     })
 
-    try{
+    try {
         const screenSize = electron.screen.getPrimaryDisplay().size;
         win.setPosition( (screenSize.width  - _width )  / 2,
                         (screenSize.height - _height ) / 2 )
     }
-    catch(er)
-    {
+    catch(er) {
         win.center()
     }
-
-    // win.setMenu(null)
+    
+    win.setMenu(null)
 
     win.loadURL(`file://${__dirname}/dist/index.html`)
 
