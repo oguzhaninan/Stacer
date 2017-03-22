@@ -31,7 +31,7 @@ function createWindow() {
     catch(er) {
         win.center()
     }
-    
+
     win.setMenu(null)
 
     win.loadURL(`file://${__dirname}/dist/index.html`)
@@ -49,8 +49,6 @@ app.on("window-all-closed", () => {
 })
 
 app.on("activate", () => {
-
     if (win === null)
         createWindow()
-
 })
