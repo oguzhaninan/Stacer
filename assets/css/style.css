@@ -7,11 +7,25 @@ body * {
     src: url(../font/OpenSans-Regular.ttf) format("truetype");
 }
 
+/*Colors*/
+body {
+    background-color: #202b33;
+    /*background-color: #ecf3f6;*/
+}
+
+.cont,
+.line-cont {
+    background-color: #293945;
+    /*background-color: #dce6ec;*/
+}
+
+
+
+
 body {
     overflow: hidden;
     float: left;
     padding: 10px 0 0 0;
-    background-color: #202b33;
     font-family: 'Open Sans', sans-serif;
     -webkit-user-select: none;
 }
@@ -43,7 +57,6 @@ button {
     font-size: 16px;
     color: white;
     margin: 15px;
-    background-color: #293945;
     padding: 20px 30px 50px 30px;
     font-weight: bold;
 }
@@ -92,15 +105,18 @@ button {
     border: 1px solid #3d474e;
 }
 
-.tdl-holder ul, .tdl-holder li {
+.tdl-holder ul,
+.tdl-holder li {
     list-style: none;
     margin: 0;
-    padding: 0;
+    padding: 0;    
 }
 
 .tdl-holder li {
     border-bottom: 1px solid #3d474e;
     color: #748390;
+    float: left;
+    width: 100%;
 }
 
 .tdl-holder li span {
@@ -167,6 +183,10 @@ button {
   background-position: 186px 15px;
 }
 
+#system-service-table .empty-list,
+#uninstaller-table .empty-list {
+  background-position: 285px 15px;
+}
 
 
 #uninstaller-table,

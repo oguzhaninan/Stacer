@@ -10,7 +10,10 @@ export default {
 					<input type="text" id="packages-search" v-model="searchString" placeholder="Search..." />
 				</div>
 				<div class="tdl-content scroll">
-					<ul>
+                    <span class="fl w100 empty-list" v-show="! filteredPackages.length" >
+						No package found.
+					</span>
+					<ul v-show="filteredPackages.length">
 						<li v-for="package in filteredPackages" > {{ package }}
 							<a :name="package" @click="removePackage"></a>
 						</li>

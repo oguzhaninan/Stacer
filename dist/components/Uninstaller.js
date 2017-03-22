@@ -19,7 +19,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
 
 exports.default = {
-    template: '<div id="uninstaller-table">\n\t\t\t\t<div id="installed-packages-title">\n\t\t\t\t\t<span style="padding:0;">System Installed Packages ({{ filteredPackages.length }})</span>\n\t\t\t\t\t<input type="text" id="packages-search" v-model="searchString" placeholder="Search..." />\n\t\t\t\t</div>\n\t\t\t\t<div class="tdl-content scroll">\n\t\t\t\t\t<ul>\n\t\t\t\t\t\t<li v-for="package in filteredPackages" > {{ package }}\n\t\t\t\t\t\t\t<a :name="package" @click="removePackage"></a>\n\t\t\t\t\t\t</li>\n\t\t\t\t\t</ul>\n\t\t\t\t</div>\n\t\t\t</div>',
+    template: '<div id="uninstaller-table">\n\t\t\t\t<div id="installed-packages-title">\n\t\t\t\t\t<span style="padding:0;">System Installed Packages ({{ filteredPackages.length }})</span>\n\t\t\t\t\t<input type="text" id="packages-search" v-model="searchString" placeholder="Search..." />\n\t\t\t\t</div>\n\t\t\t\t<div class="tdl-content scroll">\n                    <span class="fl w100 empty-list" v-show="! filteredPackages.length" >\n\t\t\t\t\t\tNo package found.\n\t\t\t\t\t</span>\n\t\t\t\t\t<ul v-show="filteredPackages.length">\n\t\t\t\t\t\t<li v-for="package in filteredPackages" > {{ package }}\n\t\t\t\t\t\t\t<a :name="package" @click="removePackage"></a>\n\t\t\t\t\t\t</li>\n\t\t\t\t\t</ul>\n\t\t\t\t</div>\n\t\t\t</div>',
     data: function data() {
         return {
             packagesList: [],
