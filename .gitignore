@@ -4,4 +4,5 @@ node_modules/
 release-builds/
 dest/
 dist/*.js
-dist/**/*.js
+dist/components/*.js
+dist/utils/*.js
