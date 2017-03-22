@@ -1,4 +1,4 @@
-.vscode
+.vscode/
 node_modules/
 *.lock
 release-builds/
