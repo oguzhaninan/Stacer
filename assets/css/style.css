@@ -170,8 +170,6 @@ button {
     height: 500px;
 }
 
-
-
 .empty-list{
   font-size: 22px;
   text-align: center;
@@ -202,8 +200,8 @@ button {
 }
 
 .add-startup-app {
-  background-color: transparent;
-  border: 1px solid #293945;
+  background-color: #2196f3;
+  border: 0;
   padding: 8px 15px;
   color: #eee;
   float: right;
@@ -212,7 +210,7 @@ button {
 }
 
 .add-startup-app:hover {
-  background-color: #293945;
+  background-color: #2285c3;
 }
 
 #uninstaller-table ul,

@@ -10,9 +10,9 @@ var _sudoPrompt = require('sudo-prompt');
 
 var _sudoPrompt2 = _interopRequireDefault(_sudoPrompt);
 
-var _config = require('../config');
+var _config = require('../utils/config');
 
-var _helpers = require('../helpers');
+var _helpers = require('../utils/helpers');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -38,7 +38,10 @@ exports.default = {
 			data.forEach(function (service) {
 				var serviceName = service.substring(1);
 				var isRun = service.substring(0, 1) == '+' ? 'checked' : '';
-				_this.servicesList.push({ name: serviceName, isRun: isRun });
+				_this.servicesList.push({
+					name: serviceName,
+					isRun: isRun
+				});
 			});
 		});
 	},
@@ -52,7 +55,9 @@ exports.default = {
 
 			if (!this.isBusy) {
 				this.isBusy = true;
-				_sudoPrompt2.default.exec((0, _helpers.command)('service ' + serviceName + ' ' + status), { name: 'Stacer' }, function (error, stdout, stderr) {
+				_sudoPrompt2.default.exec((0, _helpers.command)('service ' + serviceName + ' ' + status), {
+					name: 'Stacer'
+				}, function (error, stdout, stderr) {
 					if (stderr) {
 						e.target.checked = !status;
 						(0, _helpers.showMessage)('Operation not successful.', 'error');

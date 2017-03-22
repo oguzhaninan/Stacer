@@ -4,9 +4,9 @@ Object.defineProperty(exports, "__esModule", {
 	value: true
 });
 
-var _config = require('../config');
+var _config = require('../utils/config');
 
-var _helpers = require('../helpers');
+var _helpers = require('../utils/helpers');
 
 var _chokidar = require('chokidar');
 
@@ -38,7 +38,10 @@ exports.default = {
 
 		this.getApps();
 
-		_chokidar2.default.watch(_config.commands.autostartApps, { persistent: true, ignoreInitial: true }).on('add', function (path) {
+		_chokidar2.default.watch(_config.commands.autostartApps, {
+			persistent: true,
+			ignoreInitial: true
+		}).on('add', function (path) {
 			return _this.getApps();
 		}).on('unlink', function (path) {
 			return _this.getApps();

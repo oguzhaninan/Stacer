@@ -10,9 +10,9 @@ var _systeminformation2 = _interopRequireDefault(_systeminformation);
 
 var _progressbar = require('progressbar.js');
 
-var _config = require('../config');
+var _config = require('../utils/config');
 
-var _helpers = require('../helpers');
+var _helpers = require('../utils/helpers');
 
 var _helpers2 = _interopRequireDefault(_helpers);
 

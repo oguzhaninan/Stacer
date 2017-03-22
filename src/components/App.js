@@ -63,16 +63,17 @@ export default {
 							<span></span><span></span>
 						</div>
 					</div>
-
 				</div>`,
 	data() {
-		return({ activeNav: 1 })
+		return ({
+			activeNav: 1
+		})
 	},
 	components: {
-        'dashboard': Dashboard,
-        'system-cleaner': SystemCleaner,
-        'startup-apps': StartupApps,
-        'services': Services,
-        'uninstaller': Uninstaller,
-    }
+		'dashboard': Dashboard,
+		'system-cleaner': SystemCleaner,
+		'startup-apps': StartupApps,
+		'services': Services,
+		'uninstaller': Uninstaller,
+	}
 }

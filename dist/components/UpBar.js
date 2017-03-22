@@ -10,14 +10,16 @@ var _systeminformation2 = _interopRequireDefault(_systeminformation);
 
 var _progressbar = require('progressbar.js');
 
-var _config = require('../config');
+var _config = require('../utils/config');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 exports.default = {
 	template: '<div class="line-cont fr">\n\t\t\t\t\t<span>UPLOAD</span>\n\t\t\t\t\t<div id="up-bar"></div>\n\t\t\t\t</div>',
 	data: function data() {
-		return { upSpeed: 0 };
+		return {
+			upSpeed: 0
+		};
 	},
 	mounted: function mounted() {
 		var _this = this;

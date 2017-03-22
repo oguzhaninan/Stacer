@@ -1,7 +1,14 @@
-import { spawn } from 'child_process'
+import {
+	spawn
+} from 'child_process'
 import sudo from 'sudo-prompt'
-import { commands } from '../config'
-import { command, showMessage } from '../helpers'
+import {
+	commands
+} from '../utils/config'
+import {
+	command,
+	showMessage
+} from '../utils/helpers'
 
 export default {
 	template: `<div id="system-service-table">
@@ -33,53 +40,57 @@ export default {
 		const services = spawn('bash', ['-c', commands.getAllService])
 
 		services.stdout.on('data', data => {
-			data = data.toString().split('\n').filter( ( s ) => s != '')
+			data = data.toString().split('\n').filter((s) => s != '')
 
-			data.forEach( service => {
+			data.forEach(service => {
 				var serviceName = service.substring(1)
 				var isRun = service.substring(0, 1) == '+' ? 'checked' : ''
-				this.servicesList.push( { name: serviceName, isRun: isRun } )
+				this.servicesList.push({
+					name: serviceName,
+					isRun: isRun
+				})
 			})
 		})
 	},
 	methods: {
-        //Service status change switch button function         
-        statusChange( e ) {
-            let serviceName = e.target.id
-            let status = e.target.checked ? 'start' : 'stop'
+		//Service status change switch button function         
+		statusChange(e) {
+			let serviceName = e.target.id
+			let status = e.target.checked ? 'start' : 'stop'
 
-            if( ! this.isBusy ){
-                this.isBusy = true
-                sudo.exec( command( `service ${serviceName} ${status}` ) , {name: 'Stacer'},
-                            (error, stdout, stderr) => {
-                    if(stderr) {
-						e.target.checked = ! status
-                        showMessage( 'Operation not successful.', 'error')
-					}
-                    else {
-                        showMessage( serviceName + ' service ' + status + (e.target.checked ? 'ed' : 'ped'), 'success')
-					}
+			if (!this.isBusy) {
+				this.isBusy = true
+				sudo.exec(command(`service ${serviceName} ${status}`), {
+						name: 'Stacer'
+					},
+					(error, stdout, stderr) => {
+						if (stderr) {
+							e.target.checked = !status
+							showMessage('Operation not successful.', 'error')
+						} else {
+							showMessage(serviceName + ' service ' + status + (e.target.checked ? 'ed' : 'ped'), 'success')
+						}
 
-                    this.isBusy = false
-                })
-            } else {
-                showMessage( 'Another process continues.' , 'error')
-            }
-        }
-    },
-    computed: {
-        // Search services
-        filteredServices() {
-            let tempServicesList = this.servicesList ,
-                searchString     = this.searchString
+						this.isBusy = false
+					})
+			} else {
+				showMessage('Another process continues.', 'error')
+			}
+		}
+	},
+	computed: {
+		// Search services
+		filteredServices() {
+			let tempServicesList = this.servicesList,
+				searchString = this.searchString
 
-            if( ! searchString ) return tempServicesList
+			if (!searchString) return tempServicesList
 
-            searchString = searchString.toString().trim().toLowerCase()
+			searchString = searchString.toString().trim().toLowerCase()
 
-            return tempServicesList.filter( item => 
-                item.name.toString().trim().toLowerCase().indexOf(searchString) !== -1
-            )
-        }
-    }
+			return tempServicesList.filter(item =>
+				item.name.toString().trim().toLowerCase().indexOf(searchString) !== -1
+			)
+		}
+	}
 }

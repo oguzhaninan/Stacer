@@ -10,9 +10,9 @@ var _systeminformation2 = _interopRequireDefault(_systeminformation);
 
 var _progressbar = require('progressbar.js');
 
-var _config = require('../config');
+var _config = require('../utils/config');
 
-var _helpers = require('../helpers');
+var _helpers = require('../utils/helpers');
 
 var _helpers2 = _interopRequireDefault(_helpers);
 
@@ -21,7 +21,9 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 exports.default = {
 	template: '<div class="cont fl" id="mem-cont">MEMORY</div>',
 	data: function data() {
-		return { memInfo: 0 };
+		return {
+			memInfo: 0
+		};
 	},
 	mounted: function mounted() {
 		var _this = this;

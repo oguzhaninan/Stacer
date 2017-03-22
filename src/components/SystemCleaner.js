@@ -1,11 +1,18 @@
-import { spawn } from 'child_process'
+import {
+    spawn
+} from 'child_process'
 import sudo from 'sudo-prompt'
 import fs from 'fs'
-import { commands } from '../config'
-import { command, showMessage } from '../helpers'
+import {
+    commands
+} from '../utils/config'
+import {
+    command,
+    showMessage
+} from '../utils/helpers'
 
 export default {
-	template: `<div>
+    template: `<div>
 				<div class="cleaner-sidebar">
 					<ul>
 						<li><label><input type="checkbox" v-model:checked="aptCacheSelect"><i></i>
@@ -98,7 +105,7 @@ export default {
 				</div>
 				<input type="button" id="clean-btn" @click="systemClean" value="Clean" />
 			</div>`,
-	data () {
+    data() {
         return {
             aptCacheSelect: false,
             crashReportsSelect: false,
@@ -124,52 +131,48 @@ export default {
             this.systemLogsList = []
             this.appCachesList = []
 
-            if ( this.aptCacheSelect ) {
-                fs.readdir( commands.aptCachePath , 'utf8', (err, files) => {
-                    if ( ! err )
-                        files.filter( ( file ) => file.endsWith('.deb') )
-                            .forEach( ( file ) => this.aptCachesList.push( file ) )
+            if (this.aptCacheSelect) {
+                fs.readdir(commands.aptCachePath, 'utf8', (err, files) => {
+                    if (!err)
+                        files.filter(file => file.endsWith('.deb'))
+                        .forEach(file => this.aptCachesList.push(file))
                     else
                         console.log(err)
                 })
-            }
-            else{
+            } else {
                 this.checkedAptCaches = []
             }
-            
-            if( this.crashReportsSelect ) {
-                fs.readdir( commands.crashReportsPath , 'utf8', (err, files) => {
-                    if ( ! err )
-                        files.forEach( ( file ) => this.crashReportsList.push( file ) )                    
-                    else                    
+
+            if (this.crashReportsSelect) {
+                fs.readdir(commands.crashReportsPath, 'utf8', (err, files) => {
+                    if (!err)
+                        files.forEach(file => this.crashReportsList.push(file))
+                    else
                         console.log(err)
                 })
-            }
-            else{
+            } else {
                 this.checkedCrashReports = []
             }
 
-            if( this.systemLogsSelect ) {
-                fs.readdir( commands.systemLogsPath , 'utf8', (err, files) => {                    
-                    if ( ! err )
-                        files.forEach( ( file ) => this.systemLogsList.push( file ) )
+            if (this.systemLogsSelect) {
+                fs.readdir(commands.systemLogsPath, 'utf8', (err, files) => {
+                    if (!err)
+                        files.forEach(file => this.systemLogsList.push(file))
                     else
                         console.log(err)
                 })
-            }
-            else{
+            } else {
                 this.checkedSystemLogs = []
             }
 
-            if( this.appCacheSelect ) {
-                fs.readdir( commands.appCachePath , 'utf8', (err, files) => {
-                    if ( ! err )
-                        files.forEach( ( file ) => this.appCachesList.push( file ) )
+            if (this.appCacheSelect) {
+                fs.readdir(commands.appCachePath, 'utf8', (err, files) => {
+                    if (!err)
+                        files.forEach(file => this.appCachesList.push(file))
                     else
-                        console.log(err)                    
+                        console.log(err)
                 })
-            }
-            else{
+            } else {
                 this.checkedAppCaches = []
             }
         },
@@ -177,76 +180,78 @@ export default {
         systemClean() {
             let filesToRemove = ''
 
-            if ( this.checkedAptCaches ) {
-                this.checkedAptCaches.forEach( ( file ) => {
+            if (this.checkedAptCaches) {
+                this.checkedAptCaches.forEach(file => {
                     filesToRemove += `rm -rf ${commands.aptCachePath}${file}; `
                 })
             }
 
-            if( this.checkedCrashReports ) {
-                this.checkedCrashReports.forEach( ( file ) => {
+            if (this.checkedCrashReports) {
+                this.checkedCrashReports.forEach(file => {
                     filesToRemove += `rm -rf ${commands.crashReportsPath}${file}; `
                 })
             }
 
-            if( this.checkedSystemLogs ) {
-                this.checkedSystemLogs.forEach( ( file ) => {
+            if (this.checkedSystemLogs) {
+                this.checkedSystemLogs.forEach(file => {
                     filesToRemove += `rm -rf ${commands.systemLogsPath}${file}; `
                 })
             }
 
-            if( this.checkedAppCaches ) {
-                this.checkedAppCaches.forEach( ( file ) => {
+            if (this.checkedAppCaches) {
+                this.checkedAppCaches.forEach(file => {
                     filesToRemove += `rm -rf ${commands.appCachePath}${file}; `
                 })
             }
 
-            if (filesToRemove){
-                sudo.exec( command(filesToRemove) , {name: 'Stacer'},
+            if (filesToRemove) {
+                sudo.exec(command(filesToRemove), {
+                        name: 'Stacer'
+                    },
                     (error, stdout, stderr) => {
                         if (stderr)
-                            showMessage( `System cleaning failed.` , 'error')
+                            showMessage(`System cleaning failed.`, 'error')
                         else {
-                            this.aptCachesList = this.aptCachesList.filter( ( item ) => this.checkedAptCaches.indexOf(item) == -1 )
-                            this.crashReportsList = this.crashReportsList.filter( ( item ) => this.checkedCrashReports.indexOf(item) == -1 )
-                            this.systemLogsList = this.systemLogsList.filter( ( item ) => this.checkedSystemLogs.indexOf(item) == -1 )
-                            this.appCachesList = this.appCachesList.filter( ( item ) => this.checkedAppCaches.indexOf(item) == -1 )
+                            this.aptCachesList = this.aptCachesList.filter(item => this.checkedAptCaches.indexOf(item) == -1)
+                            this.crashReportsList = this.crashReportsList.filter(item => this.checkedCrashReports.indexOf(item) == -1)
+                            this.systemLogsList = this.systemLogsList.filter(item => this.checkedSystemLogs.indexOf(item) == -1)
+                            this.appCachesList = this.appCachesList.filter(item => this.checkedAppCaches.indexOf(item) == -1)
 
                             this.checkedAptCaches = []
                             this.checkedCrashReports = []
                             this.checkedSystemLogs = []
                             this.checkedAppCaches = []
 
-                            showMessage( `System cleaned.` , 'success')
+                            showMessage(`System cleaned.`, 'success')
                         }
-                })
+                    })
             }
         },
         // Check all items         
-        checkAllAptCaches( e ) {
+        checkAllAptCaches(e) {
             this.checkedAptCaches = []
-            if( e.target.checked )
+            if (e.target.checked)
                 this.checkedAptCaches.push(...this.aptCachesList)
         },
-        checkAllCrashReports( e ) {
+        checkAllCrashReports(e) {
             this.checkedCrashReports = []
-            if( e.target.checked )
+            if (e.target.checked)
                 this.checkedCrashReports.push(...this.crashReportsList)
         },
-        checkAllSystemLogs( e ) {
+        checkAllSystemLogs(e) {
             this.checkedSystemLogs = []
-            if ( e.target.checked )
+            if (e.target.checked)
                 this.checkedSystemLogs.push(...this.systemLogsList)
         },
-        checkAllAppCaches( e ) {
+        checkAllAppCaches(e) {
             this.checkedAppCaches = []
-            if( e.target.checked )
+            if (e.target.checked)
                 this.checkedAppCaches.push(...this.appCachesList)
         }
     },
     watch: {
-        appCacheSelect: ( checked ) => {
-            if ( checked ) {
+        appCacheSelect: (checked) => {
+            if (checked) {
                 showMessage('Deleting applications\' caches can cause problems. Please be careful.', 'warning')
             }
         }

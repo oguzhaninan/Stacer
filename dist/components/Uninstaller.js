@@ -10,9 +10,9 @@ var _sudoPrompt = require('sudo-prompt');
 
 var _sudoPrompt2 = _interopRequireDefault(_sudoPrompt);
 
-var _config = require('../config');
+var _config = require('../utils/config');
 
-var _helpers = require('../helpers');
+var _helpers = require('../utils/helpers');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -53,7 +53,9 @@ exports.default = {
                 e.target.className += 'loader';
                 var packageName = e.target.name;
 
-                _sudoPrompt2.default.exec((0, _helpers.command)(_config.commands.removePackage + packageName), { name: 'Stacer' }, function (error, stdout, stderr) {
+                _sudoPrompt2.default.exec((0, _helpers.command)(_config.commands.removePackage + packageName), {
+                    name: 'Stacer'
+                }, function (error, stdout, stderr) {
                     if (stderr) {
                         e.target.className = '';
                         (0, _helpers.showMessage)('Operation not successful.', 'error');

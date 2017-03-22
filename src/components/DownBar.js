@@ -1,14 +1,20 @@
 import si from 'systeminformation'
-import { Line } from 'progressbar.js'
-import { prop } from '../config'
+import {
+	Line
+} from 'progressbar.js'
+import {
+	prop
+} from '../utils/config'
 
 export default {
 	template: `<div class="line-cont fr">
 					<span>DOWNLOAD</span>
 					<div id="down-bar"></div>
 				</div>`,
-	data(){
-		return({ downSpeed: 0 })
+	data() {
+		return ({
+			downSpeed: 0
+		})
 	},
 	mounted() {
 		let downBar = new Line('#down-bar', {
@@ -31,14 +37,14 @@ export default {
 		})
 
 		// Get network name
-		si.networkInterfaceDefault( defaultNetwork => {
-			setInterval( () => {				
+		si.networkInterfaceDefault(defaultNetwork => {
+			setInterval(() => {
 				// get down speed
 				si.networkStats(defaultNetwork, data => {
 					this.downSpeed = Math.abs(data.rx_sec / 1024).toFixed(2)
 					// down bar update
 					downBar.animate(this.downSpeed / 2000)
-				}) 
+				})
 			}, prop.networkBarsDuration)
 		})
 	}

@@ -14,9 +14,9 @@ var _fs = require('fs');
 
 var _fs2 = _interopRequireDefault(_fs);
 
-var _config = require('../config');
+var _config = require('../utils/config');
 
-var _helpers = require('../helpers');
+var _helpers = require('../utils/helpers');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -124,7 +124,9 @@ exports.default = {
             }
 
             if (filesToRemove) {
-                _sudoPrompt2.default.exec((0, _helpers.command)(filesToRemove), { name: 'Stacer' }, function (error, stdout, stderr) {
+                _sudoPrompt2.default.exec((0, _helpers.command)(filesToRemove), {
+                    name: 'Stacer'
+                }, function (error, stdout, stderr) {
                     if (stderr) (0, _helpers.showMessage)('System cleaning failed.', 'error');else {
                         _this2.aptCachesList = _this2.aptCachesList.filter(function (item) {
                             return _this2.checkedAptCaches.indexOf(item) == -1;

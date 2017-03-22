@@ -10,7 +10,7 @@ var _systeminformation2 = _interopRequireDefault(_systeminformation);
 
 var _progressbar = require('progressbar.js');
 
-var _config = require('../config');
+var _config = require('../utils/config');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 

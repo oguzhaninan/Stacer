@@ -1,5 +1,5 @@
 
-import '../libs/amaran.min'
+import '../../libs/amaran.min'
 
 exports.prettyMemSize = ( size ) => {
   return ( size / ( Math.pow(1024, 3) ) ).toFixed(2)

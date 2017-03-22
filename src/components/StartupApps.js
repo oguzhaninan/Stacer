@@ -1,5 +1,9 @@
-import { commands } from '../config'
-import { showMessage } from '../helpers'
+import {
+	commands
+} from '../utils/config'
+import {
+	showMessage
+} from '../utils/helpers'
 import chokidar from 'chokidar'
 import fs from 'fs'
 import properties from 'properties-reader'
@@ -49,16 +53,19 @@ export default {
 	created() {
 		this.getApps()
 
-		chokidar.watch(commands.autostartApps, { persistent: true, ignoreInitial: true })
-			.on('add', 	  path => this.getApps() )
-			.on('unlink', path => this.getApps() )
+		chokidar.watch(commands.autostartApps, {
+				persistent: true,
+				ignoreInitial: true
+			})
+			.on('add', path => this.getApps())
+			.on('unlink', path => this.getApps())
 	},
 	methods: {
-		removeApp( e ) {
+		removeApp(e) {
 			fs.unlinkSync(commands.autostartApps + e.target.name)
 		},
 		saveApp() {
-			if ( this.appName && this.appComment && this.appExec ) {
+			if (this.appName && this.appComment && this.appExec) {
 				let desktopFile = `[Desktop Entry]
 									\rName=${this.appName}
 									\rExec=${this.appExec}
@@ -66,76 +73,71 @@ export default {
 									\rType=ApplicationR
 									\rTerminal=false
 									\rX-GNOME-Autostart-enabled=true`
-				
+
 				try {
 					fs.writeFileSync(commands.autostartApps + this.appName + '.desktop', desktopFile)
-				} catch(err) {
+				} catch (err) {
 
 				} finally {
 					this.cancelPrompt()
 				}
-			}
-			else {
+			} else {
 				showMessage('Do not leave required fields blank.', 'error')
 			}
 		},
 		cancelPrompt() {
 			this.showPrompt = false
-			this.appName = this.appComment = this.appExec = ''			
+			this.appName = this.appComment = this.appExec = ''
 		},
 		getApps() {
 			try {
-				fs.readdir( commands.autostartApps, ( err, files ) => {
-					if( ! err ) {
+				fs.readdir(commands.autostartApps, (err, files) => {
+					if (!err) {
 						this.apps.splice(0, this.apps.length) // array clear
-						files.filter( file => file.endsWith('.desktop') ).forEach( file => {
+						files.filter(file => file.endsWith('.desktop')).forEach(file => {
 							try {
-								var entry = properties(commands.autostartApps+ '/' + file)
+								var entry = properties(commands.autostartApps + '/' + file)
 
-								if ( entry.get('Desktop Entry.Name') != null ) {
+								if (entry.get('Desktop Entry.Name') != null) {
 									let appName = entry.get('Desktop Entry.Name')
 									let isStart = entry.get('Desktop Entry.X-GNOME-Autostart-enabled')
 
-									if ( appName != null ) {
+									if (appName != null) {
 										this.apps.push({
 											name: appName,
 											file: file,
-											isStart: ( isStart != null ? isStart: true )
+											isStart: (isStart != null ? isStart : true)
 										})
 									}
 								}
-							}
-							catch(err){}
+							} catch (err) {}
 						})
 					}
 				})
-			}
-			catch (error) {
-				console.log( error )
+			} catch (error) {
+				console.log(error)
 			}
 		},
-		statusChange( e ) {
-            let fileName = e.target.id
-            let isStart = e.target.checked
+		statusChange(e) {
+			let fileName = e.target.id
+			let isStart = e.target.checked
 
-            try {
-                let data = fs.readFileSync(commands.autostartApps + '/' + fileName).toString()
-                let check = data.match(/\X-GNOME-Autostart-enabled=.*/g)
+			try {
+				let data = fs.readFileSync(commands.autostartApps + '/' + fileName).toString()
+				let check = data.match(/\X-GNOME-Autostart-enabled=.*/g)
 
-                if ( check ){
-                    data = data.replace(/\X-GNOME-Autostart-enabled=.*/gi, 'X-GNOME-Autostart-enabled='+ isStart)
-                }
-                else {
-                    data += ('X-GNOME-Autostart-enabled=' + isStart + '\n')
-                }
+				if (check) {
+					data = data.replace(/\X-GNOME-Autostart-enabled=.*/gi, 'X-GNOME-Autostart-enabled=' + isStart)
+				} else {
+					data += ('X-GNOME-Autostart-enabled=' + isStart + '\n')
+				}
 
-                fs.writeFileSync(commands.autostartApps + '/' + fileName, data)
-            }
-            catch( err ) {
-                console.log(err)
-                showMessage('Operation failed.', 'error')
-            }
-        }
+				fs.writeFileSync(commands.autostartApps + '/' + fileName, data)
+			} catch (err) {
+				console.log(err)
+				showMessage('Operation failed.', 'error')
+			}
+		}
 	}
 
 }

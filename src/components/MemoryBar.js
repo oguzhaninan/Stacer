@@ -1,13 +1,21 @@
 import si from 'systeminformation'
-import { SemiCircle } from 'progressbar.js'
-import { prop } from '../config'
-import helpers  from '../helpers'
+import {
+	SemiCircle
+} from 'progressbar.js'
+import {
+	prop
+} from '../utils/config'
+import helpers from '../utils/helpers'
 
 export default {
 	template: `<div class="cont fl" id="mem-cont">MEMORY</div>`,
-	data() { return({ memInfo: 0 }) },
+	data() {
+		return ({
+			memInfo: 0
+		})
+	},
 	mounted() {
-		let memBar = new SemiCircle('#mem-cont' , {
+		let memBar = new SemiCircle('#mem-cont', {
 			strokeWidth: 12,
 			color: prop.memBarColor,
 			trailColor: prop.trailColor,
@@ -24,14 +32,14 @@ export default {
 					left: '50%'
 				}
 			},
-			step: ( state, bar ) => {
+			step: (state, bar) => {
 				bar.setText(this.memInfo)
 			}
 		})
 
-		setInterval( () => {
-			si.mem( ram => {
-				let usedMem  = ram.total - ram.available
+		setInterval(() => {
+			si.mem(ram => {
+				let usedMem = ram.total - ram.available
 				let totalMem = ram.total
 				this.memInfo = helpers.prettyMemSize(usedMem) + ' / ' + helpers.prettyMemSize(totalMem) + 'GB'
 				memBar.animate(usedMem / totalMem)

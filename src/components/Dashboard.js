@@ -8,8 +8,8 @@ import {
 } from 'electron'
 import {
 	prop
-} from '../config'
-import helpers from '../helpers'
+} from '../utils/config'
+import helpers from '../utils/helpers'
 //Components
 import SystemInfo from './SystemInfo'
 import UpBar from './UpBar'
