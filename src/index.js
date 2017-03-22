@@ -9,8 +9,6 @@ new Vue({
         'app': App
     },
     mounted() {
-        document.getElementById('loading').remove()
-        // setTimeout(() => document.getElementById('loading').remove(), 2000)
+        setTimeout(() => document.getElementById('loading').remove(), 2000)
     }
 })
- 
