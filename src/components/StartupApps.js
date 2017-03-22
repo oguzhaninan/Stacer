@@ -7,17 +7,18 @@ import properties from 'properties-reader'
 export default {
 	template: `<div id="startup-apps-table">
 					<div id="startup-apps-title">
-						<span style="padding:0;">System Startup Applications</span>
+						<span style="padding:0;">System Startup Applications ({{apps.length}})</span>
 					</div>
 					<div class="tdl-content scroll">
-						<span class="fl w100 empty-list" v-show="! apps.length" >
+						<span class="fl w100 empty-list" v-show="! apps.length">
 							No startup apps found.
 						</span>
 						<ul v-show="apps.length">
 							<li v-for="app in apps">
-								{{ app.name }}
+								<span>{{ app.name }}</span>
 								<input type="checkbox" class="switch" :id="app.file" :checked="app.isStart" @change="statusChange" />
 								<label :for="app.file"></label>
+								<button :name="app.file" @click="removeApp" class="remove-startup-app"></button>
 							</li>
 						</ul>
 					</div>
@@ -29,10 +30,7 @@ export default {
 								<span>Application</span>
 								<input type="text" v-model="appName" placeholder="App Name" />
 								<input type="text" v-model="appComment" placeholder="App Comment" />
-								<select v-model="execApp">
-									<option selected>Choose App</option>
-									<option v-for="app in executableApps">{{ app }}</option>
-								</select>
+								<input type="text" v-model="appExec" placeholder="Command" />
 								<button @click="saveApp">Add</button>
 								<button @click="cancelPrompt">Cancel</button>
 							</div>
@@ -42,35 +40,48 @@ export default {
 	data() {
 		return ({
 			apps: [],
-			executableApps: [],
 			showPrompt: false,
 			appName: '',
 			appComment: '',
-			execApp: 'Choose App'
+			appExec: ''
 		})
 	},
 	created() {
 		this.getApps()
-		this.executableApps = fs.readdirSync('/usr/bin')
 
 		chokidar.watch(commands.autostartApps, { persistent: true, ignoreInitial: true })
 			.on('add', 	  path => this.getApps() )
 			.on('unlink', path => this.getApps() )
 	},
 	methods: {
+		removeApp( e ) {
+			fs.unlinkSync(commands.autostartApps + e.target.name)
+		},
 		saveApp() {
-			let desktopFile = `[Desktop Entry]
-								Name=asdasd
-								Exec=Buka
-								X-GNOME-Autostart-enabled=true
-								Type=Application
-								Terminal=false
-								Comment=yorum`
+			if ( this.appName && this.appComment && this.appExec ) {
+				let desktopFile = `[Desktop Entry]
+									\rName=${this.appName}
+									\rExec=${this.appExec}
+									\rComment=${this.appComment}
+									\rType=ApplicationR
+									\rTerminal=false
+									\rX-GNOME-Autostart-enabled=true`
+				
+				try {
+					fs.writeFileSync(commands.autostartApps + this.appName + '.desktop', desktopFile)
+				} catch(err) {
+
+				} finally {
+					this.cancelPrompt()
+				}
+			}
+			else {
+				showMessage('Do not leave required fields blank.', 'error')
+			}
 		},
 		cancelPrompt() {
 			this.showPrompt = false
-			this.appName = this.appComment = ''
-			this.execApp = 'Choose App'
+			this.appName = this.appComment = this.appExec = ''			
 		},
 		getApps() {
 			try {
@@ -119,8 +130,6 @@ export default {
                 }
 
                 fs.writeFileSync(commands.autostartApps + '/' + fileName, data)
-
-                showMessage('Operation successfully.', 'success')
             }
             catch( err ) {
                 console.log(err)

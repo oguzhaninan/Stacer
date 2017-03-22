@@ -23,22 +23,20 @@ var _propertiesReader2 = _interopRequireDefault(_propertiesReader);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 exports.default = {
-	template: '<div id="startup-apps-table">\n\t\t\t\t\t<div id="startup-apps-title">\n\t\t\t\t\t\t<span style="padding:0;">System Startup Applications</span>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class="tdl-content scroll">\n\t\t\t\t\t\t<span class="fl w100 empty-list" v-show="! apps.length" >\n\t\t\t\t\t\t\tNo startup apps found.\n\t\t\t\t\t\t</span>\n\t\t\t\t\t\t<ul v-show="apps.length">\n\t\t\t\t\t\t\t<li v-for="app in apps">\n\t\t\t\t\t\t\t\t{{ app.name }}\n\t\t\t\t\t\t\t\t<input type="checkbox" class="switch" :id="app.file" :checked="app.isStart" @change="statusChange" />\n\t\t\t\t\t\t\t\t<label :for="app.file"></label>\n\t\t\t\t\t\t\t</li>\n\t\t\t\t\t\t</ul>\n\t\t\t\t\t</div>\n\t\t\t\t\t<button @click="this.showPrompt = true" class="add-startup-app">Add Startup App</button>\n\t\t\t\t\t\n\t\t\t\t\t<div class="promptDialog" v-show="showPrompt">\n\t\t\t\t\t\t<div class="dialog">\n\t\t\t\t\t\t\t<div>\n\t\t\t\t\t\t\t\t<span>Application</span>\n\t\t\t\t\t\t\t\t<input type="text" v-model="appName" placeholder="App Name" />\n\t\t\t\t\t\t\t\t<input type="text" v-model="appComment" placeholder="App Comment" />\n\t\t\t\t\t\t\t\t<select v-model="execApp">\n\t\t\t\t\t\t\t\t\t<option selected>Choose App</option>\n\t\t\t\t\t\t\t\t\t<option v-for="app in executableApps">{{ app }}</option>\n\t\t\t\t\t\t\t\t</select>\n\t\t\t\t\t\t\t\t<button @click="saveApp">Add</button>\n\t\t\t\t\t\t\t\t<button @click="cancelPrompt">Cancel</button>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>',
+	template: '<div id="startup-apps-table">\n\t\t\t\t\t<div id="startup-apps-title">\n\t\t\t\t\t\t<span style="padding:0;">System Startup Applications ({{apps.length}})</span>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class="tdl-content scroll">\n\t\t\t\t\t\t<span class="fl w100 empty-list" v-show="! apps.length">\n\t\t\t\t\t\t\tNo startup apps found.\n\t\t\t\t\t\t</span>\n\t\t\t\t\t\t<ul v-show="apps.length">\n\t\t\t\t\t\t\t<li v-for="app in apps">\n\t\t\t\t\t\t\t\t<span>{{ app.name }}</span>\n\t\t\t\t\t\t\t\t<input type="checkbox" class="switch" :id="app.file" :checked="app.isStart" @change="statusChange" />\n\t\t\t\t\t\t\t\t<label :for="app.file"></label>\n\t\t\t\t\t\t\t\t<button :name="app.file" @click="removeApp" class="remove-startup-app"></button>\n\t\t\t\t\t\t\t</li>\n\t\t\t\t\t\t</ul>\n\t\t\t\t\t</div>\n\t\t\t\t\t<button @click="showPrompt = true" class="add-startup-app">Add Startup App</button>\n\t\t\t\t\t\n\t\t\t\t\t<div class="promptDialog" v-show="showPrompt">\n\t\t\t\t\t\t<div class="dialog">\n\t\t\t\t\t\t\t<div>\n\t\t\t\t\t\t\t\t<span>Application</span>\n\t\t\t\t\t\t\t\t<input type="text" v-model="appName" placeholder="App Name" />\n\t\t\t\t\t\t\t\t<input type="text" v-model="appComment" placeholder="App Comment" />\n\t\t\t\t\t\t\t\t<input type="text" v-model="appExec" placeholder="Command" />\n\t\t\t\t\t\t\t\t<button @click="saveApp">Add</button>\n\t\t\t\t\t\t\t\t<button @click="cancelPrompt">Cancel</button>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>',
 	data: function data() {
 		return {
 			apps: [],
-			executableApps: [],
 			showPrompt: false,
 			appName: '',
 			appComment: '',
-			execApp: 'Choose App'
+			appExec: ''
 		};
 	},
 	created: function created() {
 		var _this = this;
 
 		this.getApps();
-		this.executableApps = _fs2.default.readdirSync('/usr/bin');
 
 		_chokidar2.default.watch(_config.commands.autostartApps, { persistent: true, ignoreInitial: true }).on('add', function (path) {
 			return _this.getApps();
@@ -48,13 +46,25 @@ exports.default = {
 	},
 
 	methods: {
+		removeApp: function removeApp(e) {
+			_fs2.default.unlinkSync(_config.commands.autostartApps + e.target.name);
+		},
 		saveApp: function saveApp() {
-			var desktopFile = '[Desktop Entry]\n\t\t\t\t\t\t\t\tName=asdasd\n\t\t\t\t\t\t\t\tExec=Buka\n\t\t\t\t\t\t\t\tX-GNOME-Autostart-enabled=true\n\t\t\t\t\t\t\t\tType=Application\n\t\t\t\t\t\t\t\tTerminal=false\n\t\t\t\t\t\t\t\tComment=yorum';
+			if (this.appName && this.appComment && this.appExec) {
+				var desktopFile = '[Desktop Entry]\n\t\t\t\t\t\t\t\t\t\rName=' + this.appName + '\n\t\t\t\t\t\t\t\t\t\rExec=' + this.appExec + '\n\t\t\t\t\t\t\t\t\t\rComment=' + this.appComment + '\n\t\t\t\t\t\t\t\t\t\rType=ApplicationR\n\t\t\t\t\t\t\t\t\t\rTerminal=false\n\t\t\t\t\t\t\t\t\t\rX-GNOME-Autostart-enabled=true';
+
+				try {
+					_fs2.default.writeFileSync(_config.commands.autostartApps + this.appName + '.desktop', desktopFile);
+				} catch (err) {} finally {
+					this.cancelPrompt();
+				}
+			} else {
+				(0, _helpers.showMessage)('Do not leave required fields blank.', 'error');
+			}
 		},
 		cancelPrompt: function cancelPrompt() {
 			this.showPrompt = false;
-			this.appName = this.appComment = '';
-			this.execApp = 'Choose App';
+			this.appName = this.appComment = this.appExec = '';
 		},
 		getApps: function getApps() {
 			var _this2 = this;
@@ -104,8 +114,6 @@ exports.default = {
 				}
 
 				_fs2.default.writeFileSync(_config.commands.autostartApps + '/' + fileName, data);
-
-				(0, _helpers.showMessage)('Operation successfully.', 'success');
 			} catch (err) {
 				console.log(err);
 				(0, _helpers.showMessage)('Operation failed.', 'error');

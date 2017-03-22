@@ -16,6 +16,10 @@ body {
     -webkit-user-select: none;
 }
 
+button {
+  cursor: pointer;
+}
+
 [v-cloak] {
   display: none;
 }
@@ -177,6 +181,20 @@ body {
     width: 500px;
 }
 
+.add-startup-app {
+  background-color: transparent;
+  border: 1px solid #293945;
+  padding: 8px 15px;
+  color: #eee;
+  float: right;
+  margin: 10px 0px 0px 0px;
+  border-radius: 4px;
+}
+
+.add-startup-app:hover {
+  background-color: #293945;
+}
+
 #uninstaller-table ul,
 #system-service-table ul,
 #startup-apps-table ul{
@@ -190,7 +208,9 @@ body {
 #startup-apps-table ul li{
     font-size:15px;
     color:#aeb5bf;
-    margin: 10px 3px;
+    margin: 6px 3px;
+    float: left;
+    width: calc(100% - 68px);
     background-color: #293945;
     cursor: pointer;
     border-radius: 4px;
@@ -238,10 +258,35 @@ body {
     background-image: url(../img/app-uninstall.png);
 }
 
+.tdl-content li span {
+  display: block;
+  float: left;
+  width: 320px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.remove-startup-app {
+    width: 24px;
+    height: 24px;
+    margin: -2px 10px 0px 0px;
+    background: transparent url(../img/app-uninstall.png) no-repeat;
+    display: none;
+    float: right;
+    border: 0;
+}
+
+.tdl-content li:hover .remove-startup-app {
+  display: block;
+}
+
 #uninstaller-table .tdl-content,
-#system-service-table .tdl-content,
-#startup-apps-table .tdl-content{
+#system-service-table .tdl-content{
     height:490px;
+}
+
+#startup-apps-table .tdl-content{
+    height:460px;
 }
 
 #installed-packages-title,
@@ -340,12 +385,17 @@ a.loader {
     float: right;
     margin: 10px 10px 0 0;
     border-radius: 5px;
-    padding: 10px 25px;
-    color: #aeb5bf;
+    padding: 8px 20px;
+    color: #eee;
     cursor: pointer;
     position: relative;
-    background-color: #293945;
-    border: 0;
+    background-color: transparent;
+    border: 1px solid #293945;
+}
+
+#clean-btn:hover,
+#system-scan-btn:hover {
+   background-color: #293945;
 }
 
 #system-scan-btn {
@@ -906,7 +956,7 @@ a.loader {
 /*prompt style*/
 .promptDialog {
   position: fixed;
-  background-color: rgba(0,0,0,.3);
+  background-color: rgba(0,0,0,.4);
   left: 0;
   right: 0;
   top: 0;
@@ -943,12 +993,12 @@ a.loader {
 .dialog select {
   color: #ddd;
   border-radius: 4px;
-  padding: 8px 15px;
+  padding: 9px 15px;
   width: 280px;
   font-size: 15px;
   border:0;
   background-color: #293945;
-  margin: 10px 0px;
+  margin: 8px 0px;
 }
 
 .dialog button {
