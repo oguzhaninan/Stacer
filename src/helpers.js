@@ -10,14 +10,24 @@ exports.prettyDiskSize = ( size ) => {
 }
 
 exports.showMessage = ( message , status ) => {
+    let bgcolor
+    switch (status) {
+      case 'success':
+        bgcolor = '#27ae60'; break;
+      case 'error':
+        bgcolor = '#c0392b'; break;
+      default:
+        bgcolor = '#f39c12'; break;
+    }
     $.amaran({
         'theme'     :'colorful',
         'content'   :{
-           bgcolor: status == 'success' ? '#27ae60' : '#c0392b',
+           bgcolor: bgcolor,
            message: message
         },
         'position'  :'top right',
-        'outEffect' :'slideTop'
+        'outEffect' :'slideTop',
+        'delay'     :5000
     })
 }
 

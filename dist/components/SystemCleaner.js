@@ -173,5 +173,12 @@ exports.default = {
             this.checkedAppCaches = [];
             if (e.target.checked) (_checkedAppCaches = this.checkedAppCaches).push.apply(_checkedAppCaches, _toConsumableArray(this.appCachesList));
         }
+    },
+    watch: {
+        appCacheSelect: function appCacheSelect(checked) {
+            if (checked) {
+                (0, _helpers.showMessage)('Deleting applications\' caches can cause problems. Please be careful.', 'warning');
+            }
+        }
     }
 };

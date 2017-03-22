@@ -3,3 +3,4 @@ node_modules/
 release-builds/
 dest/
 dist/*.js
+dist/**/*.js

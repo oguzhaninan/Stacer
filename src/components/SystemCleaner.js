@@ -123,7 +123,7 @@ export default {
             this.crashReportsList = []
             this.systemLogsList = []
             this.appCachesList = []
-            
+
             if ( this.aptCacheSelect ) {
                 fs.readdir( commands.aptCachePath , 'utf8', (err, files) => {
                     if ( ! err )
@@ -142,7 +142,7 @@ export default {
                     if ( ! err )
                         files.forEach( ( file ) => this.crashReportsList.push( file ) )                    
                     else                    
-                        console.log(err)                    
+                        console.log(err)
                 })
             }
             else{
@@ -173,9 +173,7 @@ export default {
                 this.checkedAppCaches = []
             }
         },
-        /**
-         * System clean
-         */
+        // System clean
         systemClean() {
             let filesToRemove = ''
 
@@ -244,6 +242,13 @@ export default {
             this.checkedAppCaches = []
             if( e.target.checked )
                 this.checkedAppCaches.push(...this.appCachesList)
+        }
+    },
+    watch: {
+        appCacheSelect: ( checked ) => {
+            if ( checked ) {
+                showMessage('Deleting applications\' caches can cause problems. Please be careful.', 'warning')
+            }
         }
     }
 }

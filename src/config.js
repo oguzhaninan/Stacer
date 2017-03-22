@@ -9,7 +9,7 @@ exports.commands = {
   autostartApps:         homedir() + "/.config/autostart/",
   getInstalledPackages: "dpkg --get-selections | cut -f1",
   getAllService:        "service --status-all | tr -d [*] | tr -d ' '",
-  removePackage:        "apt-get remove --purge -y "
+  removePackage:        "apt-get remove -y "
 }
 
 exports.prop = {
