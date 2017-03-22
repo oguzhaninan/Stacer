@@ -169,6 +169,9 @@ button {
     width: 650px;
     height: 500px;
 }
+#cleaner-table .tdl-content li span {
+  width: 100%;
+}
 
 .empty-list{
   font-size: 22px;
