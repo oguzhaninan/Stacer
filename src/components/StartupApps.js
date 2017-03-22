@@ -21,19 +21,57 @@ export default {
 							</li>
 						</ul>
 					</div>
+					<button @click="showPrompt = true" class="add-startup-app">Add Startup App</button>
+					
+					<div class="promptDialog" v-show="showPrompt">
+						<div class="dialog">
+							<div>
+								<span>Application</span>
+								<input type="text" v-model="appName" placeholder="App Name" />
+								<input type="text" v-model="appComment" placeholder="App Comment" />
+								<select v-model="execApp">
+									<option selected>Choose App</option>
+									<option v-for="app in executableApps">{{ app }}</option>
+								</select>
+								<button @click="saveApp">Add</button>
+								<button @click="cancelPrompt">Cancel</button>
+							</div>
+						</div>
+					</div>
 				</div>`,
 	data() {
 		return ({
-			apps: []
+			apps: [],
+			executableApps: [],
+			showPrompt: false,
+			appName: '',
+			appComment: '',
+			execApp: 'Choose App'
 		})
 	},
 	created() {
 		this.getApps()
+		this.executableApps = fs.readdirSync('/usr/bin')
+
 		chokidar.watch(commands.autostartApps, { persistent: true, ignoreInitial: true })
-			.on('add', path => { this.getApps() })
-			.on('unlink', path => { this.getApps() })
+			.on('add', 	  path => this.getApps() )
+			.on('unlink', path => this.getApps() )
 	},
 	methods: {
+		saveApp() {
+			let desktopFile = `[Desktop Entry]
+								Name=asdasd
+								Exec=Buka
+								X-GNOME-Autostart-enabled=true
+								Type=Application
+								Terminal=false
+								Comment=yorum`
+		},
+		cancelPrompt() {
+			this.showPrompt = false
+			this.appName = this.appComment = ''
+			this.execApp = 'Choose App'
+		},
 		getApps() {
 			try {
 				fs.readdir( commands.autostartApps, ( err, files ) => {
