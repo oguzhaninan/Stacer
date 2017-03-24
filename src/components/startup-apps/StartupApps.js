@@ -1,31 +1,27 @@
 import {
 	commands
-} from '../utils/config'
+} from '../../utils/config'
 import {
 	showMessage
-} from '../utils/helpers'
+} from '../../utils/helpers'
+import properties from 'properties-reader'
 import chokidar from 'chokidar'
 import fs from 'fs'
-import properties from 'properties-reader'
+import STApp from './STApp'
 
 export default {
-	template: `<div id="startup-apps-table">
+	template: `<div id="startup-apps-tabl">
 					<div id="startup-apps-title">
 						<span style="padding:0;">System Startup Applications ({{ apps.length }})</span>
 					</div>
-					<div class="tdl-content scroll">
-						<span class="fl w100 empty-list" v-show="! apps.length">
+					<div class="item-list scroll">
+						<span class="empty-list" v-show="! apps.length">
 							No startup apps found.
 						</span>
 						<ul v-show="apps.length">
-							<li v-for="app in apps">
-								<span>{{ app.name }}</span>
-								<input type="checkbox" class="switch" :id="app.file" :checked="app.isStart" @change="statusChange" />
-								<label :for="app.file"></label>
-								<button :name="app.file" @click="removeApp" class="remove-startup-app"></button>
-							</li>
+							<app v-for="app in apps" :name="app.name" :file="app.file" :is-start="app.isStart"></app>
 						</ul>
-					</div>
+					</div>					
 					<button @click="showPrompt = true" class="add-startup-app">Add Startup App</button>
 					
 					<div class="promptDialog" v-show="showPrompt">
@@ -41,6 +37,10 @@ export default {
 						</div>
 					</div>
 				</div>`,
+
+	components: {
+		'app': STApp
+	},
 	data() {
 		return ({
 			apps: [],
@@ -61,9 +61,6 @@ export default {
 			.on('unlink', path => this.getApps())
 	},
 	methods: {
-		removeApp(e) {
-			fs.unlinkSync(commands.autostartApps + e.target.name)
-		},
 		saveApp() {
 			if (this.appName && this.appComment && this.appExec) {
 				let desktopFile = `[Desktop Entry]
@@ -116,26 +113,6 @@ export default {
 				})
 			} catch (error) {
 				console.log(error)
-			}
-		},
-		statusChange(e) {
-			let fileName = e.target.id
-			let isStart = e.target.checked
-
-			try {
-				let data = fs.readFileSync(commands.autostartApps + '/' + fileName).toString()
-				let check = data.match(/\X-GNOME-Autostart-enabled=.*/g)
-
-				if (check) {
-					data = data.replace(/\X-GNOME-Autostart-enabled=.*/gi, 'X-GNOME-Autostart-enabled=' + isStart)
-				} else {
-					data += ('X-GNOME-Autostart-enabled=' + isStart + '\n')
-				}
-
-				fs.writeFileSync(commands.autostartApps + '/' + fileName, data)
-			} catch (err) {
-				console.log(err)
-				showMessage('Operation failed.', 'error')
 			}
 		}
 	}

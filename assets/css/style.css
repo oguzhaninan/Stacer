@@ -16,35 +16,49 @@ body {
   -webkit-user-select: none;
 }
 
+
 /*Colors*/
+
 body {
   background-color: #202b33;
 }
 
+
 /*---------DASHBOARD---------*/
 
+
 /*Trail Color*/
+
 svg path:first-child {
   stroke: #202b33;
 }
 
-.cont, .line-cont {
+.cont,
+.line-cont {
   background-color: #293945;
   color: #eee;
 }
 
 .cont h3,
 .line-cont h3,
-.system-info h3{
+.system-info h3 {
   color: #eee;
 }
 
 .system-info ul li {
   color: #748390;
 }
-
 /*---------DASHBOARD---------*/
 
+.item-list ul li {
+  background-color: #293945;
+  color: #aeb5bf;
+}
+
+/*---------STARTUP APPS---------*/
+
+
+/*---------STARTUP APPS---------*/
 
 button {
   cursor: pointer;
@@ -66,7 +80,9 @@ button {
   width: 100%;
 }
 
+
 /*---------DASHBOARD---------*/
+
 .cont,
 .line-cont {
   width: 200px;
@@ -74,7 +90,7 @@ button {
   font-size: 16px;
   text-align: center;
   margin: 15px;
-  padding: 10px 30px;
+  padding: 20px 30px;
   font-weight: 500;
 }
 
@@ -84,7 +100,7 @@ button {
   display: block;
   letter-spacing: 1px;
   padding: 0;
-  margin:0px 0px 8px 0px;
+  margin: 0px 0px 8px 0px;
   font-size: 16px;
   font-weight: 500;
 }
@@ -130,6 +146,37 @@ button {
   background-position: center 65px;
 }
 /*---------DASHBOARD---------*/
+
+/*---------STARTUP APPS---------*/
+
+.item-list {
+  width: 700px;
+  height: 530px;
+  margin: 15px auto 50px auto;
+}
+
+.item-list ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.item-list ul li {
+  position: relative;
+  float: left;
+  display: block;
+  cursor: pointer;
+  font-size: 15px;
+  margin: 6px 3px;
+  width: calc(100% - 68px);
+  border-radius: 4px;
+  padding: 10px 15px 10px 50px;
+  background: url(../img/package.png) no-repeat 13px 8px;
+}
+
+
+/*---------STARTUP APPS---------*/
+
 
 .tdl-holder {
   color: #748390;
@@ -212,9 +259,7 @@ button {
   padding: 180px 0px;
   color: #748390;
   display: block;
-  background-image: url(../img/not-found.png);
-  background-repeat: no-repeat;
-  background-position: 186px 15px;
+  background: url(../img/not-found.png) no-repeat 186px 15px;
 }
 
 #system-service-table .empty-list,
