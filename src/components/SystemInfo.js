@@ -1,7 +1,8 @@
 import si from 'systeminformation'
 
 export default {
-  template: `<div class="system-info">SYSTEM INFO
+  template: `<div class="system-info">
+                <h3>SYSTEM INFO</h3>
                 <ul> <li v-for="info in information"> {{ info }} </li> </ul>
               </div>`,
   data() {

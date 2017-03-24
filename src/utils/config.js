@@ -17,13 +17,6 @@ exports.prop = {
   // Durations
   networkBarsDuration: 600,
   upBarDuration: 600,
-  cpuDuration: 1200,
-  memDuration: 1500,
-  diskDuration: 5000,
   // Colors
   networkBarColor: '#2196F3',
-  cpuBarColor: '#4CAF50',
-  memBarColor: '#F44336',
-  diskBarColor: '#E91E63',
-  trailColor: '#202b33'
 }

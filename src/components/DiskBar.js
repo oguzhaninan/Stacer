@@ -1,52 +1,35 @@
-import si from 'systeminformation'
 import {
-	SemiCircle
+	Path
 } from 'progressbar.js'
-import {
-	prop
-} from '../utils/config'
+import si from 'systeminformation'
 import helpers from '../utils/helpers'
+import CircleBar from './CircleBar'
 
 export default {
-	template: `<div class="cont fl" id="disk-cont">DISK</div>`,
+	template: `<circle-bar title="DISK SPACE" idd="disk-cont" stroke="#e74c3c" :text="this.diskUsed + ' / ' + this.diskTotal + 'GB'" img="disk.png" />`,
+	components: {
+		'circle-bar': CircleBar
+	},
 	data() {
 		return ({
-			dUsed: 0,
-			dTotal: 0,
+			diskUsed: 0,
+			diskTotal: 0,
 			diskBar: null
 		})
 	},
 	mounted() {
-		this.diskBar = new SemiCircle('#disk-cont', {
-			strokeWidth: 12,
-			color: prop.diskBarColor,
-			trailColor: prop.trailColor,
-			easing: 'easeInOut',
-			duration: prop.diskDuration,
-			svgStyle: {
-				marginTop: '10px'
-			},
-			text: {
-				style: {
-					color: '#fff',
-					paddingBottom: '20px',
-					position: 'absolute',
-					left: '50%'
-				}
-			},
-			step: (state, bar) => {
-				bar.setText(this.dUsed + ' / ' + this.dTotal + 'GB')
-			}
+		this.diskBar = new Path('#disk-cont', {
+			duration: 5000
 		})
 
 		this.diskInfo()
-		setInterval(this.diskInfo, prop.diskDuration)
+		setInterval(this.diskInfo, 5000)
 	},
 	methods: {
 		diskInfo() {
-			si.fsSize(disk => {
-				this.dUsed = helpers.prettyDiskSize(disk[0].used)
-				this.dTotal = helpers.prettyDiskSize(disk[0].size)
+			si.fsSize( disk => {
+				this.diskUsed = helpers.prettyDiskSize(disk[0].used)
+				this.diskTotal = helpers.prettyDiskSize(disk[0].size)
 				this.diskBar.animate(disk[0].use / 100)
 			})
 		}

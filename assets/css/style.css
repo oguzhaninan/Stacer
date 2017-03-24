@@ -1,33 +1,52 @@
 body * {
-    outline: 0;
+  outline: 0;
 }
 
 @font-face {
-    font-family: 'Open Sans';
-    src: url(../font/OpenSans-Regular.ttf) format("truetype");
+  font-family: 'Open Sans';
+  src: url(../font/OpenSans-Regular.ttf) format("truetype");
+}
+
+body {
+  overflow: hidden;
+  float: left;
+  padding: 10px 0 0 0;
+  font-family: 'Open Sans', sans-serif;
+  -webkit-user-select: none;
 }
 
 /*Colors*/
 body {
-    background-color: #202b33;
-    /*background-color: #ecf3f6;*/
+  background-color: #202b33;
 }
 
-.cont,
-.line-cont {
-    background-color: #293945;
-    /*background-color: #dce6ec;*/
+/*Trail Color*/
+svg path:first-child {
+  stroke: #202b33;
+}
+
+.cont, .line-cont {
+  background-color: #293945;
+  color: #eee;
+}
+
+.cont h3,
+.line-cont h3,
+.system-info h3{
+  color: #eee;
+}
+
+.system-info ul li {
+  color: #748390;
 }
 
 
 
 
-body {
-    overflow: hidden;
-    float: left;
-    padding: 10px 0 0 0;
-    font-family: 'Open Sans', sans-serif;
-    -webkit-user-select: none;
+
+.circle-bar {
+  background-repeat: no-repeat;
+  background-position: center 65px;
 }
 
 button {
@@ -39,141 +58,152 @@ button {
 }
 
 .fl {
-    float: left;
+  float: left;
 }
 
 .fr {
-    float: right;
+  float: right;
 }
 
-.w100{
+.w100 {
   width: 100%;
 }
 
-.cont ,
+.cont,
 .line-cont {
-    width: 200px;
-    border-radius: 4px;
-    font-size: 16px;
-    color: white;
-    margin: 15px;
-    padding: 20px 30px 50px 30px;
-    font-weight: bold;
+  width: 200px;
+  border-radius: 4px;
+  font-size: 16px;
+  text-align: center;
+  margin: 15px;
+  padding: 10px 30px;
+  font-weight: bold;
+}
+
+.cont h3,
+.line-cont h3,
+.system-info h3 {
+  display: block;
+  letter-spacing: 1px;
+  padding: 0;
+  margin:0px 0px 8px 0px;
+  font-size: 16px;
+}
+
+.line-cont span {
+  display: block;
+  text-align: right;
+}
+
+.line-cont h3 {
+  text-align: left;
 }
 
 .line-cont {
-    width:350px;
-    padding-bottom:40px;
-}
-
-.line-cont > span:first-child {
-    float: left;
+  float: right;
+  width: 350px;
+  padding: 20px 30px;
 }
 
 .system-info {
-    font-weight: bold;
-    width: 330px;
-    float: left;
-    display: block;
-    font-size: 16px;
-    color: white;
-    margin: 20px;
-    padding: 15px 25px 15px 25px;
+  font-weight: bold;
+  width: 330px;
+  float: left;
+  display: block;
+  font-size: 16px;
+  margin: 20px;
+  padding: 10px 25px 15px 25px;
 }
 
 .system-info ul {
-    padding: 0;
-    color: #748390;
-    list-style: none;
-    font-weight: normal;
-    line-height: 30px;
+  padding: 0;
+  list-style: none;
+  font-weight: normal;
+  line-height: 30px;
 }
 
 #down-bar,
 #up-bar {
-    margin: 15px 0;
-    width: 350px;
-    height: 13px;
-    clear: left;
-    position: relative;
-    float: left;
+  margin: 0px 0px 15px 0px;
+  width: 350px;
 }
 
 .tdl-holder {
-    color: #748390;
-    font-size: 12px;
-    border: 1px solid #3d474e;
+  color: #748390;
+  font-size: 12px;
+  border: 1px solid #3d474e;
 }
 
 .tdl-holder ul,
 .tdl-holder li {
-    list-style: none;
-    margin: 0;
-    padding: 0;    
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }
 
 .tdl-holder li {
-    border-bottom: 1px solid #3d474e;
-    color: #748390;
-    float: left;
-    width: 100%;
+  border-bottom: 1px solid #3d474e;
+  color: #748390;
+  float: left;
+  width: 100%;
 }
 
 .tdl-holder li span {
-    margin-left: 25px;
-    display: block;
+  margin-left: 25px;
+  display: block;
 }
 
 .tdl-holder label {
-    cursor: pointer;
-    display: block;
-    line-height: 30px;
-    padding: 0 15px;
-    position: relative;
+  cursor: pointer;
+  display: block;
+  line-height: 30px;
+  padding: 0 15px;
+  position: relative;
 }
 
 .tdl-holder input[type="checkbox"],
 .cleaner-sidebar input[type="checkbox"] {
-    display: none;
+  display: none;
 }
 
 .tdl-holder i,
 .cleaner-sidebar i {
-    background-color: #748390;
-    border-radius: 50%;
-    display: block;
-    height: 12px;
-    position: absolute;
-    top: 9px;
-    width: 12px;
-    z-index: 1;
+  background-color: #748390;
+  border-radius: 50%;
+  display: block;
+  height: 12px;
+  position: absolute;
+  top: 9px;
+  width: 12px;
+  z-index: 1;
 }
 
 .tdl-holder input[type="checkbox"]:checked+i::after,
 .cleaner-sidebar input[type="checkbox"]:checked+i::after {
-    background-color: #293945;
-    border-radius: 50%;
-    content: '';
-    display: block;
-    height: 6px;
-    left: 3px;
-    position: absolute;
-    top: 3px;
-    width: 6px;
-    z-index: 2;
+  background-color: #293945;
+  border-radius: 50%;
+  content: '';
+  display: block;
+  height: 6px;
+  left: 3px;
+  position: absolute;
+  top: 3px;
+  width: 6px;
+  z-index: 2;
 }
 
 #cleaner-table {
-    float: right;
-    margin: 10px 10px 0px 0px;
-    width: 650px;
-    height: 500px;
+  float: right;
+  margin: 10px 10px 0px 0px;
+  width: 650px;
+  height: 500px;
 }
+
 #cleaner-table .tdl-content li span {
   width: 100%;
 }
 
-.empty-list{
+.empty-list {
   font-size: 22px;
   text-align: center;
   padding: 180px 0px;
@@ -189,17 +219,16 @@ button {
   background-position: 285px 15px;
 }
 
-
 #uninstaller-table,
 #system-service-table,
-#startup-apps-table{
-    width: 700px;
-    height: 530px;
-    margin: 15px auto 50px auto;
+#startup-apps-table {
+  width: 700px;
+  height: 530px;
+  margin: 15px auto 50px auto;
 }
 
-#startup-apps-table{
-    width: 500px;
+#startup-apps-table {
+  width: 500px;
 }
 
 .add-startup-app {
@@ -218,7 +247,7 @@ button {
 
 #uninstaller-table ul,
 #system-service-table ul,
-#startup-apps-table ul{
+#startup-apps-table ul {
   list-style: none;
   padding: 0;
   margin: 0;
@@ -226,57 +255,57 @@ button {
 
 #uninstaller-table ul li,
 #system-service-table ul li,
-#startup-apps-table ul li{
-    font-size:15px;
-    color:#aeb5bf;
-    margin: 6px 3px;
-    float: left;
-    width: calc(100% - 68px);
-    background-color: #293945;
-    cursor: pointer;
-    border-radius: 4px;
-    display: block;
-    padding: 10px 15px 10px 50px;
-    position: relative;
-    background-image: url(../img/package.png);
-    background-repeat: no-repeat;
-    background-position: 13px 7px;
+#startup-apps-table ul li {
+  font-size: 15px;
+  color: #aeb5bf;
+  margin: 6px 3px;
+  float: left;
+  width: calc(100% - 68px);
+  background-color: #293945;
+  cursor: pointer;
+  border-radius: 4px;
+  display: block;
+  padding: 10px 15px 10px 50px;
+  position: relative;
+  background-image: url(../img/package.png);
+  background-repeat: no-repeat;
+  background-position: 13px 7px;
 }
 
 #startup-apps-table ul li label,
-#system-service-table ul li label{
+#system-service-table ul li label {
   float: right;
   cursor: move;
 }
 
-#startup-apps-table ul li{
+#startup-apps-table ul li {
   background-position: 13px 7px;
   background-image: url(../img/app.png);
 }
 
-#system-service-table ul li{
+#system-service-table ul li {
   background-position: 13px 9px;
   background-image: url(../img/service.png);
 }
 
 #uninstaller-table ul li:hover,
 #system-service-table ul li:hover,
-#startup-apps-table ul li:hover{
-    background-color:#3d474e;
+#startup-apps-table ul li:hover {
+  background-color: #3d474e;
 }
 
 #uninstaller-table li a,
 #startup-apps-table li a {
-    display: block;
-    background-repeat: no-repeat;
-    float: right;
+  display: block;
+  background-repeat: no-repeat;
+  float: right;
 }
 
 #uninstaller-table li a {
-    width: 24px;
-    height: 24px;
-    margin-top: -2px;
-    background-image: url(../img/app-uninstall.png);
+  width: 24px;
+  height: 24px;
+  margin-top: -2px;
+  background-image: url(../img/app-uninstall.png);
 }
 
 .tdl-content li span {
@@ -288,13 +317,13 @@ button {
 }
 
 .remove-startup-app {
-    width: 24px;
-    height: 24px;
-    margin: -2px 10px 0px 0px;
-    background: transparent url(../img/app-uninstall.png) no-repeat;
-    display: none;
-    float: right;
-    border: 0;
+  width: 24px;
+  height: 24px;
+  margin: -2px 10px 0px 0px;
+  background: transparent url(../img/app-uninstall.png) no-repeat;
+  display: none;
+  float: right;
+  border: 0;
 }
 
 .tdl-content li:hover .remove-startup-app {
@@ -302,45 +331,42 @@ button {
 }
 
 #uninstaller-table .tdl-content,
-#system-service-table .tdl-content{
-    height:490px;
+#system-service-table .tdl-content {
+  height: 490px;
 }
 
-#startup-apps-table .tdl-content{
-    height:460px;
+#startup-apps-table .tdl-content {
+  height: 460px;
 }
 
 #installed-packages-title,
 #system-service-title,
-#startup-apps-title{
-    display: block;
-    height: 20px;
-    padding: 10px 15px;
-    font-size: 14px;
-    color:#aeb5bf;
+#startup-apps-title {
+  display: block;
+  height: 20px;
+  padding: 10px 15px;
+  font-size: 14px;
+  color: #aeb5bf;
 }
 
 #packages-search,
-#system-service-search{
-    border-radius: 50px;
-    background-color: #202b33;
-    font-size: 13px;
-    border: 1px solid #3d474e;
-    float: right;
-    padding: 5px 10px;
-    margin-top: -3px;
-    color: #aeb5bf;
+#system-service-search {
+  border-radius: 50px;
+  background-color: #202b33;
+  font-size: 13px;
+  border: 1px solid #3d474e;
+  float: right;
+  padding: 5px 10px;
+  margin-top: -3px;
+  color: #aeb5bf;
 }
-
-
-
-
 
 .switch {
   display: none;
 }
-.switch + label,
-.switch + label::after {
+
+.switch+label,
+.switch+label::after {
   display: inline-block;
   position: relative;
   width: 44px;
@@ -351,7 +377,8 @@ button {
   border-radius: 9999px;
   transition: 300ms;
 }
-.switch + label::after {
+
+.switch+label::after {
   content: "";
   position: absolute;
   left: 0;
@@ -361,21 +388,26 @@ button {
   border: none;
   box-shadow: 0 5px 5px -1px rgba(0, 0, 0, 0.2), 0 0 0 2px #EF4836;
 }
-.switch:checked + label {
+
+.switch:checked+label {
   border: 2px solid #4BD865;
   box-shadow: inset 0 0 0 calc(13px) #4BD865;
 }
-.switch:checked + label::after {
+
+.switch:checked+label::after {
   left: calc(22px);
   box-shadow: 0 5px 5px -1px rgba(0, 0, 0, 0.2), 0 0 0 2px #4BD865;
 }
-.switch:not(:checked) + label:hover:active {
+
+.switch:not(:checked)+label:hover:active {
   box-shadow: inset 0 0 0 calc(13px) #EF4836;
 }
-.switch + label:hover:active::after {
+
+.switch+label:hover:active::after {
   width: calc(23px);
 }
-.switch:checked + label:hover:active::after {
+
+.switch:checked+label:hover:active::after {
   left: calc(17px);
 }
 
@@ -392,181 +424,192 @@ a.loader {
 }
 
 @-webkit-keyframes spin {
-  0% { -webkit-transform: rotate(0deg); }
-  100% { -webkit-transform: rotate(360deg); }
+  0% {
+    -webkit-transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
 }
 
 @keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
-#clean-btn, #system-scan-btn {
-    clear: right;
-    float: right;
-    margin: 10px 10px 0 0;
-    border-radius: 5px;
-    padding: 8px 20px;
-    color: #eee;
-    cursor: pointer;
-    position: relative;
-    background-color: transparent;
-    border: 1px solid #293945;
+#clean-btn,
+#system-scan-btn {
+  clear: right;
+  float: right;
+  margin: 10px 10px 0 0;
+  border-radius: 5px;
+  padding: 8px 20px;
+  color: #eee;
+  cursor: pointer;
+  position: relative;
+  background-color: transparent;
+  border: 1px solid #293945;
 }
 
 #clean-btn:hover,
 #system-scan-btn:hover {
-   background-color: #293945;
+  background-color: #293945;
 }
 
 #system-scan-btn {
-    float: left;
+  float: left;
 }
 
-.scroll{
+.scroll {
   overflow-y: auto;
   overflow-x: hidden;
 }
 
 .scroll::-webkit-scrollbar-track {
-    -webkit-box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
-    border-radius: 10px;
+  -webkit-box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
 }
 
 .scroll::-webkit-scrollbar {
-    width: 10px;
+  width: 10px;
 }
 
 .scroll::-webkit-scrollbar-thumb {
-    background-color: #3d474e;
-    border-radius: 10px;
+  background-color: #3d474e;
+  border-radius: 10px;
 }
 
 #nav {
-    float: left;
-    width: 770px;
-    padding: 0 50px;
-    margin: 0 0 15px 0;
-    text-align: center;
+  float: left;
+  width: 770px;
+  padding: 0 50px;
+  margin: 0 0 15px 0;
+  text-align: center;
 }
 
 #nav li {
-    color: #eee;
-    padding: 0px 20px;
-    display: inline-block;
+  color: #eee;
+  padding: 0px 20px;
+  display: inline-block;
 }
 
 #nav li label:after {
-    transition: width .5s ease, background-color .5s ease
+  transition: width .5s ease, background-color .5s ease
 }
 
 #nav li label {
-    cursor: pointer;
-    display: block;
-    font-size: 16px;
-    transition: 0.9s ease;
-    padding: 6px;
+  cursor: pointer;
+  display: block;
+  font-size: 16px;
+  transition: 0.9s ease;
+  padding: 6px;
 }
 
 #nav li label:hover {
-    cursor: pointer;
-    color: white;
+  cursor: pointer;
+  color: white;
 }
 
-.nav-active, #nav li label:hover {
-    color: #47b1f3;
-    border-bottom: 1px solid #47b1f3;
+.nav-active,
+#nav li label:hover {
+  color: #47b1f3;
+  border-bottom: 1px solid #47b1f3;
 }
 
 .content {
-    float: left;
-    width: 100%;
+  float: left;
+  width: 100%;
 }
 
 .cleaner-sidebar {
-    margin: 10px 0 0 10px;
-    width: 180px;
-    float: left;
-    position: relative;
+  margin: 10px 0 0 10px;
+  width: 180px;
+  float: left;
+  position: relative;
 }
 
 .cleaner-sidebar ul {
-    float: left;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    border: 1px solid #3d474e;
+  float: left;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border: 1px solid #3d474e;
 }
 
 .cleaner-sidebar ul li {
-    padding: 0;
-    margin: 0;
+  padding: 0;
+  margin: 0;
 }
 
 .cleaner-sidebar ul li label {
-    display: block;
-    padding: 10px 0px 10px 15px;
-    width: 165px;
-    font-size: 15px;
-    color: #aeb5bf;
-    cursor: pointer;
-    position: relative;
+  display: block;
+  padding: 10px 0px 10px 15px;
+  width: 165px;
+  font-size: 15px;
+  color: #aeb5bf;
+  cursor: pointer;
+  position: relative;
 }
 
 .cleaner-sidebar i {
-    margin: 6px 0 0 0;
+  margin: 6px 0 0 0;
 }
 
 .cleaner-sidebar span {
-    margin-left: 25px;
+  margin-left: 25px;
 }
 
 .cleaner-sidebar span span {
-    margin: 0;
-    padding: 0;
-    position: relative;
-    font-size: 12px;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  font-size: 12px;
 }
 
 .cleaner-sidebar ul li label:last-child {
-    border-bottom: 0;
+  border-bottom: 0;
 }
 
 .cleaner-sidebar ul li label:hover {
-    background-color: #293945;
-    color: #2285c3;
+  background-color: #293945;
+  color: #2285c3;
 }
 
 .dn {
-    display: none;
+  display: none;
 }
+
 
 /*LOADING*/
 
 #loading {
-    width: 100%;
-    height: 100%;
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: #2a2a2a;
-    z-index: 999999;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #2a2a2a;
+  z-index: 999999;
 }
 
-.loader_text{
-    display: block;
-    width: 100%;
-    text-align: center;
-    font-size: 21px;
-    color: #2FAC9B;
-    margin-top:230px;
+.loader_text {
+  display: block;
+  width: 100%;
+  text-align: center;
+  font-size: 21px;
+  color: #2FAC9B;
+  margin-top: 230px;
 }
 
-#loader{
-    text-align: center;
-    margin-top:30px;
+#loader {
+  text-align: center;
+  margin-top: 30px;
 }
 
 #loader span {
@@ -579,355 +622,388 @@ a.loader {
 
 #loader span:nth-child(1) {
   -webkit-animation: temp 1s 0.05s infinite cubic-bezier(0.005, 0.56, 0.58, 1.59);
-          animation: temp 1s 0.05s infinite cubic-bezier(0.005, 0.56, 0.58, 1.59);
+  animation: temp 1s 0.05s infinite cubic-bezier(0.005, 0.56, 0.58, 1.59);
   width: 7.5px;
   height: 7.5px;
   margin: 0 2px;
 }
+
 #loader span:nth-child(2) {
   -webkit-animation: temp 1s 0.1s infinite cubic-bezier(0.005, 0.56, 0.58, 1.59);
-          animation: temp 1s 0.1s infinite cubic-bezier(0.005, 0.56, 0.58, 1.59);
+  animation: temp 1s 0.1s infinite cubic-bezier(0.005, 0.56, 0.58, 1.59);
   width: 7.5px;
   height: 7.5px;
   margin: 0 2px;
 }
+
 #loader span:nth-child(3) {
   -webkit-animation: temp 1s 0.15s infinite cubic-bezier(0.005, 0.56, 0.58, 1.59);
-          animation: temp 1s 0.15s infinite cubic-bezier(0.005, 0.56, 0.58, 1.59);
+  animation: temp 1s 0.15s infinite cubic-bezier(0.005, 0.56, 0.58, 1.59);
   width: 7.5px;
   height: 7.5px;
   margin: 0 2px;
 }
+
 #loader span:nth-child(4) {
   -webkit-animation: temp 1s 0.2s infinite cubic-bezier(0.005, 0.56, 0.58, 1.59);
-          animation: temp 1s 0.2s infinite cubic-bezier(0.005, 0.56, 0.58, 1.59);
+  animation: temp 1s 0.2s infinite cubic-bezier(0.005, 0.56, 0.58, 1.59);
   width: 7.5px;
   height: 7.5px;
   margin: 0 2px;
 }
+
 #loader span:nth-child(5) {
   -webkit-animation: temp 1s 0.25s infinite cubic-bezier(0.005, 0.56, 0.58, 1.59);
-          animation: temp 1s 0.25s infinite cubic-bezier(0.005, 0.56, 0.58, 1.59);
+  animation: temp 1s 0.25s infinite cubic-bezier(0.005, 0.56, 0.58, 1.59);
   width: 7.5px;
   height: 7.5px;
   margin: 0 2px;
 }
+
 #loader span:nth-child(6) {
   -webkit-animation: temp 1s 0.3s infinite cubic-bezier(0.005, 0.56, 0.58, 1.59);
-          animation: temp 1s 0.3s infinite cubic-bezier(0.005, 0.56, 0.58, 1.59);
+  animation: temp 1s 0.3s infinite cubic-bezier(0.005, 0.56, 0.58, 1.59);
   width: 7.5px;
   height: 7.5px;
   margin: 0 2px;
 }
+
 #loader span:nth-child(7) {
   -webkit-animation: temp 1s 0.35s infinite cubic-bezier(0.005, 0.56, 0.58, 1.59);
-          animation: temp 1s 0.35s infinite cubic-bezier(0.005, 0.56, 0.58, 1.59);
+  animation: temp 1s 0.35s infinite cubic-bezier(0.005, 0.56, 0.58, 1.59);
   width: 7.5px;
   height: 7.5px;
   margin: 0 2px;
 }
+
 #loader span:nth-child(8) {
   -webkit-animation: temp 1s 0.4s infinite cubic-bezier(0.005, 0.56, 0.58, 1.59);
-          animation: temp 1s 0.4s infinite cubic-bezier(0.005, 0.56, 0.58, 1.59);
+  animation: temp 1s 0.4s infinite cubic-bezier(0.005, 0.56, 0.58, 1.59);
   width: 7.5px;
   height: 7.5px;
   margin: 0 2px;
 }
+
 #loader span:nth-child(9) {
   -webkit-animation: temp 1s 0.45s infinite cubic-bezier(0.005, 0.56, 0.58, 1.59);
-          animation: temp 1s 0.45s infinite cubic-bezier(0.005, 0.56, 0.58, 1.59);
+  animation: temp 1s 0.45s infinite cubic-bezier(0.005, 0.56, 0.58, 1.59);
   width: 7.5px;
   height: 7.5px;
   margin: 0 2px;
 }
+
 #loader span:nth-child(10) {
   -webkit-animation: temp 1s 0.5s infinite cubic-bezier(0.005, 0.56, 0.58, 1.59);
-          animation: temp 1s 0.5s infinite cubic-bezier(0.005, 0.56, 0.58, 1.59);
+  animation: temp 1s 0.5s infinite cubic-bezier(0.005, 0.56, 0.58, 1.59);
   width: 7.5px;
   height: 7.5px;
   margin: 0 2px;
 }
+
 #loader span:nth-child(11) {
   -webkit-animation: temp 1s 0.55s infinite cubic-bezier(0.005, 0.56, 0.58, 1.59);
-          animation: temp 1s 0.55s infinite cubic-bezier(0.005, 0.56, 0.58, 1.59);
+  animation: temp 1s 0.55s infinite cubic-bezier(0.005, 0.56, 0.58, 1.59);
   width: 7.5px;
   height: 7.5px;
   margin: 0 2px;
 }
+
 #loader span:nth-child(12) {
   -webkit-animation: temp 1s 0.6s infinite cubic-bezier(0.005, 0.56, 0.58, 1.59);
-          animation: temp 1s 0.6s infinite cubic-bezier(0.005, 0.56, 0.58, 1.59);
+  animation: temp 1s 0.6s infinite cubic-bezier(0.005, 0.56, 0.58, 1.59);
   width: 7.5px;
   height: 7.5px;
   margin: 0 2px;
 }
+
 #loader span:nth-child(13) {
   -webkit-animation: temp 1s 0.65s infinite cubic-bezier(0.005, 0.56, 0.58, 1.59);
-          animation: temp 1s 0.65s infinite cubic-bezier(0.005, 0.56, 0.58, 1.59);
+  animation: temp 1s 0.65s infinite cubic-bezier(0.005, 0.56, 0.58, 1.59);
   width: 7.5px;
   height: 7.5px;
   margin: 0 2px;
 }
+
 #loader span:nth-child(14) {
   -webkit-animation: temp 1s 0.7s infinite cubic-bezier(0.005, 0.56, 0.58, 1.59);
-          animation: temp 1s 0.7s infinite cubic-bezier(0.005, 0.56, 0.58, 1.59);
+  animation: temp 1s 0.7s infinite cubic-bezier(0.005, 0.56, 0.58, 1.59);
   width: 7.5px;
   height: 7.5px;
   margin: 0 2px;
 }
+
 #loader span:nth-child(15) {
   -webkit-animation: temp 1s 0.75s infinite cubic-bezier(0.005, 0.56, 0.58, 1.59);
-          animation: temp 1s 0.75s infinite cubic-bezier(0.005, 0.56, 0.58, 1.59);
+  animation: temp 1s 0.75s infinite cubic-bezier(0.005, 0.56, 0.58, 1.59);
   width: 7.5px;
   height: 7.5px;
   margin: 0 2px;
 }
+
 #loader span:nth-child(16) {
   -webkit-animation: temp 1s 0.8s infinite cubic-bezier(0.005, 0.56, 0.58, 1.59);
-          animation: temp 1s 0.8s infinite cubic-bezier(0.005, 0.56, 0.58, 1.59);
+  animation: temp 1s 0.8s infinite cubic-bezier(0.005, 0.56, 0.58, 1.59);
   width: 7.5px;
   height: 7.5px;
   margin: 0 2px;
 }
+
 #loader span:nth-child(17) {
   -webkit-animation: temp 1s 0.85s infinite cubic-bezier(0.005, 0.56, 0.58, 1.59);
-          animation: temp 1s 0.85s infinite cubic-bezier(0.005, 0.56, 0.58, 1.59);
+  animation: temp 1s 0.85s infinite cubic-bezier(0.005, 0.56, 0.58, 1.59);
   width: 7.5px;
   height: 7.5px;
   margin: 0 2px;
 }
+
 #loader span:nth-child(18) {
   -webkit-animation: temp 1s 0.9s infinite cubic-bezier(0.005, 0.56, 0.58, 1.59);
-          animation: temp 1s 0.9s infinite cubic-bezier(0.005, 0.56, 0.58, 1.59);
+  animation: temp 1s 0.9s infinite cubic-bezier(0.005, 0.56, 0.58, 1.59);
   width: 7.5px;
   height: 7.5px;
   margin: 0 2px;
 }
+
 #loader span:nth-child(19) {
   -webkit-animation: temp 1s 0.95s infinite cubic-bezier(0.005, 0.56, 0.58, 1.59);
-          animation: temp 1s 0.95s infinite cubic-bezier(0.005, 0.56, 0.58, 1.59);
+  animation: temp 1s 0.95s infinite cubic-bezier(0.005, 0.56, 0.58, 1.59);
   width: 7.5px;
   height: 7.5px;
   margin: 0 2px;
 }
+
 #loader span:nth-child(20) {
   -webkit-animation: temp 1s 1s infinite cubic-bezier(0.005, 0.56, 0.58, 1.59);
-          animation: temp 1s 1s infinite cubic-bezier(0.005, 0.56, 0.58, 1.59);
+  animation: temp 1s 1s infinite cubic-bezier(0.005, 0.56, 0.58, 1.59);
   width: 7.5px;
   height: 7.5px;
   margin: 0 2px;
 }
+
 @-webkit-keyframes scale {
   0% {
     -webkit-transform: scale(0);
-            transform: scale(0);
+    transform: scale(0);
   }
   25% {
     -webkit-transform: scale(0.9, 0.9);
-            transform: scale(0.9, 0.9);
+    transform: scale(0.9, 0.9);
     background: #93e1d7;
   }
   50% {
     -webkit-transform: scale(1, 1);
-            transform: scale(1, 1);
+    transform: scale(1, 1);
     margin: 0 3px;
     background: #2FAC9B;
   }
   100% {
     -webkit-transform: scale(0);
-            transform: scale(0);
+    transform: scale(0);
   }
 }
+
 @keyframes scale {
   0% {
     -webkit-transform: scale(0);
-            transform: scale(0);
+    transform: scale(0);
   }
   25% {
     -webkit-transform: scale(0.9, 0.9);
-            transform: scale(0.9, 0.9);
+    transform: scale(0.9, 0.9);
     background: #93e1d7;
   }
   50% {
     -webkit-transform: scale(1, 1);
-            transform: scale(1, 1);
+    transform: scale(1, 1);
     margin: 0 3px;
     background: #2FAC9B;
   }
   100% {
     -webkit-transform: scale(0);
-            transform: scale(0);
+    transform: scale(0);
   }
 }
+
 @-webkit-keyframes rotateY {
   0% {
     -webkit-transform: rotateY(0deg);
-            transform: rotateY(0deg);
+    transform: rotateY(0deg);
   }
   50% {
     -webkit-transform: rotateY(90deg);
-            transform: rotateY(90deg);
+    transform: rotateY(90deg);
     background: #93e1d7;
   }
   100% {
     -webkit-transform: rotateY(0deg);
-            transform: rotateY(0deg);
+    transform: rotateY(0deg);
   }
 }
+
 @keyframes rotateY {
   0% {
     -webkit-transform: rotateY(0deg);
-            transform: rotateY(0deg);
+    transform: rotateY(0deg);
   }
   50% {
     -webkit-transform: rotateY(90deg);
-            transform: rotateY(90deg);
+    transform: rotateY(90deg);
     background: #93e1d7;
   }
   100% {
     -webkit-transform: rotateY(0deg);
-            transform: rotateY(0deg);
+    transform: rotateY(0deg);
   }
 }
+
 @-webkit-keyframes rotateX {
   0% {
     -webkit-transform: rotateX(0deg);
-            transform: rotateX(0deg);
+    transform: rotateX(0deg);
   }
   50% {
     -webkit-transform: rotateX(90deg) scale(0.5, 0.5);
-            transform: rotateX(90deg) scale(0.5, 0.5);
+    transform: rotateX(90deg) scale(0.5, 0.5);
     background: #93e1d7;
   }
   100% {
     -webkit-transform: rotateX(0deg);
-            transform: rotateX(0deg);
+    transform: rotateX(0deg);
   }
 }
+
 @keyframes rotateX {
   0% {
     -webkit-transform: rotateX(0deg);
-            transform: rotateX(0deg);
+    transform: rotateX(0deg);
   }
   50% {
     -webkit-transform: rotateX(90deg) scale(0.5, 0.5);
-            transform: rotateX(90deg) scale(0.5, 0.5);
+    transform: rotateX(90deg) scale(0.5, 0.5);
     background: #93e1d7;
   }
   100% {
     -webkit-transform: rotateX(0deg);
-            transform: rotateX(0deg);
+    transform: rotateX(0deg);
   }
 }
+
 @-webkit-keyframes push {
   0% {
     -webkit-transform: translateX(0px) scale(0.9, 0.6);
-            transform: translateX(0px) scale(0.9, 0.6);
+    transform: translateX(0px) scale(0.9, 0.6);
   }
   50% {
     -webkit-transform: translateY(-20px) scale(0.7, 1.1);
-            transform: translateY(-20px) scale(0.7, 1.1);
+    transform: translateY(-20px) scale(0.7, 1.1);
     background: #6bd6c8;
   }
   100% {
     -webkit-transform: translateX(0px) scale(0.9, 0.6);
-            transform: translateX(0px) scale(0.9, 0.6);
+    transform: translateX(0px) scale(0.9, 0.6);
   }
 }
+
 @keyframes push {
   0% {
     -webkit-transform: translateX(0px) scale(0.9, 0.6);
-            transform: translateX(0px) scale(0.9, 0.6);
+    transform: translateX(0px) scale(0.9, 0.6);
   }
   50% {
     -webkit-transform: translateY(-20px) scale(0.7, 1.1);
-            transform: translateY(-20px) scale(0.7, 1.1);
+    transform: translateY(-20px) scale(0.7, 1.1);
     background: #6bd6c8;
   }
   100% {
     -webkit-transform: translateX(0px) scale(0.9, 0.6);
-            transform: translateX(0px) scale(0.9, 0.6);
+    transform: translateX(0px) scale(0.9, 0.6);
   }
 }
+
 @-webkit-keyframes rotateZ {
   0% {
     -webkit-transform: rotateZ(-20deg);
-            transform: rotateZ(-20deg);
+    transform: rotateZ(-20deg);
   }
   50% {
     -webkit-transform: rotateZ(20deg) scaleY(1.2);
-            transform: rotateZ(20deg) scaleY(1.2);
+    transform: rotateZ(20deg) scaleY(1.2);
     background: #6bd6c8;
   }
   100% {
     -webkit-transform: rotateZ(-20deg);
-            transform: rotateZ(-20deg);
+    transform: rotateZ(-20deg);
   }
 }
+
 @keyframes rotateZ {
   0% {
     -webkit-transform: rotateZ(-20deg);
-            transform: rotateZ(-20deg);
+    transform: rotateZ(-20deg);
   }
   50% {
     -webkit-transform: rotateZ(20deg) scaleY(1.2);
-            transform: rotateZ(20deg) scaleY(1.2);
+    transform: rotateZ(20deg) scaleY(1.2);
     background: #6bd6c8;
   }
   100% {
     -webkit-transform: rotateZ(-20deg);
-            transform: rotateZ(-20deg);
+    transform: rotateZ(-20deg);
   }
 }
+
 @-webkit-keyframes cuve {
   0% {
     -webkit-transform: rotateY(-90deg) perspective(50px);
-            transform: rotateY(-90deg) perspective(50px);
+    transform: rotateY(-90deg) perspective(50px);
     background: #195c53;
   }
   50% {
     -webkit-transform: rotateY(0deg);
-            transform: rotateY(0deg);
+    transform: rotateY(0deg);
     background: #6bd6c8;
   }
   100% {
     -webkit-transform: rotateY(90deg) perspective(50px);
-            transform: rotateY(90deg) perspective(50px);
+    transform: rotateY(90deg) perspective(50px);
     -webkit-transform-origin: 100% 50%;
-            transform-origin: 100% 50%;
+    transform-origin: 100% 50%;
     background: #195c53;
   }
 }
+
 @keyframes cuve {
   0% {
     -webkit-transform: rotateY(-90deg) perspective(50px);
-            transform: rotateY(-90deg) perspective(50px);
+    transform: rotateY(-90deg) perspective(50px);
     background: #195c53;
   }
   50% {
     -webkit-transform: rotateY(0deg);
-            transform: rotateY(0deg);
+    transform: rotateY(0deg);
     background: #6bd6c8;
   }
   100% {
     -webkit-transform: rotateY(90deg) perspective(50px);
-            transform: rotateY(90deg) perspective(50px);
+    transform: rotateY(90deg) perspective(50px);
     -webkit-transform-origin: 100% 50%;
-            transform-origin: 100% 50%;
+    transform-origin: 100% 50%;
     background: #195c53;
   }
 }
+
 @-webkit-keyframes temp {
   50% {
     -webkit-transform: scale(1, 5);
-            transform: scale(1, 5);
+    transform: scale(1, 5);
     background: #195c53;
   }
 }
+
 @keyframes temp {
   50% {
     -webkit-transform: scale(1, 5);
-            transform: scale(1, 5);
+    transform: scale(1, 5);
     background: #195c53;
   }
 }
@@ -935,21 +1011,24 @@ a.loader {
 .slide-fade-enter-active {
   transition: all .2s ease;
 }
+
 .slide-fade-leave-active {
   transition: all .2s ease;
 }
-.slide-fade-enter, .slide-fade-leave-to {
+
+.slide-fade-enter,
+.slide-fade-leave-to {
   opacity: 0;
 }
 
-.update-check{
+.update-check {
   background-color: #16a085;
   text-align: left;
   margin-top: -40px;
   padding: 7px 0;
 }
 
-.update-check span{
+.update-check span {
   float: left;
   display: block;
   color: #202b33;
@@ -957,9 +1036,9 @@ a.loader {
   margin: 0;
 }
 
-.update-check button{
+.update-check button {
   color: #fff;
-  border:0;
+  border: 0;
   cursor: pointer;
   font-size: 15px;
   float: right;
@@ -970,14 +1049,16 @@ a.loader {
   margin-right: 8px;
 }
 
-.update-check button:hover{
+.update-check button:hover {
   background-color: #293945;
 }
 
+
 /*prompt style*/
+
 .promptDialog {
   position: fixed;
-  background-color: rgba(0,0,0,.4);
+  background-color: rgba(0, 0, 0, .4);
   left: 0;
   right: 0;
   top: 0;
@@ -988,12 +1069,12 @@ a.loader {
 }
 
 .promptDialog .dialog {
-    width: 350px;
-    margin: 0 auto;
-    position: relative;
-    top: 40%;
-    transform: translateY(-50%);
-    box-shadow: 0px 0px 20px #10161b;
+  width: 350px;
+  margin: 0 auto;
+  position: relative;
+  top: 40%;
+  transform: translateY(-50%);
+  box-shadow: 0px 0px 20px #10161b;
 }
 
 .promptDialog .dialog div:first-child {
@@ -1007,7 +1088,6 @@ a.loader {
   color: #ddd;
   display: block;
   padding: 5px 10px;
-
 }
 
 .dialog input,
@@ -1017,7 +1097,7 @@ a.loader {
   padding: 9px 15px;
   width: 280px;
   font-size: 15px;
-  border:0;
+  border: 0;
   background-color: #293945;
   margin: 8px 0px;
 }
@@ -1026,7 +1106,7 @@ a.loader {
   padding: 7px 15px;
   border: 0;
   color: #ddd;
-  border:1px solid #293945;
+  border: 1px solid #293945;
   cursor: pointer;
   font-size: 15px;
   margin: 5px 10px;

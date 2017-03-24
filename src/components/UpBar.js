@@ -1,15 +1,13 @@
-import si from 'systeminformation'
 import {
 	Line
 } from 'progressbar.js'
-import {
-	prop
-} from '../utils/config'
+import si from 'systeminformation'
 
 export default {
-	template: `<div class="line-cont fr">
-					<span>UPLOAD</span>
+	template: `<div class="line-cont">
+					<h3>UPLOAD</h3>
 					<div id="up-bar"></div>
+					<span>{{ this.upSpeed + ' kB/s' }}</span>
 				</div>`,
 	data() {
 		return ({
@@ -19,33 +17,23 @@ export default {
 	mounted() {
 		let upBar = new Line('#up-bar', {
 			strokeWidth: 5,
-			easing: 'easeInOut',
-			duration: prop.networkBarsDuration,
-			color: prop.networkBarColor,
-			trailColor: prop.trailColor,
-			text: {
-				style: {
-					color: '#999',
-					position: 'absolute',
-					right: '0',
-					marginTop: '5px'
-				}
-			},
-			step: (state, bar) => {
-				bar.setText(Math.abs(this.upSpeed).toString() + ' kB/s')
-			}
+			duration: 1000,
+			color: '#3498db',
+			trailColor: '#202b33'
 		})
 
+		let max = 1000
 		// Get network name
 		si.networkInterfaceDefault(defaultNetwork => {
 			setInterval(() => {
 				// get upload speed
 				si.networkStats(defaultNetwork, data => {
-					this.upSpeed = (data.tx_sec / 1024).toFixed(2)
+					this.upSpeed = Math.abs(data.tx_sec / 1024).toFixed(2) || 0.00
 					// up bar update
-					upBar.animate(this.upSpeed / 2000)
+					max = max < this.upSpeed ? this.upSpeed : max
+					upBar.animate(this.upSpeed / max)
 				})
-			}, prop.networkBarsDuration)
+			}, 1000)
 		})
 	}
 }

@@ -1,40 +1,29 @@
-import si from 'systeminformation'
 import {
-	SemiCircle
+	Path
 } from 'progressbar.js'
-import {
-	prop
-} from '../utils/config'
+import si from 'systeminformation'
+import CircleBar from './CircleBar'
 
 export default {
-	template: `<div class="cont fl" id="cpu-cont">CPU</div>`,
+	template: `<circle-bar title="CPU" idd="cpu-cont" stroke="#2ecc71" :text="cpuValue + '%'" img="cpu.png" />`,
+	components: {
+		'circle-bar': CircleBar
+	},
+	data () {
+		return ({
+			cpuValue: 0
+		})
+	},
 	mounted() {
-		let cpuBar = new SemiCircle('#cpu-cont', {
-			strokeWidth: 12,
-			color: prop.cpuBarColor,
-			trailColor: prop.trailColor,
-			easing: 'easeInOut',
-			duration: prop.cpuDuration,
-			svgStyle: {
-				marginTop: '10px'
-			},
-			text: {
-				style: {
-					color: '#fff',
-					paddingBottom: '20px',
-					position: 'absolute',
-					left: '50%'
-				}
-			},
-			step: (state, bar) => {
-				bar.setText(Math.round(bar.value() * 100) + "%")
-			}
+		let cpuBar = new Path('#cpu-cont', {
+			duration: 1000
 		})
 
 		setInterval(() => {
-			si.currentLoad(val => {
-				cpuBar.animate(val.currentload / 100)
+			si.currentLoad( val => {
+				this.cpuValue = val.currentload.toFixed(0)
+				cpuBar.animate(this.cpuValue  / 100)
 			})
-		}, prop.cpuDuration)
+		}, 1000)
 	}
 }

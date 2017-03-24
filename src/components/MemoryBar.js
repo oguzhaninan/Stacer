@@ -1,49 +1,32 @@
-import si from 'systeminformation'
 import {
-	SemiCircle
+	Path
 } from 'progressbar.js'
-import {
-	prop
-} from '../utils/config'
+import si from 'systeminformation'
 import helpers from '../utils/helpers'
+import CircleBar from './CircleBar'
 
 export default {
-	template: `<div class="cont fl" id="mem-cont">MEMORY</div>`,
+	template: `<circle-bar title="MEMORY" idd="mem-cont" stroke="#f1c40f" :text="memoryValue" img="memory.png" />`,
+	components: {
+		'circle-bar': CircleBar
+	},
 	data() {
 		return ({
-			memInfo: 0
+			memoryValue: 0
 		})
 	},
 	mounted() {
-		let memBar = new SemiCircle('#mem-cont', {
-			strokeWidth: 12,
-			color: prop.memBarColor,
-			trailColor: prop.trailColor,
-			easing: 'easeInOut',
-			duration: prop.memDuration,
-			svgStyle: {
-				marginTop: '10px'
-			},
-			text: {
-				style: {
-					color: '#fff',
-					paddingBottom: '20px',
-					position: 'absolute',
-					left: '50%'
-				}
-			},
-			step: (state, bar) => {
-				bar.setText(this.memInfo)
-			}
+		let memoryBar = new Path('#mem-cont', {
+			duration: 1500
 		})
 
 		setInterval(() => {
-			si.mem(ram => {
+			si.mem( ram => {
 				let usedMem = ram.total - ram.available
 				let totalMem = ram.total
-				this.memInfo = helpers.prettyMemSize(usedMem) + ' / ' + helpers.prettyMemSize(totalMem) + 'GB'
-				memBar.animate(usedMem / totalMem)
+				this.memoryValue = helpers.prettyMemSize(usedMem) + ' / ' + helpers.prettyMemSize(totalMem) + 'GB'
+				memoryBar.animate(usedMem / totalMem)
 			})
-		}, prop.memDuration)
+		}, 1500)
 	}
 }
