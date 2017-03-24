@@ -1,8 +1,8 @@
-import Dashboard from './Dashboard'
-import StartupApps from './StartupApps'
+import Dashboard from './dashboard/Dashboard'
+import StartupApps from './startup-apps/StartupApps'
 import Services from './Services'
 import Uninstaller from './Uninstaller'
-import SystemCleaner from './SystemCleaner'
+import SystemCleaner from './system-cleaner/SystemCleaner'
 
 export default {
 	template: `<div id="main" class="fl w100">

@@ -5,11 +5,11 @@ import sudo from 'sudo-prompt'
 import fs from 'fs'
 import {
     commands
-} from '../utils/config'
+} from '../../utils/config'
 import {
     command,
     showMessage
-} from '../utils/helpers'
+} from '../../utils/helpers'
 
 export default {
     template: `<div>

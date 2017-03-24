@@ -2,7 +2,7 @@ import {
 	Path
 } from 'progressbar.js'
 import si from 'systeminformation'
-import helpers from '../utils/helpers'
+import helpers from '../../utils/helpers'
 import CircleBar from './CircleBar'
 
 export default {
@@ -21,7 +21,7 @@ export default {
 		})
 
 		setInterval(() => {
-			si.mem( ram => {
+			si.mem(ram => {
 				let usedMem = ram.total - ram.available
 				let totalMem = ram.total
 				this.memoryValue = helpers.prettyMemSize(usedMem) + ' / ' + helpers.prettyMemSize(totalMem) + 'GB'

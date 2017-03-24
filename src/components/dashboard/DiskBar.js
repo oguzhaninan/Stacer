@@ -2,7 +2,7 @@ import {
 	Path
 } from 'progressbar.js'
 import si from 'systeminformation'
-import helpers from '../utils/helpers'
+import helpers from '../../utils/helpers'
 import CircleBar from './CircleBar'
 
 export default {
@@ -27,7 +27,7 @@ export default {
 	},
 	methods: {
 		diskInfo() {
-			si.fsSize( disk => {
+			si.fsSize(disk => {
 				this.diskUsed = helpers.prettyDiskSize(disk[0].used)
 				this.diskTotal = helpers.prettyDiskSize(disk[0].size)
 				this.diskBar.animate(disk[0].use / 100)

@@ -11,7 +11,7 @@ import properties from 'properties-reader'
 export default {
 	template: `<div id="startup-apps-table">
 					<div id="startup-apps-title">
-						<span style="padding:0;">System Startup Applications ({{apps.length}})</span>
+						<span style="padding:0;">System Startup Applications ({{ apps.length }})</span>
 					</div>
 					<div class="tdl-content scroll">
 						<span class="fl w100 empty-list" v-show="! apps.length">

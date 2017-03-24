@@ -1,15 +1,7 @@
-import si from 'systeminformation'
-import {
-	SemiCircle,
-	Line
-} from 'progressbar.js'
 import {
 	shell
 } from 'electron'
-import {
-	prop
-} from '../utils/config'
-import helpers from '../utils/helpers'
+import si from 'systeminformation'
 //Components
 import SystemInfo from './SystemInfo'
 import UpBar from './UpBar'
@@ -59,7 +51,7 @@ export default {
 		// Update check
 		try {
 			$.getJSON('https://api.github.com/repos/oguzhaninan/Stacer/releases/latest', data => {
-				let currentVersion = require('../../package.json').version.toString()
+				let currentVersion = require('../../../package.json').version.toString()
 				let releaseVersion = data.tag_name.substr(1).toString()
 
 				this.update_check = (currentVersion != releaseVersion)

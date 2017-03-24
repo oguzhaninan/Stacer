@@ -3,15 +3,16 @@ body * {
 }
 
 @font-face {
-  font-family: 'Open Sans';
-  src: url(../font/OpenSans-Regular.ttf) format("truetype");
+  font-family: 'Ubuntu', sans-serif;
+  src: url(../font/Ubuntu-Regular.ttf) format("truetype");
 }
 
 body {
   overflow: hidden;
   float: left;
   padding: 10px 0 0 0;
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Ubuntu', sans-serif;
+  font-weight: 400;
   -webkit-user-select: none;
 }
 
@@ -19,6 +20,8 @@ body {
 body {
   background-color: #202b33;
 }
+
+/*---------DASHBOARD---------*/
 
 /*Trail Color*/
 svg path:first-child {
@@ -40,14 +43,8 @@ svg path:first-child {
   color: #748390;
 }
 
+/*---------DASHBOARD---------*/
 
-
-
-
-.circle-bar {
-  background-repeat: no-repeat;
-  background-position: center 65px;
-}
 
 button {
   cursor: pointer;
@@ -69,6 +66,7 @@ button {
   width: 100%;
 }
 
+/*---------DASHBOARD---------*/
 .cont,
 .line-cont {
   width: 200px;
@@ -77,7 +75,7 @@ button {
   text-align: center;
   margin: 15px;
   padding: 10px 30px;
-  font-weight: bold;
+  font-weight: 500;
 }
 
 .cont h3,
@@ -88,6 +86,7 @@ button {
   padding: 0;
   margin:0px 0px 8px 0px;
   font-size: 16px;
+  font-weight: 500;
 }
 
 .line-cont span {
@@ -106,13 +105,13 @@ button {
 }
 
 .system-info {
-  font-weight: bold;
   width: 330px;
   float: left;
   display: block;
   font-size: 16px;
   margin: 20px;
   padding: 10px 25px 15px 25px;
+  font-weight: 500;
 }
 
 .system-info ul {
@@ -122,11 +121,15 @@ button {
   line-height: 30px;
 }
 
-#down-bar,
-#up-bar {
+.line-cont div {
   margin: 0px 0px 15px 0px;
-  width: 350px;
 }
+
+.circle-bar {
+  background-repeat: no-repeat;
+  background-position: center 65px;
+}
+/*---------DASHBOARD---------*/
 
 .tdl-holder {
   color: #748390;

@@ -9,7 +9,7 @@ export default {
 	components: {
 		'circle-bar': CircleBar
 	},
-	data () {
+	data() {
 		return ({
 			cpuValue: 0
 		})
@@ -20,9 +20,9 @@ export default {
 		})
 
 		setInterval(() => {
-			si.currentLoad( val => {
+			si.currentLoad(val => {
 				this.cpuValue = val.currentload.toFixed(0)
-				cpuBar.animate(this.cpuValue  / 100)
+				cpuBar.animate(this.cpuValue / 100)
 			})
 		}, 1000)
 	}
