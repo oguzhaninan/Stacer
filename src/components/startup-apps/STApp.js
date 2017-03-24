@@ -2,7 +2,7 @@ export default {
 	template: `<li>
 					<span>{{ name }}</span>
 					<input type="checkbox" class="switch" :id="file" :checked="isStart" @change="statusChange" />
-					<label :for="file"></label>
+					<label :for="file" class="fr"></label>
 					<button :name="file" @click="removeApp" class="remove-startup-app"></button>
 				</li>`,
 	props: ['name', 'file', 'is-start'],

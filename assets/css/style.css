@@ -147,12 +147,11 @@ button {
 }
 /*---------DASHBOARD---------*/
 
-/*---------STARTUP APPS---------*/
-
+/*---------ITEM LIST---------*/
 .item-list {
   width: 700px;
   height: 530px;
-  margin: 15px auto 50px auto;
+  margin: 15px auto 20px auto;
 }
 
 .item-list ul {
@@ -162,7 +161,7 @@ button {
 }
 
 .item-list ul li {
-  position: relative;
+  position: relative; 
   float: left;
   display: block;
   cursor: pointer;
@@ -171,9 +170,57 @@ button {
   width: calc(100% - 68px);
   border-radius: 4px;
   padding: 10px 15px 10px 50px;
-  background: url(../img/package.png) no-repeat 13px 8px;
 }
 
+.item-list h3 {
+  margin: 0px;
+  display: block;
+  height: 20px;
+  padding: 10px 0px 10px 15px;
+  font-size: 15px;
+  color: #aeb5bf;
+  font-weight: 400;
+}
+
+.item-list ul li span {
+  display: block;
+  float: left;
+  width: calc(100% - 60px);
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/*---------ITEM LIST---------*/
+
+/*---------STARTUP APPS---------*/
+.startup-apps-content {
+
+}
+
+.startup-apps-list {
+  width: 600px;
+  height: 470px;
+}
+
+.startup-apps-list ul li {
+  background-image: url(../img/package.png);
+  background-repeat: no-repeat;
+  background-position: 13px 8px;
+}
+
+.remove-startup-app {
+  width: 24px;
+  height: 24px;
+  margin: -2px 10px 0px 0px;
+  background: transparent url(../img/app-uninstall.png) no-repeat;
+  display: none;
+  float: right;
+  border: 0;
+}
+
+.tdl-content li:hover .remove-startup-app {
+  display: block;
+}
 
 /*---------STARTUP APPS---------*/
 
@@ -362,20 +409,6 @@ button {
   width: 320px;
   overflow: hidden;
   text-overflow: ellipsis;
-}
-
-.remove-startup-app {
-  width: 24px;
-  height: 24px;
-  margin: -2px 10px 0px 0px;
-  background: transparent url(../img/app-uninstall.png) no-repeat;
-  display: none;
-  float: right;
-  border: 0;
-}
-
-.tdl-content li:hover .remove-startup-app {
-  display: block;
 }
 
 #uninstaller-table .tdl-content,

@@ -66,7 +66,7 @@ export default {
 				</div>`,
 	data() {
 		return ({
-			activeNav: 1
+			activeNav: 3
 		})
 	},
 	components: {
