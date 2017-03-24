@@ -31,9 +31,7 @@ export default {
 
 					<!--System Startup Apps Page-->
 					<transition name="slide-fade">
-						<div v-show="activeNav == 3" class="content">				
-							<startup-apps/>
-						</div>
+						<startup-apps v-show="activeNav == 3" />
 					</transition>
 
 					<!--Services Page-->

@@ -52,8 +52,17 @@ svg path:first-child {
 
 .item-list ul li {
   background-color: #293945;
+}
+
+.item-list ul li:hover {
+  background-color: #3d474e;
+}
+
+.item-list h3,
+.item-list ul li {
   color: #aeb5bf;
 }
+
 
 /*---------STARTUP APPS---------*/
 
@@ -158,6 +167,7 @@ button {
   list-style: none;
   padding: 0;
   margin: 0;
+  height: calc(100% - 40px);
 }
 
 .item-list ul li {
@@ -178,25 +188,21 @@ button {
   height: 20px;
   padding: 10px 0px 10px 15px;
   font-size: 15px;
-  color: #aeb5bf;
   font-weight: 400;
 }
 
 .item-list ul li span {
   display: block;
   float: left;
-  width: calc(100% - 60px);
+  width: calc(100% - 80px);
   overflow: hidden;
   text-overflow: ellipsis;
+  margin-top: 2px;
 }
 
 /*---------ITEM LIST---------*/
 
 /*---------STARTUP APPS---------*/
-.startup-apps-content {
-
-}
-
 .startup-apps-list {
   width: 600px;
   height: 470px;
@@ -206,6 +212,10 @@ button {
   background-image: url(../img/package.png);
   background-repeat: no-repeat;
   background-position: 13px 8px;
+}
+
+.startup-apps-list ul li:hover .remove-startup-app {
+  display: block;
 }
 
 .remove-startup-app {
@@ -218,9 +228,20 @@ button {
   border: 0;
 }
 
-.tdl-content li:hover .remove-startup-app {
-  display: block;
+.add-startup-app {
+  background-color: #2196f3;
+  border: 0;
+  padding: 8px 15px;
+  color: #eee;
+  float: right;
+  margin: 10px 140px 0px 0px;
+  border-radius: 4px;
 }
+
+.add-startup-app:hover {
+  background-color: #2285c3;
+}
+
 
 /*---------STARTUP APPS---------*/
 
@@ -304,9 +325,11 @@ button {
   font-size: 22px;
   text-align: center;
   padding: 180px 0px;
+  width: 250px;
+  margin: auto;
   color: #748390;
   display: block;
-  background: url(../img/not-found.png) no-repeat 186px 15px;
+  background: url(../img/not-found.png) no-repeat center 25px;
 }
 
 #system-service-table .empty-list,
@@ -324,20 +347,6 @@ button {
 
 #startup-apps-table {
   width: 500px;
-}
-
-.add-startup-app {
-  background-color: #2196f3;
-  border: 0;
-  padding: 8px 15px;
-  color: #eee;
-  float: right;
-  margin: 10px 0px 0px 0px;
-  border-radius: 4px;
-}
-
-.add-startup-app:hover {
-  background-color: #2285c3;
 }
 
 #uninstaller-table ul,
@@ -457,6 +466,7 @@ button {
   border: 2px solid #EF4836;
   border-radius: 9999px;
   transition: 300ms;
+  cursor: pointer;
 }
 
 .switch+label::after {

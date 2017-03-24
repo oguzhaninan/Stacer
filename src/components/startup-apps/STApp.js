@@ -1,3 +1,11 @@
+import fs from 'fs'
+import {
+	showMessage
+} from '../../utils/helpers'
+import {
+	commands
+} from '../../utils/config'
+
 export default {
 	template: `<li>
 					<span>{{ name }}</span>

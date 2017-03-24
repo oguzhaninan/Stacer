@@ -10,13 +10,13 @@ import fs from 'fs'
 import STApp from './STApp'
 
 export default {
-	template: `<div id="startup-apps-content">					
-					<div class="item-list startup-apps-list scroll">
+	template: `<div class="content">
+					<div class="item-list startup-apps-list">
 						<h3>System Startup Applications ({{ apps.length }})</h3>
 						<span class="empty-list" v-show="! apps.length">
 							No startup apps found.
 						</span>
-						<ul v-show="apps.length">
+						<ul v-show="apps.length" class="scroll">
 							<app v-for="app in apps" :name="app.name" :file="app.file" :is-start="app.isStart"></app>
 						</ul>
 					</div>
