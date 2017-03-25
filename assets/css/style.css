@@ -47,6 +47,19 @@ svg path:first-child {
   color: #748390;
 }
 /*---------DASHBOARD---------*/
+.switch+label,
+.switch:not(:checked)+label:hover:active {
+  background-color: #EF4836;
+}
+
+.switch+label::after {
+  background-color: #fff;
+}
+
+.switch:checked+label {
+  box-shadow: inset 0 0 0 13px #4BD865;
+}
+
 .scroll::-webkit-scrollbar-thumb {
   background-color: #3d474e;
 }
@@ -94,6 +107,11 @@ button {
   width: 100%;
 }
 
+.content {
+  float: left;
+  width: 100%;
+  height: 999px;
+}
 
 /*---------DASHBOARD---------*/
 
@@ -104,7 +122,7 @@ button {
   font-size: 16px;
   text-align: center;
   margin: 15px;
-  padding: 20px 30px;
+  padding: 10px 30px 20px 30px;
   font-weight: 500;
 }
 
@@ -114,7 +132,7 @@ button {
   display: block;
   letter-spacing: 1px;
   padding: 0;
-  margin: 0px 0px 8px 0px;
+  margin: 0px 0px 12px 0px;
   font-size: 16px;
   font-weight: 500;
 }
@@ -161,7 +179,47 @@ button {
 }
 /*---------DASHBOARD---------*/
 
-/*SCROLL*/
+/*--------SWITCH-----------*/
+.switch {
+  display: none;
+}
+
+.switch+label,
+.switch+label::after {
+  display: inline-block;
+  position: relative;
+  width: 44px;
+  height: 22px;
+  border-radius: 9999px;
+  transition: 300ms;
+  cursor: pointer;
+}
+
+.switch+label::after {
+  content: "";
+  position: absolute;
+  left: 3px;
+  width: 17px;
+  height: 17px;
+  margin-top: 2px;
+  box-shadow: 0 5px 5px -1px rgba(0, 0, 0, 0.2), 0 0 0 2px #EF4836;
+}
+
+.switch:checked+label::after {
+  left: 22px;
+  box-shadow: 0 5px 5px -1px rgba(0, 0, 0, 0.2), 0 0 0 2px #4BD865;
+}
+
+.switch+label:hover:active::after {
+  width: 23px;
+}
+
+.switch:checked+label:hover:active::after {
+  left: 17px;
+}
+/*--------SWITCH-----------*/
+
+/*----------SCROLL--------*/
 .scroll {
   overflow-y: auto;
   overflow-x: hidden;
@@ -180,7 +238,7 @@ button {
   border-radius: 10px;
 }
 
-/*SCROLL*/
+/*----------SCROLL--------*/
 
 /*---------ITEM LIST---------*/
 .item-list {
@@ -328,6 +386,10 @@ button {
 }
 /*---------UNINSTALLER---------*/
 
+/*---------ITEM TABLE---------*/
+
+
+/*---------ITEM TABLE---------*/
 
 
 .tdl-holder {
@@ -425,53 +487,6 @@ button {
   text-overflow: ellipsis;
 }
 
-.switch {
-  display: none;
-}
-
-.switch+label,
-.switch+label::after {
-  display: inline-block;
-  position: relative;
-  width: 44px;
-  height: 22px;
-  background-color: #EF4836;
-  border-radius: 9999px;
-  transition: 300ms;
-  cursor: pointer;
-}
-
-.switch+label::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  background: #fff;
-  width: 17px;
-  height: 17px;
-  margin-top: 2px;
-  box-shadow: 0 5px 5px -1px rgba(0, 0, 0, 0.2), 0 0 0 2px #EF4836;
-}
-
-.switch:checked+label {
-  box-shadow: inset 0 0 0 13px #4BD865;
-}
-
-.switch:checked+label::after {
-  left: 22px;
-  box-shadow: 0 5px 5px -1px rgba(0, 0, 0, 0.2), 0 0 0 2px #4BD865;
-}
-
-.switch:not(:checked)+label:hover:active {
-  box-shadow: inset 0 0 0 13px #EF4836;
-}
-
-.switch+label:hover:active::after {
-  width: 23px;
-}
-
-.switch:checked+label:hover:active::after {
-  left: 17px;
-}
 
 #clean-btn,
 #system-scan-btn {
@@ -533,10 +548,6 @@ button {
   border-bottom: 1px solid #47b1f3;
 }
 
-.content {
-  float: left;
-  width: 100%;
-}
 
 .cleaner-sidebar {
   margin: 10px 0 0 10px;

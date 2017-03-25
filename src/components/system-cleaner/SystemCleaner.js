@@ -10,22 +10,28 @@ import {
     command,
     showMessage
 } from '../../utils/helpers'
+import SidebarItem from './SidebarItem'
 
 export default {
     template: `<div>
 				<div class="cleaner-sidebar">
 					<ul>
-						<li><label><input type="checkbox" v-model:checked="aptCacheSelect"><i></i>
-						<span> Apt Cache ({{ aptCachesList.length }}) </span></label></li>
+                        <sidebar-item text="Apt Cache" :length="aptCachesList.length">
+						    <input type="checkbox" v-model:checked="aptCacheSelect">
+                        </sidebar-item>
 
-						<li><label><input type="checkbox" v-model:checked="crashReportsSelect"><i></i>
-						<span> Crash Reports ({{ crashReportsList.length }}) </span></label></li>
+                        <sidebar-item text="Crash Reports" :length="crashReportsList.length">
+						    <input type="checkbox" v-model:checked="crashReportsSelect">
+                        </sidebar-item>
 
-						<li><label><input type="checkbox" v-model:checked="systemLogsSelect"><i></i>
-						<span> System Logs ({{ systemLogsList.length }}) </span></label></li>
+                        <sidebar-item text="System Logs" :length="systemLogsList.length">
+						    <input type="checkbox" v-model:checked="systemLogsSelect">
+                        </sidebar-item>
 
-						<li><label><input type="checkbox" v-model:checked="appCacheSelect"><i></i>
-						<span> App Cache ({{ appCachesList.length }}) </span></label></li>
+                        <sidebar-item text="App Cache" :length="appCachesList.length">
+						    <input type="checkbox" v-model:checked="appCacheSelect">
+                        </sidebar-item>
+						
 					</ul>
 
 					<input type="button" id="system-scan-btn" @click="systemScan" value="System Scan" />
@@ -105,6 +111,10 @@ export default {
 				</div>
 				<input type="button" id="clean-btn" @click="systemClean" value="Clean" />
 			</div>`,
+    
+    components: {
+        'sidebar-item': SidebarItem
+    },
     data() {
         return {
             aptCacheSelect: false,
@@ -250,10 +260,9 @@ export default {
         }
     },
     watch: {
-        appCacheSelect: (checked) => {
-            if (checked) {
+        appCacheSelect: checked => {
+            if (checked)
                 showMessage('Deleting applications\' caches can cause problems. Please be careful.', 'warning')
-            }
         }
     }
 }

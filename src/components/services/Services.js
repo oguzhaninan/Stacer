@@ -39,12 +39,8 @@ export default {
 		})
 	},
 	created() {
-		si.processes(pr => {
-			console.log(pr)
-		})
-
 		const services = spawn('bash', ['-c', commands.getAllService])
-
+		
 		services.stdout.on('data', data => {
 			data = data.toString().split('\n').filter(s => s != '')
 
