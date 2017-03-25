@@ -1,4 +1,3 @@
-import sudo from 'sudo-prompt'
 import {
 	spawn
 } from 'child_process'
@@ -9,6 +8,7 @@ import {
 	command,
 	showMessage
 } from '../../utils/helpers'
+import si from 'systeminformation'
 
 import Service from './Service'
 
@@ -35,11 +35,14 @@ export default {
 	data() {
 		return ({
 			servicesList: [],
-			searchString: '',
-			isBusy: false
+			searchString: ''
 		})
 	},
 	created() {
+		si.processes(pr => {
+			console.log(pr)
+		})
+
 		const services = spawn('bash', ['-c', commands.getAllService])
 
 		services.stdout.on('data', data => {
@@ -54,32 +57,6 @@ export default {
 				})
 			})
 		})
-	},
-	methods: {
-		// Service status change switch button function
-		statusChange(e) {
-			let serviceName = e.target.id
-			let status = e.target.checked ? 'start' : 'stop'
-
-			if (!this.isBusy) {
-				this.isBusy = true
-				sudo.exec(command(`service ${serviceName} ${status}`), {
-						name: 'Stacer'
-					},
-					(error, stdout, stderr) => {
-						if (stderr) {
-							e.target.checked = !status
-							showMessage('Operation not successful.', 'error')
-						} else {
-							showMessage(serviceName + ' service ' + status + (e.target.checked ? 'ed' : 'ped'), 'success')
-						}
-
-						this.isBusy = false
-					})
-			} else {
-				showMessage('Another process continues.', 'error')
-			}
-		}
 	},
 	computed: {
 		// Search services

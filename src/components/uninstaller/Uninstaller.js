@@ -4,29 +4,32 @@ import {
 import sudo from 'sudo-prompt'
 import {
     commands
-} from '../utils/config'
+} from '../../utils/config'
 import {
     command,
     showMessage
-} from '../utils/helpers'
+} from '../../utils/helpers'
 
 export default {
-    template: `<div id="uninstaller-table">
-				<div id="installed-packages-title">
-					<span style="padding:0;">System Installed Packages ({{ filteredPackages.length }})</span>
-					<input type="text" id="packages-search" v-model="searchString" placeholder="Search..." />
-				</div>
-				<div class="tdl-content scroll">
-                    <span class="fl w100 empty-list" v-show="! filteredPackages.length" >
-						No package found.
-					</span>
-					<ul v-show="filteredPackages.length">
-						<li v-for="package in filteredPackages" > {{ package }}
-							<a :name="package" @click="removePackage"></a>
-						</li>
-					</ul>
-				</div>
-			</div>`,
+    template: `<transition name="slide-fade">
+                <div class="content">
+                    <div class="item-list uninstaller-list">
+                        <div>
+                            <h3 class="fl">System Installed Packages ({{ filteredPackages.length }})</h3>
+                            <input type="text" v-model="searchString" placeholder="Search..." />
+                        </div>
+                        <ul v-show="filteredPackages.length" class="scroll">
+                            <li v-for="package in filteredPackages">
+                                <span>{{ package }}</span>
+                                <a :name="package" @click="removePackage"></a>
+                            </li>
+                        </ul>
+                        <span class="empty-list" v-show="! filteredPackages.length" >
+                            No package found.
+                        </span>
+                    </div>
+                </div>
+            </transition>`,
     data() {
         return ({
             packagesList: [],

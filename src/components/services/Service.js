@@ -1,9 +1,11 @@
 import {
+	command,
 	showMessage
 } from '../../utils/helpers'
 import {
 	spawn
 } from 'child_process'
+import sudo from 'sudo-prompt'
 
 export default {
 	template: `<li>
@@ -12,10 +14,16 @@ export default {
 					<label :for="name" class="fr"></label>
 				</li>`,
 	props: ['name', 'is-run'],
+	data() {
+		return ({
+			isBusy: false
+		})
+	},
 	methods: {
 		statusChange(e) {
 			let serviceName = e.target.id
-			let status = e.target.checked ? 'start' : 'stop'
+			let isChecked = e.target.checked
+			let status = isChecked ? 'start' : 'stop'
 
 			if (!this.isBusy) {
 				this.isBusy = true
@@ -24,7 +32,7 @@ export default {
 					},
 					(error, stdout, stderr) => {
 						if (stderr) {
-							e.target.checked = !status
+							e.target.checked = ! isChecked
 							showMessage('Operation not successful.', 'error')
 						} else {
 							showMessage(serviceName + ' service ' + status + (e.target.checked ? 'ed' : 'ped'), 'success')
@@ -35,6 +43,6 @@ export default {
 			} else {
 				showMessage('Another process continues.', 'error')
 			}
-		}		
+		}
 	}
 }

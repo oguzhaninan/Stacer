@@ -1,7 +1,7 @@
 import Dashboard from './dashboard/Dashboard'
 import StartupApps from './startup-apps/StartupApps'
 import Services from './services/Services'
-import Uninstaller from './Uninstaller'
+import Uninstaller from './uninstaller/Uninstaller'
 import SystemCleaner from './system-cleaner/SystemCleaner'
 
 export default {
@@ -14,9 +14,8 @@ export default {
 						<li><label :class="{'nav-active': activeNav == 4}" @click="activeNav = 4">Services</label></li>
 						<li><label :class="{'nav-active': activeNav == 5}" @click="activeNav = 5">Uninstaller</label></li>
 					</ul>
-
-					<!--Dashboard Page-->					
-						<dashboard v-show="activeNav == 1" />
+					
+					<dashboard v-show="activeNav == 1" />
 
 					<!--System Cleaner Page-->
 					<transition name="slide-fade">
@@ -25,18 +24,11 @@ export default {
 						</div>
 					</transition>
 
-					<!--System Startup Apps Page-->					
-						<startup-apps v-show="activeNav == 3" />
+					<startup-apps v-show="activeNav == 3" />
 
-					<!--Services Page-->
-						<services v-show="activeNav == 4" />
-
-					<!--Packages Page-->
-					<transition name="slide-fade">
-						<div v-show="activeNav == 5" class="content">
-							<uninstaller/>
-						</div>
-					</transition>
+					<services v-show="activeNav == 4" />
+		
+					<uninstaller v-show="activeNav == 5" />
 
 					<!--Startup Loading-->
 					<div id="loading">
@@ -54,7 +46,7 @@ export default {
 				</div>`,
 	data() {
 		return ({
-			activeNav: 3
+			activeNav: 5
 		})
 	},
 	components: {

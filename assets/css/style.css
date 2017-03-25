@@ -47,6 +47,9 @@ svg path:first-child {
   color: #748390;
 }
 /*---------DASHBOARD---------*/
+.scroll::-webkit-scrollbar-thumb {
+  background-color: #3d474e;
+}
 
 .item-list ul li {
   background-color: #293945;
@@ -158,6 +161,27 @@ button {
 }
 /*---------DASHBOARD---------*/
 
+/*SCROLL*/
+.scroll {
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.scroll::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+}
+
+.scroll::-webkit-scrollbar {
+  width: 10px;
+}
+
+.scroll::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+}
+
+/*SCROLL*/
+
 /*---------ITEM LIST---------*/
 .item-list {
   width: 700px;
@@ -208,10 +232,8 @@ button {
   font-size: 13px;
   float: right;
   padding: 5px 10px;
-  margin: 6px 0px;
+  margin: 6px 10px 6px 0px;
 }
-
-
 /*---------ITEM LIST---------*/
 
 /*---------STARTUP APPS---------*/
@@ -221,9 +243,9 @@ button {
 }
 
 .startup-apps-list ul li {
-  background-image: url(../img/package.png);
+  background-image: url(../img/app.png);
   background-repeat: no-repeat;
-  background-position: 13px 11px;
+  background-position: 13px 9px;
 }
 
 .startup-apps-list ul li:hover .remove-startup-app {
@@ -234,7 +256,7 @@ button {
   width: 24px;
   height: 24px;
   margin: -2px 10px 0px 0px;
-  background: transparent url(../img/app-uninstall.png) no-repeat;
+  background: transparent url(../img/trash.png) no-repeat;
   display: none;
   float: right;
   border: 0;
@@ -253,14 +275,9 @@ button {
 .add-startup-app:hover {
   background-color: #2285c3;
 }
-
 /*---------STARTUP APPS---------*/
 
 /*---------SYSTEM SERVICES---------*/
-.services-list {
-  
-}
-
 .services-list ul {
   float: left;
 }
@@ -268,11 +285,48 @@ button {
 .services-list ul li {
   background-image: url(../img/service.png);
   background-repeat: no-repeat;
-  background-position: 13px 8px;
+  background-position: 13px 11px;
 }
-
 /*---------SYSTEM SERVICES---------*/
 
+/*---------UNINSTALLER---------*/
+.uninstaller-list ul {
+  float: left;
+}
+
+.uninstaller-list ul li {
+  background-image: url(../img/package.png);
+  background-repeat: no-repeat;
+  background-position: 13px 9px;
+}
+
+.uninstaller-list ul li a {
+  width: 24px;
+  height: 24px;
+  float: right;
+  margin-top: -2px;
+  background-image: url(../img/trash.png);
+}
+
+.uninstaller-list ul li a.loader {
+  border: 4px solid #f3f3f3;
+  border-radius: 50%;
+  background-image: none;
+  border-top: 4px solid #3498db;
+  width: 16px;
+  height: 16px;
+  -webkit-animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+/*---------UNINSTALLER---------*/
 
 
 
@@ -363,123 +417,12 @@ button {
   background: url(../img/not-found.png) no-repeat center 30px;
 }
 
-#system-service-table .empty-list,
-#uninstaller-table .empty-list {
-  background-position: 285px 15px;
-}
-
-#uninstaller-table,
-#system-service-table,
-#startup-apps-table {
-  width: 700px;
-  height: 530px;
-  margin: 15px auto 50px auto;
-}
-
-#startup-apps-table {
-  width: 500px;
-}
-
-#uninstaller-table ul,
-#system-service-table ul,
-#startup-apps-table ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-#uninstaller-table ul li,
-#system-service-table ul li,
-#startup-apps-table ul li {
-  font-size: 15px;
-  color: #aeb5bf;
-  margin: 6px 3px;
-  float: left;
-  width: calc(100% - 68px);
-  background-color: #293945;
-  cursor: pointer;
-  border-radius: 4px;
-  display: block;
-  padding: 10px 15px 10px 50px;
-  position: relative;
-  background-image: url(../img/package.png);
-  background-repeat: no-repeat;
-  background-position: 13px 7px;
-}
-
-#startup-apps-table ul li label,
-#system-service-table ul li label {
-  float: right;
-  cursor: move;
-}
-
-#startup-apps-table ul li {
-  background-position: 13px 7px;
-  background-image: url(../img/app.png);
-}
-
-#system-service-table ul li {
-  background-position: 13px 9px;
-  background-image: url(../img/service.png);
-}
-
-#uninstaller-table ul li:hover,
-#system-service-table ul li:hover,
-#startup-apps-table ul li:hover {
-  background-color: #3d474e;
-}
-
-#uninstaller-table li a,
-#startup-apps-table li a {
-  display: block;
-  background-repeat: no-repeat;
-  float: right;
-}
-
-#uninstaller-table li a {
-  width: 24px;
-  height: 24px;
-  margin-top: -2px;
-  background-image: url(../img/app-uninstall.png);
-}
-
 .tdl-content li span {
   display: block;
   float: left;
   width: 320px;
   overflow: hidden;
   text-overflow: ellipsis;
-}
-
-#uninstaller-table .tdl-content,
-#system-service-table .tdl-content {
-  height: 490px;
-}
-
-#startup-apps-table .tdl-content {
-  height: 460px;
-}
-
-#installed-packages-title,
-#system-service-title,
-#startup-apps-title {
-  display: block;
-  height: 20px;
-  padding: 10px 15px;
-  font-size: 14px;
-  color: #aeb5bf;
-}
-
-#packages-search,
-#system-service-search {
-  border-radius: 50px;
-  background-color: #202b33;
-  font-size: 13px;
-  border: 1px solid #3d474e;
-  float: right;
-  padding: 5px 10px;
-  margin-top: -3px;
-  color: #aeb5bf;
 }
 
 .switch {
@@ -492,9 +435,7 @@ button {
   position: relative;
   width: 44px;
   height: 22px;
-  box-sizing: border-box;
   background-color: #EF4836;
-  border: 2px solid #EF4836;
   border-radius: 9999px;
   transition: 300ms;
   cursor: pointer;
@@ -505,62 +446,31 @@ button {
   position: absolute;
   left: 0;
   background: #fff;
-  width: 18px;
-  height: 18px;
-  border: none;
+  width: 17px;
+  height: 17px;
+  margin-top: 2px;
   box-shadow: 0 5px 5px -1px rgba(0, 0, 0, 0.2), 0 0 0 2px #EF4836;
 }
 
 .switch:checked+label {
-  border: 2px solid #4BD865;
-  box-shadow: inset 0 0 0 calc(13px) #4BD865;
+  box-shadow: inset 0 0 0 13px #4BD865;
 }
 
 .switch:checked+label::after {
-  left: calc(22px);
+  left: 22px;
   box-shadow: 0 5px 5px -1px rgba(0, 0, 0, 0.2), 0 0 0 2px #4BD865;
 }
 
 .switch:not(:checked)+label:hover:active {
-  box-shadow: inset 0 0 0 calc(13px) #EF4836;
+  box-shadow: inset 0 0 0 13px #EF4836;
 }
 
 .switch+label:hover:active::after {
-  width: calc(23px);
+  width: 23px;
 }
 
 .switch:checked+label:hover:active::after {
-  left: calc(17px);
-}
-
-#uninstaller-table li a.loader,
-a.loader {
-  border: 4px solid #f3f3f3;
-  border-radius: 50%;
-  background-image: none;
-  border-top: 4px solid #3498db;
-  width: 16px;
-  height: 16px;
-  -webkit-animation: spin 1s linear infinite;
-  animation: spin 1s linear infinite;
-}
-
-@-webkit-keyframes spin {
-  0% {
-    -webkit-transform: rotate(0deg);
-  }
-  100% {
-    -webkit-transform: rotate(360deg);
-  }
-}
-
-@keyframes spin {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
+  left: 17px;
 }
 
 #clean-btn,
@@ -584,25 +494,6 @@ a.loader {
 
 #system-scan-btn {
   float: left;
-}
-
-.scroll {
-  overflow-y: auto;
-  overflow-x: hidden;
-}
-
-.scroll::-webkit-scrollbar-track {
-  -webkit-box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
-  border-radius: 10px;
-}
-
-.scroll::-webkit-scrollbar {
-  width: 10px;
-}
-
-.scroll::-webkit-scrollbar-thumb {
-  background-color: #3d474e;
-  border-radius: 10px;
 }
 
 #nav {
