@@ -1,34 +1,37 @@
+import sudo from 'sudo-prompt'
 import {
 	spawn
 } from 'child_process'
-import sudo from 'sudo-prompt'
 import {
 	commands
-} from '../utils/config'
+} from '../../utils/config'
 import {
 	command,
 	showMessage
-} from '../utils/helpers'
+} from '../../utils/helpers'
+
+import Service from './Service'
 
 export default {
-	template: `<div id="system-service-table">
-				<div id="system-service-title">
-					<span style="padding:0;">System Services ({{ filteredServices.length }})</span>
-					<input type="text" id="system-service-search" v-model="searchString" placeholder="Search..." />
+	template: `<transition name="slide-fade">
+				<div class="content">
+					<div class="item-list services-list">
+						<div class="fl w100">
+							<h3 class="fl">System Services ({{ filteredServices.length }})</h3>
+							<input type="text" v-model="searchString" placeholder="Search..." />
+						</div>
+						<ul v-show="filteredServices.length" class="scroll">
+							<service v-for="s in filteredServices" :name="s.name" :is-run="s.isRun" />
+						</ul>
+						<span class="empty-list" v-show="! filteredServices.length">
+							No service found.
+						</span>
+					</div>
 				</div>
-				<div class="tdl-content scroll">
-					<span class="fl w100 empty-list" v-show="! filteredServices.length" >
-						No service found.
-					</span>
-					<ul v-show="filteredServices.length">
-						<li v-for="service in filteredServices" >
-							{{ service.name }}
-							<input type="checkbox" class="switch" :id="service.name" :checked="service.isRun" @change="statusChange" />
-							<label :for="service.name"></label>
-						</li>
-					</ul>
-				</div>
-			</div>`,
+			</transition>`,
+	components: {
+		'service': Service
+	},
 	data() {
 		return ({
 			servicesList: [],
@@ -40,7 +43,7 @@ export default {
 		const services = spawn('bash', ['-c', commands.getAllService])
 
 		services.stdout.on('data', data => {
-			data = data.toString().split('\n').filter((s) => s != '')
+			data = data.toString().split('\n').filter(s => s != '')
 
 			data.forEach(service => {
 				var serviceName = service.substring(1)
@@ -53,7 +56,7 @@ export default {
 		})
 	},
 	methods: {
-		//Service status change switch button function         
+		// Service status change switch button function
 		statusChange(e) {
 			let serviceName = e.target.id
 			let status = e.target.checked ? 'start' : 'stop'

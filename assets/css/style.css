@@ -1,5 +1,6 @@
 body * {
   outline: 0;
+  font-family: 'Ubuntu', sans-serif;
 }
 
 @font-face {
@@ -11,7 +12,6 @@ body {
   overflow: hidden;
   float: left;
   padding: 10px 0 0 0;
-  font-family: 'Ubuntu', sans-serif;
   font-weight: 400;
   -webkit-user-select: none;
 }
@@ -26,9 +26,7 @@ body {
 
 /*---------DASHBOARD---------*/
 
-
 /*Trail Color*/
-
 svg path:first-child {
   stroke: #202b33;
 }
@@ -63,9 +61,13 @@ svg path:first-child {
   color: #aeb5bf;
 }
 
+.item-list input[type=text] {
+  background-color: #202b33;
+  border: 1px solid #3d474e;
+  color: #aeb5bf;
+}
 
 /*---------STARTUP APPS---------*/
-
 
 /*---------STARTUP APPS---------*/
 
@@ -168,6 +170,7 @@ button {
   padding: 0;
   margin: 0;
   height: calc(100% - 40px);
+  width: 100%;
 }
 
 .item-list ul li {
@@ -200,6 +203,15 @@ button {
   margin-top: 2px;
 }
 
+.item-list input[type=text] {
+  border-radius: 50px;
+  font-size: 13px;
+  float: right;
+  padding: 5px 10px;
+  margin: 6px 0px;
+}
+
+
 /*---------ITEM LIST---------*/
 
 /*---------STARTUP APPS---------*/
@@ -211,7 +223,7 @@ button {
 .startup-apps-list ul li {
   background-image: url(../img/package.png);
   background-repeat: no-repeat;
-  background-position: 13px 8px;
+  background-position: 13px 11px;
 }
 
 .startup-apps-list ul li:hover .remove-startup-app {
@@ -242,8 +254,26 @@ button {
   background-color: #2285c3;
 }
 
-
 /*---------STARTUP APPS---------*/
+
+/*---------SYSTEM SERVICES---------*/
+.services-list {
+  
+}
+
+.services-list ul {
+  float: left;
+}
+
+.services-list ul li {
+  background-image: url(../img/service.png);
+  background-repeat: no-repeat;
+  background-position: 13px 8px;
+}
+
+/*---------SYSTEM SERVICES---------*/
+
+
 
 
 .tdl-holder {
@@ -325,11 +355,12 @@ button {
   font-size: 22px;
   text-align: center;
   padding: 180px 0px;
-  width: 250px;
-  margin: auto;
+  width: 100%;
+  float: left;
+  margin: 30px auto;
   color: #748390;
   display: block;
-  background: url(../img/not-found.png) no-repeat center 25px;
+  background: url(../img/not-found.png) no-repeat center 30px;
 }
 
 #system-service-table .empty-list,

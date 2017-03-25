@@ -11,23 +11,25 @@ import MemoryBar from './MemoryBar'
 import DiskBar from './DiskBar'
 
 export default {
-	template: `<div>
-					<cpu-bar/>
-					<memory-bar/>
-					<disk-bar/>
+	template: `<transition name="slide-fade">
+					<div class="content">
+						<cpu-bar/>
+						<memory-bar/>
+						<disk-bar/>
 
-					<down-bar/>
-					<system-info/>
-					<up-bar/>
+						<down-bar/>
+						<system-info/>
+						<up-bar/>
 
-					<!--Update Check-->
-					<div class="fl w100 update-check" v-show="update_check">
-						<span>There are updates currently available.</span>
-						<button @click="download_update">
-							Download Update
-						</button>
+						<!--Update Check-->
+						<div class="fl w100 update-check" v-show="update_check">
+							<span>There are updates currently available.</span>
+							<button @click="download_update">
+								Download Update
+							</button>
+						</div>
 					</div>
-				</div>`,
+				</transition>`,
 	data() {
 		return ({
 			update_check: false

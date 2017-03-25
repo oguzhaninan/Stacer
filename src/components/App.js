@@ -1,6 +1,6 @@
 import Dashboard from './dashboard/Dashboard'
 import StartupApps from './startup-apps/StartupApps'
-import Services from './Services'
+import Services from './services/Services'
 import Uninstaller from './Uninstaller'
 import SystemCleaner from './system-cleaner/SystemCleaner'
 
@@ -15,12 +15,8 @@ export default {
 						<li><label :class="{'nav-active': activeNav == 5}" @click="activeNav = 5">Uninstaller</label></li>
 					</ul>
 
-					<!--Dashboard Page-->
-					<transition name="slide-fade">
-						<div v-show="activeNav == 1" class="content">
-							<dashboard/>
-						</div>
-					</transition>
+					<!--Dashboard Page-->					
+						<dashboard v-show="activeNav == 1" />
 
 					<!--System Cleaner Page-->
 					<transition name="slide-fade">
@@ -29,17 +25,11 @@ export default {
 						</div>
 					</transition>
 
-					<!--System Startup Apps Page-->
-					<transition name="slide-fade">
+					<!--System Startup Apps Page-->					
 						<startup-apps v-show="activeNav == 3" />
-					</transition>
 
 					<!--Services Page-->
-					<transition name="slide-fade">
-						<div v-show="activeNav == 4" class="content">
-							<services/>
-						</div>
-					</transition>
+						<services v-show="activeNav == 4" />
 
 					<!--Packages Page-->
 					<transition name="slide-fade">

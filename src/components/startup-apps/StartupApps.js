@@ -10,15 +10,16 @@ import fs from 'fs'
 import STApp from './STApp'
 
 export default {
-	template: `<div class="content">
+	template: `<transition name="slide-fade">
+				<div class="content">
 					<div class="item-list startup-apps-list">
 						<h3>System Startup Applications ({{ apps.length }})</h3>
-						<span class="empty-list" v-show="! apps.length">
-							No startup apps found.
-						</span>
 						<ul v-show="apps.length" class="scroll">
 							<app v-for="app in apps" :name="app.name" :file="app.file" :is-start="app.isStart"></app>
 						</ul>
+						<span class="empty-list" v-show="! apps.length">
+							No startup apps found.
+						</span>
 					</div>
 					<button @click="showPrompt = true" class="add-startup-app">Add Startup App</button>
 
@@ -34,7 +35,8 @@ export default {
 							</div>
 						</div>
 					</div>
-				</div>`,
+				</div>
+			</transition>`,
 
 	components: {
 		'app': STApp
