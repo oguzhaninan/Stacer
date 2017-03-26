@@ -3,7 +3,7 @@ export default {
 					<label>
 						<slot></slot>
 						<i></i>
-						Select All ({{text}})
+						<span>Select All ({{text}})</span>
 					</label>
 				</h3>`,
 	props: ['length', 'text']

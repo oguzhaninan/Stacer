@@ -16,7 +16,7 @@ import TableItems from './TableItems'
 
 export default {
     template: `<div>
-				<div class="cleaner-sidebar">
+				<div class="cleaner-side">
 					<ul>
                         <sidebar-item text="Apt Cache" :length="aptCachesList.length">
 						    <input type="checkbox" v-model:checked="aptCacheSelect">
@@ -44,64 +44,40 @@ export default {
 
 				<div class="item-table scroll">
                     <ul>
-                        <table-title text="Apt Caches" :length="crashReportsList.length">
+                        <table-title text="Apt Caches" :length="aptCachesList.length">
                             <input type="checkbox" @change="checkAllAptCaches">
                         </table-title>
                         
-                        <table-items v-for="cacheName in aptCachesList" :text="cacheName">
-                            <input type="checkbox" :value="cacheName" v-model="checkedAptCaches">
+                        <table-items v-for="item in aptCachesList" :text="item">
+                            <input type="checkbox" :value="item" v-model="checkedAptCaches">
                         </table-items>
 
-                        <li v-show="crashReportsList.length" style="background-color: #293945;">
-                            <label>
-                                <input type="checkbox" @change="checkAllCrashReports">
-                                <i></i>
-                                <span style="font-size:14px; color:#aeb5bf;">
-                                    Select All (Crash Reports)
-                                </span>
-                            </label>
-                        </li>
-                        <li v-for="crashName in crashReportsList">
-                            <label>
-                                <input type="checkbox" :value="crashName" v-model="checkedCrashReports">
-                                <i></i>
-                                <span> {{ crashName }} </span>
-                            </label>
-                        </li>
 
-                        <li v-show="systemLogsList.length" style="background-color: #293945;">
-                            <label>
-                                <input type="checkbox" @change="checkAllSystemLogs"><i></i>
-                                <span style="font-size:14px; color:#aeb5bf;">
-                                    Select All (System Logs)
-                                </span>
-                            </label>
-                        </li>
-                        <li v-for="logName in systemLogsList">
-                            <label>
-                                <input type="checkbox" :value="logName" v-model="checkedSystemLogs">
-                                <i></i>
-                                <span> {{ logName }} </span>
-                            </label>
-                        </li>
+                        <table-title text="Crash Reports" :length="crashReportsList.length">
+                            <input type="checkbox" @change="checkAllCrashReports">
+                        </table-title>
+                        
+                        <table-items v-for="item in crashReportsList" :text="item">
+                            <input type="checkbox" :value="item" v-model="checkedCrashReports">
+                        </table-items>
 
-                        <li v-show="appCachesList.length" style="background-color: #293945;">
-                            <label>
-                                <input type="checkbox" @change="checkAllAppCaches"><i></i>
-                                <span style="font-size:14px; color:#aeb5bf;">
-                                    Select All (App Caches)
-                                </span>
-                            </label>
-                        </li>
-                        <li v-for="appName in appCachesList">
-                            <label>
-                                <input type="checkbox" :value="appName" v-model="checkedAppCaches">
-                                <i></i>
-                                <span>
-                                    {{ appName }}
-                                </span>
-                            </label>
-                        </li>
+
+                        <table-title text="System Logs" :length="systemLogsList.length">
+                            <input type="checkbox" @change="checkAllSystemLogs">
+                        </table-title>
+                        
+                        <table-items v-for="item in systemLogsList" :text="item">
+                            <input type="checkbox" :value="item" v-model="checkedSystemLogs">
+                        </table-items>
+
+                        
+                        <table-title text="App Caches" :length="appCachesList.length">
+                            <input type="checkbox" @change="checkAllAppCaches">
+                        </table-title>
+                        
+                        <table-items v-for="item in appCachesList" :text="item">
+                            <input type="checkbox" :value="item" v-model="checkedAppCaches">
+                        </table-items>
                     </ul>
 				</div>
 
