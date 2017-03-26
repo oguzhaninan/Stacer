@@ -10,6 +10,7 @@ import {
 } from '../../utils/helpers'
 import fs from 'fs'
 import sudo from 'sudo-prompt'
+import rimraf from 'rimraf'
 // Components
 import SidebarItem from './SidebarItem'
 import TableTitle from './TableTitle'
@@ -108,7 +109,7 @@ export default {
             checkedSystemLogs: [],
             checkedAppCaches: [],
 
-            trashSize: 0
+            trashSize: '0 Bytes'
         }
     },
     methods: {
@@ -118,7 +119,7 @@ export default {
             this.crashReportsList = []
             this.systemLogsList = []
             this.appCachesList = []
-            this.trashSize = 0
+            this.trashSize = '0 Bytes'
 
             if (this.aptCacheSelect) {
                 fs.readdir(commands.aptCachePath, 'utf8', (err, files) => {
@@ -168,7 +169,7 @@ export default {
             if (this.trashSelect) {
                 function formatBytes(bytes, decimals) {
                     if (bytes == 0) return '0 Bytes'
-                    var k = 1000,
+                    let k = 1000,
                         dm = decimals + 1 || 3,
                         sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB'],
                         i = Math.floor(Math.log(bytes) / Math.log(k))
@@ -179,10 +180,10 @@ export default {
                     path += '/'
                     let totalSize = 0
                     try {
-                        let trashFiles = fs.readdirSync('/home/oguzhan/.local/share/Trash/files' + path)
+                        let trashFiles = fs.readdirSync(commands.trashPath + path)
                         trashFiles.forEach(fileName => {
 
-                            let stats = fs.statSync('/home/oguzhan/.local/share/Trash/files' + path + fileName)
+                            let stats = fs.statSync(commands.trashPath + path + fileName)
                             if (!stats.isDirectory())
                                 totalSize += stats.size
                             else
@@ -193,7 +194,9 @@ export default {
                     }
                     return totalSize
                 }
-                this.trashSize = formatBytes(getSize(), 0)
+
+                if (fs.existsSync(commands.trashPath))
+                    this.trashSize = formatBytes(getSize(), 0)
             }
         },
         // System clean
@@ -245,6 +248,16 @@ export default {
                             showMessage(`System cleaned.`, 'success')
                         }
                     })
+            }
+
+            if (this.trashSelect) {
+                try {
+                    rimraf(commands.trashPath, err => console.error(err))
+                    rimraf(commands.trashInfoPath, err => console.error(err))
+                }
+                finally {
+                    this.trashSize = '0 Bytes'
+                }
             }
         },
         // Check all items         

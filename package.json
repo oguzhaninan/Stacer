@@ -28,6 +28,7 @@
     "melanke-watchjs": "^1.3.1",
     "progressbar.js": "^1.0.1",
     "properties-reader": "^0.0.15",
+    "rimraf": "^2.6.1",
     "sudo-prompt": "^6.2.1",
     "systeminformation": "^3.13.0",
     "vuex": "^2.2.1"
