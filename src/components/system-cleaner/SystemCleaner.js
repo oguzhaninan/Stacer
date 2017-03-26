@@ -8,8 +8,9 @@ import {
     command,
     showMessage
 } from '../../utils/helpers'
-import sudo from 'sudo-prompt'
 import fs from 'fs'
+import sudo from 'sudo-prompt'
+// Components
 import SidebarItem from './SidebarItem'
 import TableTitle from './TableTitle'
 import TableItems from './TableItems'
@@ -117,6 +118,7 @@ export default {
             this.crashReportsList = []
             this.systemLogsList = []
             this.appCachesList = []
+            this.trashSize = 0
 
             if (this.aptCacheSelect) {
                 fs.readdir(commands.aptCachePath, 'utf8', (err, files) => {
@@ -161,6 +163,37 @@ export default {
                 })
             } else {
                 this.checkedAppCaches = []
+            }
+
+            if (this.trashSelect) {
+                function formatBytes(bytes, decimals) {
+                    if (bytes == 0) return '0 Bytes'
+                    var k = 1000,
+                        dm = decimals + 1 || 3,
+                        sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB'],
+                        i = Math.floor(Math.log(bytes) / Math.log(k))
+                    return parseFloat((bytes / Math.pow(k, i)).toFixed(dm)) + ' ' + sizes[i]
+                }
+
+                function getSize(path = '') {
+                    path += '/'
+                    let totalSize = 0
+                    try {
+                        let trashFiles = fs.readdirSync('/home/oguzhan/.local/share/Trash/files' + path)
+                        trashFiles.forEach(fileName => {
+
+                            let stats = fs.statSync('/home/oguzhan/.local/share/Trash/files' + path + fileName)
+                            if (!stats.isDirectory())
+                                totalSize += stats.size
+                            else
+                                totalSize += getSize(path + fileName)
+                        })
+                    } catch (error) {
+                        console.log(error)
+                    }
+                    return totalSize
+                }
+                this.trashSize = formatBytes(getSize(), 0)
             }
         },
         // System clean
