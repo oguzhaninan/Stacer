@@ -294,6 +294,37 @@ button {
 }
 /*---------ITEM LIST---------*/
 
+/*---------ITEM TABLE---------*/
+.item-table {
+  border: 1px solid #3d474e;
+}
+
+.item-table ul li {
+  border-bottom: 1px solid #3d474e;
+}
+
+.item-table ul li:hover {  
+  background-color: #293945;
+}
+
+.item-table i {
+  background-color: #748390;
+}
+
+.item-table input[type=checkbox]:checked+i::after {
+  background-color: #293945;
+}
+
+.item-table span {
+  color: #aeb5bf;
+}
+
+.item-table h3 {
+  background-color: #293945;
+  color:#aeb5bf;
+}
+/*---------ITEM TABLE---------*/
+
 /*---------STARTUP APPS---------*/
 .startup-apps-list {
   width: 600px;
@@ -387,7 +418,78 @@ button {
 /*---------UNINSTALLER---------*/
 
 /*---------ITEM TABLE---------*/
+.item-table {
+  float: right;
+  margin: 10px 10px 0px 0px;
+  width: 650px;
+  height: 500px;
+}
 
+.item-table ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;  
+}
+
+.item-table ul li {
+  width: 100%;
+  display: block;
+  float: left;
+  padding: 3px 0px;
+  margin: 0;
+}
+
+.item-table input[type=checkbox] {
+  display: none;
+}
+
+.item-table i {
+  background-color: #748390;
+  border-radius: 50%;
+  display: block;
+  height: 12px;
+  position: absolute;
+  top: 9px;
+  width: 12px;
+  z-index: 1;
+}
+
+.item-table input[type=checkbox]:checked+i::after {
+   border-radius: 50%;
+  content: '';
+  display: block;
+  height: 6px;
+  left: 3px;
+  position: absolute;
+  top: 3px;
+  width: 6px;
+  z-index: 2;
+}
+
+.item-table span {
+  display: block;
+  float: left;
+  width: 550px;
+  overflow: hidden;
+  margin-left: 25px;
+  text-overflow: ellipsis;
+  font-size: 14px;
+}
+
+.item-table label {
+  cursor: pointer;
+  display: block;
+  float: left;
+  line-height: 30px;
+  padding: 0 15px;
+  position: relative;
+}
+
+.item-table h3 {
+  display: block;
+  float: left;
+  font-size:14px;
+}
 
 /*---------ITEM TABLE---------*/
 

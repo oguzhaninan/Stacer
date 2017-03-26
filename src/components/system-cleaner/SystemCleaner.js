@@ -1,8 +1,6 @@
 import {
     spawn
 } from 'child_process'
-import sudo from 'sudo-prompt'
-import fs from 'fs'
 import {
     commands
 } from '../../utils/config'
@@ -10,7 +8,11 @@ import {
     command,
     showMessage
 } from '../../utils/helpers'
+import sudo from 'sudo-prompt'
+import fs from 'fs'
 import SidebarItem from './SidebarItem'
+import TableTitle from './TableTitle'
+import TableItems from './TableItems'
 
 export default {
     template: `<div>
@@ -31,89 +33,85 @@ export default {
                         <sidebar-item text="App Cache" :length="appCachesList.length">
 						    <input type="checkbox" v-model:checked="appCacheSelect">
                         </sidebar-item>
-						
+
+                        <sidebar-item text="Trash" :length="trashSize">
+						    <input type="checkbox" v-model:checked="trashSelect">
+                        </sidebar-item>
 					</ul>
 
 					<input type="button" id="system-scan-btn" @click="systemScan" value="System Scan" />
 				</div>
 
-				<div class="tdl-holder scroll" id="cleaner-table">
-					<div class="tdl-content">
-						<ul>
-							<li v-show="aptCachesList.length" style="background-color: #293945;">
-								<label>
-									<input type="checkbox" @change="checkAllAptCaches"><i></i>
-									<span style="font-size:14px; color:#aeb5bf;">
-										Select All (Apt Cache)
-									</span>
-								</label>
-							</li>
-							<li v-for="cacheName in aptCachesList">
-								<label>
-									<input type="checkbox" :value="cacheName" v-model="checkedAptCaches"  >
-									<i></i>
-									<span> {{ cacheName }} </span>
-								</label>
-							</li>
+				<div class="item-table scroll">
+                    <ul>
+                        <table-title text="Apt Caches" :length="crashReportsList.length">
+                            <input type="checkbox" @change="checkAllAptCaches">
+                        </table-title>
+                        
+                        <table-items v-for="cacheName in aptCachesList" :text="cacheName">
+                            <input type="checkbox" :value="cacheName" v-model="checkedAptCaches">
+                        </table-items>
 
-							<li v-show="crashReportsList.length" style="background-color: #293945;">
-								<label>
-									<input type="checkbox" @change="checkAllCrashReports">
-									<i></i>
-									<span style="font-size:14px; color:#aeb5bf;">
-										Select All (Crash Reports)
-									</span>
-								</label>
-							</li>
-							<li v-for="crashName in crashReportsList">
-								<label>
-									<input type="checkbox" :value="crashName" v-model="checkedCrashReports">
-									<i></i>
-									<span> {{ crashName }} </span>
-								</label>
-							</li>
+                        <li v-show="crashReportsList.length" style="background-color: #293945;">
+                            <label>
+                                <input type="checkbox" @change="checkAllCrashReports">
+                                <i></i>
+                                <span style="font-size:14px; color:#aeb5bf;">
+                                    Select All (Crash Reports)
+                                </span>
+                            </label>
+                        </li>
+                        <li v-for="crashName in crashReportsList">
+                            <label>
+                                <input type="checkbox" :value="crashName" v-model="checkedCrashReports">
+                                <i></i>
+                                <span> {{ crashName }} </span>
+                            </label>
+                        </li>
 
-							<li v-show="systemLogsList.length" style="background-color: #293945;">
-								<label>
-									<input type="checkbox" @change="checkAllSystemLogs"><i></i>
-									<span style="font-size:14px; color:#aeb5bf;">
-										Select All (System Logs)
-									</span>
-								</label>
-							</li>
-							<li v-for="logName in systemLogsList">
-								<label>
-									<input type="checkbox" :value="logName" v-model="checkedSystemLogs">
-									<i></i>
-									<span> {{ logName }} </span>
-								</label>
-							</li>
+                        <li v-show="systemLogsList.length" style="background-color: #293945;">
+                            <label>
+                                <input type="checkbox" @change="checkAllSystemLogs"><i></i>
+                                <span style="font-size:14px; color:#aeb5bf;">
+                                    Select All (System Logs)
+                                </span>
+                            </label>
+                        </li>
+                        <li v-for="logName in systemLogsList">
+                            <label>
+                                <input type="checkbox" :value="logName" v-model="checkedSystemLogs">
+                                <i></i>
+                                <span> {{ logName }} </span>
+                            </label>
+                        </li>
 
-							<li v-show="appCachesList.length" style="background-color: #293945;">
-								<label>
-									<input type="checkbox" @change="checkAllAppCaches"><i></i>
-									<span style="font-size:14px; color:#aeb5bf;">
-										Select All (App Caches)
-									</span>
-								</label>
-							</li>
-							<li v-for="appName in appCachesList">
-								<label>
-									<input type="checkbox" :value="appName" v-model="checkedAppCaches">
-									<i></i>
-									<span>
-										{{ appName }}
-									</span>
-								</label>
-							</li>
-						</ul>
-					</div>
+                        <li v-show="appCachesList.length" style="background-color: #293945;">
+                            <label>
+                                <input type="checkbox" @change="checkAllAppCaches"><i></i>
+                                <span style="font-size:14px; color:#aeb5bf;">
+                                    Select All (App Caches)
+                                </span>
+                            </label>
+                        </li>
+                        <li v-for="appName in appCachesList">
+                            <label>
+                                <input type="checkbox" :value="appName" v-model="checkedAppCaches">
+                                <i></i>
+                                <span>
+                                    {{ appName }}
+                                </span>
+                            </label>
+                        </li>
+                    </ul>
 				</div>
+
 				<input type="button" id="clean-btn" @click="systemClean" value="Clean" />
 			</div>`,
-    
+
     components: {
-        'sidebar-item': SidebarItem
+        'sidebar-item': SidebarItem,
+        'table-title': TableTitle,
+        'table-items': TableItems
     },
     data() {
         return {
@@ -121,6 +119,7 @@ export default {
             crashReportsSelect: false,
             systemLogsSelect: false,
             appCacheSelect: false,
+            trashSelect: false,
 
             aptCachesList: [],
             crashReportsList: [],
@@ -130,7 +129,9 @@ export default {
             checkedAptCaches: [],
             checkedCrashReports: [],
             checkedSystemLogs: [],
-            checkedAppCaches: []
+            checkedAppCaches: [],
+
+            trashSize: 0
         }
     },
     methods: {

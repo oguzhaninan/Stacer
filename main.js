@@ -1,7 +1,6 @@
 const {
     app,
     BrowserWindow,
-    ipcMain
 } = require('electron')
 
 const electron = require('electron')
@@ -36,19 +35,14 @@ function createWindow() {
 
     win.loadURL(`file://${__dirname}/dist/index.html`)
 
-    win.on("closed", () => {
-      win = null
-    })
-
+    win.on('closed', () => win = null )
 }
 
-app.on("ready", createWindow)
+app.on('ready', createWindow)
 
-app.on("window-all-closed", () => {
-    app.quit()
-})
+app.on('window-all-closed', () => app.quit() )
 
-app.on("activate", () => {
+app.on('activate', () => {
     if (win === null)
         createWindow()
 })
