@@ -1,3 +1,7 @@
+import helpers from '../../utils/helpers'
+import si from 'systeminformation'
+import Chartkick from 'chartkick'
+
 export default {
 	template: `<div>
 					<h4>Memory History</h4>
@@ -24,7 +28,7 @@ export default {
 				])
 
 			let memoryChart = new Chartkick.LineChart('memory-chart', this.memoryData, {
-				colors: ['#2ecc71', '#e74c3c', '#3498db', '#f1c40f'],
+				colors: ['#2ecc71', '#e74c3c', '#3498db', '#f1c40f', '#9b59b6', '#34495e', '#1abc9c', '#e67e22'],
 				min: 0,
 				max: Math.max(totalMem, totalSwap),
 				legend: true

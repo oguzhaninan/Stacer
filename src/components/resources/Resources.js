@@ -1,8 +1,6 @@
 import 'chart.js'
 Chart.defaults.global.defaultFontColor = '#aaa'
 Chart.defaults.global.defaultFontFamily = 'Ubuntu'
-import Chartkick from 'chartkick'
-import si from 'systeminformation'
 // Components
 import CpuHistory from './CpuHistory'
 import MemoryHistory from './MemoryHistory'
