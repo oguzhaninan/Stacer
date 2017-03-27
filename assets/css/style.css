@@ -42,6 +42,7 @@ button {
   height: 999px;
 }
 
+
 /*-------------Colors---------------*/
 
 body {
@@ -180,7 +181,9 @@ svg path:first-child {
 
 /*---------ITEM TABLE---------*/
 
+
 /*------------------------------------------------------------------*/
+
 
 /*---------DASHBOARD---------*/
 
@@ -559,6 +562,10 @@ input[type=checkbox] {
   width: 100%;
 }
 
+.item-table h3 span {
+  font-size: 14px;
+}
+
 
 /*---------ITEM TABLE---------*/
 
@@ -601,12 +608,25 @@ input[type=checkbox] {
   margin-left: 25px;
 }
 
-.cleaner-side ul li label:last-child {
-  border-bottom: 0;
-}
-
 
 /*---------CLEANER SIDEBAR---------*/
+
+
+/*---------STATISTICS---------*/
+
+.statistics {
+  padding: 20px;
+}
+
+#cpus-chart {
+  background-color: #293945;
+  height: 200px;
+  width: calc(100% - 20px);
+  padding: 10px;
+  border-radius: 4px;
+}
+
+/*---------STATISTICS---------*/
 
 .empty-list {
   font-size: 22px;
@@ -646,7 +666,7 @@ input[type=checkbox] {
 
 #nav li {
   color: #eee;
-  padding: 0px 20px;
+  padding: 0px 10px;
   display: inline-block;
 }
 

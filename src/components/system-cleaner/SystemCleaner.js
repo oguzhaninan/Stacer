@@ -10,7 +10,6 @@ import {
 } from '../../utils/helpers'
 import fs from 'fs'
 import sudo from 'sudo-prompt'
-import rimraf from 'rimraf'
 // Components
 import SidebarItem from './SidebarItem'
 import TableTitle from './TableTitle'
@@ -44,7 +43,7 @@ export default {
 					<input type="button" id="system-scan-btn" @click="systemScan" value="System Scan" />
 				</div>
 
-				<div class="item-table scroll">
+                <div class="item-table scroll">
                     <ul>
                         <table-title text="Apt Caches" :length="aptCachesList.length">
                             <input type="checkbox" @change="checkAllAptCaches">
@@ -81,8 +80,8 @@ export default {
                             <input type="checkbox" :value="item" v-model="checkedAppCaches">
                         </table-items>
                     </ul>
-				</div>
-
+                </div>
+				
 				<input type="button" id="clean-btn" @click="systemClean" value="Clean" />
 			</div>`,
 
@@ -227,6 +226,11 @@ export default {
                 })
             }
 
+            if (this.trashSelect) {
+                filesToRemove += `rm -rf ${commands.trashPath};`
+                filesToRemove += `rm -rf ${commands.trashInfoPath};`
+            }
+
             if (filesToRemove) {
                 sudo.exec(command(filesToRemove), {
                         name: 'Stacer'
@@ -244,20 +248,11 @@ export default {
                             this.checkedCrashReports = []
                             this.checkedSystemLogs = []
                             this.checkedAppCaches = []
+                            this.trashSize = '0 Bytes'
 
                             showMessage(`System cleaned.`, 'success')
                         }
                     })
-            }
-
-            if (this.trashSelect) {
-                try {
-                    rimraf(commands.trashPath, err => console.error(err))
-                    rimraf(commands.trashInfoPath, err => console.error(err))
-                }
-                finally {
-                    this.trashSize = '0 Bytes'
-                }
             }
         },
         // Check all items         
