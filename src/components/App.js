@@ -14,7 +14,7 @@ export default {
 						<li><label :class="{'nav-active': activeNav == 3}" @click="activeNav = 3">Startup Apps</label></li>
 						<li><label :class="{'nav-active': activeNav == 4}" @click="activeNav = 4">Services</label></li>
 						<li><label :class="{'nav-active': activeNav == 5}" @click="activeNav = 5">Uninstaller</label></li>
-						<li><label :class="{'nav-active': activeNav == 6}" @click="activeNav = 6">Statistics</label></li>
+						<li><label :class="{'nav-active': activeNav == 6}" @click="activeNav = 6">Resources</label></li>
 					</ul>
 					
 					<dashboard v-show="activeNav == 1" />

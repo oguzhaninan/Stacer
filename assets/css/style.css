@@ -627,12 +627,14 @@ input[type=checkbox] {
   margin: 0;
 }
 
-#cpus-chart {
+#cpus-chart,
+#memory-chart {
   background-color: #293945;
-  height: 200px;
+  height: 130px;
   width: calc(100% - 20px);
   padding: 10px;
   border-radius: 4px;
+  margin-bottom: 5px;
 }
 
 /*---------STATISTICS---------*/
