@@ -56,14 +56,14 @@
 
 ### Debian Linux x64
 
-1. Download `Stacer_1.0.5_amd64.deb` from the [Stacer releases page](https://github.com/oguzhaninan/Stacer/releases).
-2. Run `sudo dpkg --install Stacer_1.0.5_amd64.deb` on the downloaded package.
+1. Download `Stacer_1.0.6_amd64.deb` from the [Stacer releases page](https://github.com/oguzhaninan/Stacer/releases).
+2. Run `sudo dpkg --install Stacer_1.0.6_amd64.deb` on the downloaded package.
 3. Launch Stacer using the installed `Stacer` command.
 
 ### Debian Linux x86
 
-1. Download `Stacer_1.0.5_i386.deb` from the [Stacer releases page](https://github.com/oguzhaninan/Stacer/releases).
-2. Run `sudo dpkg --install Stacer_1.0.5_i386.deb` on the downloaded package.
+1. Download `Stacer_1.0.6_i386.deb` from the [Stacer releases page](https://github.com/oguzhaninan/Stacer/releases).
+2. Run `sudo dpkg --install Stacer_1.0.6_i386.deb` on the downloaded package.
 3. Launch Stacer using the installed `Stacer` command.
 
 ## Build from source
@@ -83,16 +83,31 @@
 </p>
 
 ### Dashboard
-![s2](https://raw.githubusercontent.com/oguzhaninan/Stacer/master/Screenshots/Screenshot-v1.0.5-1.png)
+<p align="center">
+    <img src="https://raw.githubusercontent.com/oguzhaninan/Stacer/master/Screenshots/Screenshot-v1.0.6-1.png" width="700">
+</p>
 
 ### System Cleaner
-![s3](https://raw.githubusercontent.com/oguzhaninan/Stacer/master/Screenshots/Screenshot-v1.0.5-2.png)
+<p align="center">
+    <img src="https://raw.githubusercontent.com/oguzhaninan/Stacer/master/Screenshots/Screenshot-v1.0.6-2.png" width="700">
+</p>
 
 ### Startup Apps
-![s1](https://raw.githubusercontent.com/oguzhaninan/Stacer/master/Screenshots/Screenshot-v1.0.5-3.png)
+<p align="center">
+    <img src="https://raw.githubusercontent.com/oguzhaninan/Stacer/master/Screenshots/Screenshot-v1.0.6-3.png" width="700">
+</p>
 
 ### Services
-![s1](https://raw.githubusercontent.com/oguzhaninan/Stacer/master/Screenshots/Screenshot-v1.0.5-4.png)
+<p align="center">
+    <img src="https://raw.githubusercontent.com/oguzhaninan/Stacer/master/Screenshots/Screenshot-v1.0.6-4.png" width="700">
+</p>
 
 ### Uninstaller
-![s1](https://raw.githubusercontent.com/oguzhaninan/Stacer/master/Screenshots/Screenshot-v1.0.5-5.png)
+<p align="center">
+    <img src="https://raw.githubusercontent.com/oguzhaninan/Stacer/master/Screenshots/Screenshot-v1.0.6-5.png" width="700">
+</p>
+
+### Resources
+<p align="center">
+    <img src="https://raw.githubusercontent.com/oguzhaninan/Stacer/master/Screenshots/Screenshot-v1.0.6-6.png" width="700">
+</p>
