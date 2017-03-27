@@ -628,9 +628,10 @@ input[type=checkbox] {
 }
 
 #cpus-chart,
-#memory-chart {
+#memory-chart,
+#network-chart {
   background-color: #293945;
-  height: 130px;
+  height: 125px;
   width: calc(100% - 20px);
   padding: 10px;
   border-radius: 4px;
