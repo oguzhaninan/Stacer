@@ -8,14 +8,8 @@ export default {
 			   		<div id="network-chart" :style="'height:' + fheight"></div>
 				</div>`,
 	props: ['fheight'],
-	watch: {
-		fheight: (e) => {
-
-		}
-	},
 	data() {
 		return ({
-			networkChart: {},
 			networkValues: [],
 			networkData: [],
 			seconds: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15,
@@ -31,10 +25,11 @@ export default {
 					0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
 				])
 
-			this.networkChart = new Chartkick.LineChart('network-chart', this.networkData, {
+			let networkChart = new Chartkick.LineChart('network-chart', this.networkData, {
 				colors: ['#2ecc71', '#e74c3c', '#3498db', '#f1c40f', '#9b59b6', '#34495e', '#1abc9c', '#e67e22'],
 				legend: true,
-				min: 0
+				min: 0,
+				points: false
 			})
 
 			setInterval(() => {
@@ -53,13 +48,13 @@ export default {
 						name: "Download",
 						data: this.networkValues[0].map((d, i) => [this.seconds[i], d])
 					})
-					
+
 					this.networkData.push({
 						name: "Upload",
 						data: this.networkValues[1].map((d, i) => [this.seconds[i], d])
 					})
 
-					this.networkChart.updateData(this.networkData)
+					networkChart.updateData(this.networkData)
 				})
 			}, 1000)
 		})

@@ -29,7 +29,8 @@ export default {
 				colors: ['#2ecc71', '#e74c3c', '#3498db', '#f1c40f', '#9b59b6', '#34495e', '#1abc9c', '#e67e22'],
 				legend: true,
 				min: 0,
-				max: 100
+				max: 100,
+				points: false
 			})
 
 			setInterval(() => {

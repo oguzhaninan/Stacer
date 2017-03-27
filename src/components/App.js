@@ -18,13 +18,8 @@ export default {
 					</ul>
 					
 					<dashboard v-show="activeNav == 1" />
-
-					<!--System Cleaner Page-->
-					<transition name="slide-fade">
-						<div v-show="activeNav == 2" class="content">
-							<system-cleaner/>
-						</div>
-					</transition>
+					
+					<system-cleaner v-show="activeNav == 2"/>
 
 					<startup-apps v-show="activeNav == 3" />
 
@@ -50,7 +45,7 @@ export default {
 				</div>`,
 	data() {
 		return ({
-			activeNav: 6
+			activeNav: 1
 		})
 	},
 	components: {

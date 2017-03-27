@@ -16,75 +16,77 @@ import TableTitle from './TableTitle'
 import TableItems from './TableItems'
 
 export default {
-    template: `<div>
-				<div class="cleaner-side">
-					<ul>
-                        <sidebar-item text="Apt Cache" :length="aptCachesList.length">
-						    <input type="checkbox" v-model:checked="aptCacheSelect">
-                        </sidebar-item>
+    template: `<transition name="slide-fade">
+                        <div  class="content">
+                            <div class="cleaner-side">
+                                <ul>
+                                    <sidebar-item text="Apt Cache" :length="aptCachesList.length">
+                                        <input type="checkbox" v-model:checked="aptCacheSelect">
+                                    </sidebar-item>
 
-                        <sidebar-item text="Crash Reports" :length="crashReportsList.length">
-						    <input type="checkbox" v-model:checked="crashReportsSelect">
-                        </sidebar-item>
+                                    <sidebar-item text="Crash Reports" :length="crashReportsList.length">
+                                        <input type="checkbox" v-model:checked="crashReportsSelect">
+                                    </sidebar-item>
 
-                        <sidebar-item text="System Logs" :length="systemLogsList.length">
-						    <input type="checkbox" v-model:checked="systemLogsSelect">
-                        </sidebar-item>
+                                    <sidebar-item text="System Logs" :length="systemLogsList.length">
+                                        <input type="checkbox" v-model:checked="systemLogsSelect">
+                                    </sidebar-item>
 
-                        <sidebar-item text="App Cache" :length="appCachesList.length">
-						    <input type="checkbox" v-model:checked="appCacheSelect">
-                        </sidebar-item>
+                                    <sidebar-item text="App Cache" :length="appCachesList.length">
+                                        <input type="checkbox" v-model:checked="appCacheSelect">
+                                    </sidebar-item>
 
-                        <sidebar-item text="Trash" :length="trashSize">
-						    <input type="checkbox" v-model:checked="trashSelect">
-                        </sidebar-item>
-					</ul>
+                                    <sidebar-item text="Trash" :length="trashSize">
+                                        <input type="checkbox" v-model:checked="trashSelect">
+                                    </sidebar-item>
+                                </ul>
 
-					<input type="button" id="system-scan-btn" @click="systemScan" value="System Scan" />
-				</div>
+                                <input type="button" id="system-scan-btn" @click="systemScan" value="System Scan" />
+                            </div>
 
-                <div class="item-table scroll">
-                    <ul>
-                        <table-title text="Apt Caches" :length="aptCachesList.length">
-                            <input type="checkbox" @change="checkAllAptCaches">
-                        </table-title>
-                        
-                        <table-items v-for="item in aptCachesList" :text="item">
-                            <input type="checkbox" :value="item" v-model="checkedAptCaches">
-                        </table-items>
-
-
-                        <table-title text="Crash Reports" :length="crashReportsList.length">
-                            <input type="checkbox" @change="checkAllCrashReports">
-                        </table-title>
-                        
-                        <table-items v-for="item in crashReportsList" :text="item">
-                            <input type="checkbox" :value="item" v-model="checkedCrashReports">
-                        </table-items>
+                            <div class="item-table scroll">
+                                <ul>
+                                    <table-title text="Apt Caches" :length="aptCachesList.length">
+                                        <input type="checkbox" @change="checkAllAptCaches">
+                                    </table-title>
+                                    
+                                    <table-items v-for="item in aptCachesList" :text="item">
+                                        <input type="checkbox" :value="item" v-model="checkedAptCaches">
+                                    </table-items>
 
 
-                        <table-title text="System Logs" :length="systemLogsList.length">
-                            <input type="checkbox" @change="checkAllSystemLogs">
-                        </table-title>
-                        
-                        <table-items v-for="item in systemLogsList" :text="item">
-                            <input type="checkbox" :value="item" v-model="checkedSystemLogs">
-                        </table-items>
+                                    <table-title text="Crash Reports" :length="crashReportsList.length">
+                                        <input type="checkbox" @change="checkAllCrashReports">
+                                    </table-title>
+                                    
+                                    <table-items v-for="item in crashReportsList" :text="item">
+                                        <input type="checkbox" :value="item" v-model="checkedCrashReports">
+                                    </table-items>
 
-                        
-                        <table-title text="App Caches" :length="appCachesList.length">
-                            <input type="checkbox" @change="checkAllAppCaches">
-                        </table-title>
-                        
-                        <table-items v-for="item in appCachesList" :text="item">
-                            <input type="checkbox" :value="item" v-model="checkedAppCaches">
-                        </table-items>
-                    </ul>
-                </div>
-				
-				<input type="button" id="clean-btn" @click="systemClean" value="Clean" />
-			</div>`,
 
+                                    <table-title text="System Logs" :length="systemLogsList.length">
+                                        <input type="checkbox" @change="checkAllSystemLogs">
+                                    </table-title>
+                                    
+                                    <table-items v-for="item in systemLogsList" :text="item">
+                                        <input type="checkbox" :value="item" v-model="checkedSystemLogs">
+                                    </table-items>
+
+                                    
+                                    <table-title text="App Caches" :length="appCachesList.length">
+                                        <input type="checkbox" @change="checkAllAppCaches">
+                                    </table-title>
+                                    
+                                    <table-items v-for="item in appCachesList" :text="item">
+                                        <input type="checkbox" :value="item" v-model="checkedAppCaches">
+                                    </table-items>
+                                </ul>
+                            </div>
+                            
+                            <input type="button" id="clean-btn" @click="systemClean" value="Clean" />
+                        </div>
+                    </div>
+                </transition>`,
     components: {
         'sidebar-item': SidebarItem,
         'table-title': TableTitle,

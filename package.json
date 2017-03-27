@@ -1,7 +1,7 @@
 {
   "name": "Stacer",
   "productName": "Stacer",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "Linux System Optimizer and Monitoring",
   "license": "MIT",
   "main": "main.js",
@@ -20,18 +20,6 @@
     "url": "https://github.com/oguzhaninan/Stacer/issues"
   },
   "homepage": "https://github.com/oguzhaninan/Stacer",
-  "dependencies": {
-    "chart.js": "^2.5.0",
-    "chartkick": "^2.2.3",
-    "chokidar": "^1.6.1",
-    "electron": "^1.4.15",
-    "jquery": "^3.1.1",
-    "progressbar.js": "^1.0.1",
-    "properties-reader": "^0.0.15",
-    "sudo-prompt": "^6.2.1",
-    "systeminformation": "^3.13.0",
-    "vuex": "^2.2.1"
-  },
   "scripts": {
     "start": "npm run build; electron .",
     "build": "babel src/ -d dist/",
@@ -43,6 +31,18 @@
     "release-x86": "npm run package-x86 && npm run installer-x86",
     "release-x64": "npm run package-x64 && npm run installer-x64",
     "clean-package": "rm -r release-builds/ dest/"
+  },
+  "dependencies": {
+    "chart.js": "^2.5.0",
+    "chartkick": "^2.2.3",
+    "chokidar": "^1.6.1",
+    "electron": "^1.4.15",
+    "jquery": "^3.1.1",
+    "progressbar.js": "^1.0.1",
+    "properties-reader": "^0.0.15",
+    "sudo-prompt": "^6.2.1",
+    "systeminformation": "^3.13.0",
+    "vuex": "^2.2.1"
   },
   "devDependencies": {
     "babel-cli": "^6.24.0",

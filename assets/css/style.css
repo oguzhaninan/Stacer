@@ -645,12 +645,12 @@ input[type=checkbox] {
   width: 15px;
   height: 15px;
   border: 0;
-  background: url(../img/fit.png) no-repeat 0 0;  
+  background: url(../img/fit.png) no-repeat 0 0;
   margin: 1px 0px 0px 10px;
 }
 
 .collapse {
-  background: url(../img/collapse.png) no-repeat 0 0;    
+  background: url(../img/collapse.png) no-repeat 0 0;
 }
 
 
