@@ -3,7 +3,7 @@ import SystemCleaner from './system-cleaner/SystemCleaner'
 import StartupApps from './startup-apps/StartupApps'
 import Services from './services/Services'
 import Uninstaller from './uninstaller/Uninstaller'
-import Statistics from './statistics/Statistics'
+import Resources from './resources/Resources'
 
 export default {
 	template: `<div id="main" class="fl w100">
@@ -32,7 +32,7 @@ export default {
 		
 					<uninstaller v-show="activeNav == 5" />
 
-					<statistics v-show="activeNav == 6" />
+					<resources v-show="activeNav == 6" />
 
 					<!--Startup Loading-->
 					<div id="loading">
@@ -59,6 +59,6 @@ export default {
 		'startup-apps': StartupApps,
 		'services': Services,
 		'uninstaller': Uninstaller,
-		'statistics': Statistics
+		'resources': Resources
 	}
 }

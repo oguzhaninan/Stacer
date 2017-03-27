@@ -614,8 +614,17 @@ input[type=checkbox] {
 
 /*---------STATISTICS---------*/
 
-.statistics {
-  padding: 20px;
+.resources {
+  padding: 0px 20px;
+}
+
+.resources h4 {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  color: #aeb5bf;
+  font-weight: 400;
+  margin: 0;
 }
 
 #cpus-chart {
