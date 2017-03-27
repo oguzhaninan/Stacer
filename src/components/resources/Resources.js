@@ -1,5 +1,6 @@
-import helpers from '../../utils/helpers'
 import 'chart.js'
+Chart.defaults.global.defaultFontColor = '#aaa'
+Chart.defaults.global.defaultFontFamily = 'Ubuntu'
 import Chartkick from 'chartkick'
 import si from 'systeminformation'
 // Components
@@ -21,14 +22,5 @@ export default {
 		'cpu-history': CpuHistory,
 		'memory-history': MemoryHistory,
 		'network-history': NetworkHistory
-	},
-	data() {
-		return ({
-			
-		})
-	},
-	mounted() {
-		
-
 	}
 }
