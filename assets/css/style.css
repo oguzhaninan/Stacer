@@ -620,7 +620,7 @@ input[type=checkbox] {
 
 .resources h4 {
   display: block;
-  width: 100%;
+  float: left;
   padding: 10px;
   color: #aeb5bf;
   font-weight: 400;
@@ -630,6 +630,7 @@ input[type=checkbox] {
 #cpus-chart,
 #memory-chart,
 #network-chart {
+  float: left;
   background-color: #293945;
   height: 125px;
   width: calc(100% - 20px);
@@ -637,6 +638,21 @@ input[type=checkbox] {
   border-radius: 4px;
   margin-bottom: 5px;
 }
+
+.fit-chart {
+  float: right;
+  display: block;
+  width: 15px;
+  height: 15px;
+  border: 0;
+  background: url(../img/fit.png) no-repeat 0 0;  
+  margin: 1px 0px 0px 10px;
+}
+
+.collapse {
+  background: url(../img/collapse.png) no-repeat 0 0;    
+}
+
 
 /*---------STATISTICS---------*/
 

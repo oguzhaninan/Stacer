@@ -4,17 +4,23 @@ import Chartkick from 'chartkick'
 
 export default {
 	template: `<div>
-					<h4>Network History</h4>
-			   		<div id="network-chart"></div>
+					<h4>Network History <slot></slot></h4>
+			   		<div id="network-chart" :style="'height:' + fheight"></div>
 				</div>`,
+	props: ['fheight'],
+	watch: {
+		fheight: (e) => {
+
+		}
+	},
 	data() {
 		return ({
+			networkChart: {},
 			networkValues: [],
 			networkData: [],
-
 			seconds: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15,
 				16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30
-			],
+			]
 		})
 	},
 	mounted() {
@@ -25,7 +31,7 @@ export default {
 					0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
 				])
 
-			let networkChart = new Chartkick.LineChart('network-chart', this.networkData, {
+			this.networkChart = new Chartkick.LineChart('network-chart', this.networkData, {
 				colors: ['#2ecc71', '#e74c3c', '#3498db', '#f1c40f', '#9b59b6', '#34495e', '#1abc9c', '#e67e22'],
 				legend: true,
 				min: 0
@@ -47,12 +53,13 @@ export default {
 						name: "Download",
 						data: this.networkValues[0].map((d, i) => [this.seconds[i], d])
 					})
+					
 					this.networkData.push({
 						name: "Upload",
 						data: this.networkValues[1].map((d, i) => [this.seconds[i], d])
 					})
 
-					networkChart.updateData(this.networkData)
+					this.networkChart.updateData(this.networkData)
 				})
 			}, 1000)
 		})

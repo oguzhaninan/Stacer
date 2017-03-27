@@ -1,6 +1,6 @@
 import App from './components/App'
 
-new Vue({
+window.vm = new Vue({
     el: 'app',
     components: {
         'app': App

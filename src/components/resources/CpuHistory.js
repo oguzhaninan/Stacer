@@ -3,17 +3,17 @@ import Chartkick from 'chartkick'
 
 export default {
 	template: `<div>
-					<h4>Cpu History</h4>
-			   		<div id="cpus-chart"></div>
+					<h4>Cpu History <slot></slot></h4>
+			   		<div id="cpus-chart" :style="'height:' + fheight"></div>
 				</div>`,
+	props: ['fheight'],
 	data() {
 		return ({
 			cpuValues: [],
 			cpuData: [],
-
 			seconds: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15,
 				16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30
-			],
+			]
 		})
 	},
 	mounted() {

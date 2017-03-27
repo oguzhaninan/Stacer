@@ -4,17 +4,17 @@ import Chartkick from 'chartkick'
 
 export default {
 	template: `<div>
-					<h4>Memory History</h4>
-			   		<div id="memory-chart"></div>
+					<h4>Memory History <slot></slot></h4>
+			   		<div id="memory-chart" :style="'height:' + fheight"></div>
 				</div>`,
+	props: ['fheight'],
 	data() {
 		return ({
 			memoryValues: [],
 			memoryData: [],
-
 			seconds: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15,
 				16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30
-			],
+			]
 		})
 	},
 	mounted() {
@@ -50,6 +50,7 @@ export default {
 						name: "Memory",
 						data: this.memoryValues[0].map((d, i) => [this.seconds[i], d])
 					})
+
 					this.memoryData.push({
 						name: "Swap",
 						data: this.memoryValues[1].map((d, i) => [this.seconds[i], d])
