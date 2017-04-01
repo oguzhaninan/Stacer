@@ -10,7 +10,7 @@
     <a href="https://github.com/sindresorhus/awesome-electron">
 		<img alt="Awesome"  src="https://cdn.rawgit.com/sindresorhus/awesome/d7305f38d29fed78fa85652e3a63e154dd8e8829/media/badge.svg"/>
 	</a>    
-	<a href="https://sourceforge.net/projects/stacer/files/latest/download" rel="nofollow">
+	<a href="https://sourceforge.net/projects/stacer/files/" rel="nofollow">
 		<img alt="Download Stacer" src="https://img.shields.io/sourceforge/dt/stacer.svg"/>
 	</a>        
 	<a href="https://www.bithound.io/github/oguzhaninan/Stacer">
@@ -25,7 +25,7 @@
 </p>
 
 <p align="center">
-    <a href="https://sourceforge.net/projects/stacer/" >
+    <a href="https://sourceforge.net/projects/stacer/files/" >
 		<img src="https://a.fsdn.com/con/app/sf-download-button" />
 	</a>
 </p>
@@ -70,7 +70,7 @@
 
 1. `git clone https://github.com/oguzhaninan/Stacer.git`
 2. `cd Stacer`
-3. `npm install && npm start`
+3. `npm install && npm run build && npm start`
 
 
 ## Uninstalling
