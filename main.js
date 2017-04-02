@@ -19,7 +19,7 @@ function createWindow() {
         maxHeight: _height,
         maximizable: false,
         resizable: false,
-        icon: './assets/img/icon.png'
+        icon: './assets/img/icons/icon256x256.png'
     })
 
     try {
@@ -33,8 +33,8 @@ function createWindow() {
 
     // win.setMenu(null)
 
-    win.loadURL(`file://${__dirname}/dist/index.html`)
-
+    win.loadURL(`file://${__dirname}/bundle/index.html`)
+    
     win.on('closed', () => win = null )
 }
 

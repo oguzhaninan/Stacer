@@ -1,8 +1,8 @@
 .vscode/
 node_modules/
-*.lock
 release-builds/
 dest/
-dist/*.js
-dist/**/*.js
-dist/**/**/*.js
+dist/
+bundle/*.js
+bundle/**/*.js
+bundle/**/**/*.js
