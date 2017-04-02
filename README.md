@@ -54,6 +54,12 @@
 
 ## Installing
 
+### AppImage
+
+1. Download `Stacer-1.0.6-x86_64.AppImage` from the [Stacer releases page](https://github.com/oguzhaninan/Stacer/releases).
+2. Make it executable `sudo chmod a+x Stacer*.AppImage`
+3. Run `./Stacer*.AppImage`
+
 ### Debian Linux x64
 
 1. Download `Stacer_1.0.6_amd64.deb` from the [Stacer releases page](https://github.com/oguzhaninan/Stacer/releases).
@@ -71,7 +77,6 @@
 1. `git clone https://github.com/oguzhaninan/Stacer.git`
 2. `cd Stacer`
 3. `npm install && npm run build && npm start`
-
 
 ## Uninstalling
 - Run `sudo dpkg -r stacer`
