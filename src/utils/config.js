@@ -1,24 +1,34 @@
 import {
   homedir
 } from 'os'
+import { spawnSync } from 'child_process'
 
-exports.commands = {
-  aptCachePath: "/var/cache/apt/archives/",
-  crashReportsPath: "/var/crash/",
-  systemLogsPath: "/var/log/",
-  appCachePath: homedir() + "/.cache/",
-  autostartApps: homedir() + "/.config/autostart/",
-  getInstalledPackages: "dpkg --get-selections | cut -f1",
-  getAllService: "service --status-all | tr -d [*] | tr -d ' '",
-  removePackage: "apt-get remove -y ",
-  trashPath: '/home/oguzhan/.local/share/Trash/files',
-  trashInfoPath: '/home/oguzhan/.local/share/Trash/info'
+let uname = spawnSync('uname', ['-a']).stdout.toString().toLowerCase()
+window.systemOs = uname.indexOf('ubuntu') !== -1 ? 'ubuntu' : 'arch'
+
+let conf = {}
+
+conf.crashReportsPath = "/var/crash/"
+conf.systemLogsPath = "/var/log/"
+conf.appCachePath = homedir() + "/.cache/"
+conf.autostartApps = homedir() + "/.config/autostart/"
+conf.getAllService = "systemctl list-unit-files --state=enabled,disabled --type=service | grep .service | cut -d ' ' -f1 | sed -e 's/.service//g'"
+conf.trashPath = homedir() + "/.local/share/Trash/files",
+conf.trashInfoPath = homedir() + "/.local/share/Trash/info"
+
+switch (window.systemOs) {
+  case 'ubuntu': {
+    conf.pkgCachePath = "/var/cache/apt/archives/"
+    conf.getInstalledPackages = "dpkg --get-selections | cut -f 1"
+    conf.removePackage = "apt-get remove -y "
+  }    
+  break;
+  case 'arch': {
+    conf.pkgCachePath = "/var/cache/pacman/pkg/"
+    conf.getInstalledPackages = "pacman -Q | cut -d ' ' -f 1"
+    conf.removePackage = "pacman -R --noconfirm "
+  }
+  break;
 }
 
-exports.prop = {
-  // Durations
-  networkBarsDuration: 600,
-  upBarDuration: 600,
-  // Colors
-  networkBarColor: '#2196F3',
-}
+exports.commands = conf

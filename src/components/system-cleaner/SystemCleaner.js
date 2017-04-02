@@ -20,8 +20,8 @@ export default {
                         <div  class="content">
                             <div class="cleaner-side">
                                 <ul>
-                                    <sidebar-item text="Apt Cache" :length="aptCachesList.length">
-                                        <input type="checkbox" v-model:checked="aptCacheSelect">
+                                    <sidebar-item text="Package Cache" :length="pkgCachesList.length">
+                                        <input type="checkbox" v-model:checked="pkgCacheSelect">
                                     </sidebar-item>
 
                                     <sidebar-item text="Crash Reports" :length="crashReportsList.length">
@@ -46,12 +46,12 @@ export default {
 
                             <div class="item-table scroll">
                                 <ul>
-                                    <table-title text="Apt Caches" :length="aptCachesList.length">
-                                        <input type="checkbox" @change="checkAllAptCaches">
+                                    <table-title text="Package Caches" :length="pkgCachesList.length">
+                                        <input type="checkbox" @change="checkAllPkgCaches">
                                     </table-title>
                                     
-                                    <table-items v-for="item in aptCachesList" :text="item">
-                                        <input type="checkbox" :value="item" v-model="checkedAptCaches">
+                                    <table-items v-for="item in pkgCachesList" :text="item">
+                                        <input type="checkbox" :value="item" v-model="checkedPkgCaches">
                                     </table-items>
 
 
@@ -94,18 +94,18 @@ export default {
     },
     data() {
         return {
-            aptCacheSelect: false,
+            pkgCacheSelect: false,
             crashReportsSelect: false,
             systemLogsSelect: false,
             appCacheSelect: false,
             trashSelect: false,
 
-            aptCachesList: [],
+            pkgCachesList: [],
             crashReportsList: [],
             systemLogsList: [],
             appCachesList: [],
 
-            checkedAptCaches: [],
+            checkedPkgCaches: [],
             checkedCrashReports: [],
             checkedSystemLogs: [],
             checkedAppCaches: [],
@@ -116,22 +116,26 @@ export default {
     methods: {
         systemScan() {
             // Lists cleaning             
-            this.aptCachesList = []
+            this.pkgCachesList = []
             this.crashReportsList = []
             this.systemLogsList = []
             this.appCachesList = []
             this.trashSize = '0 Bytes'
 
-            if (this.aptCacheSelect) {
-                fs.readdir(commands.aptCachePath, 'utf8', (err, files) => {
+            if (this.pkgCacheSelect) {
+                fs.readdir(commands.pkgCachePath, 'utf8', (err, files) => {
                     if (!err)
-                        files.filter(file => file.endsWith('.deb'))
-                        .forEach(file => this.aptCachesList.push(file))
+                        files.filter(file => file)
+                        .forEach(file => {
+                            let stat = fs.statSync(commands.pkgCachePath + file)
+                            if (stat.isFile())
+                                this.pkgCachesList.push(file)
+                        })
                     else
                         console.log(err)
                 })
             } else {
-                this.checkedAptCaches = []
+                this.checkedPkgCaches = []
             }
 
             if (this.crashReportsSelect) {
@@ -204,9 +208,9 @@ export default {
         systemClean() {
             let filesToRemove = ''
 
-            if (this.checkedAptCaches) {
-                this.checkedAptCaches.forEach(file => {
-                    filesToRemove += `rm -rf ${commands.aptCachePath}${file}; `
+            if (this.checkedPkgCaches) {
+                this.checkedPkgCaches.forEach(file => {
+                    filesToRemove += `rm -rf ${commands.pkgCachePath}${file}; `
                 })
             }
 
@@ -241,12 +245,12 @@ export default {
                         if (stderr)
                             showMessage(`System cleaning failed.`, 'error')
                         else {
-                            this.aptCachesList = this.aptCachesList.filter(item => this.checkedAptCaches.indexOf(item) == -1)
+                            this.pkgCachesList = this.pkgCachesList.filter(item => this.checkedPkgCaches.indexOf(item) == -1)
                             this.crashReportsList = this.crashReportsList.filter(item => this.checkedCrashReports.indexOf(item) == -1)
                             this.systemLogsList = this.systemLogsList.filter(item => this.checkedSystemLogs.indexOf(item) == -1)
                             this.appCachesList = this.appCachesList.filter(item => this.checkedAppCaches.indexOf(item) == -1)
 
-                            this.checkedAptCaches = []
+                            this.checkedPkgCaches = []
                             this.checkedCrashReports = []
                             this.checkedSystemLogs = []
                             this.checkedAppCaches = []
@@ -258,10 +262,10 @@ export default {
             }
         },
         // Check all items         
-        checkAllAptCaches(e) {
-            this.checkedAptCaches = []
+        checkAllPkgCaches(e) {
+            this.checkedPkgCaches = []
             if (e.target.checked)
-                this.checkedAptCaches.push(...this.aptCachesList)
+                this.checkedPkgCaches.push(...this.pkgCachesList)
         },
         checkAllCrashReports(e) {
             this.checkedCrashReports = []

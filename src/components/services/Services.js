@@ -1,5 +1,5 @@
 import {
-	spawn
+	spawnSync
 } from 'child_process'
 import {
 	commands
@@ -9,7 +9,7 @@ import {
 	showMessage
 } from '../../utils/helpers'
 import si from 'systeminformation'
-
+// components
 import Service from './Service'
 
 export default {
@@ -39,18 +39,18 @@ export default {
 		})
 	},
 	created() {
-		const services = spawn('bash', ['-c', commands.getAllService])
-		
-		services.stdout.on('data', data => {
-			data = data.toString().split('\n').filter(s => s != '')
+		const services = spawnSync('bash', ['-c', commands.getAllService])
 
-			data.forEach(service => {
-				var serviceName = service.substring(1)
-				var isRun = service.substring(0, 1) == '+' ? 'checked' : ''
-				this.servicesList.push({
-					name: serviceName,
-					isRun: isRun
-				})
+		let serviceNames = services.stdout.toString().trim().split('\n')
+		
+		serviceNames.forEach(serviceName => {
+			const isActive = spawnSync('systemctl', ['is-active', serviceName]).stdout.toString().trim()
+			
+			let checked = isActive === 'active' ? 'checked' : ''
+			
+			this.servicesList.push({
+				name: serviceName,
+				isRun: checked
 			})
 		})
 	},

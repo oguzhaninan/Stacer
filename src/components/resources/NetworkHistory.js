@@ -38,9 +38,9 @@ export default {
 					let upSpeed = Math.abs(data.tx_sec / 1024).toFixed(2) || 0.00
 
 					this.networkValues.forEach((n, i) => this.networkValues[i].splice(0, 1))
-
-					this.networkValues[0].push(downSpeed)
-					this.networkValues[1].push(upSpeed)
+					
+					this.networkValues[0].push(Math.abs(downSpeed))
+					this.networkValues[1].push(Math.abs(upSpeed))
 
 					this.networkData = []
 

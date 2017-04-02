@@ -2,9 +2,6 @@ import {
 	command,
 	showMessage
 } from '../../utils/helpers'
-import {
-	spawn
-} from 'child_process'
 import sudo from 'sudo-prompt'
 
 export default {
@@ -27,7 +24,7 @@ export default {
 
 			if (!this.isBusy) {
 				this.isBusy = true
-				sudo.exec(command(`service ${serviceName} ${status}`), {
+				sudo.exec(command(`systemctl ${status} ${serviceName}`), {
 						name: 'Stacer'
 					},
 					(error, stdout, stderr) => {

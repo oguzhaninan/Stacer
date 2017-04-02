@@ -595,7 +595,7 @@ input[type=checkbox] {
   display: block;
   padding: 10px 0px 10px 10px;
   width: 175px;
-  font-size: 15px;
+  font-size: 14px;
   cursor: pointer;
   position: relative;
 }
@@ -605,7 +605,7 @@ input[type=checkbox] {
 }
 
 .cleaner-side span {
-  margin-left: 25px;
+  margin-left: 22px;
 }
 
 
@@ -686,8 +686,8 @@ input[type=checkbox] {
 
 #nav {
   float: left;
-  width: 770px;
-  padding: 0 50px;
+  width: 100%;
+  padding: 0px;
   margin: 0 0 15px 0;
   text-align: center;
 }
