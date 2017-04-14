@@ -44,16 +44,16 @@
     "chart.js": "^2.5.0",
     "chartkick": "^2.2.3",
     "chokidar": "^1.6.1",
-    "jquery": "^3.1.1",
+    "jquery": "^3.2.1",
     "progressbar.js": "^1.0.1",
     "properties-reader": "^0.0.15",
-    "sudo-prompt": "^6.2.1",
-    "systeminformation": "^3.13.0",
-    "vuex": "^2.2.1"
+    "sudo-prompt": "^7.0.0",
+    "systeminformation": "^3.17.0",
+    "vuex": "^2.3.0"
   },
   "devDependencies": {
-    "babel-cli": "^6.24.0",
-    "babel-preset-es2015": "^6.24.0",
+    "babel-cli": "^6.24.1",
+    "babel-preset-es2015": "^6.24.1",
     "electron": "^1.6.2"
   }
 }
