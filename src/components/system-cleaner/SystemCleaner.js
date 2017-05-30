@@ -20,33 +20,33 @@ export default {
                         <div  class="content">
                             <div class="cleaner-side">
                                 <ul>
-                                    <sidebar-item text="Package Cache" :length="pkgCachesList.length">
+                                    <sidebar-item :text="lang('packageCache')" :length="pkgCachesList.length">
                                         <input type="checkbox" v-model:checked="pkgCacheSelect">
                                     </sidebar-item>
 
-                                    <sidebar-item text="Crash Reports" :length="crashReportsList.length">
+                                    <sidebar-item :text="lang('crashReports')" :length="crashReportsList.length">
                                         <input type="checkbox" v-model:checked="crashReportsSelect">
                                     </sidebar-item>
 
-                                    <sidebar-item text="System Logs" :length="systemLogsList.length">
+                                    <sidebar-item :text="lang('systemLogs')" :length="systemLogsList.length">
                                         <input type="checkbox" v-model:checked="systemLogsSelect">
                                     </sidebar-item>
 
-                                    <sidebar-item text="App Cache" :length="appCachesList.length">
+                                    <sidebar-item :text="lang('appCache')" :length="appCachesList.length">
                                         <input type="checkbox" v-model:checked="appCacheSelect">
                                     </sidebar-item>
 
-                                    <sidebar-item text="Trash" :length="trashSize">
+                                    <sidebar-item :text="lang('trash')" :length="trashSize">
                                         <input type="checkbox" v-model:checked="trashSelect">
                                     </sidebar-item>
                                 </ul>
 
-                                <input type="button" id="system-scan-btn" @click="systemScan" value="System Scan" />
+                                <input type="button" id="system-scan-btn" @click="systemScan" :value="lang('systemScan')" />
                             </div>
 
                             <div class="item-table scroll">
                                 <ul>
-                                    <table-title text="Package Caches" :length="pkgCachesList.length">
+                                    <table-title :text="lang('packageCache')" :length="pkgCachesList.length">
                                         <input type="checkbox" @change="checkAllPkgCaches">
                                     </table-title>
                                     
@@ -55,7 +55,7 @@ export default {
                                     </table-items>
 
 
-                                    <table-title text="Crash Reports" :length="crashReportsList.length">
+                                    <table-title :text="lang('crashReports')" :length="crashReportsList.length">
                                         <input type="checkbox" @change="checkAllCrashReports">
                                     </table-title>
                                     
@@ -64,7 +64,7 @@ export default {
                                     </table-items>
 
 
-                                    <table-title text="System Logs" :length="systemLogsList.length">
+                                    <table-title :text="lang('systemLogs')" :length="systemLogsList.length">
                                         <input type="checkbox" @change="checkAllSystemLogs">
                                     </table-title>
                                     
@@ -73,7 +73,7 @@ export default {
                                     </table-items>
 
                                     
-                                    <table-title text="App Caches" :length="appCachesList.length">
+                                    <table-title :text="lang('appCache')" :length="appCachesList.length">
                                         <input type="checkbox" @change="checkAllAppCaches">
                                     </table-title>
                                     
@@ -83,7 +83,7 @@ export default {
                                 </ul>
                             </div>
                             
-                            <input type="button" id="clean-btn" @click="systemClean" value="Clean" />
+                            <input type="button" id="clean-btn" @click="systemClean" :value="lang('clean')" />
                         </div>
                     </div>
                 </transition>`,
@@ -243,7 +243,7 @@ export default {
                     },
                     (error, stdout, stderr) => {
                         if (stderr)
-                            showMessage(`System cleaning failed.`, 'error')
+                            showMessage(lang('sysCleanFail'), 'error')
                         else {
                             this.pkgCachesList = this.pkgCachesList.filter(item => this.checkedPkgCaches.indexOf(item) == -1)
                             this.crashReportsList = this.crashReportsList.filter(item => this.checkedCrashReports.indexOf(item) == -1)
@@ -256,7 +256,7 @@ export default {
                             this.checkedAppCaches = []
                             this.trashSize = '0 Bytes'
 
-                            showMessage(`System cleaned.`, 'success')
+                            showMessage(lang('sysCleanSuc'), 'success')
                         }
                     })
             }
@@ -286,7 +286,7 @@ export default {
     watch: {
         appCacheSelect: checked => {
             if (checked)
-                showMessage('Deleting applications\' caches can cause problems. Please be careful.', 'warning')
+                showMessage(lang('appCacheWarning'), 'warning')
         }
     }
 }

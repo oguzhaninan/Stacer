@@ -5,7 +5,7 @@ import si from 'systeminformation'
 
 export default {
 	template: `<div class="line-cont">
-					<h3>UPLOAD</h3>
+					<h3>{{ lang('upload') }}</h3>
 					<div id="up-bar"></div>
 					<span>{{ this.upSpeed + ' kB/s' }}</span>
 				</div>`,
@@ -28,10 +28,12 @@ export default {
 			setInterval(() => {
 				// get upload speed
 				si.networkStats(defaultNetwork, data => {
-					this.upSpeed = Math.abs(data.tx_sec / 1024).toFixed(2) || 0.00
+					let speed = Math.abs(data.tx_sec / 1024).toFixed(2)
+					this.upSpeed = speed > 0 ? speed : 0
 					// up bar update
 					max = max < this.upSpeed ? this.upSpeed : max
-					upBar.animate(this.upSpeed / max)
+					let percent = this.upSpeed / max < 1 ? this.upSpeed / max : 1
+					upBar.animate(percent)
 				})
 			}, 1000)
 		})

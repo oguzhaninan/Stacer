@@ -14,25 +14,34 @@ export default {
     template: `<transition name="slide-fade">
                 <div class="content">
                     <div class="item-list uninstaller-list">
-                        <div>
-                            <h3 class="fl">System Installed Packages ({{ filteredPackages.length }})</h3>
-                            <input type="text" v-model="searchString" placeholder="Search..." />
+                        <div class="fl w100">
+                            <h3 class="fl">{{ lang('uninstallerTitle') }} ({{ filteredPackages.length }})</h3>
+                            <input type="text" v-model="searchString" :placeholder="lang('search') + '...'" />
                         </div>
                         <ul v-show="filteredPackages.length" class="scroll">
                             <li v-for="package in filteredPackages">
+                                <div class="check">
+                                    <input type ="checkbox" :value="package" :id="package" v-model="selectedPackages"/>
+                                    <label :for="package"></label>
+                                </div>
                                 <span>{{ package }}</span>
                                 <a :name="package" @click="removePackage"></a>
                             </li>
                         </ul>
-                        <span class="empty-list" v-show="! filteredPackages.length" >
-                            No package found.
+                        <span class="empty-list" v-show="! filteredPackages.length">
+                            {{ lang('noPackage') }}
                         </span>
+                        <button v-show="selectedPackages.length" id="uninstall-selected" @click="uninstallSelected">
+                            Uninstall Selecteds
+                        </button>
                     </div>
                 </div>
             </transition>`,
     data() {
         return ({
             packagesList: [],
+            selectedPackages: [],
+            isMultiUninstall: false,
             searchString: '',
             isBusy: false
         })
@@ -48,6 +57,39 @@ export default {
         })
     },
     methods: {
+        uninstallSelected() {
+            console.log(this.selectedPackages.join(' '))
+            if (this.selectedPackages) {
+                if (!this.isBusy) {
+                    this.isBusy = true
+
+                    let sPackages = []
+                    this.selectedPackages.forEach(pkg => sPackages.push(commands.removePackage + pkg))                   
+                    console.log(sPackages.join('; '))
+                    sudo.exec(command(sPackages.join('; ')), {
+                                name: 'Stacer'
+                            },
+                            (error, stdout, stderr) => {
+                                if (stderr) {
+                                    showMessage(lang('uninstallFail'), 'error')
+                                } else {
+                                    this.searchString = ''
+                                    
+                                    this.selectedPackages.forEach(packageName => {
+                                        var i = this.packagesList.indexOf(packageName)
+                                        if (i != -1) this.packagesList.splice(i, 1)
+                                    })
+
+                                    showMessage(sPackages + lang('packageUninstalled'), 'success')
+                                }
+                                this.isBusy = false
+                    })
+                } else {
+                    showMessage(lang('anotherProc'), 'error')
+                }
+                this.selectedPackages = []
+            }
+        },
         removePackage(e) {
             if (!this.isBusy) {
                 this.isBusy = true
@@ -60,18 +102,18 @@ export default {
                     (error, stdout, stderr) => {
                         if (stderr) {
                             e.target.className = ''
-                            showMessage('Operation not successful.', 'error')
+                            showMessage(lang('uninstallFail'), 'error')
                         } else {
                             this.searchString = e.target.className = ''
                             var i = this.packagesList.indexOf(packageName)
                             if (i != -1) this.packagesList.splice(i, 1)
 
-                            showMessage(`${packageName} package uninstalled.`, 'success')
+                            showMessage(packageName + lang('packageUninstalled'), 'success')
                         }
                         this.isBusy = false
                     })
             } else {
-                showMessage('Another process continues.', 'error')
+                showMessage(lang('anotherProc'), 'error')
             }
         }
     },

@@ -4,7 +4,7 @@ import Chartkick from 'chartkick'
 
 export default {
 	template: `<div>
-					<h4>Network History <slot></slot></h4>
+					<h4>{{ lang('networkHistory') }} <slot></slot></h4>
 			   		<div id="network-chart" :style="'height:' + fheight"></div>
 				</div>`,
 	props: ['fheight'],
@@ -39,18 +39,18 @@ export default {
 
 					this.networkValues.forEach((n, i) => this.networkValues[i].splice(0, 1))
 					
-					this.networkValues[0].push(Math.abs(downSpeed))
-					this.networkValues[1].push(Math.abs(upSpeed))
+					this.networkValues[0].push(downSpeed > 0 ? downSpeed : 0)
+					this.networkValues[1].push(upSpeed > 0 ? upSpeed : 0)
 
 					this.networkData = []
 
 					this.networkData.push({
-						name: "Download",
+						name: lang('download'),
 						data: this.networkValues[0].map((d, i) => [this.seconds[i], d])
 					})
 
 					this.networkData.push({
-						name: "Upload",
+						name: lang('upload'),
 						data: this.networkValues[1].map((d, i) => [this.seconds[i], d])
 					})
 

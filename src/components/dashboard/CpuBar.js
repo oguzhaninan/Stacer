@@ -5,7 +5,7 @@ import si from 'systeminformation'
 import CircleBar from './CircleBar'
 
 export default {
-	template: `<circle-bar title="CPU" idd="cpu-cont" stroke="#2ecc71" :text="cpuValue + '%'" img="cpu.png" />`,
+	template: `<circle-bar :title="lang('cpu')" idd="cpu-cont" stroke="#2ecc71" :text="cpuValue + '%'" img="cpu.png" />`,
 	components: {
 		'circle-bar': CircleBar
 	},

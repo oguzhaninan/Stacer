@@ -30,15 +30,15 @@ export default {
 					(error, stdout, stderr) => {
 						if (stderr) {
 							e.target.checked = ! isChecked
-							showMessage('Operation not successful.', 'error')
+							showMessage(lang('opFail'), 'error')
 						} else {
-							showMessage(serviceName + ' service ' + status + (e.target.checked ? 'ed' : 'ped'), 'success')
+							showMessage(serviceName + lang('service').toLowerCase() + status + (e.target.checked ? 'ed' : 'ped'), 'success')
 						}
 
 						this.isBusy = false
 					})
 			} else {
-				showMessage('Another process continues.', 'error')
+				showMessage(lang('anotherProc'), 'error')
 			}
 		}
 	}

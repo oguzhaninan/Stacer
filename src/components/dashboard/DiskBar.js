@@ -6,7 +6,7 @@ import helpers from '../../utils/helpers'
 import CircleBar from './CircleBar'
 
 export default {
-	template: `<circle-bar title="DISK SPACE" idd="disk-cont" stroke="#e74c3c" :text="this.diskUsed + ' / ' + this.diskTotal + 'GB'" img="disk.png" />`,
+	template: `<circle-bar :title="lang('disk')" idd="disk-cont" stroke="#e74c3c" :text="this.diskUsed + ' / ' + this.diskTotal + 'GB'" img="disk.png" />`,
 	components: {
 		'circle-bar': CircleBar
 	},

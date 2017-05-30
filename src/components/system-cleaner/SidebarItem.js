@@ -3,7 +3,7 @@ export default {
 					<label>
 						<slot></slot>
 						<i></i>
-						<span> {{text}} ({{length}}) </span>
+						<span :title="text + '(' + length + ')'"> {{text}} ({{length}}) </span>
 					</label>
 				</li>`,
 	props: ['length', 'text']

@@ -13,25 +13,25 @@ export default {
 	template: `<transition name="slide-fade">
 				<div class="content">
 					<div class="item-list startup-apps-list">
-						<h3>System Startup Applications ({{ apps.length }})</h3>
+						<h3>{{ lang('startupTitle') }} ({{ apps.length }})</h3>
 						<ul v-show="apps.length" class="scroll">
 							<app v-for="app in apps" :name="app.name" :file="app.file" :is-start="app.isStart"></app>
 						</ul>
 						<span class="empty-list" v-show="! apps.length">
-							No startup apps found.
+							{{ lang('noStartup') }}
 						</span>
 					</div>
-					<button @click="showPrompt = true" class="add-startup-app">Add Startup App</button>
+					<button @click="showPrompt = true" class="add-startup-app">{{ lang('addStartup') }}</button>
 
 					<div class="promptDialog" v-show="showPrompt">
 						<div class="dialog">
 							<div>
-								<span>Application</span>
-								<input type="text" v-model="appName" placeholder="App Name" />
-								<input type="text" v-model="appComment" placeholder="App Comment" />
-								<input type="text" v-model="appExec" placeholder="Command" />
-								<button @click="saveApp">Add</button>
-								<button @click="cancelPrompt">Cancel</button>
+								<span>{{ lang('app') }}</span>
+								<input type="text" v-model="appName" :placeholder="lang('appName')" />
+								<input type="text" v-model="appComment" :placeholder="lang('appComment')" />
+								<input type="text" v-model="appExec" :placeholder="lang('appCommand')" />
+								<button @click="saveApp">{{ lang('add') }}</button>
+								<button @click="cancelPrompt">{{ lang('cancel') }}</button>
 							</div>
 						</div>
 					</div>

@@ -1,0 +1,203 @@
+/**
+  author @oguzhaninan
+*/
+
+/*----------Colors-----------*/
+
+.dark {
+  background-color: #202b33;
+}
+
+
+/*---------DASHBOARD---------*/
+
+
+/*Trail Color*/
+
+.dark svg path:first-child {
+  stroke: #202b33;
+}
+
+.dark .cont,
+.dark .line-cont {
+  background-color: #293945;
+  color: #eee;
+}
+
+.dark .cont h3,
+.dark .line-cont h3,
+.dark .system-info h3 {
+  color: #eee;
+}
+
+.dark .system-info ul li {
+  color: #748390;
+}
+
+.dark #nav li {
+  color: #eee;
+}
+
+.dark .nav-active,
+.dark #nav li label:hover {
+  color: #47b1f3;
+  border-bottom: 1px solid #47b1f3;
+}
+
+
+/*---------DASHBOARD---------*/
+
+
+/*---------ITEM LIST---------*/
+
+.dark .switch+label,
+.dark .switch:not(:checked)+label:hover:active {
+  background-color: #EF4836;
+}
+
+.dark .switch+label::after {
+  background-color: #fff;
+}
+
+.dark .switch:checked+label {
+  box-shadow: inset 0 0 0 13px #4BD865;
+}
+
+.dark .scroll::-webkit-scrollbar-thumb {
+  background-color: #3d474e;
+}
+
+.dark .item-list ul li {
+  background-color: #293945;
+}
+
+.dark .item-list ul li:hover {
+  background-color: #3d474e;
+}
+
+.dark .item-list h3,
+.dark .item-list ul li {
+  color: #aeb5bf;
+}
+
+.dark .item-list input[type=text] {
+  background-color: #202b33;
+  border: 1px solid #3d474e;
+  color: #aeb5bf;
+}
+
+
+/*---------ITEM LIST---------*/
+
+
+/*---------ITEM TABLE---------*/
+
+.dark .item-table {
+  border: 1px solid #3d474e;
+}
+
+.dark .item-table ul li {
+  border-bottom: 1px solid #3d474e;
+}
+
+.dark .item-table ul li:hover {
+  background-color: #293945;
+}
+
+.dark .cleaner-side i,
+.dark .item-table i {
+  background-color: #748390;
+}
+
+.dark .item-table input[type=checkbox]:checked+i::after,
+.dark .cleaner-side input[type=checkbox]:checked+i::after {
+  background-color: #293945;
+}
+
+.dark .item-table span {
+  color: #aeb5bf;
+}
+
+.dark .item-table h3 {
+  background-color: #293945;
+  color: #aeb5bf;
+}
+
+.dark .cleaner-side ul li label {
+  color: #aeb5bf;
+}
+
+.dark .cleaner-side ul li {
+  border: 1px solid #3d474e;
+}
+
+.dark .cleaner-side ul li label:hover {
+  background-color: #293945;
+  color: #2285c3;
+}
+
+.dark #clean-btn,
+.dark #system-scan-btn {
+  color: #eee;
+  border: 1px solid #293945;
+}
+
+.dark #clean-btn:hover,
+.dark #system-scan-btn:hover {
+  background-color: #293945;
+}
+
+
+/*---------ITEM TABLE---------*/
+
+.dark .add-startup-app {
+  background-color: #2196f3;
+  color: #eee;
+}
+
+.dark .add-startup-app:hover {
+  background-color: #2285c3;
+}
+
+.dark .resources h4 {
+  color: #aeb5bf;
+}
+
+.dark .fit-chart {
+  background: url(../../img/fit.png) no-repeat 0 0;
+}
+
+.dark .collapse {
+  background: url(../../img/collapse.png) no-repeat 0 0;
+}
+
+.dark #cpus-chart,
+.dark #memory-chart,
+.dark #network-chart {
+  background-color: #293945;
+}
+
+.dark .empty-list {
+  color: #748390;
+}
+
+
+/*----SETTINGS-----*/
+
+.dark .settings h3 {
+  border-bottom: 1px solid #2285c3;
+  color: #2285c3;
+}
+
+.dark .settings div label {
+  color: #748390;
+}
+
+.dark .settings div select {
+  background-color: #293945;
+  color: #fff;
+}
+
+.dark .settings-btn {
+  background: #293945 url(../../img/settings.png) no-repeat 6px center;
+}

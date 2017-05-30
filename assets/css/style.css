@@ -43,148 +43,6 @@ button {
 }
 
 
-/*-------------Colors---------------*/
-
-body {
-  background-color: #202b33;
-}
-
-
-/*---------DASHBOARD---------*/
-
-
-/*Trail Color*/
-
-svg path:first-child {
-  stroke: #202b33;
-}
-
-.cont,
-.line-cont {
-  background-color: #293945;
-  color: #eee;
-}
-
-.cont h3,
-.line-cont h3,
-.system-info h3 {
-  color: #eee;
-}
-
-.system-info ul li {
-  color: #748390;
-}
-
-
-/*---------DASHBOARD---------*/
-
-
-/*---------ITEM LIST---------*/
-
-.switch+label,
-.switch:not(:checked)+label:hover:active {
-  background-color: #EF4836;
-}
-
-.switch+label::after {
-  background-color: #fff;
-}
-
-.switch:checked+label {
-  box-shadow: inset 0 0 0 13px #4BD865;
-}
-
-.scroll::-webkit-scrollbar-thumb {
-  background-color: #3d474e;
-}
-
-.item-list ul li {
-  background-color: #293945;
-}
-
-.item-list ul li:hover {
-  background-color: #3d474e;
-}
-
-.item-list h3,
-.item-list ul li {
-  color: #aeb5bf;
-}
-
-.item-list input[type=text] {
-  background-color: #202b33;
-  border: 1px solid #3d474e;
-  color: #aeb5bf;
-}
-
-
-/*---------ITEM LIST---------*/
-
-
-/*---------ITEM TABLE---------*/
-
-.item-table {
-  border: 1px solid #3d474e;
-}
-
-.item-table ul li {
-  border-bottom: 1px solid #3d474e;
-}
-
-.item-table ul li:hover {
-  background-color: #293945;
-}
-
-.cleaner-side i,
-.item-table i {
-  background-color: #748390;
-}
-
-.item-table input[type=checkbox]:checked+i::after,
-.cleaner-side input[type=checkbox]:checked+i::after {
-  background-color: #293945;
-}
-
-.item-table span {
-  color: #aeb5bf;
-}
-
-.item-table h3 {
-  background-color: #293945;
-  color: #aeb5bf;
-}
-
-.cleaner-side ul li label {
-  color: #aeb5bf;
-}
-
-.cleaner-side ul li {
-  border: 1px solid #3d474e;
-}
-
-.cleaner-side ul li label:hover {
-  background-color: #293945;
-  color: #2285c3;
-}
-
-#clean-btn,
-#system-scan-btn {
-  color: #eee;
-  border: 1px solid #293945;
-}
-
-#clean-btn:hover,
-#system-scan-btn:hover {
-  background-color: #293945;
-}
-
-
-/*---------ITEM TABLE---------*/
-
-
-/*------------------------------------------------------------------*/
-
-
 /*---------DASHBOARD---------*/
 
 .cont,
@@ -345,7 +203,7 @@ svg path:first-child {
   cursor: pointer;
   font-size: 15px;
   margin: 6px 3px;
-  width: calc(100% - 68px);
+  width: calc(100% - 70px);
   border-radius: 4px;
   padding: 10px 15px 10px 50px;
 }
@@ -408,17 +266,11 @@ svg path:first-child {
 }
 
 .add-startup-app {
-  background-color: #2196f3;
   border: 0;
   padding: 8px 15px;
-  color: #eee;
   float: right;
   margin: 10px 140px 0px 0px;
   border-radius: 4px;
-}
-
-.add-startup-app:hover {
-  background-color: #2285c3;
 }
 
 
@@ -442,6 +294,9 @@ svg path:first-child {
 
 
 /*---------UNINSTALLER---------*/
+.uninstaller-list  {
+  height: 510px;
+}
 
 .uninstaller-list ul {
   float: left;
@@ -451,6 +306,48 @@ svg path:first-child {
   background-image: url(../img/package.png);
   background-repeat: no-repeat;
   background-position: 13px 9px;
+}
+
+.check {
+  float: left;
+	width: 20px;
+	height: 20px;
+	background: #ddd;
+	margin: 1px 10px 0px 0px;
+	border-radius: 100%;
+	position: relative;
+}
+
+.check label {
+	display: block;
+	width: 16px;
+	height: 16px;
+	border-radius: 100px;
+	cursor: pointer;
+	position: absolute;
+	top: 2px;
+	left: 2px;
+	z-index: 1;
+	background-color: #3d474e;
+}
+
+.check input[type=checkbox]:checked + label {
+	background: #2285c3;
+}
+
+#uninstall-selected {
+  padding: 7px 15px;
+  color: #aeb5bf;
+  border: 1px solid #293945;
+  cursor: pointer;
+  font-size: 15px;
+  margin: 15px 268px;
+  background-color: transparent;
+  border-radius: 4px;
+}
+
+#uninstall-selected:hover {
+  background-color: #293945;
 }
 
 .uninstaller-list ul li a {
@@ -489,7 +386,7 @@ svg path:first-child {
 .item-table {
   float: right;
   margin: 10px 10px 0px 0px;
-  width: 650px;
+  width: 630px;
   height: 500px;
 }
 
@@ -574,7 +471,7 @@ input[type=checkbox] {
 
 .cleaner-side {
   margin: 10px 0 0 10px;
-  width: 180px;
+  width: 200px;
   float: left;
   position: relative;
 }
@@ -588,13 +485,13 @@ input[type=checkbox] {
 
 .cleaner-side ul li {
   padding: 0;
-  margin: 0 0 6px 0;
+  margin: 0 0 8px 0;
 }
 
 .cleaner-side ul li label {
   display: block;
   padding: 10px 0px 10px 10px;
-  width: 175px;
+  width: 195px;
   font-size: 14px;
   cursor: pointer;
   position: relative;
@@ -606,6 +503,11 @@ input[type=checkbox] {
 
 .cleaner-side span {
   margin-left: 22px;
+  width: 160px;
+  display: block;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
 }
 
 
@@ -622,7 +524,6 @@ input[type=checkbox] {
   display: block;
   float: left;
   padding: 10px;
-  color: #aeb5bf;
   font-weight: 400;
   margin: 0;
 }
@@ -631,7 +532,6 @@ input[type=checkbox] {
 #memory-chart,
 #network-chart {
   float: left;
-  background-color: #293945;
   height: 125px;
   width: calc(100% - 20px);
   padding: 10px;
@@ -645,12 +545,7 @@ input[type=checkbox] {
   width: 15px;
   height: 15px;
   border: 0;
-  background: url(../img/fit.png) no-repeat 0 0;
   margin: 1px 0px 0px 10px;
-}
-
-.collapse {
-  background: url(../img/collapse.png) no-repeat 0 0;
 }
 
 
@@ -663,7 +558,6 @@ input[type=checkbox] {
   width: 100%;
   float: left;
   margin: 30px auto;
-  color: #748390;
   display: block;
   background: url(../img/not-found.png) no-repeat center 30px;
 }
@@ -693,8 +587,7 @@ input[type=checkbox] {
 }
 
 #nav li {
-  color: #eee;
-  padding: 0px 10px;
+  padding: 0px 6px;
   display: inline-block;
 }
 
@@ -708,17 +601,7 @@ input[type=checkbox] {
   font-size: 16px;
   transition: 0.9s ease;
   padding: 6px;
-}
-
-#nav li label:hover {
-  cursor: pointer;
-  color: white;
-}
-
-.nav-active,
-#nav li label:hover {
-  color: #47b1f3;
-  border-bottom: 1px solid #47b1f3;
+  border: 1px solid transparent;
 }
 
 .slide-fade-enter-active {
@@ -829,4 +712,103 @@ input[type=checkbox] {
 
 .dialog button:hover {
   background-color: #293945;
+}
+
+
+/*----SETTINGS-----*/
+
+.settings {
+  width: 844px;
+  padding: 0 15px;
+}
+
+.settings h3 {
+  margin: 0 0 20px 0;
+  padding-bottom: 6px;
+  font-size: 17px;
+  font-weight: normal;
+  border-bottom: 1px solid #2285c3;
+  color: #2285c3;
+}
+
+.settings div {
+  float: left;
+  margin: 0 25px 0 0;
+}
+
+.settings div label {
+  float: left;
+  font-size: 15px;
+  padding: 0 0 5px 0;
+}
+
+.settings div select {
+  float: left;
+  border: 0px;
+  border-radius: 3px;
+  clear: left;
+  margin: 8px 0 0 0;
+  padding: 5px 10px;
+  width: 150px;
+}
+
+.settings-btn {
+  position: fixed;
+  top: 7px;
+  padding: 0;
+  right: 0;
+  width: 30px;
+  height: 30px;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  border: 0;
+}
+
+/*------Processes--------*/
+
+.processes {
+  float: left;
+  position: relative;
+  margin: 20px 20px 0 20px;
+  padding: 0;
+  width: calc(100% - 40px);
+}
+
+
+/*-----STable-----*/
+
+.stable {
+  background-color: #3d474e;
+  width: 100%;
+  height: 550px;
+  margin: 0;
+  padding: 0;
+  text-align: left;
+  box-sizing: border-box;
+  font-size: 15px;
+  border-radius: 5px;
+  table-layout: fixed;
+  border-spacing: 1px;
+}
+
+.stable tr {
+  background-color: #293945;
+  color: #a9b1bb;
+}
+
+.stable tr:hover {
+  cursor: pointer;
+  background-color: #3d474e;
+}
+
+.stable th {
+  color: #2285c3;
+}
+
+.stable td,
+.stable th {
+  padding: 8px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
 }

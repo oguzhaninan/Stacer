@@ -3,7 +3,7 @@ import Chartkick from 'chartkick'
 
 export default {
 	template: `<div>
-					<h4>Cpu History <slot></slot></h4>
+					<h4>{{ lang('cpuHistory') }} <slot></slot></h4>
 			   		<div id="cpus-chart" :style="'height:' + fheight"></div>
 				</div>`,
 	props: ['fheight'],

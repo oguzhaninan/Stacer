@@ -23,9 +23,9 @@ export default {
 
 						<!--Update Check-->
 						<div class="fl w100 update-check" v-show="update_check">
-							<span>There are updates currently available.</span>
+							<span>{{ lang('updateMsg') }}</span>
 							<button @click="download_update">
-								Download Update
+								{{ lang('downloadUpdate') }}
 							</button>
 						</div>
 					</div>

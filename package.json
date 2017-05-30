@@ -22,14 +22,11 @@
   "build": {
     "linux": {
       "icon": "assets/img/icons"
-    },
-    "target": [
-      "arch"
-    ]
+    }
   },
   "homepage": "https://github.com/oguzhaninan/Stacer",
   "scripts": {
-    "start": "electron .",
+    "start": "yarn run build; electron .",
     "build": "babel src/ -d bundle/",
     "clean": "rm bundle/*.js bundle/**/*.js",
     "package-x86": "electron-packager . --overwrite --platform=linux --arch=ia32 --icon=assets/img/icons/icon256x256.png --prune=true --out=release-builds --electron-version=1.6.2",
@@ -44,12 +41,12 @@
     "chart.js": "^2.5.0",
     "chartkick": "^2.2.3",
     "chokidar": "^1.6.1",
+    "glob": "^7.1.2",
     "jquery": "^3.1.1",
     "progressbar.js": "^1.0.1",
     "properties-reader": "^0.0.15",
     "sudo-prompt": "^6.2.1",
-    "systeminformation": "^3.13.0",
-    "vuex": "^2.2.1"
+    "systeminformation": "^3.13.0"
   },
   "devDependencies": {
     "babel-cli": "^6.24.0",

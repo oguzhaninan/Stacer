@@ -17,14 +17,14 @@ export default {
 				<div class="content">
 					<div class="item-list services-list">
 						<div class="fl w100">
-							<h3 class="fl">System Services ({{ filteredServices.length }})</h3>
-							<input type="text" v-model="searchString" placeholder="Search..." />
+							<h3 class="fl">{{ lang('serviceTitle') }} ({{ filteredServices.length }})</h3>
+							<input type="text" v-model="searchString" :placeholder="lang('search') + '...'" />
 						</div>
 						<ul v-show="filteredServices.length" class="scroll">
 							<service v-for="s in filteredServices" :name="s.name" :is-run="s.isRun" />
 						</ul>
 						<span class="empty-list" v-show="! filteredServices.length">
-							No service found.
+							{{ lang('noService') }}
 						</span>
 					</div>
 				</div>

@@ -1,0 +1,215 @@
+/*-------------Colors---------------*/
+
+.light {
+	background-color: #eef4f6;
+}
+
+
+/*---------DASHBOARD---------*/
+
+
+/*Trail Color*/
+
+.light svg path:first-child {
+	stroke: #ddd;
+}
+
+.light .cont,
+.light .line-cont {
+	background-color: #fff;
+	box-shadow: 0px 0px 20px 0px #ddd;
+	color: #6d7278;
+}
+
+.light .cont h3,
+.light .line-cont h3,
+.light .system-info h3 {
+	color: #6d7278;
+}
+
+.light .system-info ul li {
+	color: #6d7278;
+}
+
+.light #nav li {
+	color: #6d7278;
+}
+
+.light .nav-active,
+.light #nav li label:hover {
+	color: #47b1f3;
+	border-bottom: 1px solid #47b1f3;
+}
+
+
+/*---------DASHBOARD---------*/
+
+
+/*---------ITEM LIST---------*/
+
+.light .switch+label,
+.light .switch:not(:checked)+label:hover:active {
+	background-color: #EF4836;
+}
+
+.light .switch+label::after {
+	background-color: #fff;
+}
+
+.light .switch:checked+label {
+	box-shadow: inset 0 0 0 13px #4BD865;
+}
+
+.light .scroll::-webkit-scrollbar-thumb {
+	background-color: #748390;
+}
+
+.light .item-list ul li {
+	background-color: #fff;
+	box-shadow: 0px 0px 10px 0px #ddd;
+}
+
+.light .item-list ul li:hover {
+	background-color: #748390;
+	color: #fff;
+}
+
+.light .item-list h3,
+.light .item-list ul li {
+	color: #6d7278;
+}
+
+.light .item-list input[type=text] {
+	background-color: #fff;
+	border: 1px solid #eee;
+	box-shadow: 0px 0px 5px 0px #ddd;
+	color: #aeb5bf;
+}
+
+
+/*---------ITEM LIST---------*/
+
+
+/*---------ITEM TABLE---------*/
+
+.light .item-table {
+	background-color: #fff;
+	box-shadow: 0px 0px 20px 0px #ddd;
+	border: 0;
+}
+
+.light .item-table ul li {
+	border-bottom: 1px solid #ddd;
+}
+
+.light .item-table ul li:hover {
+	background-color: #bdc4ca;
+}
+
+.light .cleaner-side i,
+.light .item-table i {
+	background-color: #748390;
+}
+
+.light .item-table input[type=checkbox]:checked+i::after,
+.light .cleaner-side input[type=checkbox]:checked+i::after {
+	background-color: #293945;
+}
+
+.light .item-table li span {
+	color: #aeb5bf;
+}
+
+.light .item-table li span:hover {
+	color: #fff;
+}
+
+.light .item-table h3,
+.light .item-table h3 span {
+	background-color: #bdc4ca;
+	color: #fff;
+}
+
+.light .cleaner-side ul li label {
+	color: #aeb5bf;
+}
+
+.light .cleaner-side ul li {
+	background-color: #fff;
+	box-shadow: 0px 0px 20px 0px #ddd;
+	border: 0;
+}
+
+.light .cleaner-side ul li label:hover {
+	background-color: #bdc4ca;
+	color: #2285c3;
+}
+
+.light #clean-btn,
+.light #system-scan-btn {
+	color: #fff;
+	background-color: #bdc4ca;
+	box-shadow: 0px 0px 20px 0px #ddd;
+	border: 0;
+}
+
+.light #clean-btn:hover,
+.light #system-scan-btn:hover {
+	background-color: #748390;
+}
+
+
+/*---------ITEM TABLE---------*/
+
+.light .add-startup-app {
+	background-color: #2196f3;
+	color: #eee;
+}
+
+.light .add-startup-app:hover {
+	background-color: #2285c3;
+}
+
+.light .resources h4 {
+	color: #6d7278;
+}
+
+.light .fit-chart {
+	background: url(../../img/fit-light.png) no-repeat 0 0;
+}
+
+.light .collapse {
+	background: url(../../img/collapse-light.png) no-repeat 0 0;
+}
+
+.light #cpus-chart,
+.light #memory-chart,
+.light #network-chart {
+	background-color: #fff;
+	box-shadow: 0px 0px 20px 0px #ddd;
+}
+
+.light .empty-list {
+	color: #748390;
+}
+
+
+/*----SETTINGS-----*/
+
+.light .settings h3 {
+	border-bottom: 1px solid #2285c3;
+	color: #2285c3;
+}
+
+.light .settings div label {
+	color: #6d7278;
+}
+
+.light .settings div select {
+	background-color: #748390;
+	color: #fff;
+}
+
+.light .settings-btn {
+	background: #6d7278 url(../../img/settings.png) no-repeat 6px center;
+}

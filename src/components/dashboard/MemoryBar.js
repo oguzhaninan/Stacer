@@ -6,7 +6,7 @@ import helpers from '../../utils/helpers'
 import CircleBar from './CircleBar'
 
 export default {
-	template: `<circle-bar title="MEMORY" idd="mem-cont" stroke="#f1c40f" :text="memoryValue" img="memory.png" />`,
+	template: `<circle-bar :title="lang('memory')" idd="mem-cont" stroke="#f1c40f" :text="memoryValue" img="memory.png" />`,
 	components: {
 		'circle-bar': CircleBar
 	},

@@ -34,7 +34,7 @@ export default {
 				fs.writeFileSync(commands.autostartApps + '/' + fileName, data)
 			} catch (err) {
 				console.log(err)
-				showMessage('Operation failed.', 'error')
+				showMessage(lang('opFail'), 'error')
 			}
 		}
 	}

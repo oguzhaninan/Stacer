@@ -4,7 +4,7 @@ import {
 import { spawnSync } from 'child_process'
 
 let uname = spawnSync('uname', ['-a']).stdout.toString().toLowerCase()
-window.systemOs = uname.indexOf('ubuntu') !== -1 ? 'ubuntu' : 'arch'
+var systemOs = uname.indexOf('ubuntu') !== -1 ? 'ubuntu' : 'arch'
 
 let conf = {}
 
@@ -16,7 +16,7 @@ conf.getAllService = "systemctl list-unit-files --state=enabled,disabled --type=
 conf.trashPath = homedir() + "/.local/share/Trash/files",
 conf.trashInfoPath = homedir() + "/.local/share/Trash/info"
 
-switch (window.systemOs) {
+switch (systemOs) {
   case 'ubuntu': {
     conf.pkgCachePath = "/var/cache/apt/archives/"
     conf.getInstalledPackages = "dpkg --get-selections | cut -f 1"
