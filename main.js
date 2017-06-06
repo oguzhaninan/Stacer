@@ -5,11 +5,11 @@ const {
 
 const electron = require('electron')
 
-let win
+var win
 
 function createWindow() {
 
-    const _width = 890, _height = 650
+    const _width = 935, _height = 620
     win = new BrowserWindow({
         width: _width,
         height: _height,
@@ -24,11 +24,13 @@ function createWindow() {
 
     try {
         const screenSize = electron.screen.getPrimaryDisplay().size;
-        win.setPosition( (screenSize.width  - _width )  / 2,
-                        (screenSize.height - _height ) / 2 )
+        const w = (screenSize.width  - _width )  / 2 ,
+              h = (screenSize.height - _height ) / 2
+        win.setPosition(w,h)
     }
-    catch(er) {
-        win.center()
+    catch(err) {
+        console.log(err)
+        // win.center()
     }
 
     // win.setMenu(null)

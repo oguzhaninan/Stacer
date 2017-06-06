@@ -38,10 +38,20 @@
   color: #eee;
 }
 
-.dark .nav-active,
-.dark #nav li label:hover {
-  color: #47b1f3;
-  border-bottom: 1px solid #47b1f3;
+.dark .nav-active {
+  background-color: #202b33;
+}
+
+.dark .sidebar-nav ul li:hover {  
+  background-color: #1b242b;
+}
+
+.sidebar-nav ul li:hover > i {
+  color: #2285c3;
+}
+
+.dark .nav-active i {
+  color: #2285c3;
 }
 
 

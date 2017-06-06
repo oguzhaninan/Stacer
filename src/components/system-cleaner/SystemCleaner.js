@@ -17,7 +17,8 @@ import TableItems from './TableItems'
 
 export default {
     template: `<transition name="slide-fade">
-                        <div  class="content">
+                        <div class="content">
+						    <slot></slot>
                             <div class="cleaner-side">
                                 <ul>
                                     <sidebar-item :text="lang('packageCache')" :length="pkgCachesList.length">

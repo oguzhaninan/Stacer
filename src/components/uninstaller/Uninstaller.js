@@ -13,25 +13,29 @@ import {
 export default {
     template: `<transition name="slide-fade">
                 <div class="content">
+                    <slot></slot>
                     <div class="item-list uninstaller-list">
                         <div class="fl w100">
                             <h3 class="fl">{{ lang('uninstallerTitle') }} ({{ filteredPackages.length }})</h3>
+                            <div class="spin-loader fl" v-show="isBusy">
+                                <div class="dot1"></div>
+                                <div class="dot2"></div>
+                                <div class="dot3"></div>
+                                <div class="dot4"></div>
+                            </div>
                             <input type="text" v-model="searchString" :placeholder="lang('search') + '...'" />
                         </div>
                         <ul v-show="filteredPackages.length" class="scroll">
                             <li v-for="package in filteredPackages">
-                                <div class="check">
-                                    <input type ="checkbox" :value="package" :id="package" v-model="selectedPackages"/>
-                                    <label :for="package"></label>
-                                </div>
-                                <span>{{ package }}</span>
-                                <a :name="package" @click="removePackage"></a>
+                                <input type ="checkbox" :value="package" :id="'p_' + package" v-model="selectedPackages"/>
+                                <label :for="'p_' + package"></label>
+                                {{ package }}
                             </li>
                         </ul>
                         <span class="empty-list" v-show="! filteredPackages.length">
                             {{ lang('noPackage') }}
                         </span>
-                        <button v-show="selectedPackages.length" id="uninstall-selected" @click="uninstallSelected">
+                        <button :disabled="selectedPackages.length > 0 ? false : true" id="uninstall-selected" @click="uninstallSelected">
                             Uninstall Selecteds
                         </button>
                     </div>
@@ -41,7 +45,6 @@ export default {
         return ({
             packagesList: [],
             selectedPackages: [],
-            isMultiUninstall: false,
             searchString: '',
             isBusy: false
         })
@@ -51,69 +54,38 @@ export default {
 
         packages.stdout.on('data', data => {
             this.packagesList.splice(0, this.packagesList.length)
-            data = data.toString().split('\n').filter((s) => s != '')
+            data = data.toString().split('\n').filter(s => s != '')
 
             this.packagesList.push(...data)
         })
     },
     methods: {
         uninstallSelected() {
-            console.log(this.selectedPackages.join(' '))
             if (this.selectedPackages) {
                 if (!this.isBusy) {
                     this.isBusy = true
 
-                    let sPackages = []
-                    this.selectedPackages.forEach(pkg => sPackages.push(commands.removePackage + pkg))                   
-                    console.log(sPackages.join('; '))
-                    sudo.exec(command(sPackages.join('; ')), {
-                                name: 'Stacer'
-                            },
-                            (error, stdout, stderr) => {
-                                if (stderr) {
-                                    showMessage(lang('uninstallFail'), 'error')
-                                } else {
-                                    this.searchString = ''
-                                    
-                                    this.selectedPackages.forEach(packageName => {
-                                        var i = this.packagesList.indexOf(packageName)
-                                        if (i != -1) this.packagesList.splice(i, 1)
-                                    })
+                    let sPackages = this.selectedPackages.join(' ')
 
-                                    showMessage(sPackages + lang('packageUninstalled'), 'success')
-                                }
-                                this.isBusy = false
-                    })
-                } else {
-                    showMessage(lang('anotherProc'), 'error')
-                }
-                this.selectedPackages = []
-            }
-        },
-        removePackage(e) {
-            if (!this.isBusy) {
-                this.isBusy = true
-                e.target.className += 'loader'
-                let packageName = e.target.name
-
-                sudo.exec(command(commands.removePackage + packageName), {
+                    sudo.exec(command(commands.removePackage + sPackages), {
                         name: 'Stacer'
                     },
                     (error, stdout, stderr) => {
                         if (stderr) {
-                            e.target.className = ''
                             showMessage(lang('uninstallFail'), 'error')
                         } else {
-                            this.searchString = e.target.className = ''
-                            var i = this.packagesList.indexOf(packageName)
-                            if (i != -1) this.packagesList.splice(i, 1)
+                            this.packagesList = this.packagesList
+                                                    .filter(p => this.selectedPackages.indexOf(p) === -1)
 
-                            showMessage(packageName + lang('packageUninstalled'), 'success')
+                            showMessage(sPackages.split(' ').join('<br/>').concat('<br/>') + lang('packageUninstalled'), 'success')
+                            this.searchString = ''
                         }
                         this.isBusy = false
+                        this.selectedPackages = []
                     })
-            } else {
-                showMessage(lang('anotherProc'), 'error')
+                } else {
+                    showMessage(lang('anotherProc'), 'error')
+                }
             }
         }
     },
@@ -126,7 +98,7 @@ export default {
 
             searchString = searchString.toString().trim().toLowerCase()
 
-            return tempPackagesList.filter((item) =>
+            return tempPackagesList.filter(item =>
                 item.trim().toLowerCase().indexOf(searchString) !== -1
             )
         }

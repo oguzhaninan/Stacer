@@ -9,6 +9,7 @@ import NetworkHistory from './NetworkHistory'
 export default {
 	template: `<transition name="slide-fade">
 				<div class="content">
+					<slot></slot>
 					<div class="resources">
 						<cpu-history v-show="fitChart == 0 || fitChart == 1" :fheight="fitHeight">
 							<button :class="['fit-chart', { 'collapse' : isFit }]" @click="fit(1)" />

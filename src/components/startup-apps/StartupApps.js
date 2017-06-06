@@ -12,6 +12,7 @@ import STApp from './STApp'
 export default {
 	template: `<transition name="slide-fade">
 				<div class="content">
+					<slot></slot>
 					<div class="item-list startup-apps-list">
 						<h3>{{ lang('startupTitle') }} ({{ apps.length }})</h3>
 						<ul v-show="apps.length" class="scroll">

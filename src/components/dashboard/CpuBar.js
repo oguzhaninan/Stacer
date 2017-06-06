@@ -20,10 +20,14 @@ export default {
 		})
 
 		setInterval(() => {
-			si.currentLoad(val => {
-				this.cpuValue = val.currentload.toFixed(0)
-				cpuBar.animate(this.cpuValue / 100)
-			})
+			try {
+				si.currentLoad(val => {
+					this.cpuValue = val.currentload.toFixed(0)
+					cpuBar.animate(this.cpuValue / 100)
+				})
+			} catch(err) {
+				
+			}
 		}, 1000)
 	}
 }

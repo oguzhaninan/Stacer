@@ -4,6 +4,7 @@ import proc from './proc'
 export default {
   template: `<transition name="slide-fade">
                 <div class="content">
+						      <slot></slot>
                   <div class="processes">
                     <table class="stable">
                       <!--<caption></caption>-->

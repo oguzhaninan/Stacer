@@ -11,9 +11,15 @@ body * {
 body {
   overflow: hidden;
   float: left;
-  padding: 10px 0 0 0;
-  font-weight: 400;
+  padding: 0;
+  margin: 0;
+  width: 100%;
   -webkit-user-select: none;
+}
+
+#main {
+  width: calc(100% - 55px);
+  padding: 0px;
 }
 
 button {
@@ -38,9 +44,78 @@ button {
 
 .content {
   float: left;
-  width: 100%;
+  width: calc(100% - 10px);
   height: 999px;
+  padding: 5px;
 }
+
+.content h1 {
+  width: calc(100% - 20px);
+  float: left;
+  display: block;
+  margin: 0 0 10px 10px;
+  padding: 5px 0 10px 0;
+  text-align: center;
+  font-weight: 400;
+  font-size: 16px;
+  color: #ccc;
+  border-bottom: 1px solid #ccc;
+}
+
+
+/*---------SIDEBAR---------*/
+
+.sidebar-nav {
+  width: 55px;
+  height: 620px;
+  background-color: #293945;
+  position: fixed;
+  top: 0px;
+  text-align: center;
+  left: 0;
+  z-index: 9999;
+}
+
+.sidebar-nav ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.sidebar-nav ul li {
+  float: left;
+  display: inline-block;
+  padding: 15px 13px;
+  text-align: left;
+  cursor: pointer;
+}
+
+.sidebar-nav ul li label {
+  padding: 5px 0px 0 45px;
+  color: #2285c3;
+  display: none;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.sidebar-nav ul li:hover > label {
+  display: block;
+}
+
+.sidebar-nav ul li img {
+  width: 43px;
+}
+
+.sidebar-nav ul li i {
+  font-size: 29px;
+  height: 28px;
+  display: block;
+  float: left;
+  color: #fff;
+}
+
+
+/*---------SIDEBAR---------*/
 
 
 /*---------DASHBOARD---------*/
@@ -184,7 +259,7 @@ button {
 
 .item-list {
   width: 700px;
-  height: 530px;
+  height: 520px;
   margin: 15px auto 20px auto;
 }
 
@@ -210,6 +285,7 @@ button {
 
 .item-list h3 {
   margin: 0px;
+  float: left;
   display: block;
   height: 20px;
   padding: 10px 0px 10px 15px;
@@ -242,7 +318,8 @@ button {
 
 .startup-apps-list {
   width: 600px;
-  height: 470px;
+  height: 460px;
+  margin-top: 45px;
 }
 
 .startup-apps-list ul li {
@@ -279,6 +356,10 @@ button {
 
 /*---------SYSTEM SERVICES---------*/
 
+.services-list {
+  margin-top: 45px;
+}
+
 .services-list ul {
   float: left;
 }
@@ -287,6 +368,7 @@ button {
   background-image: url(../img/service.png);
   background-repeat: no-repeat;
   background-position: 13px 11px;
+  line-height: 20px;
 }
 
 
@@ -294,8 +376,10 @@ button {
 
 
 /*---------UNINSTALLER---------*/
-.uninstaller-list  {
-  height: 510px;
+
+.uninstaller-list {
+  height: 490px;
+  margin-top: 45px;
 }
 
 .uninstaller-list ul {
@@ -306,33 +390,29 @@ button {
   background-image: url(../img/package.png);
   background-repeat: no-repeat;
   background-position: 13px 9px;
+  line-height: 20px;
 }
 
-.check {
-  float: left;
-	width: 20px;
-	height: 20px;
-	background: #ddd;
-	margin: 1px 10px 0px 0px;
-	border-radius: 100%;
-	position: relative;
+.uninstaller-list .spin-loader {
+  margin: 20px 0 0 100px;
 }
 
-.check label {
-	display: block;
-	width: 16px;
-	height: 16px;
-	border-radius: 100px;
-	cursor: pointer;
-	position: absolute;
-	top: 2px;
-	left: 2px;
-	z-index: 1;
-	background-color: #3d474e;
+.uninstaller-list label {
+  float: right;
+  margin: 1px 5px 0px 0px;
+  border-radius: 100%;
+  position: relative;
+  border: 2px solid #fff;
+  display: block;
+  width: 16px;
+  height: 16px;
+  border-radius: 100px;
+  cursor: pointer;
+  background-color: #3d474e;
 }
 
-.check input[type=checkbox]:checked + label {
-	background: #2285c3;
+.uninstaller-list input[type=checkbox]:checked+label {
+  background-color: #2285c3;
 }
 
 #uninstall-selected {
@@ -346,35 +426,13 @@ button {
   border-radius: 4px;
 }
 
+#uninstall-selected:disabled {
+  cursor: not-allowed;
+  color: #293945;
+}
+
 #uninstall-selected:hover {
   background-color: #293945;
-}
-
-.uninstaller-list ul li a {
-  width: 24px;
-  height: 24px;
-  float: right;
-  margin-top: -2px;
-  background-image: url(../img/trash.png);
-}
-
-.uninstaller-list ul li a.loader {
-  border: 4px solid #f3f3f3;
-  border-radius: 50%;
-  background-image: none;
-  border-top: 4px solid #3498db;
-  width: 16px;
-  height: 16px;
-  -webkit-animation: spin 1s linear infinite;
-}
-
-@keyframes spin {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
 }
 
 
@@ -387,7 +445,7 @@ button {
   float: right;
   margin: 10px 10px 0px 0px;
   width: 630px;
-  height: 500px;
+  height: 480px;
 }
 
 .item-table ul {
@@ -536,7 +594,6 @@ input[type=checkbox] {
   width: calc(100% - 20px);
   padding: 10px;
   border-radius: 4px;
-  margin-bottom: 5px;
 }
 
 .fit-chart {
@@ -578,32 +635,6 @@ input[type=checkbox] {
   float: left;
 }
 
-#nav {
-  float: left;
-  width: 100%;
-  padding: 0px;
-  margin: 0 0 15px 0;
-  text-align: center;
-}
-
-#nav li {
-  padding: 0px 6px;
-  display: inline-block;
-}
-
-#nav li label:after {
-  transition: width .5s ease, background-color .5s ease
-}
-
-#nav li label {
-  cursor: pointer;
-  display: block;
-  font-size: 16px;
-  transition: 0.9s ease;
-  padding: 6px;
-  border: 1px solid transparent;
-}
-
 .slide-fade-enter-active {
   transition: all .2s ease;
 }
@@ -618,9 +649,12 @@ input[type=checkbox] {
 }
 
 .update-check {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
   background-color: #16a085;
   text-align: left;
-  margin-top: -40px;
   padding: 7px 0;
 }
 
@@ -628,7 +662,7 @@ input[type=checkbox] {
   float: left;
   display: block;
   color: #202b33;
-  padding: 3px 20px;
+  padding: 5px 20px;
   margin: 0;
 }
 
@@ -717,23 +751,11 @@ input[type=checkbox] {
 
 /*----SETTINGS-----*/
 
-.settings {
-  width: 844px;
-  padding: 0 15px;
-}
-
-.settings h3 {
-  margin: 0 0 20px 0;
-  padding-bottom: 6px;
-  font-size: 17px;
-  font-weight: normal;
-  border-bottom: 1px solid #2285c3;
-  color: #2285c3;
-}
+.settings {}
 
 .settings div {
   float: left;
-  margin: 0 25px 0 0;
+  margin: 10px 15px 0 10px;
 }
 
 .settings div label {
@@ -763,6 +785,7 @@ input[type=checkbox] {
   border-bottom-left-radius: 5px;
   border: 0;
 }
+
 
 /*------Processes--------*/
 
@@ -811,4 +834,76 @@ input[type=checkbox] {
   text-overflow: ellipsis;
   overflow: hidden;
   white-space: nowrap;
+}
+
+
+/*----Spinner Loader------*/
+
+.spin-loader {
+  position: relative;
+  width: 45px;
+  height: 10px;
+}
+
+.spin-loader div {
+  width: 10px;
+  height: 10px;
+  border-radius: 100%;
+  background: #2285c3;
+  position: absolute;
+  animation-duration: 0.5s;
+  animation-timing-function: ease;
+  animation-iteration-count: infinite;
+}
+
+.dot1,
+.dot2 {
+  left: 0;
+}
+
+.dot3 {
+  left: 1em;
+}
+
+.dot4 {
+  left: 2em;
+}
+
+@keyframes reveal {
+  from {
+    transform: scale(0.001);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+@keyframes slide {
+  to {
+    transform: translateX(1em)
+  }
+}
+
+.dot1 {
+  animation-name: reveal;
+}
+
+.dot2,
+.dot3 {
+  animation-name: slide;
+}
+
+.dot4 {
+  animation-name: reveal;
+  animation-direction: reverse;
+}
+
+.side {
+  float: left;
+  height: 650px;
+  width: 60px;
+  background-color: deepskyblue;
+  position: fixed;
+  top: 0;
+  left: 0;
 }

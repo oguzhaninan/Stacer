@@ -13,6 +13,7 @@ import DiskBar from './DiskBar'
 export default {
 	template: `<transition name="slide-fade">
 					<div class="content">
+						<slot></slot>
 						<cpu-bar/>
 						<memory-bar/>
 						<disk-bar/>
@@ -22,12 +23,13 @@ export default {
 						<up-bar/>
 
 						<!--Update Check-->
-						<div class="fl w100 update-check" v-show="update_check">
+						<div class="update-check" v-show="update_check">
 							<span>{{ lang('updateMsg') }}</span>
 							<button @click="download_update">
 								{{ lang('downloadUpdate') }}
 							</button>
 						</div>
+						
 					</div>
 				</transition>`,
 	data() {
@@ -46,7 +48,11 @@ export default {
 	methods: {
 		// open the link on browser
 		download_update() {
-			shell.openExternal('https://github.com/oguzhaninan/Stacer/releases/latest')
+			try {
+				shell.openExternal('https://github.com/oguzhaninan/Stacer/releases/latest')
+			} catch (err) {
+
+			}
 		}
 	},
 	created() {

@@ -31,7 +31,6 @@ export default {
 				this.diskUsed = helpers.prettyDiskSize(disk[0].used)
 				this.diskTotal = helpers.prettyDiskSize(disk[0].size)
 				this.diskBar.animate(disk[0].use / 100)
-			})
+			})}
 		}
-	}
 }

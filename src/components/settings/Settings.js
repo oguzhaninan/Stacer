@@ -5,7 +5,7 @@ import { showMessage } from '../../utils/helpers'
 export default {
 	template: `<transition name="slide-fade">
 							<div class="content settings">
-								<h3>{{ lang('appSettings') }}</h3>
+						    <slot></slot>
 								<div>
 									<label>{{ lang('appLanguage') }}</label>
 									<select v-model="selectedLang" @change="langChange">

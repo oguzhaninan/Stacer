@@ -6,9 +6,9 @@ import sudo from 'sudo-prompt'
 
 export default {
 	template: `<li>
-					<span>{{ name }}</span>
-					<input type="checkbox" class="switch" :id="name" :checked="isRun" @change="statusChange" />
-					<label :for="name" class="fr"></label>
+					{{ name }}
+					<input type="checkbox" class="switch" :id="'s_' + name" :checked="isRun" @change="statusChange" />
+					<label :for="'s_' + name" class="fr"></label>
 				</li>`,
 	props: ['name', 'is-run'],
 	data() {
@@ -18,7 +18,7 @@ export default {
 	},
 	methods: {
 		statusChange(e) {
-			let serviceName = e.target.id
+			let serviceName = e.target.id.substr(2)
 			let isChecked = e.target.checked
 			let status = isChecked ? 'start' : 'stop'
 

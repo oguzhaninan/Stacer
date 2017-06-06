@@ -15,6 +15,7 @@ import Service from './Service'
 export default {
 	template: `<transition name="slide-fade">
 				<div class="content">
+					<slot></slot>
 					<div class="item-list services-list">
 						<div class="fl w100">
 							<h3 class="fl">{{ lang('serviceTitle') }} ({{ filteredServices.length }})</h3>
