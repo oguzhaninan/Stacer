@@ -1,5 +1,5 @@
 /**
-  author @oguzhaninan
+  AUTHOR <email@address>
 */
 
 /*----------Colors-----------*/
@@ -8,7 +8,18 @@
   background-color: #202b33;
 }
 
+/*----SIDEBAR-NAV----*/
+.dark .sidebar-nav {
+  background-color: #293945;
+}
 
+.sidebar-nav ul li label {
+  color: #2285c3;
+}
+
+.sidebar-nav ul li i {
+  color: #fff;
+}
 /*---------DASHBOARD---------*/
 
 
@@ -194,11 +205,6 @@
 
 /*----SETTINGS-----*/
 
-.dark .settings h3 {
-  border-bottom: 1px solid #2285c3;
-  color: #2285c3;
-}
-
 .dark .settings div label {
   color: #748390;
 }
@@ -206,8 +212,4 @@
 .dark .settings div select {
   background-color: #293945;
   color: #fff;
-}
-
-.dark .settings-btn {
-  background: #293945 url(../../img/settings.png) no-repeat 6px center;
 }

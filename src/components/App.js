@@ -50,7 +50,7 @@ export default {
 						<dashboard v-show="activeNav == 1">
 							<h1> {{ lang('dashboard') }} </h1>
 						</dashboard>
-						
+
 						<system-cleaner v-show="activeNav == 2">
 							<h1> {{ lang('sysCleaner') }} </h1>
 						</system-cleaner>

@@ -1,3 +1,6 @@
+/**
+  AUTHOR <email@address>
+*/
 export default {
 	// Top Menu
 	dashboard: "Dashboard",
@@ -48,6 +51,7 @@ export default {
 	// Uninstaller Page
 	uninstallerTitle: "System Installed Packages",
 	noPackage: "No package found.",
+	uninstallSelecteds: "Uninstall Selecteds",
 	// Resources Page
 	cpuHistory: "Cpu History",
 	memHistory: "Memory History",

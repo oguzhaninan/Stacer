@@ -45,7 +45,7 @@ button {
 .content {
   float: left;
   width: calc(100% - 10px);
-  height: 999px;
+  height: 1000px;
   padding: 5px;
 }
 
@@ -68,7 +68,6 @@ button {
 .sidebar-nav {
   width: 55px;
   height: 620px;
-  background-color: #293945;
   position: fixed;
   top: 0px;
   text-align: center;
@@ -92,7 +91,6 @@ button {
 
 .sidebar-nav ul li label {
   padding: 5px 0px 0 45px;
-  color: #2285c3;
   display: none;
   white-space: nowrap;
   cursor: pointer;
@@ -111,7 +109,6 @@ button {
   height: 28px;
   display: block;
   float: left;
-  color: #fff;
 }
 
 

@@ -12,14 +12,14 @@ conf.crashReportsPath = "/var/crash/"
 conf.systemLogsPath = "/var/log/"
 conf.appCachePath = homedir() + "/.cache/"
 conf.autostartApps = homedir() + "/.config/autostart/"
-conf.getAllService = "systemctl list-unit-files --state=enabled,disabled --type=service | grep .service | cut -d ' ' -f1 | sed -e 's/.service//g'"
+conf.getAllService = "systemctl list-unit-files --state=enabled,disabled --type=service | grep .service | cut -d ' ' -f1 | sed -e 's/.service//g' 2> /dev/null"
 conf.trashPath = homedir() + "/.local/share/Trash/files"
 conf.trashInfoPath = homedir() + "/.local/share/Trash/info"
 
 switch (systemOs) {
   case 'ubuntu': {
     conf.pkgCachePath = "/var/cache/apt/archives/"
-    conf.getInstalledPackages = "dpkg --get-selections | grep -v deinstall | cut -f 1"
+    conf.getInstalledPackages = "dpkg --get-selections | grep -v deinstall | cut -f 1 2> /dev/null"
     conf.removePackage = "apt-get remove -y "
   }    
   break;

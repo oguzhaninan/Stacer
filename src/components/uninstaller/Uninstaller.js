@@ -36,7 +36,7 @@ export default {
                             {{ lang('noPackage') }}
                         </span>
                         <button :disabled="selectedPackages.length > 0 ? false : true" id="uninstall-selected" @click="uninstallSelected">
-                            Uninstall Selecteds
+                            {{ lang('uninstallSelecteds') }}
                         </button>
                     </div>
                 </div>

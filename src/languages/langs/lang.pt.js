@@ -1,9 +1,13 @@
+/**
+  AUTHOR <email@address>
+*/
 export default {
 	// Top Menu
 	dashboard: "Visão Geral",
 	sysCleaner: "Limpador de Sistema",
 	startupApps: "Aplicativos de Inicialização",
 	services: "Serviços",
+	process: "Processo",
 	uninstaller: "Desinstalador",
 	resources: "Recursos",
 	// Dashboard Page
@@ -42,9 +46,12 @@ export default {
 	// Services Page
 	serviceTitle: "Serviços de Sistema",
 	noService: "Nenhum serviço encontrado.",
+	// Process Page
+	processTitle: "",
 	// Uninstaller Page
 	uninstallerTitle: "Pacotes Instalados do Sistema",
 	noPackage: "Nenhum pacote encontrado.",
+	uninstallSelecteds: "Remove Seleção",
 	// Resources Page
 	cpuHistory: "História da Cpu",
 	memHistory: "Histórico da Memória",

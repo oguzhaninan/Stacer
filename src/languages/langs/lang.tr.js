@@ -1,9 +1,13 @@
+/**
+  AUTHOR <email@address>
+*/
 export default {
 	// Top Menu
-	dashboard: "Genel",
+	dashboard: "Başlangıç",
 	sysCleaner: "Sistem Temizleyici",
 	startupApps: "Başlangıç Uygulamaları",
 	services: "Servisler",
+	process: "Süreçler",
 	uninstaller: "Kaldırıcı",
 	resources: "Kaynaklar",
 	// Dashboard Page
@@ -36,15 +40,18 @@ export default {
 	app: "Uygulama",
 	appName: "Uygulama Adı",
 	appComment: "Uygulama Yorumu",
-	appCommand: "Command",
+	appCommand: "Komut",
 	add: "Ekle",
 	cancel: "İptal",
 	// Services Page
 	serviceTitle: "Sistem Servisleri",
 	noService: "Servis Bulunamadı.",
+	// Process Page
+	processTitle: "",
 	// Uninstaller Page
 	uninstallerTitle: "Sistemdeki Yüklü Paketler",
 	noPackage: "Paket Bulunamadı.",
+	uninstallSelecteds: "Seçilenleri Kaldır",
 	// Resources Page
 	cpuHistory: "Cpu Geçmişi",
 	memHistory: "Bellek Geçmişi",
