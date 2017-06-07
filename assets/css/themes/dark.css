@@ -2,28 +2,34 @@
   AUTHOR <email@address>
 */
 
-/*----------Colors-----------*/
-
 .dark {
   background-color: #202b33;
 }
+  
+.content h1 {
+  color: #ccc;
+  border-bottom: 1px solid #ccc;
+}
 
 /*----SIDEBAR-NAV----*/
+
 .dark .sidebar-nav {
   background-color: #293945;
 }
 
-.sidebar-nav ul li label {
+.dark .sidebar-nav ul li label {
   color: #2285c3;
 }
 
 .sidebar-nav ul li i {
   color: #fff;
 }
-/*---------DASHBOARD---------*/
 
 
-/*Trail Color*/
+/*-----DASHBOARD-----*/
+
+
+/*chart-trail-color*/
 
 .dark svg path:first-child {
   stroke: #202b33;
@@ -53,23 +59,17 @@
   background-color: #202b33;
 }
 
-.dark .sidebar-nav ul li:hover {  
+.dark .sidebar-nav ul li:hover {
   background-color: #1b242b;
 }
 
-.sidebar-nav ul li:hover > i {
-  color: #2285c3;
-}
-
+.dark .sidebar-nav ul li:hover>i,
 .dark .nav-active i {
   color: #2285c3;
 }
 
 
-/*---------DASHBOARD---------*/
-
-
-/*---------ITEM LIST---------*/
+/*----SWITCH-----*/
 
 .dark .switch+label,
 .dark .switch:not(:checked)+label:hover:active {
@@ -87,6 +87,9 @@
 .dark .scroll::-webkit-scrollbar-thumb {
   background-color: #3d474e;
 }
+
+
+/*----ITEM LIST-----*/
 
 .dark .item-list ul li {
   background-color: #293945;
@@ -108,10 +111,7 @@
 }
 
 
-/*---------ITEM LIST---------*/
-
-
-/*---------ITEM TABLE---------*/
+/*----ITEM TABLE----*/
 
 .dark .item-table {
   border: 1px solid #3d474e;
@@ -144,6 +144,9 @@
   color: #aeb5bf;
 }
 
+
+/*----CLEANER SIDE-----*/
+
 .dark .cleaner-side ul li label {
   color: #aeb5bf;
 }
@@ -169,7 +172,7 @@
 }
 
 
-/*---------ITEM TABLE---------*/
+/*----STARTUP APPS----*/
 
 .dark .add-startup-app {
   background-color: #2196f3;
@@ -179,6 +182,9 @@
 .dark .add-startup-app:hover {
   background-color: #2285c3;
 }
+
+
+/*----RESURCES----*/
 
 .dark .resources h4 {
   color: #aeb5bf;
@@ -198,8 +204,49 @@
   background-color: #293945;
 }
 
-.dark .empty-list {
-  color: #748390;
+
+/*----UNINSTALLER----*/
+
+.dark .uninstaller-list label {
+  border: 2px solid #fff;
+  background-color: #3d474e;
+}
+
+.dark .uninstaller-list input[type=checkbox]:checked+label {
+  background-color: #2285c3;
+}
+
+.dark #uninstall-selected {
+  color: #aeb5bf;
+  border: 1px solid #293945;
+}
+
+.dark #uninstall-selected:disabled {
+  color: #293945;
+}
+
+.dark #uninstall-selected:hover {
+  background-color: #293945;
+}
+
+
+/*-----UPDATE-BAR-----*/
+
+.dark .update-check {
+  background-color: #16a085;
+}
+
+.dark .update-check span {
+  color: #202b33;
+}
+
+.dark .update-check button {
+  color: #fff;
+  background-color: #202b33;
+}
+
+.dark .update-check button:hover {
+  background-color: #293945;
 }
 
 
@@ -212,4 +259,8 @@
 .dark .settings div select {
   background-color: #293945;
   color: #fff;
+}
+
+.dark .empty-list {
+  color: #748390;
 }

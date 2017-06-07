@@ -16,6 +16,6 @@ window.vm = new Vue({
         document.body.classList = [appTheme]
     },
     mounted() {
-        setTimeout(() => document.getElementById('loading').remove(), 20)
+        setTimeout(() => document.getElementById('loading').remove(), 3000)
     }
 })

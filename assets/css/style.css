@@ -58,8 +58,6 @@ button {
   text-align: center;
   font-weight: 400;
   font-size: 16px;
-  color: #ccc;
-  border-bottom: 1px solid #ccc;
 }
 
 
@@ -399,23 +397,16 @@ button {
   margin: 1px 5px 0px 0px;
   border-radius: 100%;
   position: relative;
-  border: 2px solid #fff;
   display: block;
   width: 16px;
   height: 16px;
   border-radius: 100px;
   cursor: pointer;
-  background-color: #3d474e;
 }
 
-.uninstaller-list input[type=checkbox]:checked+label {
-  background-color: #2285c3;
-}
 
 #uninstall-selected {
   padding: 7px 15px;
-  color: #aeb5bf;
-  border: 1px solid #293945;
   cursor: pointer;
   font-size: 15px;
   margin: 15px 268px;
@@ -425,11 +416,6 @@ button {
 
 #uninstall-selected:disabled {
   cursor: not-allowed;
-  color: #293945;
-}
-
-#uninstall-selected:hover {
-  background-color: #293945;
 }
 
 
@@ -650,7 +636,6 @@ input[type=checkbox] {
   bottom: 0;
   left: 0;
   right: 0;
-  background-color: #16a085;
   text-align: left;
   padding: 7px 0;
 }
@@ -658,33 +643,25 @@ input[type=checkbox] {
 .update-check span {
   float: left;
   display: block;
-  color: #202b33;
   padding: 5px 20px;
   margin: 0;
 }
 
 .update-check button {
-  color: #fff;
   border: 0;
   cursor: pointer;
   font-size: 15px;
   float: right;
   display: block;
-  background-color: #202b33;
   border-radius: 4px;
   padding: 6px 15px;
   margin-right: 8px;
-}
-
-.update-check button:hover {
-  background-color: #293945;
 }
 
 
 /*prompt style*/
 
 .promptDialog {
-  position: fixed;
   background-color: rgba(0, 0, 0, .4);
   left: 0;
   right: 0;
@@ -748,8 +725,6 @@ input[type=checkbox] {
 
 /*----SETTINGS-----*/
 
-.settings {}
-
 .settings div {
   float: left;
   margin: 10px 15px 0 10px;
@@ -795,7 +770,7 @@ input[type=checkbox] {
 }
 
 
-/*-----STable-----*/
+/*-----STABLE-----*/
 
 .stable {
   background-color: #3d474e;
@@ -893,14 +868,4 @@ input[type=checkbox] {
 .dot4 {
   animation-name: reveal;
   animation-direction: reverse;
-}
-
-.side {
-  float: left;
-  height: 650px;
-  width: 60px;
-  background-color: deepskyblue;
-  position: fixed;
-  top: 0;
-  left: 0;
 }
