@@ -12,13 +12,13 @@ export default {
 					<slot></slot>
 					<div class="resources">
 						<cpu-history v-show="fitChart == 0 || fitChart == 1" :fheight="fitHeight">
-							<button :class="['fit-chart', { 'collapse' : isFit }]" @click="fit(1)" />
+							<i :class="isFit ? 'icon-collapse' : 'icon-expand'" @click="fit(1)" />
 						</cpu-history>
 						<memory-history v-show="fitChart == 0 || fitChart == 2" :fheight="fitHeight">
-							<button :class="['fit-chart', { 'collapse' : isFit }]" @click="fit(2)" />
+							<i :class="isFit ? 'icon-collapse' : 'icon-expand'" @click="fit(2)" />
 						</memory-history>
 						<network-history v-show="fitChart == 0 || fitChart == 3" :fheight="fitHeight">
-							<button :class="['fit-chart', { 'collapse' : isFit }]" @click="fit(3)" />
+							<i :class="isFit ? 'icon-collapse' : 'icon-expand'" @click="fit(3)" />
 						</network-history>
 					</div>
 				</div>

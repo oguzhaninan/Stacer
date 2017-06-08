@@ -6,7 +6,7 @@
   background-color: #202b33;
 }
   
-.content h1 {
+.dark .content h1 {
   color: #ccc;
   border-bottom: 1px solid #ccc;
 }
@@ -21,8 +21,18 @@
   color: #2285c3;
 }
 
-.sidebar-nav ul li i {
+.dark .sidebar-nav ul li:not(.nav-active)  i {
   color: #fff;
+}
+
+.dark .sidebar-nav ul li:hover,
+.dark .nav-active {
+  background-color: #1b242b;
+}
+
+.dark .sidebar-nav ul li:hover>i,
+.dark .nav-active i {
+  color: #2285c3;
 }
 
 
@@ -49,23 +59,6 @@
 
 .dark .system-info ul li {
   color: #748390;
-}
-
-.dark #nav li {
-  color: #eee;
-}
-
-.dark .nav-active {
-  background-color: #202b33;
-}
-
-.dark .sidebar-nav ul li:hover {
-  background-color: #1b242b;
-}
-
-.dark .sidebar-nav ul li:hover>i,
-.dark .nav-active i {
-  color: #2285c3;
 }
 
 
@@ -190,12 +183,8 @@
   color: #aeb5bf;
 }
 
-.dark .fit-chart {
-  background: url(../../img/fit.png) no-repeat 0 0;
-}
-
-.dark .collapse {
-  background: url(../../img/collapse.png) no-repeat 0 0;
+.resources h4 i {
+  color: #fff;
 }
 
 .dark #cpus-chart,
@@ -223,6 +212,10 @@
 
 .dark #uninstall-selected:disabled {
   color: #293945;
+}
+
+.dark #uninstall-selected:disabled:hover {
+  color: #202b33;
 }
 
 .dark #uninstall-selected:hover {

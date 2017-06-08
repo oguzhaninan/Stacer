@@ -38,29 +38,11 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-.icon-cpu:before {
-  content: "\62";
-}
-.icon-hard-disc:before {
-  content: "\63";
-}
-.icon-memory:before {
-  content: "\65";
-}
-.icon-collapse:before {
-  content: "\61";
-}
 .icon-service:before {
   content: "\69";
 }
-.icon-settings:before {
-  content: "\68";
-}
 .icon-startup:before {
   content: "\67";
-}
-.icon-uninstaller:before {
-  content: "\66";
 }
 .icon-dash:before {
   content: "\64";
@@ -73,4 +55,16 @@
 }
 .icon-cleaner:before {
   content: "\6e";
+}
+.icon-uninstaller:before {
+  content: "\6b";
+}
+.icon-collapse:before {
+  content: "\62";
+}
+.icon-expand:before {
+  content: "\63";
+}
+.icon-settings:before {
+  content: "\61";
 }

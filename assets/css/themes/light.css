@@ -3,10 +3,10 @@
 */
 
 .light {
-  background-color: #eef4f6;
+  background-color: #efefef;
 }
 
-.content h1 {
+.light .content h1 {
   color: #6d7278;
   border-bottom: 1px solid #bdc4ca;
 }
@@ -23,8 +23,18 @@
   color: #fff;
 }
 
-.sidebar-nav ul li i {
+.light .sidebar-nav ul li:not(.nav-active) i {
   color: #6d7278;
+}
+
+.light .sidebar-nav ul li:hover,
+.light .nav-active {
+  background-color: #2285c3;
+}
+
+.light .sidebar-nav ul li:hover>i,
+.light li.nav-active>i {
+  color: #fff;
 }
 
 
@@ -52,20 +62,6 @@
 
 .light .system-info ul li {
   color: #6d7278;
-}
-
-.light .nav-active {
-  background-color: #2285c3;
-}
-
-.light .sidebar-nav ul li:hover {
-  background-color: #2285c3;
-  color: #fff;
-}
-
-.light .sidebar-nav ul li:hover > i,
-.light .nav-active i {
-  color: #fff;
 }
 
 
@@ -140,6 +136,10 @@
   background-color: #293945;
 }
 
+.light .item-table span {
+  color: #748390;
+}
+
 .light .item-table h3 {
   background-color: #bdc4ca;
   color: #fff;
@@ -195,12 +195,8 @@
   color: #6d7278;
 }
 
-.light .fit-chart {
-  background: url(../../img/fit.png) no-repeat 0 0;
-}
-
-.light .collapse {
-  background: url(../../img/collapse.png) no-repeat 0 0;
+.resources h4 i {
+  color: #6d7278;
 }
 
 .light #cpus-chart,
@@ -223,16 +219,21 @@
 }
 
 .light #uninstall-selected {
-  color: #748390;
+  color: #202b33;
   border: 1px solid #748390;
 }
 
 .light #uninstall-selected:disabled {
-  color: #293945;
+  color: #748390;
+}
+
+.dark #uninstall-selected:disabled:hover {
+  color: #202b33;
 }
 
 .light #uninstall-selected:hover {
   background-color: #748390;
+  color: #fff;
 }
 
 
