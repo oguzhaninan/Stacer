@@ -68,3 +68,9 @@
 .icon-settings:before {
   content: "\61";
 }
+.icon-sort-asc:before {
+  content: "\65";
+}
+.icon-sort-desc:before {
+  content: "\66";
+}
