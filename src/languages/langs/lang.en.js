@@ -47,7 +47,7 @@ export default {
 	serviceTitle: "System Services",
 	noService: "No Service Found",
 	// Process Page
-	processTitle: "",
+	endProcess: "End Process",
 	// Uninstaller Page
 	uninstallerTitle: "System Installed Packages",
 	noPackage: "No package found.",
@@ -75,4 +75,5 @@ export default {
 	packageUninstalled: " package uninstalled.",
 	anotherProc: "Another process continues.",
 	changedLang: "Restart the program for the changes to take effect.",
+	permitted: 'Operation not permitted.',
 }

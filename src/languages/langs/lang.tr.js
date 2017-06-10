@@ -47,7 +47,7 @@ export default {
 	serviceTitle: "Sistem Servisleri",
 	noService: "Servis Bulunamadı.",
 	// Process Page
-	processTitle: "",
+	endProcess: "Süreci Sonlandır",
 	// Uninstaller Page
 	uninstallerTitle: "Sistemdeki Yüklü Paketler",
 	noPackage: "Paket Bulunamadı.",
@@ -75,4 +75,5 @@ export default {
 	packageUninstalled: " paketi kaldırıldı.",
 	anotherProc: "Başka işlem devam ediyor.",
 	changedLang: "Değişikliklerin aktif olması için programı yeniden başlatın.",
+	permitted: 'İşleme izin verilmedi.',
 }
