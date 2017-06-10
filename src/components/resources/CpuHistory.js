@@ -34,26 +34,22 @@ export default {
 			})
 
 			setInterval(() => {
-				try {
-					si.currentLoad(val => {
-						this.cpuValues.forEach((cpu, i) => this.cpuValues[i].splice(0, 1))
-						this.cpuValues.forEach((cpu, i) => this.cpuValues[i].push(val.cpus[i].load.toFixed(1)))
+				si.currentLoad(val => {
+					this.cpuValues.forEach((cpu, i) => this.cpuValues[i].splice(0, 1))
+					this.cpuValues.forEach((cpu, i) => this.cpuValues[i].push(val.cpus[i].load.toFixed(1)))
 
-						this.cpuData = []
+					this.cpuData = []
 
-						this.cpuValues.forEach((cpu, i) => {
-							let name = 'CPU' + (i + 1) + ' ' + val.cpus[i].load.toFixed(1) + '%'
-							this.cpuData.push({
-								name: name,
-								data: this.cpuValues[i].map((d, i) => [this.seconds[i], d])
-							})
+					this.cpuValues.forEach((cpu, i) => {
+						let name = 'CPU' + (i + 1) + ' ' + val.cpus[i].load.toFixed(1) + '%'
+						this.cpuData.push({
+							name: name,
+							data: this.cpuValues[i].map((d, i) => [this.seconds[i], d])
 						})
-
-						cpuChart.updateData(this.cpuData)
 					})
-				} catch (err) {
-					
-				}
+
+					cpuChart.updateData(this.cpuData)
+				})
 			}, 1000)
 		})
 	}
