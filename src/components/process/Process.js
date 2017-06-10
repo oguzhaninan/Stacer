@@ -1,5 +1,4 @@
-
-import proc from './proc'
+import ProcessesList from './ProcessesList'
 
 export default {
   template: `<transition name="slide-fade">
@@ -7,43 +6,122 @@ export default {
 						      <slot></slot>
                   <div class="processes">
                     <table class="stable">
-                      <!--<caption></caption>-->
                       <thead>
                         <tr>
-                          <th scope="col">PID</th>
-                          <th scope="col">Process Name</th>
-                          <th scope="col">Status</th>
+                          <th @click="sortPid" scope="col" width="80">
+                            PID <i :class="sortAmount(sPid)"></i>
+                          </th>
+                          <th @click="sortCpu" scope="col" width="70">
+                            %CPU <i :class="sortAmount(sCpu)"></i>
+                          </th>
+                          <th @click="sortMem" scope="col" width="80">
+                            %MEM <i :class="sortAmount(sMem)"></i>
+                          </th>
+                          <th @click="sortRss" scope="col" width="80">
+                            RSS <i :class="sortAmount(sRss)"></i>
+                          </th>
+                          <th @click="sortVSize" scope="col" width="80">
+                            VSIZE <i :class="sortAmount(sVSize)"></i>
+                          </th>
+                          <th @click="sortUser" scope="col" width="100">
+                            User <i :class="sortAmount(sUser)"></i>
+                          </th>
+                          <th @click="sortCmd" scope="col">
+                            Process <i :class="sortAmount(sCmd)"></i>
+                          </th>
                         </tr>
                       </thead>
-                      <tbody>
-                        <tr v-for="p in processes">
-                          <td>{{ p.pid }}</th>
-                          <td>{{ p.comm }}</td>
-                          <td>{{ p.state }}</td>
-                        </tr>
-                        <tr>
-                          <td>Andrew Chalkley</th>
-                          <td>andrew@example.com</td>
-                          <td>Front-End Developer</td>
-                        </tr>
-                        <tr>
-                          <td>Dave McFarland</th>
-                          <td>dave@example.com</td>
-                          <td>Front-End Developer</td>
-                        </tr>
-                      </tbody>
                     </table>
+                    <div class="tbody scroll">
+                      <table class="stable" style="margin-top: -18px;">
+                        <thead>
+                          <tr>
+                            <th scope="col" width="80"></th>
+                            <th scope="col" width="70"></th>
+                            <th scope="col" width="80"></th>
+                            <th scope="col" width="80"></th>
+                            <th scope="col" width="80"></th>
+                            <th scope="col" width="100"></th>
+                            <th scope="col"></th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                        <tr v-for="p in processes">
+                            <td :title="p.pid">{{ p.pid }}</th>
+                            <td :title="p.pcpu">{{ p.pcpu }}</td>
+                            <td :title="p.pmem">{{ p.pmem }}</td>
+                            <td :title="p.rss">{{ p.rss }}</td>
+                            <td :title="p.vsize">{{ p.vsize }}</td>
+                            <td :title="p.uname">{{ p.uname }}</td>
+                            <td :title="p.cmd">{{ p.cmd }}</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
                   </div>
                 </div>
               </transition>`,
   data() {
-    return({
-      processes: proc()
+    return ({
+      processes: [],
+      sPid: 0,
+      sMem: 0,
+      sRss: 0,
+      sVSize: 0,
+      sUser: 0,
+      sCmd: 0,
+      sCpu: 1,
+      sort: ['--sort', '-pcpu']
     })
   },
   created() {
+    setInterval(() => this.processes = ProcessesList(this.sort), 1000)
   },
-  components: {
-    
+  methods: {
+    sortPid() {
+      this.sPid = this.changeAmount(this.sPid)
+      this.changeSort(this.sPid, 'pid')
+    },
+    sortCpu() {
+      this.sCpu = this.changeAmount(this.sCpu)
+      this.changeSort(this.sCpu, 'pcpu')
+    },
+    sortMem() {
+      this.sMem = this.changeAmount(this.sMem)
+      this.changeSort(this.sMem, 'pmem')
+    },
+    sortRss() {
+      this.sRss = this.changeAmount(this.sRss)
+      this.changeSort(this.sRss, 'rss')
+    },
+    sortVSize() {
+      this.sVSize = this.changeAmount(this.sVSize)
+      this.changeSort(this.sVSize, 'vsize')
+    },
+    sortUser() {
+      this.sUser = this.changeAmount(this.sUser)
+      this.changeSort(this.sUser, 'uname')
+    },
+    sortCmd() {
+      this.sCmd = this.changeAmount(this.sCmd)
+      this.changeSort(this.sCmd, 'cmd')
+    },
+    sortAmount(s) {
+      switch (s) {
+        case 1:
+          return 'icon-sort-desc'
+        case -1:
+          return 'icon-sort-asc'
+        default:
+          return ''
+      }
+    },
+    changeSort(column, header) {
+      this.sort = column == 0 ? [] : ['--sort', column == 1 ? '-' + header : header]
+    },
+    changeAmount(column) {
+        this.sPid = this.sMem = this.sRss = this.sVSize = this.sUser = this.sCmd = this.sCpu = 0
+        return column == 1 ? -1 : (column == 0 ? 1 : 0)
+    }
   }
 }
