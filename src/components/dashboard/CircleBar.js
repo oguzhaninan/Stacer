@@ -1,8 +1,3 @@
-const {
-	BrowserWindow,
-	ipcRenderer
-} = require('electron')
-
 export default {
 	template: `<div class="cont fl">
 					<h3>{{ title }}</h3>

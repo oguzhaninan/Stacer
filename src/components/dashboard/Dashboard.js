@@ -48,11 +48,7 @@ export default {
 	methods: {
 		// open the link on browser
 		download_update() {
-			try {
-				shell.openExternal('https://github.com/oguzhaninan/Stacer/releases/latest')
-			} catch (err) {
-
-			}
+			shell.openExternal('https://github.com/oguzhaninan/Stacer/releases/latest')
 		}
 	},
 	created() {
@@ -64,8 +60,8 @@ export default {
 
 				this.update_check = (currentVersion != releaseVersion)
 			})
-		} catch (error) {
-			console.log(error)
+		} catch (err) {
+			logger.error('Update Check', err)
 		}
 	}
 }
