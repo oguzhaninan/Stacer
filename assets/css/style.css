@@ -94,7 +94,7 @@ button {
   cursor: pointer;
 }
 
-.sidebar-nav ul li:hover > label {
+.sidebar-nav ul li:hover>label {
   display: block;
 }
 
@@ -278,7 +278,8 @@ button {
   padding: 10px 15px 10px 50px;
 }
 
-.item-list h3 {
+.item-list h3,
+.processes h3 {
   margin: 0px;
   float: left;
   display: block;
@@ -297,7 +298,8 @@ button {
   margin-top: 2px;
 }
 
-.item-list input[type=text] {
+.item-list input[type=text],
+.processes input[type=text] {
   border-radius: 50px;
   font-size: 13px;
   float: right;
@@ -403,7 +405,6 @@ button {
   border-radius: 100px;
   cursor: pointer;
 }
-
 
 #uninstall-selected {
   padding: 7px 15px;
@@ -587,6 +588,7 @@ input[type=checkbox] {
   border-radius: 4px;
 }
 
+
 /*---------STATISTICS---------*/
 
 .empty-list {
@@ -636,6 +638,7 @@ input[type=checkbox] {
   right: 0;
   text-align: left;
   padding: 7px 0;
+  z-index: 99999;
 }
 
 .update-check span {
@@ -763,44 +766,87 @@ input[type=checkbox] {
 .processes {
   float: left;
   position: relative;
-  margin: 20px 20px 0 20px;
+  margin: 0 10px;
   padding: 0;
-  width: calc(100% - 40px);
+  width: calc(100% - 20px);
+}
+
+.processes button {
+  display: block;
+  float: right;
+  margin: 10px 0;
+  padding: 6px 15px;
+  border-radius: 3px;
+}
+
+.processes button:disabled {
+  cursor: not-allowed;
+}
+
+.processes .tbody {
+  height: 440px;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.refreshCont {
+  float: left;
+  margin: 12px 0 0 0;
+}
+
+.refreshCont label {
+  display: block;
+  font-size: 15px;
+  padding: 3px 0 0 0;
+  float: left;
+}
+
+.refreshProcesses {
+  -webkit-appearance: none;
+  width: 80px;
+  height: 2px;
+  margin: 0 0 0 10px;
+  cursor: pointer;
+}
+
+.refreshProcesses::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 10px;
+  height: 10px;
+  border-radius: 100%;
+  position: relative;
+  z-index: 99;
 }
 
 
-/*-----STABLE-----*/
+/*-----Datatable-----*/
 
-.stable {
-  background-color: #3d474e;
+.datatable {
   width: 100%;
-  height: 550px;
   margin: 0;
   padding: 0;
   text-align: left;
   box-sizing: border-box;
   font-size: 15px;
-  border-radius: 5px;
+  border-top-right-radius: 5px;
+  border-top-left-radius: 5px;
   table-layout: fixed;
   border-spacing: 1px;
 }
 
-.stable tr {
-  background-color: #293945;
-  color: #a9b1bb;
-}
-
-.stable tr:hover {
+.datatable tr:hover {
   cursor: pointer;
-  background-color: #3d474e;
 }
 
-.stable th {
-  color: #2285c3;
+.datatable th i {
+  font-size: 13px;
+  display: block;
+  float: right;
+  margin-top: 2px;
 }
 
-.stable td,
-.stable th {
+.datatable td,
+.datatable th {
   padding: 8px;
   text-overflow: ellipsis;
   overflow: hidden;

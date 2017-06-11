@@ -98,11 +98,13 @@
 }
 
 .light .item-list h3,
-.light .item-list ul li {
+.light .item-list ul li,
+.light .processes h3 {
   color: #6d7278;
 }
 
-.light .item-list input[type=text] {
+.light .item-list input[type=text],
+.light .processes input[type=text] {
   background-color: #fff;
   border: 1px solid #eee;
   box-shadow: 0px 0px 5px 0px #ddd;
@@ -166,14 +168,14 @@
 .light #clean-btn,
 .light #system-scan-btn {
   color: #fff;
-  background-color: #bdc4ca;
+  background-color: #748390;
   box-shadow: 0px 0px 20px 0px #ddd;
   border: 0;
 }
 
 .light #clean-btn:hover,
 .light #system-scan-btn:hover {
-  background-color: #748390;
+  background-color: #bdc4ca;
 }
 
 
@@ -195,7 +197,7 @@
   color: #6d7278;
 }
 
-.resources h4 i {
+.light .resources h4 i {
   color: #6d7278;
 }
 
@@ -270,4 +272,55 @@
 
 .light .empty-list {
   color: #748390;
+}
+
+
+/*----PROCESS-----*/
+
+.light .processes button {
+  background-color: #748390;
+  border: 0;
+  color: #fff;
+}
+
+.light .processes button:hover {
+  background-color: #bdc4ca;
+}
+
+.light .refreshCont label {
+  color: #6d7278;
+}
+
+.light .refreshProcesses {
+  background: #6d7278;
+}
+
+.light .refreshProcesses::-webkit-slider-thumb {
+  border: 7px solid #2285c3;
+}
+
+
+/*-----DATATABLE-----*/
+
+.light .datatable {
+  box-shadow: 0px 0px 20px 0px #ddd;
+  background-color: #bdc4ca;
+}
+
+.light .datatable tr:not(.selectedRow) {
+  background-color: #fff;
+  color: #6d7278;
+}
+
+.light .datatable tr:hover {
+  background-color: #aeb5bf;
+}
+
+.light .datatable th {
+  color: #2285c3;
+}
+
+.light .selectedRow {
+  background-color: #aeb5bf;
+  color: #6d7278;
 }

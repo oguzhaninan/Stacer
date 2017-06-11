@@ -5,11 +5,12 @@
 .dark {
   background-color: #202b33;
 }
-  
+
 .dark .content h1 {
   color: #ccc;
   border-bottom: 1px solid #ccc;
 }
+
 
 /*----SIDEBAR-NAV----*/
 
@@ -21,13 +22,16 @@
   color: #2285c3;
 }
 
-.dark .sidebar-nav ul li:not(.nav-active)  i {
+.dark .sidebar-nav ul li:not(.nav-active) i {
   color: #fff;
 }
 
-.dark .sidebar-nav ul li:hover,
-.dark .nav-active {
+.dark .sidebar-nav ul li:hover {
   background-color: #1b242b;
+}
+
+.dark .nav-active {
+  background-color: #202b33;
 }
 
 .dark .sidebar-nav ul li:hover>i,
@@ -78,7 +82,7 @@
 }
 
 .dark .scroll::-webkit-scrollbar-thumb {
-  background-color: #3d474e;
+  background-color: #314452;
 }
 
 
@@ -89,17 +93,19 @@
 }
 
 .dark .item-list ul li:hover {
-  background-color: #3d474e;
+  background-color: #314452;
 }
 
 .dark .item-list h3,
-.dark .item-list ul li {
+.dark .item-list ul li,
+.dark .processes h3 {
   color: #aeb5bf;
 }
 
-.dark .item-list input[type=text] {
+.dark .item-list input[type=text],
+.dark .processes input[type=text] {
   background-color: #202b33;
-  border: 1px solid #3d474e;
+  border: 1px solid #314452;
   color: #aeb5bf;
 }
 
@@ -107,11 +113,11 @@
 /*----ITEM TABLE----*/
 
 .dark .item-table {
-  border: 1px solid #3d474e;
+  border: 1px solid #314452;
 }
 
 .dark .item-table ul li {
-  border-bottom: 1px solid #3d474e;
+  border-bottom: 1px solid #314452;
 }
 
 .dark .item-table ul li:hover {
@@ -145,7 +151,7 @@
 }
 
 .dark .cleaner-side ul li {
-  border: 1px solid #3d474e;
+  border: 1px solid #314452;
 }
 
 .dark .cleaner-side ul li label:hover {
@@ -183,7 +189,7 @@
   color: #aeb5bf;
 }
 
-.resources h4 i {
+.dark .resources h4 i {
   color: #fff;
 }
 
@@ -198,7 +204,7 @@
 
 .dark .uninstaller-list label {
   border: 2px solid #fff;
-  background-color: #3d474e;
+  background-color: #314452;
 }
 
 .dark .uninstaller-list input[type=checkbox]:checked+label {
@@ -256,4 +262,53 @@
 
 .dark .empty-list {
   color: #748390;
+}
+
+
+/*----PROCESS-----*/
+
+.dark .processes button {
+  background-color: #293945;
+  border: 1px solid #314452;
+  color: #a9b1bb;
+}
+
+.dark .processes button:hover {
+  background-color: #314452;
+}
+
+.dark .refreshCont label {
+  color: #aab1ba;
+}
+
+.dark .refreshProcesses {
+  background: #293945;
+}
+
+.dark .refreshProcesses::-webkit-slider-thumb {
+  border: 7px solid #2285c3;
+}
+
+/*-----DATATABLE-----*/
+
+.dark .datatable {
+  background-color: #314452;
+}
+
+.dark .datatable tr:not(.selectedRow) {
+  background-color: #293945;
+  color: #ddd;
+}
+
+.dark .datatable tr:hover {
+  background-color: #314452;
+}
+
+.dark .datatable th {
+  color: #2285c3;
+}
+
+.dark .selectedRow {
+  background-color: #314452;
+  color: #a9b1bb;
 }
