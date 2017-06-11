@@ -69,6 +69,10 @@ export default {
                       </tbody>
                     </table>
                   </div>
+                  <div class="refreshCont">
+                    <label>{{ lang('refresh') }} ({{ refreshInterval }})</label>
+                    <input type="range" min="1" max="10" step="1" v-model="refreshInterval" class="refreshProcesses"/>
+                  </div>
                   <button @click="endProcess" :disabled="selectedPid == 0">{{ lang('endProcess') }}</button>
                 </div>
               </div>
@@ -85,11 +89,19 @@ export default {
       sCpu: 1,
       sort: ['--sort', '-pcpu'],
       searchString: '',
-      selectedPid: 0
+      selectedPid: 0,
+      refreshInterval: 2,
+      interval: null
     })
   },
   created() {
-    setInterval(() => this.processes = ProcessesList(this.searchString, this.sort), 1000)
+    this.interval = setInterval(() => this.processes = ProcessesList(this.searchString, this.sort), this.refreshInterval * 1000)
+  },
+  watch: {
+    refreshInterval(val) {
+      clearInterval(this.interval)
+      this.interval = setInterval(() => this.processes = ProcessesList(this.searchString, this.sort), val * 1000)
+    }
   },
   methods: {
     selectPid(pid) {
