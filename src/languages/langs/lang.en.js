@@ -73,7 +73,7 @@ export default {
 	sysCleanSuc: "System cleaned.",
 	appCacheWarning: "Deleting applications\' caches can cause problems. Please be careful.",
 	uninstallFail: "Uninstall failed.",
-	packageUninstalled: " package uninstalled.",
+	packageUninstalled: " packages uninstalled.",
 	anotherProc: "Another process continues.",
 	changedLang: "Restart the program for the changes to take effect.",
 	permitted: 'Operation not permitted.',

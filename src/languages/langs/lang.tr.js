@@ -73,7 +73,7 @@ export default {
 	sysCleanSuc: "Sistem temizlendi.",
 	appCacheWarning: "Uygulamaların önbelleklerini silmek sorunlara neden olabilir. Lütfen dikkatli olun.",
 	uninstallFail: "Kaldırma başarısız.",
-	packageUninstalled: " paketi kaldırıldı.",
+	packageUninstalled: " paketleri kaldırıldı.",
 	anotherProc: "Başka işlem devam ediyor.",
 	changedLang: "Değişikliklerin aktif olması için programı yeniden başlatın.",
 	permitted: 'İşleme izin verilmedi.',
