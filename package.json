@@ -1,7 +1,7 @@
 {
-  "name": "Stacer",
+  "name": "stacer",
   "productName": "Stacer",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "Linux System Optimizer and Monitoring",
   "license": "MIT",
   "main": "main.js",
@@ -28,9 +28,9 @@
   "scripts": {
     "start": "yarn run build; electron .",
     "build": "babel src/ -d bundle/",
-    "clean": "rm bundle/*.js bundle/**/*.js",
-    "package-x86": "electron-packager . --overwrite --platform=linux --arch=ia32 --icon=assets/img/icons/icon256x256.png --prune=true --out=release-builds --electron-version=1.6.2",
-    "package-x64": "electron-packager . --overwrite --platform=linux --arch=x64  --icon=assets/img/icons/icon256x256.png --prune=true --out=release-builds --electron-version=1.6.2",
+    "clean": "rm bundle/*.js bundle/**/*.js bundle/**/**/*.js",
+    "package-x86": "electron-packager . --overwrite --platform=linux --arch=ia32 --icon=assets/img/icons/icon256x256.png --prune=true --out=release-builds --electron-version=1.6.10",
+    "package-x64": "electron-packager . --overwrite --platform=linux --arch=x64  --icon=assets/img/icons/icon256x256.png --prune=true --out=release-builds --electron-version=1.6.10",
     "installer-x86": "electron-installer-debian --src release-builds/Stacer-linux-ia32/ --arch i386 --dest dest/installers/ --icon assets/img/icons/icon256x256.png",
     "installer-x64": "electron-installer-debian --src release-builds/Stacer-linux-x64/ --arch amd64 --dest dest/installers/ --icon assets/img/icons/icon256x256.png",
     "release-x86": "npm run package-x86 && npm run installer-x86",
@@ -38,19 +38,20 @@
     "clean-package": "rm -r release-builds/ dest/"
   },
   "dependencies": {
-    "chart.js": "^2.5.0",
-    "chartkick": "^2.2.3",
-    "chokidar": "^1.6.1",
-    "glob": "^7.1.2",
-    "jquery": "^3.1.1",
+    "chart.js": "^2.6.0",
+    "chartkick": "^2.2.4",
+    "chokidar": "^1.7.0",
+    "jquery": "^3.2.1",
     "progressbar.js": "^1.0.1",
     "properties-reader": "^0.0.15",
-    "sudo-prompt": "^6.2.1",
-    "systeminformation": "^3.13.0"
+    "sudo-prompt": "^7.0.0",
+    "systeminformation": "^3.18.0",
+    "winston": "^2.3.1"
   },
   "devDependencies": {
-    "babel-cli": "^6.24.0",
-    "babel-preset-es2015": "^6.24.0",
-    "electron": "^1.6.2"
+    "babel-cli": "^6.24.1",
+    "babel-preset-es2015": "^6.24.1",
+    "electron": "^1.6.10",
+    "electron-builder": "^18.6.2"
   }
 }

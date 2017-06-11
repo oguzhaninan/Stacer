@@ -7,8 +7,7 @@ const electron = require('electron')
 
 var win
 
-function createWindow() {
-
+function createWindow() {        
     const _width = 935, _height = 620
     win = new BrowserWindow({
         width: _width,
@@ -29,11 +28,10 @@ function createWindow() {
         win.setPosition(w,h)
     }
     catch(err) {
-        console.log(err)
-        // win.center()
+        win.center()
     }
 
-    // win.setMenu(null)
+    win.setMenu(null)
 
     win.loadURL(`file://${__dirname}/bundle/index.html`)
     
