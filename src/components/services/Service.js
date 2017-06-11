@@ -40,6 +40,7 @@ export default {
 					})
 			} else {
 				showMessage(lang('anotherProc'), 'error')
+				e.target.checked = ! isChecked
 			}
 		}
 	}
