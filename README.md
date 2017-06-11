@@ -1,6 +1,6 @@
 
 <p align="center">
-    <img src="https://raw.githubusercontent.com/oguzhaninan/Stacer/master/Screenshots/Header.png" width="500">    
+    <img src="https://raw.githubusercontent.com/oguzhaninan/Stacer/master/Screenshots/Header.png" width="800">    
 </p>
 <p align="center">
   <b>Linux System Optimizer and Monitoring</b>
