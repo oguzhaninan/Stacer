@@ -68,7 +68,7 @@ export default {
 									\rName=${this.appName}
 									\rExec=${this.appExec}
 									\rComment=${this.appComment}
-									\rType=ApplicationR
+									\rType=Application
 									\rTerminal=false
 									\rX-GNOME-Autostart-enabled=true`
 				try {
