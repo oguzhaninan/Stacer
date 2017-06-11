@@ -65,7 +65,7 @@ export default {
 	// Global
 	search: "Arama",
 	downloadUpdate: "Güncellemeyi İndir",
-	updateMsg: "Mevcut olan yeni güncelleme var.",
+	updateMsg: "Mevcut yeni güncelleme var.",
 	// Messages
 	opFail: "İşlem başarısız.",
 	sysCleanFail: "Sistem temizleme başarısız.",
