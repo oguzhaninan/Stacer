@@ -72,12 +72,13 @@ export default {
 									\rTerminal=false
 									\rX-GNOME-Autostart-enabled=true`
 				try {
-					if ( ! fs.existsSync(commands.autostartApps)) {
+					if (!fs.existsSync(commands.autostartApps)) {
 						fs.mkdirSync(commands.autostartApps)
 					}
 					fs.writeFileSync(commands.autostartApps + this.appName + '.desktop', desktopFile)
 				} catch (err) {
-					showMessage('Operation not successfully', 'error')					
+					logger.error('StartupApps Save App', err)
+					showMessage('Operation not successfully', 'error')
 				} finally {
 					this.cancelPrompt()
 				}

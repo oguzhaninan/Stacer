@@ -33,7 +33,7 @@ export default {
 
 				fs.writeFileSync(commands.autostartApps + '/' + fileName, data)
 			} catch (err) {
-				console.log(err)
+				logger.error('StartupApps Status Change', stderr)
 				showMessage(lang('opFail'), 'error')
 			}
 		}

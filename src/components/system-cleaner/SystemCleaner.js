@@ -6,7 +6,8 @@ import {
 } from '../../utils/config'
 import {
     command,
-    showMessage
+    showMessage,
+    formatBytes
 } from '../../utils/helpers'
 import fs from 'fs'
 import sudo from 'sudo-prompt'
@@ -133,7 +134,7 @@ export default {
                                 this.pkgCachesList.push(file)
                         })
                     else
-                        console.log(err)
+                        logger.error('System Cleaner Get Package Caches', err)
                 })
             } else {
                 this.checkedPkgCaches = []
@@ -144,7 +145,7 @@ export default {
                     if (!err)
                         files.forEach(file => this.crashReportsList.push(file))
                     else
-                        console.log(err)
+                        logger.error('System Cleaner Get Crash Reports', err)
                 })
             } else {
                 this.checkedCrashReports = []
@@ -155,7 +156,7 @@ export default {
                     if (!err)
                         files.forEach(file => this.systemLogsList.push(file))
                     else
-                        console.log(err)
+                        logger.error('System Cleaner Get System Logs', err)
                 })
             } else {
                 this.checkedSystemLogs = []
@@ -166,22 +167,13 @@ export default {
                     if (!err)
                         files.forEach(file => this.appCachesList.push(file))
                     else
-                        console.log(err)
+                        logger.error('System Cleaner Get App Caches', err)
                 })
             } else {
                 this.checkedAppCaches = []
             }
 
             if (this.trashSelect) {
-                function formatBytes(bytes, decimals) {
-                    if (bytes == 0) return '0 Bytes'
-                    let k = 1000,
-                        dm = decimals + 1 || 3,
-                        sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB'],
-                        i = Math.floor(Math.log(bytes) / Math.log(k))
-                    return parseFloat((bytes / Math.pow(k, i)).toFixed(dm)) + ' ' + sizes[i]
-                }
-
                 function getSize(path = '') {
                     path += '/'
                     let totalSize = 0
@@ -195,8 +187,8 @@ export default {
                             else
                                 totalSize += getSize(path + fileName)
                         })
-                    } catch (error) {
-                        console.log(error)
+                    } catch (err) {
+                        logger.error('System Cleaner Get Trash Size', err)
                     }
                     return totalSize
                 }
@@ -243,8 +235,10 @@ export default {
                         name: 'Stacer'
                     },
                     (error, stdout, stderr) => {
-                        if (stderr)
+                        if (stderr) {
                             showMessage(lang('sysCleanFail'), 'error')
+                            logger.error('System Cleaner Files Remove', err)
+                        }
                         else {
                             this.pkgCachesList = this.pkgCachesList.filter(item => this.checkedPkgCaches.indexOf(item) == -1)
                             this.crashReportsList = this.crashReportsList.filter(item => this.checkedCrashReports.indexOf(item) == -1)

@@ -31,6 +31,7 @@ export default {
 						if (stderr) {
 							e.target.checked = ! isChecked
 							showMessage(lang('opFail'), 'error')
+							logger.error('Service Status Change', stderr)
 						} else {
 							showMessage(serviceName + lang('service').toLowerCase() + status + (e.target.checked ? 'ed' : 'ped'), 'success')
 						}

@@ -52,6 +52,10 @@ export default {
     created() {
         const packages = spawn('bash', ['-c', commands.getInstalledPackages])
 
+        packages.stderr.on('data', err => {
+            logger.error('Uninstaller Get Packages', err.toString())
+        })
+
         packages.stdout.on('data', data => {
             this.packagesList.splice(0, this.packagesList.length)
             data = data.toString().split('\n').filter(s => s != '')
@@ -72,6 +76,7 @@ export default {
                     },
                     (error, stdout, stderr) => {
                         if (stderr) {
+                            logger.error('Uninstaller Uninstall Selected', stderr)
                             showMessage(lang('uninstallFail'), 'error')
                         } else {
                             this.packagesList = this.packagesList
