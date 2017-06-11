@@ -2,9 +2,6 @@ import {
 	spawnSync
 } from 'child_process'
 import {
-	commands
-} from '../../utils/config'
-import {
 	command,
 	showMessage
 } from '../../utils/helpers'
@@ -40,7 +37,7 @@ export default {
 		})
 	},
 	created() {
-		const services = spawnSync('bash', ['-c', commands.getAllService])
+		const services = spawnSync('bash', ['-c', localStorage.getAllService])
 
 		let serviceNames = services.stdout.toString().trim().split('\n')
 		

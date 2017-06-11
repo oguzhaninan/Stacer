@@ -1,9 +1,7 @@
 import {
     spawn
 } from 'child_process'
-import {
-    commands
-} from '../../utils/config'
+
 import {
     command,
     showMessage,
@@ -125,11 +123,11 @@ export default {
             this.trashSize = '0 Bytes'
 
             if (this.pkgCacheSelect) {
-                fs.readdir(commands.pkgCachePath, 'utf8', (err, files) => {
+                fs.readdir(localStorage.pkgCachePath, 'utf8', (err, files) => {
                     if (!err)
                         files.filter(file => file)
                         .forEach(file => {
-                            let stat = fs.statSync(commands.pkgCachePath + file)
+                            let stat = fs.statSync(localStorage.pkgCachePath + file)
                             if (stat.isFile())
                                 this.pkgCachesList.push(file)
                         })
@@ -141,7 +139,7 @@ export default {
             }
 
             if (this.crashReportsSelect) {
-                fs.readdir(commands.crashReportsPath, 'utf8', (err, files) => {
+                fs.readdir(localStorage.crashReportsPath, 'utf8', (err, files) => {
                     if (!err)
                         files.forEach(file => this.crashReportsList.push(file))
                     else
@@ -152,7 +150,7 @@ export default {
             }
 
             if (this.systemLogsSelect) {
-                fs.readdir(commands.systemLogsPath, 'utf8', (err, files) => {
+                fs.readdir(localStorage.systemLogsPath, 'utf8', (err, files) => {
                     if (!err)
                         files.forEach(file => this.systemLogsList.push(file))
                     else
@@ -163,7 +161,7 @@ export default {
             }
 
             if (this.appCacheSelect) {
-                fs.readdir(commands.appCachePath, 'utf8', (err, files) => {
+                fs.readdir(localStorage.appCachePath, 'utf8', (err, files) => {
                     if (!err)
                         files.forEach(file => this.appCachesList.push(file))
                     else
@@ -178,10 +176,10 @@ export default {
                     path += '/'
                     let totalSize = 0
                     try {
-                        let trashFiles = fs.readdirSync(commands.trashPath + path)
+                        let trashFiles = fs.readdirSync(localStorage.trashPath + path)
                         trashFiles.forEach(fileName => {
 
-                            let stats = fs.statSync(commands.trashPath + path + fileName)
+                            let stats = fs.statSync(localStorage.trashPath + path + fileName)
                             if (!stats.isDirectory())
                                 totalSize += stats.size
                             else
@@ -193,7 +191,7 @@ export default {
                     return totalSize
                 }
 
-                if (fs.existsSync(commands.trashPath))
+                if (fs.existsSync(localStorage.trashPath))
                     this.trashSize = formatBytes(getSize(), 0)
             }
         },
@@ -203,31 +201,31 @@ export default {
 
             if (this.checkedPkgCaches) {
                 this.checkedPkgCaches.forEach(file => {
-                    filesToRemove += `rm -rf ${commands.pkgCachePath}${file}; `
+                    filesToRemove += `rm -rf ${localStorage.pkgCachePath}${file}; `
                 })
             }
 
             if (this.checkedCrashReports) {
                 this.checkedCrashReports.forEach(file => {
-                    filesToRemove += `rm -rf ${commands.crashReportsPath}${file}; `
+                    filesToRemove += `rm -rf ${localStorage.crashReportsPath}${file}; `
                 })
             }
 
             if (this.checkedSystemLogs) {
                 this.checkedSystemLogs.forEach(file => {
-                    filesToRemove += `rm -rf ${commands.systemLogsPath}${file}; `
+                    filesToRemove += `rm -rf ${localStorage.systemLogsPath}${file}; `
                 })
             }
 
             if (this.checkedAppCaches) {
                 this.checkedAppCaches.forEach(file => {
-                    filesToRemove += `rm -rf ${commands.appCachePath}${file}; `
+                    filesToRemove += `rm -rf ${localStorage.appCachePath}${file}; `
                 })
             }
 
             if (this.trashSelect) {
-                filesToRemove += `rm -rf ${commands.trashPath};`
-                filesToRemove += `rm -rf ${commands.trashInfoPath};`
+                filesToRemove += `rm -rf ${localStorage.trashPath};`
+                filesToRemove += `rm -rf ${localStorage.trashInfoPath};`
             }
 
             if (filesToRemove) {

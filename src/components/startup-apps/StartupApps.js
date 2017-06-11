@@ -1,7 +1,4 @@
 import {
-	commands
-} from '../../utils/config'
-import {
 	showMessage
 } from '../../utils/helpers'
 import properties from 'properties-reader'
@@ -54,7 +51,7 @@ export default {
 	created() {
 		this.getApps()
 
-		chokidar.watch(commands.autostartApps, {
+		chokidar.watch(localStorage.autostartApps, {
 				persistent: true,
 				ignoreInitial: true
 			})
@@ -72,10 +69,10 @@ export default {
 									\rTerminal=false
 									\rX-GNOME-Autostart-enabled=true`
 				try {
-					if (!fs.existsSync(commands.autostartApps)) {
-						fs.mkdirSync(commands.autostartApps)
+					if (!fs.existsSync(localStorage.autostartApps)) {
+						fs.mkdirSync(localStorage.autostartApps)
 					}
-					fs.writeFileSync(commands.autostartApps + this.appName + '.desktop', desktopFile)
+					fs.writeFileSync(localStorage.autostartApps + this.appName + '.desktop', desktopFile)
 				} catch (err) {
 					logger.error('StartupApps Save App', err)
 					showMessage('Operation not successfully', 'error')
@@ -91,13 +88,12 @@ export default {
 			this.appName = this.appComment = this.appExec = ''
 		},
 		getApps() {
-			try {
-				fs.readdir(commands.autostartApps, (err, files) => {
+				fs.readdir(localStorage.autostartApps, (err, files) => {
 					if (!err) {
 						this.apps.splice(0, this.apps.length) // array clear
 						files.filter(file => file.endsWith('.desktop')).forEach(file => {
 							try {
-								var entry = properties(commands.autostartApps + '/' + file)
+								var entry = properties(localStorage.autostartApps + '/' + file)
 
 								if (entry.get('Desktop Entry.Name') != null) {
 									let appName = entry.get('Desktop Entry.Name')
@@ -111,14 +107,14 @@ export default {
 										})
 									}
 								}
-							} catch (err) {}
+							} catch (error) {
+								logger.error('StartupApps Get Apps', error)
+							}
 						})
+					} else {
+						logger.error('StartupApps Read Directory', err)
 					}
 				})
-			} catch (error) {
-				console.log(error)
-			}
 		}
 	}
-
 }

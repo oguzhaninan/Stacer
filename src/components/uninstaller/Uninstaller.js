@@ -2,9 +2,7 @@ import {
     spawnSync
 } from 'child_process'
 import sudo from 'sudo-prompt'
-import {
-    commands
-} from '../../utils/config'
+
 import {
     command,
     showMessage
@@ -50,7 +48,7 @@ export default {
         })
     },
     created() {
-        const packages = spawnSync('bash', ['-c', commands.getInstalledPackages])
+        const packages = spawnSync('bash', ['-c', localStorage.getInstalledPackages])
 
         if (packages.stderr)
             logger.error('Uninstaller Get Packages', packages.stderr.toString())
@@ -65,8 +63,8 @@ export default {
                     this.isBusy = true
 
                     let sPackages = this.selectedPackages.join(' ')
-
-                    sudo.exec(command(commands.removePackage + sPackages), {
+                    
+                    sudo.exec(command(localStorage.removePackage + sPackages), {
                         name: 'Stacer'
                     },
                     (error, stdout, stderr) => {

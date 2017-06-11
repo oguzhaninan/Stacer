@@ -2,9 +2,6 @@ import fs from 'fs'
 import {
 	showMessage
 } from '../../utils/helpers'
-import {
-	commands
-} from '../../utils/config'
 
 export default {
 	template: `<li>
@@ -16,14 +13,14 @@ export default {
 	props: ['name', 'file', 'is-start'],
 	methods: {
 		removeApp(e) {
-			fs.unlinkSync(commands.autostartApps + e.target.name)
+			fs.unlinkSync(localStorage.autostartApps + e.target.name)
 		},
 		statusChange(e) {
 			let fileName = e.target.id
 			let isStart = e.target.checked
 
 			try {
-				let data = fs.readFileSync(commands.autostartApps + '/' + fileName).toString()
+				let data = fs.readFileSync(localStorage.autostartApps + '/' + fileName).toString()
 				let check = data.match(/\X-GNOME-Autostart-enabled=.*/g)
 
 				if (check)
@@ -31,7 +28,7 @@ export default {
 				else
 					data += ('X-GNOME-Autostart-enabled=' + isStart + '\n')
 
-				fs.writeFileSync(commands.autostartApps + '/' + fileName, data)
+				fs.writeFileSync(localStorage.autostartApps + '/' + fileName, data)
 			} catch (err) {
 				logger.error('StartupApps Status Change', stderr)
 				showMessage(lang('opFail'), 'error')
