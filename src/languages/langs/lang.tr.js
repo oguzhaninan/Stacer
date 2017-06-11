@@ -48,6 +48,7 @@ export default {
 	noService: "Servis Bulunamadı.",
 	// Process Page
 	endProcess: "Süreci Sonlandır",
+	refresh: "Yenile",
 	// Uninstaller Page
 	uninstallerTitle: "Sistemdeki Yüklü Paketler",
 	noPackage: "Paket Bulunamadı.",

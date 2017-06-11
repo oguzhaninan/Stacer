@@ -48,6 +48,7 @@ export default {
 	noService: "No Service Found",
 	// Process Page
 	endProcess: "End Process",
+	refresh: "Refresh",
 	// Uninstaller Page
 	uninstallerTitle: "System Installed Packages",
 	noPackage: "No package found.",

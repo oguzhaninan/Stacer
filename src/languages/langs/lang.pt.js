@@ -48,6 +48,7 @@ export default {
 	noService: "Nenhum serviço encontrado.",
 	// Process Page
 	endProcess: "Processo Final",
+	refresh: "Atualize",
 	// Uninstaller Page
 	uninstallerTitle: "Pacotes Instalados do Sistema",
 	noPackage: "Nenhum pacote encontrado.",
