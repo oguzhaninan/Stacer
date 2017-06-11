@@ -1,5 +1,5 @@
 import {
-    spawn
+    spawnSync
 } from 'child_process'
 import sudo from 'sudo-prompt'
 import {
@@ -50,18 +50,13 @@ export default {
         })
     },
     created() {
-        const packages = spawn('bash', ['-c', commands.getInstalledPackages])
+        const packages = spawnSync('bash', ['-c', commands.getInstalledPackages])
 
-        packages.stderr.on('data', err => {
-            logger.error('Uninstaller Get Packages', err.toString())
-        })
+        if (packages.stderr)
+            logger.error('Uninstaller Get Packages', packages.stderr.toString())
 
-        packages.stdout.on('data', data => {
-            this.packagesList.splice(0, this.packagesList.length)
-            data = data.toString().split('\n').filter(s => s != '')
-
-            this.packagesList.push(...data)
-        })
+        let data = packages.stdout.toString().split('\n').filter(s => s != '')
+        this.packagesList.push(...data)
     },
     methods: {
         uninstallSelected() {
