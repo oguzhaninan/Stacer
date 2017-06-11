@@ -1,34 +1,59 @@
 import {
-  homedir
+    homedir
 } from 'os'
-import { spawnSync } from 'child_process'
+import {
+    spawnSync
+} from 'child_process'
 
-let uname = spawnSync('uname', ['-a']).stdout.toString().toLowerCase()
-var systemOs = uname.indexOf('ubuntu') !== -1 ? 'ubuntu' : 'arch'
+export default () => {
+  // Set app configs
+  localStorage.crashReportsPath =  "/var/crash/"
+  localStorage.systemLogsPath =  "/var/log/"
+  localStorage.appCachePath =  homedir() + "/.cache/"
+  localStorage.autostartApps =  homedir() + "/.config/autostart/"
+  localStorage.getAllService =  "systemctl list-unit-files --state=enabled,disabled --type=service | grep .service | cut -d ' ' -f1 | sed -e 's/.service//g' 2> /dev/null"
+  localStorage.trashPath =  homedir() + "/.local/share/Trash/files"
+  localStorage.trashInfoPath =  homedir() + "/.local/share/Trash/info"
 
-let conf = {}
+  // Package management settings
+  var pm = localStorage.packageManagement
 
-conf.crashReportsPath = "/var/crash/"
-conf.systemLogsPath = "/var/log/"
-conf.appCachePath = homedir() + "/.cache/"
-conf.autostartApps = homedir() + "/.config/autostart/"
-conf.getAllService = "systemctl list-unit-files --state=enabled,disabled --type=service | grep .service | cut -d ' ' -f1 | sed -e 's/.service//g' 2> /dev/null"
-conf.trashPath = homedir() + "/.local/share/Trash/files"
-conf.trashInfoPath = homedir() + "/.local/share/Trash/info"
+  if (! pm) {
+      var dpkg = spawnSync('dpkg', ['--version'])
+      var rpm = spawnSync('rpm', ['--version'])
+      var pacman = spawnSync('pacman', ['--version'])
 
-switch (systemOs) {
-  case 'ubuntu': {
-    conf.pkgCachePath = "/var/cache/apt/archives/"
-    conf.getInstalledPackages = "dpkg --get-selections | grep -v deinstall | cut -f 1 2> /dev/null"
-    conf.removePackage = "apt-get remove -y "
-  }    
-  break;
-  case 'arch': {
-    conf.pkgCachePath = "/var/cache/pacman/pkg/"
-    conf.getInstalledPackages = "pacman -Q | cut -d ' ' -f 1"
-    conf.removePackage = "pacman -R --noconfirm "
+      if (! dpkg.error)
+          localStorage.packageManagement = 'dpkg'
+      else if (! rpm.error)
+          localStorage.packageManagement = 'rpm'
+      else if (! pacman.error)
+          localStorage.packageManagement = 'pacman'
+      else
+          localStorage.packageManagement = 'dpkg'
+
+      switch (localStorage.packageManagement) {
+          case 'dpkg': {
+              localStorage.pkgCachePath = "/var/cache/apt/archives/"
+              localStorage.getInstalledPackages = "dpkg --get-selections | grep -v deinstall | cut -f 1 2> /dev/null"
+              localStorage.removePackage = "dpkg -r "
+              }
+              break;
+          case 'rpm': {
+              localStorage.pkgCachePath = ""
+              localStorage.getInstalledPackages = "rpm -qa 2> /dev/null"
+              localStorage.removePackage = "rpm --erase "
+              }
+              break;
+          case 'pacman': {
+              localStorage.pkgCachePath = "/var/cache/pacman/pkg/"
+              localStorage.getInstalledPackages = "pacman -Q | cut -d ' ' -f 1 2> /dev/null"
+              localStorage.removePackage = "pacman -R --noconfirm "
+              }
+              break;
+          default:
+              console.log("default")
+              break;
+      }
   }
-  break;
 }
-
-exports.commands = conf
