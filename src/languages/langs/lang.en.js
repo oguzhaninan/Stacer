@@ -52,7 +52,7 @@ export default {
 	// Uninstaller Page
 	uninstallerTitle: "System Installed Packages",
 	noPackage: "No package found.",
-	uninstallSelecteds: "Uninstall Selecteds",
+	uninstallSelecteds: "Uninstall Selected",
 	// Resources Page
 	cpuHistory: "Cpu History",
 	memHistory: "Memory History",
