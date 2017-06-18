@@ -1,8 +1,8 @@
 export default {
 	"en": "English",
-	"es": "Spanish",
 	"fr": "French",
 	"tr": "Turkish",
+	"es": "Spanish",
 	"fa": "Persian",
 	"pt": "Portuguese",
 }
