@@ -6,5 +6,6 @@ export default {
 	"pl": "Polish",
 	"pt": "Portuguese",
 	"tr": "Turkish",
-	"uk": "Ukrainian"
+	"uk": "Ukrainian",
+	"zh-tw": "Traditional Chinese"
 }
