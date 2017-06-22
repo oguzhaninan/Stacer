@@ -60,6 +60,10 @@
 
 ## Installing
 
+### Required for Ubuntu 14
+
+Run `sudo apt-get install systemd -f`
+
 ### AppImage
 
 1. Download `stacer-1.0.7-x86_64.AppImage` from the [Stacer releases page](https://github.com/oguzhaninan/Stacer/releases).
