@@ -7,5 +7,6 @@ export default {
 	"pt": "Portuguese",
 	"tr": "Turkish",
 	"uk": "Ukrainian",
+	"zh-cn": "Chinese Simplified",
 	"zh-tw": "Traditional Chinese"
 }
