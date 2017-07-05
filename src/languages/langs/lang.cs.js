@@ -1,5 +1,5 @@
 /**
-  AUTHOR <email@address>
+  AUTHOR <pavel@tizek.cz>
 */
 export default {
 	// Top Menu
