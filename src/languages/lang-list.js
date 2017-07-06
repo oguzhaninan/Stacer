@@ -6,6 +6,7 @@ export default {
 	"fr": "French",
 	"pl": "Polish",
 	"pt": "Portuguese",
+	"ru": "Russian",
 	"tr": "Turkish",
 	"uk": "Ukrainian",
 	"zh-cn": "Chinese Simplified",
