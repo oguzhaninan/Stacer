@@ -1,4 +1,5 @@
 export default {
+	"ca-es": "Catalan",
 	"cs": "Czech",
 	"en": "English",
 	"es": "Spanish",
