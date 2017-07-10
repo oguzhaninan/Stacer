@@ -66,7 +66,7 @@ export default {
 	// Global
 	search: "Pesquisar",
 	downloadUpdate: "Baixar atualização",
-	updateMsg: "Há atualizações disponveis.",
+	updateMsg: "Há atualizações disponíveis.",
 	// Messages
 	opFail: "Operação falhou.",
 	sysCleanFail: "A limpeza do sistema falhou.",
