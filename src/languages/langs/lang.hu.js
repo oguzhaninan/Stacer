@@ -18,9 +18,9 @@ export default {
     upload: "FELTÖLTÉS",
     systemInfo: "RENDSZER INFORMÁCIÓ",
     hostname: "Gépnév",
-    platform: "Számítógép környezet",
+    platform: "Környezet",
     distribution: "Disztribúció",
-    kernelRel: "Kernel Kiadása",
+    kernelRel: "Kernel Verziója",
     cpuModel: "Cpu Típusa",
     cpuSpeed: "Cpu Sebessége",
     cpuCores: "Cpu Magok",
@@ -50,7 +50,7 @@ export default {
     endProcess: "Szolgáltatás Befejezése",
     refresh: "Frissítés",
     // Uninstaller Page
-    uninstallerTitle: "A Rendszer Telepítette a Csomagot",
+    uninstallerTitle: "A Rendszerre Telepítette a Csomagok",
     noPackage: "Nem Található csomag.",
     uninstallSelecteds: "Kiválasztottak törlése",
     // Resources Page
