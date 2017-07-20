@@ -11,5 +11,6 @@ export default {
 	"tr": "Turkish",
 	"uk": "Ukrainian",
 	"zh-cn": "Chinese Simplified",
-	"zh-tw": "Traditional Chinese"
+	"zh-tw": "Traditional Chinese",
+	"hu": "Hungarian",
 }
