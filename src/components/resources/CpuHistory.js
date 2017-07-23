@@ -26,7 +26,10 @@ export default {
 				])
 
 			let cpuChart = new Chartkick.LineChart('cpus-chart', this.cpuData, {
-				colors: ['#2ecc71', '#e74c3c', '#3498db', '#f1c40f', '#9b59b6', '#34495e', '#1abc9c', '#e67e22'],
+				colors: ['#2ecc71', '#e74c3c', '#3498db', '#f1c40f', '#9b59b6', '#34495e',
+					 '#1abc9c', '#e67e22', '#46f0f0', '#f032e6', '#fabebe', '#008080',
+					 '#e6beff', '#aa6e28', '#d2f53c', '#800000', '#aaffc3', '#808000',
+					 '#000080', '#808080'],
 				legend: true,
 				min: 0,
 				max: 100,
