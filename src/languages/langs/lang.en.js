@@ -21,9 +21,9 @@ export default {
 	platform: "Platform",
 	distribution: "Distribution",
 	kernelRel: "Kernel Release",
-	cpuModel: "Cpu Model",
-	cpuSpeed: "Cpu Speed",
-	cpuCores: "Cpu Cores",
+	cpuModel: "CPU Model",
+	cpuSpeed: "CPU Speed",
+	cpuCores: "CPU Cores",
 	// System Cleaner Page
 	packageCache: "Package Cache",
 	crashReports: "Crash Reports",
@@ -54,7 +54,7 @@ export default {
 	noPackage: "No package found.",
 	uninstallSelecteds: "Uninstall Selecteds",
 	// Resources Page
-	cpuHistory: "Cpu History",
+	cpuHistory: "CPU History",
 	memHistory: "Memory History",
 	networkHistory: "Network History",
 	swap: "Swap",
