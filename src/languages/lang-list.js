@@ -2,10 +2,11 @@ export default {
 	"ca-es": "Catalan",
 	"cs": "Czech",
 	"en": "English",
-	"kan": "Kannada",
 	"es": "Spanish",
+	"hu": "Hungarian",
 	"fa": "Persian",
 	"fr": "French",
+	"kan": "Kannada",
 	"pl": "Polish",
 	"pt": "Portuguese",
 	"ru": "Russian",
@@ -13,5 +14,4 @@ export default {
 	"uk": "Ukrainian",
 	"zh-cn": "Chinese Simplified",
 	"zh-tw": "Traditional Chinese",
-	"hu": "Hungarian",
 }
