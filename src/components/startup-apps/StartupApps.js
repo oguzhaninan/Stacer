@@ -13,7 +13,7 @@ export default {
 					<div class="item-list startup-apps-list">
 						<h3>{{ lang('startupTitle') }} ({{ apps.length }})</h3>
 						<ul v-show="apps.length" class="scroll">
-							<app v-for="app in apps" :name="app.name" :file="app.file" :is-start="app.isStart"></app>
+							<app v-for="app in apps" :name="app.name" :file="app.file" :is-start="app.isStart" @edit="editApp"></app>
 						</ul>
 						<span class="empty-list" v-show="! apps.length">
 							{{ lang('noStartup') }}
@@ -25,10 +25,10 @@ export default {
 						<div class="dialog">
 							<div>
 								<span>{{ lang('app') }}</span>
-								<input type="text" v-model="appName" :placeholder="lang('appName')" />
+								<input type="text" v-model="appName" :disabled="modeEdit" :placeholder="lang('appName')" />
 								<input type="text" v-model="appComment" :placeholder="lang('appComment')" />
 								<input type="text" v-model="appExec" :placeholder="lang('appCommand')" />
-								<button @click="saveApp">{{ lang('add') }}</button>
+								<button @click="saveApp">{{ modeEdit? lang('update') : lang('add') }}</button>
 								<button @click="cancelPrompt">{{ lang('cancel') }}</button>
 							</div>
 						</div>
@@ -45,7 +45,8 @@ export default {
 			showPrompt: false,
 			appName: '',
 			appComment: '',
-			appExec: ''
+			appExec: '',
+			modeEdit:false
 		})
 	},
 	created() {
@@ -57,6 +58,7 @@ export default {
 			})
 			.on('add', path => this.getApps())
 			.on('unlink', path => this.getApps())
+			.on('change', path => this.getApps())
 	},
 	methods: {
 		saveApp() {
@@ -86,6 +88,7 @@ export default {
 		cancelPrompt() {
 			this.showPrompt = false
 			this.appName = this.appComment = this.appExec = ''
+			this.modeEdit= false
 		},
 		getApps() {
 				fs.readdir(localStorage.autostartApps, (err, files) => {
@@ -94,14 +97,17 @@ export default {
 						files.filter(file => file.endsWith('.desktop')).forEach(file => {
 							try {
 								var entry = properties(localStorage.autostartApps + '/' + file)
-
 								if (entry.get('Desktop Entry.Name') != null) {
 									let appName = entry.get('Desktop Entry.Name')
 									let isStart = entry.get('Desktop Entry.X-GNOME-Autostart-enabled')
+									let appComment = entry.get('Desktop Entry.Comment')
+									let appExec = entry.get('Desktop Entry.Exec')
 
 									if (appName != null) {
 										this.apps.push({
 											name: appName,
+											Exec:appExec,
+											comment:appComment,
 											file: file,
 											isStart: (isStart != null ? isStart : true)
 										})
@@ -115,6 +121,19 @@ export default {
 						logger.error('StartupApps Read Directory', err)
 					}
 				})
+		},
+
+		editApp(name){
+			this.modeEdit = true
+			for(let app of this.apps){
+				if(app.name == name){
+					this.appName = app.name
+					this.appExec = app.Exec
+					this.appComment = app.comment
+					this.showPrompt = true
+					break;
+				}
+			}
 		}
 	}
 }

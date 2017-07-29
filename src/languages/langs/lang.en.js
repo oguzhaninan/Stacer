@@ -77,4 +77,5 @@ export default {
 	anotherProc: "Another process continues.",
 	changedLang: "Restart the program for the changes to take effect.",
 	permitted: 'Operation not permitted.',
+	update: 'Update'
 }

@@ -9,11 +9,16 @@ export default {
 					<input type="checkbox" class="switch" :id="file" :checked="isStart" @change="statusChange" />
 					<label :for="file" class="fr"></label>
 					<button :name="file" @click="removeApp" class="remove-startup-app"></button>
+					<button @click="editApp" class="edit-startup-app"></button>
 				</li>`,
 	props: ['name', 'file', 'is-start'],
 	methods: {
 		removeApp(e) {
-			fs.unlinkSync(localStorage.autostartApps + e.target.name)
+            fs.unlinkSync(localStorage.autostartApps + e.target.name)
+		},
+		editApp(){
+			//Emit an event to startupApps
+			this.$emit('edit',this.name)
 		},
 		statusChange(e) {
 			let fileName = e.target.id
