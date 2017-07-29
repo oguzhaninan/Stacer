@@ -1,4 +1,5 @@
 .vscode/
+.idea/
 node_modules/
 release-builds/
 dest/
@@ -6,3 +7,6 @@ dist/
 bundle/*.js
 bundle/**/*.js
 bundle/**/**/*.js
+npm-debug\.log
+package-lock\.json
+
