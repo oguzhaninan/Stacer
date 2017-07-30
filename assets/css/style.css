@@ -292,7 +292,7 @@ button {
 .item-list ul li span {
   display: block;
   float: left;
-  width: calc(100% - 80px);
+  width: calc(100% - 120px);
   overflow: hidden;
   text-overflow: ellipsis;
   margin-top: 2px;
@@ -334,7 +334,17 @@ button {
   height: 24px;
   margin: -2px 10px 0px 0px;
   background: transparent url(../img/trash.png) no-repeat;
-  display: none;
+  display: block;
+  float: right;
+  border: 0;
+}
+
+.edit-startup-app {
+  width: 24px;
+  height: 24px;
+  margin: -2px 10px 0px 0px;
+  background: transparent url(../img/edit.png) no-repeat;
+  display: block;
   float: right;
   border: 0;
 }
