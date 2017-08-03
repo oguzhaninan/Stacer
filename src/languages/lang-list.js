@@ -1,4 +1,5 @@
 export default {
+	"ar": "العربية",
 	"ca-es": "Catalan",
 	"cs": "Czech",
 	"en": "English",
@@ -12,7 +13,6 @@ export default {
 	"ru": "Russian",
 	"tr": "Turkish",
 	"uk": "Ukrainian",
-	"ar": "العربية",
 	"zh-cn": "Chinese Simplified",
 	"zh-tw": "Traditional Chinese",
 }
