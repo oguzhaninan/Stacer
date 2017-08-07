@@ -7,6 +7,7 @@ export default {
 	"hu": "Hungarian",
 	"fa": "Persian",
 	"fr": "French",
+  "it": "Italiano",
 	"kan": "Kannada",
 	"pl": "Polish",
 	"pt": "Portuguese",
