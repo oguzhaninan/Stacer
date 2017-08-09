@@ -2,6 +2,7 @@ export default {
 	"ar": "العربية",
 	"ca-es": "Catalan",
 	"cs": "Czech",
+	"de": "Deutsch (German)",
 	"en": "English",
 	"es": "Spanish",
 	"fa": "Persian",
