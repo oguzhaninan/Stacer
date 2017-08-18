@@ -10,6 +10,7 @@ export default {
 	"hu": "Hungarian",
   	"it": "Italiano",
 	"kan": "Kannada",
+	"oc": "Occitan",
 	"pl": "Polish",
 	"pt": "Portuguese",
 	"ru": "Russian",
