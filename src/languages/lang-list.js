@@ -14,6 +14,7 @@ export default {
 	"pl": "Polish",
 	"pt": "Portuguese",
 	"ru": "Russian",
+  	"sv": "Swedish",
 	"tr": "Turkish",
 	"uk": "Ukrainian",
 	"zh-cn": "Chinese Simplified",
