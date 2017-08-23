@@ -70,7 +70,7 @@
 
 - Uninstall 
 
-	Run `sudo bash uninstal-stacer`
+	Run `sudo bash uninstall-stacer`
 
 ### Debian x64
 
