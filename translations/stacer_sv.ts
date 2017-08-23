@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.1" language="sv_SE">
+<TS version="2.2" language="sv_SE">
 <context>
     <name>App</name>
     <message>
         <location filename="../stacer/app.cpp" line="80"/>
         <source>Dashboard</source>
-        <translation>Instrumentbräda</translation>
+        <translation>Instrumentpanel</translation>
     </message>
     <message>
         <location filename="../stacer/app.cpp" line="85"/>
@@ -16,12 +16,12 @@
     <message>
         <location filename="../stacer/app.cpp" line="90"/>
         <source>System Startup Apps</source>
-        <translation>Uppstart Appar</translation>
+        <translation>Systemets uppstartsappar</translation>
     </message>
     <message>
         <location filename="../stacer/app.cpp" line="95"/>
         <source>System Services</source>
-        <translation>Tjänster</translation>
+        <translation>Systemtjänster</translation>
     </message>
     <message>
         <location filename="../stacer/app.cpp" line="100"/>
@@ -49,7 +49,7 @@
     <message>
         <location filename="../stacer/Pages/Dashboard/dashboard_page.ui" line="153"/>
         <source>SYSTEM INFO</source>
-        <translation>SYSTEM INFO</translation>
+        <translation>SYSTEMINFO</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/Dashboard/dashboard_page.ui" line="240"/>
@@ -59,7 +59,7 @@
     <message>
         <location filename="../stacer/Pages/Dashboard/dashboard_page.ui" line="253"/>
         <source>Download</source>
-        <translation>Ladda Ner</translation>
+        <translation>Ladda ner</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/Dashboard/dashboard_page.cpp" line="18"/>
@@ -79,12 +79,12 @@
     <message>
         <location filename="../stacer/Pages/Dashboard/dashboard_page.cpp" line="21"/>
         <source>DOWNLOAD</source>
-        <translation>LADDA UPP</translation>
+        <translation>NERLADDNING</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/Dashboard/dashboard_page.cpp" line="22"/>
         <source>UPLOAD</source>
-        <translation>LADDA UPP</translation>
+        <translation>UPPLADDNING</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/Dashboard/dashboard_page.cpp" line="107"/>
@@ -138,7 +138,7 @@
     <message>
         <location filename="../stacer/Pages/Processes/processes_page.ui" line="68"/>
         <source>All Processes</source>
-        <translation>Alla Processer</translation>
+        <translation>Alla processer</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/Processes/processes_page.ui" line="88"/>
@@ -148,12 +148,12 @@
     <message>
         <location filename="../stacer/Pages/Processes/processes_page.ui" line="206"/>
         <source>End Process</source>
-        <translation>Avsluta Process</translation>
+        <translation>Avsluta process</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/Processes/processes_page.cpp" line="35"/>
         <source>Resident Memory</source>
-        <translation>Bosatt Minne</translation>
+        <translation>Residentminne</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/Processes/processes_page.cpp" line="35"/>
@@ -163,7 +163,7 @@
     <message>
         <location filename="../stacer/Pages/Processes/processes_page.cpp" line="35"/>
         <source>Virtual Memory</source>
-        <translation>Virtuell Minne</translation>
+        <translation>Virtuellt minne</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/Processes/processes_page.cpp" line="35"/>
@@ -178,7 +178,7 @@
     <message>
         <location filename="../stacer/Pages/Processes/processes_page.cpp" line="36"/>
         <source>State</source>
-        <translation>Stat</translation>
+        <translation>Tillstånd</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/Processes/processes_page.cpp" line="36"/>
@@ -193,7 +193,7 @@
     <message>
         <location filename="../stacer/Pages/Processes/processes_page.cpp" line="36"/>
         <source>CPU Time</source>
-        <translation>CPU Tid</translation>
+        <translation>CPU-tid</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/Processes/processes_page.cpp" line="37"/>
@@ -218,7 +218,7 @@
     <message>
         <location filename="../stacer/Pages/Processes/processes_page.cpp" line="198"/>
         <source>Refresh (%1)</source>
-        <translation>Uppdateras (%1)</translation>
+        <translation>Uppdatera (%1)</translation>
     </message>
 </context>
 <context>
@@ -226,7 +226,7 @@
     <message>
         <location filename="../stacer/Pages/Resources/resources_page.cpp" line="26"/>
         <source>CPU History</source>
-        <translation>CPU-Historik</translation>
+        <translation>CPU-historik</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/Resources/resources_page.cpp" line="29"/>
@@ -246,12 +246,12 @@
     <message>
         <location filename="../stacer/Pages/Resources/resources_page.cpp" line="81"/>
         <source>Upload %1/s  Total: %2</source>
-        <translation>Ladda Upp %1/s  Total: %2</translation>
+        <translation>Uppladdning %1/s  Total: %2</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/Resources/resources_page.cpp" line="122"/>
         <source>Swap %1 (%2%) %3</source>
-        <translation>Byte %1 (%2%) %3</translation>
+        <translation>Swap %1 (%2%) %3</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/Resources/resources_page.cpp" line="131"/>
@@ -274,12 +274,12 @@
     <message>
         <location filename="../stacer/Pages/Services/services_page.ui" line="176"/>
         <source>Running Now ?</source>
-        <translation>Kör nu?</translation>
+        <translation>Körs nu?</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/Services/services_page.ui" line="246"/>
         <source>Not Found System Service</source>
-        <translation>Inte Hittad Systemtjänst</translation>
+        <translation>Ingen systemtjänst funnen</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/Services/services_page.cpp" line="50"/>
@@ -318,7 +318,7 @@
     <message>
         <location filename="../stacer/Pages/StartupApps/startup_app_edit.ui" line="20"/>
         <source>Startup App</source>
-        <translation>Startprogram</translation>
+        <translation>Uppstartsprogram</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/StartupApps/startup_app_edit.ui" line="50"/>
@@ -328,7 +328,7 @@
     <message>
         <location filename="../stacer/Pages/StartupApps/startup_app_edit.ui" line="60"/>
         <source>Fields cannot be left blank. </source>
-        <translation>Fält kan inte lämnas tomt. </translation>
+        <translation>Fält kan inte lämnas blankt. </translation>
     </message>
     <message>
         <location filename="../stacer/Pages/StartupApps/startup_app_edit.ui" line="67"/>
@@ -348,7 +348,7 @@
     <message>
         <location filename="../stacer/Pages/StartupApps/startup_app_edit.ui" line="88"/>
         <source>Application</source>
-        <translation>Ansökan</translation>
+        <translation>Applikation</translation>
     </message>
 </context>
 <context>
@@ -356,22 +356,22 @@
     <message>
         <location filename="../stacer/Pages/StartupApps/startup_apps_page.ui" line="95"/>
         <source>Add Startup App</source>
-        <translation>Lägg Till Startprogrammet</translation>
+        <translation>Lägg till uppstartsprogram</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/StartupApps/startup_apps_page.ui" line="112"/>
         <source>System Startup Applications</source>
-        <translation>Systemstart Program</translation>
+        <translation>Systemstartsprogram</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/StartupApps/startup_apps_page.ui" line="192"/>
         <source>Not Found Startup Apps</source>
-        <translation>Ej Hittade Startprogram</translation>
+        <translation>Ej funna uppstartsprogram</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/StartupApps/startup_apps_page.cpp" line="79"/>
         <source>System Startup Applications (%1)</source>
-        <translation>Systemstart Program (%1)</translation>
+        <translation>Systemets uppstartsprogram (%1)</translation>
     </message>
 </context>
 <context>
@@ -384,12 +384,12 @@
     <message>
         <location filename="../stacer/Pages/SystemCleaner/system_cleaner_page.ui" line="168"/>
         <source>Application Logs</source>
-        <translation>Applikations Loggar</translation>
+        <translation>Applikationsloggar</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/SystemCleaner/system_cleaner_page.ui" line="206"/>
         <source>Application Caches</source>
-        <translation>Application Caches</translation>
+        <translation>Applikationscaches</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/SystemCleaner/system_cleaner_page.ui" line="327"/>
@@ -399,7 +399,7 @@
     <message>
         <location filename="../stacer/Pages/SystemCleaner/system_cleaner_page.ui" line="365"/>
         <source>Package Caches</source>
-        <translation>Paket Caches</translation>
+        <translation>Paketcaches</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/SystemCleaner/system_cleaner_page.ui" line="473"/>
@@ -419,7 +419,7 @@
     <message>
         <location filename="../stacer/Pages/SystemCleaner/system_cleaner_page.cpp" line="285"/>
         <source>%1 size files cleaned.</source>
-        <translation>%1 storlek filer rengöras.</translation>
+        <translation>%1 storlek filer rensades.</translation>
     </message>
 </context>
 <context>
@@ -427,17 +427,17 @@
     <message>
         <location filename="../stacer/Pages/Uninstaller/uninstallerpage.ui" line="132"/>
         <source>Uninstall Selected</source>
-        <translation>Avinstallera Vald</translation>
+        <translation>Avinstallera markerade</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/Uninstaller/uninstallerpage.ui" line="178"/>
         <source>Not Found Installed Packages</source>
-        <translation>Ej Hittade Installerade Paket</translation>
+        <translation>Installerade paket ej funna.</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/Uninstaller/uninstallerpage.ui" line="228"/>
         <source>System Installed Packages</source>
-        <translation>System Installerade Paket</translation>
+        <translation>Systemets installerade paket</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/Uninstaller/uninstallerpage.ui" line="271"/>
@@ -447,7 +447,7 @@
     <message>
         <location filename="../stacer/Pages/Uninstaller/uninstaller_page.cpp" line="65"/>
         <source>System Installed Packages (%1)</source>
-        <translation>System Installerade Paket (%1)</translation>
+        <translation>Systemets installerade Paket (%1)</translation>
     </message>
 </context>
 </TS>
