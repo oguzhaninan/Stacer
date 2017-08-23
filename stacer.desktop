@@ -1,8 +1,11 @@
 [Desktop Entry]
-Type=Application
 Name=Stacer
+Version=1.0.8
 Exec=stacer
+Comment=Linux System Optimizer and Monitoring
 Icon=stacer
-Comment=System Optimizer
-Categories=System
+Type=Application
 Terminal=false
+StartupNotify=true
+Encoding=UTF-8
+Categories=System;Application;
