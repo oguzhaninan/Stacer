@@ -1,9 +1,3 @@
-#-------------------------------------------------
-#
-# Project created by QtCreator 2017-07-02T15:41:12
-#
-#-------------------------------------------------
-
 QT       += core gui charts svg concurrent
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
