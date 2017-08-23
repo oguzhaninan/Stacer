@@ -1,8 +1,8 @@
 #!/bin/bash
 
-APPIMAGE_FILE=
-DESKTOP_FILE=
-ICON=
+APPIMAGE_FILE=https://github.com/oguzhaninan/Stacer/releases/download/v1.0.8/Stacer-x64.AppImage
+DESKTOP_FILE=https://raw.githubusercontent.com/oguzhaninan/Stacer/native/stacer.desktop
+ICON=https://raw.githubusercontent.com/oguzhaninan/Stacer/native/icons/hicolor/128x128/apps/stacer.png
 
 cd /tmp
 
