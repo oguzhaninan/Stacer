@@ -1,0 +1,817 @@
+/****** LIGHT THEME ******/
+
+/**************************
+    SCROLL BAR
+***************************/
+QScrollArea {
+    border: 0;
+}
+
+QScrollBar:vertical {
+    width: 12;
+    margin: 0 0 0 2;
+    border-radius: 2;
+    background-color: transparent;
+}
+
+QScrollBar::handle:vertical {
+    background-color: @color01;
+    min-height: 20px;
+    border-radius: 2;
+}
+
+QScrollBar::add-line:vertical,
+QScrollBar::sub-line:vertical {
+    height: 0;
+}
+
+QScrollBar::add-page:vertical,
+QScrollBar::sub-page:vertical {
+    border-bottom-right-radius: 2;
+    border-bottom-left-radius: 2;
+    background-color: transparent;
+}
+
+QScrollBar:horizontal {
+    height: 12;
+    margin: 2 0 0 0;
+    border-radius: 2;
+    background-color: transparent;
+}
+
+QScrollBar::handle:horizontal {
+    background-color: @color01;
+    min-width: 20px;
+    border-radius: 2;
+}
+
+QScrollBar::add-line:horizontal,
+QScrollBar::sub-line:horizontal {
+    height: 0;
+}
+
+QScrollBar::add-page:horizontal,
+QScrollBar::sub-page:horizontal {
+    border-bottom-right-radius: 2;
+    border-bottom-left-radius: 2;
+    background-color: transparent;
+}
+
+QAbstractScrollArea::corner {
+    background: transparent;
+}
+
+/**************************
+    QMENU
+***************************/
+QMenu {
+    background-color: @color07;
+    border-radius: 2;
+    margin: 3px 5px;
+}
+
+QMenu::item {
+    padding: 2px 30px;
+    color: @color02;
+    font-size: 10pt;
+}
+
+QMenu::item:selected {
+    background-color: @color01;
+}
+
+QMenu::indicator {
+    width: 14px;
+    height: 14px;
+}
+
+QMenu::indicator:non-exclusive:unchecked {
+    image: url(:/static/themes/default/img/un-check.svg);
+}
+
+QMenu::indicator:non-exclusive:checked {
+    image: url(:/static/themes/default/img/check.svg);
+}
+
+/**************************
+    QCHECKBOX
+***************************/
+
+QCheckBox::indicator {
+    width: 45px;
+    height: 25px;
+}
+
+QCheckBox::indicator:checked {
+    image: url(:/static/themes/default/img/checkbox.svg);
+}
+
+QCheckBox::indicator:unchecked {
+    image: url(:/static/themes/default/img/un-checkbox.svg);
+}
+
+QToolTip {
+    color: @color01;
+    background-color: #8394a6;
+    border: 1px solid #8394a6;
+    border-radius: 2;
+}
+
+/**************************
+    NOT FOUND
+***************************/
+
+#notFoundWidget {
+    background: url(:/static/themes/default/img/not-found.svg) no-repeat top center;
+}
+
+#notFoundWidget #label {
+    color: @color02;
+    font-size: 13pt;
+}
+
+/**************************
+    MAIN WINDOW
+***************************/
+
+QMainWindow * {
+    font-family: "Ubuntu";
+}
+
+QWidget#sidebar {
+    background-color: @sidebar;
+    min-width:60;
+}
+
+QWidget#sidebar QPushButton {
+    border: 0px;
+    min-width: 46;
+    min-height: 46;
+    max-width: 46;
+    max-height: 46;
+    border-style: solid;
+    color: @color01;
+    margin: 5 7;
+    border-radius:2;
+}
+
+QWidget#sidebar QPushButton[checked=true],
+QWidget#sidebar QPushButton:hover {
+    background-color: @color03;
+}
+
+QLabel#pageTitle {
+    color: @color02;
+    padding: 5 0 8 0;
+    margin: 5 10;
+    border: 0;
+    border-bottom: 1 solid @color09;
+}
+
+QWidget#pageContent {
+    background-color: @pageContent;
+}
+
+QPushButton#dashBtn {
+    qproperty-icon: url(:/static/themes/default/img/sidebar-icons/dash.png);
+}
+
+QPushButton#systemCleanerBtn {
+    qproperty-icon: url(:/static/themes/default/img/sidebar-icons/cleaner.svg);
+}
+
+QPushButton#startupAppsBtn {
+    qproperty-icon: url(:/static/themes/default/img/sidebar-icons/startup-apps.svg);
+}
+
+QPushButton#servicesBtn {
+    qproperty-icon: url(:/static/themes/default/img/sidebar-icons/services.svg);
+}
+
+QPushButton#processesBtn {
+    qproperty-icon: url(:/static/themes/default/img/sidebar-icons/process.png);
+}
+
+QPushButton#uninstallerBtn {
+    qproperty-icon: url(:/static/themes/default/img/sidebar-icons/uninstaller.png);
+}
+
+QPushButton#resourcesBtn {
+    qproperty-icon: url(:/static/themes/default/img/sidebar-icons/resources.png);
+}
+
+QPushButton#settingsBtn {
+    qproperty-icon: url(:/static/themes/default/img/sidebar-icons/settings.svg);
+}
+
+/**************************
+    DASHBOARD PAGE
+***************************/
+
+/* - Circle Bar - */
+
+QWidget#chartWidget {
+    background-color: @color01;
+    border-radius: 1;
+}
+
+QLabel#chartTitle,
+QLabel#chartValue {
+    color: @color02;
+}
+
+QLabel#chartTitle {
+    font-size: 13pt;
+    margin: 0;
+}
+
+QLabel#chartValue {
+    font-size: 13pt;
+    margin: 0;
+}
+
+/* - Line Bar - */
+
+QWidget#lineChartWidget {
+    background-color: @color01;
+    border-radius: 1;
+}
+
+QLabel#lineChartTitle {
+    color: @color02;
+    font-size: 13pt;
+}
+
+QLabel#lineChartValue {
+    color: @color02;
+    font-size: 13pt;
+}
+
+QLabel#lineChartTotal {
+    color: @color02;
+    font-size: 11pt;
+}
+
+QProgressBar#lineChartProgress {
+    background-color: @pageContent;
+    border: 0;
+    border-radius: 0;
+}
+
+QProgressBar#lineChartProgress::chunk {
+    background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 #3498db, stop:1 #2980b9);
+}
+
+/* - System Info - */
+
+QListView#systemInfoList {
+    border: 0;
+    background-color: transparent;
+    font-size: 12pt;
+    color: @color02;
+}
+
+QLabel#systemInfoTitle {
+    color: @color02;
+    font-size: 13pt;
+    padding-left: 5;
+}
+
+/**************************
+    SYSTEM CLEANER PAGE
+***************************/
+
+#cleanerCategories QLabel {
+    font-size: 11pt;
+    color: @color02;
+}
+
+#SystemCleanerPage QCheckBox::indicator {
+    min-width: 25;
+    min-height: 25;
+}
+
+#SystemCleanerPage QCheckBox::indicator:unchecked {
+    image: url(:/static/themes/default/img/un-check.svg);
+}
+
+#SystemCleanerPage QCheckBox::indicator:checked {
+    image: url(:/static/themes/default/img/check.svg);
+}
+
+/* - System Scan Button - */
+
+#SystemCleanerPage #scanBtn {
+    border: 0;
+}
+
+#SystemCleanerPage #scanBtn {
+    background: url(:/static/themes/light/img/scan.svg) no-repeat center;
+}
+
+#SystemCleanerPage #scanBtn:hover {
+    background: url(:/static/themes/light/img/scan-active.svg) no-repeat center;
+}
+
+/* - System Clean Button - */
+
+#SystemCleanerPage #cleanBtn {
+    border: 0;
+}
+
+#SystemCleanerPage #cleanBtn {
+    background: url(:/static/themes/light/img/clean.svg) no-repeat center;
+}
+
+#SystemCleanerPage #cleanBtn:hover {
+    background: url(:/static/themes/light/img/clean-active.svg) no-repeat center;
+}
+
+/* - System Scan Results - */
+
+#backButtton {
+    border: 0;
+    font-size: 11pt;
+    color: @color03;
+}
+
+#scanResultTreeW {
+    border: 1 solid @color01;
+    background-color: @color01;
+    border-radius: 2;
+}
+
+#scanResultTreeW QHeaderView::section {
+    border-top: 1;
+}
+
+#scanResultTreeW::item {
+    border-bottom: 1 solid @pageContent;
+    padding: 7 3;
+    font-size: 11pt;
+    color: @color02;
+}
+
+#scanResultTreeW::indicator {
+    width: 14;
+    height: 14;
+}
+
+#scanResultTreeW::indicator:checked {
+    image: url(:/static/themes/default/img/check.svg);
+}
+
+#scanResultTreeW::indicator:unchecked {
+    image: url(:/static/themes/default/img/un-check.svg);
+}
+
+#scanResultTreeW::branch:has-children:!has-siblings:closed,
+#scanResultTreeW::branch:closed:has-children:has-siblings {
+    border-image: none;
+    image: url(:/static/themes/light/img/right-arrow.svg);
+    padding: 4;
+}
+
+#scanResultTreeW::branch:open:has-ch ildren:!has-siblings,
+#scanResultTreeW::branch:open:has-children:has-siblings {
+    border-image: none;
+    image: url(:/static/themes/light/img/down-arrow.svg);
+    padding: 4;
+}
+
+#scanResultTreeW::branch {
+    border-bottom: 1 solid @pageContent;
+}
+
+#removedTotalSizeLbl {
+    font-size: 11pt;
+    color: @color04;
+}
+
+/**************************
+    STARTUP APPS PAGE
+***************************/
+#startupListWidget {
+    background-color: transparent;
+}
+
+#addStartupAppBtn {
+    border:0;
+    border-radius: 2;
+    background-color: @color03;
+    color: @color05;
+    padding: 7 15;
+}
+
+#addStartupAppBtn:hover {
+    background-color: @color10;
+}
+
+#startupAppsTitleLbl {
+    color: @color03;
+    padding: 10 0 10 20;
+}
+
+#refreshAppsBtn {
+    border: 0;
+}
+
+/* - Startup App - */
+
+#startupAppWidget {
+    border-radius: 2;
+    background-color: @color01;
+}
+
+#appIcon {
+    image: url(:/static/themes/light/img/app.svg);
+}
+
+#startupAppWidget:hover {
+    background-color: @color07;
+}
+
+#startupAppWidget #appName {
+    font-size: 11pt;
+    color: @color02;
+}
+
+#startupCheck {
+    margin-top: 3;
+}
+
+#startupAppWidget #deleteAppBtn {
+    qproperty-icon: url(:/static/themes/default/img/trash.svg);
+    border: 0;
+}
+
+#startupAppWidget #editAppBtn {
+    qproperty-icon: url(:/static/themes/light/img/edit.svg);
+    border: 0;
+    margin-bottom: 2;
+}
+
+/* - Startup App Edit - */
+
+#StartupAppEdit {
+    background-color: @pageContent;
+}
+
+#StartupAppEdit #title {
+    color: @color02;
+    font-size: 11pt;
+}
+
+#StartupAppEdit QLineEdit {
+    border-radius: 2;
+    padding: 10;
+    background-color: @color01;
+    font-size: 10pt;
+    color: @color02;
+}
+
+#StartupAppEdit #saveBtn {
+    border-radius: 2;
+    padding: 7 25;
+    font-size: 11pt;
+    background-color: @color03;
+    color: @color01;
+}
+
+#StartupAppEdit #saveBtn:hover {
+    background-color: @color10;
+}
+
+#StartupAppEdit #errorMsg {
+    color: #f44336;
+}
+
+/**************************
+    SERVICES PAGE
+***************************/
+
+#ServicesPage QListWidget {
+    background-color: transparent;
+}
+
+#servicesTitle {
+    font-size: 11pt;
+    color: @color03;
+    padding: 10 0;
+}
+
+#serviceStartupTitle,
+#systemRunningTitle {
+    font-size: 10pt;
+    color: #ddd;
+}
+
+/* - Service Item - */
+
+#serviceItemWidget QCheckBox {
+    margin-top: 2;
+}
+
+#serviceItemWidget {
+    border-radius: 2;
+    background-color: @color01;
+}
+
+#serviceIcon {
+    image: url(:/static/themes/default/img/service.svg);
+}
+
+#serviceItemWidget:hover {
+    background-color: @color07;
+}
+
+#ServiceItem #serviceName {
+    font-size: 10pt;
+    color: @color02;
+}
+
+#serviceStartupImg {
+    image: url(:/static/themes/default/img/power.svg);
+}
+
+#systemRunningImg {
+    image: url(:/static/themes/default/img/run.svg);
+}
+
+/**************************
+    PROCESSES PAGE
+***************************/
+
+#processTitleLbl {
+    color: @color03;
+    padding: 10 0;
+    font-size: 11pt;
+}
+
+#allProcessesCheck {
+    margin-top: 2;
+    color: @color02;
+    font-size: 10pt;
+}
+
+#allProcessesCheck::indicator {
+    width: 14;
+    height: 14;
+}
+
+#allProcessesCheck::indicator:unchecked {
+    image: url(:/static/themes/default/img/un-check.svg);
+}
+
+#allProcessesCheck::indicator:checked {
+    image: url(:/static/themes/default/img/check.svg);
+}
+
+#processSearchBox {
+    width: 150;
+    padding: 4 12;
+    border-radius: 12;
+    background: @color01 url(:/static/themes/default/img/search.svg) no-repeat right center;
+    border: 1px solid @color07;
+    color: @color02;
+}
+
+QTableView {
+    background-color: transparent;
+    selection-color: @color02;
+    color: @color02;
+    font-size: 10pt;
+    gridline-color: @pageContent;
+    border-radius: 2;
+}
+
+QTableView::item {
+    font-size: 11pt;
+    color: @color02;
+    padding: 6 0 6 -10;
+    background-color: @color01;
+}
+
+QTableView::item:selected {
+    background-color: @color07;
+}
+
+QHeaderView::section {
+    background-color: @color07;
+    border-width: 1 1 1 0;
+    border-style: solid;
+    border-color: @pageContent;
+    font-size: 11pt;
+    color: @color06;
+    padding-left:10;
+}
+
+QHeaderView::up-arrow {
+    image: url(:/static/themes/default/img/asc.svg);
+}
+
+QHeaderView::down-arrow {
+    image: url(:/static/themes/default/img/dsc.svg);
+}
+
+#refreshLabel {
+    color: @color02;
+    font-size: 10pt;
+}
+
+#refreshSlider {
+    margin-top: 3;
+}
+
+#refreshSlider::groove:horizontal {
+    height: 2px;
+    background-color: @color08;
+    margin: 2px 0;
+}
+
+#refreshSlider::handle:horizontal {
+    background-color: @color03;
+    width: 14px;
+    height: 14px;
+    margin: -6px 0;
+    border-radius: 7px;
+}
+
+#endProcessBtn {
+    border:0;
+    border-radius: 2;
+    background-color: @color03;
+    color: @color05;
+    padding: 7 15;
+}
+
+#endProcessBtn:hover {
+    background-color: @color01;
+}
+/**************************
+    UNINSTALLER PAGE
+***************************/
+
+#packagesTitle {
+    color: @color03;
+    padding: 10 0;
+    font-size: 11pt;
+}
+
+#packageSearch {
+    padding: 4 12;
+    border-radius: 12;
+    background: @color01 url(:/static/themes/default/img/search.svg) no-repeat right center;
+    border: 1px solid @color07;
+    color: @color08;
+}
+
+#packagesList {
+    border:0;
+    background-color: transparent;
+    font-size:10pt;
+}
+
+#packagesList::indicator {
+    min-width: 16;
+    min-height: 16;
+}
+
+#packagesList::indicator:unchecked {
+    image: url(:/static/themes/default/img/un-check.svg);
+}
+
+#packagesList::indicator:checked {
+    image: url(:/static/themes/default/img/check.svg);
+}
+
+#packagesList::item {
+    border-radius: 2;
+    min-height: 40;
+    max-height: 40;
+    background-color: @color01;
+}
+
+#packagesList::item:text {
+    color: @color02;
+    padding-left: 15;
+}
+
+#packagesList::item:selected {
+    background-color: @color07;
+    border: 0;
+}
+
+#packagesList::item:hover {
+    background-color: @color07;
+}
+
+#uninstallBtn {
+    border: 0;
+    padding: 6 15;
+    color: @color02;
+    border: 1px solid @color01;
+    border-radius: 5;
+}
+
+#uninstallBtn:hover {
+    background-color:  @color01;
+}
+
+#refreshPackagesBtn {
+    border: 0;
+}
+
+/**************************
+    HISTORIES
+***************************/
+
+QCheckBox#historyTitle {
+    font-size: 11pt;
+    margin: 0 0 10 10;
+    color: @color02;
+}
+
+QCheckBox#historyTitle::indicator {
+    width: 20;
+    height: 20;
+}
+
+QCheckBox#historyTitle::indicator:unchecked {
+    image: url(:/static/themes/default/img/fit.svg);
+}
+
+QCheckBox#historyTitle::indicator:checked {
+    image: url(:/static/themes/default/img/collapse.svg);
+}
+
+/**************************
+    SETTINGS
+***************************/
+
+#SettingsPage QLabel {
+    font-size: 11pt;
+    color: @color02;
+}
+
+#SettingsPage QMenu {
+    background-color: @color01;
+}
+
+#SettingsPage QComboBox {
+    border: 0;
+    border-radius: 2;
+    background-color: @color01;
+    padding: 4 0 4 10;
+    font-size: 11pt;
+    color: @color02;
+    min-width: 100;
+}
+
+#SettingsPage QComboBox::drop-down {
+    background-color: @color01;
+    subcontrol-position: top right;
+    width: 14;
+    padding: 0 5;
+    color: @color02;
+
+    border-left-width: 1px;
+    border-left-color: @color01;
+    border-left-style: solid;
+    image: url(:/static/themes/light/img/down-arrow.svg);
+    border-top-right-radius: 2;
+    border-bottom-right-radius: 2;
+}
+
+#SettingsPage QComboBox::down-arrow:on {
+    background-color: @color01;
+    color: @color02;
+}
+
+#SettingsPage QComboBox QAbstractItemView {
+    background-color: @color01;
+    border: 0;
+}
+
+/**************************
+    UPDATE BAR
+***************************/
+
+#updateBarWidget {
+    background-color: @color03;
+    border-radius: 2;
+}
+
+#updateBarTextLabel {
+    font-size: 10pt;
+    color: @color05;
+}
+
+#downloadUpdateBtn {
+    font-size: 10pt;
+    color: @color09;
+    background-color: @color01;
+    border: 0;
+    padding: 4 10;
+    border-radius: 2;
+}

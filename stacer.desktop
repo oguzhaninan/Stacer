@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Name=Stacer
+Exec=stacer
+Icon=stacer
+Comment=System Optimizer
+Categories=System
+Terminal=false
