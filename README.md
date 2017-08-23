@@ -1,6 +1,6 @@
 
 <p align="center">
-    <img src="https://raw.githubusercontent.com/oguzhaninan/Stacer/master/Screenshots/Header.png" width="800">    
+    <img src="https://raw.githubusercontent.com/oguzhaninan/Stacer/native/screenshots/header.png" width="800">    
 </p>
 <p align="center">
   <b>Linux System Optimizer and Monitoring</b>
@@ -66,7 +66,7 @@
 
 - Install
 
-	Run `bash -c "$(wget https://gitlab.com/oguzhaninan/Stacer-Develop/raw/master/install.sh -O -)"`
+	Run `bash -c "$(wget https://raw.githubusercontent.com/oguzhaninan/Stacer/native/install.sh -O -)"`
 
 - Uninstall 
 
@@ -80,7 +80,7 @@
 
 ### Fedora x64
 
-1. Download `stacer_1.0.8_amd64.rpm` from the [Stacer releases page](https://github.com/oguzhaninan/Stacer/releases).
+1. Download `stacer_1.0.8_x64.rpm` from the [Stacer releases page](https://github.com/oguzhaninan/Stacer/releases).
 2. Run `sudo rpm --install stacer*.rpm` on the downloaded package.
 3. Launch Stacer using the installed `stacer` command.
 
@@ -93,41 +93,53 @@
 ## Screenshots
 
 <p align="center">
-    <img src="https://raw.githubusercontent.com/oguzhaninan/Stacer/master/Screenshots/Screenshot-v1.0.7-1.png" width="700">
+    <img src="https://raw.githubusercontent.com/oguzhaninan/Stacer/native/screenshots/Screenshot-2.0.0-1.png" width="700">
 </p>
 
 <p align="center">
-    <img src="https://raw.githubusercontent.com/oguzhaninan/Stacer/master/Screenshots/Screenshot-v1.0.7-2.png" width="700">
+    <img src="https://raw.githubusercontent.com/oguzhaninan/Stacer/native/screenshots/Screenshot-2.0.0-2.png" width="700">
 </p>
 
 <p align="center">
-    <img src="https://raw.githubusercontent.com/oguzhaninan/Stacer/master/Screenshots/Screenshot-v1.0.7-3.png" width="700">
+    <img src="https://raw.githubusercontent.com/oguzhaninan/Stacer/native/screenshots/Screenshot-2.0.0-3.png" width="700">
 </p>
 
 <p align="center">
-    <img src="https://raw.githubusercontent.com/oguzhaninan/Stacer/master/Screenshots/Screenshot-v1.0.7-4.png" width="700">
+    <img src="https://raw.githubusercontent.com/oguzhaninan/Stacer/native/screenshots/Screenshot-2.0.0-4.png" width="700">
 </p>
 
 <p align="center">
-    <img src="https://raw.githubusercontent.com/oguzhaninan/Stacer/master/Screenshots/Screenshot-v1.0.7-5.png" width="700">
+    <img src="https://raw.githubusercontent.com/oguzhaninan/Stacer/native/screenshots/Screenshot-2.0.0-5.png" width="700">
 </p>
 
 <p align="center">
-    <img src="https://raw.githubusercontent.com/oguzhaninan/Stacer/master/Screenshots/Screenshot-v1.0.7-6.png" width="700">
+    <img src="https://raw.githubusercontent.com/oguzhaninan/Stacer/native/screenshots/Screenshot-2.0.0-6.png" width="700">
 </p>
 
 <p align="center">
-    <img src="https://raw.githubusercontent.com/oguzhaninan/Stacer/master/Screenshots/Screenshot-v1.0.7-7.png" width="700">
+    <img src="https://raw.githubusercontent.com/oguzhaninan/Stacer/native/screenshots/Screenshot-2.0.0-7.png" width="700">
 </p>
 
 <p align="center">
-    <img src="https://raw.githubusercontent.com/oguzhaninan/Stacer/master/Screenshots/Screenshot-v1.0.7-8.png" width="700">
+    <img src="https://raw.githubusercontent.com/oguzhaninan/Stacer/native/screenshots/Screenshot-2.0.0-8.png" width="700">
 </p>
 
 <p align="center">
-    <img src="https://raw.githubusercontent.com/oguzhaninan/Stacer/master/Screenshots/Screenshot-v1.0.7-9.png" width="700">
+    <img src="https://raw.githubusercontent.com/oguzhaninan/Stacer/native/screenshots/Screenshot-2.0.0-9.png" width="700">
 </p>
 
 <p align="center">
-    <img src="https://raw.githubusercontent.com/oguzhaninan/Stacer/master/Screenshots/Screenshot-v1.0.7-10.png" width="700">
+    <img src="https://raw.githubusercontent.com/oguzhaninan/Stacer/native/screenshots/Screenshot-2.0.0-10.png" width="700">
+</p>
+
+<p align="center">
+    <img src="https://raw.githubusercontent.com/oguzhaninan/Stacer/native/screenshots/Screenshot-2.0.0-11.png" width="700">
+</p>
+
+<p align="center">
+    <img src="https://raw.githubusercontent.com/oguzhaninan/Stacer/native/screenshots/Screenshot-2.0.0-12.png" width="700">
+</p>
+
+<p align="center">
+    <img src="https://raw.githubusercontent.com/oguzhaninan/Stacer/native/screenshots/Screenshot-2.0.0-13.png" width="700">
 </p>
