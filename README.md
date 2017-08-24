@@ -1,6 +1,6 @@
 
 <p align="center">
-    <img src="https://raw.githubusercontent.com/oguzhaninan/Stacer/master/Screenshots/Header.png" width="800">    
+    <img src="https://raw.githubusercontent.com/oguzhaninan/Stacer/electron/Screenshots/Header.png" width="800">    
 </p>
 <p align="center">
   <b>Linux System Optimizer and Monitoring</b>
@@ -101,50 +101,50 @@ Run `sudo apt-get install systemd -f`
 
 ### Dashboard
 <p align="center">
-    <img src="https://raw.githubusercontent.com/oguzhaninan/Stacer/master/Screenshots/Screenshot-v1.0.7-1.png" width="700">
+    <img src="https://raw.githubusercontent.com/oguzhaninan/Stacer/electron/Screenshots/Screenshot-v1.0.7-1.png" width="700">
 </p>
 
 ### System Cleaner
 <p align="center">
-    <img src="https://raw.githubusercontent.com/oguzhaninan/Stacer/master/Screenshots/Screenshot-v1.0.7-2.png" width="700">
+    <img src="https://raw.githubusercontent.com/oguzhaninan/Stacer/electron/Screenshots/Screenshot-v1.0.7-2.png" width="700">
 </p>
 
 ### Startup Apps
 <p align="center">
-    <img src="https://raw.githubusercontent.com/oguzhaninan/Stacer/master/Screenshots/Screenshot-v1.0.7-3.png" width="700">
+    <img src="https://raw.githubusercontent.com/oguzhaninan/Stacer/electron/Screenshots/Screenshot-v1.0.7-3.png" width="700">
 </p>
 
 ### Startup Apps - Add App
 <p align="center">
-    <img src="https://raw.githubusercontent.com/oguzhaninan/Stacer/master/Screenshots/Screenshot-v1.0.7-4.png" width="700">
+    <img src="https://raw.githubusercontent.com/oguzhaninan/Stacer/electron/Screenshots/Screenshot-v1.0.7-4.png" width="700">
 </p>
 
 ### Services
 <p align="center">
-    <img src="https://raw.githubusercontent.com/oguzhaninan/Stacer/master/Screenshots/Screenshot-v1.0.7-5.png" width="700">
+    <img src="https://raw.githubusercontent.com/oguzhaninan/Stacer/electron/Screenshots/Screenshot-v1.0.7-5.png" width="700">
 </p>
 
 ### Processes
 <p align="center">
-    <img src="https://raw.githubusercontent.com/oguzhaninan/Stacer/master/Screenshots/Screenshot-v1.0.7-6.png" width="700">
+    <img src="https://raw.githubusercontent.com/oguzhaninan/Stacer/electron/Screenshots/Screenshot-v1.0.7-6.png" width="700">
 </p>
 
 ### Uninstaller
 <p align="center">
-    <img src="https://raw.githubusercontent.com/oguzhaninan/Stacer/master/Screenshots/Screenshot-v1.0.7-7.png" width="700">
+    <img src="https://raw.githubusercontent.com/oguzhaninan/Stacer/electron/Screenshots/Screenshot-v1.0.7-7.png" width="700">
 </p>
 
 ### Resources
 <p align="center">
-    <img src="https://raw.githubusercontent.com/oguzhaninan/Stacer/master/Screenshots/Screenshot-v1.0.7-8.png" width="700">
+    <img src="https://raw.githubusercontent.com/oguzhaninan/Stacer/electron/Screenshots/Screenshot-v1.0.7-8.png" width="700">
 </p>
 
 ### Resources
 <p align="center">
-    <img src="https://raw.githubusercontent.com/oguzhaninan/Stacer/master/Screenshots/Screenshot-v1.0.7-9.png" width="700">
+    <img src="https://raw.githubusercontent.com/oguzhaninan/Stacer/electron/Screenshots/Screenshot-v1.0.7-9.png" width="700">
 </p>
 
 ### Settings
 <p align="center">
-    <img src="https://raw.githubusercontent.com/oguzhaninan/Stacer/master/Screenshots/Screenshot-v1.0.7-10.png" width="700">
+    <img src="https://raw.githubusercontent.com/oguzhaninan/Stacer/electron/Screenshots/Screenshot-v1.0.7-10.png" width="700">
 </p>
