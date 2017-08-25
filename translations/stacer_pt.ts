@@ -6,17 +6,17 @@
     <message>
         <location filename="../stacer/app.cpp" line="80"/>
         <source>Dashboard</source>
-        <translation>Visão Geral</translation>
+        <translation>Visão geral</translation>
     </message>
     <message>
         <location filename="../stacer/app.cpp" line="85"/>
         <source>System Cleaner</source>
-        <translation>Limpador do Sistema</translation>
+        <translation>Limpador do sistema</translation>
     </message>
     <message>
         <location filename="../stacer/app.cpp" line="90"/>
         <source>System Startup Apps</source>
-        <translation>Aplicativos de Inicialização</translation>
+        <translation>Aplicativos de inicialização</translation>
     </message>
     <message>
         <location filename="../stacer/app.cpp" line="95"/>
@@ -143,12 +143,12 @@
     <message>
         <location filename="../stacer/Pages/Processes/processes_page.ui" line="88"/>
         <source>Search...</source>
-        <translation>Pesquisa...</translation>
+        <translation>Pesquisar...</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/Processes/processes_page.ui" line="206"/>
         <source>End Process</source>
-        <translation>Processo Final</translation>
+        <translation>Finalizar processo</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/Processes/processes_page.cpp" line="35"/>
@@ -158,7 +158,7 @@
     <message>
         <location filename="../stacer/Pages/Processes/processes_page.cpp" line="35"/>
         <source>Resident Memory</source>
-        <translation>Memória Residente</translation>
+        <translation>Memória residente</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/Processes/processes_page.cpp" line="35"/>
@@ -168,12 +168,12 @@
     <message>
         <location filename="../stacer/Pages/Processes/processes_page.cpp" line="35"/>
         <source>Virtual Memory</source>
-        <translation>Memória Virtual</translation>
+        <translation>Memória virtual</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/Processes/processes_page.cpp" line="36"/>
         <source>Start Time</source>
-        <translation>Hora de Início</translation>
+        <translation>Tempo de inicialização</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/Processes/processes_page.cpp" line="36"/>
@@ -193,7 +193,7 @@
     <message>
         <location filename="../stacer/Pages/Processes/processes_page.cpp" line="36"/>
         <source>CPU Time</source>
-        <translation>CPU Tempo</translation>
+        <translation>Tempo de CPU</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/Processes/processes_page.cpp" line="37"/>
@@ -226,17 +226,17 @@
     <message>
         <location filename="../stacer/Pages/Resources/resources_page.cpp" line="26"/>
         <source>CPU History</source>
-        <translation>História da CPU</translation>
+        <translation>Histórico da CPU</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/Resources/resources_page.cpp" line="29"/>
         <source>Memory History</source>
-        <translation>História da Memória</translation>
+        <translation>Histórico da memória</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/Resources/resources_page.cpp" line="32"/>
         <source>Network History</source>
-        <translation>História da Rede</translation>
+        <translation>Histórico da rede</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/Resources/resources_page.cpp" line="76"/>
@@ -251,7 +251,7 @@
     <message>
         <location filename="../stacer/Pages/Resources/resources_page.cpp" line="122"/>
         <source>Swap %1 (%2%) %3</source>
-        <translation>Troca %1 (%2%) %3</translation>
+        <translation>Swap %1 (%2%) %3</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/Resources/resources_page.cpp" line="131"/>
@@ -264,27 +264,27 @@
     <message>
         <location filename="../stacer/Pages/Services/services_page.ui" line="79"/>
         <source>System Services</source>
-        <translation>Serviços de Sistema</translation>
+        <translation>Serviços</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/Services/services_page.ui" line="123"/>
         <source>Startup at boot ?</source>
-        <translation>Startup no arranque?</translation>
+        <translation>Startup na inicialização?</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/Services/services_page.ui" line="176"/>
         <source>Running Now ?</source>
-        <translation>Correndo Agora?</translation>
+        <translation>Executando ?</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/Services/services_page.ui" line="246"/>
         <source>Not Found System Service</source>
-        <translation>Serviço do Sistema Não Encontrado</translation>
+        <translation>Serviço do sistema não encontrado</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/Services/services_page.cpp" line="50"/>
         <source>System Services (%1)</source>
-        <translation>Serviços de Sistema (%1)</translation>
+        <translation>Serviços (%1)</translation>
     </message>
 </context>
 <context>
@@ -318,12 +318,12 @@
     <message>
         <location filename="../stacer/Pages/StartupApps/startup_app_edit.ui" line="20"/>
         <source>Startup App</source>
-        <translation>Aplicação de Inicialização</translation>
+        <translation>Aplicação de inicialização</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/StartupApps/startup_app_edit.ui" line="50"/>
         <source>Save</source>
-        <translation>Salve</translation>
+        <translation>Salvar</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/StartupApps/startup_app_edit.ui" line="60"/>
@@ -333,12 +333,12 @@
     <message>
         <location filename="../stacer/Pages/StartupApps/startup_app_edit.ui" line="67"/>
         <source>App Comment</source>
-        <translation>Comentário do Aplicativo</translation>
+        <translation>Descrição do aplicativo</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/StartupApps/startup_app_edit.ui" line="74"/>
         <source>App Name</source>
-        <translation>Nome do Aplicativo</translation>
+        <translation>Nome do aplicativo</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/StartupApps/startup_app_edit.ui" line="81"/>
@@ -356,22 +356,22 @@
     <message>
         <location filename="../stacer/Pages/StartupApps/startup_apps_page.ui" line="192"/>
         <source>Not Found Startup Apps</source>
-        <translation>Não Foram Encontrados Aplicativos de Icialização</translation>
+        <translation>Não foram encontrados aplicativos de inicialização</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/StartupApps/startup_apps_page.ui" line="112"/>
         <source>System Startup Applications</source>
-        <translation>Aplicações de Inicialização do Sistema</translation>
+        <translation>Aplicações de inicialização do sistema</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/StartupApps/startup_apps_page.ui" line="95"/>
         <source>Add Startup App</source>
-        <translation>Adicionar Aplicativo de Inicialização</translation>
+        <translation>Adicionar aplicativo de inicialização</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/StartupApps/startup_apps_page.cpp" line="79"/>
         <source>System Startup Applications (%1)</source>
-        <translation>Aplicações de Inicialização do Sistema (%1)</translation>
+        <translation>Aplicações de inicialização do sistema (%1)</translation>
     </message>
 </context>
 <context>
@@ -379,22 +379,22 @@
     <message>
         <location filename="../stacer/Pages/SystemCleaner/system_cleaner_page.ui" line="63"/>
         <source>Crash Reports</source>
-        <translation>Crash Reports</translation>
+        <translation>Relatórios de problemas</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/SystemCleaner/system_cleaner_page.ui" line="168"/>
         <source>Application Logs</source>
-        <translation>Logs de Aplicativos</translation>
+        <translation>Logs de aplicativos</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/SystemCleaner/system_cleaner_page.ui" line="206"/>
         <source>Application Caches</source>
-        <translation>Caches de Aplicação</translation>
+        <translation>Caches de aplicação</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/SystemCleaner/system_cleaner_page.ui" line="327"/>
         <source>Trash</source>
-        <translation>Lixo</translation>
+        <translation>Lixeira</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/SystemCleaner/system_cleaner_page.ui" line="365"/>
@@ -404,12 +404,12 @@
     <message>
         <location filename="../stacer/Pages/SystemCleaner/system_cleaner_page.ui" line="473"/>
         <source> Back</source>
-        <translation> Costas</translation>
+        <translation> Voltar</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/SystemCleaner/system_cleaner_page.cpp" line="32"/>
         <source>File Name</source>
-        <translation>Nome do Arquivo</translation>
+        <translation>Nome do arquivo</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/SystemCleaner/system_cleaner_page.cpp" line="32"/>
@@ -427,27 +427,27 @@
     <message>
         <location filename="../stacer/Pages/Uninstaller/uninstallerpage.ui" line="228"/>
         <source>System Installed Packages</source>
-        <translation>Pacotes Instalados no Sistema</translation>
+        <translation>Pacotes instalados no sistema</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/Uninstaller/uninstallerpage.ui" line="271"/>
         <source>Search...</source>
-        <translation>Pesquisa...</translation>
+        <translation>Pesquisar...</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/Uninstaller/uninstallerpage.ui" line="178"/>
         <source>Not Found Installed Packages</source>
-        <translation>Pacotes Instalados Não Encontrados</translation>
+        <translation>Pacotes não encontrados</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/Uninstaller/uninstallerpage.ui" line="132"/>
         <source>Uninstall Selected</source>
-        <translation>Desinstalar Selecionado</translation>
+        <translation>Desinstalar selecionados</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/Uninstaller/uninstaller_page.cpp" line="65"/>
         <source>System Installed Packages (%1)</source>
-        <translation>Pacotes Instalados no Sistema (%1)</translation>
+        <translation>Pacotes instalados no sistema (%1)</translation>
     </message>
 </context>
 </TS>
