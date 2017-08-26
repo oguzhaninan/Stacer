@@ -1,6 +1,6 @@
 import si from 'systeminformation'
 import Chartkick from 'chartkick'
-
+const seconds_max = 30;
 export default {
 	template: `<div>
 					<h4>{{ lang('cpuHistory') }} <slot></slot></h4>
@@ -11,9 +11,7 @@ export default {
 		return ({
 			cpuValues: [],
 			cpuData: [],
-			seconds: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15,
-				16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30
-			]
+			seconds: Array.from(new Array(seconds_max),(val,index)=>index+1)
 		})
 	},
 	mounted() {
@@ -21,9 +19,7 @@ export default {
 			let cpuCount = val.cpus.length
 
 			for (var i = 0; i < cpuCount; i++)
-				this.cpuValues.push([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-					0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
-				])
+				this.cpuValues.push((new Array(seconds_max)).fill(0))
 
 			let cpuChart = new Chartkick.LineChart('cpus-chart', this.cpuData, {
 				colors: ['#2ecc71', '#e74c3c', '#3498db', '#f1c40f', '#9b59b6', '#34495e',
