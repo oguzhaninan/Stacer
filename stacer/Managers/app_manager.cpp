@@ -28,6 +28,7 @@ AppManager::AppManager(QObject *parent) : QObject(parent)
 
     if (translator.load(QString("stacer_%1").arg(getLanguageCode()), qApp->applicationDirPath() + "/translations")) {
         qApp->installTranslator(&translator);
+        (getLanguageCode() == "ar") ? qApp->setLayoutDirection(Qt::RightToLeft) : qApp->setLayoutDirection(Qt::LeftToRight);
     } else {
         qCritical() << "Translator could not load.";
     }
