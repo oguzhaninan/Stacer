@@ -1,8 +1,4 @@
-.vscode/
-node_modules/
-release-builds/
-dest/
+Stacer.pro.user*
 dist/
-bundle/*.js
-bundle/**/*.js
-bundle/**/**/*.js
+build/
+#*.AppImage

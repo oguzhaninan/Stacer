@@ -1,6 +1,6 @@
 
 <p align="center">
-    <img src="https://raw.githubusercontent.com/oguzhaninan/Stacer/master/Screenshots/Header.png" width="800">    
+    <img src="https://raw.githubusercontent.com/oguzhaninan/Stacer/native/screenshots/header.png" width="800">    
 </p>
 <p align="center">
   <b>Linux System Optimizer and Monitoring</b>
@@ -19,10 +19,15 @@
 </p>
 
 <p align="center">
-    <a href="https://sourceforge.net/projects/stacer/files/" >
-		<img src="https://a.fsdn.com/con/app/sf-download-button" />
+	<a href="https://www.patreon.com/oguzhaninan" >
+		<img width="250" src="https://s3-us-west-1.amazonaws.com/patreon-reward-images/1537704.png" />
 	</a>
 </p>
+<p align="center">
+	<a href="https://sourceforge.net/projects/stacer/files/" >
+		<img src="https://a.fsdn.com/con/app/sf-download-button" />
+	</a>
+</p>	
 
 ## Reviews
 <p align="left">
@@ -58,93 +63,88 @@
 	</a>
 </p>
 
-## Installing
+### Required Packages
+- curl
+- systemd
 
-### Required for Ubuntu 14
+## Distribution independent installation
 
-Run `sudo apt-get install systemd -f`
+- Install
 
-### AppImage
+	Run `bash -c "$(wget https://raw.githubusercontent.com/oguzhaninan/Stacer/native/install.sh -O -)"`
 
-1. Download `stacer-1.0.7-x86_64.AppImage` from the [Stacer releases page](https://github.com/oguzhaninan/Stacer/releases).
-2. Make it executable `sudo chmod a+x stacer*.AppImage`
-3. Run `./stacer*.AppImage`
+- Uninstall 
 
-### Debian Linux x64
+	Run `sudo bash uninstall-stacer`
 
-1. Download `stacer_1.0.7_amd64.deb` from the [Stacer releases page](https://github.com/oguzhaninan/Stacer/releases).
-2. Run `sudo dpkg --install stacer_1.0.7_amd64.deb` on the downloaded package.
+### Debian x64
+
+1. Download `stacer_1.0.8_amd64.deb` from the [Stacer releases page](https://github.com/oguzhaninan/Stacer/releases).
+2. Run `sudo dpkg -i stacer*.deb` on the downloaded package.
 3. Launch Stacer using the installed `stacer` command.
 
-### Debian Linux x86
+### Fedora x64
 
-1. Download `stacer_1.0.7_i386.deb` from the [Stacer releases page](https://github.com/oguzhaninan/Stacer/releases).
-2. Run `sudo dpkg --install stacer_1.0.7_i386.deb` on the downloaded package.
-3. Launch Stacer using the installed `stacer` command.
-
-### Fedora
-
-1. Download `stacer-1.0.7.rpm` from the [Stacer releases page](https://github.com/oguzhaninan/Stacer/releases).
-2. Run `sudo rpm --install stacer-1.0.7.rpm` on the downloaded package.
+1. Download `stacer_1.0.8_x64.rpm` from the [Stacer releases page](https://github.com/oguzhaninan/Stacer/releases).
+2. Run `sudo rpm --install stacer*.rpm` on the downloaded package.
 3. Launch Stacer using the installed `stacer` command.
 
 ## Build from source
 
 1. `git clone https://github.com/oguzhaninan/Stacer.git`
 2. `cd Stacer`
-3. `npm install && npm run build && npm start`
-
-## Uninstalling
-- Run `sudo dpkg -r stacer`
+3. `./deploy.sh`
 
 ## Screenshots
 
-### Dashboard
 <p align="center">
-    <img src="https://raw.githubusercontent.com/oguzhaninan/Stacer/master/Screenshots/Screenshot-v1.0.7-1.png" width="700">
+    <img src="https://raw.githubusercontent.com/oguzhaninan/Stacer/native/screenshots/Screenshot-2.0.0-1.png" width="700">
 </p>
 
-### System Cleaner
 <p align="center">
-    <img src="https://raw.githubusercontent.com/oguzhaninan/Stacer/master/Screenshots/Screenshot-v1.0.7-2.png" width="700">
+    <img src="https://raw.githubusercontent.com/oguzhaninan/Stacer/native/screenshots/Screenshot-2.0.0-2.png" width="700">
 </p>
 
-### Startup Apps
 <p align="center">
-    <img src="https://raw.githubusercontent.com/oguzhaninan/Stacer/master/Screenshots/Screenshot-v1.0.7-3.png" width="700">
+    <img src="https://raw.githubusercontent.com/oguzhaninan/Stacer/native/screenshots/Screenshot-2.0.0-3.png" width="700">
 </p>
 
-### Startup Apps - Add App
 <p align="center">
-    <img src="https://raw.githubusercontent.com/oguzhaninan/Stacer/master/Screenshots/Screenshot-v1.0.7-4.png" width="700">
+    <img src="https://raw.githubusercontent.com/oguzhaninan/Stacer/native/screenshots/Screenshot-2.0.0-4.png" width="700">
 </p>
 
-### Services
 <p align="center">
-    <img src="https://raw.githubusercontent.com/oguzhaninan/Stacer/master/Screenshots/Screenshot-v1.0.7-5.png" width="700">
+    <img src="https://raw.githubusercontent.com/oguzhaninan/Stacer/native/screenshots/Screenshot-2.0.0-5.png" width="700">
 </p>
 
-### Processes
 <p align="center">
-    <img src="https://raw.githubusercontent.com/oguzhaninan/Stacer/master/Screenshots/Screenshot-v1.0.7-6.png" width="700">
+    <img src="https://raw.githubusercontent.com/oguzhaninan/Stacer/native/screenshots/Screenshot-2.0.0-6.png" width="700">
 </p>
 
-### Uninstaller
 <p align="center">
-    <img src="https://raw.githubusercontent.com/oguzhaninan/Stacer/master/Screenshots/Screenshot-v1.0.7-7.png" width="700">
+    <img src="https://raw.githubusercontent.com/oguzhaninan/Stacer/native/screenshots/Screenshot-2.0.0-7.png" width="700">
 </p>
 
-### Resources
 <p align="center">
-    <img src="https://raw.githubusercontent.com/oguzhaninan/Stacer/master/Screenshots/Screenshot-v1.0.7-8.png" width="700">
+    <img src="https://raw.githubusercontent.com/oguzhaninan/Stacer/native/screenshots/Screenshot-2.0.0-8.png" width="700">
 </p>
 
-### Resources
 <p align="center">
-    <img src="https://raw.githubusercontent.com/oguzhaninan/Stacer/master/Screenshots/Screenshot-v1.0.7-9.png" width="700">
+    <img src="https://raw.githubusercontent.com/oguzhaninan/Stacer/native/screenshots/Screenshot-2.0.0-9.png" width="700">
 </p>
 
-### Settings
 <p align="center">
-    <img src="https://raw.githubusercontent.com/oguzhaninan/Stacer/master/Screenshots/Screenshot-v1.0.7-10.png" width="700">
+    <img src="https://raw.githubusercontent.com/oguzhaninan/Stacer/native/screenshots/Screenshot-2.0.0-10.png" width="700">
+</p>
+
+<p align="center">
+    <img src="https://raw.githubusercontent.com/oguzhaninan/Stacer/native/screenshots/Screenshot-2.0.0-11.png" width="700">
+</p>
+
+<p align="center">
+    <img src="https://raw.githubusercontent.com/oguzhaninan/Stacer/native/screenshots/Screenshot-2.0.0-12.png" width="700">
+</p>
+
+<p align="center">
+    <img src="https://raw.githubusercontent.com/oguzhaninan/Stacer/native/screenshots/Screenshot-2.0.0-13.png" width="700">
 </p>
