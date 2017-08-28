@@ -83,6 +83,7 @@ TRANSLATIONS += \
     ../translations/stacer_hi.ts \	
     ../translations/stacer_kn.ts \
     ../translations/stacer_pt.ts \
+    ../translations/stacer_ru.ts \
     ../translations/stacer_sv.ts \
     ../translations/stacer_tr.ts
 
