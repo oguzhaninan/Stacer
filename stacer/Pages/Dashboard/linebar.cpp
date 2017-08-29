@@ -6,7 +6,7 @@ LineBar::~LineBar()
     delete ui;
 }
 
-LineBar::LineBar(QString title, QWidget *parent) :
+LineBar::LineBar(const QString &title, QWidget *parent) :
     QWidget(parent),
     ui(new Ui::LineBar)
 {
@@ -15,7 +15,7 @@ LineBar::LineBar(QString title, QWidget *parent) :
     ui->lineChartTitle->setText(title);
 }
 
-void LineBar::setValue(int value, QString text, QString totalText)
+void LineBar::setValue(const int &value, const QString &text, const QString &totalText)
 {
     ui->lineChartProgress->setValue(value);
     ui->lineChartValue->setText(text);

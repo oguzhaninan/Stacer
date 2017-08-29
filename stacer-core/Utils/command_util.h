@@ -8,9 +8,9 @@
 class STACERCORESHARED_EXPORT CommandUtil
 {
 public:
-    static QString sudoExec(QString cmd, QStringList args = {});
-    static QString exec(QString cmd, QStringList args = {});
-    static bool isExecutable(QString cmd);
+    static QString sudoExec(const QString &cmd, QStringList args = QStringList());
+    static QString exec(const QString &cmd, QStringList args = QStringList());
+    static bool isExecutable(const QString &cmd);
 private:
     CommandUtil();
 };

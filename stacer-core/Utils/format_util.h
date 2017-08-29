@@ -6,7 +6,7 @@
 class STACERCORESHARED_EXPORT FormatUtil
 {
 public:
-    static QString formatBytes(quint64 bytes);
+    static QString formatBytes(const quint64 &bytes);
 
 private:
     FormatUtil();

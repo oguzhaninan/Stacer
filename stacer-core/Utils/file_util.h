@@ -15,12 +15,12 @@
 class STACERCORESHARED_EXPORT FileUtil
 {
 public:
-  static QString readStringFromFile(QString path, QIODevice::OpenMode mode = QIODevice::ReadOnly);
-  static QStringList readListFromFile(QString path, QIODevice::OpenMode mode = QIODevice::ReadOnly);
+  static QString readStringFromFile(const QString &path, const QIODevice::OpenMode &mode = QIODevice::ReadOnly);
+  static QStringList readListFromFile(const QString &path, const QIODevice::OpenMode &mode = QIODevice::ReadOnly);
 
-  static bool writeFile(QString path, QString content, QIODevice::OpenMode mode = QIODevice::ReadWrite);
-  static QStringList directoryList(QString path);
-  static quint64 getFileSize(QString path);
+  static bool writeFile(const QString &path, const QString &content, const QIODevice::OpenMode &mode = QIODevice::ReadWrite);
+  static QStringList directoryList(const QString &path);
+  static quint64 getFileSize(const QString &path);
 
 private:
   FileUtil();

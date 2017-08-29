@@ -17,7 +17,7 @@ class StartupApp : public QWidget
     Q_OBJECT
 
 public:
-    explicit StartupApp(QString appName, bool enabled, QString filePath, QWidget *parent = 0);
+    explicit StartupApp(const QString &appName, bool enabled, const QString &filePath, QWidget *parent = 0);
     ~StartupApp();
 
     QString getAppName() const;

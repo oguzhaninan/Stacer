@@ -15,8 +15,8 @@ public:
 
     QString getDefaultNetworkInterface() const;
 
-    quint64 getRXbytes();
-    quint64 getTXbytes();
+    quint64 getRXbytes() const;
+    quint64 getTXbytes() const;
 
 private:
     QString defaultNetworkInterface;

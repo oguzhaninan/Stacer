@@ -113,7 +113,7 @@ void ProcessesPage::loadProcesses()
     }
 }
 
-QList<QStandardItem*> ProcessesPage::createRow(Process proc)
+QList<QStandardItem*> ProcessesPage::createRow(const Process &proc)
 {
     QList<QStandardItem*> row;
 
@@ -190,7 +190,7 @@ void ProcessesPage::on_processSearchBox_textChanged(const QString &val)
     sortModel->setFilterRegExp(query);
 }
 
-void ProcessesPage::on_refreshSlider_valueChanged(int i)
+void ProcessesPage::on_refreshSlider_valueChanged(const int &i)
 {
     ui->refreshLabel->setText(tr("Refresh (%1)").arg(i));
     timer->setInterval(i * 1000);

@@ -2,7 +2,7 @@
 
 #include <QDebug>
 
-Service::Service(QString name, bool status, bool active) :
+Service::Service(const QString &name, bool status, bool active) :
     name(name),
     status(status),
     active(active)
@@ -50,7 +50,7 @@ QList<Service> ServiceTool::getServicesWithSystemctl()
 }
 
 
-bool ServiceTool::serviceIsActive(QString serviceName)
+bool ServiceTool::serviceIsActive(const QString &serviceName)
 {
     QStringList args = { "is-active", serviceName };
 
@@ -65,7 +65,7 @@ bool ServiceTool::serviceIsActive(QString serviceName)
     return ! result.trimmed().compare("active");
 }
 
-bool ServiceTool::serviceIsEnabled(QString serviceName)
+bool ServiceTool::serviceIsEnabled(const QString &serviceName)
 {
     QStringList args = { "is-enabled", serviceName };
 
@@ -80,7 +80,7 @@ bool ServiceTool::serviceIsEnabled(QString serviceName)
     return ! result.trimmed().compare("enabled");
 }
 
-bool ServiceTool::changeServiceStatus(QString sname, bool status)
+bool ServiceTool::changeServiceStatus(const QString &sname, bool status)
 {
     try {
 
@@ -97,7 +97,7 @@ bool ServiceTool::changeServiceStatus(QString sname, bool status)
     return false;
 }
 
-bool ServiceTool::changeServiceActive(QString sname, bool status)
+bool ServiceTool::changeServiceActive(const QString &sname, bool status)
 {
     try {
 

@@ -55,7 +55,7 @@ void SystemCleanerPage::init()
     });
 }
 
-void SystemCleanerPage::addTreeRoot(CleanCategories cat, QString title, QFileInfoList infos, bool noChild)
+void SystemCleanerPage::addTreeRoot(const CleanCategories &cat, const QString &title, const QFileInfoList &infos, bool noChild)
 {
     QTreeWidgetItem *root = new QTreeWidgetItem(ui->scanResultTreeW);
     root->setData(2, 0, cat);
@@ -92,7 +92,7 @@ void SystemCleanerPage::addTreeRoot(CleanCategories cat, QString title, QFileInf
     root->setText(1, QString("%1").arg(FormatUtil::formatBytes(totalSize)));
 }
 
-void SystemCleanerPage::addTreeChild(QString data, QString text, quint64 size, QTreeWidgetItem *parent)
+void SystemCleanerPage::addTreeChild(const QString &data, const QString &text, const quint64 &size, QTreeWidgetItem *parent)
 {
     QTreeWidgetItem *item = new QTreeWidgetItem(parent);
     item->setIcon(0, QIcon::fromTheme(text, defaultIcon));
@@ -102,7 +102,7 @@ void SystemCleanerPage::addTreeChild(QString data, QString text, quint64 size, Q
     item->setCheckState(0, Qt::Unchecked);
 }
 
-void SystemCleanerPage::addTreeChild(CleanCategories cat, QString text, quint64 size)
+void SystemCleanerPage::addTreeChild(const CleanCategories &cat, const QString &text, const quint64 &size)
 {
     QTreeWidgetItem *item = new QTreeWidgetItem(ui->scanResultTreeW);
     item->setText(0, text);
@@ -111,7 +111,7 @@ void SystemCleanerPage::addTreeChild(CleanCategories cat, QString text, quint64 
     item->setCheckState(0, Qt::Unchecked);
 }
 
-void SystemCleanerPage::on_scanResultTreeW_itemClicked(QTreeWidgetItem *item, int column)
+void SystemCleanerPage::on_scanResultTreeW_itemClicked(QTreeWidgetItem *item, const int &column)
 {
     if(column == 0) {
       // new check state

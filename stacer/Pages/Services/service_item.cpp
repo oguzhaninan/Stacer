@@ -6,7 +6,7 @@ ServiceItem::~ServiceItem()
     delete ui;
 }
 
-ServiceItem::ServiceItem(QString name, bool status, bool active, QWidget *parent) :
+ServiceItem::ServiceItem(const QString &name, bool status, bool active, QWidget *parent) :
     QWidget(parent),
     ui(new Ui::ServiceItem),
     tm(ToolManager::ins())

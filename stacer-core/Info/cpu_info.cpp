@@ -3,7 +3,7 @@
 CpuInfo::CpuInfo()
 { }
 
-quint8 CpuInfo::getCpuCoreCount()
+quint8 CpuInfo::getCpuCoreCount() const
 {
     static quint8 count = 0;
 
@@ -18,7 +18,7 @@ quint8 CpuInfo::getCpuCoreCount()
     return count;
 }
 
-QList<int> CpuInfo::getCpuPercents()
+QList<int> CpuInfo::getCpuPercents() const
 {
     QList<double> cpuTimes;
 
@@ -64,7 +64,7 @@ QList<int> CpuInfo::getCpuPercents()
     return cpuPercents;
 }
 
-int CpuInfo::getCpuPercent(QList<double> cpuTimes, int processor)
+int CpuInfo::getCpuPercent(const QList<double> &cpuTimes, const int &processor) const
 {
     const int N = getCpuCoreCount()+1;
 

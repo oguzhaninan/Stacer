@@ -1,8 +1,6 @@
 #ifndef PACKAGE_TOOL_H
 #define PACKAGE_TOOL_H
 
-#include <QObject>
-#include <QDebug>
 #include <thread>
 
 #include "Utils/command_util.h"
@@ -10,10 +8,8 @@
 
 #include "stacer-core_global.h"
 
-class STACERCORESHARED_EXPORT PackageTool : public QObject
+class STACERCORESHARED_EXPORT PackageTool
 {
-    Q_OBJECT
-
 public:
     enum PackageTools {
         APT,        // debian
@@ -27,25 +23,22 @@ public:
 public:
     PackageTool();
 
-public slots:
     // APT
-    QFileInfoList getDpkgPackageCaches();
-    QStringList getDpkgPackages();
-    bool dpkgRemovePackages(QStringList packages);
+    static QFileInfoList getDpkgPackageCaches();
+    static QStringList getDpkgPackages();
+    static bool dpkgRemovePackages(QStringList packages);
 
     // DNF - YUM
-    QStringList getRpmPackages();
-    bool dnfRemovePackages(QStringList packages);
-    bool yumRemovePackages(QStringList packages);
+    static QStringList getRpmPackages();
+    static bool dnfRemovePackages(QStringList packages);
+    static bool yumRemovePackages(QStringList packages);
 
     // Arch
-    QFileInfoList getPacmanPackageCaches();
-    QStringList getPacmanPackages();
-    bool pacmanRemovePackages(QStringList packages);
+    static QFileInfoList getPacmanPackageCaches();
+    static QStringList getPacmanPackages();
+    static bool pacmanRemovePackages(QStringList packages);
 
-    PackageTools getCurrentPackageTool() const;
-private:
-    PackageTools currentPackageTool;
+    static const PackageTools currentPackageTool;
 };
 
 #endif // PACKAGE_TOOL_H

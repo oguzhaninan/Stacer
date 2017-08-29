@@ -4,13 +4,12 @@
 StartupAppsPage::~StartupAppsPage()
 {
     delete ui;
-    delete startupAppEdit;
 }
 
 StartupAppsPage::StartupAppsPage(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::StartupAppsPage),
-    startupAppEdit(new StartupAppEdit)
+    startupAppEdit(new StartupAppEdit(this))
 {
     ui->setupUi(this);
 

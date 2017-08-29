@@ -6,7 +6,7 @@ HistoryChart::~HistoryChart()
     delete ui;
 }
 
-HistoryChart::HistoryChart(QString title, int seriesCount, QWidget *parent) :
+HistoryChart::HistoryChart(const QString &title, const int &seriesCount, QWidget *parent) :
     QWidget(parent),
     ui(new Ui::HistoryChart),
     title(title),
@@ -68,7 +68,7 @@ void HistoryChart::init()
     });
 }
 
-void HistoryChart::setYMax(int value)
+void HistoryChart::setYMax(const int &value)
 {
     yMax = value;
 }
@@ -78,7 +78,7 @@ QVector<QLineSeries *> HistoryChart::getSeriesList() const
     return seriesList;
 }
 
-void HistoryChart::setSeriesList(QVector<QLineSeries *> &value)
+void HistoryChart::setSeriesList(const QVector<QLineSeries *> &value)
 {
     seriesList = value;
 

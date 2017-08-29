@@ -56,17 +56,17 @@ void AppManager::loadLanguageList()
     }
 }
 
-void AppManager::setLanguage(QString value)
+void AppManager::setLanguage(const QString &value)
 {
     settings->setValue(LANG_PROP, value);
 }
 
-QString AppManager::getLanguageCode()
+QString AppManager::getLanguageCode() const
 {
     return settings->value(LANG_PROP, "en").toString();
 }
 
-QMap<QString, QString> AppManager::getLanguageList()
+QMap<QString, QString> AppManager::getLanguageList() const
 {
     return languageList;
 }

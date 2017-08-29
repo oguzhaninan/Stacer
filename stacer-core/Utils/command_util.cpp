@@ -10,7 +10,7 @@ CommandUtil::CommandUtil()
 
 }
 
-QString CommandUtil::sudoExec(QString cmd, QStringList args)
+QString CommandUtil::sudoExec(const QString &cmd, QStringList args)
 {
     args.push_front(cmd);
 
@@ -25,7 +25,7 @@ QString CommandUtil::sudoExec(QString cmd, QStringList args)
     return result;
 }
 
-QString CommandUtil::exec(QString cmd, QStringList args)
+QString CommandUtil::exec(const QString &cmd, QStringList args)
 {
     QProcess* process = new QProcess;
 
@@ -49,7 +49,7 @@ QString CommandUtil::exec(QString cmd, QStringList args)
     return stdOut.readAll().trimmed();
 }
 
-bool CommandUtil::isExecutable(QString cmd)
+bool CommandUtil::isExecutable(const QString &cmd)
 {
     return !QStandardPaths::findExecutable(cmd).isEmpty();
 }

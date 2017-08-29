@@ -10,9 +10,7 @@ ToolManager *ToolManager::ins()
     return _instance;
 }
 
-ToolManager::ToolManager() :
-    st(new ServiceTool),
-    pt(new PackageTool)
+ToolManager::ToolManager()
 {
 
 }
@@ -20,46 +18,46 @@ ToolManager::ToolManager() :
 /******************
  * SERVICES
  *****************/
-QList<Service> ToolManager::getServices()
+QList<Service> ToolManager::getServices() const
 {
-    return st->getServicesWithSystemctl();
+    return ServiceTool::getServicesWithSystemctl();
 }
 
-bool ToolManager::changeServiceStatus(QString sname, bool status)
+bool ToolManager::changeServiceStatus(const QString &sname, bool status) const
 {
-    return st->changeServiceStatus(sname, status);
+    return ServiceTool::changeServiceStatus(sname, status);
 }
 
-bool ToolManager::changeServiceActive(QString sname, bool status)
+bool ToolManager::changeServiceActive(const QString &sname, bool status) const
 {
-    return st->changeServiceActive(sname, status);
+    return ServiceTool::changeServiceActive(sname, status);
 }
 
-bool ToolManager::serviceIsActive(QString sname)
+bool ToolManager::serviceIsActive(const QString &sname) const
 {
-    return st->serviceIsActive(sname);
+    return ServiceTool::serviceIsActive(sname);
 }
 
-bool ToolManager::serviceIsEnabled(QString sname)
+bool ToolManager::serviceIsEnabled(const QString &sname) const
 {
-    return st->serviceIsEnabled(sname);
+    return ServiceTool::serviceIsEnabled(sname);
 }
 
 /******************
  * PACKAGES
  *****************/
-QStringList ToolManager::getPackages()
+QStringList ToolManager::getPackages() const
 {
-    switch (pt->getCurrentPackageTool()) {
+    switch (PackageTool::currentPackageTool) {
     case PackageTool::PackageTools::APT:
-        return pt->getDpkgPackages();
+        return PackageTool::getDpkgPackages();
         break;
     case PackageTool::PackageTools::YUM:
     case PackageTool::PackageTools::DNF:
-        return pt->getRpmPackages();
+        return PackageTool::getRpmPackages();
         break;
     case PackageTool::PackageTools::PACMAN:
-        return pt->getPacmanPackages();
+        return PackageTool::getPacmanPackages();
         break;
     default:
         return QStringList();
@@ -67,18 +65,18 @@ QStringList ToolManager::getPackages()
     }
 }
 
-QFileInfoList ToolManager::getPackageCaches()
+QFileInfoList ToolManager::getPackageCaches() const
 {
-    switch (pt->getCurrentPackageTool()) {
+    switch (PackageTool::currentPackageTool) {
     case PackageTool::PackageTools::APT:
-        return pt->getDpkgPackageCaches();
+        return PackageTool::getDpkgPackageCaches();
         break;
     case PackageTool::PackageTools::YUM:
     case PackageTool::PackageTools::DNF:
-        return pt->getPacmanPackageCaches();
+        return PackageTool::getPacmanPackageCaches();
         break;
     case PackageTool::PackageTools::PACMAN:
-        return pt->getPacmanPackageCaches();
+        return PackageTool::getPacmanPackageCaches();
         break;
     default:
         return QFileInfoList();
@@ -86,22 +84,22 @@ QFileInfoList ToolManager::getPackageCaches()
     }
 }
 
-void ToolManager::uninstallPackages(QStringList packages)
+void ToolManager::uninstallPackages(const QStringList &packages)
 {
     uninstallStarted();
 
-    switch (pt->getCurrentPackageTool()) {
+    switch (PackageTool::currentPackageTool) {
     case PackageTool::PackageTools::APT:
-        pt->dpkgRemovePackages(packages);
+        PackageTool::dpkgRemovePackages(packages);
         break;
     case PackageTool::PackageTools::YUM:
-        pt->yumRemovePackages(packages);
+        PackageTool::yumRemovePackages(packages);
         break;
     case PackageTool::PackageTools::DNF:
-        pt->dnfRemovePackages(packages);
+        PackageTool::dnfRemovePackages(packages);
         break;
     case PackageTool::PackageTools::PACMAN:
-        pt->pacmanRemovePackages(packages);
+        PackageTool::pacmanRemovePackages(packages);
         break;
     default:
         break;

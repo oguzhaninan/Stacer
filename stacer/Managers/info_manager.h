@@ -17,27 +17,27 @@ class InfoManager
 public:
     static InfoManager *ins();
 
-    quint8 getCpuCoreCount();
-    QList<int> getCpuPercents();
+    quint8 getCpuCoreCount() const;
+    QList<int> getCpuPercents() const;
 
-    quint64 getSwapUsed();
-    quint64 getSwapTotal();
-    quint64 getMemUsed();
-    quint64 getMemTotal();
+    quint64 getSwapUsed() const;
+    quint64 getSwapTotal() const;
+    quint64 getMemUsed() const;
+    quint64 getMemTotal() const;
     void updateMemoryInfo();
 
-    quint64 getRXbytes();
-    quint64 getTXbytes();
-    QList<Disk> getDisks();
+    quint64 getRXbytes() const;
+    quint64 getTXbytes() const;
+    QList<Disk> getDisks() const;
     void updateDiskInfo();
 
-    QFileInfoList getCrashReports();
-    QFileInfoList getAppLogs();
-    QFileInfoList getAppCaches();
+    QFileInfoList getCrashReports() const;
+    QFileInfoList getAppLogs() const;
+    QFileInfoList getAppCaches() const;
 
     void updateProcesses();
-    QList<Process> getProcesses();
-    QString getUserName();
+    QList<Process> getProcesses() const;
+    QString getUserName() const;
 private:
     InfoManager();
     static InfoManager *_instance;

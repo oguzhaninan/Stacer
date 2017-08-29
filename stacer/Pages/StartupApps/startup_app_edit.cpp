@@ -10,7 +10,14 @@ QString StartupAppEdit::selectedFilePath = "";
 
 StartupAppEdit::StartupAppEdit(QWidget *parent) :
     QDialog(parent),
-    ui(new Ui::StartupAppEdit)
+    ui(new Ui::StartupAppEdit),
+    newAppTemplate("[Desktop Entry]\n"
+                   "Name=%1\n"
+                   "Comment=%2\n"
+                   "Exec=%3\n"
+                   "Type=Application\n"
+                   "Terminal=false\n"
+                   "X-GNOME-Autostart-enabled=true")
 {
     ui->setupUi(this);
 
@@ -30,14 +37,6 @@ void StartupAppEdit::init()
     ui->errorMsg->hide();
 
     setStyleSheet(AppManager::ins()->getStylesheetFileContent());
-
-    newAppTemplate = "[Desktop Entry]\n"
-                     "Name=%1\n"
-                     "Comment=%2\n"
-                     "Exec=%3\n"
-                     "Type=Application\n"
-                     "Terminal=false\n"
-                     "X-GNOME-Autostart-enabled=true";
 }
 
 void StartupAppEdit::show()

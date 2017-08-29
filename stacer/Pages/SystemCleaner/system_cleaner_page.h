@@ -36,11 +36,11 @@ public:
 
 private slots:
     void init();
-    void addTreeRoot(CleanCategories cat, QString title, QFileInfoList infos, bool noChild = false);
-    void addTreeChild(CleanCategories cat, QString text, quint64 size);
-    void addTreeChild(QString data, QString text, quint64 size, QTreeWidgetItem *parent);
+    void addTreeRoot(const CleanCategories &cat, const QString &title, const QFileInfoList &infos, bool noChild = false);
+    void addTreeChild(const CleanCategories &cat, const QString &text, const quint64 &size);
+    void addTreeChild(const QString &data, const QString &text, const quint64 &size, QTreeWidgetItem *parent);
 
-    void on_scanResultTreeW_itemClicked(QTreeWidgetItem *item, int column);
+    void on_scanResultTreeW_itemClicked(QTreeWidgetItem *item, const int &column);
     void on_cleanBtn_clicked();
     void on_scanBtn_clicked();
     void on_backButtton_clicked();

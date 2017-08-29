@@ -16,11 +16,11 @@ class STACERCORESHARED_EXPORT CpuInfo
 public:
     CpuInfo();
 
-    quint8 getCpuCoreCount();
-    QList<int> getCpuPercents();
+    quint8 getCpuCoreCount() const;
+    QList<int> getCpuPercents() const;
 
 private:
-    int getCpuPercent(QList<double>cpuTimes, int processor = 0);
+    int getCpuPercent(const QList<double> &cpuTimes, const int &processor = 0) const;
 };
 
 #endif // CPUINFO_H

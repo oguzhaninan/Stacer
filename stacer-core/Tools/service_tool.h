@@ -8,7 +8,7 @@
 class STACERCORESHARED_EXPORT Service
 {
 public:
-    Service(QString name, bool status, bool active);
+    Service(const QString &name, bool status, bool active);
 
     QString name;
     bool status;
@@ -20,11 +20,11 @@ class ServiceTool
 public:
     ServiceTool();
 
-    QList<Service> getServicesWithSystemctl();
-    bool serviceIsActive(QString serviceName);
-    bool changeServiceStatus(QString sname, bool status);
-    bool changeServiceActive(QString sname, bool status);
-    bool serviceIsEnabled(QString serviceName);
+    static QList<Service> getServicesWithSystemctl();
+    static bool serviceIsActive(const QString &serviceName);
+    static bool changeServiceStatus(const QString &sname, bool status);
+    static bool changeServiceActive(const QString &sname, bool status);
+    static bool serviceIsEnabled(const QString &serviceName);
 };
 
 #endif // SERVICE_TOOL_H

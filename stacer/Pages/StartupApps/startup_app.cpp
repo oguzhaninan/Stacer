@@ -6,7 +6,7 @@ StartupApp::~StartupApp()
     delete ui;
 }
 
-StartupApp::StartupApp(QString appName, bool enabled, QString filePath, QWidget *parent) :
+StartupApp::StartupApp(const QString &appName, bool enabled, const QString &filePath, QWidget *parent) :
     QWidget(parent),
     ui(new Ui::StartupApp),
     startupAppEdit(new StartupAppEdit(this)),

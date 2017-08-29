@@ -14,17 +14,17 @@ class STACERCORESHARED_EXPORT SystemInfo
 public:
     SystemInfo();
 
-    QString getHostname();
-    QString getPlatform();
-    QString getDistribution();
-    QString getKernel();
-    QString getCpuModel();
-    QString getCpuSpeed();
-    QString getCpuCore();
+    QString getHostname() const;
+    QString getPlatform() const;
+    QString getDistribution() const;
+    QString getKernel() const;
+    QString getCpuModel() const;
+    QString getCpuSpeed() const;
+    QString getCpuCore() const;
 
-    QFileInfoList getCrashReports();
-    QFileInfoList getAppLogs();
-    QFileInfoList getAppCaches();
+    QFileInfoList getCrashReports() const;
+    QFileInfoList getAppLogs() const;
+    QFileInfoList getAppCaches() const;
 
     QString getUsername() const;
 

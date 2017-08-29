@@ -1,25 +1,18 @@
 #include "package_tool.h"
 
+#include <QDebug>
+
+const PackageTool::PackageTools PackageTool::currentPackageTool =
+        CommandUtil::isExecutable("apt-get") ? PackageTool::APT :
+        CommandUtil::isExecutable("dnf")     ? PackageTool::DNF :
+        CommandUtil::isExecutable("yum")     ? PackageTool::YUM :
+        CommandUtil::isExecutable("pacman")  ? PackageTool::PACMAN :
+        CommandUtil::isExecutable("zypper")  ? PackageTool::ZYPPER :
+                                               PackageTool::UNKNOWN;
+
 PackageTool::PackageTool()
 {
-    if (CommandUtil::isExecutable("apt-get")) {
-        currentPackageTool = APT;
-    } else if (CommandUtil::isExecutable("dnf")) {
-        currentPackageTool = DNF;
-    } else if (CommandUtil::isExecutable("yum")) {
-        currentPackageTool = YUM;
-    } else if (CommandUtil::isExecutable("pacman")) {
-        currentPackageTool = PACMAN;
-    } else if (CommandUtil::isExecutable("zypper")) {
-        currentPackageTool = ZYPPER;
-    } else {
-        currentPackageTool = UNKNOWN;
-    }
-}
 
-PackageTool::PackageTools PackageTool::getCurrentPackageTool() const
-{
-    return currentPackageTool;
 }
 
 /***********

@@ -44,14 +44,14 @@ void SettingsPage::init()
     connect(ui->themesCmb, SIGNAL(currentIndexChanged(int)), this, SLOT(themesCmbChanged(int)));
 }
 
-void SettingsPage::languagesCmbChanged(int index)
+void SettingsPage::languagesCmbChanged(const int &index)
 {
     QString langCode = ui->languagesCmb->itemData(index).toString();
 
     apm->setLanguage(langCode);
 }
 
-void SettingsPage::themesCmbChanged(int index)
+void SettingsPage::themesCmbChanged(const int &index)
 {
     QString themeName = ui->themesCmb->itemData(index).toString();
 
