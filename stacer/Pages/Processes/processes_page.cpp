@@ -4,18 +4,18 @@
 ProcessesPage::~ProcessesPage()
 {
     delete ui;
-    delete model;
-    delete sortModel;
-    delete timer;
 }
 
 ProcessesPage::ProcessesPage(QWidget *parent) :
   QWidget(parent),
+  ui(new Ui::ProcessesPage),
   model(new QStandardItemModel(this)),
   sortModel(new QSortFilterProxyModel(this)),
+  headers{"PID", tr("Resident Memory"), tr("%Memory"), tr("Virtual Memory"),
+          tr("User"), "%CPU", tr("Start Time"), tr("State"), tr("Group"),
+          tr("Nice"), tr("CPU Time"), tr("Session"), tr("Seat"), tr("Process")},
   im(InfoManager::ins()),
-  timer(new QTimer(this)),
-  ui(new Ui::ProcessesPage)
+  timer(new QTimer(this))
 {
     ui->setupUi(this);
 
@@ -31,10 +31,6 @@ void ProcessesPage::init()
 
     // Table settings
     sortModel->setSourceModel(model);
-
-    headers << "PID" << tr("Resident Memory") << tr("%Memory") << tr("Virtual Memory") << tr("User") << "%CPU"
-            << tr("Start Time") << tr("State") << tr("Group") << tr("Nice") << tr("CPU Time")
-            << tr("Session") << tr("Seat") << tr("Process");
 
     model->setHorizontalHeaderLabels(headers);
 

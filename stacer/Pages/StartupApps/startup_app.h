@@ -41,11 +41,11 @@ private:
     Ui::StartupApp *ui;
 
 private:
+    StartupAppEdit *startupAppEdit;
     QString appName;
     QString appComment;
     bool enabled;
     QString filePath;
-    StartupAppEdit *startupAppEdit;
 };
 
 #endif // STARTUP_APP_H

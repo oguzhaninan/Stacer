@@ -4,19 +4,17 @@
 HistoryChart::~HistoryChart()
 {
     delete ui;
-    delete chart;
-    delete chartView;
 }
 
 HistoryChart::HistoryChart(QString title, int seriesCount, QWidget *parent) :
     QWidget(parent),
+    ui(new Ui::HistoryChart),
     title(title),
     yMax(0),
     seriesCount(seriesCount),
-    chartView(new QChartView),
+    chartView(new QChartView(this)),
     chart(chartView->chart()),
-    apm(AppManager::ins()),
-    ui(new Ui::HistoryChart)
+    apm(AppManager::ins())
 {
     ui->setupUi(this);
 

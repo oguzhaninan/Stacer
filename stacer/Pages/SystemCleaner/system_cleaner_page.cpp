@@ -4,16 +4,20 @@
 SystemCleanerPage::~SystemCleanerPage()
 {
     delete ui;
-    delete loadingMovie;
-    delete loadingMovie_2;
+    if (loadingMovie)
+        loadingMovie->deleteLater();
+    if (loadingMovie_2)
+        loadingMovie_2->deleteLater();
 }
 
 SystemCleanerPage::SystemCleanerPage(QWidget *parent) :
-    QWidget(parent),
+    QWidget(parent),    
+    ui(new Ui::SystemCleanerPage),
     im(InfoManager::ins()),
     tmr(ToolManager::ins()),
-    defaultIcon(QIcon::fromTheme("application-x-executable")),    
-    ui(new Ui::SystemCleanerPage)
+    defaultIcon(QIcon::fromTheme("application-x-executable")),
+    loadingMovie(nullptr),
+    loadingMovie_2(nullptr)
 {
     ui->setupUi(this);
 
@@ -33,12 +37,18 @@ void SystemCleanerPage::init()
 
     // loaders
     connect(AppManager::ins(), &AppManager::changedTheme, this, [this]() {
-        loadingMovie = new QMovie(QString(":/static/themes/%1/img/scanLoading.gif").arg(AppManager::ins()->getThemeName()));
+        auto themeName = AppManager::ins()->getThemeName();
+
+        if (loadingMovie)
+            loadingMovie->deleteLater();
+        loadingMovie = new QMovie(QString(":/static/themes/%1/img/scanLoading.gif").arg(themeName));
         ui->loading->setMovie(loadingMovie);
         loadingMovie->start();
         ui->loading->hide();
 
-        loadingMovie_2 = new QMovie(QString(":/static/themes/%1/img/loading.gif").arg(AppManager::ins()->getThemeName()));
+        if (loadingMovie_2)
+            loadingMovie_2->deleteLater();
+        loadingMovie_2 = new QMovie(QString(":/static/themes/%1/img/loading.gif").arg(themeName));
         ui->loading_2->setMovie(loadingMovie_2);
         loadingMovie_2->start();
         ui->loading_2->hide();

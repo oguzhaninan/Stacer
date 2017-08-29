@@ -8,8 +8,8 @@ SettingsPage::~SettingsPage()
 
 SettingsPage::SettingsPage(QWidget *parent) :
     QWidget(parent),
-    apm(AppManager::ins()),
-    ui(new Ui::SettingsPage)
+    ui(new Ui::SettingsPage),
+    apm(AppManager::ins())
 {
     ui->setupUi(this);
 

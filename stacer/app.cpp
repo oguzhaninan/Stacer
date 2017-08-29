@@ -1,31 +1,24 @@
 #include "app.h"
 #include "ui_app.h"
 
+#include "Managers/app_manager.h"
+
 App::~App()
 {
     delete ui;
-    delete dashboardPage;
-    delete startupAppsPage;
-    delete systemCleanerPage;
-    delete servicesPage;
-    delete processPage;
-    delete uninstallerPage;
-    delete resourcesPage;
-    delete settingsPage;
 }
 
 App::App(QWidget *parent) :
     QMainWindow(parent),
-    apm(AppManager::ins()),
-    dashboardPage(new DashboardPage),
-    startupAppsPage(new StartupAppsPage),
-    systemCleanerPage(new SystemCleanerPage),
-    servicesPage(new ServicesPage),
-    processPage(new ProcessesPage),
-    uninstallerPage(new UninstallerPage),
-    resourcesPage(new ResourcesPage),
-    settingsPage(new SettingsPage),
-    ui(new Ui::App)
+    ui(new Ui::App),
+    dashboardPage(new DashboardPage(this)),
+    startupAppsPage(new StartupAppsPage(this)),
+    systemCleanerPage(new SystemCleanerPage(this)),
+    servicesPage(new ServicesPage(this)),
+    processPage(new ProcessesPage(this)),
+    uninstallerPage(new UninstallerPage(this)),
+    resourcesPage(new ResourcesPage(this)),
+    settingsPage(new SettingsPage(this))
 {
     ui->setupUi(this);
 
@@ -69,7 +62,7 @@ void App::pageClick(QPushButton *btn, QWidget *w, QString title)
     for (QPushButton *b : ui->sidebar->findChildren<QPushButton*>())
         b->setChecked(false);
     btn->setChecked(true); // clicked button set active style
-    apm->updateStylesheet(); // update style
+    AppManager::ins()->updateStylesheet(); // update style
 
     ui->pageTitle->setText(title);
     ui->pageStacked->setCurrentWidget(w);

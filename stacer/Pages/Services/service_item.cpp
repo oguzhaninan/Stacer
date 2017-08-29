@@ -8,30 +8,30 @@ ServiceItem::~ServiceItem()
 
 ServiceItem::ServiceItem(QString name, bool status, bool active, QWidget *parent) :
     QWidget(parent),
-    name(name),
-    tm(ToolManager::ins()),
-    ui(new Ui::ServiceItem)
+    ui(new Ui::ServiceItem),
+    tm(ToolManager::ins())
 {
     ui->setupUi(this);
 
     ui->serviceName->setText(name);
     ui->runningBtn->setChecked(active);
     ui->startupBtn->setChecked(status);
-
-    connect(ui->startupBtn, &QCheckBox::clicked, this, &ServiceItem::startupBtn_toggled);
-    connect(ui->runningBtn, &QCheckBox::clicked, this, &ServiceItem::runningBtn_toggled);
 }
 
-void ServiceItem::startupBtn_toggled(bool status)
+void ServiceItem::on_startupBtn_clicked(bool status)
 {
-    tm->changeServiceStatus(ui->serviceName->text(), status);
+    auto name = ui->serviceName->text();
+
+    tm->changeServiceStatus(name, status);
 
     ui->startupBtn->setChecked(tm->serviceIsEnabled(name));
 }
 
-void ServiceItem::runningBtn_toggled(bool status)
+void ServiceItem::on_runningBtn_clicked(bool status)
 {
-    tm->changeServiceActive(ui->serviceName->text(), status);
+    auto name = ui->serviceName->text();
+
+    tm->changeServiceActive(name, status);
 
     ui->runningBtn->setChecked(tm->serviceIsActive(name));
 }

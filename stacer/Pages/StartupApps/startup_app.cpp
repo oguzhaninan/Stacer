@@ -4,13 +4,12 @@
 StartupApp::~StartupApp()
 {
     delete ui;
-    delete startupAppEdit;
 }
 
 StartupApp::StartupApp(QString appName, bool enabled, QString filePath, QWidget *parent) :
     QWidget(parent),
     ui(new Ui::StartupApp),
-    startupAppEdit(new StartupAppEdit),
+    startupAppEdit(new StartupAppEdit(this)),
     appName(appName),
     enabled(enabled),
     filePath(filePath)

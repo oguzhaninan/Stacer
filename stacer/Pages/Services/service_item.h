@@ -18,15 +18,13 @@ public:
     ~ServiceItem();
 
 private slots:
-    void runningBtn_toggled(bool status);
-    void startupBtn_toggled(bool status);
+    void on_runningBtn_clicked(bool status);
+    void on_startupBtn_clicked(bool status);
 
 private:
     Ui::ServiceItem *ui;
 
 private:
-    QString name;
-
     ToolManager *tm;
 };
 

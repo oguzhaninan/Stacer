@@ -8,8 +8,8 @@ ServicesPage::~ServicesPage()
 
 ServicesPage::ServicesPage(QWidget *parent) :
     QWidget(parent),
-    tm(ToolManager::ins()),
-    ui(new Ui::ServicesPage)
+    ui(new Ui::ServicesPage),
+    tm(ToolManager::ins())
 {
     ui->setupUi(this);
 
