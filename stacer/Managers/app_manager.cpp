@@ -1,10 +1,10 @@
 #include "app_manager.h"
 
-AppManager *AppManager::_instance = NULL;
+AppManager *AppManager::_instance = nullptr;
 
 AppManager *AppManager::ins()
 {
-    if (_instance == NULL) {
+    if (_instance == nullptr) {
         _instance = new AppManager;
     }
 

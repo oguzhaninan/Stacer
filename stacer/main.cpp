@@ -6,6 +6,8 @@ void messageHandler(QtMsgType type,
                     const QMessageLogContext &context,
                     const QString &message)
 {
+    Q_UNUSED(context)
+
     QString level;
 
     switch (type) {

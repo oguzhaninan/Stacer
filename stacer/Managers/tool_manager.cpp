@@ -103,6 +103,8 @@ void ToolManager::uninstallPackages(QStringList packages)
     case PackageTool::PackageTools::PACMAN:
         pt->pacmanRemovePackages(packages);
         break;
+    default:
+        break;
     }
 
     uninstallFinished();
