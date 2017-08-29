@@ -1,17 +1,12 @@
 #ifndef COMMAND_UTIL_H
 #define COMMAND_UTIL_H
 
-#include <QObject>
-#include <QProcess>
-#include <QTextStream>
-#include <QDebug>
+#include <QStringList>
 
 #include "stacer-core_global.h"
 
-class STACERCORESHARED_EXPORT CommandUtil : public QObject
+class STACERCORESHARED_EXPORT CommandUtil
 {
-    Q_OBJECT
-
 public:
     static QString sudoExec(QString cmd, QStringList args = {});
     static QString exec(QString cmd, QStringList args = {});

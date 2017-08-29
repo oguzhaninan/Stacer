@@ -1,9 +1,6 @@
 #ifndef NETWORK_INFO_H
 #define NETWORK_INFO_H
 
-#include <QObject>
-#include <QDebug>
-
 #include "Utils/file_util.h"
 #include "Utils/command_util.h"
 
@@ -11,10 +8,8 @@
 
 #include "stacer-core_global.h"
 
-class STACERCORESHARED_EXPORT NetworkInfo : public QObject
+class STACERCORESHARED_EXPORT NetworkInfo
 {
-    Q_OBJECT
-
 public:
     NetworkInfo();
 

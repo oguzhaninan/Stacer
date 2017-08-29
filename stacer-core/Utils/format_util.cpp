@@ -1,5 +1,7 @@
 #include "format_util.h"
 
+#include <QString>
+
 FormatUtil::FormatUtil()
 {
 

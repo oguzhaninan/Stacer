@@ -2,7 +2,6 @@
 #define PROCESS_INFO_H
 
 #include <QObject>
-#include <QDebug>
 
 #include <Utils/file_util.h>
 #include <Utils/command_util.h>

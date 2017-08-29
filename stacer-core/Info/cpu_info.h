@@ -1,7 +1,6 @@
 #ifndef CPUINFO_H
 #define CPUINFO_H
 
-#include <QObject>
 #include <QDebug>
 #include <QVector>
 
@@ -12,10 +11,8 @@
 
 #include "stacer-core_global.h"
 
-class STACERCORESHARED_EXPORT CpuInfo : public QObject
+class STACERCORESHARED_EXPORT CpuInfo
 {
-    Q_OBJECT
-
 public:
     CpuInfo();
 

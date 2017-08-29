@@ -1,9 +1,6 @@
 #ifndef PROCESS_H
 #define PROCESS_H
 
-#include <QObject>
-
-#include <QDebug>
 #include "Utils/file_util.h"
 
 // defines

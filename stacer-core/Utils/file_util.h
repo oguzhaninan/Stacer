@@ -1,7 +1,6 @@
 #ifndef FILEUTIL_H
 #define FILEUTIL_H
 
-#include <QDebug>
 #include <QFile>
 #include <QDir>
 #include <QTextStream>
@@ -13,10 +12,8 @@
 
 #include "stacer-core_global.h"
 
-class STACERCORESHARED_EXPORT FileUtil : public QObject
+class STACERCORESHARED_EXPORT FileUtil
 {
-    Q_OBJECT
-
 public:
   static QString readStringFromFile(QString path, QIODevice::OpenMode mode = QIODevice::ReadOnly);
   static QStringList readListFromFile(QString path, QIODevice::OpenMode mode = QIODevice::ReadOnly);

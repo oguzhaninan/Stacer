@@ -1,5 +1,15 @@
 #include "service_tool.h"
 
+#include <QDebug>
+
+Service::Service(QString name, bool status, bool active) :
+    name(name),
+    status(status),
+    active(active)
+{
+
+}
+
 ServiceTool::ServiceTool()
 {
 

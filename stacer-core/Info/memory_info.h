@@ -1,19 +1,14 @@
 #ifndef MEMORYINFO_H
 #define MEMORYINFO_H
 
-#include <QObject>
-
-#include <QDebug>
 #include "Utils/file_util.h"
 
 #define PROC_MEMINFO "/proc/meminfo"
 
 #include "stacer-core_global.h"
 
-class STACERCORESHARED_EXPORT MemoryInfo : public QObject
+class STACERCORESHARED_EXPORT MemoryInfo
 {
-    Q_OBJECT
-
 public:
     MemoryInfo();
 

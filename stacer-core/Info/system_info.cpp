@@ -1,7 +1,8 @@
 #include "system_info.h"
 
-SystemInfo::SystemInfo() :
-    info(new QSysInfo)
+#include <QObject>
+
+SystemInfo::SystemInfo()
 {
     QStringList lines = FileUtil::readListFromFile(PROC_CPUINFO)
             .filter(QRegExp("^model name"));
@@ -10,13 +11,16 @@ SystemInfo::SystemInfo() :
         QStringList model = lines.first().split(":").at(1).split("@");
 
         if ( model.count() > 1) {
-            this->cpuModel = model.at(0).trimmed().replace(QRegExp("\\s+"), " ");
-            this->cpuSpeed = model.at(1).trimmed().replace(QRegExp("\\s+"), " ");
+            QRegExp regexp("\\s+");
+            QString space(" ");
+            this->cpuModel = model.at(0).trimmed().replace(regexp, space);
+            this->cpuSpeed = model.at(1).trimmed().replace(regexp, space);
         }
     }
     else {
-        this->cpuModel = tr("Unknown");
-        this->cpuSpeed = tr("Unknown");
+        QString unknown(QObject::tr("Unknown"));
+        this->cpuModel = unknown;
+        this->cpuSpeed = unknown;
     }
 
     CpuInfo ci;

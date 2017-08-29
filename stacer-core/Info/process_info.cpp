@@ -1,5 +1,7 @@
 #include "process_info.h"
 
+#include <QDebug>
+
 ProcessInfo::ProcessInfo()
 {
 

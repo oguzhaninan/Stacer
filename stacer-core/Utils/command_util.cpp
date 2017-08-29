@@ -1,6 +1,9 @@
 #include "command_util.h"
 
+#include <QProcess>
+#include <QTextStream>
 #include <QStandardPaths>
+#include <QDebug>
 
 CommandUtil::CommandUtil()
 {
