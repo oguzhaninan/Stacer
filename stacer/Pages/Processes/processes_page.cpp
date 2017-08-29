@@ -67,7 +67,7 @@ void ProcessesPage::init()
 void ProcessesPage::loadHeaderMenu()
 {
     int i = 0;
-    foreach (QString kolon, headers) {
+    for (const QString &kolon : headers) {
         QAction *action = new QAction(kolon);
         action->setCheckable(true);
         action->setChecked(true);
@@ -77,9 +77,10 @@ void ProcessesPage::loadHeaderMenu()
     }
 
     QList<int> hiddenHeaders = { 6, 7, 8, 9, 10, 11, 12 };
-    foreach (int i, hiddenHeaders) {
+    QList<QAction*> actions = headerMenu.actions();
+    for (const int &i : hiddenHeaders) {
         ui->processTable->horizontalHeader()->setSectionHidden(i, true);
-        headerMenu.actions().at(i)->setChecked(false);
+        actions.at(i)->setChecked(false);
     }
 }
 
@@ -91,7 +92,7 @@ void ProcessesPage::loadProcesses()
 
     im->updateProcesses();
 
-    foreach (Process proc, im->getProcesses()) {
+    for (const Process &proc : im->getProcesses()) {
         if (ui->allProcessesCheck->isChecked()) {
             model->appendRow(createRow(proc));
         }

@@ -58,10 +58,11 @@ void SystemCleanerPage::addTreeRoot(CleanCategories cat, QString title, QFileInf
     quint64 totalSize = 0;
 
     if(! noChild) {
-        foreach (QFileInfo i, infos) {
-            quint64 size = FileUtil::getFileSize(i.absoluteFilePath());
+        for (const QFileInfo &i : infos) {
+            QString path = i.absoluteFilePath();
+            quint64 size = FileUtil::getFileSize(path);
 
-            addTreeChild(i.absoluteFilePath(), i.fileName(), size, root);
+            addTreeChild(path, i.fileName(), size, root);
 
             totalSize += size;
         }
@@ -251,7 +252,7 @@ void SystemCleanerPage::systemClean()
         }
 
         // get removed files total size
-        foreach (QString file, filesToDelete) {
+        for (const QString &file : filesToDelete) {
             totalCleanedSize += FileUtil::getFileSize(file);
         }
 
@@ -264,7 +265,7 @@ void SystemCleanerPage::systemClean()
 
         for (int i = 0; i < tree->topLevelItemCount(); ++i) {
             // clear removed childs
-            foreach (QTreeWidgetItem *item, children) {
+            for (QTreeWidgetItem *item : children) {
                 tree->topLevelItem(i)->removeChild(item);
             }
         }

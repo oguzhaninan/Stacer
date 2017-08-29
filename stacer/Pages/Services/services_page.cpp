@@ -31,7 +31,7 @@ void ServicesPage::init()
 
 void ServicesPage::loadServices()
 {
-    foreach (Service s, tm->getServices()) {
+    for (const Service &s : tm->getServices()) {
 
         ServiceItem *service = new ServiceItem(s.name, s.status, s.active, this);
 

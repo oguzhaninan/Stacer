@@ -51,7 +51,7 @@ QStringList FileUtil::directoryList(QString path)
 
     QStringList list;
 
-    foreach (QFileInfo info, dir.entryInfoList(QDir::NoDotAndDotDot | QDir::Files))
+    for (const QFileInfo &info : dir.entryInfoList(QDir::NoDotAndDotDot | QDir::Files))
         list << info.fileName();
 
     return list;
@@ -72,7 +72,7 @@ quint64 FileUtil::getFileSize(QString path)
 
             QDir dir(path);
 
-            foreach (QFileInfo i, dir.entryInfoList(QDir::NoDotAndDotDot | QDir::Files | QDir::Dirs)) {
+            for (const QFileInfo &i : dir.entryInfoList(QDir::NoDotAndDotDot | QDir::Files | QDir::Dirs)) {
                 totalSize += getFileSize(i.absoluteFilePath());
             }
         }

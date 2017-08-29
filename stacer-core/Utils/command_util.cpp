@@ -1,5 +1,7 @@
 #include "command_util.h"
 
+#include <QStandardPaths>
+
 CommandUtil::CommandUtil()
 {
 
@@ -46,12 +48,5 @@ QString CommandUtil::exec(QString cmd, QStringList args)
 
 bool CommandUtil::isExecutable(QString cmd)
 {
-    QStringList paths;
-    paths << "/usr/bin/" << "/bin/" << "/sbin/" << "/usr/sbin/";
-
-    foreach (QString path, paths)
-    if(QFile::exists(path + cmd))
-      return true;
-
-    return false;
+    return !QStandardPaths::findExecutable(cmd).isEmpty();
 }

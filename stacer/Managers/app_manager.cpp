@@ -104,7 +104,7 @@ void AppManager::updateStylesheet()
     stylesheetFileContent = FileUtil::readStringFromFile(QString(":/static/themes/%1/style/style.qss").arg(themeName));
 
     // set values
-    foreach (QString key, styleValues->allKeys()) {
+    for (const QString &key : styleValues->allKeys()) {
         stylesheetFileContent.replace(key, styleValues->value(key).toString());
     }
 

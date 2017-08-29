@@ -39,7 +39,7 @@ void UninstallerPage::loadPackages()
     // clear items
     ui->packagesList->clear();
 
-    foreach (QString package, tm->getPackages())
+    for (const QString &package : tm->getPackages())
     {
         QListWidgetItem *item = new QListWidgetItem(QIcon::fromTheme(package, icon), QString("  %1").arg(package));
 
@@ -115,6 +115,6 @@ void UninstallerPage::on_packageSearch_textChanged(const QString &val)
         ui->packagesList->item(i)->setHidden(true);
 
     // Matches items show
-    foreach (QListWidgetItem* item, matches)
+    for (QListWidgetItem* item : matches)
         item->setHidden(false);
 }

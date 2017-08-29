@@ -14,15 +14,16 @@ QList<Service> ServiceTool::getServicesWithSystemctl()
         QStringList args = { "list-unit-files", "-t", "service", "-a", "--state=enabled,disabled" };
 
         QStringList lines = CommandUtil::exec("systemctl", args)
-                .split("\n")
+                .split(QChar('\n'))
                 .filter(QRegExp("[^@].service"));
 
-        foreach(QString line, lines)
+        QRegExp sep("\\s+");
+        for (const QString &line : lines)
         {
             // e.g apache2.service          [enabled|disabled]
-            QStringList s = line.trimmed().split(QRegExp("\\s+"));
+            QStringList s = line.trimmed().split(sep);
 
-            QString name   = s.first().trimmed().replace(".service", "");
+            QString name = s.first().trimmed().replace(".service", "");
             bool status = ! s.last().trimmed().compare("enabled");
             bool active = serviceIsActive(s.first().trimmed());
 

@@ -16,11 +16,12 @@ void ProcessInfo::updateProcesses()
 
         QStringList lines = CommandUtil::exec("ps", {"ax", "-eo", columns.join(","), "--no-headings"})
                 .trimmed()
-                .split("\n");
+                .split(QChar('\n'));
 
         if (! lines.isEmpty()) {
-            foreach (QString line, lines) {
-                QStringList procLine = line.trimmed().split(QRegExp("\\s+"));
+            QRegExp sep("\\s+");
+            for (const QString &line : lines) {
+                QStringList procLine = line.trimmed().split(sep);
 
                 if (procLine.count() >= columns.count()) {
                     Process proc;
