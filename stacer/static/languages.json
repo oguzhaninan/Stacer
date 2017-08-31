@@ -5,6 +5,7 @@
 	{"value" : "fr", "text": "Français"},
 	{"value" : "hi", "text": "हिंदी"},
 	{"value" : "kn", "text": "ಕನ್ನಡ"},
+	{"value" : "pl", "text": "Polski"},
   {"value" : "pt", "text": "Português - Brasil"},
   {"value" : "ru", "text": "Русский"},
 	{"value" : "sv", "text": "Svenska"},
