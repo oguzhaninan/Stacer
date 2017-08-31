@@ -1,5 +1,5 @@
 [
-    {"value" : "ar", "text": "العربية"},
+	{"value" : "ar", "text": "العربية"},
 	{"value" : "de", "text": "Deutsch"},
 	{"value" : "en", "text": "English"},
 	{"value" : "ca-es", "text": "Català"},
