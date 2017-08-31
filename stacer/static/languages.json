@@ -1,11 +1,15 @@
 [
     {"value" : "ar", "text": "العربية"},
-    {"value" : "en", "text": "English"},
-    {"value" : "es", "text": "Español"},
+	{"value" : "de", "text": "Deutsch"},
+	{"value" : "en", "text": "English"},
+	{"value" : "ca-es", "text": "Català"},
+	{"value" : "es", "text": "Español"},
 	{"value" : "fr", "text": "Français"},
 	{"value" : "hi", "text": "हिंदी"},
 	{"value" : "kn", "text": "ಕನ್ನಡ"},
+	{"value" : "pl", "text": "Polski"},
     {"value" : "pt", "text": "Português - Brasil"},
+    {"value" : "ru", "text": "Русский"},
 	{"value" : "sv", "text": "Svenska"},
 	{"value" : "tr", "text": "Türkçe"}
 ]
