@@ -79,6 +79,7 @@ FORMS += \
 TRANSLATIONS += \
     ../translations/stacer_de.ts \
     ../translations/stacer_en.ts \
+	../translations/stacer_ca-es.ts \
     ../translations/stacer_es.ts \
     ../translations/stacer_fr.ts \
     ../translations/stacer_hi.ts \	
