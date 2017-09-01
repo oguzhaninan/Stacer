@@ -15,7 +15,7 @@ InfoManager *InfoManager::ins()
     return _instance;
 }
 
-QString InfoManager::getUserName()
+QString InfoManager::getUserName() const
 {
     return si.getUsername();
 }
@@ -23,12 +23,12 @@ QString InfoManager::getUserName()
 /********************
  * CPU INFORMATION
  *******************/
-quint8 InfoManager::getCpuCoreCount()
+quint8 InfoManager::getCpuCoreCount() const
 {
     return ci.getCpuCoreCount();
 }
 
-QList<int> InfoManager::getCpuPercents()
+QList<int> InfoManager::getCpuPercents() const
 {
     return ci.getCpuPercents();
 }
@@ -41,22 +41,22 @@ void InfoManager::updateMemoryInfo()
     mi.updateMemoryInfo();
 }
 
-quint64 InfoManager::getSwapUsed()
+quint64 InfoManager::getSwapUsed() const
 {
     return mi.getSwapUsed();
 }
 
-quint64 InfoManager::getSwapTotal()
+quint64 InfoManager::getSwapTotal() const
 {
     return mi.getSwapTotal();
 }
 
-quint64 InfoManager::getMemUsed()
+quint64 InfoManager::getMemUsed() const
 {
     return mi.getMemUsed();
 }
 
-quint64 InfoManager::getMemTotal()
+quint64 InfoManager::getMemTotal() const
 {
     return mi.getMemTotal();
 }
@@ -64,7 +64,7 @@ quint64 InfoManager::getMemTotal()
 /********************
  * DISK INFORMATION
  *******************/
-QList<Disk> InfoManager::getDisks()
+QList<Disk> InfoManager::getDisks() const
 {
     return di.getDisks();
 }
@@ -77,12 +77,12 @@ void InfoManager::updateDiskInfo()
 /********************
  * NETWORK INFORMATION
  *******************/
-quint64 InfoManager::getRXbytes()
+quint64 InfoManager::getRXbytes() const
 {
     return ni.getRXbytes();
 }
 
-quint64 InfoManager::getTXbytes()
+quint64 InfoManager::getTXbytes() const
 {
     return ni.getTXbytes();
 }
@@ -90,17 +90,17 @@ quint64 InfoManager::getTXbytes()
 /********************
  * CLEANER INFORMATION
  *******************/
-QFileInfoList InfoManager::getCrashReports()
+QFileInfoList InfoManager::getCrashReports() const
 {
     return si.getCrashReports();
 }
 
-QFileInfoList InfoManager::getAppLogs()
+QFileInfoList InfoManager::getAppLogs() const
 {
     return si.getAppLogs();
 }
 
-QFileInfoList InfoManager::getAppCaches()
+QFileInfoList InfoManager::getAppCaches() const
 {
     return si.getAppCaches();
 }
@@ -113,7 +113,7 @@ void InfoManager::updateProcesses()
     pi.updateProcesses();
 }
 
-QList<Process> InfoManager::getProcesses()
+QList<Process> InfoManager::getProcesses() const
 {
     return pi.getProcessList();
 }

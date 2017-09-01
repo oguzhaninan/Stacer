@@ -27,9 +27,9 @@ public:
 private slots:
     void init();
     void loadProcesses();
-    QList<QStandardItem *> createRow(Process proc);
+    QList<QStandardItem *> createRow(const Process &proc);
     void on_processSearchBox_textChanged(const QString &val);
-    void on_refreshSlider_valueChanged(int i);
+    void on_refreshSlider_valueChanged(const int &i);
     void on_endProcessBtn_clicked();
     void on_processTable_customContextMenuRequested(const QPoint &pos);
     void loadHeaderMenu();

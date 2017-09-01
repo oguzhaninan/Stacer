@@ -3,7 +3,6 @@
 
 #include <QWidget>
 #include <QListWidgetItem>
-#include <QMovie>
 #include <QtConcurrent>
 
 #include "Managers/tool_manager.h"
@@ -37,8 +36,6 @@ private:
 
 private:
     ToolManager *tm;
-    QIcon icon;
-    QMovie *loadingMovie;
 };
 
 #endif // UNINSTALLERPAGE_H

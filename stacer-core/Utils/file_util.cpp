@@ -5,7 +5,7 @@ FileUtil::FileUtil()
 
 }
 
-QString FileUtil::readStringFromFile(QString path, QIODevice::OpenMode mode)
+QString FileUtil::readStringFromFile(const QString &path, const QIODevice::OpenMode &mode)
 {
     QSharedPointer<QFile> file(new QFile(path));
 
@@ -21,14 +21,14 @@ QString FileUtil::readStringFromFile(QString path, QIODevice::OpenMode mode)
     return data;
 }
 
-QStringList FileUtil::readListFromFile(QString path, QIODevice::OpenMode mode)
+QStringList FileUtil::readListFromFile(const QString &path, const QIODevice::OpenMode &mode)
 {
     QStringList list = FileUtil::readStringFromFile(path, mode).trimmed().split("\n");
 
     return list;
 }
 
-bool FileUtil::writeFile(QString path, QString content, QIODevice::OpenMode mode)
+bool FileUtil::writeFile(const QString &path, const QString &content, const QIODevice::OpenMode &mode)
 {
     QFile file(path);
 
@@ -45,19 +45,19 @@ bool FileUtil::writeFile(QString path, QString content, QIODevice::OpenMode mode
     return false;
 }
 
-QStringList FileUtil::directoryList(QString path)
+QStringList FileUtil::directoryList(const QString &path)
 {
     QDir dir(path);
 
     QStringList list;
 
-    foreach (QFileInfo info, dir.entryInfoList(QDir::NoDotAndDotDot | QDir::Files))
+    for (const QFileInfo &info : dir.entryInfoList(QDir::NoDotAndDotDot | QDir::Files))
         list << info.fileName();
 
     return list;
 }
 
-quint64 FileUtil::getFileSize(QString path)
+quint64 FileUtil::getFileSize(const QString &path)
 {
     quint64 totalSize = 0;
 
@@ -72,7 +72,7 @@ quint64 FileUtil::getFileSize(QString path)
 
             QDir dir(path);
 
-            foreach (QFileInfo i, dir.entryInfoList(QDir::NoDotAndDotDot | QDir::Files | QDir::Dirs)) {
+            for (const QFileInfo &i : dir.entryInfoList(QDir::NoDotAndDotDot | QDir::Files | QDir::Dirs)) {
                 totalSize += getFileSize(i.absoluteFilePath());
             }
         }

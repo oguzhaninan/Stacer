@@ -14,14 +14,16 @@ QList<Disk> DiskInfo::getDisks() const
 void DiskInfo::updateDiskInfo()
 {
     try {
-        QStringList result = CommandUtil::exec("df -Pl").split("\n");
+        QStringList result = CommandUtil::exec("df -Pl").split(QChar('\n'));
 
-        foreach(QString line, result.filter(QRegExp("^/")))
+        QRegExp sep("\\s+");
+        for (const QString &line : result.filter(QRegExp("^/")))
         {
             Disk disk;
-            disk.size = line.split(QRegExp("\\s+")).at(1).toLong() << 10;
-            disk.used = line.split(QRegExp("\\s+")).at(2).toLong() << 10;
-            disk.free = line.split(QRegExp("\\s+")).at(3).toLong() << 10;
+            QStringList slist = line.split(sep);
+            disk.size = slist.at(1).toLong() << 10;
+            disk.used = slist.at(2).toLong() << 10;
+            disk.free = slist.at(3).toLong() << 10;
     
             disks << disk;
         }

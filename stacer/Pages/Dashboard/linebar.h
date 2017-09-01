@@ -12,11 +12,11 @@ class LineBar : public QWidget
     Q_OBJECT
 
 public:
-    explicit LineBar(QString title, QWidget *parent = 0);
+    explicit LineBar(const QString &title, QWidget *parent = 0);
     ~LineBar();
 
 public slots:
-    void setValue(int value, QString text, QString totalText);
+    void setValue(const int &value, const QString &text, const QString &totalText);
 private:
     Ui::LineBar *ui;
 };

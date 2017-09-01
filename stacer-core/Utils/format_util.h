@@ -1,17 +1,12 @@
 #ifndef FORMAT_UTIL_H
 #define FORMAT_UTIL_H
 
-#include <QObject>
-#include <QDebug>
-
 #include "stacer-core_global.h"
 
-class STACERCORESHARED_EXPORT FormatUtil : public QObject
+class STACERCORESHARED_EXPORT FormatUtil
 {
-    Q_OBJECT
-
 public:
-    static QString formatBytes(quint64 bytes);
+    static QString formatBytes(const quint64 &bytes);
 
 private:
     FormatUtil();

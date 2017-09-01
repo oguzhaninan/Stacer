@@ -17,14 +17,14 @@ class HistoryChart : public QWidget
     Q_OBJECT
 
 public:
-    explicit HistoryChart(QString title, int seriesCount, QWidget *parent = 0);
+    explicit HistoryChart(const QString &title, const int &seriesCount, QWidget *parent = 0);
     ~HistoryChart();
 
     QVector<QLineSeries *> getSeriesList() const;
 
 public slots:
-    void setYMax(int value);
-    void setSeriesList(QVector<QLineSeries *> &value);
+    void setYMax(const int &value);
+    void setSeriesList(const QVector<QLineSeries *> &value);
 
 private slots:
     void init();

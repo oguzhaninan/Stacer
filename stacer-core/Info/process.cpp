@@ -30,7 +30,7 @@ double Process::getPmem() const
     return pmem;
 }
 
-void Process::setPmem(double value)
+void Process::setPmem(const double &value)
 {
     pmem = value;
 }
@@ -60,7 +60,7 @@ double Process::getPcpu() const
     return pcpu;
 }
 
-void Process::setPcpu(double value)
+void Process::setPcpu(const double &value)
 {
     pcpu = value;
 }
@@ -110,7 +110,7 @@ int Process::getNice() const
     return nice;
 }
 
-void Process::setNice(int value)
+void Process::setNice(const int &value)
 {
     nice = value;
 }

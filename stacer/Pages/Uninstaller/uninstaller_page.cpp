@@ -1,18 +1,17 @@
 #include "uninstaller_page.h"
 #include "ui_uninstallerpage.h"
 
+#include <QMovie>
+
 UninstallerPage::~UninstallerPage()
 {
     delete ui;
-    delete loadingMovie;
 }
 
 UninstallerPage::UninstallerPage(QWidget *parent) :
     QWidget(parent),
-    tm(ToolManager::ins()),
-    icon(QIcon(QString(":/static/themes/%1/img/package.svg").arg(AppManager::ins()->getThemeName()))),
-    loadingMovie(new QMovie(QString(":/static/themes/%1/img/loading.gif").arg(AppManager::ins()->getThemeName()))),
-    ui(new Ui::UninstallerPage)
+    ui(new Ui::UninstallerPage),
+    tm(ToolManager::ins())
 {
     ui->setupUi(this);
 
@@ -21,6 +20,8 @@ UninstallerPage::UninstallerPage(QWidget *parent) :
 
 void UninstallerPage::init()
 {
+    auto path = QString(":/static/themes/%1/img/loading.gif").arg(AppManager::ins()->getThemeName());
+    auto loadingMovie = new QMovie(path, QByteArray(), this);
     ui->loading->setMovie(loadingMovie);
     loadingMovie->start();
     ui->loading->hide();
@@ -39,7 +40,8 @@ void UninstallerPage::loadPackages()
     // clear items
     ui->packagesList->clear();
 
-    foreach (QString package, tm->getPackages())
+    QIcon icon(QString(":/static/themes/%1/img/package.svg").arg(AppManager::ins()->getThemeName()));
+    for (const QString &package : tm->getPackages())
     {
         QListWidgetItem *item = new QListWidgetItem(QIcon::fromTheme(package, icon), QString("  %1").arg(package));
 
@@ -63,7 +65,7 @@ void UninstallerPage::setAppCount()
 
     ui->packagesTitle->setText(
         tr("System Installed Packages (%1)")
-        .arg(QString::number(count)));
+        .arg(count));
 
     ui->notFoundWidget->setVisible(! count);
     ui->packagesList->setVisible(count);
@@ -73,7 +75,7 @@ QStringList UninstallerPage::getSelectedPackages()
 {
     QStringList selectedPackages = {};
 
-    for (int i = 0; i < ui->packagesList->count(); i++)
+    for (int i = 0; i < ui->packagesList->count(); ++i)
     {
         QListWidgetItem *item = ui->packagesList->item(i);
 
@@ -115,6 +117,6 @@ void UninstallerPage::on_packageSearch_textChanged(const QString &val)
         ui->packagesList->item(i)->setHidden(true);
 
     // Matches items show
-    foreach (QListWidgetItem* item, matches)
+    for (QListWidgetItem* item : matches)
         item->setHidden(false);
 }

@@ -1,7 +1,8 @@
 #include "system_info.h"
 
-SystemInfo::SystemInfo() :
-    info(new QSysInfo)
+#include <QObject>
+
+SystemInfo::SystemInfo()
 {
     QStringList lines = FileUtil::readListFromFile(PROC_CPUINFO)
             .filter(QRegExp("^model name"));
@@ -10,13 +11,16 @@ SystemInfo::SystemInfo() :
         QStringList model = lines.first().split(":").at(1).split("@");
 
         if ( model.count() > 1) {
-            this->cpuModel = model.at(0).trimmed().replace(QRegExp("\\s+"), " ");
-            this->cpuSpeed = model.at(1).trimmed().replace(QRegExp("\\s+"), " ");
+            QRegExp regexp("\\s+");
+            QString space(" ");
+            this->cpuModel = model.at(0).trimmed().replace(regexp, space);
+            this->cpuSpeed = model.at(1).trimmed().replace(regexp, space);
         }
     }
     else {
-        this->cpuModel = tr("Unknown");
-        this->cpuSpeed = tr("Unknown");
+        QString unknown(QObject::tr("Unknown"));
+        this->cpuModel = unknown;
+        this->cpuSpeed = unknown;
     }
 
     CpuInfo ci;
@@ -43,58 +47,58 @@ QString SystemInfo::getUsername() const
     return username;
 }
 
-QString SystemInfo::getHostname()
+QString SystemInfo::getHostname() const
 {
     return QSysInfo::machineHostName();
 }
 
-QString SystemInfo::getPlatform()
+QString SystemInfo::getPlatform() const
 {
     return QString("%1 %2")
             .arg(QSysInfo::kernelType())
             .arg(QSysInfo::currentCpuArchitecture());
 }
 
-QString SystemInfo::getDistribution()
+QString SystemInfo::getDistribution() const
 {
     return QSysInfo::prettyProductName();
 }
 
-QString SystemInfo::getKernel()
+QString SystemInfo::getKernel() const
 {
     return QSysInfo::kernelVersion();
 }
 
-QString SystemInfo::getCpuModel()
+QString SystemInfo::getCpuModel() const
 {
     return this->cpuModel;
 }
 
-QString SystemInfo::getCpuSpeed()
+QString SystemInfo::getCpuSpeed() const
 {
     return this->cpuSpeed;
 }
 
-QString SystemInfo::getCpuCore()
+QString SystemInfo::getCpuCore() const
 {
     return this->cpuCore;
 }
 
-QFileInfoList SystemInfo::getCrashReports()
+QFileInfoList SystemInfo::getCrashReports() const
 {
     QDir reports("/var/crash");
 
     return reports.entryInfoList(QDir::Files);
 }
 
-QFileInfoList SystemInfo::getAppLogs()
+QFileInfoList SystemInfo::getAppLogs() const
 {
     QDir logs("/var/log");
 
     return logs.entryInfoList(QDir::Files | QDir::Dirs | QDir::NoDotAndDotDot);
 }
 
-QFileInfoList SystemInfo::getAppCaches()
+QFileInfoList SystemInfo::getAppCaches() const
 {
     QString homePath = QStandardPaths::writableLocation(QStandardPaths::HomeLocation);
 

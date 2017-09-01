@@ -1,7 +1,6 @@
 #ifndef DISKINFO_H
 #define DISKINFO_H
 
-#include <QObject>
 #include "Utils/command_util.h"
 #include "Utils/file_util.h"
 
@@ -11,10 +10,8 @@ class Disk;
 
 #include "stacer-core_global.h"
 
-class STACERCORESHARED_EXPORT DiskInfo : public QObject
+class STACERCORESHARED_EXPORT DiskInfo
 {
-    Q_OBJECT
-
 public:
     DiskInfo();
 

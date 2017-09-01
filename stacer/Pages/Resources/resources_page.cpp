@@ -4,17 +4,16 @@
 ResourcesPage::~ResourcesPage()
 {
     delete ui;
-    delete cpuChart;
-    delete memoryChart;
-    delete networkChart;
-    delete timer;
 }
 
 ResourcesPage::ResourcesPage(QWidget *parent) :
     QWidget(parent),
-    timer(new QTimer),
-    im(InfoManager::ins()),
-    ui(new Ui::ResourcesPage)
+    ui(new Ui::ResourcesPage),
+    cpuChart(new HistoryChart(tr("CPU History"), im->getCpuCoreCount(), this)),
+    memoryChart(new HistoryChart(tr("Memory History"), 2, this)),
+    networkChart(new HistoryChart(tr("Network History"), 2, this)),
+    timer(new QTimer(this)),
+    im(InfoManager::ins())
 {
     ui->setupUi(this);
 
@@ -23,13 +22,8 @@ ResourcesPage::ResourcesPage(QWidget *parent) :
 
 void ResourcesPage::init()
 {
-    cpuChart = new HistoryChart(tr("CPU History"), im->getCpuCoreCount());
     cpuChart->setYMax(100);
-
-    memoryChart = new HistoryChart(tr("Memory History"), 2);
     memoryChart->setYMax(100);
-
-    networkChart = new HistoryChart(tr("Network History"), 2);
 
     ui->chartsLayout->addWidget(cpuChart);
     ui->chartsLayout->addWidget(memoryChart);
@@ -39,7 +33,7 @@ void ResourcesPage::init()
     connect(timer, &QTimer::timeout, this, &ResourcesPage::updateMemoryChart);
     connect(timer, &QTimer::timeout, this, &ResourcesPage::updateNetworkChart);
 
-    timer->start(1 * 1000);
+    timer->start(1000);
 }
 
 void ResourcesPage::updateNetworkChart()

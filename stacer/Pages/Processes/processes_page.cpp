@@ -4,18 +4,18 @@
 ProcessesPage::~ProcessesPage()
 {
     delete ui;
-    delete model;
-    delete sortModel;
-    delete timer;
 }
 
 ProcessesPage::ProcessesPage(QWidget *parent) :
   QWidget(parent),
+  ui(new Ui::ProcessesPage),
   model(new QStandardItemModel(this)),
   sortModel(new QSortFilterProxyModel(this)),
+  headers{"PID", tr("Resident Memory"), tr("%Memory"), tr("Virtual Memory"),
+          tr("User"), "%CPU", tr("Start Time"), tr("State"), tr("Group"),
+          tr("Nice"), tr("CPU Time"), tr("Session"), tr("Seat"), tr("Process")},
   im(InfoManager::ins()),
-  timer(new QTimer(this)),
-  ui(new Ui::ProcessesPage)
+  timer(new QTimer(this))
 {
     ui->setupUi(this);
 
@@ -31,10 +31,6 @@ void ProcessesPage::init()
 
     // Table settings
     sortModel->setSourceModel(model);
-
-    headers << "PID" << tr("Resident Memory") << tr("%Memory") << tr("Virtual Memory") << tr("User") << "%CPU"
-            << tr("Start Time") << tr("State") << tr("Group") << tr("Nice") << tr("CPU Time")
-            << tr("Session") << tr("Seat") << tr("Process");
 
     model->setHorizontalHeaderLabels(headers);
 
@@ -67,7 +63,7 @@ void ProcessesPage::init()
 void ProcessesPage::loadHeaderMenu()
 {
     int i = 0;
-    foreach (QString kolon, headers) {
+    for (const QString &kolon : headers) {
         QAction *action = new QAction(kolon);
         action->setCheckable(true);
         action->setChecked(true);
@@ -77,9 +73,10 @@ void ProcessesPage::loadHeaderMenu()
     }
 
     QList<int> hiddenHeaders = { 6, 7, 8, 9, 10, 11, 12 };
-    foreach (int i, hiddenHeaders) {
+    QList<QAction*> actions = headerMenu.actions();
+    for (const int &i : hiddenHeaders) {
         ui->processTable->horizontalHeader()->setSectionHidden(i, true);
-        headerMenu.actions().at(i)->setChecked(false);
+        actions.at(i)->setChecked(false);
     }
 }
 
@@ -91,7 +88,7 @@ void ProcessesPage::loadProcesses()
 
     im->updateProcesses();
 
-    foreach (Process proc, im->getProcesses()) {
+    for (const Process &proc : im->getProcesses()) {
         if (ui->allProcessesCheck->isChecked()) {
             model->appendRow(createRow(proc));
         }
@@ -116,7 +113,7 @@ void ProcessesPage::loadProcesses()
     }
 }
 
-QList<QStandardItem*> ProcessesPage::createRow(Process proc)
+QList<QStandardItem*> ProcessesPage::createRow(const Process &proc)
 {
     QList<QStandardItem*> row;
 
@@ -193,7 +190,7 @@ void ProcessesPage::on_processSearchBox_textChanged(const QString &val)
     sortModel->setFilterRegExp(query);
 }
 
-void ProcessesPage::on_refreshSlider_valueChanged(int i)
+void ProcessesPage::on_refreshSlider_valueChanged(const int &i)
 {
     ui->refreshLabel->setText(tr("Refresh (%1)").arg(i));
     timer->setInterval(i * 1000);

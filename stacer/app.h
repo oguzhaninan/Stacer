@@ -13,8 +13,6 @@
 #include "Pages/Resources/resources_page.h"
 #include "Pages/Settings/settings_page.h"
 
-#include "Managers/app_manager.h"
-
 namespace Ui {
     class App;
 }
@@ -55,8 +53,6 @@ private:
     UninstallerPage *uninstallerPage;
     ResourcesPage *resourcesPage;
     SettingsPage *settingsPage;
-
-    AppManager *apm;
 };
 
 #endif // APP_H

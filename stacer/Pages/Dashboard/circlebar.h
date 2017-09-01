@@ -14,7 +14,7 @@ class CircleBar : public QWidget
     Q_OBJECT
 
 public:
-    explicit CircleBar(QString title, QStringList colors, QWidget *parent = 0);
+    explicit CircleBar(const QString &title, const QStringList &colors, QWidget *parent = 0);
     ~CircleBar();
 
 public slots:
