@@ -67,16 +67,6 @@
 - curl
 - systemd
 
-## Distribution independent installation
-
-- Install
-
-	Run `bash -c "$(wget https://raw.githubusercontent.com/oguzhaninan/Stacer/native/install.sh -O -)"`
-
-- Uninstall 
-
-	Run `sudo bash uninstall-stacer`
-
 ### Debian x64
 
 1. Download `stacer_1.0.8_amd64.deb` from the [Stacer releases page](https://github.com/oguzhaninan/Stacer/releases).
