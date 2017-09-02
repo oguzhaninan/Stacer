@@ -54,7 +54,7 @@
     <message>
         <location filename="../stacer/Pages/Dashboard/dashboard_page.ui" line="240"/>
         <source>There are update currently available.</source>
-        <translation>ನವೀಕರಣಗಳು ಪ್ರಸ್ತುತ ಲಭ್ಯವಿವೆ.</translation>
+        <translation>ನವೀಕರಣಗಳು ಲಭ್ಯವಿವೆ.</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/Dashboard/dashboard_page.ui" line="253"/>
@@ -182,8 +182,8 @@
     </message>
     <message>
         <location filename="../stacer/Pages/Processes/processes_page.cpp" line="36"/>
-        <source>ಗುಂಪು</source>
-        <translation>समूह</translation>
+        <source>Group</source>
+        <translation>ಗುಂಪು</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/Processes/processes_page.cpp" line="36"/>
@@ -241,12 +241,12 @@
     <message>
         <location filename="../stacer/Pages/Resources/resources_page.cpp" line="76"/>
         <source>Download %1/s Total: %2</source>
-        <translation>ಡೌನ್‌ಲೋಡ್ %1/s कुल: %2</translation>
+        <translation>ಡೌನ್‌ಲೋಡ್ %1/s ಒಟ್ಟು: %2</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/Resources/resources_page.cpp" line="81"/>
         <source>Upload %1/s  Total: %2</source>
-        <translation>ಅಪ್‌ಲೋಡ್ %1/s  कुल: %2</translation>
+        <translation>ಅಪ್‌ಲೋಡ್ %1/s  ಒಟ್ಟು: %2</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/Resources/resources_page.cpp" line="122"/>
@@ -333,12 +333,12 @@
     <message>
         <location filename="../stacer/Pages/StartupApps/startup_app_edit.ui" line="67"/>
         <source>App Comment</source>
-        <translation>ऐप टिप्पणी</translation>
+        <translation>ಅಪ್ಲಿಕೇಶನ್ ಕಾಮೆಂಟ್</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/StartupApps/startup_app_edit.ui" line="74"/>
         <source>App Name</source>
-        <translation>ಅಪ್ಲಿಕೇಶನ್ ಕಾಮೆಂಟ್</translation>
+        <translation>ಅಪ್ಲಿಕೇಶನ್ ಹೆಸರು</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/StartupApps/startup_app_edit.ui" line="81"/>
