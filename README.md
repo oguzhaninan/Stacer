@@ -79,11 +79,13 @@
 2. Run `sudo rpm --install stacer*.rpm` on the downloaded package.
 3. Launch Stacer using the installed `stacer` command.
 
-## Build from source
-
-1. `git clone https://github.com/oguzhaninan/Stacer.git`
-2. `cd Stacer`
-3. `./deploy.sh`
+## Build from source with CMake
+```
+$ mkdir build && cd build
+$ cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_PREFIX_PATH=/qt/path/bin -G Ninja  ..
+$ ninja
+$ output/bin/stacer
+```
 
 ## Screenshots
 
