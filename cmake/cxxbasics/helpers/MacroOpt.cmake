@@ -1,6 +1,6 @@
 ## This module defines helper macros to set options(cached variables)
 
-cmake_minimum_required(VERSION 3.4 FATAL_ERROR)
+cmake_minimum_required(VERSION 3.0 FATAL_ERROR)
 
 # @macro opt
 # Macro helper to set a cache value.

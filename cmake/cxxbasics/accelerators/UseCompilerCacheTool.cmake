@@ -1,6 +1,6 @@
 # This module activates a compiler cache
 
-cmake_minimum_required(VERSION 3.4 FATAL_ERROR)
+cmake_minimum_required(VERSION 3.0 FATAL_ERROR)
 
 opt_ifndef("Use a compiler cache tool, if supported"  BOOL  ON  CXXBASICS_ACTIVATE_COMPILER_CACHE)
 if(CXXBASICS_ACTIVATE_COMPILER_CACHE)

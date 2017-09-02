@@ -8,7 +8,12 @@
 # IBM System z:                                                                  s390, s390x
 # SPARC:                                                                         sparcv9, sparc64, sparc
 
-cmake_minimum_required(VERSION 3.4 FATAL_ERROR)
+cmake_minimum_required(VERSION 3.0 FATAL_ERROR)
+
+cmake_policy(PUSH)
+if(POLICY CMP0054)
+  cmake_policy(SET CMP0054 NEW)
+endif(POLICY CMP0054)
 
 opt_ifndef("C compiler target architecture"    STRING  ""  CXXBASICS_C_COMPILER_TARGET_ARCH)
 opt_ifndef("CXX compiler target architecture"  STRING  ""  CXXBASICS_CXX_COMPILER_TARGET_ARCH)
@@ -159,3 +164,5 @@ if("${CXXBASICS_C_COMPILER_TARGET_ARCH}" STREQUAL ""
   __cxxbasics_define_arch(".c"    CXXBASICS_C_COMPILER_TARGET_ARCH)
   __cxxbasics_define_arch(".cxx"  CXXBASICS_CXX_COMPILER_TARGET_ARCH)
 endif()
+
+cmake_policy(POP)

@@ -1,7 +1,7 @@
 # This module activates "ccache" support on Unix
 # This module is supposed to be used only from "UseCompilerCacheTool.cmake"
 
-cmake_minimum_required(VERSION 3.4 FATAL_ERROR)
+cmake_minimum_required(VERSION 3.0 FATAL_ERROR)
 
 find_program(__cxxbasics_ccache_found  ccache)
 if(__cxxbasics_ccache_found)
