@@ -1,7 +1,7 @@
 ## This module contains project-wide custom CMake messagging macros.
 ## Does not adhere to the overall style because MacroCbmessage does not sound very well nor represent all macros...
 
-cmake_minimum_required(VERSION 3.4 FATAL_ERROR)
+cmake_minimum_required(VERSION 3.0 FATAL_ERROR)
 
 # This does not work in Windows CMD(usually also CI)
 if(CYGWIN OR NOT CMAKE_HOST_WIN32)

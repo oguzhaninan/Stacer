@@ -1,6 +1,6 @@
 ## This module defines helper functions to create temporary files and folders in a system-agnostic way
 
-cmake_minimum_required(VERSION 3.4 FATAL_ERROR)
+cmake_minimum_required(VERSION 3.0 FATAL_ERROR)
 
 opt_ifndef("CXXBasics temporary folder(uses system folder by default)"  PATH  ""  CXXBASICS_TMP_FOLDER)
 macro(__cxxbasics_mktemp_helper)
