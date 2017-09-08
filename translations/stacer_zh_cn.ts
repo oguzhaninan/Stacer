@@ -31,7 +31,7 @@
     <message>
         <location filename="../stacer/app.cpp" line="105"/>
         <source>Resources</source>
-        <translation>资源</translation>
+        <translation>系统资源</translation>
     </message>
     <message>
         <location filename="../stacer/app.cpp" line="110"/>
@@ -49,7 +49,7 @@
     <message>
         <location filename="../stacer/Pages/Dashboard/dashboard_page.ui" line="153"/>
         <source>SYSTEM INFO</source>
-        <translation>仪表盘信息</translation>
+        <translation>系统信息</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/Dashboard/dashboard_page.ui" line="240"/>
@@ -394,7 +394,7 @@
     <message>
         <location filename="../stacer/Pages/SystemCleaner/system_cleaner_page.ui" line="327"/>
         <source>Trash</source>
-        <translation>垃圾</translation>
+        <translation>回收站</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/SystemCleaner/system_cleaner_page.ui" line="365"/>
