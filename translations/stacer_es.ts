@@ -193,7 +193,7 @@
     <message>
         <location filename="../stacer/Pages/Processes/processes_page.cpp" line="36"/>
         <source>CPU Time</source>
-        <translation type="unfinished"></translation>
+        <translation>Tiempo de CPU</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/Processes/processes_page.cpp" line="37"/>
