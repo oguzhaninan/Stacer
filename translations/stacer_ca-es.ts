@@ -26,7 +26,7 @@
     <message>
         <location filename="../stacer/app.cpp" line="100"/>
         <source>Uninstaller</source>
-        <translation>Desinstal�lador</translation>
+        <translation>Desinstal·lador</translation>
     </message>
     <message>
         <location filename="../stacer/app.cpp" line="105"/>
@@ -41,7 +41,7 @@
     <message>
         <location filename="../stacer/app.cpp" line="115"/>
         <source>Settings</source>
-        <translation>Configuraci�</translation>
+        <translation>Configuració</translation>
     </message>
 </context>
 <context>
@@ -49,7 +49,7 @@
     <message>
         <location filename="../stacer/Pages/Dashboard/dashboard_page.ui" line="153"/>
         <source>SYSTEM INFO</source>
-        <translation>INFORMACI� DEL SISTEMA</translation>
+        <translation>INFORMACIÓ DEL SISTEMA</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/Dashboard/dashboard_page.ui" line="240"/>
@@ -69,7 +69,7 @@
     <message>
         <location filename="../stacer/Pages/Dashboard/dashboard_page.cpp" line="19"/>
         <source>MEMORY</source>
-        <translation>MEM�RIA</translation>
+        <translation>MEMÒRIA</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/Dashboard/dashboard_page.cpp" line="20"/>
@@ -89,7 +89,7 @@
     <message>
         <location filename="../stacer/Pages/Dashboard/dashboard_page.cpp" line="107"/>
         <source>Hostname: %1</source>
-        <translation>Nom de l'amfitri�: %1</translation>
+        <translation>Nom de l'amfitrió: %1</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/Dashboard/dashboard_page.cpp" line="108"/>
@@ -99,12 +99,12 @@
     <message>
         <location filename="../stacer/Pages/Dashboard/dashboard_page.cpp" line="109"/>
         <source>Distribution: %1</source>
-        <translation>Distribuci�: %1</translation>
+        <translation>Distribució: %1</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/Dashboard/dashboard_page.cpp" line="110"/>
         <source>Kernel Release: %1</source>
-        <translation>Versi� del nucli: %1</translation>
+        <translation>Versió del nucli: %1</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/Dashboard/dashboard_page.cpp" line="111"/>
@@ -148,7 +148,7 @@
     <message>
         <location filename="../stacer/Pages/Processes/processes_page.ui" line="206"/>
         <source>End Process</source>
-        <translation>Finalitza el proc�s</translation>
+        <translation>Finalitza el procés</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/Processes/processes_page.cpp" line="35"/>
@@ -158,17 +158,17 @@
     <message>
         <location filename="../stacer/Pages/Processes/processes_page.cpp" line="35"/>
         <source>Resident Memory</source>
-        <translation>Mem�ria resident</translation>
+        <translation>Memòria resident</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/Processes/processes_page.cpp" line="35"/>
         <source>%Memory</source>
-        <translation>%Mem�ria</translation>
+        <translation>%Memòria</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/Processes/processes_page.cpp" line="35"/>
         <source>Virtual Memory</source>
-        <translation>Mem�ria virtual</translation>
+        <translation>Memòria virtual</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/Processes/processes_page.cpp" line="36"/>
@@ -198,7 +198,7 @@
     <message>
         <location filename="../stacer/Pages/Processes/processes_page.cpp" line="37"/>
         <source>Session</source>
-        <translation>Sessi�</translation>
+        <translation>Sessió</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/Processes/processes_page.cpp" line="37"/>
@@ -208,7 +208,7 @@
     <message>
         <location filename="../stacer/Pages/Processes/processes_page.cpp" line="37"/>
         <source>Process</source>
-        <translation>Proc�s</translation>
+        <translation>Procés</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/Processes/processes_page.cpp" line="104"/>
@@ -226,17 +226,17 @@
     <message>
         <location filename="../stacer/Pages/Resources/resources_page.cpp" line="26"/>
         <source>CPU History</source>
-        <translation>Hist�ric de la CPU</translation>
+        <translation>Històric de la CPU</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/Resources/resources_page.cpp" line="29"/>
         <source>Memory History</source>
-        <translation>Hist�ric de la mem�ria</translation>
+        <translation>Històric de la mem�ria</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/Resources/resources_page.cpp" line="32"/>
         <source>Network History</source>
-        <translation>Hist�ric de la xarxa</translation>
+        <translation>Històric de la xarxa</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/Resources/resources_page.cpp" line="76"/>
@@ -251,12 +251,12 @@
     <message>
         <location filename="../stacer/Pages/Resources/resources_page.cpp" line="122"/>
         <source>Swap %1 (%2%) %3</source>
-        <translation>Intercanvia %1 (%2%) %3</translation>
+        <translation>Intercanvi %1 (%2%) %3</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/Resources/resources_page.cpp" line="131"/>
         <source>Memory %1 (%2%) %3</source>
-        <translation>Mem�ria %1 (%2%) %3</translation>
+        <translation>Memòria %1 (%2%) %3</translation>
     </message>
 </context>
 <context>
@@ -274,7 +274,7 @@
     <message>
         <location filename="../stacer/Pages/Services/services_page.ui" line="176"/>
         <source>Running Now ?</source>
-        <translation>S'est� executant ara?</translation>
+        <translation>S'està executant ara?</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/Services/services_page.ui" line="246"/>
@@ -318,7 +318,7 @@
     <message>
         <location filename="../stacer/Pages/StartupApps/startup_app_edit.ui" line="20"/>
         <source>Startup App</source>
-        <translation>Aplicaci� d'inici</translation>
+        <translation>Aplicació d'inici</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/StartupApps/startup_app_edit.ui" line="50"/>
@@ -333,12 +333,12 @@
     <message>
         <location filename="../stacer/Pages/StartupApps/startup_app_edit.ui" line="67"/>
         <source>App Comment</source>
-        <translation>Comentari de l'aplicaci�</translation>
+        <translation>Comentari de l'aplicació</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/StartupApps/startup_app_edit.ui" line="74"/>
         <source>App Name</source>
-        <translation>Nom de l'aplicaci�</translation>
+        <translation>Nom de l'aplicació</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/StartupApps/startup_app_edit.ui" line="81"/>
@@ -348,7 +348,7 @@
     <message>
         <location filename="../stacer/Pages/StartupApps/startup_app_edit.ui" line="88"/>
         <source>Application</source>
-        <translation>Aplicaci�</translation>
+        <translation>Aplicació</translation>
     </message>
 </context>
 <context>
@@ -366,7 +366,7 @@
     <message>
         <location filename="../stacer/Pages/StartupApps/startup_apps_page.ui" line="95"/>
         <source>Add Startup App</source>
-        <translation>Afegeix una aplicaci� d'inici</translation>
+        <translation>Afegeix una aplicació d'inici</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/StartupApps/startup_apps_page.cpp" line="79"/>
@@ -389,7 +389,7 @@
     <message>
         <location filename="../stacer/Pages/SystemCleaner/system_cleaner_page.ui" line="206"/>
         <source>Application Caches</source>
-        <translation>Mem�ria cau d'aplicacions</translation>
+        <translation>Memòria cau d'aplicacions</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/SystemCleaner/system_cleaner_page.ui" line="327"/>
@@ -399,7 +399,7 @@
     <message>
         <location filename="../stacer/Pages/SystemCleaner/system_cleaner_page.ui" line="365"/>
         <source>Package Caches</source>
-        <translation>Mem�ria cau dels paquets</translation>
+        <translation>Memòria cau dels paquets</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/SystemCleaner/system_cleaner_page.ui" line="473"/>
@@ -427,7 +427,7 @@
     <message>
         <location filename="../stacer/Pages/Uninstaller/uninstallerpage.ui" line="228"/>
         <source>System Installed Packages</source>
-        <translation>Paquets instal�lats del sistema</translation>
+        <translation>Paquets instal·lats del sistema</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/Uninstaller/uninstallerpage.ui" line="271"/>
@@ -437,17 +437,17 @@
     <message>
         <location filename="../stacer/Pages/Uninstaller/uninstallerpage.ui" line="178"/>
         <source>Not Found Installed Packages</source>
-        <translation>No s'han trobat paquets instal�lats</translation>
+        <translation>No s'han trobat paquets instal·lats</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/Uninstaller/uninstallerpage.ui" line="132"/>
         <source>Uninstall Selected</source>
-        <translation>Desinstal�la els seleccionats</translation>
+        <translation>Desinstal·la els seleccionats</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/Uninstaller/uninstaller_page.cpp" line="65"/>
         <source>System Installed Packages (%1)</source>
-        <translation>Paquets instal�lats del sistema (%1)</translation>
+        <translation>Paquets instal·lats del sistema (%1)</translation>
     </message>
 </context>
 </TS>
