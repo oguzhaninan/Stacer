@@ -25,9 +25,9 @@ class AppManager : public QObject
 public:
     static AppManager *ins();
 
-    QString getLanguageCode();
-    void setLanguage(QString value);
-    QMap<QString, QString> getLanguageList();
+    QString getLanguageCode() const;
+    void setLanguage(const QString &value);
+    QMap<QString, QString> getLanguageList() const;
     void loadLanguageList();
     QString getStylesheetFileContent() const;
 

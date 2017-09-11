@@ -1,10 +1,10 @@
 #include "app_manager.h"
 
-AppManager *AppManager::_instance = NULL;
+AppManager *AppManager::_instance = nullptr;
 
 AppManager *AppManager::ins()
 {
-    if (_instance == NULL) {
+    if (_instance == nullptr) {
         _instance = new AppManager;
     }
 
@@ -28,6 +28,7 @@ AppManager::AppManager(QObject *parent) : QObject(parent)
 
     if (translator.load(QString("stacer_%1").arg(getLanguageCode()), qApp->applicationDirPath() + "/translations")) {
         qApp->installTranslator(&translator);
+        (getLanguageCode() == "ar") ? qApp->setLayoutDirection(Qt::RightToLeft) : qApp->setLayoutDirection(Qt::LeftToRight);
     } else {
         qCritical() << "Translator could not load.";
     }
@@ -56,17 +57,17 @@ void AppManager::loadLanguageList()
     }
 }
 
-void AppManager::setLanguage(QString value)
+void AppManager::setLanguage(const QString &value)
 {
     settings->setValue(LANG_PROP, value);
 }
 
-QString AppManager::getLanguageCode()
+QString AppManager::getLanguageCode() const
 {
     return settings->value(LANG_PROP, "en").toString();
 }
 
-QMap<QString, QString> AppManager::getLanguageList()
+QMap<QString, QString> AppManager::getLanguageList() const
 {
     return languageList;
 }
@@ -104,7 +105,7 @@ void AppManager::updateStylesheet()
     stylesheetFileContent = FileUtil::readStringFromFile(QString(":/static/themes/%1/style/style.qss").arg(themeName));
 
     // set values
-    foreach (QString key, styleValues->allKeys()) {
+    for (const QString &key : styleValues->allKeys()) {
         stylesheetFileContent.replace(key, styleValues->value(key).toString());
     }
 

@@ -3,7 +3,7 @@
 CpuInfo::CpuInfo()
 { }
 
-quint8 CpuInfo::getCpuCoreCount()
+quint8 CpuInfo::getCpuCoreCount() const
 {
     static quint8 count = 0;
 
@@ -18,7 +18,7 @@ quint8 CpuInfo::getCpuCoreCount()
     return count;
 }
 
-QList<int> CpuInfo::getCpuPercents()
+QList<int> CpuInfo::getCpuPercents() const
 {
     QList<double> cpuTimes;
 
@@ -46,11 +46,13 @@ QList<int> CpuInfo::getCpuPercents()
              - guest_nice: running a niced guest
         */
 
-        for (int i = 0; i < CpuInfo::getCpuCoreCount()+1; ++i)
+        QRegExp sep("\\s+");
+        int count = CpuInfo::getCpuCoreCount() + 1;
+        for (int i = 0; i < count; ++i)
         {
-            QStringList n_times = times.at(i).split(QRegExp("\\s+"));
+            QStringList n_times = times.at(i).split(sep);
             n_times.removeFirst();
-            foreach (QString t, n_times)
+            for (const QString &t : n_times)
                 cpuTimes << t.toDouble();
 
             cpuPercents << getCpuPercent(cpuTimes, i);
@@ -62,25 +64,23 @@ QList<int> CpuInfo::getCpuPercents()
     return cpuPercents;
 }
 
-int CpuInfo::getCpuPercent(QList<double>cpuTimes, int processor)
+int CpuInfo::getCpuPercent(const QList<double> &cpuTimes, const int &processor) const
 {
     const int N = getCpuCoreCount()+1;
 
     static QVector<double> l_idles(N);
     static QVector<double> l_totals(N);
 
-    double idle, total,
-           idle_delta, total_delta;
-
     int utilisation = 0;
 
     if (cpuTimes.count() > 0) {
 
-        idle = cpuTimes.at(3) + cpuTimes.at(4); // get (idle + iowait)
-        foreach (double t, cpuTimes) total += t; // get total time
+        double idle = cpuTimes.at(3) + cpuTimes.at(4); // get (idle + iowait)
+        double total = 0.0;
+        for (const double &t : cpuTimes) total += t; // get total time
 
-        idle_delta = idle - l_idles[processor];
-        total_delta = total - l_totals[processor];
+        double idle_delta = idle - l_idles[processor];
+        double total_delta = total - l_totals[processor];
 
         if (total_delta)
             utilisation = 100 * ((total_delta - idle_delta) / total_delta);

@@ -1,0 +1,12 @@
+stacer (1.0.8) ; urgency=low
+
+  * Rewritten with C++.
+  * It consumes 10 times less resources than the old.
+  * It was made faster than before.
+  * Responsive Design.
+  * Added "startup at boot" option to Services page.
+  * System Cleaner improved.
+  * Processes page improved.
+  * Startup App edit was added.
+
+ -- oguzhaninan <oguzhan3488@gmail.com>  Wed, 23 Aug 2017 10:05:11 +0300

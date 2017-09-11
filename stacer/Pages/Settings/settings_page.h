@@ -21,8 +21,8 @@ public:
 private slots:
     void init();
 
-    void themesCmbChanged(int index);
-    void languagesCmbChanged(int index);
+    void themesCmbChanged(const int &index);
+    void languagesCmbChanged(const int &index);
 
 private:
     Ui::SettingsPage *ui;

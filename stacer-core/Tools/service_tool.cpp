@@ -1,5 +1,15 @@
 #include "service_tool.h"
 
+#include <QDebug>
+
+Service::Service(const QString &name, bool status, bool active) :
+    name(name),
+    status(status),
+    active(active)
+{
+
+}
+
 ServiceTool::ServiceTool()
 {
 
@@ -14,15 +24,16 @@ QList<Service> ServiceTool::getServicesWithSystemctl()
         QStringList args = { "list-unit-files", "-t", "service", "-a", "--state=enabled,disabled" };
 
         QStringList lines = CommandUtil::exec("systemctl", args)
-                .split("\n")
+                .split(QChar('\n'))
                 .filter(QRegExp("[^@].service"));
 
-        foreach(QString line, lines)
+        QRegExp sep("\\s+");
+        for (const QString &line : lines)
         {
             // e.g apache2.service          [enabled|disabled]
-            QStringList s = line.trimmed().split(QRegExp("\\s+"));
+            QStringList s = line.trimmed().split(sep);
 
-            QString name   = s.first().trimmed().replace(".service", "");
+            QString name = s.first().trimmed().replace(".service", "");
             bool status = ! s.last().trimmed().compare("enabled");
             bool active = serviceIsActive(s.first().trimmed());
 
@@ -39,7 +50,7 @@ QList<Service> ServiceTool::getServicesWithSystemctl()
 }
 
 
-bool ServiceTool::serviceIsActive(QString serviceName)
+bool ServiceTool::serviceIsActive(const QString &serviceName)
 {
     QStringList args = { "is-active", serviceName };
 
@@ -54,7 +65,7 @@ bool ServiceTool::serviceIsActive(QString serviceName)
     return ! result.trimmed().compare("active");
 }
 
-bool ServiceTool::serviceIsEnabled(QString serviceName)
+bool ServiceTool::serviceIsEnabled(const QString &serviceName)
 {
     QStringList args = { "is-enabled", serviceName };
 
@@ -69,7 +80,7 @@ bool ServiceTool::serviceIsEnabled(QString serviceName)
     return ! result.trimmed().compare("enabled");
 }
 
-bool ServiceTool::changeServiceStatus(QString sname, bool status)
+bool ServiceTool::changeServiceStatus(const QString &sname, bool status)
 {
     try {
 
@@ -86,7 +97,7 @@ bool ServiceTool::changeServiceStatus(QString sname, bool status)
     return false;
 }
 
-bool ServiceTool::changeServiceActive(QString sname, bool status)
+bool ServiceTool::changeServiceActive(const QString &sname, bool status)
 {
     try {
 

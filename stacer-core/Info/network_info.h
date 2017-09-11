@@ -1,9 +1,6 @@
 #ifndef NETWORK_INFO_H
 #define NETWORK_INFO_H
 
-#include <QObject>
-#include <QDebug>
-
 #include "Utils/file_util.h"
 #include "Utils/command_util.h"
 
@@ -11,17 +8,15 @@
 
 #include "stacer-core_global.h"
 
-class STACERCORESHARED_EXPORT NetworkInfo : public QObject
+class STACERCORESHARED_EXPORT NetworkInfo
 {
-    Q_OBJECT
-
 public:
     NetworkInfo();
 
     QString getDefaultNetworkInterface() const;
 
-    quint64 getRXbytes();
-    quint64 getTXbytes();
+    quint64 getRXbytes() const;
+    quint64 getTXbytes() const;
 
 private:
     QString defaultNetworkInterface;

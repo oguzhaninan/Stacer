@@ -1,0 +1,59 @@
+language: cpp
+compiler: clang
+sudo: require
+dist: trusty
+before_install:
+- sudo add-apt-repository ppa:beineri/opt-qt59-trusty -y
+- sudo apt-get update -qq
+install:
+- sudo apt-get -y -qq install cmake ccache ninja-build
+- sudo apt-get -y -qq install libgl1-mesa-dev qt59base qt59imageformats qt59svg qt59charts-no-lgpl qt59tools
+- source /opt/qt*/bin/qt*-env.sh
+before_script:
+- mkdir build && cd build
+- cmake -DCMAKE_BUILD_TYPE=release -DCMAKE_CXX_COMPILER=clang++ -DCMAKE_PREFIX_PATH=$QTDIR/bin -G Ninja ..
+script:
+- ninja -j $(nproc)
+- lrelease ../stacer/stacer.pro
+before_deploy:
+- VERSION=$(git describe | sed 's/v//g')
+- mv output/bin/stacer output && rm -rf output/bin
+- cd ..
+# translations
+- lrelease stacer/stacer.pro
+- mkdir build/output/translations
+- mv translations/*.qm build/output/translations
+# desktop file and icon
+- cp stacer/static/logo.png build/output/stacer.png
+- cp stacer.desktop build/output/stacer.desktop
+# linuxdeployqt
+- wget -cO lqt "https://github.com/probonopd/linuxdeployqt/releases/download/continuous/linuxdeployqt-continuous-x86_64.AppImage"
+- chmod +x lqt
+- unset QTDIR; unset QT_PLUGIN_PATH; unset LD_LIBRARY_PATH
+- "./lqt build/output/stacer -bundle-non-qt-libs -no-translations"
+# create AppImage
+- "./lqt build/output/stacer -appimage"
+- rm -f lqt
+- mv Stacer-x86_64.AppImage ../Stacer-x64.AppImage
+- tar -czf stacer-${VERSION}.tar.gz build/output
+- curl --upload-file stacer-${VERSION}.tar.gz https://transfer.sh/stacer-${VERSION}.tar.gz
+# debian
+- mkdir -p build/usr/share/{stacer,applications}
+- mv build/output/* build/usr/share/stacer
+- cp -r DEBIAN build/output/
+- mv stacer.desktop build/usr/share/applications
+- cp -r icons build/usr/share/
+- mv build/usr build/output
+# build debian pacage
+- dpkg -b build/output ../stacer_${VERSION}.deb
+deploy:
+  provider: releases
+  api_key:
+    secure: XwB1BJIei6dqQprHyep+cK7CqZ/VWjBS2lFS+bIEnxutXfrtT7ZlAXj4WRa70/WcslJNl+qvIEn9zNmC/IihV3rCOK1DR+FUVM7UqcIQHc+LiexQZfrbdTOO2VTZm5SCFO95715iuYMwFTr3P82uu8Z0pXrgSA4a1n64I1h6v2tgYJzqFG1+4qS62ABXVl56akauJIMFLz3DaUZkxpFu0vmq5C9LHG75YzvDWgKy/tzNwKMHNKt6/cnnPz8BOqS7K5K5B17dooveEEMG/7uKLzIKIOcwN/SBpKtzeZL7qNJyyU/cFO7ClkbIuWZe8Cvx3i4hJkW59dfZJdJfuu/VnmJFOYLirSfqj77r2MZd5+S/RTHQ/kGAyCq6kI/FPgV2+KrOyKROuiJq2FMgviHjllQWSx+/dVjH+O/0rqh61uszs/VP/tl3Xi3CBVPZ6rPYM6I1vA/Vyb8ZkvNYZm4EfSlvRD0Gk2k5J+jape6CFUBgJvC2oK89+kzfi1aWIGrHiksMpK2ER6Mf/rj8XbDc/cLRac4kdJarvnPtKmPEXojBkgxn8aIH0PoGd156hlQuPPUleDjssrFSpd/1jtPT3mtCzsfuA/jkUvFYGUjzefZMRJkdH1HpDrv0xsPPR0eC0sqzZGT2ztssTfbKqY82RGUO/ED+PR4IXApNssM8QvM=
+  file: 
+    - '/home/travis/build/oguzhaninan/Stacer-x64.AppImage'
+    - '/home/travis/build/oguzhaninan/stacer_${VERSION}.deb'
+  on:
+    repo: oguzhaninan/Stacer
+    branch: native
+    tags: true

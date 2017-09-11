@@ -1,5 +1,8 @@
 #include "services_page.h"
 #include "ui_services_page.h"
+#include "service_item.h"
+
+#include "Managers/tool_manager.h"
 
 ServicesPage::~ServicesPage()
 {
@@ -8,7 +11,6 @@ ServicesPage::~ServicesPage()
 
 ServicesPage::ServicesPage(QWidget *parent) :
     QWidget(parent),
-    tm(ToolManager::ins()),
     ui(new Ui::ServicesPage)
 {
     ui->setupUi(this);
@@ -31,7 +33,7 @@ void ServicesPage::init()
 
 void ServicesPage::loadServices()
 {
-    foreach (Service s, tm->getServices()) {
+    for (const Service &s : ToolManager::ins()->getServices()) {
 
         ServiceItem *service = new ServiceItem(s.name, s.status, s.active, this);
 

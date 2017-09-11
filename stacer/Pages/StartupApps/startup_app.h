@@ -17,7 +17,7 @@ class StartupApp : public QWidget
     Q_OBJECT
 
 public:
-    explicit StartupApp(QString appName, bool enabled, QString filePath, QWidget *parent = 0);
+    explicit StartupApp(const QString &appName, bool enabled, const QString &filePath, QWidget *parent = 0);
     ~StartupApp();
 
     QString getAppName() const;
@@ -41,11 +41,11 @@ private:
     Ui::StartupApp *ui;
 
 private:
+    StartupAppEdit *startupAppEdit;
     QString appName;
     QString appComment;
     bool enabled;
     QString filePath;
-    StartupAppEdit *startupAppEdit;
 };
 
 #endif // STARTUP_APP_H

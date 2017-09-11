@@ -24,7 +24,7 @@ QString NetworkInfo::getDefaultNetworkInterface() const
     return defaultNetworkInterface;
 }
 
-quint64 NetworkInfo::getRXbytes()
+quint64 NetworkInfo::getRXbytes() const
 {
     quint64 rx = FileUtil::readStringFromFile(rxPath)
             .trimmed()
@@ -33,7 +33,7 @@ quint64 NetworkInfo::getRXbytes()
     return rx;
 }
 
-quint64 NetworkInfo::getTXbytes()
+quint64 NetworkInfo::getTXbytes() const
 {
     quint64 tx = FileUtil::readStringFromFile(txPath)
             .trimmed()

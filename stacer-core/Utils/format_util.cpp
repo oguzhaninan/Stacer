@@ -1,11 +1,13 @@
 #include "format_util.h"
 
+#include <QString>
+
 FormatUtil::FormatUtil()
 {
 
 }
 
-QString FormatUtil::formatBytes(quint64 bytes)
+QString FormatUtil::formatBytes(const quint64 &bytes)
 {
 #define formatUnit(v, u, t) QString().sprintf("%.1f %s", \
     ((double) v / (double) u), t)

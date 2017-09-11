@@ -4,23 +4,17 @@
 DashboardPage::~DashboardPage()
 {
     delete ui;
-    delete cpuBar;
-    delete memBar;
-    delete diskBar;
-    delete downloadBar;
-    delete uploadBar;
-    delete timer;
 }
 
 DashboardPage::DashboardPage(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::DashboardPage),
-    cpuBar(new CircleBar(tr("CPU"), {"#A8E063", "#56AB2F"})),
-    memBar(new CircleBar(tr("MEMORY"), {"#FFB75E", "#ED8F03"})),
-    diskBar(new CircleBar(tr("DISK"), {"#DC2430", "#7B4397"})),
-    downloadBar(new LineBar(tr("DOWNLOAD"))),
-    uploadBar(new LineBar(tr("UPLOAD"))),
-    timer(new QTimer),
+    cpuBar(new CircleBar(tr("CPU"), {"#A8E063", "#56AB2F"}, this)),
+    memBar(new CircleBar(tr("MEMORY"), {"#FFB75E", "#ED8F03"}, this)),
+    diskBar(new CircleBar(tr("DISK"), {"#DC2430", "#7B4397"}, this)),
+    downloadBar(new LineBar(tr("DOWNLOAD"), this)),
+    uploadBar(new LineBar(tr("UPLOAD"), this)),
+    timer(new QTimer(this)),
     im(InfoManager::ins())
 {
     ui->setupUi(this);

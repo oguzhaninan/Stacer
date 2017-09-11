@@ -2,10 +2,6 @@
 #define SERVICESPAGE_H
 
 #include <QWidget>
-#include <QDebug>
-#include <QtConcurrent>
-#include "service_item.h"
-#include "Managers/tool_manager.h"
 
 namespace Ui {
     class ServicesPage;
@@ -28,9 +24,6 @@ public slots:
 
 private:
     Ui::ServicesPage *ui;
-
-private:
-    ToolManager *tm;
 };
 
 #endif // SERVICESPAGE_H

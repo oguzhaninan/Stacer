@@ -15,16 +15,16 @@ public:
     static ToolManager *ins();
 
 public:
-    QList<Service> getServices();
-    QStringList getPackages();
+    QList<Service> getServices() const;
+    QStringList getPackages() const;
 
-    QFileInfoList getPackageCaches();
+    QFileInfoList getPackageCaches() const;
 public slots:
-    bool changeServiceStatus(QString sname, bool status);
-    bool changeServiceActive(QString sname, bool status);
-    bool serviceIsActive(QString sname);
-    bool serviceIsEnabled(QString sname);
-    void uninstallPackages(QStringList packages);
+    bool changeServiceStatus(const QString &sname, bool status) const;
+    bool changeServiceActive(const QString &sname, bool status) const;
+    bool serviceIsActive(const QString &sname) const;
+    bool serviceIsEnabled(const QString &sname) const;
+    void uninstallPackages(const QStringList &packages);
 
 signals:
     void uninstallFinished();
@@ -33,9 +33,6 @@ signals:
 private:
     ToolManager();
     static ToolManager *_instance;
-
-    ServiceTool *st;
-    PackageTool *pt;
 };
 
 #endif // TOOL_MANAGER_H

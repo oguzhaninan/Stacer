@@ -1,11 +1,6 @@
 #ifndef SYSTEMINFO_H
 #define SYSTEMINFO_H
 
-#include <QObject>
-#include <QSysInfo>
-#include <QMap>
-#include <QDebug>
-
 #include "Utils/file_util.h"
 #include "Utils/format_util.h"
 #include "Utils/command_util.h"
@@ -14,23 +9,22 @@
 #define PROC_CPUINFO "/proc/cpuinfo"
 
 #include "stacer-core_global.h"
-class STACERCORESHARED_EXPORT SystemInfo : public QObject
+class STACERCORESHARED_EXPORT SystemInfo
 {
-    Q_OBJECT
 public:
     SystemInfo();
 
-    QString getHostname();
-    QString getPlatform();
-    QString getDistribution();
-    QString getKernel();
-    QString getCpuModel();
-    QString getCpuSpeed();
-    QString getCpuCore();
+    QString getHostname() const;
+    QString getPlatform() const;
+    QString getDistribution() const;
+    QString getKernel() const;
+    QString getCpuModel() const;
+    QString getCpuSpeed() const;
+    QString getCpuCore() const;
 
-    QFileInfoList getCrashReports();
-    QFileInfoList getAppLogs();
-    QFileInfoList getAppCaches();
+    QFileInfoList getCrashReports() const;
+    QFileInfoList getAppLogs() const;
+    QFileInfoList getAppCaches() const;
 
     QString getUsername() const;
 
@@ -38,8 +32,6 @@ private:
     QString cpuCore;
     QString cpuModel;
     QString cpuSpeed;
-
-    QSysInfo *info;
 
     QString username;
 };

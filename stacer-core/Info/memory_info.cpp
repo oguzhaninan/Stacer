@@ -10,8 +10,9 @@ void MemoryInfo::updateMemoryInfo()
 {
     QStringList lines = FileUtil::readListFromFile(PROC_MEMINFO)
             .filter(QRegExp("^MemTotal|^MemAvailable|^SwapTotal|^SwapFree"));
+    QRegExp sep("\\s+");
 
-    #define getValue(l) lines.at(l).split(QRegExp("\\s+")).at(1).toLong() << 10;
+    #define getValue(l) lines.at(l).split(sep).at(1).toLong() << 10;
     memTotal = getValue(0);
     memAvailable = getValue(1);
     swapTotal = getValue(2);

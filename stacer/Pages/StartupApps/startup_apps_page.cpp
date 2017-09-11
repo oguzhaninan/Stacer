@@ -4,13 +4,12 @@
 StartupAppsPage::~StartupAppsPage()
 {
     delete ui;
-    delete startupAppEdit;
 }
 
 StartupAppsPage::StartupAppsPage(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::StartupAppsPage),
-    startupAppEdit(new StartupAppEdit)
+    startupAppEdit(new StartupAppEdit(this))
 {
     ui->setupUi(this);
 
@@ -33,26 +32,30 @@ void StartupAppsPage::loadApps()
 
     QDir autostartFiles(autostartPath, "*.desktop");
 
-    foreach (QFileInfo f, autostartFiles.entryInfoList())
+    QChar sep('=');
+    QRegExp nameFilter("(\\W+|^)Name=");
+    QRegExp enabledFilter("(\\W+|^)X-GNOME-Autostart-enabled=");
+    QLatin1String enabledStr("true");
+    for (const QFileInfo &f : autostartFiles.entryInfoList())
     {
         QStringList lines = FileUtil::readListFromFile(f.absoluteFilePath());
 
-        QStringList d_name = lines.filter(QRegExp("(\\W+|^)Name=")); // get name
+        QStringList d_name = lines.filter(nameFilter); // get name
 
         if(! d_name.isEmpty()) // has a name
         {
-            QString appName = d_name.first().split("=").last().trimmed();
+            QString appName = d_name.first().split(sep).last().trimmed();
 
-            QStringList d_autostart = lines.filter(QRegExp("(\\W+|^)X-GNOME-Autostart-enabled="));
+            QStringList d_autostart = lines.filter(enabledFilter);
 
             bool enabled = false;
             if(! d_autostart.isEmpty())
             {
                 // X-GNOME-Autostart-enabled=[true|false]
                 QString status = d_autostart.first()
-                        .split("=").last().toLower().trimmed();
+                        .split(sep).last().toLower().trimmed();
 
-                enabled = ! status.compare("true");
+                enabled = ! status.compare(enabledStr);
             }
 
             QListWidgetItem *item = new QListWidgetItem(ui->startupListWidget);

@@ -4,16 +4,20 @@
 SystemCleanerPage::~SystemCleanerPage()
 {
     delete ui;
-    delete loadingMovie;
-    delete loadingMovie_2;
+    if (loadingMovie)
+        loadingMovie->deleteLater();
+    if (loadingMovie_2)
+        loadingMovie_2->deleteLater();
 }
 
 SystemCleanerPage::SystemCleanerPage(QWidget *parent) :
-    QWidget(parent),
+    QWidget(parent),    
+    ui(new Ui::SystemCleanerPage),
     im(InfoManager::ins()),
     tmr(ToolManager::ins()),
-    defaultIcon(QIcon::fromTheme("application-x-executable")),    
-    ui(new Ui::SystemCleanerPage)
+    defaultIcon(QIcon::fromTheme("application-x-executable")),
+    loadingMovie(nullptr),
+    loadingMovie_2(nullptr)
 {
     ui->setupUi(this);
 
@@ -33,19 +37,25 @@ void SystemCleanerPage::init()
 
     // loaders
     connect(AppManager::ins(), &AppManager::changedTheme, this, [this]() {
-        loadingMovie = new QMovie(QString(":/static/themes/%1/img/scanLoading.gif").arg(AppManager::ins()->getThemeName()));
+        auto themeName = AppManager::ins()->getThemeName();
+
+        if (loadingMovie)
+            loadingMovie->deleteLater();
+        loadingMovie = new QMovie(QString(":/static/themes/%1/img/scanLoading.gif").arg(themeName));
         ui->loading->setMovie(loadingMovie);
         loadingMovie->start();
         ui->loading->hide();
 
-        loadingMovie_2 = new QMovie(QString(":/static/themes/%1/img/loading.gif").arg(AppManager::ins()->getThemeName()));
+        if (loadingMovie_2)
+            loadingMovie_2->deleteLater();
+        loadingMovie_2 = new QMovie(QString(":/static/themes/%1/img/loading.gif").arg(themeName));
         ui->loading_2->setMovie(loadingMovie_2);
         loadingMovie_2->start();
         ui->loading_2->hide();
     });
 }
 
-void SystemCleanerPage::addTreeRoot(CleanCategories cat, QString title, QFileInfoList infos, bool noChild)
+void SystemCleanerPage::addTreeRoot(const CleanCategories &cat, const QString &title, const QFileInfoList &infos, bool noChild)
 {
     QTreeWidgetItem *root = new QTreeWidgetItem(ui->scanResultTreeW);
     root->setData(2, 0, cat);
@@ -58,10 +68,11 @@ void SystemCleanerPage::addTreeRoot(CleanCategories cat, QString title, QFileInf
     quint64 totalSize = 0;
 
     if(! noChild) {
-        foreach (QFileInfo i, infos) {
-            quint64 size = FileUtil::getFileSize(i.absoluteFilePath());
+        for (const QFileInfo &i : infos) {
+            QString path = i.absoluteFilePath();
+            quint64 size = FileUtil::getFileSize(path);
 
-            addTreeChild(i.absoluteFilePath(), i.fileName(), size, root);
+            addTreeChild(path, i.fileName(), size, root);
 
             totalSize += size;
         }
@@ -81,7 +92,7 @@ void SystemCleanerPage::addTreeRoot(CleanCategories cat, QString title, QFileInf
     root->setText(1, QString("%1").arg(FormatUtil::formatBytes(totalSize)));
 }
 
-void SystemCleanerPage::addTreeChild(QString data, QString text, quint64 size, QTreeWidgetItem *parent)
+void SystemCleanerPage::addTreeChild(const QString &data, const QString &text, const quint64 &size, QTreeWidgetItem *parent)
 {
     QTreeWidgetItem *item = new QTreeWidgetItem(parent);
     item->setIcon(0, QIcon::fromTheme(text, defaultIcon));
@@ -91,7 +102,7 @@ void SystemCleanerPage::addTreeChild(QString data, QString text, quint64 size, Q
     item->setCheckState(0, Qt::Unchecked);
 }
 
-void SystemCleanerPage::addTreeChild(CleanCategories cat, QString text, quint64 size)
+void SystemCleanerPage::addTreeChild(const CleanCategories &cat, const QString &text, const quint64 &size)
 {
     QTreeWidgetItem *item = new QTreeWidgetItem(ui->scanResultTreeW);
     item->setText(0, text);
@@ -100,7 +111,7 @@ void SystemCleanerPage::addTreeChild(CleanCategories cat, QString text, quint64 
     item->setCheckState(0, Qt::Unchecked);
 }
 
-void SystemCleanerPage::on_scanResultTreeW_itemClicked(QTreeWidgetItem *item, int column)
+void SystemCleanerPage::on_scanResultTreeW_itemClicked(QTreeWidgetItem *item, const int &column)
 {
     if(column == 0) {
       // new check state
@@ -251,7 +262,7 @@ void SystemCleanerPage::systemClean()
         }
 
         // get removed files total size
-        foreach (QString file, filesToDelete) {
+        for (const QString &file : filesToDelete) {
             totalCleanedSize += FileUtil::getFileSize(file);
         }
 
@@ -264,7 +275,7 @@ void SystemCleanerPage::systemClean()
 
         for (int i = 0; i < tree->topLevelItemCount(); ++i) {
             // clear removed childs
-            foreach (QTreeWidgetItem *item, children) {
+            for (QTreeWidgetItem *item : children) {
                 tree->topLevelItem(i)->removeChild(item);
             }
         }

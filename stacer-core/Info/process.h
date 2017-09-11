@@ -1,9 +1,6 @@
 #ifndef PROCESS_H
 #define PROCESS_H
 
-#include <QObject>
-
-#include <QDebug>
 #include "Utils/file_util.h"
 
 // defines
@@ -24,7 +21,7 @@ public:
     void setRss(const quint64 &value);
 
     double getPmem() const;
-    void setPmem(double value);
+    void setPmem(const double &value);
 
     quint64 getVsize() const;
     void setVsize(const quint64 &value);
@@ -33,7 +30,7 @@ public:
     void setUname(const QString &value);
 
     double getPcpu() const;
-    void setPcpu(double value);
+    void setPcpu(const double &value);
 
     QString getStartTime() const;
     void setStartTime(const QString &value);
@@ -45,7 +42,7 @@ public:
     void setGroup(const QString &value);
 
     int getNice() const;
-    void setNice(int value);
+    void setNice(const int &value);
 
     QString getCpuTime() const;
     void setCpuTime(const QString &value);
