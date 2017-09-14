@@ -269,7 +269,7 @@
     <message>
         <location filename="../stacer/Pages/Services/services_page.ui" line="123"/>
         <source>Startup at boot ?</source>
-        <translation>Uppstart vid start?</translation>
+        <translation>Uppstart vid boot ?</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/Services/services_page.ui" line="176"/>
@@ -328,7 +328,7 @@
     <message>
         <location filename="../stacer/Pages/StartupApps/startup_app_edit.ui" line="60"/>
         <source>Fields cannot be left blank. </source>
-        <translation>Fält kan inte lämnas blankt. </translation>
+        <translation>Fälten kan inte lämnas blankt. </translation>
     </message>
     <message>
         <location filename="../stacer/Pages/StartupApps/startup_app_edit.ui" line="67"/>
