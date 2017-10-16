@@ -16,7 +16,7 @@
     <message>
         <location filename="../stacer/app.cpp" line="90"/>
         <source>System Startup Apps</source>
-        <translation>系統開機後自動啟用應用程式</translation>
+        <translation>系統開機啟動項目</translation>
     </message>
     <message>
         <location filename="../stacer/app.cpp" line="95"/>
@@ -99,12 +99,12 @@
     <message>
         <location filename="../stacer/Pages/Dashboard/dashboard_page.cpp" line="109"/>
         <source>Distribution: %1</source>
-        <translation>發行版本: %1</translation>
+        <translation>發行版: %1</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/Dashboard/dashboard_page.cpp" line="110"/>
         <source>Kernel Release: %1</source>
-        <translation>核心版本: %1</translation>
+        <translation>Kernel 版本: %1</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/Dashboard/dashboard_page.cpp" line="111"/>
@@ -114,7 +114,7 @@
     <message>
         <location filename="../stacer/Pages/Dashboard/dashboard_page.cpp" line="112"/>
         <source>CPU Speed: %1</source>
-        <translation>CPU 頻率: %1</translation>
+        <translation>CPU 時脈: %1</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/Dashboard/dashboard_page.cpp" line="113"/>
@@ -183,12 +183,12 @@
     <message>
         <location filename="../stacer/Pages/Processes/processes_page.cpp" line="36"/>
         <source>Group</source>
-        <translation>群</translation>
+        <translation>群組</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/Processes/processes_page.cpp" line="36"/>
         <source>Nice</source>
-        <translation>好</translation>
+        <translation>優先權</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/Processes/processes_page.cpp" line="36"/>
@@ -198,7 +198,7 @@
     <message>
         <location filename="../stacer/Pages/Processes/processes_page.cpp" line="37"/>
         <source>Session</source>
-        <translation>會話</translation>
+        <translation>工作階段</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/Processes/processes_page.cpp" line="37"/>
@@ -218,7 +218,7 @@
     <message>
         <location filename="../stacer/Pages/Processes/processes_page.cpp" line="198"/>
         <source>Refresh (%1)</source>
-        <translation>更新 (%1)</translation>
+        <translation>更新 (每 %1 秒)</translation>
     </message>
 </context>
 <context>
@@ -226,17 +226,17 @@
     <message>
         <location filename="../stacer/Pages/Resources/resources_page.cpp" line="26"/>
         <source>CPU History</source>
-        <translation>CPU 歷史紀錄</translation>
+        <translation>CPU 使用量記錄</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/Resources/resources_page.cpp" line="29"/>
         <source>Memory History</source>
-        <translation>記憶體歷史紀錄</translation>
+        <translation>記憶體使用量記錄</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/Resources/resources_page.cpp" line="32"/>
         <source>Network History</source>
-        <translation>網路歷史紀錄</translation>
+        <translation>網路使用量記錄</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/Resources/resources_page.cpp" line="76"/>
@@ -251,7 +251,7 @@
     <message>
         <location filename="../stacer/Pages/Resources/resources_page.cpp" line="122"/>
         <source>Swap %1 (%2%) %3</source>
-        <translation>Swap %1 (%2%) %3</translation>
+        <translation>交換區 %1 (%2%) %3</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/Resources/resources_page.cpp" line="131"/>
@@ -269,7 +269,7 @@
     <message>
         <location filename="../stacer/Pages/Services/services_page.ui" line="123"/>
         <source>Startup at boot ?</source>
-        <translation>開機後自動啟用？</translation>
+        <translation>開機後自動啟動？</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/Services/services_page.ui" line="176"/>
@@ -279,7 +279,7 @@
     <message>
         <location filename="../stacer/Pages/Services/services_page.ui" line="246"/>
         <source>Not Found System Service</source>
-        <translation>未找到系統服務</translation>
+        <translation>沒有找到系統服務</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/Services/services_page.cpp" line="50"/>
@@ -318,7 +318,7 @@
     <message>
         <location filename="../stacer/Pages/StartupApps/startup_app_edit.ui" line="20"/>
         <source>Startup App</source>
-        <translation>自動啟用應用程式</translation>
+        <translation>系統開機啟動項目</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/StartupApps/startup_app_edit.ui" line="50"/>
@@ -328,17 +328,17 @@
     <message>
         <location filename="../stacer/Pages/StartupApps/startup_app_edit.ui" line="60"/>
         <source>Fields cannot be left blank. </source>
-        <translation>欄位不能留空白 </translation>
+        <translation>欄位不能為空</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/StartupApps/startup_app_edit.ui" line="67"/>
         <source>App Comment</source>
-        <translation>應用程式註解</translation>
+        <translation>註解</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/StartupApps/startup_app_edit.ui" line="74"/>
         <source>App Name</source>
-        <translation>應用程式名稱</translation>
+        <translation>名稱</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/StartupApps/startup_app_edit.ui" line="81"/>
@@ -348,7 +348,7 @@
     <message>
         <location filename="../stacer/Pages/StartupApps/startup_app_edit.ui" line="88"/>
         <source>Application</source>
-        <translation>應用</translation>
+        <translation>應用程式</translation>
     </message>
 </context>
 <context>
@@ -356,22 +356,22 @@
     <message>
         <location filename="../stacer/Pages/StartupApps/startup_apps_page.ui" line="192"/>
         <source>Not Found Startup Apps</source>
-        <translation>未發現自動啟用應用程式</translation>
+        <translation>沒有找到系統開機啟動項目</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/StartupApps/startup_apps_page.ui" line="112"/>
         <source>System Startup Applications</source>
-        <translation>系統自動啟用應用程式</translation>
+        <translation>系統開機啟動項目</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/StartupApps/startup_apps_page.ui" line="95"/>
         <source>Add Startup App</source>
-        <translation>加入自動啟用應用程式</translation>
+        <translation>加入系統開機啟動項目</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/StartupApps/startup_apps_page.cpp" line="79"/>
         <source>System Startup Applications (%1)</source>
-        <translation>系統自動啟用應用程式 (%1)</translation>
+        <translation>系統開機啟動項目 (%1)</translation>
     </message>
 </context>
 <context>
@@ -409,7 +409,7 @@
     <message>
         <location filename="../stacer/Pages/SystemCleaner/system_cleaner_page.cpp" line="32"/>
         <source>File Name</source>
-        <translation>文件名稱</translation>
+        <translation>檔案名稱</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/SystemCleaner/system_cleaner_page.cpp" line="32"/>
@@ -419,7 +419,7 @@
     <message>
         <location filename="../stacer/Pages/SystemCleaner/system_cleaner_page.cpp" line="285"/>
         <source>%1 size files cleaned.</source>
-        <translation>%1 大小的文件被清理</translation>
+        <translation>已清除 %1 的空間</translation>
     </message>
 </context>
 <context>
@@ -427,7 +427,7 @@
     <message>
         <location filename="../stacer/Pages/Uninstaller/uninstallerpage.ui" line="228"/>
         <source>System Installed Packages</source>
-        <translation>系統已安裝過的套件</translation>
+        <translation>系統已安裝的套件</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/Uninstaller/uninstallerpage.ui" line="271"/>
@@ -437,12 +437,12 @@
     <message>
         <location filename="../stacer/Pages/Uninstaller/uninstallerpage.ui" line="178"/>
         <source>Not Found Installed Packages</source>
-        <translation>未發現已安裝過的套件</translation>
+        <translation>未發現已安裝的套件</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/Uninstaller/uninstallerpage.ui" line="132"/>
         <source>Uninstall Selected</source>
-        <translation>解除選中項目的安裝</translation>
+        <translation>解除安裝選中的項目</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/Uninstaller/uninstaller_page.cpp" line="65"/>
