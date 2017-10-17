@@ -203,7 +203,7 @@
     <message>
         <location filename="../stacer/Pages/Processes/processes_page.cpp" line="37"/>
         <source>Seat</source>
-        <translation>位置</translation>
+        <translation>座位</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/Processes/processes_page.cpp" line="37"/>
