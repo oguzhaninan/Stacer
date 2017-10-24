@@ -7,14 +7,18 @@ SystemInfo::SystemInfo()
     QStringList lines = FileUtil::readListFromFile(PROC_CPUINFO)
             .filter(QRegExp("^model name"));
 
-    if (! lines.isEmpty()) {
-        QStringList model = lines.first().split(":").at(1).split("@");
+    QStringList cpuMhz = FileUtil::readListFromFile(PROC_CPUINFO)
+            .filter(QRegExp("^cpu MHz"));
 
-        if ( model.count() > 1) {
+    if (! lines.isEmpty()) {
+        QStringList model = lines.at(0).trimmed().split(":").at(1).split("@");
+        QStringList cpumhz = cpuMhz.at(0).trimmed().split(":").at(1).split("@");
+
+        if ( model.count() > 0) {
             QRegExp regexp("\\s+");
             QString space(" ");
             this->cpuModel = model.at(0).trimmed().replace(regexp, space);
-            this->cpuSpeed = model.at(1).trimmed().replace(regexp, space);
+            this->cpuSpeed = cpuMhz.at(0).trimmed().replace(regexp, space);
         }
     }
     else {
