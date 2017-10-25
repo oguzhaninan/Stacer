@@ -18,7 +18,7 @@ SystemInfo::SystemInfo()
             QRegExp regexp("\\s+");
             QString space(" ");
             this->cpuModel = model.at(0).trimmed().replace(regexp, space);
-            this->cpuSpeed = cpuMhz.at(0).trimmed().replace(regexp, space);
+            this->cpuSpeed = cpumhz.at(0).trimmed().replace(regexp, space);
         }
     }
     else {
