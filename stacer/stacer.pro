@@ -91,7 +91,9 @@ TRANSLATIONS += \
     ../translations/stacer_ru.ts \
     ../translations/stacer_sv.ts \
     ../translations/stacer_tr.ts \
-    ../translations/stacer_zh-cn.ts
+    ../translations/stacer_uk.ts \
+    ../translations/stacer_zh-cn.ts \
+    ../translations/stacer_zh-tw.ts
 
 RESOURCES += \
     static.qrc

@@ -1,47 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.1" language="sv_SE">
+<TS version="2.1" language="uk_UA">
 <context>
     <name>App</name>
     <message>
         <location filename="../stacer/app.cpp" line="80"/>
         <source>Dashboard</source>
-        <translation>Instrumentpanel</translation>
+        <translation>Огляд</translation>
     </message>
     <message>
         <location filename="../stacer/app.cpp" line="85"/>
         <source>System Cleaner</source>
-        <translation>Systemrensare</translation>
+        <translation>Очищення системи</translation>
     </message>
     <message>
         <location filename="../stacer/app.cpp" line="90"/>
         <source>System Startup Apps</source>
-        <translation>Systemets uppstartsappar</translation>
+        <translation>Програми які автоматично запускаються</translation>
     </message>
     <message>
         <location filename="../stacer/app.cpp" line="95"/>
         <source>System Services</source>
-        <translation>Systemtjänster</translation>
+        <translation>Системні служби</translation>
     </message>
     <message>
         <location filename="../stacer/app.cpp" line="100"/>
         <source>Uninstaller</source>
-        <translation>Avinstallerare</translation>
+        <translation>Видалення пакетів</translation>
     </message>
     <message>
         <location filename="../stacer/app.cpp" line="105"/>
         <source>Resources</source>
-        <translation>Resurser</translation>
+        <translation>Ресурси</translation>
     </message>
     <message>
         <location filename="../stacer/app.cpp" line="110"/>
         <source>Processes</source>
-        <translation>Processer</translation>
+        <translation>Процеси</translation>
     </message>
     <message>
         <location filename="../stacer/app.cpp" line="115"/>
         <source>Settings</source>
-        <translation>Inställningar</translation>
+        <translation>Налаштування</translation>
     </message>
 </context>
 <context>
@@ -49,83 +49,83 @@
     <message>
         <location filename="../stacer/Pages/Dashboard/dashboard_page.ui" line="153"/>
         <source>SYSTEM INFO</source>
-        <translation>SYSTEMINFO</translation>
+        <translation>СИСТЕМНА ІНФОРМАЦІЯ</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/Dashboard/dashboard_page.ui" line="240"/>
         <source>There are update currently available.</source>
-        <translation>Det finns förnärvarande tillgängliga uppdateringar.</translation>
+        <translation>Доступно оновлення.</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/Dashboard/dashboard_page.ui" line="253"/>
         <source>Download</source>
-        <translation>Ladda ner</translation>
+        <translation>Завантажити</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/Dashboard/dashboard_page.cpp" line="18"/>
         <source>CPU</source>
-        <translation>CPU</translation>
+        <translation>ЦП</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/Dashboard/dashboard_page.cpp" line="19"/>
         <source>MEMORY</source>
-        <translation>MINNE</translation>
+        <translation>ПАМ'ЯТЬ</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/Dashboard/dashboard_page.cpp" line="20"/>
         <source>DISK</source>
-        <translation>DISK</translation>
+        <translation>ДИСК</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/Dashboard/dashboard_page.cpp" line="21"/>
         <source>DOWNLOAD</source>
-        <translation>NERLADDNING</translation>
+        <translation>ОТРИМАНО</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/Dashboard/dashboard_page.cpp" line="22"/>
         <source>UPLOAD</source>
-        <translation>UPPLADDNING</translation>
+        <translation>НАДІСЛАНО</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/Dashboard/dashboard_page.cpp" line="107"/>
         <source>Hostname: %1</source>
-        <translation>Värdnamn: %1</translation>
+        <translation>Ім'я комп'ютера: %1</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/Dashboard/dashboard_page.cpp" line="108"/>
         <source>Platform: %1</source>
-        <translation>Plattform: %1</translation>
+        <translation>Платформа: %1</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/Dashboard/dashboard_page.cpp" line="109"/>
         <source>Distribution: %1</source>
-        <translation>Distribution: %1</translation>
+        <translation>Дистрибутив: %1</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/Dashboard/dashboard_page.cpp" line="110"/>
         <source>Kernel Release: %1</source>
-        <translation>Kernelutgåva: %1</translation>
+        <translation>Версія ядра: %1</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/Dashboard/dashboard_page.cpp" line="111"/>
         <source>CPU Model: %1</source>
-        <translation>CPU-modell: %1</translation>
+        <translation>Модель ЦП: %1</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/Dashboard/dashboard_page.cpp" line="112"/>
         <source>CPU Speed: %1</source>
-        <translation>CPU-hastighet: %1</translation>
+        <translation>Частота ЦП: %1</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/Dashboard/dashboard_page.cpp" line="113"/>
         <source>CPU Core: %1</source>
-        <translation>CPU-kärnor: %1</translation>
+        <translation>Ядра ЦП: %1</translation>
     </message>
     <message>
-        <location filename="../stacer/Pages/Dashboard/dashboard_page.cpp" line="182"/>
         <location filename="../stacer/Pages/Dashboard/dashboard_page.cpp" line="186"/>
+        <location filename="../stacer/Pages/Dashboard/dashboard_page.cpp" line="190"/>
         <source>Total: %1</source>
-        <translation>Total: %1</translation>
+        <translation>Всього: %1</translation>
     </message>
 </context>
 <context>
@@ -133,92 +133,92 @@
     <message>
         <location filename="../stacer/Pages/Processes/processes_page.ui" line="55"/>
         <source>Processes</source>
-        <translation>Processer</translation>
+        <translation>Процеси</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/Processes/processes_page.ui" line="68"/>
         <source>All Processes</source>
-        <translation>Alla processer</translation>
+        <translation>Всі процеси</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/Processes/processes_page.ui" line="88"/>
         <source>Search...</source>
-        <translation>Sök...</translation>
+        <translation>Пошук...</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/Processes/processes_page.ui" line="206"/>
         <source>End Process</source>
-        <translation>Avsluta process</translation>
+        <translation>Завершити процес</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/Processes/processes_page.cpp" line="35"/>
         <source>Resident Memory</source>
-        <translation>Residentminne</translation>
+        <translation>Резидентна пам'ять</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/Processes/processes_page.cpp" line="35"/>
         <source>%Memory</source>
-        <translation>%Minne</translation>
+        <translation>%Пам'ять</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/Processes/processes_page.cpp" line="35"/>
         <source>Virtual Memory</source>
-        <translation>Virtuellt minne</translation>
+        <translation>Віртуальна пам'ять</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/Processes/processes_page.cpp" line="35"/>
         <source>User</source>
-        <translation>Användare</translation>
+        <translation>Користувач</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/Processes/processes_page.cpp" line="36"/>
         <source>Start Time</source>
-        <translation>Starttid</translation>
+        <translation>Запущено</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/Processes/processes_page.cpp" line="36"/>
         <source>State</source>
-        <translation>Tillstånd</translation>
+        <translation>Стан</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/Processes/processes_page.cpp" line="36"/>
         <source>Group</source>
-        <translation>Grupp</translation>
+        <translation>Група</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/Processes/processes_page.cpp" line="36"/>
         <source>Nice</source>
-        <translation>Trevlig</translation>
+        <translation>Пріоритет</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/Processes/processes_page.cpp" line="36"/>
         <source>CPU Time</source>
-        <translation>CPU-tid</translation>
+        <translation>Час ЦП</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/Processes/processes_page.cpp" line="37"/>
         <source>Session</source>
-        <translation>Session</translation>
+        <translation>Сесія</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/Processes/processes_page.cpp" line="37"/>
         <source>Seat</source>
-        <translation>Sittplats</translation>
+        <translation>Робоче місце</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/Processes/processes_page.cpp" line="37"/>
         <source>Process</source>
-        <translation>Process</translation>
+        <translation>Процес</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/Processes/processes_page.cpp" line="104"/>
         <source>Processes (%1)</source>
-        <translation>Processer (%1)</translation>
+        <translation>Процеси (%1)</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/Processes/processes_page.cpp" line="198"/>
         <source>Refresh (%1)</source>
-        <translation>Uppdatera (%1)</translation>
+        <translation>Оновлення (%1)</translation>
     </message>
 </context>
 <context>
@@ -226,37 +226,37 @@
     <message>
         <location filename="../stacer/Pages/Resources/resources_page.cpp" line="26"/>
         <source>CPU History</source>
-        <translation>CPU-historik</translation>
+        <translation>Використання ЦП</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/Resources/resources_page.cpp" line="29"/>
         <source>Memory History</source>
-        <translation>Minneshistorik</translation>
+        <translation>Використання пам'яті і підкачування</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/Resources/resources_page.cpp" line="32"/>
         <source>Network History</source>
-        <translation>Nätverkshistorik</translation>
+        <translation>Використання мережі</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/Resources/resources_page.cpp" line="76"/>
         <source>Download %1/s Total: %2</source>
-        <translation>Nerladdning %1/s Total: %2</translation>
+        <translation>Отримано %1/с Всього: %2</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/Resources/resources_page.cpp" line="81"/>
         <source>Upload %1/s  Total: %2</source>
-        <translation>Uppladdning %1/s  Total: %2</translation>
+        <translation>Надіслано %1/с Всього: %2</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/Resources/resources_page.cpp" line="122"/>
         <source>Swap %1 (%2%) %3</source>
-        <translation>Swap %1 (%2%) %3</translation>
+        <translation>Підкачка %1 (%2%) %3</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/Resources/resources_page.cpp" line="131"/>
         <source>Memory %1 (%2%) %3</source>
-        <translation>Minne %1 (%2%) %3</translation>
+        <translation>Пам'ять %1 (%2%) %3</translation>
     </message>
 </context>
 <context>
@@ -264,27 +264,27 @@
     <message>
         <location filename="../stacer/Pages/Services/services_page.ui" line="79"/>
         <source>System Services</source>
-        <translation>Systemtjänster</translation>
+        <translation>Системні служби</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/Services/services_page.ui" line="123"/>
         <source>Startup at boot ?</source>
-        <translation>Uppstart vid boot ?</translation>
+        <translation>Запускати при завантаженні?</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/Services/services_page.ui" line="176"/>
         <source>Running Now ?</source>
-        <translation>Körs nu?</translation>
+        <translation>Запущено зараз?</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/Services/services_page.ui" line="246"/>
         <source>Not Found System Service</source>
-        <translation>Ingen systemtjänst funnen</translation>
+        <translation>Системні служби не знайдені</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/Services/services_page.cpp" line="50"/>
         <source>System Services (%1)</source>
-        <translation>Systemtjänster (%1)</translation>
+        <translation>Системні служби (%1)</translation>
     </message>
 </context>
 <context>
@@ -292,12 +292,12 @@
     <message>
         <location filename="../stacer/Pages/Settings/settings_page.ui" line="54"/>
         <source>Language</source>
-        <translation>Språk</translation>
+        <translation>Мова</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/Settings/settings_page.ui" line="71"/>
         <source>Theme</source>
-        <translation>Tema</translation>
+        <translation>Тема</translation>
     </message>
 </context>
 <context>
@@ -305,12 +305,12 @@
     <message>
         <location filename="../stacer/Pages/StartupApps/startup_app.cpp" line="23"/>
         <source>Delete</source>
-        <translation>Radera</translation>
+        <translation>Видалити</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/StartupApps/startup_app.cpp" line="24"/>
         <source>Edit</source>
-        <translation>Redigera</translation>
+        <translation>Змінити</translation>
     </message>
 </context>
 <context>
@@ -318,37 +318,37 @@
     <message>
         <location filename="../stacer/Pages/StartupApps/startup_app_edit.ui" line="20"/>
         <source>Startup App</source>
-        <translation>Uppstartsprogram</translation>
+        <translation>Запуск програми</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/StartupApps/startup_app_edit.ui" line="50"/>
         <source>Save</source>
-        <translation>Spara</translation>
+        <translation>Зберегти</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/StartupApps/startup_app_edit.ui" line="60"/>
         <source>Fields cannot be left blank. </source>
-        <translation>Fälten kan inte lämnas blankt. </translation>
+        <translation>Необхідно заповнити поля. </translation>
     </message>
     <message>
         <location filename="../stacer/Pages/StartupApps/startup_app_edit.ui" line="67"/>
         <source>App Comment</source>
-        <translation>Appkommentar</translation>
+        <translation>Опис</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/StartupApps/startup_app_edit.ui" line="74"/>
         <source>App Name</source>
-        <translation>Appnamn</translation>
+        <translation>Ім'я</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/StartupApps/startup_app_edit.ui" line="81"/>
         <source>Command</source>
-        <translation>Kommando</translation>
+        <translation>Команда</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/StartupApps/startup_app_edit.ui" line="88"/>
         <source>Application</source>
-        <translation>Applikation</translation>
+        <translation>Програма</translation>
     </message>
 </context>
 <context>
@@ -356,22 +356,22 @@
     <message>
         <location filename="../stacer/Pages/StartupApps/startup_apps_page.ui" line="95"/>
         <source>Add Startup App</source>
-        <translation>Lägg till uppstartsprogram</translation>
+        <translation>Додати</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/StartupApps/startup_apps_page.ui" line="112"/>
         <source>System Startup Applications</source>
-        <translation>Systemstartsprogram</translation>
+        <translation>Програми які автоматично запускаються</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/StartupApps/startup_apps_page.ui" line="192"/>
         <source>Not Found Startup Apps</source>
-        <translation>Ej funna uppstartsprogram</translation>
+        <translation>Не знайдено програми які автоматично запускаються</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/StartupApps/startup_apps_page.cpp" line="79"/>
         <source>System Startup Applications (%1)</source>
-        <translation>Systemets uppstartsprogram (%1)</translation>
+        <translation>Програми які автоматично запускаються (%1)</translation>
     </message>
 </context>
 <context>
@@ -379,47 +379,47 @@
     <message>
         <location filename="../stacer/Pages/SystemCleaner/system_cleaner_page.ui" line="63"/>
         <source>Crash Reports</source>
-        <translation>Kraschrapporter</translation>
+        <translation>Звіти про помилки</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/SystemCleaner/system_cleaner_page.ui" line="168"/>
         <source>Application Logs</source>
-        <translation>Applikationsloggar</translation>
+        <translation>Журнали програми</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/SystemCleaner/system_cleaner_page.ui" line="206"/>
         <source>Application Caches</source>
-        <translation>Applikationscaches</translation>
+        <translation>Кеші програми</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/SystemCleaner/system_cleaner_page.ui" line="327"/>
         <source>Trash</source>
-        <translation>Skräp</translation>
+        <translation>Смітник</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/SystemCleaner/system_cleaner_page.ui" line="365"/>
         <source>Package Caches</source>
-        <translation>Paketcaches</translation>
+        <translation>Завантажені пакети</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/SystemCleaner/system_cleaner_page.ui" line="473"/>
         <source> Back</source>
-        <translation> Tillbaka</translation>
+        <translation> Назад</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/SystemCleaner/system_cleaner_page.cpp" line="32"/>
         <source>File Name</source>
-        <translation>Filnamn</translation>
+        <translation>Ім'я файлу</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/SystemCleaner/system_cleaner_page.cpp" line="32"/>
         <source>Size</source>
-        <translation>Storlek</translation>
+        <translation>Розмір</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/SystemCleaner/system_cleaner_page.cpp" line="285"/>
         <source>%1 size files cleaned.</source>
-        <translation>%1 storlek filer rensades.</translation>
+        <translation>Звільнено %1.</translation>
     </message>
 </context>
 <context>
@@ -427,27 +427,27 @@
     <message>
         <location filename="../stacer/Pages/Uninstaller/uninstallerpage.ui" line="132"/>
         <source>Uninstall Selected</source>
-        <translation>Avinstallera markerade</translation>
+        <translation>Видалити вибрані</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/Uninstaller/uninstallerpage.ui" line="178"/>
         <source>Not Found Installed Packages</source>
-        <translation>Installerade paket ej funna.</translation>
+        <translation>Встановлені пакети не знайдені</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/Uninstaller/uninstallerpage.ui" line="228"/>
         <source>System Installed Packages</source>
-        <translation>Systemets installerade paket</translation>
+        <translation>Системні пакети</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/Uninstaller/uninstallerpage.ui" line="271"/>
         <source>Search...</source>
-        <translation>Sök...</translation>
+        <translation>Пошук...</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/Uninstaller/uninstaller_page.cpp" line="65"/>
         <source>System Installed Packages (%1)</source>
-        <translation>Systemets installerade Paket (%1)</translation>
+        <translation>Системні пакети (%1)</translation>
     </message>
 </context>
 </TS>
