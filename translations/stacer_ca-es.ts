@@ -231,7 +231,7 @@
     <message>
         <location filename="../stacer/Pages/Resources/resources_page.cpp" line="29"/>
         <source>Memory History</source>
-        <translation>Històric de la mem�ria</translation>
+        <translation>Històric de la memòria</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/Resources/resources_page.cpp" line="32"/>
