@@ -14,6 +14,7 @@
 	{"value" : "sv", "text": "Svenska"},
 	{"value" : "tr", "text": "Türkçe"},
 	{"value" : "uk", "text": "Українська"},
+	{"value" : "vi", "text": "Tiếng việt"},
 	{"value" : "zh-cn", "text": "简体中文"},
 	{"value" : "zh-tw", "text": "正體中文"}
 ]
