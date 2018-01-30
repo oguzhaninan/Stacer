@@ -17,12 +17,6 @@
 		<img alt="Platform (GNU/Linux)" src="https://img.shields.io/badge/platform-GNU/Linux-blue.svg"/>
 	</a>
 </p>
-
-<p align="center">
-	<a href="https://www.patreon.com/oguzhaninan" >
-		<img width="250" src="https://s3-us-west-1.amazonaws.com/patreon-reward-images/1537704.png" />
-	</a>
-</p>
 <p align="center">
 	<a href="https://sourceforge.net/projects/stacer/files/" >
 		<img src="https://a.fsdn.com/con/app/sf-download-button" />
