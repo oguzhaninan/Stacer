@@ -404,7 +404,7 @@
     <message>
         <location filename="../stacer/Pages/SystemCleaner/system_cleaner_page.ui" line="473"/>
         <source> Back</source>
-        <translation> Espalda</translation>
+        <translation>Volver</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/SystemCleaner/system_cleaner_page.cpp" line="32"/>
