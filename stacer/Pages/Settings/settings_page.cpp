@@ -1,5 +1,6 @@
 #include "settings_page.h"
 #include "ui_settings_page.h"
+#include "Managers/info_manager.h"
 
 SettingsPage::~SettingsPage()
 {
@@ -23,7 +24,7 @@ void SettingsPage::init()
 
     while (lang.hasNext()) {
         lang.next();
-        ui->languagesCmb->addItem(lang.value(),lang.key());
+        ui->languagesCmb->addItem(lang.value(), lang.key());
     }
 
     QString lc = apm->getLanguageCode();
@@ -34,14 +35,26 @@ void SettingsPage::init()
 
     while (theme.hasNext()) {
         theme.next();
-        ui->themesCmb->addItem(theme.value(),theme.key());
+        ui->themesCmb->addItem(theme.value(), theme.key());
     }
 
     QString tn = apm->getThemeName();
     ui->themesCmb->setCurrentText(apm->getThemeList().value(tn));
 
+    // load disks
+    InfoManager::ins()->updateDiskInfo();
+    QList<Disk*> disks = InfoManager::ins()->getDisks();
+
+    for (const Disk *disk : disks) {
+        ui->disksCmb->addItem(disk->name, disk->name);
+    }
+
+    QString dk = apm->getDiskName();
+    ui->disksCmb->setCurrentText(dk);
+
     connect(ui->languagesCmb, SIGNAL(currentIndexChanged(int)), this, SLOT(languagesCmbChanged(int)));
     connect(ui->themesCmb, SIGNAL(currentIndexChanged(int)), this, SLOT(themesCmbChanged(int)));    
+    connect(ui->disksCmb, SIGNAL(currentIndexChanged(int)), this, SLOT(diskCmbChanged(int)));
 }
 
 void SettingsPage::languagesCmbChanged(const int &index)
@@ -57,4 +70,11 @@ void SettingsPage::themesCmbChanged(const int &index)
 
     apm->setThemeName(themeName);
     apm->updateStylesheet();
+}
+
+void SettingsPage::diskCmbChanged(const int &index)
+{
+    QString diskName = ui->disksCmb->itemData(index).toString();
+
+    apm->setDiskName(diskName);
 }

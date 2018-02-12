@@ -40,6 +40,8 @@ void DashboardPage::init()
     connect(timer, &QTimer::timeout, this, &DashboardPage::updateMemoryBar);
     connect(timer, &QTimer::timeout, this, &DashboardPage::updateNetworkBar);
 
+    connect(AppManager::ins(), &AppManager::changedDisk, this, &DashboardPage::updateDiskBar);
+
     QTimer *timerDisk = new QTimer;
     connect(timerDisk, &QTimer::timeout, this, &DashboardPage::updateDiskBar);
     timerDisk->start(10 * 1000);
@@ -140,15 +142,23 @@ void DashboardPage::updateDiskBar()
 
     if(! im->getDisks().isEmpty())
     {
-        quint64 size = im->getDisks().at(0).size;
-        quint64 used = im->getDisks().at(0).used;
+        Disk *disk = nullptr;
+        QString selectedDiskName = AppManager::ins()->getDiskName();
+        for (Disk *d: im->getDisks()) {
+            if (d->name.trimmed() == selectedDiskName.trimmed())
+                disk = d;
+        }
 
-        QString sizeText = FormatUtil::formatBytes(size);
-        QString usedText = FormatUtil::formatBytes(used);
+        if (disk == nullptr) {
+            disk = im->getDisks().at(0);
+        }
+
+        QString sizeText = FormatUtil::formatBytes(disk->size);
+        QString usedText = FormatUtil::formatBytes(disk->used);
 
         int diskPercent = 0;
-        if (size)
-            diskPercent = ( (double) used / (double) size ) * 100.0;
+        if (disk->size)
+            diskPercent = ((double) disk->used / (double) disk->size) * 100.0;
 
         diskBar->setValue(diskPercent, QString("%1 / %2")
                           .arg(usedText)

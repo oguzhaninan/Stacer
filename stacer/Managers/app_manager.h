@@ -18,7 +18,8 @@
 #include <QDebug>
 
 #define THEME_PROP "ThemeName"
-#define LANG_PROP "Language"
+#define LANG_PROP  "Language"
+#define DISK_PROP  "DiskName"
 
 class AppManager : public QObject
 {
@@ -42,9 +43,13 @@ public:
     void setSlideType(const QEasingCurve::Type type);
     QEasingCurve::Type getSlideType() const;
 
+    void setDiskName(const QString &value);
+    QString getDiskName();
+
 signals:
     void changedTheme();
     void changedSlideType(QEasingCurve::Type type);
+    void changedDisk();
 
 private:
     static AppManager *_instance;

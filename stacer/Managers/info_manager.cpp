@@ -64,14 +64,14 @@ quint64 InfoManager::getMemTotal() const
 /********************
  * DISK INFORMATION
  *******************/
-QList<Disk> InfoManager::getDisks() const
+QList<Disk*> InfoManager::getDisks() const
 {
     return di.getDisks();
 }
 
 void InfoManager::updateDiskInfo()
 {
-    return di.updateDiskInfo();
+    di.updateDiskInfo();
 }
 
 /********************

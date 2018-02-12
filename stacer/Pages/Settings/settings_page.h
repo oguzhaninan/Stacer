@@ -23,6 +23,7 @@ private slots:
 
     void themesCmbChanged(const int &index);
     void languagesCmbChanged(const int &index);
+    void diskCmbChanged(const int &index);
 
 private:
     Ui::SettingsPage *ui;

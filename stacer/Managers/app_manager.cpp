@@ -125,3 +125,17 @@ QString AppManager::getStylesheetFileContent() const
 {
     return stylesheetFileContent;
 }
+
+/************
+ * DISKS
+ ***********/
+void AppManager::setDiskName(const QString &value)
+{
+    settings->setValue(DISK_PROP, value);
+    emit changedDisk();
+}
+
+QString AppManager::getDiskName()
+{
+    return settings->value(DISK_PROP, "").toString();
+}

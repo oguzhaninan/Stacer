@@ -15,17 +15,18 @@ class STACERCORESHARED_EXPORT DiskInfo
 public:
     DiskInfo();
 
-    QList<Disk> getDisks() const;
+    QList<Disk*> getDisks() const;
     void updateDiskInfo();
 
 private:
-    QList<Disk> disks;
+    QList<Disk*> disks;
 };
 
 class Disk {
 public:
     Disk() {}
 
+    QString name;
     quint64 size;
     quint64 free;
     quint64 used;

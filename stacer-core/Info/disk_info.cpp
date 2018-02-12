@@ -2,28 +2,28 @@
 #include <QDebug>
 
 DiskInfo::DiskInfo()
-{
+{ }
 
-}
-
-QList<Disk> DiskInfo::getDisks() const
+QList<Disk*> DiskInfo::getDisks() const
 {
     return disks;
 }
 
 void DiskInfo::updateDiskInfo()
 {
+    disks.clear();
     try {
         QStringList result = CommandUtil::exec("df -Pl").split(QChar('\n'));
 
         QRegExp sep("\\s+");
         for (const QString &line : result.filter(QRegExp("^/")))
         {
-            Disk disk;
+            Disk *disk = new Disk;
             QStringList slist = line.split(sep);
-            disk.size = slist.at(1).toLong() << 10;
-            disk.used = slist.at(2).toLong() << 10;
-            disk.free = slist.at(3).toLong() << 10;
+            disk->name = slist.takeFirst();
+            disk->size = slist.takeFirst().toLong() << 10;
+            disk->used = slist.takeFirst().toLong() << 10;
+            disk->free = slist.takeFirst().toLong() << 10;
     
             disks << disk;
         }
