@@ -37,7 +37,8 @@ SOURCES += \
     Pages/Dashboard/dashboard_page.cpp \
     Pages/Processes/processes_page.cpp \
     Pages/Settings/settings_page.cpp \
-    Managers/app_manager.cpp
+    Managers/app_manager.cpp \
+    slidingstackedwidget.cpp
 
 HEADERS += \
     app.h \
@@ -57,7 +58,8 @@ HEADERS += \
     Pages/Dashboard/dashboard_page.h \
     Pages/Services/services_page.h \
     Pages/Settings/settings_page.h \
-    Managers/app_manager.h
+    Managers/app_manager.h \
+    slidingstackedwidget.h
 
 FORMS += \
     app.ui \
@@ -91,10 +93,7 @@ TRANSLATIONS += \
     ../translations/stacer_ru.ts \
     ../translations/stacer_sv.ts \
     ../translations/stacer_tr.ts \
-    ../translations/stacer_uk.ts \
-    ../translations/stacer_vi.ts \
-    ../translations/stacer_zh-cn.ts \
-    ../translations/stacer_zh-tw.ts
+    ../translations/stacer_zh-cn.ts
 
 RESOURCES += \
     static.qrc

@@ -3,6 +3,9 @@
 
 #include <QMainWindow>
 
+#include "slidingstackedwidget.h"
+#include "Managers/app_manager.h"
+
 // Pages
 #include "Pages/Dashboard/dashboard_page.h"
 #include "Pages/StartupApps/startup_apps_page.h"
@@ -25,11 +28,9 @@ public:
     explicit App(QWidget *parent = 0);
     ~App();
 
-public:
-
 private slots:
     void init();
-    void pageClick(QPushButton *btn, QWidget *w, QString title);
+    void pageClick(QWidget *w, QString title);
 
     void on_dashBtn_clicked();
     void on_systemCleanerBtn_clicked();
@@ -53,6 +54,8 @@ private:
     UninstallerPage *uninstallerPage;
     ResourcesPage *resourcesPage;
     SettingsPage *settingsPage;
+
+    SlidingStackedWidget *slidingStacked;
 };
 
 #endif // APP_H

@@ -64,7 +64,7 @@ int main(int argc, char *argv[])
     qApp->setApplicationVersion("1.0.8");
     qApp->setWindowIcon(QIcon(":/static/logo.png"));
 
-    qInstallMessageHandler(messageHandler);
+//    qInstallMessageHandler(messageHandler);
 
     App w;
 
