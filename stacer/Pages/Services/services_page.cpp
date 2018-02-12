@@ -29,26 +29,53 @@ void ServicesPage::init()
         ui->notFoundWidget->show();
         ui->serviceListWidget->hide();
     }
+
+    ui->cmbRunningStatus->addItems({ tr("Running Status"), tr("Running"), tr("Not Running") });
+    ui->cmbStartupStatus->addItems({ tr("Startup Status"), tr("Enabled"), tr("Disabled") });
 }
 
 void ServicesPage::loadServices()
 {
-    for (const Service &s : ToolManager::ins()->getServices()) {
+    ui->serviceListWidget->clear();
 
-        ServiceItem *service = new ServiceItem(s.name, s.status, s.active, this);
+    QList<Service> services = ToolManager::ins()->getServices();
 
-        QListWidgetItem *item = new QListWidgetItem(ui->serviceListWidget);
+    int runningIndex = ui->cmbRunningStatus->currentIndex();
+    int startupIndex = ui->cmbStartupStatus->currentIndex();
 
-        item->setSizeHint(service->sizeHint());
+    bool runningStatus = runningIndex == 1;
+    bool startupStatus = startupIndex == 1;
 
-        ui->serviceListWidget->setItemWidget(item, service);
+    for (const Service s : services) {
+        bool runningFilter = runningIndex != 0 ? s.active == runningStatus : true;
+        bool startupFilter = startupIndex != 0 ? s.status == startupStatus : true;
+
+        if (runningFilter && startupFilter) {
+            ServiceItem *service = new ServiceItem(s.name, s.description, s.status, s.active, this);
+
+            QListWidgetItem *item = new QListWidgetItem(ui->serviceListWidget);
+
+            item->setSizeHint(service->sizeHint());
+
+            ui->serviceListWidget->setItemWidget(item, service);
+        }
     }
 
-    setAppCount();
+    setServiceCount();
 }
 
-void ServicesPage::setAppCount()
+void ServicesPage::setServiceCount()
 {
     ui->servicesTitle->setText(tr("System Services (%1)")
                                .arg(ui->serviceListWidget->count()));
+}
+
+void ServicesPage::on_cmbRunningStatus_currentIndexChanged(int index)
+{
+    loadServices();
+}
+
+void ServicesPage::on_cmbStartupStatus_currentIndexChanged(int index)
+{
+    loadServices();
 }

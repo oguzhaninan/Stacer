@@ -23,7 +23,6 @@ public:
     };
 
     SlidingStackedWidget(QWidget *parent);
-    ~SlidingStackedWidget(void);
 
 public slots:
     void setSpeed(int speed); // animation duration in milliseconds

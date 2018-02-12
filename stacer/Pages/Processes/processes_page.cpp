@@ -79,7 +79,7 @@ void ProcessesPage::loadHeaderMenu()
 #undef ex
 
     QList<QAction*> actions = headerMenu.actions();
-    for (const int &i : hiddenHeaders) {
+    for (const int i : hiddenHeaders) {
         ui->processTable->horizontalHeader()->setSectionHidden(i, true);
         actions.at(i)->setChecked(false);
     }
@@ -93,12 +93,15 @@ void ProcessesPage::loadProcesses()
 
     im->updateProcesses();
 
-    for (const Process &proc : im->getProcesses()) {
+    QList<Process> processes = im->getProcesses();
+    QString username = im->getUserName();
+
+    for (const Process &proc : processes) {
         if (ui->allProcessesCheck->isChecked()) {
             model->appendRow(createRow(proc));
         }
         else {
-            if (im->getUserName() == proc.getUname())
+            if (username == proc.getUname())
                 model->appendRow(createRow(proc));
         }
     }

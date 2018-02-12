@@ -53,7 +53,7 @@
       <item>
        <layout class="QHBoxLayout" name="titlesLayout">
         <property name="spacing">
-         <number>0</number>
+         <number>20</number>
         </property>
         <property name="leftMargin">
          <number>15</number>
@@ -62,7 +62,7 @@
          <number>45</number>
         </property>
         <property name="bottomMargin">
-         <number>0</number>
+         <number>5</number>
         </property>
         <item alignment="Qt::AlignLeft|Qt::AlignVCenter">
          <widget class="QLabel" name="servicesTitle">
@@ -77,6 +77,38 @@
           </property>
           <property name="text">
            <string>System Services</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QComboBox" name="cmbStartupStatus">
+          <property name="minimumSize">
+           <size>
+            <width>120</width>
+            <height>0</height>
+           </size>
+          </property>
+          <property name="sizeAdjustPolicy">
+           <enum>QComboBox::AdjustToMinimumContentsLength</enum>
+          </property>
+          <property name="frame">
+           <bool>false</bool>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QComboBox" name="cmbRunningStatus">
+          <property name="minimumSize">
+           <size>
+            <width>120</width>
+            <height>0</height>
+           </size>
+          </property>
+          <property name="sizeAdjustPolicy">
+           <enum>QComboBox::AdjustToMinimumContentsLength</enum>
+          </property>
+          <property name="frame">
+           <bool>false</bool>
           </property>
          </widget>
         </item>
@@ -140,7 +172,7 @@
           </property>
           <property name="sizeHint" stdset="0">
            <size>
-            <width>100</width>
+            <width>40</width>
             <height>20</height>
            </size>
           </property>

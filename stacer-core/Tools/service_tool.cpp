@@ -2,18 +2,15 @@
 
 #include <QDebug>
 
-Service::Service(const QString &name, bool status, bool active) :
+Service::Service(const QString &name, const QString description, const bool status, const bool active) :
     name(name),
+    description(description),
     status(status),
     active(active)
-{
-
-}
+{ }
 
 ServiceTool::ServiceTool()
-{
-
-}
+{ }
 
 QList<Service> ServiceTool::getServicesWithSystemctl()
 {    
@@ -28,16 +25,17 @@ QList<Service> ServiceTool::getServicesWithSystemctl()
                 .filter(QRegExp("[^@].service"));
 
         QRegExp sep("\\s+");
-        for (const QString &line : lines)
+        for (const QString line : lines)
         {
             // e.g apache2.service          [enabled|disabled]
             QStringList s = line.trimmed().split(sep);
 
             QString name = s.first().trimmed().replace(".service", "");
+            QString description = getServiceDescription(s.first().trimmed());
             bool status = ! s.last().trimmed().compare("enabled");
             bool active = serviceIsActive(s.first().trimmed());
 
-            Service service(name, status, active);
+            Service service(name, description, status, active);
 
             services << service;
         }
@@ -47,6 +45,29 @@ QList<Service> ServiceTool::getServicesWithSystemctl()
     }
 
     return services;
+}
+
+QString ServiceTool::getServiceDescription(const QString &serviceName)
+{
+    QStringList args = { "cat", serviceName };
+
+    QString result("");
+
+    try {
+        QStringList content = CommandUtil::exec("systemctl", args)
+                .split(QChar('\n'))
+                .filter(QRegExp("^Description"));
+
+        if (content.length() > 0) {
+            QStringList desc = content.first().split(QChar('='));
+            if (desc.length() > 0)
+                result = desc.last();
+        }
+    } catch (QString &ex) {
+        qCritical() << ex;
+    }
+
+    return result;
 }
 
 

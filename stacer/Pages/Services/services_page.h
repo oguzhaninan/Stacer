@@ -19,8 +19,12 @@ private slots:
     void init();
     void loadServices();
 
+    void on_cmbRunningStatus_currentIndexChanged(int index);
+
+    void on_cmbStartupStatus_currentIndexChanged(int index);
+
 public slots:
-    void setAppCount();
+    void setServiceCount();
 
 private:
     Ui::ServicesPage *ui;

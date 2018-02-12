@@ -14,7 +14,7 @@ class ServiceItem : public QWidget
     Q_OBJECT
 
 public:
-    explicit ServiceItem(const QString &name, bool status, bool active, QWidget *parent = 0);
+    explicit ServiceItem(const QString &name, const QString description, const bool status, const bool active, QWidget *parent = 0);
     ~ServiceItem();
 
 private slots:

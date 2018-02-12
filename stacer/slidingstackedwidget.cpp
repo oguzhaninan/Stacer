@@ -1,10 +1,5 @@
 #include "slidingstackedwidget.h"
 
-SlidingStackedWidget::~SlidingStackedWidget()
-{
-
-}
-
 SlidingStackedWidget::SlidingStackedWidget(QWidget *parent)
     : QStackedWidget(parent)
 {

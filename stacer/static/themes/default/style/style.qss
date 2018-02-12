@@ -501,12 +501,6 @@ QLabel#systemInfoTitle {
     padding: 10 0;
 }
 
-#serviceStartupTitle,
-#systemRunningTitle {
-    font-size: 10pt;
-    color: @color11;
-}
-
 /* - Service Item - */
 
 #serviceItemWidget QCheckBox {
@@ -527,8 +521,13 @@ QLabel#systemInfoTitle {
 }
 
 #ServiceItem #serviceName {
-    font-size: 10pt;
+    font-size: 11pt;
     color: @color05;
+}
+
+#ServiceItem #lblDescription {
+    font-size: 10pt;
+    color: @color06;
 }
 
 #serviceStartupImg {
@@ -670,7 +669,7 @@ QHeaderView::down-arrow {
 #packagesList {
     border:0;
     background-color: transparent;
-    font-size:10pt;
+    font-size:11pt;
 }
 
 #packagesList::indicator {
@@ -758,7 +757,7 @@ QCheckBox#historyTitleCheck::indicator:checked {
     background-color: @color01;
 }
 
-#SettingsPage QComboBox {
+QComboBox {
     border: 0;
     border-radius: 2;
     background-color: @color01;
@@ -768,7 +767,7 @@ QCheckBox#historyTitleCheck::indicator:checked {
     min-width: 100;
 }
 
-#SettingsPage QComboBox::drop-down {
+QComboBox::drop-down {
     background-color: @color01;
     subcontrol-position: top right;
     width: 14;
@@ -783,12 +782,12 @@ QCheckBox#historyTitleCheck::indicator:checked {
     border-bottom-right-radius: 2;
 }
 
-#SettingsPage QComboBox::down-arrow:on {
+QComboBox::down-arrow:on {
     background-color: @color01;
     color: @color05;
 }
 
-#SettingsPage QComboBox QAbstractItemView {
+QComboBox QAbstractItemView {
     background-color: @color01;
     border: 0;
 }
