@@ -134,13 +134,3 @@ void Process::setSession(const QString &value)
 {
     session = value;
 }
-
-QString Process::getSeat() const
-{
-    return seat;
-}
-
-void Process::setSeat(const QString &value)
-{
-    seat = value;
-}

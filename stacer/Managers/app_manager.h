@@ -11,6 +11,7 @@
 #include <QJsonObject>
 #include <QTranslator>
 #include <QFontDatabase>
+#include <QEasingCurve>
 
 #include <Utils/file_util.h>
 
@@ -38,8 +39,12 @@ public:
     void loadThemeList();
     QSettings *getStyleValues() const;
 
+    void setSlideType(const QEasingCurve::Type type);
+    QEasingCurve::Type getSlideType() const;
+
 signals:
     void changedTheme();
+    void changedSlideType(QEasingCurve::Type type);
 
 private:
     static AppManager *_instance;
@@ -49,8 +54,11 @@ private:
     QTranslator translator;
     QString configPath;
     QString themeName;
+    enum QEasingCurve::Type slideType;
+
     QSettings *settings;
     QSettings *styleValues;
+
     QMap<QString, QString> languageList;
     QMap<QString, QString> themeList;
     QString stylesheetFileContent;

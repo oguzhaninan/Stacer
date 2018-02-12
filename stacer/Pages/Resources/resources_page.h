@@ -29,12 +29,13 @@ private:
     void init();
 
 private:
+    InfoManager *im;
+
     HistoryChart *cpuChart;
     HistoryChart *memoryChart;
     HistoryChart *networkChart;
 
     QTimer *timer;
-    InfoManager *im;
 };
 
 #endif // RESOURCESPAGE_H

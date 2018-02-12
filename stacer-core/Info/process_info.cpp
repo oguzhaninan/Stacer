@@ -2,21 +2,16 @@
 
 #include <QDebug>
 
-ProcessInfo::ProcessInfo()
-{
-
-}
-
 void ProcessInfo::updateProcesses()
 {
     processList.clear();
 
     try {
 
-        QStringList columns = { "pid", "rss", "pmem", "vsize", "uname", "pcpu", "start_time",
-                                "state", "group", "nice", "cputime", "session", "seat", "cmd"};
+        QStringList columns = { "pid", "rss", "pmem", "vsize", "uname:50", "pcpu", "start_time",
+                                "state", "group", "nice", "cputime", "session", "cmd"};
 
-        QStringList lines = CommandUtil::exec("ps", {"ax", "-eo", columns.join(","), "--no-headings"})
+        QStringList lines = CommandUtil::exec("ps", {"ax", "-weo", columns.join(","), "--no-headings"})
                 .trimmed()
                 .split(QChar('\n'));
 
@@ -28,20 +23,19 @@ void ProcessInfo::updateProcesses()
                 if (procLine.count() >= columns.count()) {
                     Process proc;
 
-                    proc.setPid(procLine.at(0).toLong());
-                    proc.setRss(procLine.at(1).toLong() << 10);
-                    proc.setPmem(procLine.at(2).toDouble());
-                    proc.setVsize(procLine.at(3).toLong() << 10);
-                    proc.setUname(procLine.at(4));
-                    proc.setPcpu(procLine.at(5).toDouble());
-                    proc.setStartTime(procLine.at(6));
-                    proc.setState(procLine.at(7));
-                    proc.setGroup(procLine.at(8));
-                    proc.setNice(procLine.at(9).toInt());
-                    proc.setCpuTime(procLine.at(10));
-                    proc.setSession(procLine.at(11));
-                    proc.setSeat(procLine.at(12));
-                    proc.setCmd(procLine.at(13));
+                    proc.setPid(procLine.takeFirst().toLong());
+                    proc.setRss(procLine.takeFirst().toLong() << 10);
+                    proc.setPmem(procLine.takeFirst().toDouble());
+                    proc.setVsize(procLine.takeFirst().toLong() << 10);
+                    proc.setUname(procLine.takeFirst());
+                    proc.setPcpu(procLine.takeFirst().toDouble());
+                    proc.setStartTime(procLine.takeFirst());
+                    proc.setState(procLine.takeFirst());
+                    proc.setGroup(procLine.takeFirst());
+                    proc.setNice(procLine.takeFirst().toInt());
+                    proc.setCpuTime(procLine.takeFirst());
+                    proc.setSession(procLine.takeFirst());
+                    proc.setCmd(procLine.join(" "));
 
                     processList << proc;
                 }

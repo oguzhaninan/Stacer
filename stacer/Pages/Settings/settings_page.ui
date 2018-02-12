@@ -38,23 +38,6 @@
    <property name="verticalSpacing">
     <number>10</number>
    </property>
-   <item row="1" column="0" alignment="Qt::AlignLeft">
-    <widget class="QComboBox" name="languagesCmb">
-     <property name="cursor">
-      <cursorShape>PointingHandCursor</cursorShape>
-     </property>
-     <property name="focusPolicy">
-      <enum>Qt::NoFocus</enum>
-     </property>
-    </widget>
-   </item>
-   <item row="0" column="0" alignment="Qt::AlignLeft">
-    <widget class="QLabel" name="langLabel">
-     <property name="text">
-      <string>Language</string>
-     </property>
-    </widget>
-   </item>
    <item row="1" column="1" alignment="Qt::AlignLeft">
     <widget class="QComboBox" name="themesCmb">
      <property name="cursor">
@@ -62,13 +45,6 @@
      </property>
      <property name="focusPolicy">
       <enum>Qt::NoFocus</enum>
-     </property>
-    </widget>
-   </item>
-   <item row="0" column="1" alignment="Qt::AlignLeft">
-    <widget class="QLabel" name="themeLabel">
-     <property name="text">
-      <string>Theme</string>
      </property>
     </widget>
    </item>
@@ -85,7 +61,24 @@
      </property>
     </spacer>
    </item>
-   <item row="0" column="2" rowspan="2">
+   <item row="0" column="0" alignment="Qt::AlignLeft">
+    <widget class="QLabel" name="langLabel">
+     <property name="text">
+      <string>Language</string>
+     </property>
+    </widget>
+   </item>
+   <item row="1" column="0" alignment="Qt::AlignLeft">
+    <widget class="QComboBox" name="languagesCmb">
+     <property name="cursor">
+      <cursorShape>PointingHandCursor</cursorShape>
+     </property>
+     <property name="focusPolicy">
+      <enum>Qt::NoFocus</enum>
+     </property>
+    </widget>
+   </item>
+   <item row="0" column="3" rowspan="2">
     <spacer name="horizontalSpacer">
      <property name="orientation">
       <enum>Qt::Horizontal</enum>
@@ -97,6 +90,13 @@
       </size>
      </property>
     </spacer>
+   </item>
+   <item row="0" column="1" alignment="Qt::AlignLeft">
+    <widget class="QLabel" name="themeLabel">
+     <property name="text">
+      <string>Theme</string>
+     </property>
+    </widget>
    </item>
   </layout>
  </widget>

@@ -23,11 +23,11 @@ HistoryChart::HistoryChart(const QString &title, const int &seriesCount, QWidget
 
 void HistoryChart::init()
 {
-    ui->historyTitle->setText(title);
+    ui->historyTitleLbl->setText(title);
 
     // create lists
     for (int i = 0; i < seriesCount; i++)
-        seriesList.append(new QLineSeries);
+        seriesList.append(new QSplineSeries);
 
     // add series to chart
     for (int i = 0; i < seriesList.count(); ++i)
@@ -73,12 +73,12 @@ void HistoryChart::setYMax(const int &value)
     yMax = value;
 }
 
-QVector<QLineSeries *> HistoryChart::getSeriesList() const
+QVector<QSplineSeries *> HistoryChart::getSeriesList() const
 {
     return seriesList;
 }
 
-void HistoryChart::setSeriesList(const QVector<QLineSeries *> &value)
+void HistoryChart::setSeriesList(const QVector<QSplineSeries *> &value)
 {
     seriesList = value;
 
@@ -90,7 +90,7 @@ void HistoryChart::setSeriesList(const QVector<QLineSeries *> &value)
     chartView->repaint();
 }
 
-void HistoryChart::on_historyTitle_clicked(bool checked)
+void HistoryChart::on_historyTitleCheck_clicked(bool checked)
 {
     QLayout *charts = topLevelWidget()->findChild<QWidget*>("charts")->layout();
 

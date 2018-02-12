@@ -41,7 +41,7 @@ void SettingsPage::init()
     ui->themesCmb->setCurrentText(apm->getThemeList().value(tn));
 
     connect(ui->languagesCmb, SIGNAL(currentIndexChanged(int)), this, SLOT(languagesCmbChanged(int)));
-    connect(ui->themesCmb, SIGNAL(currentIndexChanged(int)), this, SLOT(themesCmbChanged(int)));
+    connect(ui->themesCmb, SIGNAL(currentIndexChanged(int)), this, SLOT(themesCmbChanged(int)));    
 }
 
 void SettingsPage::languagesCmbChanged(const int &index)

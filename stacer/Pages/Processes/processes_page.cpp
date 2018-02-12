@@ -13,7 +13,7 @@ ProcessesPage::ProcessesPage(QWidget *parent) :
   sortModel(new QSortFilterProxyModel(this)),
   headers{"PID", tr("Resident Memory"), tr("%Memory"), tr("Virtual Memory"),
           tr("User"), "%CPU", tr("Start Time"), tr("State"), tr("Group"),
-          tr("Nice"), tr("CPU Time"), tr("Session"), tr("Seat"), tr("Process")},
+          tr("Nice"), tr("CPU Time"), tr("Session"), tr("Process")},
   im(InfoManager::ins()),
   timer(new QTimer(this))
 {
@@ -34,7 +34,7 @@ void ProcessesPage::init()
 
     model->setHorizontalHeaderLabels(headers);
 
-    ui->processTable->setModel(sortModel);
+    ui->processTable->setModel(sortModel);    
     sortModel->setSortRole(1);
     sortModel->setDynamicSortFilter(true);
     sortModel->sort(5, Qt::SortOrder::DescendingOrder);
@@ -72,7 +72,12 @@ void ProcessesPage::loadHeaderMenu()
         headerMenu.addAction(action);
     }
 
-    QList<int> hiddenHeaders = { 6, 7, 8, 9, 10, 11, 12 };
+// exclude headers
+#define ex(n) headers.indexOf(n)
+    QList<int> hiddenHeaders = { ex("Start Time"), ex("State"), ex("Group"),
+                                 ex("Nice"), ex("CPU Time"), ex("Session") };
+#undef ex
+
     QList<QAction*> actions = headerMenu.actions();
     for (const int &i : hiddenHeaders) {
         ui->processTable->horizontalHeader()->setSectionHidden(i, true);
@@ -167,17 +172,13 @@ QList<QStandardItem*> ProcessesPage::createRow(const Process &proc)
     session_i->setData(proc.getSession(), data);
     session_i->setData(proc.getSession(), Qt::ToolTipRole);
 
-    QStandardItem *seat_i = new QStandardItem(proc.getSeat());
-    seat_i->setData(proc.getSeat(), data);
-    seat_i->setData(proc.getSeat(), Qt::ToolTipRole);
-
     QStandardItem *cmd_i = new QStandardItem(proc.getCmd());
     cmd_i->setData(proc.getCmd(), data);
-    cmd_i->setData(proc.getCmd(), Qt::ToolTipRole);
+    cmd_i->setData(QString("<p>%1</p>").arg(proc.getCmd()), Qt::ToolTipRole);
 
     row << pid_i << rss_i << pmem_i << vsize_i << uname_i << pcpu_i
         << starttime_i << state_i << group_i << nice_i << cpuTime_i
-        << session_i << seat_i<< cmd_i;
+        << session_i << cmd_i;
 
     return row;
 }

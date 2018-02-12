@@ -20,15 +20,15 @@ public:
     explicit HistoryChart(const QString &title, const int &seriesCount, QWidget *parent = 0);
     ~HistoryChart();
 
-    QVector<QLineSeries *> getSeriesList() const;
+    QVector<QSplineSeries *> getSeriesList() const;
 
 public slots:
     void setYMax(const int &value);
-    void setSeriesList(const QVector<QLineSeries *> &value);
+    void setSeriesList(const QVector<QSplineSeries *> &value);
 
 private slots:
     void init();
-    void on_historyTitle_clicked(bool checked);
+    void on_historyTitleCheck_clicked(bool checked);
 
 private:
     Ui::HistoryChart *ui;
@@ -39,7 +39,7 @@ private:
     int seriesCount;
     QChartView *chartView;
     QChart *chart;
-    QVector<QLineSeries *> seriesList;
+    QVector<QSplineSeries *> seriesList;
     AppManager *apm;
 };
 

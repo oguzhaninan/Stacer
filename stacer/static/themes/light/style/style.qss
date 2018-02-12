@@ -155,7 +155,7 @@ QWidget#sidebar QPushButton {
     border-radius:2;
 }
 
-QWidget#sidebar QPushButton[checked=true],
+QWidget#sidebar QPushButton:checked,
 QWidget#sidebar QPushButton:hover {
     background-color: @color03;
 }
@@ -646,7 +646,7 @@ QHeaderView::down-arrow {
 }
 
 #endProcessBtn:hover {
-    background-color: @color01;
+    background-color: @color10;
 }
 /**************************
     UNINSTALLER PAGE
@@ -726,22 +726,22 @@ QHeaderView::down-arrow {
     HISTORIES
 ***************************/
 
-QCheckBox#historyTitle {
+#historyTitleLbl {
     font-size: 11pt;
-    margin: 0 0 10 10;
+    margin: 6 0 10 0;
     color: @color02;
 }
 
-QCheckBox#historyTitle::indicator {
-    width: 20;
-    height: 20;
+QCheckBox#historyTitleCheck::indicator {
+    width: 16;
+    height: 16;
 }
 
-QCheckBox#historyTitle::indicator:unchecked {
+QCheckBox#historyTitleCheck::indicator:unchecked {
     image: url(:/static/themes/default/img/fit.svg);
 }
 
-QCheckBox#historyTitle::indicator:checked {
+QCheckBox#historyTitleCheck::indicator:checked {
     image: url(:/static/themes/default/img/collapse.svg);
 }
 

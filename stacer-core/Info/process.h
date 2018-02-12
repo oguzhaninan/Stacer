@@ -50,9 +50,6 @@ public:
     QString getSession() const;
     void setSession(const QString &value);
 
-    QString getSeat() const;
-    void setSeat(const QString &value);
-
     QString getCmd() const;
     void setCmd(const QString &value);
 
@@ -69,7 +66,6 @@ private:
     int nice;
     QString cpuTime;
     QString session;
-    QString seat;
     QString cmd;
 };
 

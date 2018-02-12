@@ -7,8 +7,6 @@
 #include <Utils/command_util.h>
 #include "process.h"
 
-#define PROC_PID_CMD "/proc/%1/comm"
-
 #include "stacer-core_global.h"
 
 class STACERCORESHARED_EXPORT ProcessInfo : public QObject
@@ -16,7 +14,6 @@ class STACERCORESHARED_EXPORT ProcessInfo : public QObject
     Q_OBJECT
 
 public:
-    ProcessInfo();
     QList<Process> getProcessList() const;
 
 public slots:

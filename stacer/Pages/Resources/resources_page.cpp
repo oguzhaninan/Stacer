@@ -9,11 +9,11 @@ ResourcesPage::~ResourcesPage()
 ResourcesPage::ResourcesPage(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::ResourcesPage),
+    im(InfoManager::ins()),
     cpuChart(new HistoryChart(tr("CPU History"), im->getCpuCoreCount(), this)),
     memoryChart(new HistoryChart(tr("Memory History"), 2, this)),
     networkChart(new HistoryChart(tr("Network History"), 2, this)),
-    timer(new QTimer(this)),
-    im(InfoManager::ins())
+    timer(new QTimer(this))
 {
     ui->setupUi(this);
 
@@ -40,7 +40,7 @@ void ResourcesPage::updateNetworkChart()
 {
     static int second = 0;
 
-    QVector<QLineSeries *> seriesList = networkChart->getSeriesList();
+    QVector<QSplineSeries *> seriesList = networkChart->getSeriesList();
 
     // points swap
     for (int j = 0; j < seriesList.count(); j++) {
@@ -94,7 +94,7 @@ void ResourcesPage::updateMemoryChart()
 {
     static int second = 0;
 
-    QVector<QLineSeries *> seriesList = memoryChart->getSeriesList();
+    QVector<QSplineSeries *> seriesList = memoryChart->getSeriesList();
 
     im->updateMemoryInfo();
 
@@ -138,7 +138,7 @@ void ResourcesPage::updateCpuChart()
 
     QList<int> cpuPercents = im->getCpuPercents();
 
-    QVector<QLineSeries *> seriesList = cpuChart->getSeriesList();
+    QVector<QSplineSeries *> seriesList = cpuChart->getSeriesList();
 
     for (int j = 0; j < seriesList.count(); j++){
         int p = cpuPercents.at(j+1);
