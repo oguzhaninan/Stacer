@@ -1,5 +1,6 @@
 #include "resources_page.h"
 #include "ui_resources_page.h"
+#include "utilities.h"
 
 ResourcesPage::~ResourcesPage()
 {
@@ -33,7 +34,11 @@ void ResourcesPage::init()
     connect(timer, &QTimer::timeout, this, &ResourcesPage::updateMemoryChart);
     connect(timer, &QTimer::timeout, this, &ResourcesPage::updateNetworkChart);
 
-    timer->start(1000);
+    timer->start(1000);    
+
+    Utilities::addDropShadow(cpuChart, 60);
+    Utilities::addDropShadow(memoryChart, 60);
+    Utilities::addDropShadow(networkChart, 60);
 }
 
 void ResourcesPage::updateNetworkChart()

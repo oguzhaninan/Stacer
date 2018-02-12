@@ -20,7 +20,6 @@ private slots:
     void loadServices();
 
     void on_cmbRunningStatus_currentIndexChanged(int index);
-
     void on_cmbStartupStatus_currentIndexChanged(int index);
 
 public slots:

@@ -1,5 +1,6 @@
 #include "startup_apps_page.h"
 #include "ui_startup_apps_page.h"
+#include "utilities.h"
 
 StartupAppsPage::~StartupAppsPage()
 {
@@ -21,6 +22,8 @@ void StartupAppsPage::init()
     loadApps();
 
     connect(startupAppEdit, &StartupAppEdit::closeWindow, this, &StartupAppsPage::loadApps);
+
+    Utilities::addDropShadow(ui->addStartupAppBtn, 60);
 }
 
 void StartupAppsPage::loadApps()

@@ -1,5 +1,6 @@
 #include "startup_app.h"
 #include "ui_startup_app.h"
+#include "utilities.h"
 
 StartupApp::~StartupApp()
 {
@@ -21,6 +22,8 @@ StartupApp::StartupApp(const QString &appName, bool enabled, const QString &file
 
     ui->deleteAppBtn->setToolTip(tr("Delete"));
     ui->editAppBtn->setToolTip(tr("Edit"));
+
+    Utilities::addDropShadow(this, 55);
 
     connect(startupAppEdit, &StartupAppEdit::closeWindow, (StartupAppsPage*)parent, &StartupAppsPage::loadApps);
 }

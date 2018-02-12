@@ -1,6 +1,7 @@
 #include "settings_page.h"
 #include "ui_settings_page.h"
 #include "Managers/info_manager.h"
+#include "utilities.h"
 
 SettingsPage::~SettingsPage()
 {
@@ -51,6 +52,11 @@ void SettingsPage::init()
 
     QString dk = apm->getDiskName();
     ui->disksCmb->setCurrentText(dk);
+
+    // effects
+    Utilities::addDropShadow(ui->languagesCmb, 55);
+    Utilities::addDropShadow(ui->themesCmb, 55);
+    Utilities::addDropShadow(ui->disksCmb, 55);
 
     connect(ui->languagesCmb, SIGNAL(currentIndexChanged(int)), this, SLOT(languagesCmbChanged(int)));
     connect(ui->themesCmb, SIGNAL(currentIndexChanged(int)), this, SLOT(themesCmbChanged(int)));    

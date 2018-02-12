@@ -3,6 +3,8 @@
 #include "service_item.h"
 
 #include "Managers/tool_manager.h"
+#include "utilities.h"
+#include <QtConcurrent>
 
 ServicesPage::~ServicesPage()
 {
@@ -20,6 +22,7 @@ ServicesPage::ServicesPage(QWidget *parent) :
 
 void ServicesPage::init()
 {
+//    QtConcurrent::run(this, &ServicesPage::loadServices);
     loadServices();
 
     if(ui->serviceListWidget->count()) {
@@ -32,6 +35,9 @@ void ServicesPage::init()
 
     ui->cmbRunningStatus->addItems({ tr("Running Status"), tr("Running"), tr("Not Running") });
     ui->cmbStartupStatus->addItems({ tr("Startup Status"), tr("Enabled"), tr("Disabled") });
+
+    Utilities::addDropShadow(ui->cmbRunningStatus, 30);
+    Utilities::addDropShadow(ui->cmbStartupStatus, 30);
 }
 
 void ServicesPage::loadServices()

@@ -1,6 +1,5 @@
 #include "uninstaller_page.h"
 #include "ui_uninstallerpage.h"
-
 #include <QMovie>
 
 UninstallerPage::~UninstallerPage()
@@ -63,9 +62,7 @@ void UninstallerPage::setAppCount()
 {
     int count = ui->packagesList->count();
 
-    ui->packagesTitle->setText(
-        tr("System Installed Packages (%1)")
-        .arg(count));
+    ui->packagesTitle->setText(tr("System Installed Packages (%1)").arg(count));
 
     ui->notFoundWidget->setVisible(! count);
     ui->packagesList->setVisible(count);

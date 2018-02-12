@@ -1,5 +1,6 @@
 #include "processes_page.h"
 #include "ui_processes_page.h"
+#include "utilities.h"
 
 ProcessesPage::~ProcessesPage()
 {
@@ -58,6 +59,9 @@ void ProcessesPage::init()
         this, SLOT(on_processTable_customContextMenuRequested(const QPoint&)));
 
     loadHeaderMenu();
+
+    Utilities::addDropShadow(ui->endProcessBtn, 60);
+    Utilities::addDropShadow(ui->processTable, 55);
 }
 
 void ProcessesPage::loadHeaderMenu()

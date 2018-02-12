@@ -1,5 +1,6 @@
 #include "service_item.h"
 #include "ui_service_item.h"
+#include "utilities.h"
 
 ServiceItem::~ServiceItem()
 {
@@ -19,7 +20,9 @@ ServiceItem::ServiceItem(const QString &name, const QString description, const b
     ui->startupBtn->setChecked(status);
 
     ui->serviceName->setToolTip(name);
-    ui->lblDescription->setToolTip(description);
+    ui->lblDescription->setToolTip(description);    
+
+    Utilities::addDropShadow(this, 55);
 }
 
 void ServiceItem::on_startupBtn_clicked(bool status)

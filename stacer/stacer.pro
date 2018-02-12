@@ -59,7 +59,8 @@ HEADERS += \
     Pages/Services/services_page.h \
     Pages/Settings/settings_page.h \
     Managers/app_manager.h \
-    slidingstackedwidget.h
+    slidingstackedwidget.h \
+    utilities.h
 
 FORMS += \
     app.ui \

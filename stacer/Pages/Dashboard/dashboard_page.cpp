@@ -1,6 +1,8 @@
 #include "dashboard_page.h"
 #include "ui_dashboard_page.h"
 
+#include "utilities.h"
+
 DashboardPage::~DashboardPage()
 {
     delete ui;
@@ -58,6 +60,12 @@ void DashboardPage::init()
 
     // check update
     checkUpdate();
+
+    Utilities::addDropShadow(cpuBar, 60);
+    Utilities::addDropShadow(memBar, 60);
+    Utilities::addDropShadow(diskBar, 60);
+    Utilities::addDropShadow(downloadBar, 60);
+    Utilities::addDropShadow(uploadBar, 60);
 }
 
 void DashboardPage::checkUpdate()
