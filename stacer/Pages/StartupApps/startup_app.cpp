@@ -23,7 +23,7 @@ StartupApp::StartupApp(const QString &appName, bool enabled, const QString &file
     ui->deleteAppBtn->setToolTip(tr("Delete"));
     ui->editAppBtn->setToolTip(tr("Edit"));
 
-    Utilities::addDropShadow(this, 55);
+    Utilities::addDropShadow(this, 50);
 
     connect(startupAppEdit, &StartupAppEdit::closeWindow, (StartupAppsPage*)parent, &StartupAppsPage::loadApps);
 }

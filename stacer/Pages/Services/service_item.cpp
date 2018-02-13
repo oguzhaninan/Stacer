@@ -22,7 +22,7 @@ ServiceItem::ServiceItem(const QString &name, const QString description, const b
     ui->serviceName->setToolTip(name);
     ui->lblDescription->setToolTip(description);    
 
-    Utilities::addDropShadow(this, 55);
+    Utilities::addDropShadow(this, 50);
 }
 
 void ServiceItem::on_startupBtn_clicked(bool status)

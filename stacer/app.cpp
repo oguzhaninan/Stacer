@@ -1,5 +1,6 @@
 #include "app.h"
 #include "ui_app.h"
+#include "utilities.h"
 
 App::~App()
 {
@@ -57,6 +58,8 @@ void App::init()
     AppManager::ins()->updateStylesheet();
 
     on_dashBtn_clicked();
+
+    Utilities::addDropShadow(ui->sidebar, 60);
 }
 
 void App::pageClick(QWidget *w, QString title)

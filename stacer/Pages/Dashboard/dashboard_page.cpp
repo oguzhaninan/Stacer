@@ -113,8 +113,8 @@ void DashboardPage::systemInformationInit()
         << tr("Distribution: %1").arg(sysInfo.getDistribution())
         << tr("Kernel Release: %1").arg(sysInfo.getKernel())
         << tr("CPU Model: %1").arg(sysInfo.getCpuModel())
-        << tr("CPU Speed: %1").arg(sysInfo.getCpuSpeed())
-        << tr("CPU Core: %1").arg(sysInfo.getCpuCore());
+        << tr("CPU Core: %1").arg(sysInfo.getCpuCore())
+        << tr("CPU Speed: %1").arg(sysInfo.getCpuSpeed());
 
     QStringListModel *systemInfoModel = new QStringListModel(infos);
 

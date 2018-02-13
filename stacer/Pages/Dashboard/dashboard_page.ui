@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>811</width>
-    <height>565</height>
+    <height>583</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -21,19 +21,19 @@
   </property>
   <layout class="QGridLayout" name="gridLayout">
    <property name="leftMargin">
-    <number>20</number>
+    <number>5</number>
    </property>
    <property name="topMargin">
-    <number>10</number>
+    <number>5</number>
    </property>
    <property name="rightMargin">
-    <number>20</number>
+    <number>5</number>
    </property>
    <property name="bottomMargin">
     <number>10</number>
    </property>
    <property name="spacing">
-    <number>10</number>
+    <number>0</number>
    </property>
    <item row="2" column="1">
     <widget class="QWidget" name="lineBars" native="true">
@@ -84,7 +84,7 @@
      </property>
      <layout class="QHBoxLayout" name="circleBarsLayout">
       <property name="spacing">
-       <number>25</number>
+       <number>20</number>
       </property>
       <property name="leftMargin">
        <number>10</number>
@@ -120,10 +120,10 @@
      </property>
      <layout class="QVBoxLayout" name="verticalLayout">
       <property name="spacing">
-       <number>10</number>
+       <number>5</number>
       </property>
       <property name="leftMargin">
-       <number>10</number>
+       <number>15</number>
       </property>
       <property name="topMargin">
        <number>0</number>
@@ -139,10 +139,13 @@
         <property name="orientation">
          <enum>Qt::Vertical</enum>
         </property>
+        <property name="sizeType">
+         <enum>QSizePolicy::Fixed</enum>
+        </property>
         <property name="sizeHint" stdset="0">
          <size>
           <width>20</width>
-          <height>20</height>
+          <height>15</height>
          </size>
         </property>
        </spacer>
@@ -184,19 +187,6 @@
          <bool>true</bool>
         </property>
        </widget>
-      </item>
-      <item>
-       <spacer name="verticalSpacer">
-        <property name="orientation">
-         <enum>Qt::Vertical</enum>
-        </property>
-        <property name="sizeHint" stdset="0">
-         <size>
-          <width>20</width>
-          <height>0</height>
-         </size>
-        </property>
-       </spacer>
       </item>
      </layout>
     </widget>

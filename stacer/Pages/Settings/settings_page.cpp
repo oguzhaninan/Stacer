@@ -54,9 +54,9 @@ void SettingsPage::init()
     ui->disksCmb->setCurrentText(dk);
 
     // effects
-    Utilities::addDropShadow(ui->languagesCmb, 55);
-    Utilities::addDropShadow(ui->themesCmb, 55);
-    Utilities::addDropShadow(ui->disksCmb, 55);
+    Utilities::addDropShadow(ui->languagesCmb, 40);
+    Utilities::addDropShadow(ui->themesCmb, 40);
+    Utilities::addDropShadow(ui->disksCmb, 40);
 
     connect(ui->languagesCmb, SIGNAL(currentIndexChanged(int)), this, SLOT(languagesCmbChanged(int)));
     connect(ui->themesCmb, SIGNAL(currentIndexChanged(int)), this, SLOT(themesCmbChanged(int)));    
