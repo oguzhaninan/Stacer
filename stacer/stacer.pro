@@ -38,7 +38,8 @@ SOURCES += \
     Pages/Processes/processes_page.cpp \
     Pages/Settings/settings_page.cpp \
     Managers/app_manager.cpp \
-    slidingstackedwidget.cpp
+    slidingstackedwidget.cpp \
+    feedback.cpp
 
 HEADERS += \
     app.h \
@@ -60,7 +61,8 @@ HEADERS += \
     Pages/Settings/settings_page.h \
     Managers/app_manager.h \
     slidingstackedwidget.h \
-    utilities.h
+    utilities.h \
+    feedback.h
 
 FORMS += \
     app.ui \
@@ -77,7 +79,8 @@ FORMS += \
     Pages/Processes/processes_page.ui \
     Pages/Resources/resources_page.ui \
     Pages/Services/services_page.ui \
-    Pages/Settings/settings_page.ui
+    Pages/Settings/settings_page.ui \
+    feedback.ui
 
 TRANSLATIONS += \
     ../translations/stacer_ar.ts \

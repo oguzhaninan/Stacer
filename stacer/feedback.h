@@ -1,0 +1,40 @@
+#ifndef FEEDBACK_H
+#define FEEDBACK_H
+
+#include <QDialog>
+
+namespace Ui {
+class Feedback;
+}
+
+class Feedback : public QDialog
+{
+    Q_OBJECT
+
+public:
+    explicit Feedback(QWidget *parent = 0);
+    ~Feedback();
+
+signals:
+    void setErrorMessageS(const QString &msg);
+    void clearInputsS();
+
+private slots:
+    void setErrorMessage(const QString &msg);
+    void on_sendBtn_clicked();
+    void clearInputs();
+
+private:
+    void init();
+
+private:
+    Ui::Feedback *ui;
+
+    QString header;
+    QString feedbackUrl;
+
+    QRegExp mailRegex;
+
+};
+
+#endif // FEEDBACK_H

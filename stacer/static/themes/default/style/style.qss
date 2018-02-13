@@ -153,7 +153,7 @@ QWidget#sidebar QPushButton {
     max-height: 46;
     border-style: solid;
     color: @color07;
-    margin: 5 7;
+    margin: 3 7;
     border-radius:2;
 }
 
@@ -174,36 +174,40 @@ QWidget#pageContent {
     background-color: @color08;
 }
 
-QPushButton#dashBtn {
+#dashBtn {
     qproperty-icon: url(:/static/themes/default/img/sidebar-icons/dash.png);
 }
 
-QPushButton#systemCleanerBtn {
+#systemCleanerBtn {
     qproperty-icon: url(:/static/themes/default/img/sidebar-icons/cleaner.svg);
 }
 
-QPushButton#startupAppsBtn {
+#startupAppsBtn {
     qproperty-icon: url(:/static/themes/default/img/sidebar-icons/startup-apps.svg);
 }
 
-QPushButton#servicesBtn {
+#servicesBtn {
     qproperty-icon: url(:/static/themes/default/img/sidebar-icons/services.svg);
 }
 
-QPushButton#processesBtn {
+#processesBtn {
     qproperty-icon: url(:/static/themes/default/img/sidebar-icons/process.png);
 }
 
-QPushButton#uninstallerBtn {
+#uninstallerBtn {
     qproperty-icon: url(:/static/themes/default/img/sidebar-icons/uninstaller.png);
 }
 
-QPushButton#resourcesBtn {
+#resourcesBtn {
     qproperty-icon: url(:/static/themes/default/img/sidebar-icons/resources.png);
 }
 
-QPushButton#settingsBtn {
+#settingsBtn {
     qproperty-icon: url(:/static/themes/default/img/sidebar-icons/settings.svg);
+}
+
+#feedbackBtn {
+    qproperty-icon: url(:/static/themes/default/img/sidebar-icons/feedback.svg);
 }
 
 /**************************
@@ -813,4 +817,43 @@ QComboBox QAbstractItemView {
     border: 0;
     padding: 4 10;
     border-radius: 2;
+}
+
+
+/**************************
+    FEEDBACK
+***************************/
+
+#Feedback {
+    background-color: @pageContent;
+}
+
+#Feedback #title {
+    color: @color06;
+    font-size: 11pt;
+}
+
+#Feedback QLineEdit,
+#Feedback QPlainTextEdit {
+    border-radius: 2;
+    padding: 10;
+    background-color: @color01;
+    font-size: 10pt;
+    color: @color05;
+}
+
+#Feedback #sendBtn {
+    border-radius: 2;
+    padding: 7 25;
+    font-size: 11pt;
+    background-color: @color03;
+    color: @color07;
+}
+
+#Feedback #sendBtn:hover {
+    background-color: @color10;
+}
+
+#Feedback #errorMsg {
+    color: @color09;
 }

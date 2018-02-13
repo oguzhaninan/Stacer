@@ -18,7 +18,8 @@ App::App(QWidget *parent) :
     uninstallerPage(new UninstallerPage(this)),
     resourcesPage(new ResourcesPage(this)),
     settingsPage(new SettingsPage(this)),
-    slidingStacked(new SlidingStackedWidget(this))
+    slidingStacked(new SlidingStackedWidget(this)),
+    feedback(new Feedback(this))
 {
     ui->setupUi(this);
 
@@ -106,4 +107,9 @@ void App::on_processesBtn_clicked()
 void App::on_settingsBtn_clicked()
 {
     pageClick(settingsPage, tr("Settings"));
+}
+
+void App::on_feedbackBtn_clicked()
+{
+    feedback->show();
 }

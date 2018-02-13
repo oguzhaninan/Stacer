@@ -151,7 +151,7 @@ QWidget#sidebar QPushButton {
     max-height: 46;
     border-style: solid;
     color: @color01;
-    margin: 5 7;
+    margin: 3 7;
     border-radius:2;
 }
 
@@ -172,36 +172,40 @@ QWidget#pageContent {
     background-color: @pageContent;
 }
 
-QPushButton#dashBtn {
+#dashBtn {
     qproperty-icon: url(:/static/themes/default/img/sidebar-icons/dash.png);
 }
 
-QPushButton#systemCleanerBtn {
+#systemCleanerBtn {
     qproperty-icon: url(:/static/themes/default/img/sidebar-icons/cleaner.svg);
 }
 
-QPushButton#startupAppsBtn {
+#startupAppsBtn {
     qproperty-icon: url(:/static/themes/default/img/sidebar-icons/startup-apps.svg);
 }
 
-QPushButton#servicesBtn {
+#servicesBtn {
     qproperty-icon: url(:/static/themes/default/img/sidebar-icons/services.svg);
 }
 
-QPushButton#processesBtn {
+#processesBtn {
     qproperty-icon: url(:/static/themes/default/img/sidebar-icons/process.png);
 }
 
-QPushButton#uninstallerBtn {
+#uninstallerBtn {
     qproperty-icon: url(:/static/themes/default/img/sidebar-icons/uninstaller.png);
 }
 
-QPushButton#resourcesBtn {
+#resourcesBtn {
     qproperty-icon: url(:/static/themes/default/img/sidebar-icons/resources.png);
 }
 
-QPushButton#settingsBtn {
+#settingsBtn {
     qproperty-icon: url(:/static/themes/default/img/sidebar-icons/settings.svg);
+}
+
+#feedbackBtn {
+    qproperty-icon: url(:/static/themes/default/img/sidebar-icons/feedback.svg);
 }
 
 /**************************
@@ -485,6 +489,7 @@ QLabel#systemInfoTitle {
 #StartupAppEdit #errorMsg {
     color: #f44336;
 }
+
 
 /**************************
     SERVICES PAGE

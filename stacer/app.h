@@ -15,6 +15,7 @@
 #include "Pages/Uninstaller/uninstaller_page.h"
 #include "Pages/Resources/resources_page.h"
 #include "Pages/Settings/settings_page.h"
+#include "feedback.h"
 
 namespace Ui {
     class App;
@@ -41,6 +42,8 @@ private slots:
     void on_processesBtn_clicked();
     void on_settingsBtn_clicked();
 
+    void on_feedbackBtn_clicked();
+
 private:
     Ui::App *ui;
 
@@ -54,6 +57,8 @@ private:
     UninstallerPage *uninstallerPage;
     ResourcesPage *resourcesPage;
     SettingsPage *settingsPage;
+
+    Feedback *feedback;
 
     SlidingStackedWidget *slidingStacked;
 };

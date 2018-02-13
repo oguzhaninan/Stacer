@@ -59,5 +59,6 @@
         <file>static/logo.png</file>
         <file>static/themes/default/img/run.svg</file>
         <file>static/themes/default/img/power.svg</file>
+        <file>static/themes/default/img/sidebar-icons/feedback.svg</file>
     </qresource>
 </RCC>

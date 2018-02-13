@@ -4,7 +4,8 @@
 
 SystemInfo::SystemInfo()
 {
-    QStringList lines = {"AMD A8-4500M APU with Radeon(tm) HD Graphics"};
+    QStringList lines = FileUtil::readListFromFile(PROC_CPUINFO)
+            .filter(QRegExp("^model name"));
 
     if (! lines.isEmpty()) {
         QRegExp regexp("\\s+");
@@ -45,7 +46,7 @@ SystemInfo::SystemInfo()
         qCritical() << ex;
     }
 
-    this->username = name;
+   this->username = name;
 }
 
 QString SystemInfo::getUsername() const
