@@ -2,7 +2,6 @@
 #include "ui_services_page.h"
 #include "service_item.h"
 
-#include "Managers/tool_manager.h"
 #include "utilities.h"
 #include <QtConcurrent>
 
@@ -22,16 +21,8 @@ ServicesPage::ServicesPage(QWidget *parent) :
 
 void ServicesPage::init()
 {
-//    QtConcurrent::run(this, &ServicesPage::loadServices);
-    loadServices();
-
-    if(ui->serviceListWidget->count()) {
-        ui->notFoundWidget->hide();
-    }
-    else { // list widget is empty show not found
-        ui->notFoundWidget->show();
-        ui->serviceListWidget->hide();
-    }
+    connect(this, &ServicesPage::loadServicesS, this, &ServicesPage::loadServices);
+    QtConcurrent::run(this, &ServicesPage::getServices);
 
     ui->cmbRunningStatus->addItems({ tr("Running Status"), tr("Running"), tr("Not Running") });
     ui->cmbStartupStatus->addItems({ tr("Startup Status"), tr("Enabled"), tr("Disabled") });
@@ -40,11 +31,15 @@ void ServicesPage::init()
     Utilities::addDropShadow(ui->cmbStartupStatus, 30);
 }
 
+void ServicesPage::getServices()
+{
+    this->mServices = ToolManager::ins()->getServices();
+    emit loadServicesS();
+}
+
 void ServicesPage::loadServices()
 {
     ui->serviceListWidget->clear();
-
-    QList<Service> services = ToolManager::ins()->getServices();
 
     int runningIndex = ui->cmbRunningStatus->currentIndex();
     int startupIndex = ui->cmbStartupStatus->currentIndex();
@@ -52,12 +47,12 @@ void ServicesPage::loadServices()
     bool runningStatus = runningIndex == 1;
     bool startupStatus = startupIndex == 1;
 
-    for (const Service s : services) {
+    for (const Service s : mServices) {
         bool runningFilter = runningIndex != 0 ? s.active == runningStatus : true;
         bool startupFilter = startupIndex != 0 ? s.status == startupStatus : true;
 
         if (runningFilter && startupFilter) {
-            ServiceItem *service = new ServiceItem(s.name, s.description, s.status, s.active, this);
+            ServiceItem *service = new ServiceItem(s.name, s.description, s.status, s.active);
 
             QListWidgetItem *item = new QListWidgetItem(ui->serviceListWidget);
 
@@ -68,6 +63,15 @@ void ServicesPage::loadServices()
     }
 
     setServiceCount();
+
+    if(ui->serviceListWidget->count() > 0) {
+        ui->serviceListWidget->show();
+        ui->notFoundWidget->hide();
+    }
+    else { // list widget is empty show not found
+        ui->notFoundWidget->show();
+        ui->serviceListWidget->hide();
+    }
 }
 
 void ServicesPage::setServiceCount()
