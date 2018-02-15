@@ -18,11 +18,13 @@ public:
 signals:
     void setErrorMessageS(const QString &msg);
     void clearInputsS();
+    void disableElementsS(const bool status);
 
 private slots:
     void setErrorMessage(const QString &msg);
     void on_sendBtn_clicked();
     void clearInputs();
+    void disableElements(const bool status);
 
 private:
     void init();

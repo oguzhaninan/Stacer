@@ -14,10 +14,10 @@ Feedback::~Feedback()
 
 Feedback::Feedback(QWidget *parent) :
     QDialog(parent),
+    ui(new Ui::Feedback),
     header("Content-Type: application/json"),
     feedbackUrl("https://stacer-web-api.herokuapp.com/feedback"),
-    mailRegex("\\b[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,4}\\b"),
-    ui(new Ui::Feedback)
+    mailRegex("\\b[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,4}\\b")
 {
     ui->setupUi(this);
 
@@ -31,6 +31,7 @@ void Feedback::init()
 
     connect(this, &Feedback::clearInputsS, this, &Feedback::clearInputs);
     connect(this, &Feedback::setErrorMessageS, this, &Feedback::setErrorMessage);
+    connect(this, &Feedback::disableElementsS, this, &Feedback::disableElements);
 }
 
 void Feedback::on_sendBtn_clicked()
@@ -46,8 +47,8 @@ void Feedback::on_sendBtn_clicked()
         return;
     }
 
-    if (message.length() < 30) {
-        emit setErrorMessageS(tr("Your message must be at least 30 characters !"));
+    if (message.length() < 25) {
+        emit setErrorMessageS(tr("Your message must be at least 25 characters !"));
         return;
     }
 
@@ -55,7 +56,9 @@ void Feedback::on_sendBtn_clicked()
         ! email.isEmpty() && isEmailValid)
     {
         QtConcurrent::run([=] {
-            ui->sendBtn->setText(tr("Sending..."));
+            emit disableElementsS(true);
+
+            ui->sendBtn->setText(tr("Sending.."));
             QStringList args;
 
             QJsonObject postData;
@@ -72,7 +75,7 @@ void Feedback::on_sendBtn_clicked()
                 QJsonObject response = QJsonDocument::fromJson(result.toUtf8()).object();
 
                 if (response.value("success").toBool()) {
-                    emit clearInputsS();
+                    emit clearInputs();
                     emit setErrorMessageS(tr("<font color='#2ecc71'>Your Feedback has been successfully sended.</font>"));
                 } else {
                     emit setErrorMessageS(tr("Something went wrong, try again !"));
@@ -82,7 +85,9 @@ void Feedback::on_sendBtn_clicked()
                 qCritical() << ex;
                 emit setErrorMessageS(tr("Something went wrong, try again !"));
             }
+
             ui->sendBtn->setText(tr("Save"));
+            emit disableElementsS(false);
         });
 
     } else {
@@ -93,6 +98,14 @@ void Feedback::on_sendBtn_clicked()
 void Feedback::setErrorMessage(const QString &msg)
 {
     ui->errorMsg->setText(msg);
+}
+
+void Feedback::disableElements(const bool status)
+{
+    ui->nameTxt->setDisabled(status);
+    ui->emailTxt->setDisabled(status);
+    ui->messageTxt->setDisabled(status);
+    ui->sendBtn->setDisabled(status);
 }
 
 void Feedback::clearInputs()

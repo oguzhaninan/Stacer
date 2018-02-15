@@ -62,7 +62,7 @@
       <enum>Qt::NoFocus</enum>
      </property>
      <property name="text">
-      <string>Save</string>
+      <string>Send</string>
      </property>
      <property name="default">
       <bool>true</bool>
