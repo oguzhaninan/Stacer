@@ -819,3 +819,41 @@ QComboBox QAbstractItemView {
     padding: 4 10;
     border-radius: 2;
 }
+
+/**************************
+    FEEDBACK
+***************************/
+
+#Feedback {
+    background-color: @pageContent;
+}
+
+#Feedback #title {
+    color: @color02;
+    font-size: 11pt;
+}
+
+#Feedback QLineEdit,
+#Feedback QPlainTextEdit {
+    border-radius: 2;
+    padding: 10;
+    background-color: @color01;
+    font-size: 10pt;
+    color: @color02;
+}
+
+#Feedback #sendBtn {
+    border-radius: 2;
+    padding: 7 25;
+    font-size: 11pt;
+    background-color: @color03;
+    color: @color01;
+}
+
+#Feedback #sendBtn:hover {
+    background-color: @color10;
+}
+
+#Feedback #errorMsg {
+    color: #f44336;
+}
