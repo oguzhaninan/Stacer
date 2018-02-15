@@ -7,13 +7,27 @@
 class Utilities
 {
 public:
-    static void addDropShadow(QWidget *widget, int alpha, int blur = 15)
+    static void
+    addDropShadow(QWidget *widget, int alpha, int blur = 15)
     {
         QGraphicsDropShadowEffect *effect = new QGraphicsDropShadowEffect(widget);
         effect->setBlurRadius(blur);
         effect->setColor(QColor(0, 0, 0, alpha));
         effect->setOffset(0);
         widget->setGraphicsEffect(effect);
+    }
+
+    static QString
+    getDesktopValue(const QRegExp &val, const QStringList &lines)
+    {
+        QStringList filteredList = lines.filter(val);
+        if (filteredList.count() > 0) {
+            QStringList directive = filteredList.first().trimmed().split("=");
+            if (directive.count() > 1) {
+                return directive.last().trimmed();
+            }
+        }
+        return QString("");
     }
 };
 
