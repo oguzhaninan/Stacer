@@ -1,5 +1,6 @@
 #include "startup_app_edit.h"
 #include "ui_startup_app_edit.h"
+#include "utilities.h"
 
 StartupAppEdit::~StartupAppEdit()
 {
@@ -17,7 +18,7 @@ StartupAppEdit::StartupAppEdit(QWidget *parent) :
                    "Exec=%3\n"
                    "Type=Application\n"
                    "Terminal=false\n"
-                   "X-GNOME-Autostart-enabled=true")
+                   "Hidden=true")
 {
     ui->setupUi(this);
 
@@ -33,6 +34,8 @@ void StartupAppEdit::init()
             size(),
             qApp->desktop()->availableGeometry())
     );
+
+    this->autostartPath = QStandardPaths::writableLocation(QStandardPaths::ConfigLocation) + "/autostart";
 
     ui->errorMsg->hide();
 
@@ -53,30 +56,37 @@ void StartupAppEdit::show()
 
         if(! lines.isEmpty())
         {
-#define getValue(r) lines.filter(r).first().split("=").last().trimmed()
-            ui->appNameTxt->setText(getValue(NAME_REG));
-            ui->appCommentTxt->setText(getValue(COMMENT_REG));
-            ui->appCommandTxt->setText(getValue(EXEC_REG));
-#undef getValue
+            ui->appNameTxt->setText(Utilities::getDesktopValue(NAME_REG, lines));
+            ui->appCommentTxt->setText(Utilities::getDesktopValue(COMMENT_REG, lines));
+            ui->appCommandTxt->setText(Utilities::getDesktopValue(EXEC_REG, lines));
         }
     }
 
     QDialog::show();
 }
 
+void StartupAppEdit::changeDesktopValue(QStringList &lines, const QRegExp &reg, const QString &text)
+{
+    int pos = lines.indexOf(reg);
+
+    if (pos != -1) {
+        lines.replace(pos, text);
+    } else {
+        lines.append(text);
+    }
+}
+
 void StartupAppEdit::on_saveBtn_clicked()
 {
-    static QString autostartPath = QStandardPaths::writableLocation(QStandardPaths::ConfigLocation) + "/autostart";
-
     if(isValid())
     {
         if(! selectedFilePath.isEmpty())
         {
             QStringList lines = FileUtil::readListFromFile(selectedFilePath);
 
-            lines.replace(lines.indexOf(NAME_REG), QString("Name=%1").arg(ui->appNameTxt->text()));
-            lines.replace(lines.indexOf(COMMENT_REG), QString("Comment=%1").arg(ui->appCommentTxt->text()));
-            lines.replace(lines.indexOf(EXEC_REG), QString("Exec=%1").arg(ui->appCommandTxt->text()));
+            changeDesktopValue(lines, NAME_REG, QString("Name=%1").arg(ui->appNameTxt->text()));
+            changeDesktopValue(lines, COMMENT_REG, QString("Comment=%1").arg(ui->appCommentTxt->text()));
+            changeDesktopValue(lines, EXEC_REG, QString("Exec=%1").arg(ui->appCommandTxt->text()));
 
             FileUtil::writeFile(selectedFilePath, QString(lines.join("\n")), QIODevice::ReadWrite | QIODevice::Truncate);
         }

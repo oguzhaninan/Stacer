@@ -32,14 +32,26 @@ void StartupApp::on_startupCheck_clicked(bool status)
 {
     QStringList lines = FileUtil::readListFromFile(filePath);
 
-    int pos = lines.indexOf(QRegExp("X-GNOME-Autostart-enabled=.*"));
+    // Hidden=[true|fales]
+    int pos = lines.indexOf(HIDDEN_REG);
 
-    if(pos != -1)
-    {
-        lines.replace(pos, QString("X-GNOME-Autostart-enabled=%1").arg(status ? "true" : "false"));
+    QString _status = status ? "true" : "false";
 
-        FileUtil::writeFile(filePath, lines.join("\n"));
+    if (pos != -1) {
+        lines.replace(pos, QString("Hidden=%1").arg(_status));
+    } else {
+        // X-GNOME-Autostart-enabled=[true|false]
+        pos = lines.indexOf(GNOME_ENABLED_REG);
+        if (pos != -1) {
+            lines.replace(pos, QString("X-GNOME-Autostart-enabled=%1").arg(_status));
+        }
     }
+
+    if (pos == -1) {
+        lines.append(QString("Hidden=%1").arg(_status));
+    }
+
+    FileUtil::writeFile(filePath, lines.join('\n'));
 }
 
 void StartupApp::on_deleteAppBtn_clicked()

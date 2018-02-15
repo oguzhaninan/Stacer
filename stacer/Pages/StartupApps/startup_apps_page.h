@@ -3,6 +3,7 @@
 
 #include <QWidget>
 #include <QDebug>
+#include <QFileSystemWatcher>
 
 #include "startup_app.h"
 #include "startup_app_edit.h"
@@ -34,6 +35,9 @@ private:
 
 private:
     StartupAppEdit *startupAppEdit;
+
+    QFileSystemWatcher mFileSystemWatcher;
+    QString mAutostartPath;
 };
 
 #endif // STARTUPAPPSPAGE_H
