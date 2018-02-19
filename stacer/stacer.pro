@@ -39,7 +39,8 @@ SOURCES += \
     Pages/Settings/settings_page.cpp \
     Managers/app_manager.cpp \
     slidingstackedwidget.cpp \
-    feedback.cpp
+    feedback.cpp \
+    Pages/gnome_settings_page.cpp
 
 HEADERS += \
     app.h \
@@ -62,7 +63,8 @@ HEADERS += \
     Managers/app_manager.h \
     slidingstackedwidget.h \
     utilities.h \
-    feedback.h
+    feedback.h \
+    Pages/gnome_settings_page.h
 
 FORMS += \
     app.ui \
@@ -80,7 +82,8 @@ FORMS += \
     Pages/Resources/resources_page.ui \
     Pages/Services/services_page.ui \
     Pages/Settings/settings_page.ui \
-    feedback.ui
+    feedback.ui \
+    Pages/gnome_settings_page.ui
 
 TRANSLATIONS += \
     ../translations/stacer_ar.ts \
