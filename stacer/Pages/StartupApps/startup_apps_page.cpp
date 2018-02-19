@@ -50,14 +50,14 @@ void StartupAppsPage::loadApps()
         {
             bool enabled = false;
 
-            // Hidden=[true|fales]
+            // Hidden=[true|false]
             QString hidden = Utilities::getDesktopValue(HIDDEN_REG, lines).toLower();
 
             // X-GNOME-Autostart-enabled=[true|false]
             QString gnomeEnabled = Utilities::getDesktopValue(GNOME_ENABLED_REG, lines).toLower();
 
             if (! hidden.isEmpty()) {
-                enabled = (hidden == enabledStr);
+                enabled = (hidden != enabledStr);
             } else {
                 enabled = (gnomeEnabled == enabledStr);
             }

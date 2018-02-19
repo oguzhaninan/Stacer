@@ -32,12 +32,13 @@ void StartupApp::on_startupCheck_clicked(bool status)
 {
     QStringList lines = FileUtil::readListFromFile(filePath);
 
-    // Hidden=[true|fales]
+    // Hidden=[true|false]
     int pos = lines.indexOf(HIDDEN_REG);
 
     QString _status = status ? "true" : "false";
 
     if (pos != -1) {
+        _status = status ? "false" : "true";
         lines.replace(pos, QString("Hidden=%1").arg(_status));
     } else {
         // X-GNOME-Autostart-enabled=[true|false]
@@ -48,6 +49,7 @@ void StartupApp::on_startupCheck_clicked(bool status)
     }
 
     if (pos == -1) {
+        _status = status ? "false" : "true";
         lines.append(QString("Hidden=%1").arg(_status));
     }
 
