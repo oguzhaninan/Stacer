@@ -24,7 +24,7 @@
     <number>15</number>
    </property>
    <property name="bottomMargin">
-    <number>15</number>
+    <number>20</number>
    </property>
    <property name="horizontalSpacing">
     <number>20</number>
@@ -43,6 +43,16 @@
      <property name="text">
       <string>Unity Settings</string>
      </property>
+     <property name="icon">
+      <iconset resource="../../static.qrc">
+       <normaloff>:/static/themes/common/img/ubuntu.png</normaloff>:/static/themes/common/img/ubuntu.png</iconset>
+     </property>
+     <property name="iconSize">
+      <size>
+       <width>20</width>
+       <height>20</height>
+      </size>
+     </property>
     </widget>
    </item>
    <item row="0" column="1">
@@ -55,6 +65,16 @@
      </property>
      <property name="text">
       <string>Window Manager</string>
+     </property>
+     <property name="icon">
+      <iconset resource="../../static.qrc">
+       <normaloff>:/static/themes/common/img/window.png</normaloff>:/static/themes/common/img/window.png</iconset>
+     </property>
+     <property name="iconSize">
+      <size>
+       <width>20</width>
+       <height>20</height>
+      </size>
      </property>
     </widget>
    </item>
@@ -69,10 +89,22 @@
      <property name="text">
       <string>Appearance</string>
      </property>
+     <property name="icon">
+      <iconset resource="../../static.qrc">
+       <normaloff>:/static/themes/common/img/appearance.png</normaloff>:/static/themes/common/img/appearance.png</iconset>
+     </property>
+     <property name="iconSize">
+      <size>
+       <width>20</width>
+       <height>20</height>
+      </size>
+     </property>
     </widget>
    </item>
   </layout>
  </widget>
- <resources/>
+ <resources>
+  <include location="../../static.qrc"/>
+ </resources>
  <connections/>
 </ui>

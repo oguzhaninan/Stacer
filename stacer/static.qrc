@@ -61,5 +61,8 @@
         <file>static/themes/default/img/power.svg</file>
         <file>static/themes/default/img/sidebar-icons/feedback.svg</file>
         <file>static/themes/default/img/sidebar-icons/gnome.svg</file>
+        <file>static/themes/common/img/appearance.png</file>
+        <file>static/themes/common/img/ubuntu.png</file>
+        <file>static/themes/common/img/window.png</file>
     </qresource>
 </RCC>
