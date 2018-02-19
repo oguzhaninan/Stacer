@@ -62,10 +62,13 @@
        <item row="0" column="0" colspan="5">
         <widget class="QLabel" name="label">
          <property name="accessibleName">
-          <string/>
+          <string>general-title</string>
          </property>
          <property name="text">
           <string>Launcher</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
          </property>
         </widget>
        </item>
@@ -253,13 +256,13 @@
          </property>
          <property name="minimumSize">
           <size>
-           <width>170</width>
+           <width>200</width>
            <height>0</height>
           </size>
          </property>
          <property name="maximumSize">
           <size>
-           <width>250</width>
+           <width>300</width>
            <height>16777215</height>
           </size>
          </property>
@@ -295,13 +298,13 @@
          </property>
          <property name="minimumSize">
           <size>
-           <width>170</width>
+           <width>200</width>
            <height>0</height>
           </size>
          </property>
          <property name="maximumSize">
           <size>
-           <width>250</width>
+           <width>300</width>
            <height>16777215</height>
           </size>
          </property>
@@ -347,13 +350,13 @@
          </property>
          <property name="minimumSize">
           <size>
-           <width>170</width>
+           <width>200</width>
            <height>0</height>
           </size>
          </property>
          <property name="maximumSize">
           <size>
-           <width>250</width>
+           <width>300</width>
            <height>16777215</height>
           </size>
          </property>
@@ -365,10 +368,13 @@
        <item row="14" column="0" colspan="5">
         <widget class="QLabel" name="label_3">
          <property name="accessibleName">
-          <string/>
+          <string>general-title</string>
          </property>
          <property name="text">
           <string>Search</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
          </property>
         </widget>
        </item>

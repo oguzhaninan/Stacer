@@ -59,7 +59,7 @@
        <property name="spacing">
         <number>10</number>
        </property>
-       <item row="14" column="1" alignment="Qt::AlignLeft">
+       <item row="13" column="1" alignment="Qt::AlignLeft">
         <widget class="QCheckBox" name="checkHomeIcon_3">
          <property name="cursor">
           <cursorShape>PointingHandCursor</cursorShape>
@@ -69,6 +69,16 @@
          </property>
          <property name="text">
           <string/>
+         </property>
+        </widget>
+       </item>
+       <item row="15" column="0" colspan="4">
+        <widget class="QLabel" name="lblHomeIcon_5">
+         <property name="accessibleName">
+          <string>title</string>
+         </property>
+         <property name="text">
+          <string>Titlebar Actions</string>
          </property>
         </widget>
        </item>
@@ -82,38 +92,13 @@
          </property>
          <property name="minimumSize">
           <size>
-           <width>170</width>
+           <width>200</width>
            <height>0</height>
           </size>
          </property>
          <property name="maximumSize">
           <size>
-           <width>250</width>
-           <height>16777215</height>
-          </size>
-         </property>
-         <property name="sizeAdjustPolicy">
-          <enum>QComboBox::AdjustToMinimumContentsLength</enum>
-         </property>
-        </widget>
-       </item>
-       <item row="18" column="1">
-        <widget class="QComboBox" name="comboBox_7">
-         <property name="sizePolicy">
-          <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
-           <horstretch>0</horstretch>
-           <verstretch>0</verstretch>
-          </sizepolicy>
-         </property>
-         <property name="minimumSize">
-          <size>
-           <width>170</width>
-           <height>0</height>
-          </size>
-         </property>
-         <property name="maximumSize">
-          <size>
-           <width>250</width>
+           <width>300</width>
            <height>16777215</height>
           </size>
          </property>
@@ -123,6 +108,31 @@
         </widget>
        </item>
        <item row="17" column="1">
+        <widget class="QComboBox" name="comboBox_7">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="minimumSize">
+          <size>
+           <width>200</width>
+           <height>0</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>300</width>
+           <height>16777215</height>
+          </size>
+         </property>
+         <property name="sizeAdjustPolicy">
+          <enum>QComboBox::AdjustToMinimumContentsLength</enum>
+         </property>
+        </widget>
+       </item>
+       <item row="16" column="1">
         <widget class="QComboBox" name="comboBox_8">
          <property name="sizePolicy">
           <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
@@ -132,13 +142,13 @@
          </property>
          <property name="minimumSize">
           <size>
-           <width>170</width>
+           <width>200</width>
            <height>0</height>
           </size>
          </property>
          <property name="maximumSize">
           <size>
-           <width>250</width>
+           <width>300</width>
            <height>16777215</height>
           </size>
          </property>
@@ -160,9 +170,6 @@
          </property>
         </widget>
        </item>
-       <item row="11" column="1">
-        <widget class="QKeySequenceEdit" name="keySequenceEdit"/>
-       </item>
        <item row="2" column="1">
         <widget class="QComboBox" name="comboBox_2">
          <property name="sizePolicy">
@@ -173,13 +180,13 @@
          </property>
          <property name="minimumSize">
           <size>
-           <width>170</width>
+           <width>200</width>
            <height>0</height>
           </size>
          </property>
          <property name="maximumSize">
           <size>
-           <width>250</width>
+           <width>300</width>
            <height>16777215</height>
           </size>
          </property>
@@ -188,17 +195,20 @@
          </property>
         </widget>
        </item>
-       <item row="20" column="0" colspan="4">
+       <item row="19" column="0" colspan="4">
         <widget class="QLabel" name="label_7">
          <property name="accessibleName">
-          <string/>
+          <string>general-title</string>
          </property>
          <property name="text">
           <string>Window Snapping</string>
          </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
         </widget>
        </item>
-       <item row="15" column="1">
+       <item row="14" column="1">
         <widget class="QComboBox" name="comboBox_4">
          <property name="sizePolicy">
           <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
@@ -208,13 +218,13 @@
          </property>
          <property name="minimumSize">
           <size>
-           <width>170</width>
+           <width>200</width>
            <height>0</height>
           </size>
          </property>
          <property name="maximumSize">
           <size>
-           <width>250</width>
+           <width>300</width>
            <height>16777215</height>
           </size>
          </property>
@@ -233,13 +243,13 @@
          </property>
          <property name="minimumSize">
           <size>
-           <width>170</width>
+           <width>200</width>
            <height>0</height>
           </size>
          </property>
          <property name="maximumSize">
           <size>
-           <width>250</width>
+           <width>300</width>
            <height>16777215</height>
           </size>
          </property>
@@ -251,10 +261,13 @@
        <item row="0" column="0" colspan="4">
         <widget class="QLabel" name="label">
          <property name="accessibleName">
-          <string/>
+          <string>general-title</string>
          </property>
          <property name="text">
           <string>General</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
          </property>
         </widget>
        </item>
@@ -329,13 +342,13 @@
          </property>
          <property name="minimumSize">
           <size>
-           <width>170</width>
+           <width>200</width>
            <height>0</height>
           </size>
          </property>
          <property name="maximumSize">
           <size>
-           <width>250</width>
+           <width>300</width>
            <height>16777215</height>
           </size>
          </property>
@@ -351,55 +364,48 @@
          </property>
         </widget>
        </item>
-       <item row="12" column="0" colspan="4">
+       <item row="11" column="0" colspan="4">
         <widget class="QLabel" name="label_3">
          <property name="accessibleName">
-          <string/>
+          <string>general-title</string>
          </property>
          <property name="text">
           <string>Additional</string>
          </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
         </widget>
        </item>
-       <item row="14" column="0">
+       <item row="13" column="0">
         <widget class="QLabel" name="lblHomeIcon_3">
          <property name="text">
           <string>Raise on click</string>
          </property>
         </widget>
        </item>
-       <item row="15" column="0">
+       <item row="14" column="0">
         <widget class="QLabel" name="lblHomeIcon_4">
          <property name="text">
           <string>Focus mode</string>
          </property>
         </widget>
        </item>
-       <item row="16" column="0">
-        <widget class="QLabel" name="lblHomeIcon_5">
-         <property name="accessibleName">
-          <string>title</string>
-         </property>
-         <property name="text">
-          <string>Titlebar Actions</string>
-         </property>
-        </widget>
-       </item>
-       <item row="18" column="0">
+       <item row="17" column="0">
         <widget class="QLabel" name="lblHomeIcon_8">
          <property name="text">
           <string>Middle click</string>
          </property>
         </widget>
        </item>
-       <item row="19" column="0">
+       <item row="18" column="0">
         <widget class="QLabel" name="lblHomeIcon_9">
          <property name="text">
           <string>Right click</string>
          </property>
         </widget>
        </item>
-       <item row="22" column="0">
+       <item row="21" column="0">
         <widget class="QLabel" name="lblHomeIcon_11">
          <property name="text">
           <string>Window Snapping</string>
@@ -416,7 +422,7 @@
          </property>
         </widget>
        </item>
-       <item row="22" column="1" colspan="2" alignment="Qt::AlignLeft">
+       <item row="21" column="1" colspan="2" alignment="Qt::AlignLeft">
         <widget class="QCheckBox" name="checkHomeIcon_6">
          <property name="cursor">
           <cursorShape>PointingHandCursor</cursorShape>
@@ -429,7 +435,7 @@
          </property>
         </widget>
        </item>
-       <item row="24" column="0">
+       <item row="22" column="0">
         <spacer name="verticalSpacer">
          <property name="orientation">
           <enum>Qt::Vertical</enum>
@@ -462,7 +468,7 @@
          </property>
         </widget>
        </item>
-       <item row="13" column="0" colspan="4">
+       <item row="12" column="0" colspan="4">
         <widget class="QLabel" name="lblHomeIcon_6">
          <property name="accessibleName">
           <string>title</string>
@@ -472,27 +478,20 @@
          </property>
         </widget>
        </item>
-       <item row="17" column="0">
+       <item row="16" column="0">
         <widget class="QLabel" name="lblHomeIcon_7">
          <property name="text">
           <string>Double click</string>
          </property>
         </widget>
        </item>
-       <item row="21" column="0" colspan="4">
+       <item row="20" column="0" colspan="4">
         <widget class="QLabel" name="lblHomeIcon_10">
          <property name="accessibleName">
           <string>title</string>
          </property>
          <property name="text">
           <string>General</string>
-         </property>
-        </widget>
-       </item>
-       <item row="11" column="0">
-        <widget class="QLabel" name="lblMountedIcon_4">
-         <property name="text">
-          <string>Workspace shortcut</string>
          </property>
         </widget>
        </item>
@@ -509,7 +508,7 @@
          </property>
         </widget>
        </item>
-       <item row="19" column="1">
+       <item row="18" column="1">
         <widget class="QComboBox" name="comboBox_9">
          <property name="sizePolicy">
           <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
@@ -519,28 +518,18 @@
          </property>
          <property name="minimumSize">
           <size>
-           <width>170</width>
+           <width>200</width>
            <height>0</height>
           </size>
          </property>
          <property name="maximumSize">
           <size>
-           <width>250</width>
+           <width>300</width>
            <height>16777215</height>
           </size>
          </property>
          <property name="sizeAdjustPolicy">
           <enum>QComboBox::AdjustToMinimumContentsLength</enum>
-         </property>
-        </widget>
-       </item>
-       <item row="23" column="0" colspan="4">
-        <widget class="QLabel" name="lblHomeIcon_12">
-         <property name="accessibleName">
-          <string>title</string>
-         </property>
-         <property name="text">
-          <string>Behaviour</string>
          </property>
         </widget>
        </item>

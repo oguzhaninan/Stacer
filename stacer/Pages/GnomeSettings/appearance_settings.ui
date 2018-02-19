@@ -22,129 +22,7 @@
      <property name="verticalSpacing">
       <number>10</number>
      </property>
-     <item row="0" column="4" colspan="2">
-      <widget class="QLabel" name="label_3">
-       <property name="accessibleName">
-        <string>title</string>
-       </property>
-       <property name="text">
-        <string>Screen Applications</string>
-       </property>
-      </widget>
-     </item>
-     <item row="1" column="4">
-      <widget class="QLabel" name="lblMountedIcon_4">
-       <property name="text">
-        <string>Screen Keyboard</string>
-       </property>
-      </widget>
-     </item>
-     <item row="4" column="0">
-      <widget class="QLabel" name="lblMountedIcon">
-       <property name="text">
-        <string>Mounted Volumes</string>
-       </property>
-      </widget>
-     </item>
-     <item row="4" column="1">
-      <widget class="QCheckBox" name="checkMountedVulmesIcon">
-       <property name="cursor">
-        <cursorShape>PointingHandCursor</cursorShape>
-       </property>
-       <property name="focusPolicy">
-        <enum>Qt::NoFocus</enum>
-       </property>
-       <property name="text">
-        <string/>
-       </property>
-      </widget>
-     </item>
-     <item row="1" column="3">
-      <widget class="QComboBox" name="comboBox">
-       <property name="sizePolicy">
-        <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
-         <horstretch>0</horstretch>
-         <verstretch>0</verstretch>
-        </sizepolicy>
-       </property>
-       <property name="minimumSize">
-        <size>
-         <width>170</width>
-         <height>0</height>
-        </size>
-       </property>
-       <property name="sizeAdjustPolicy">
-        <enum>QComboBox::AdjustToMinimumContentsLength</enum>
-       </property>
-      </widget>
-     </item>
-     <item row="5" column="0">
-      <spacer name="verticalSpacer">
-       <property name="orientation">
-        <enum>Qt::Vertical</enum>
-       </property>
-       <property name="sizeHint" stdset="0">
-        <size>
-         <width>20</width>
-         <height>40</height>
-        </size>
-       </property>
-      </spacer>
-     </item>
-     <item row="3" column="0">
-      <widget class="QLabel" name="lblTrashIcon">
-       <property name="text">
-        <string>Trash</string>
-       </property>
-      </widget>
-     </item>
-     <item row="2" column="1">
-      <widget class="QCheckBox" name="checkNetworkIcon">
-       <property name="cursor">
-        <cursorShape>PointingHandCursor</cursorShape>
-       </property>
-       <property name="focusPolicy">
-        <enum>Qt::NoFocus</enum>
-       </property>
-       <property name="text">
-        <string/>
-       </property>
-      </widget>
-     </item>
-     <item row="2" column="2">
-      <widget class="QLabel" name="lblMountedIcon_3">
-       <property name="text">
-        <string>Login Mode</string>
-       </property>
-      </widget>
-     </item>
-     <item row="0" column="1">
-      <widget class="QCheckBox" name="checkShowDesktopIcons">
-       <property name="cursor">
-        <cursorShape>PointingHandCursor</cursorShape>
-       </property>
-       <property name="focusPolicy">
-        <enum>Qt::NoFocus</enum>
-       </property>
-       <property name="text">
-        <string/>
-       </property>
-      </widget>
-     </item>
-     <item row="3" column="1">
-      <widget class="QCheckBox" name="checkTrashIcon">
-       <property name="cursor">
-        <cursorShape>PointingHandCursor</cursorShape>
-       </property>
-       <property name="focusPolicy">
-        <enum>Qt::NoFocus</enum>
-       </property>
-       <property name="text">
-        <string/>
-       </property>
-      </widget>
-     </item>
-     <item row="2" column="5">
+     <item row="11" column="1">
       <widget class="QCheckBox" name="checkHomeIcon_3">
        <property name="cursor">
         <cursorShape>PointingHandCursor</cursorShape>
@@ -157,7 +35,7 @@
        </property>
       </widget>
      </item>
-     <item row="1" column="6">
+     <item row="3" column="2">
       <spacer name="horizontalSpacer_3">
        <property name="orientation">
         <enum>Qt::Horizontal</enum>
@@ -173,8 +51,15 @@
        </property>
       </spacer>
      </item>
-     <item row="2" column="3">
-      <widget class="QComboBox" name="comboBox_2">
+     <item row="2" column="0">
+      <widget class="QLabel" name="lblHomeIcon">
+       <property name="text">
+        <string>Home Icon</string>
+       </property>
+      </widget>
+     </item>
+     <item row="7" column="1">
+      <widget class="QComboBox" name="comboBox">
        <property name="sizePolicy">
         <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
          <horstretch>0</horstretch>
@@ -183,8 +68,14 @@
        </property>
        <property name="minimumSize">
         <size>
-         <width>170</width>
+         <width>200</width>
          <height>0</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>300</width>
+         <height>16777215</height>
         </size>
        </property>
        <property name="sizeAdjustPolicy">
@@ -192,7 +83,48 @@
        </property>
       </widget>
      </item>
-     <item row="1" column="1">
+     <item row="12" column="0">
+      <spacer name="verticalSpacer">
+       <property name="orientation">
+        <enum>Qt::Vertical</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>20</width>
+         <height>40</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item row="5" column="0">
+      <widget class="QLabel" name="lblMountedIcon">
+       <property name="text">
+        <string>Mounted Volumes Icon</string>
+       </property>
+      </widget>
+     </item>
+     <item row="3" column="0">
+      <widget class="QLabel" name="lblNetworkIcon">
+       <property name="text">
+        <string>Network Icon</string>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="0">
+      <widget class="QLabel" name="label">
+       <property name="text">
+        <string>Show Desktop Icons</string>
+       </property>
+      </widget>
+     </item>
+     <item row="8" column="0">
+      <widget class="QLabel" name="lblMountedIcon_3">
+       <property name="text">
+        <string>Login Mode</string>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="1">
       <widget class="QCheckBox" name="checkHomeIcon">
        <property name="cursor">
         <cursorShape>PointingHandCursor</cursorShape>
@@ -205,28 +137,108 @@
        </property>
       </widget>
      </item>
-     <item row="1" column="2">
+     <item row="4" column="1">
+      <widget class="QCheckBox" name="checkTrashIcon">
+       <property name="cursor">
+        <cursorShape>PointingHandCursor</cursorShape>
+       </property>
+       <property name="focusPolicy">
+        <enum>Qt::NoFocus</enum>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+     </item>
+     <item row="7" column="0">
       <widget class="QLabel" name="lblMountedIcon_2">
        <property name="text">
         <string>Desktop Mode</string>
        </property>
       </widget>
      </item>
-     <item row="2" column="0">
-      <widget class="QLabel" name="lblNetworkIcon">
+     <item row="1" column="1">
+      <widget class="QCheckBox" name="checkShowDesktopIcons">
+       <property name="cursor">
+        <cursorShape>PointingHandCursor</cursorShape>
+       </property>
+       <property name="focusPolicy">
+        <enum>Qt::NoFocus</enum>
+       </property>
        <property name="text">
-        <string>Network Servers</string>
+        <string/>
        </property>
       </widget>
      </item>
-     <item row="2" column="4">
-      <widget class="QLabel" name="lblMountedIcon_5">
+     <item row="3" column="1">
+      <widget class="QCheckBox" name="checkNetworkIcon">
+       <property name="cursor">
+        <cursorShape>PointingHandCursor</cursorShape>
+       </property>
+       <property name="focusPolicy">
+        <enum>Qt::NoFocus</enum>
+       </property>
        <property name="text">
-        <string>Screen Reader</string>
+        <string/>
        </property>
       </widget>
      </item>
-     <item row="1" column="5">
+     <item row="8" column="1">
+      <widget class="QComboBox" name="comboBox_2">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="minimumSize">
+        <size>
+         <width>200</width>
+         <height>0</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>300</width>
+         <height>16777215</height>
+        </size>
+       </property>
+       <property name="sizeAdjustPolicy">
+        <enum>QComboBox::AdjustToMinimumContentsLength</enum>
+       </property>
+      </widget>
+     </item>
+     <item row="6" column="0" colspan="3">
+      <widget class="QLabel" name="label_2">
+       <property name="accessibleName">
+        <string>title</string>
+       </property>
+       <property name="text">
+        <string>Background Image Mode</string>
+       </property>
+      </widget>
+     </item>
+     <item row="10" column="0">
+      <widget class="QLabel" name="lblMountedIcon_4">
+       <property name="text">
+        <string>Screen Keyboard</string>
+       </property>
+      </widget>
+     </item>
+     <item row="5" column="1" alignment="Qt::AlignLeft">
+      <widget class="QCheckBox" name="checkMountedVulmesIcon">
+       <property name="cursor">
+        <cursorShape>PointingHandCursor</cursorShape>
+       </property>
+       <property name="focusPolicy">
+        <enum>Qt::NoFocus</enum>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+     </item>
+     <item row="10" column="1">
       <widget class="QCheckBox" name="checkHomeIcon_2">
        <property name="cursor">
         <cursorShape>PointingHandCursor</cursorShape>
@@ -239,30 +251,37 @@
        </property>
       </widget>
      </item>
-     <item row="0" column="0">
-      <widget class="QLabel" name="label">
+     <item row="9" column="0" colspan="3">
+      <widget class="QLabel" name="label_3">
        <property name="accessibleName">
         <string>title</string>
        </property>
        <property name="text">
-        <string>Show Desktop Icons</string>
+        <string>Screen Applications</string>
        </property>
       </widget>
      </item>
-     <item row="0" column="2" colspan="2">
-      <widget class="QLabel" name="label_2">
+     <item row="11" column="0">
+      <widget class="QLabel" name="lblMountedIcon_5">
+       <property name="text">
+        <string>Screen Reader</string>
+       </property>
+      </widget>
+     </item>
+     <item row="4" column="0">
+      <widget class="QLabel" name="lblTrashIcon">
+       <property name="text">
+        <string>Trash Icon</string>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="0" colspan="3">
+      <widget class="QLabel" name="label_4">
        <property name="accessibleName">
         <string>title</string>
        </property>
        <property name="text">
-        <string>Background Image Mode</string>
-       </property>
-      </widget>
-     </item>
-     <item row="1" column="0">
-      <widget class="QLabel" name="lblHomeIcon">
-       <property name="text">
-        <string>Home</string>
+        <string>Icons</string>
        </property>
       </widget>
      </item>

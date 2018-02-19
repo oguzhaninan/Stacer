@@ -901,25 +901,34 @@ QRadioButton::indicator:checked {
     background-color: @color01;
 }
 
+#GnomeSettingsPage QLabel[accessibleName="general-title"] {
+    font-size: 12pt;
+    font-weight: bold;
+    color: @color03;
+    border: 0;
+    border-bottom: 1 solid @color03;
+    padding-bottom: 5;
+}
+
 #GnomeSettingsPage QLabel[accessibleName="title"] {
     font-size: 11pt;
     font-weight: bold;
     color: @color06;
     border: 0;
-    border-bottom: 1 solid @color06;
-    padding-bottom: 5;
+    border-bottom: 1 dashed @color06;
+    padding-bottom: 10;
 }
 
 #GnomeSettingsPage QPushButton {
     border-radius: 3;
     padding: 7 25;
     font-size: 11pt;
-    background-color: @color03;
+    background-color: @sidebar;
     color: @color07;
 }
 
 #GnomeSettingsPage QPushButton:hover {
-    background-color: @color10;
+    background-color: @color03;
 }
 
 /* --- Unity Settings --- */
