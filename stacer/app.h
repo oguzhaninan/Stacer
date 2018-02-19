@@ -15,6 +15,7 @@
 #include "Pages/Uninstaller/uninstaller_page.h"
 #include "Pages/Resources/resources_page.h"
 #include "Pages/Settings/settings_page.h"
+#include "Pages/gnome_settings_page.h"
 #include "feedback.h"
 
 namespace Ui {
@@ -41,6 +42,7 @@ private slots:
     void on_resourcesBtn_clicked();
     void on_processesBtn_clicked();
     void on_settingsBtn_clicked();
+    void on_gnomeSettingsBtn_clicked();
 
     void on_feedbackBtn_clicked();
 
@@ -49,6 +51,8 @@ private:
 
 private:
     // Pages
+    SlidingStackedWidget *slidingStacked;
+
     DashboardPage *dashboardPage;
     StartupAppsPage *startupAppsPage;
     SystemCleanerPage *systemCleanerPage;
@@ -56,11 +60,10 @@ private:
     ProcessesPage *processPage;
     UninstallerPage *uninstallerPage;
     ResourcesPage *resourcesPage;
+    GnomeSettingsPage *gnomeSettingsPage;
     SettingsPage *settingsPage;
 
     Feedback *feedback;
-
-    SlidingStackedWidget *slidingStacked;
 };
 
 #endif // APP_H

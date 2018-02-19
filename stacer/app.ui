@@ -97,6 +97,9 @@
          <property name="focusPolicy">
           <enum>Qt::NoFocus</enum>
          </property>
+         <property name="toolTip">
+          <string>Dashboard</string>
+         </property>
          <property name="styleSheet">
           <string notr="true"/>
          </property>
@@ -122,6 +125,9 @@
          <property name="focusPolicy">
           <enum>Qt::NoFocus</enum>
          </property>
+         <property name="toolTip">
+          <string>Startup Apps</string>
+         </property>
          <property name="text">
           <string/>
          </property>
@@ -140,6 +146,9 @@
          </property>
          <property name="focusPolicy">
           <enum>Qt::NoFocus</enum>
+         </property>
+         <property name="toolTip">
+          <string>System Cleaner</string>
          </property>
          <property name="styleSheet">
           <string notr="true"/>
@@ -163,6 +172,9 @@
          <property name="focusPolicy">
           <enum>Qt::NoFocus</enum>
          </property>
+         <property name="toolTip">
+          <string>Services</string>
+         </property>
          <property name="text">
           <string/>
          </property>
@@ -181,6 +193,9 @@
          </property>
          <property name="focusPolicy">
           <enum>Qt::NoFocus</enum>
+         </property>
+         <property name="toolTip">
+          <string>Processes</string>
          </property>
          <property name="text">
           <string/>
@@ -201,6 +216,9 @@
          <property name="focusPolicy">
           <enum>Qt::NoFocus</enum>
          </property>
+         <property name="toolTip">
+          <string>Uninstaller</string>
+         </property>
          <property name="text">
           <string/>
          </property>
@@ -220,6 +238,31 @@
          <property name="focusPolicy">
           <enum>Qt::NoFocus</enum>
          </property>
+         <property name="toolTip">
+          <string>Resources</string>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+         <property name="checkable">
+          <bool>true</bool>
+         </property>
+         <attribute name="buttonGroup">
+          <string notr="true">sidebarBtnGroup</string>
+         </attribute>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="gnomeSettingsBtn">
+         <property name="cursor">
+          <cursorShape>PointingHandCursor</cursorShape>
+         </property>
+         <property name="focusPolicy">
+          <enum>Qt::NoFocus</enum>
+         </property>
+         <property name="toolTip">
+          <string>Gnome Settings</string>
+         </property>
          <property name="text">
           <string/>
          </property>
@@ -238,6 +281,9 @@
          </property>
          <property name="focusPolicy">
           <enum>Qt::NoFocus</enum>
+         </property>
+         <property name="toolTip">
+          <string>Settings</string>
          </property>
          <property name="text">
           <string/>
@@ -271,6 +317,9 @@
          <property name="focusPolicy">
           <enum>Qt::NoFocus</enum>
          </property>
+         <property name="toolTip">
+          <string>Feedback</string>
+         </property>
          <property name="text">
           <string/>
          </property>
@@ -290,6 +339,7 @@
       <zorder>processesBtn</zorder>
       <zorder>settingsBtn</zorder>
       <zorder>feedbackBtn</zorder>
+      <zorder>gnomeSettingsBtn</zorder>
      </widget>
     </item>
     <item>

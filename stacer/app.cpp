@@ -10,6 +10,7 @@ App::~App()
 App::App(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::App),
+    slidingStacked(new SlidingStackedWidget(this)),
     dashboardPage(new DashboardPage(this)),
     startupAppsPage(new StartupAppsPage(this)),
     systemCleanerPage(new SystemCleanerPage(this)),
@@ -17,8 +18,8 @@ App::App(QWidget *parent) :
     processPage(new ProcessesPage(this)),
     uninstallerPage(new UninstallerPage(this)),
     resourcesPage(new ResourcesPage(this)),
+    gnomeSettingsPage(new GnomeSettingsPage(this)),
     settingsPage(new SettingsPage(this)),
-    slidingStacked(new SlidingStackedWidget(this)),
     feedback(new Feedback(this))
 {
     ui->setupUi(this);
@@ -54,11 +55,12 @@ void App::init()
     slidingStacked->addWidget(processPage);
     slidingStacked->addWidget(uninstallerPage);
     slidingStacked->addWidget(resourcesPage);
+    slidingStacked->addWidget(gnomeSettingsPage);
     slidingStacked->addWidget(settingsPage);
 
     AppManager::ins()->updateStylesheet();
 
-    on_dashBtn_clicked();
+    on_gnomeSettingsBtn_clicked();
 
     Utilities::addDropShadow(ui->sidebar, 60);
 }
@@ -109,7 +111,13 @@ void App::on_settingsBtn_clicked()
     pageClick(settingsPage, tr("Settings"));
 }
 
+void App::on_gnomeSettingsBtn_clicked()
+{
+    pageClick(gnomeSettingsPage, tr("Gnome Settings"));
+}
+
 void App::on_feedbackBtn_clicked()
 {
     feedback->show();
 }
+
