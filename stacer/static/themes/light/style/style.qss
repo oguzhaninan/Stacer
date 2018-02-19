@@ -151,7 +151,7 @@ QWidget#sidebar QPushButton {
     max-height: 46;
     border-style: solid;
     color: @color01;
-    margin: 3 7;
+    margin: 2 7;
     border-radius:2;
 }
 

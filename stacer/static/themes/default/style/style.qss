@@ -3,7 +3,6 @@
 /**************************
     SCROLL BAR
 ***************************/
-
 QScrollArea {
     border: 0;
 }
@@ -132,6 +131,15 @@ QToolTip {
     font-size: 13pt;
 }
 
+
+QKeySequenceEdit {
+    border-radius: 2;
+    padding: 10;
+    background-color: @color01;
+    font-size: 10pt;
+    color: @color05;
+}
+
 /**************************
     MAIN WINDOW
 ***************************/
@@ -153,7 +161,7 @@ QWidget#sidebar QPushButton {
     max-height: 46;
     border-style: solid;
     color: @color07;
-    margin: 3 7;
+    margin: 2 7;
     border-radius:2;
 }
 
@@ -200,6 +208,10 @@ QWidget#pageContent {
 
 #resourcesBtn {
     qproperty-icon: url(:/static/themes/default/img/sidebar-icons/resources.png);
+}
+
+#gnomeSettingsBtn {
+    qproperty-icon: url(:/static/themes/default/img/sidebar-icons/gnome.svg);
 }
 
 #settingsBtn {
@@ -627,13 +639,13 @@ QHeaderView::down-arrow {
     margin-top: 3;
 }
 
-#refreshSlider::groove:horizontal {
+QSlider::groove:horizontal {
     height: 2px;
     background: @color12;
     margin: 2px 0;
 }
 
-#refreshSlider::handle:horizontal {
+QSlider::handle:horizontal {
     background-color: @color03;
     width: 14px;
     height: 14px;
@@ -819,7 +831,6 @@ QComboBox QAbstractItemView {
     border-radius: 2;
 }
 
-
 /**************************
     FEEDBACK
 ***************************/
@@ -857,3 +868,68 @@ QComboBox QAbstractItemView {
 #Feedback #errorMsg {
     color: @color09;
 }
+
+
+/**************************
+    GNOME SETTINGS PAGE
+***************************/
+QRadioButton {
+    color: @color12;
+    font-size: 11pt;
+}
+
+QRadioButton::indicator {
+    min-width: 16;
+    min-height: 16;
+}
+
+QRadioButton::indicator:unchecked {
+    image: url(:/static/themes/default/img/un-check.svg);
+}
+
+QRadioButton::indicator:checked {
+    image: url(:/static/themes/default/img/check.svg);
+}
+
+
+#GnomeSettingsPage QLabel {
+    font-size: 11pt;
+    color: @color12;
+}
+
+#GnomeSettingsPage QMenu {
+    background-color: @color01;
+}
+
+#GnomeSettingsPage QLabel[accessibleName="title"] {
+    font-size: 11pt;
+    font-weight: bold;
+    color: @color06;
+    border: 0;
+    border-bottom: 1 solid @color06;
+    padding-bottom: 5;
+}
+
+#GnomeSettingsPage QPushButton {
+    border-radius: 3;
+    padding: 7 25;
+    font-size: 11pt;
+    background-color: @color03;
+    color: @color07;
+}
+
+#GnomeSettingsPage QPushButton:hover {
+    background-color: @color10;
+}
+
+/* --- Unity Settings --- */
+
+#UnitySettings {
+
+}
+
+#scrollAreaUnityContents {
+    background-color: @pageContent;
+}
+
+

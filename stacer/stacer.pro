@@ -37,10 +37,13 @@ SOURCES += \
     Pages/Dashboard/dashboard_page.cpp \
     Pages/Processes/processes_page.cpp \
     Pages/Settings/settings_page.cpp \
+    Pages/GnomeSettings/gnome_settings_page.cpp \
     Managers/app_manager.cpp \
     slidingstackedwidget.cpp \
     feedback.cpp \
-    Pages/gnome_settings_page.cpp
+    Pages/GnomeSettings/unity_settings.cpp \
+    Pages/GnomeSettings/window_manager_settings.cpp \
+    Pages/GnomeSettings/appearance_settings.cpp
 
 HEADERS += \
     app.h \
@@ -60,11 +63,14 @@ HEADERS += \
     Pages/Dashboard/dashboard_page.h \
     Pages/Services/services_page.h \
     Pages/Settings/settings_page.h \
+    Pages/GnomeSettings/gnome_settings_page.h \
     Managers/app_manager.h \
     slidingstackedwidget.h \
     utilities.h \
     feedback.h \
-    Pages/gnome_settings_page.h
+    Pages/GnomeSettings/unity_settings.h \
+    Pages/GnomeSettings/window_manager_settings.h \
+    Pages/GnomeSettings/appearance_settings.h
 
 FORMS += \
     app.ui \
@@ -82,8 +88,11 @@ FORMS += \
     Pages/Resources/resources_page.ui \
     Pages/Services/services_page.ui \
     Pages/Settings/settings_page.ui \
+    Pages/GnomeSettings/gnome_settings_page.ui \
     feedback.ui \
-    Pages/gnome_settings_page.ui
+    Pages/GnomeSettings/unity_settings.ui \
+    Pages/GnomeSettings/window_manager_settings.ui \
+    Pages/GnomeSettings/appearance_settings.ui
 
 TRANSLATIONS += \
     ../translations/stacer_ar.ts \

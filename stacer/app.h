@@ -15,7 +15,7 @@
 #include "Pages/Uninstaller/uninstaller_page.h"
 #include "Pages/Resources/resources_page.h"
 #include "Pages/Settings/settings_page.h"
-#include "Pages/gnome_settings_page.h"
+#include "Pages/GnomeSettings/gnome_settings_page.h"
 #include "feedback.h"
 
 namespace Ui {
