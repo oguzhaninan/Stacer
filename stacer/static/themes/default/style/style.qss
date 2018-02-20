@@ -210,6 +210,10 @@ QWidget#pageContent {
     qproperty-icon: url(:/static/themes/default/img/sidebar-icons/resources.png);
 }
 
+#ppaManagerBtn {
+    qproperty-icon: url(:/static/themes/default/img/sidebar-icons/ppa-manager.png);
+}
+
 #gnomeSettingsBtn {
     qproperty-icon: url(:/static/themes/default/img/sidebar-icons/gnome.svg);
 }
@@ -405,6 +409,7 @@ QLabel#systemInfoTitle {
     font-size: 11pt;
     color: @color15;
 }
+
 /**************************
     STARTUP APPS PAGE
 ***************************/
@@ -867,6 +872,65 @@ QComboBox QAbstractItemView {
 
 #Feedback #errorMsg {
     color: @color09;
+}
+
+/**************************
+    PPA MANAGER PAGE
+***************************/
+#ppaRepositoryListWidget {
+    background-color: transparent;
+}
+
+#btnAddPpaRepository {
+    border:0;
+    border-radius: 2;
+    background-color: @color03;
+    color: @color05;
+    padding: 7 15;
+}
+
+#btnAddPpaRepository:hover {
+    background-color: @color10;
+}
+
+#ppaPackagesTitleLbl {
+    color: @color11;
+    padding: 10 0 5 20;
+}
+
+/* - Startup App - */
+
+#ppaRepositoryItemWidget {
+    border-radius: 2;
+    background-color: @color01;
+}
+
+#ppaIcon {
+    image: url(:/static/themes/default/img/ppa-repository.png);
+}
+
+#ppaRepositoryItemWidget:hover {
+    background-color: @color02;
+}
+
+#ppaRepositoryName {
+    font-size: 11pt;
+    color: @color05;
+}
+
+#ppaCheck {
+    margin-top: 3;
+}
+
+#ppaRepositoryItemWidget #deletePpaBtn {
+    qproperty-icon: url(:/static/themes/default/img/trash.svg);
+    border: 0;
+}
+
+#ppaRepositoryItemWidget #editPpaBtn {
+    qproperty-icon: url(:/static/themes/default/img/edit.svg);
+    border: 0;
+    margin-bottom: 2;
 }
 
 

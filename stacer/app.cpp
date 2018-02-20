@@ -18,6 +18,7 @@ App::App(QWidget *parent) :
     processPage(new ProcessesPage(slidingStacked)),
     uninstallerPage(new UninstallerPage(slidingStacked)),
     resourcesPage(new ResourcesPage(slidingStacked)),
+    ppaManagerPage(new PPAManagerPage(this)),
     gnomeSettingsPage(new GnomeSettingsPage(slidingStacked)),
     settingsPage(new SettingsPage(slidingStacked)),
     feedback(new Feedback(this))
@@ -55,6 +56,7 @@ void App::init()
     slidingStacked->addWidget(processPage);
     slidingStacked->addWidget(uninstallerPage);
     slidingStacked->addWidget(resourcesPage);
+    slidingStacked->addWidget(ppaManagerPage);
     slidingStacked->addWidget(gnomeSettingsPage);
     slidingStacked->addWidget(settingsPage);
 
@@ -111,6 +113,11 @@ void App::on_settingsBtn_clicked()
     pageClick(settingsPage, tr("Settings"));
 }
 
+void App::on_ppaManagerBtn_clicked()
+{
+    pageClick(ppaManagerPage, tr("PPA Manager"));
+}
+
 void App::on_gnomeSettingsBtn_clicked()
 {
     pageClick(gnomeSettingsPage, tr("Gnome Settings"));
@@ -120,4 +127,3 @@ void App::on_feedbackBtn_clicked()
 {
     feedback->show();
 }
-

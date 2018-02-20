@@ -44,7 +44,8 @@ SOURCES += \
     Pages/GnomeSettings/unity_settings.cpp \
     Pages/GnomeSettings/window_manager_settings.cpp \
     Pages/GnomeSettings/appearance_settings.cpp \
-    Pages/PPAManager/ppa_manager.cpp
+    Pages/PPAManager/ppa_manager_page.cpp \
+    Pages/PPAManager/ppa_repository_item.cpp
 
 HEADERS += \
     app.h \
@@ -72,7 +73,8 @@ HEADERS += \
     Pages/GnomeSettings/unity_settings.h \
     Pages/GnomeSettings/window_manager_settings.h \
     Pages/GnomeSettings/appearance_settings.h \
-    Pages/PPAManager/ppa_manager.h
+    Pages/PPAManager/ppa_manager_page.h \
+    Pages/PPAManager/ppa_repository_item.h
 
 FORMS += \
     app.ui \
@@ -95,7 +97,8 @@ FORMS += \
     Pages/GnomeSettings/unity_settings.ui \
     Pages/GnomeSettings/window_manager_settings.ui \
     Pages/GnomeSettings/appearance_settings.ui \
-    Pages/PPAManager/ppa_manager.ui
+    Pages/PPAManager/ppa_manager_page.ui \
+    Pages/PPAManager/ppa_repository_item.ui
 
 TRANSLATIONS += \
     ../translations/stacer_ar.ts \

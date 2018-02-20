@@ -261,7 +261,7 @@
           <enum>Qt::NoFocus</enum>
          </property>
          <property name="toolTip">
-          <string>Gnome Settings</string>
+          <string>PPA Manager</string>
          </property>
          <property name="text">
           <string/>

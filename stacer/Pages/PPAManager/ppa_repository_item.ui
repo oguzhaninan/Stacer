@@ -1,20 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>StartupApp</class>
- <widget class="QWidget" name="StartupApp">
+ <class>PPARepositoryItem</class>
+ <widget class="QWidget" name="PPARepositoryItem">
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>661</width>
+    <width>670</width>
     <height>45</height>
    </rect>
-  </property>
-  <property name="sizePolicy">
-   <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
-    <horstretch>0</horstretch>
-    <verstretch>0</verstretch>
-   </sizepolicy>
   </property>
   <property name="minimumSize">
    <size>
@@ -29,7 +23,7 @@
    </size>
   </property>
   <property name="windowTitle">
-   <string notr="true"/>
+   <string>Form</string>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <property name="spacing">
@@ -48,7 +42,7 @@
     <number>0</number>
    </property>
    <item>
-    <widget class="QWidget" name="startupAppWidget" native="true">
+    <widget class="QWidget" name="ppaRepositoryItemWidget" native="true">
      <property name="sizePolicy">
       <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
        <horstretch>0</horstretch>
@@ -75,17 +69,17 @@
        <number>10</number>
       </property>
       <item>
-       <widget class="QLabel" name="appIcon">
+       <widget class="QLabel" name="ppaIcon">
         <property name="minimumSize">
          <size>
-          <width>22</width>
-          <height>24</height>
+          <width>26</width>
+          <height>26</height>
          </size>
         </property>
         <property name="maximumSize">
          <size>
-          <width>22</width>
-          <height>24</height>
+          <width>26</width>
+          <height>26</height>
          </size>
         </property>
         <property name="text">
@@ -97,9 +91,9 @@
        </widget>
       </item>
       <item alignment="Qt::AlignLeft|Qt::AlignVCenter">
-       <widget class="QLabel" name="appName">
+       <widget class="QLabel" name="ppaRepositoryName">
         <property name="text">
-         <string notr="true">App Name</string>
+         <string notr="true">PPA Repository</string>
         </property>
        </widget>
       </item>
@@ -117,7 +111,7 @@
        </spacer>
       </item>
       <item alignment="Qt::AlignRight|Qt::AlignVCenter">
-       <widget class="QPushButton" name="editAppBtn">
+       <widget class="QPushButton" name="editPpaBtn">
         <property name="cursor">
          <cursorShape>PointingHandCursor</cursorShape>
         </property>
@@ -136,7 +130,7 @@
        </widget>
       </item>
       <item alignment="Qt::AlignRight|Qt::AlignVCenter">
-       <widget class="QPushButton" name="deleteAppBtn">
+       <widget class="QPushButton" name="deletePpaBtn">
         <property name="cursor">
          <cursorShape>PointingHandCursor</cursorShape>
         </property>
@@ -155,7 +149,7 @@
        </widget>
       </item>
       <item alignment="Qt::AlignRight|Qt::AlignVCenter">
-       <widget class="QCheckBox" name="startupCheck">
+       <widget class="QCheckBox" name="ppaCheck">
         <property name="cursor">
          <cursorShape>PointingHandCursor</cursorShape>
         </property>

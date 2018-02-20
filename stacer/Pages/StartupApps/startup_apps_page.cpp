@@ -63,6 +63,7 @@ void StartupAppsPage::loadApps()
             }
 
             QListWidgetItem *item = new QListWidgetItem(ui->startupListWidget);
+
             // new app
             StartupApp *app = new StartupApp(appName, enabled, f.absoluteFilePath(), this);
 

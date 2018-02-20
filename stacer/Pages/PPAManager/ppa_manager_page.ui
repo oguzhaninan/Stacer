@@ -1,19 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>StartupAppsPage</class>
- <widget class="QWidget" name="StartupAppsPage">
+ <class>PPAManagerPage</class>
+ <widget class="QWidget" name="PPAManagerPage">
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>892</width>
-    <height>591</height>
+    <width>836</width>
+    <height>582</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string notr="true"/>
+   <string>Form</string>
   </property>
-  <layout class="QGridLayout" name="gridLayout">
+  <layout class="QVBoxLayout" name="verticalLayout_2">
+   <property name="spacing">
+    <number>0</number>
+   </property>
    <property name="leftMargin">
     <number>0</number>
    </property>
@@ -26,10 +29,7 @@
    <property name="bottomMargin">
     <number>0</number>
    </property>
-   <property name="spacing">
-    <number>0</number>
-   </property>
-   <item row="0" column="0">
+   <item>
     <widget class="QWidget" name="verticalWidget" native="true">
      <property name="sizePolicy">
       <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
@@ -73,7 +73,7 @@
        </spacer>
       </item>
       <item row="5" column="2">
-       <widget class="QPushButton" name="addStartupAppBtn">
+       <widget class="QPushButton" name="btnAddPpaRepository">
         <property name="sizePolicy">
          <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
           <horstretch>0</horstretch>
@@ -95,12 +95,12 @@
          <string notr="true"/>
         </property>
         <property name="text">
-         <string>Add Startup App</string>
+         <string>Add PPA Repository</string>
         </property>
        </widget>
       </item>
       <item row="0" column="0" alignment="Qt::AlignLeft">
-       <widget class="QLabel" name="startupAppsTitleLbl">
+       <widget class="QLabel" name="ppaPackagesTitleLbl">
         <property name="font">
          <font>
           <family>Ubuntu</family>
@@ -112,7 +112,7 @@
          <string notr="true"/>
         </property>
         <property name="text">
-         <string>System Startup Applications</string>
+         <string>PPA Repositories</string>
         </property>
        </widget>
       </item>
@@ -133,7 +133,7 @@
        </spacer>
       </item>
       <item row="1" column="0" colspan="3">
-       <widget class="QWidget" name="verticalWidget" native="true">
+       <widget class="QWidget" name="verticalWidget_2" native="true">
         <layout class="QVBoxLayout" name="verticalLayout">
          <property name="spacing">
           <number>0</number>
@@ -192,7 +192,7 @@
             <item alignment="Qt::AlignHCenter|Qt::AlignBottom">
              <widget class="QLabel" name="label">
               <property name="text">
-               <string>Not Found Startup Apps</string>
+               <string>Not Found PPA Repositories</string>
               </property>
              </widget>
             </item>
@@ -200,7 +200,7 @@
           </widget>
          </item>
          <item>
-          <widget class="QListWidget" name="startupListWidget">
+          <widget class="QListWidget" name="ppaRepositoryListWidget">
            <property name="focusPolicy">
             <enum>Qt::NoFocus</enum>
            </property>
