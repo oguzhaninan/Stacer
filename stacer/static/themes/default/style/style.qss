@@ -155,14 +155,14 @@ QWidget#sidebar {
 
 QWidget#sidebar QPushButton {
     border: 0px;
-    min-width: 46;
-    min-height: 46;
-    max-width: 46;
-    max-height: 46;
+    min-width: 44;
+    min-height: 44;
+    max-width: 44;
+    max-height: 44;
     border-style: solid;
     color: @color07;
-    margin: 2 7;
-    border-radius:2;
+    margin: 2 8;
+    border-radius: 2;
 }
 
 QWidget#sidebar QPushButton:checked,

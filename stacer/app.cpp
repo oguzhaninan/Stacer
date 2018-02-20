@@ -43,7 +43,7 @@ void App::init()
 
     // icon sizes of the buttons on the sidebar 30x30
     for (QPushButton *btn : ui->sidebar->findChildren<QPushButton*>())
-        btn->setIconSize(QSize(26, 26));
+        btn->setIconSize(QSize(28, 28));
 
     ui->pageContentLayout->addWidget(slidingStacked);
 

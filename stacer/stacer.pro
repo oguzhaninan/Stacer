@@ -43,7 +43,8 @@ SOURCES += \
     feedback.cpp \
     Pages/GnomeSettings/unity_settings.cpp \
     Pages/GnomeSettings/window_manager_settings.cpp \
-    Pages/GnomeSettings/appearance_settings.cpp
+    Pages/GnomeSettings/appearance_settings.cpp \
+    Pages/PPAManager/ppa_manager.cpp
 
 HEADERS += \
     app.h \
@@ -70,7 +71,8 @@ HEADERS += \
     feedback.h \
     Pages/GnomeSettings/unity_settings.h \
     Pages/GnomeSettings/window_manager_settings.h \
-    Pages/GnomeSettings/appearance_settings.h
+    Pages/GnomeSettings/appearance_settings.h \
+    Pages/PPAManager/ppa_manager.h
 
 FORMS += \
     app.ui \
@@ -92,7 +94,8 @@ FORMS += \
     feedback.ui \
     Pages/GnomeSettings/unity_settings.ui \
     Pages/GnomeSettings/window_manager_settings.ui \
-    Pages/GnomeSettings/appearance_settings.ui
+    Pages/GnomeSettings/appearance_settings.ui \
+    Pages/PPAManager/ppa_manager.ui
 
 TRANSLATIONS += \
     ../translations/stacer_ar.ts \
