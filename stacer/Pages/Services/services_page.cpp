@@ -82,10 +82,12 @@ void ServicesPage::setServiceCount()
 
 void ServicesPage::on_cmbRunningStatus_currentIndexChanged(int index)
 {
+    Q_UNUSED(index);
     loadServices();
 }
 
 void ServicesPage::on_cmbStartupStatus_currentIndexChanged(int index)
 {
+    Q_UNUSED(index);
     loadServices();
 }

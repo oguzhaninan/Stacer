@@ -59,7 +59,7 @@ void StartupApp::on_startupCheck_clicked(bool status)
 void StartupApp::on_deleteAppBtn_clicked()
 {
     if(QFile::remove(filePath))
-        deleteApp();
+        emit deleteApp();
 }
 
 void StartupApp::on_editAppBtn_clicked()

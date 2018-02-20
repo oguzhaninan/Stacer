@@ -10,11 +10,6 @@ ToolManager *ToolManager::ins()
     return _instance;
 }
 
-ToolManager::ToolManager()
-{
-
-}
-
 /******************
  * SERVICES
  *****************/
@@ -107,4 +102,20 @@ void ToolManager::uninstallPackages(const QStringList &packages)
 
     uninstallFinished();
 }
+
+/******************
+ * APT SOURCE
+ *****************/
+
+bool ToolManager::checkSourceRepository() const
+{
+    return AptSourceTool::checkSourceRepository();
+}
+
+QFileInfoList ToolManager::getSourceList() const
+{
+    return AptSourceTool::getSourceList();
+}
+
+
 

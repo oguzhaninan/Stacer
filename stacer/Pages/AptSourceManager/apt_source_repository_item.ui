@@ -6,9 +6,15 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>670</width>
+    <width>727</width>
     <height>45</height>
    </rect>
+  </property>
+  <property name="sizePolicy">
+   <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
+    <horstretch>0</horstretch>
+    <verstretch>0</verstretch>
+   </sizepolicy>
   </property>
   <property name="minimumSize">
    <size>
@@ -23,7 +29,7 @@
    </size>
   </property>
   <property name="windowTitle">
-   <string>Form</string>
+   <string/>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <property name="spacing">
@@ -90,7 +96,7 @@
         </property>
        </widget>
       </item>
-      <item alignment="Qt::AlignLeft|Qt::AlignVCenter">
+      <item>
        <widget class="QLabel" name="aptSourceRepositoryName">
         <property name="text">
          <string notr="true">APT Source Repository</string>
@@ -105,12 +111,12 @@
         <property name="sizeHint" stdset="0">
          <size>
           <width>0</width>
-          <height>0</height>
+          <height>20</height>
          </size>
         </property>
        </spacer>
       </item>
-      <item alignment="Qt::AlignRight|Qt::AlignVCenter">
+      <item>
        <widget class="QPushButton" name="editAptSourceBtn">
         <property name="cursor">
          <cursorShape>PointingHandCursor</cursorShape>
@@ -129,7 +135,7 @@
         </property>
        </widget>
       </item>
-      <item alignment="Qt::AlignRight|Qt::AlignVCenter">
+      <item>
        <widget class="QPushButton" name="deleteAptSourceBtn">
         <property name="cursor">
          <cursorShape>PointingHandCursor</cursorShape>
@@ -148,7 +154,7 @@
         </property>
        </widget>
       </item>
-      <item alignment="Qt::AlignRight|Qt::AlignVCenter">
+      <item>
        <widget class="QCheckBox" name="aptSourceCheck">
         <property name="cursor">
          <cursorShape>PointingHandCursor</cursorShape>

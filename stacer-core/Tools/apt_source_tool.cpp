@@ -2,7 +2,7 @@
 
 bool AptSourceTool::checkSourceRepository()
 {
-    QDir sourceList("/etc/apt/sources.list.d");
+    QDir sourceList(APT_SOURCE_LIST_PATH);
 
     bool isExists = sourceList.exists();
 
@@ -11,7 +11,12 @@ bool AptSourceTool::checkSourceRepository()
 
 QFileInfoList AptSourceTool::getSourceList()
 {
-    QDir aptSourceList();
+    QDir aptSourceListDir(APT_SOURCE_LIST_PATH);
+
+    QFileInfoList infoList = aptSourceListDir.entryInfoList({ "*.list", "*.save" },
+                                                            QDir::Files,
+                                                            QDir::Name);
+    return infoList;
 }
 
 

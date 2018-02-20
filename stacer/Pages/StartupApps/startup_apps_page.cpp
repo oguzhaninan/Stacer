@@ -67,9 +67,6 @@ void StartupAppsPage::loadApps()
             // new app
             StartupApp *app = new StartupApp(appName, enabled, f.absoluteFilePath(), this);
 
-            // delete button click
-            connect(app, &StartupApp::deleteApp, this, &StartupAppsPage::loadApps);
-
             item->setSizeHint(app->sizeHint());
 
             ui->startupListWidget->setItemWidget(item, app);

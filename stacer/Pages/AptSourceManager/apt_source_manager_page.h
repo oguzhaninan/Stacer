@@ -19,12 +19,17 @@ public:
     explicit APTSourceManagerPage(QWidget *parent = 0);
     ~APTSourceManagerPage();
 
+private slots:
+    void loadAptSources();
+    void on_btnAddAPTSourceRepository_clicked();
+
 private:
     void init();
 
 private:
     Ui::APTSourceManagerPage *ui;
 
+    QFileSystemWatcher fileSystemWatcher;
 };
 
 #endif

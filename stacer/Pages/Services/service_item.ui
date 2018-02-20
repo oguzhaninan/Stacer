@@ -28,9 +28,6 @@
     <height>45</height>
    </size>
   </property>
-  <property name="cursor">
-   <cursorShape>ArrowCursor</cursorShape>
-  </property>
   <property name="windowTitle">
    <string notr="true"/>
   </property>

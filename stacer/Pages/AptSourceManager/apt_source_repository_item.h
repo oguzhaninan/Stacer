@@ -13,10 +13,15 @@ class APTSourceRepositoryItem : public QWidget
 
 public:
     explicit APTSourceRepositoryItem(QString repositoryName,
-                               QString repositoryComment,
                                QString repositoryFilePath,
                                QWidget *parent = 0);
     ~APTSourceRepositoryItem();
+
+private slots:
+    void on_deleteAptSourceBtn_clicked();
+
+signals:
+    void aptSourceRepositoryDeleted();
 
 private:
     void init();
@@ -25,7 +30,6 @@ private:
     Ui::APTSourceRepositoryItem *ui;
 
     QString mName;
-    QString mComment;
     QString mFilePath;
 };
 

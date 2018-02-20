@@ -4,6 +4,8 @@
 #include "Utils/command_util.h"
 #include "Utils/file_util.h"
 
+#define APT_SOURCE_LIST_PATH "/etc/apt/sources.list.d"
+
 class AptSourceTool
 {
 public:
