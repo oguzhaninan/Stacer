@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>PPAManagerPage</class>
- <widget class="QWidget" name="PPAManagerPage">
+ <class>APTSourceManagerPage</class>
+ <widget class="QWidget" name="APTSourceManagerPage">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -73,7 +73,7 @@
        </spacer>
       </item>
       <item row="5" column="2">
-       <widget class="QPushButton" name="btnAddPpaRepository">
+       <widget class="QPushButton" name="btnAddAPTSourceRepository">
         <property name="sizePolicy">
          <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
           <horstretch>0</horstretch>
@@ -95,12 +95,12 @@
          <string notr="true"/>
         </property>
         <property name="text">
-         <string>Add PPA Repository</string>
+         <string>Add APT Source Repository</string>
         </property>
        </widget>
       </item>
       <item row="0" column="0" alignment="Qt::AlignLeft">
-       <widget class="QLabel" name="ppaPackagesTitleLbl">
+       <widget class="QLabel" name="aptSourceTitleLbl">
         <property name="font">
          <font>
           <family>Ubuntu</family>
@@ -112,7 +112,7 @@
          <string notr="true"/>
         </property>
         <property name="text">
-         <string>PPA Repositories</string>
+         <string>APT Source Repositories</string>
         </property>
        </widget>
       </item>
@@ -192,7 +192,7 @@
             <item alignment="Qt::AlignHCenter|Qt::AlignBottom">
              <widget class="QLabel" name="label">
               <property name="text">
-               <string>Not Found PPA Repositories</string>
+               <string>Not Found APT Source Repositories</string>
               </property>
              </widget>
             </item>
@@ -200,7 +200,7 @@
           </widget>
          </item>
          <item>
-          <widget class="QListWidget" name="ppaRepositoryListWidget">
+          <widget class="QListWidget" name="aptSourceRepositoryListWidget">
            <property name="focusPolicy">
             <enum>Qt::NoFocus</enum>
            </property>

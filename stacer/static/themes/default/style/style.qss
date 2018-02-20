@@ -210,7 +210,7 @@ QWidget#pageContent {
     qproperty-icon: url(:/static/themes/default/img/sidebar-icons/resources.png);
 }
 
-#ppaManagerBtn {
+#aptSourceManagerBtn {
     qproperty-icon: url(:/static/themes/default/img/sidebar-icons/ppa-manager.png);
 }
 
@@ -875,13 +875,13 @@ QComboBox QAbstractItemView {
 }
 
 /**************************
-    PPA MANAGER PAGE
+    APT SOURCE MANAGER PAGE
 ***************************/
-#ppaRepositoryListWidget {
+#aptSourceRepositoryListWidget {
     background-color: transparent;
 }
 
-#btnAddPpaRepository {
+#btnAddAPTSourceRepository {
     border:0;
     border-radius: 2;
     background-color: @color03;
@@ -889,45 +889,45 @@ QComboBox QAbstractItemView {
     padding: 7 15;
 }
 
-#btnAddPpaRepository:hover {
+#btnAddAPTSourceRepository:hover {
     background-color: @color10;
 }
 
-#ppaPackagesTitleLbl {
+#aptSourceTitleLbl {
     color: @color11;
     padding: 10 0 5 20;
 }
 
-/* - Startup App - */
+/* - APT Source Repository Item - */
 
-#ppaRepositoryItemWidget {
+#aptSourceRepositoryItemWidget {
     border-radius: 2;
     background-color: @color01;
 }
 
-#ppaIcon {
+#aptSourceIcon {
     image: url(:/static/themes/default/img/ppa-repository.png);
 }
 
-#ppaRepositoryItemWidget:hover {
+#aptSourceRepositoryItemWidget:hover {
     background-color: @color02;
 }
 
-#ppaRepositoryName {
+#aptSourceRepositoryName {
     font-size: 11pt;
     color: @color05;
 }
 
-#ppaCheck {
+#aptSourceCheck {
     margin-top: 3;
 }
 
-#ppaRepositoryItemWidget #deletePpaBtn {
+#deleteAptSourceBtn {
     qproperty-icon: url(:/static/themes/default/img/trash.svg);
     border: 0;
 }
 
-#ppaRepositoryItemWidget #editPpaBtn {
+#editAptSourceBtn {
     qproperty-icon: url(:/static/themes/default/img/edit.svg);
     border: 0;
     margin-bottom: 2;

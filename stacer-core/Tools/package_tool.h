@@ -21,8 +21,6 @@ public:
     };
 
 public:
-    PackageTool();
-
     // APT
     static QFileInfoList getDpkgPackageCaches();
     static QStringList getDpkgPackages();

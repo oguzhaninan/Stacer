@@ -15,7 +15,7 @@
 #include "Pages/Uninstaller/uninstaller_page.h"
 #include "Pages/Resources/resources_page.h"
 #include "Pages/Settings/settings_page.h"
-#include "Pages/PPAManager/ppa_manager_page.h"
+#include "Pages/AptSourceManager/apt_source_manager_page.h"
 #include "Pages/GnomeSettings/gnome_settings_page.h"
 #include "feedback.h"
 
@@ -44,10 +44,9 @@ private slots:
     void on_processesBtn_clicked();
     void on_settingsBtn_clicked();
     void on_gnomeSettingsBtn_clicked();
+    void on_aptSourceManagerBtn_clicked();
 
     void on_feedbackBtn_clicked();
-
-    void on_ppaManagerBtn_clicked();
 
 private:
     Ui::App *ui;
@@ -63,7 +62,7 @@ private:
     ProcessesPage *processPage;
     UninstallerPage *uninstallerPage;
     ResourcesPage *resourcesPage;
-    PPAManagerPage *ppaManagerPage;
+    APTSourceManagerPage *aptSourceManagerPage;
     GnomeSettingsPage *gnomeSettingsPage;
     SettingsPage *settingsPage;
 

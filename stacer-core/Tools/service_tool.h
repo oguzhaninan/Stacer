@@ -16,11 +16,9 @@ public:
     bool active;
 };
 
-class ServiceTool
+class STACERCORESHARED_EXPORT ServiceTool
 {
 public:
-    ServiceTool();
-
     static QList<Service> getServicesWithSystemctl();
     static bool serviceIsActive(const QString &serviceName);
     static bool changeServiceStatus(const QString &sname, bool status);

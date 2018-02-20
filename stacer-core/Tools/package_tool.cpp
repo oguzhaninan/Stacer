@@ -10,11 +10,6 @@ const PackageTool::PackageTools PackageTool::currentPackageTool =
         CommandUtil::isExecutable("zypper")  ? PackageTool::ZYPPER :
                                                PackageTool::UNKNOWN;
 
-PackageTool::PackageTool()
-{
-
-}
-
 /***********
  * DPKG  /var/cache/yum/development/packages/
  ***********/

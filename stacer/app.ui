@@ -253,7 +253,7 @@
         </widget>
        </item>
        <item>
-        <widget class="QPushButton" name="ppaManagerBtn">
+        <widget class="QPushButton" name="aptSourceManagerBtn">
          <property name="cursor">
           <cursorShape>PointingHandCursor</cursorShape>
          </property>
@@ -261,7 +261,7 @@
           <enum>Qt::NoFocus</enum>
          </property>
          <property name="toolTip">
-          <string>PPA Manager</string>
+          <string>APT Source Manager</string>
          </property>
          <property name="text">
           <string/>
@@ -362,7 +362,7 @@
       <zorder>settingsBtn</zorder>
       <zorder>feedbackBtn</zorder>
       <zorder>gnomeSettingsBtn</zorder>
-      <zorder>ppaManagerBtn</zorder>
+      <zorder>aptSourceManagerBtn</zorder>
      </widget>
     </item>
     <item>

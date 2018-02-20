@@ -9,9 +9,6 @@ Service::Service(const QString &name, const QString description, const bool stat
     active(active)
 { }
 
-ServiceTool::ServiceTool()
-{ }
-
 QList<Service> ServiceTool::getServicesWithSystemctl()
 {    
     QList<Service> services = {};

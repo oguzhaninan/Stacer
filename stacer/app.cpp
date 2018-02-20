@@ -18,7 +18,7 @@ App::App(QWidget *parent) :
     processPage(new ProcessesPage(slidingStacked)),
     uninstallerPage(new UninstallerPage(slidingStacked)),
     resourcesPage(new ResourcesPage(slidingStacked)),
-    ppaManagerPage(new PPAManagerPage(this)),
+    aptSourceManagerPage(new APTSourceManagerPage(this)),
     gnomeSettingsPage(new GnomeSettingsPage(slidingStacked)),
     settingsPage(new SettingsPage(slidingStacked)),
     feedback(new Feedback(this))
@@ -56,7 +56,7 @@ void App::init()
     slidingStacked->addWidget(processPage);
     slidingStacked->addWidget(uninstallerPage);
     slidingStacked->addWidget(resourcesPage);
-    slidingStacked->addWidget(ppaManagerPage);
+    slidingStacked->addWidget(aptSourceManagerPage);
     slidingStacked->addWidget(gnomeSettingsPage);
     slidingStacked->addWidget(settingsPage);
 
@@ -113,9 +113,9 @@ void App::on_settingsBtn_clicked()
     pageClick(settingsPage, tr("Settings"));
 }
 
-void App::on_ppaManagerBtn_clicked()
+void App::on_aptSourceManagerBtn_clicked()
 {
-    pageClick(ppaManagerPage, tr("PPA Manager"));
+    pageClick(aptSourceManagerPage, tr("APT Source Manager"));
 }
 
 void App::on_gnomeSettingsBtn_clicked()

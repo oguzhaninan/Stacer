@@ -23,12 +23,13 @@ SOURCES += \
     app.cpp \
     Pages/Dashboard/circlebar.cpp \
     Pages/Dashboard/linebar.cpp \
-    Managers/info_manager.cpp \
     Pages/StartupApps/startup_app.cpp \
     Pages/StartupApps/startup_app_edit.cpp \
     Pages/StartupApps/startup_apps_page.cpp \
     Pages/Services/service_item.cpp \
+    Managers/app_manager.cpp \
     Managers/tool_manager.cpp \
+    Managers/info_manager.cpp \
     Pages/Resources/history_chart.cpp \
     Pages/SystemCleaner/system_cleaner_page.cpp \
     Pages/Uninstaller/uninstaller_page.cpp \
@@ -37,26 +38,26 @@ SOURCES += \
     Pages/Dashboard/dashboard_page.cpp \
     Pages/Processes/processes_page.cpp \
     Pages/Settings/settings_page.cpp \
+    Pages/AptSourceManager/apt_source_manager_page.cpp \
+    Pages/AptSourceManager/apt_source_repository_item.cpp \
     Pages/GnomeSettings/gnome_settings_page.cpp \
-    Managers/app_manager.cpp \
-    slidingstackedwidget.cpp \
-    feedback.cpp \
     Pages/GnomeSettings/unity_settings.cpp \
     Pages/GnomeSettings/window_manager_settings.cpp \
     Pages/GnomeSettings/appearance_settings.cpp \
-    Pages/PPAManager/ppa_manager_page.cpp \
-    Pages/PPAManager/ppa_repository_item.cpp
+    slidingstackedwidget.cpp \
+    feedback.cpp
 
 HEADERS += \
     app.h \
     Pages/Dashboard/circlebar.h \
     Pages/Dashboard/linebar.h \
-    Managers/info_manager.h \
     Pages/StartupApps/startup_app.h \
     Pages/StartupApps/startup_app_edit.h \
     Pages/StartupApps/startup_apps_page.h \
     Pages/Services/service_item.h \
+    Managers/app_manager.h \
     Managers/tool_manager.h \
+    Managers/info_manager.h \
     Pages/Resources/history_chart.h \
     Pages/SystemCleaner/system_cleaner_page.h \
     Pages/Uninstaller/uninstaller_page.h \
@@ -65,16 +66,15 @@ HEADERS += \
     Pages/Dashboard/dashboard_page.h \
     Pages/Services/services_page.h \
     Pages/Settings/settings_page.h \
+    Pages/AptSourceManager/apt_source_manager_page.h \
+    Pages/AptSourceManager/apt_source_repository_item.h \
     Pages/GnomeSettings/gnome_settings_page.h \
-    Managers/app_manager.h \
-    slidingstackedwidget.h \
-    utilities.h \
-    feedback.h \
     Pages/GnomeSettings/unity_settings.h \
     Pages/GnomeSettings/window_manager_settings.h \
     Pages/GnomeSettings/appearance_settings.h \
-    Pages/PPAManager/ppa_manager_page.h \
-    Pages/PPAManager/ppa_repository_item.h
+    slidingstackedwidget.h \
+    utilities.h \
+    feedback.h
 
 FORMS += \
     app.ui \
@@ -92,13 +92,13 @@ FORMS += \
     Pages/Resources/resources_page.ui \
     Pages/Services/services_page.ui \
     Pages/Settings/settings_page.ui \
+    Pages/AptSourceManager/apt_source_manager_page.ui \
+    Pages/AptSourceManager/apt_source_repository_item.ui \
     Pages/GnomeSettings/gnome_settings_page.ui \
-    feedback.ui \
     Pages/GnomeSettings/unity_settings.ui \
     Pages/GnomeSettings/window_manager_settings.ui \
     Pages/GnomeSettings/appearance_settings.ui \
-    Pages/PPAManager/ppa_manager_page.ui \
-    Pages/PPAManager/ppa_repository_item.ui
+    feedback.ui
 
 TRANSLATIONS += \
     ../translations/stacer_ar.ts \

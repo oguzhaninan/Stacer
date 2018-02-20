@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>PPARepositoryItem</class>
- <widget class="QWidget" name="PPARepositoryItem">
+ <class>APTSourceRepositoryItem</class>
+ <widget class="QWidget" name="APTSourceRepositoryItem">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -42,7 +42,7 @@
     <number>0</number>
    </property>
    <item>
-    <widget class="QWidget" name="ppaRepositoryItemWidget" native="true">
+    <widget class="QWidget" name="aptSourceRepositoryItemWidget" native="true">
      <property name="sizePolicy">
       <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
        <horstretch>0</horstretch>
@@ -69,7 +69,7 @@
        <number>10</number>
       </property>
       <item>
-       <widget class="QLabel" name="ppaIcon">
+       <widget class="QLabel" name="aptSourceIcon">
         <property name="minimumSize">
          <size>
           <width>26</width>
@@ -91,9 +91,9 @@
        </widget>
       </item>
       <item alignment="Qt::AlignLeft|Qt::AlignVCenter">
-       <widget class="QLabel" name="ppaRepositoryName">
+       <widget class="QLabel" name="aptSourceRepositoryName">
         <property name="text">
-         <string notr="true">PPA Repository</string>
+         <string notr="true">APT Source Repository</string>
         </property>
        </widget>
       </item>
@@ -111,7 +111,7 @@
        </spacer>
       </item>
       <item alignment="Qt::AlignRight|Qt::AlignVCenter">
-       <widget class="QPushButton" name="editPpaBtn">
+       <widget class="QPushButton" name="editAptSourceBtn">
         <property name="cursor">
          <cursorShape>PointingHandCursor</cursorShape>
         </property>
@@ -130,7 +130,7 @@
        </widget>
       </item>
       <item alignment="Qt::AlignRight|Qt::AlignVCenter">
-       <widget class="QPushButton" name="deletePpaBtn">
+       <widget class="QPushButton" name="deleteAptSourceBtn">
         <property name="cursor">
          <cursorShape>PointingHandCursor</cursorShape>
         </property>
@@ -149,7 +149,7 @@
        </widget>
       </item>
       <item alignment="Qt::AlignRight|Qt::AlignVCenter">
-       <widget class="QCheckBox" name="ppaCheck">
+       <widget class="QCheckBox" name="aptSourceCheck">
         <property name="cursor">
          <cursorShape>PointingHandCursor</cursorShape>
         </property>

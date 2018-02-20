@@ -1,18 +1,18 @@
-#include "ppa_repository_item.h"
-#include "ui_ppa_repository_item.h"
+#include "apt_source_repository_item.h"
+#include "ui_apt_source_repository_item.h"
 #include "utilities.h"
 
-PPARepositoryItem::~PPARepositoryItem()
+APTSourceRepositoryItem::~APTSourceRepositoryItem()
 {
     delete ui;
 }
 
-PPARepositoryItem::PPARepositoryItem(QString repositoryName,
+APTSourceRepositoryItem::APTSourceRepositoryItem(QString repositoryName,
                                      QString repositoryComment,
                                      QString repositoryFilePath,
                                      QWidget *parent) :
     QWidget(parent),
-    ui(new Ui::PPARepositoryItem),
+    ui(new Ui::APTSourceRepositoryItem),
     mName(repositoryName),
     mComment(repositoryComment),
     mFilePath(repositoryFilePath)
@@ -22,8 +22,8 @@ PPARepositoryItem::PPARepositoryItem(QString repositoryName,
     init();
 }
 
-void PPARepositoryItem::init()
+void APTSourceRepositoryItem::init()
 {
     Utilities::addDropShadow(this, 50);
-    ui->ppaRepositoryName->setText(mName);
+    ui->aptSourceRepositoryName->setText(mName);
 }

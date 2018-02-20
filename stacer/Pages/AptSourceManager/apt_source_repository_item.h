@@ -1,32 +1,32 @@
-#ifndef PPA_REPOSITORY_ITEM_H
-#define PPA_REPOSITORY_ITEM_H
+#ifndef APTSourceRepositoryItem_H
+#define APTSourceRepositoryItem_H
 
 #include <QWidget>
 
 namespace Ui {
-class PPARepositoryItem;
+class APTSourceRepositoryItem;
 }
 
-class PPARepositoryItem : public QWidget
+class APTSourceRepositoryItem : public QWidget
 {
     Q_OBJECT
 
 public:
-    explicit PPARepositoryItem(QString repositoryName,
+    explicit APTSourceRepositoryItem(QString repositoryName,
                                QString repositoryComment,
                                QString repositoryFilePath,
                                QWidget *parent = 0);
-    ~PPARepositoryItem();
+    ~APTSourceRepositoryItem();
 
 private:
     void init();
 
 private:
-    Ui::PPARepositoryItem *ui;
+    Ui::APTSourceRepositoryItem *ui;
 
     QString mName;
     QString mComment;
     QString mFilePath;
 };
 
-#endif // PPA_REPOSITORY_ITEM_H
+#endif
