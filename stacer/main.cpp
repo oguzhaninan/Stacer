@@ -1,4 +1,5 @@
 #include <QApplication>
+#include <QSplashScreen>
 #include <QDebug>
 #include "app.h"
 
@@ -64,11 +65,18 @@ int main(int argc, char *argv[])
     qApp->setApplicationVersion("1.0.8");
     qApp->setWindowIcon(QIcon(":/static/logo.png"));
 
+    QPixmap pixmap(":/static/logo.png");
+    QSplashScreen splash(pixmap);
+    splash.show();
+    app.processEvents();
+
 //    qInstallMessageHandler(messageHandler);
 
     App w;
 
     w.show();
+
+    splash.finish(&w);
 
     return app.exec();
 }
