@@ -53,6 +53,15 @@
        <height>20</height>
       </size>
      </property>
+     <property name="checkable">
+      <bool>true</bool>
+     </property>
+     <property name="checked">
+      <bool>true</bool>
+     </property>
+     <attribute name="buttonGroup">
+      <string notr="true">settingsTopButtonGroup</string>
+     </attribute>
     </widget>
    </item>
    <item row="0" column="1">
@@ -76,6 +85,12 @@
        <height>20</height>
       </size>
      </property>
+     <property name="checkable">
+      <bool>true</bool>
+     </property>
+     <attribute name="buttonGroup">
+      <string notr="true">settingsTopButtonGroup</string>
+     </attribute>
     </widget>
    </item>
    <item row="0" column="2">
@@ -99,6 +114,12 @@
        <height>20</height>
       </size>
      </property>
+     <property name="checkable">
+      <bool>true</bool>
+     </property>
+     <attribute name="buttonGroup">
+      <string notr="true">settingsTopButtonGroup</string>
+     </attribute>
     </widget>
    </item>
   </layout>
@@ -107,4 +128,7 @@
   <include location="../../static.qrc"/>
  </resources>
  <connections/>
+ <buttongroups>
+  <buttongroup name="settingsTopButtonGroup"/>
+ </buttongroups>
 </ui>

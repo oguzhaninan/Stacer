@@ -451,7 +451,7 @@
        <item row="7" column="0" colspan="4">
         <widget class="QLabel" name="label_6">
          <property name="accessibleName">
-          <string/>
+          <string>title</string>
          </property>
          <property name="text">
           <string>Workspace Settings</string>
