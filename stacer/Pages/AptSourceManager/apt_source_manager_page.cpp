@@ -21,8 +21,10 @@ APTSourceManagerPage::APTSourceManagerPage(QWidget *parent) :
 
 void APTSourceManagerPage::init()
 {
-    fileSystemWatcher.addPath(APT_SOURCE_LIST_PATH);
+    fileSystemWatcher.addPath(APT_SOURCES_LIST_D_PATH);
     connect(&fileSystemWatcher, &QFileSystemWatcher::directoryChanged, this, &APTSourceManagerPage::loadAptSources);
+
+    ui->txtAptSource->setPlaceholderText(tr("example %1").arg("'deb http://archive.ubuntu.com/ubuntu xenial main'"));
 
     loadAptSources();
 }
@@ -31,27 +33,38 @@ void APTSourceManagerPage::loadAptSources()
 {
     ui->aptSourceRepositoryListWidget->clear();
 
-    QFileInfoList sourceFileInfoList = ToolManager::ins()->getSourceList();
+    QList<APTSourcePtr> aptSourceList = ToolManager::ins()->getSourceList();
 
-    for (const QFileInfo &fileInfo: sourceFileInfoList) {
-
-        APTSourceRepositoryItem *aptSourceItem =
-                new APTSourceRepositoryItem(fileInfo.fileName(), fileInfo.filePath());
+    for (APTSourcePtr &aptSource: aptSourceList) {
 
         QListWidgetItem *listItem = new QListWidgetItem(ui->aptSourceRepositoryListWidget);
+
+        APTSourceRepositoryItem *aptSourceItem = new APTSourceRepositoryItem(aptSource, ui->aptSourceRepositoryListWidget);
 
         listItem->setSizeHint(aptSourceItem->sizeHint());
 
         ui->aptSourceRepositoryListWidget->setItemWidget(listItem, aptSourceItem);
     }
 
-    ui->notFoundWidget->setVisible(sourceFileInfoList.isEmpty());
+    ui->notFoundWidget->setVisible(aptSourceList.isEmpty());
 
     ui->aptSourceTitleLbl->setText(tr("APT Source Repositories (%1)")
-                                   .arg(sourceFileInfoList.count()));
+                                   .arg(aptSourceList.count()));
 }
 
 void APTSourceManagerPage::on_btnAddAPTSourceRepository_clicked()
 {
-    ui->aptSourceRepositoryListWidget->clear();
+    QString aptSourceRepository = ui->txtAptSource->text().trimmed();
+
+    if (!aptSourceRepository.isEmpty()) {
+        QStringList args = { "-y", aptSourceRepository };
+        if (ui->checkEnableSource->isChecked()) {
+            args << "-s";
+        }
+
+        CommandUtil::sudoExec("add-apt-repository", args);
+
+        ui->txtAptSource->clear();
+        ui->checkEnableSource->setChecked(false);
+    }
 }

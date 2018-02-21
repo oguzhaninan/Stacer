@@ -48,13 +48,13 @@
        <number>60</number>
       </property>
       <property name="topMargin">
-       <number>20</number>
+       <number>10</number>
       </property>
       <property name="rightMargin">
        <number>60</number>
       </property>
       <property name="bottomMargin">
-       <number>30</number>
+       <number>20</number>
       </property>
       <property name="spacing">
        <number>5</number>
@@ -127,7 +127,7 @@
         <property name="sizeHint" stdset="0">
          <size>
           <width>20</width>
-          <height>20</height>
+          <height>10</height>
          </size>
         </property>
        </spacer>

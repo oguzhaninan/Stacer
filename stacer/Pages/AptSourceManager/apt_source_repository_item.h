@@ -2,6 +2,8 @@
 #define APTSourceRepositoryItem_H
 
 #include <QWidget>
+#include <QFileInfo>
+#include "Managers/tool_manager.h"
 
 namespace Ui {
 class APTSourceRepositoryItem;
@@ -12,16 +14,13 @@ class APTSourceRepositoryItem : public QWidget
     Q_OBJECT
 
 public:
-    explicit APTSourceRepositoryItem(QString repositoryName,
-                               QString repositoryFilePath,
+    explicit APTSourceRepositoryItem(APTSourcePtr aptSource,
                                QWidget *parent = 0);
+
     ~APTSourceRepositoryItem();
 
 private slots:
     void on_deleteAptSourceBtn_clicked();
-
-signals:
-    void aptSourceRepositoryDeleted();
 
 private:
     void init();
@@ -29,8 +28,8 @@ private:
 private:
     Ui::APTSourceRepositoryItem *ui;
 
-    QString mName;
-    QString mFilePath;
+    APTSourcePtr mAptSource;
+
 };
 
 #endif

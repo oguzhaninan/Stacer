@@ -110,6 +110,24 @@ QCheckBox::indicator:unchecked {
     image: url(:/static/themes/default/img/un-checkbox.svg);
 }
 
+QCheckBox[accessibleName="circle"] {
+    font-size: 10pt;
+    color: @color06;
+}
+
+QCheckBox[accessibleName="circle"]::indicator {
+    width: 18px;
+    height: 18px;
+}
+
+QCheckBox[accessibleName="circle"]::indicator:unchecked {
+    image: url(:/static/themes/default/img/un-check.svg);
+}
+
+QCheckBox[accessibleName="circle"]::indicator:checked {
+    image: url(:/static/themes/default/img/check.svg);
+}
+
 
 QToolTip {
     color: @color05;
@@ -135,6 +153,15 @@ QToolTip {
 QKeySequenceEdit {
     border-radius: 2;
     padding: 10;
+    background-color: @color01;
+    font-size: 10pt;
+    color: @color05;
+}
+
+QLineEdit,
+QPlainTextEdit {
+    border-radius: 2;
+    padding: 8;
     background-color: @color01;
     font-size: 10pt;
     color: @color05;

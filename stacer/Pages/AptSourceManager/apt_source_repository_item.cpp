@@ -9,31 +9,35 @@ APTSourceRepositoryItem::~APTSourceRepositoryItem()
     delete ui;
 }
 
-APTSourceRepositoryItem::APTSourceRepositoryItem(QString repositoryName,
-                                     QString repositoryFilePath,
-                                     QWidget *parent) :
+APTSourceRepositoryItem::APTSourceRepositoryItem(APTSourcePtr aptSource, QWidget *parent) :
     QWidget(parent),
     ui(new Ui::APTSourceRepositoryItem),
-    mName(repositoryName),
-    mFilePath(repositoryFilePath)
+    mAptSource(aptSource)
 {
-    ui->setupUi(this);
-
     init();
 }
 
 void APTSourceRepositoryItem::init()
 {
+    ui->setupUi(this);
+
     Utilities::addDropShadow(this, 50);
 
-    ui->aptSourceRepositoryName->setText(mName);
+    ui->aptSourceCheck->setChecked(mAptSource->isActive);
+
+    if (mAptSource->isSource) {
+        ui->aptSourceRepositoryName->setText(
+                    tr("%1 (Source Code)").arg(mAptSource->source));
+    } else {
+        ui->aptSourceRepositoryName->setText(mAptSource->source);
+    }
 }
 
 void APTSourceRepositoryItem::on_deleteAptSourceBtn_clicked()
 {
+    QStringList args = { "-r", "-y", mAptSource->source };
     try {
-        CommandUtil::sudoExec("rm", { mFilePath });
-        emit aptSourceRepositoryDeleted();
+        CommandUtil::sudoExec("add-apt-repository", args);
     } catch(QString &ex) {
         qDebug() << ex;
     }

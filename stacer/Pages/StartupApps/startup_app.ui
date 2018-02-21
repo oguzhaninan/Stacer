@@ -124,6 +124,9 @@
         <property name="focusPolicy">
          <enum>Qt::NoFocus</enum>
         </property>
+        <property name="toolTip">
+         <string>Edit App</string>
+        </property>
         <property name="text">
          <string/>
         </property>
@@ -142,6 +145,9 @@
         </property>
         <property name="focusPolicy">
          <enum>Qt::NoFocus</enum>
+        </property>
+        <property name="toolTip">
+         <string>Delete App</string>
         </property>
         <property name="text">
          <string/>

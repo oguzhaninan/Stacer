@@ -48,15 +48,18 @@
        <number>30</number>
       </property>
       <property name="topMargin">
-       <number>20</number>
+       <number>5</number>
       </property>
       <property name="rightMargin">
        <number>30</number>
       </property>
       <property name="bottomMargin">
-       <number>30</number>
+       <number>20</number>
       </property>
-      <property name="spacing">
+      <property name="horizontalSpacing">
+       <number>10</number>
+      </property>
+      <property name="verticalSpacing">
        <number>5</number>
       </property>
       <item row="0" column="1">
@@ -72,7 +75,7 @@
         </property>
        </spacer>
       </item>
-      <item row="5" column="2">
+      <item row="5" column="3">
        <widget class="QPushButton" name="btnAddAPTSourceRepository">
         <property name="sizePolicy">
          <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
@@ -95,9 +98,28 @@
          <string notr="true"/>
         </property>
         <property name="text">
-         <string>Add APT Source Repository</string>
+         <string>Add APT Source</string>
+        </property>
+        <property name="checkable">
+         <bool>false</bool>
         </property>
        </widget>
+      </item>
+      <item row="4" column="0" colspan="4">
+       <spacer name="verticalSpacer_2">
+        <property name="orientation">
+         <enum>Qt::Vertical</enum>
+        </property>
+        <property name="sizeType">
+         <enum>QSizePolicy::Fixed</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>20</width>
+          <height>15</height>
+         </size>
+        </property>
+       </spacer>
       </item>
       <item row="0" column="0" alignment="Qt::AlignLeft">
        <widget class="QLabel" name="aptSourceTitleLbl">
@@ -116,23 +138,10 @@
         </property>
        </widget>
       </item>
-      <item row="4" column="0" colspan="3">
-       <spacer name="verticalSpacer_2">
-        <property name="orientation">
-         <enum>Qt::Vertical</enum>
-        </property>
-        <property name="sizeType">
-         <enum>QSizePolicy::Fixed</enum>
-        </property>
-        <property name="sizeHint" stdset="0">
-         <size>
-          <width>20</width>
-          <height>20</height>
-         </size>
-        </property>
-       </spacer>
+      <item row="5" column="0" colspan="2">
+       <widget class="QLineEdit" name="txtAptSource"/>
       </item>
-      <item row="1" column="0" colspan="3">
+      <item row="1" column="0" colspan="4">
        <widget class="QWidget" name="verticalWidget_2" native="true">
         <layout class="QVBoxLayout" name="verticalLayout">
          <property name="spacing">
@@ -234,6 +243,16 @@
           </widget>
          </item>
         </layout>
+       </widget>
+      </item>
+      <item row="5" column="2">
+       <widget class="QCheckBox" name="checkEnableSource">
+        <property name="accessibleName">
+         <string>circle</string>
+        </property>
+        <property name="text">
+         <string>Enable Source</string>
+        </property>
        </widget>
       </item>
      </layout>

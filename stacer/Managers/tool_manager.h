@@ -29,7 +29,7 @@ public slots:
     void uninstallPackages(const QStringList &packages);    
 
     bool checkSourceRepository() const;
-    QFileInfoList getSourceList() const;
+    QList<APTSourcePtr> getSourceList() const;
 
 signals:
     void uninstallFinished();

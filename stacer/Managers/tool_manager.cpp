@@ -112,7 +112,7 @@ bool ToolManager::checkSourceRepository() const
     return AptSourceTool::checkSourceRepository();
 }
 
-QFileInfoList ToolManager::getSourceList() const
+QList<APTSourcePtr> ToolManager::getSourceList() const
 {
     return AptSourceTool::getSourceList();
 }
