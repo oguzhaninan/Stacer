@@ -5,19 +5,14 @@
 #include <QStandardPaths>
 #include <QDebug>
 
-CommandUtil::CommandUtil()
-{
-
-}
-
-QString CommandUtil::sudoExec(const QString &cmd, QStringList args)
+QString CommandUtil::sudoExec(const QString &cmd, QStringList args, QByteArray data)
 {
     args.push_front(cmd);
 
     QString result("");
 
     try {
-        result = CommandUtil::exec("pkexec", args);
+        result = CommandUtil::exec("pkexec", args, data);
     } catch (QString &ex) {
         qCritical() << ex;
     }
@@ -25,14 +20,17 @@ QString CommandUtil::sudoExec(const QString &cmd, QStringList args)
     return result;
 }
 
-QString CommandUtil::exec(const QString &cmd, QStringList args)
+QString CommandUtil::exec(const QString &cmd, QStringList args, QByteArray data)
 {
     QProcess* process = new QProcess;
 
-    if(args.isEmpty())
-        process->start(cmd);
-    else
-        process->start(cmd, args);
+    process->start(cmd, args);
+
+    if (! data.isEmpty()) {
+        process->write(data);
+        process->waitForBytesWritten();
+        process->closeWriteChannel();
+    }
 
     process->waitForFinished();
 
