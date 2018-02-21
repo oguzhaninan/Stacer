@@ -26,17 +26,24 @@ void AptSourceTool::changeStatus(const APTSourcePtr aptSource, const bool status
 {
     QStringList sourceFileContent = FileUtil::readListFromFile(aptSource->filePath);
 
-    int pos = sourceFileContent.indexOf(aptSource->source);
+    int pos = -1;
+    for (int i = 0; i < sourceFileContent.count(); ++i) {
+        int _pos = sourceFileContent[i].indexOf(aptSource->source);
+        if (_pos != -1) {
+            pos = i;
+            break;
+        }
+    }
 
     if (pos != -1) {
         QString line = sourceFileContent.at(pos);
 
-        line.replace("#", "").trimmed();
+        line.replace("#", "");
 
         if (status) {
-            sourceFileContent.replace(pos, line);
+            sourceFileContent.replace(pos, line.trimmed());
         } else {
-            sourceFileContent.replace(pos, "# " + line);
+            sourceFileContent.replace(pos, "# " + line.trimmed());
         }
     }
 
