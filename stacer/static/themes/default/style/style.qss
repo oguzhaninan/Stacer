@@ -98,8 +98,8 @@ QMenu::indicator:non-exclusive:checked {
 ***************************/
 
 QCheckBox::indicator {
-    width: 45px;
-    height: 25px;
+    width: 44px;
+    height: 24px;
 }
 
 QCheckBox::indicator:checked {

@@ -1,5 +1,7 @@
 #include "apt_source_tool.h"
+#include "Utils/command_util.h"
 #include "Utils/file_util.h"
+#include <QDebug>
 
 bool AptSourceTool::checkSourceRepository()
 {
@@ -8,6 +10,16 @@ bool AptSourceTool::checkSourceRepository()
     bool isExists = sourceList.exists();
 
     return isExists;
+}
+
+void AptSourceTool::removeAPTSource(const QString source)
+{
+    QStringList args = { "-r", "-y", source };
+    try {
+        CommandUtil::sudoExec("add-apt-repository", args);
+    } catch(QString &ex) {
+        qDebug() << ex;
+    }
 }
 
 QList<APTSourcePtr> AptSourceTool::getSourceList()
@@ -27,24 +39,29 @@ QList<APTSourcePtr> AptSourceTool::getSourceList()
         for (const QString &line : fileContent) {
             QString _line = line.trimmed();
 
-            APTSourcePtr aptSource(new APTSource);
-            aptSource->filePath = info.absoluteFilePath();
-
             if (! _line.isEmpty()) {
+
+                APTSourcePtr aptSource(new APTSource);
+                aptSource->filePath = info.absoluteFilePath();
 
                 if (_line.startsWith(QChar('#'))) { // is deactive
                     aptSource->isActive = false;
-                    aptSource->source = _line.replace("#", "").trimmed();
+                    _line.replace("#", "");
+                } else {
+                    aptSource->isActive = true;
                 }
 
-                if (aptSource->source.startsWith("deb")) { // binary
-                    aptSource->isSource = false;
-                }
-                else if(aptSource->source.startsWith("deb-src")) { // source
-                    aptSource->isSource = true;
-                }
+                QStringList _lineList = _line.trimmed().split(QChar(' '));
 
-                aptSourceList.append(aptSource);
+                bool isBinary = _lineList.first() == "deb";
+                bool isSource = _lineList.first() == "deb-src";
+
+                // example "deb [arch=amd64] http://packages.microsoft.com/repos/vscode stable main"
+                if (isBinary || isSource) {
+                    aptSource->source = _lineList.join(' ');
+                    aptSource->isSource = isSource;
+                    aptSourceList.append(aptSource);
+                }
             }
         }
     }

@@ -23,6 +23,7 @@ class AptSourceTool
 public:
     static bool checkSourceRepository();
     static QList<APTSourcePtr> getSourceList();
+    static void removeAPTSource(const QString source);
 };
 
 #endif // AptSourceTool_H

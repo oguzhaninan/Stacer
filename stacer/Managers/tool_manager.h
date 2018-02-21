@@ -30,6 +30,7 @@ public slots:
 
     bool checkSourceRepository() const;
     QList<APTSourcePtr> getSourceList() const;
+    void removeAPTSource(const QString source);
 
 signals:
     void uninstallFinished();

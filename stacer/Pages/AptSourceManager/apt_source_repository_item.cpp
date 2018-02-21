@@ -25,20 +25,32 @@ void APTSourceRepositoryItem::init()
 
     ui->aptSourceCheck->setChecked(mAptSource->isActive);
 
+    QString sourceName;
+    // example "deb [arch=amd64] http://packages.microsoft.com/repos/vscode stable main"
+    QStringList sourceColumns = mAptSource->source.split(QChar(' '));
+
+    if (sourceColumns[1].startsWith('[')) {
+        sourceName = sourceColumns.mid(2).join(' ');
+    } else {
+        sourceName = sourceColumns.mid(1).join(' ');
+    }
+
     if (mAptSource->isSource) {
         ui->aptSourceRepositoryName->setText(
-                    tr("%1 (Source Code)").arg(mAptSource->source));
+                    tr("%1 (Source Code)").arg(sourceName));
     } else {
-        ui->aptSourceRepositoryName->setText(mAptSource->source);
+        ui->aptSourceRepositoryName->setText(sourceName);
     }
+
+    ui->aptSourceRepositoryName->setToolTip(ui->aptSourceRepositoryName->text());
 }
 
 void APTSourceRepositoryItem::on_deleteAptSourceBtn_clicked()
 {
-    QStringList args = { "-r", "-y", mAptSource->source };
-    try {
-        CommandUtil::sudoExec("add-apt-repository", args);
-    } catch(QString &ex) {
-        qDebug() << ex;
-    }
+    ToolManager::ins()->removeAPTSource(mAptSource->source);
+}
+
+void APTSourceRepositoryItem::on_aptSourceCheck_clicked(bool checked)
+{
+
 }
