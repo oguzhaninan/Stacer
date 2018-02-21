@@ -122,5 +122,8 @@ void ToolManager::removeAPTSource(const QString source)
     AptSourceTool::removeAPTSource(source);
 }
 
-
+void ToolManager::changeStatus(const APTSourcePtr aptSource, const bool status)
+{
+    AptSourceTool::changeStatus(aptSource, status);
+}
 

@@ -52,5 +52,5 @@ void APTSourceRepositoryItem::on_deleteAptSourceBtn_clicked()
 
 void APTSourceRepositoryItem::on_aptSourceCheck_clicked(bool checked)
 {
-
+    ToolManager::ins()->changeStatus(mAptSource, checked);
 }

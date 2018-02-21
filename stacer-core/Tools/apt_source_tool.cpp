@@ -22,6 +22,31 @@ void AptSourceTool::removeAPTSource(const QString source)
     }
 }
 
+void AptSourceTool::changeStatus(const APTSourcePtr aptSource, const bool status)
+{
+    QStringList sourceFileContent = FileUtil::readListFromFile(aptSource->filePath);
+
+    int pos = sourceFileContent.indexOf(aptSource->source);
+
+    if (pos != -1) {
+        QString line = sourceFileContent.at(pos);
+
+        line.replace("#", "").trimmed();
+
+        if (status) {
+            sourceFileContent.replace(pos, line);
+        } else {
+            sourceFileContent.replace(pos, "# " + line);
+        }
+    }
+
+    QStringList args = { aptSource->filePath };
+
+    QByteArray data = sourceFileContent.join('\n').toUtf8();
+
+    CommandUtil::sudoExec("tee", args, data);
+}
+
 QList<APTSourcePtr> AptSourceTool::getSourceList()
 {
     QList<APTSourcePtr> aptSourceList;

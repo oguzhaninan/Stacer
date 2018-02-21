@@ -13,7 +13,7 @@ void DiskInfo::updateDiskInfo()
 {
     disks.clear();
     try {
-        QStringList result = CommandUtil::exec("df -Pl").split(QChar('\n'));
+        QStringList result = CommandUtil::exec("df", { "-Pl" }).split(QChar('\n'));
 
         QRegExp sep("\\s+");
         for (const QString &line : result.filter(QRegExp("^/")))
