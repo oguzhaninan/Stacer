@@ -45,12 +45,23 @@ void APTSourceRepositoryItem::init()
     ui->aptSourceRepositoryName->setToolTip(ui->aptSourceRepositoryName->text());
 }
 
-void APTSourceRepositoryItem::on_deleteAptSourceBtn_clicked()
+APTSourcePtr APTSourceRepositoryItem::aptSource() const
 {
-    ToolManager::ins()->removeAPTSource(mAptSource->source);
+    return mAptSource;
 }
 
 void APTSourceRepositoryItem::on_aptSourceCheck_clicked(bool checked)
 {
     ToolManager::ins()->changeStatus(mAptSource, checked);
 }
+
+//void APTSourceRepositoryItem::on_deleteAptSourceBtn_clicked()
+//{
+//    ToolManager::ins()->removeAPTSource(mAptSource->source);
+//}
+
+
+//void APTSourceRepositoryItem::on_editAptSourceBtn_clicked()
+//{
+
+//}

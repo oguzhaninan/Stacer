@@ -2,6 +2,7 @@
 #define APTSourceManagerPage_PAGE_H
 
 #include <QWidget>
+#include <QListWidgetItem>
 #include <QFileSystemWatcher>
 #include <QFile>
 
@@ -19,9 +20,16 @@ public:
     explicit APTSourceManagerPage(QWidget *parent = 0);
     ~APTSourceManagerPage();
 
+public:
+    static APTSourcePtr selectedAptSource;
+
 private slots:
     void loadAptSources();
-    void on_btnAddAPTSourceRepository_clicked();
+    void on_btnAddAPTSourceRepository_clicked(bool checked);
+    void on_aptSourceRepositoryListWidget_itemClicked(QListWidgetItem *item);
+    void changeElementsVisible(const bool checked);
+    void on_txtSearchAptSource_textChanged(const QString &val);
+    void on_btnDeleteAptSource_clicked();
 
 private:
     void init();

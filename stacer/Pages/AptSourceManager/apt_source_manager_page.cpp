@@ -9,24 +9,31 @@ APTSourceManagerPage::~APTSourceManagerPage()
     delete ui;
 }
 
+APTSourcePtr APTSourceManagerPage::selectedAptSource = nullptr;
+
 APTSourceManagerPage::APTSourceManagerPage(QWidget *parent) :
     QWidget(parent),
-    fileSystemWatcher(this),
-    ui(new Ui::APTSourceManagerPage)
+    ui(new Ui::APTSourceManagerPage),
+    fileSystemWatcher(this)
 {
     ui->setupUi(this);
 
     init();
+
+    ui->aptSourceRepositoryListWidget->setFocus();
 }
 
 void APTSourceManagerPage::init()
 {
-    fileSystemWatcher.addPath(APT_SOURCES_LIST_D_PATH);
+    fileSystemWatcher.addPaths({ APT_SOURCES_LIST_D_PATH, APT_SOURCES_LIST_PATH });
     connect(&fileSystemWatcher, &QFileSystemWatcher::directoryChanged, this, &APTSourceManagerPage::loadAptSources);
+    connect(&fileSystemWatcher, &QFileSystemWatcher::fileChanged, this, &APTSourceManagerPage::loadAptSources);
 
     ui->txtAptSource->setPlaceholderText(tr("example %1").arg("'deb http://archive.ubuntu.com/ubuntu xenial main'"));
 
     loadAptSources();
+
+    on_btnAddAPTSourceRepository_clicked(false);
 }
 
 void APTSourceManagerPage::loadAptSources()
@@ -52,19 +59,61 @@ void APTSourceManagerPage::loadAptSources()
                                    .arg(aptSourceList.count()));
 }
 
-void APTSourceManagerPage::on_btnAddAPTSourceRepository_clicked()
+void APTSourceManagerPage::on_btnAddAPTSourceRepository_clicked(bool checked)
 {
-    QString aptSourceRepository = ui->txtAptSource->text().trimmed();
-
-    if (!aptSourceRepository.isEmpty()) {
-        QStringList args = { "-y", aptSourceRepository };
-        if (ui->checkEnableSource->isChecked()) {
-            args << "-s";
-        }
-
-        CommandUtil::sudoExec("add-apt-repository", args);
-
-        ui->txtAptSource->clear();
-        ui->checkEnableSource->setChecked(false);
+    changeElementsVisible(checked);
+    if (checked) {
+        ui->btnAddAPTSourceRepository->setText(tr("Save"));
     }
+    else {
+        QString aptSourceRepository = ui->txtAptSource->text().trimmed();
+
+        if (!aptSourceRepository.isEmpty()) {
+            QStringList args = { "-y", aptSourceRepository };
+            if (ui->checkEnableSource->isChecked()) {
+                args << "-s";
+            }
+
+            CommandUtil::sudoExec("add-apt-repository", args);
+
+            ui->txtAptSource->clear();
+            ui->checkEnableSource->setChecked(false);
+        }
+        ui->btnAddAPTSourceRepository->setText(tr("Add APT Source"));
+    }
+}
+
+void APTSourceManagerPage::changeElementsVisible(const bool checked)
+{
+    ui->txtAptSource->setVisible(checked);
+    ui->checkEnableSource->setVisible(checked);
+    ui->btnEditAptSource->setVisible(!checked);
+    ui->btnDeleteAptSource->setVisible(!checked);
+    if (checked)
+        ui->bottomSectionHorizontalSpacer->changeSize(0, 0, QSizePolicy::Minimum);
+    else
+        ui->bottomSectionHorizontalSpacer->changeSize(0, 0, QSizePolicy::Expanding);
+}
+
+void APTSourceManagerPage::on_aptSourceRepositoryListWidget_itemClicked(QListWidgetItem *item)
+{
+    QWidget *widget = ui->aptSourceRepositoryListWidget->itemWidget(item);
+    if (widget) {
+        APTSourceRepositoryItem *aptSourceItem = dynamic_cast<APTSourceRepositoryItem*>(widget);
+        if (aptSourceItem) {
+            selectedAptSource = aptSourceItem->aptSource();
+        }
+    }
+}
+
+void APTSourceManagerPage::on_btnDeleteAptSource_clicked()
+{
+    if (! selectedAptSource.isNull()) {
+        ToolManager::ins()->removeAPTSource(selectedAptSource->source);
+    }
+}
+
+void APTSourceManagerPage::on_txtSearchAptSource_textChanged(const QString &vak)
+{
+
 }

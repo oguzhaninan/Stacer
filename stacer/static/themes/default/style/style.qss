@@ -61,6 +61,17 @@ QAbstractScrollArea::corner {
     background: transparent;
 }
 
+QListWidget {
+    selection-background-color: red;
+}
+
+QListWidget::item {
+}
+
+QListWidget::item[selected=true] #aptSourceRepositoryItemWidget {
+    background-color: orange;
+}
+
 /**************************
     QMENU
 ***************************/
@@ -706,7 +717,8 @@ QSlider::handle:horizontal {
     font-size: 11pt;
 }
 
-#packageSearch {
+#packageSearch,
+#txtSearchAptSource{
     padding: 4 12;
     border-radius: 12;
     background: @color01 url(:/static/themes/default/img/search.svg) no-repeat right center;
@@ -908,7 +920,9 @@ QComboBox QAbstractItemView {
     background-color: transparent;
 }
 
-#btnAddAPTSourceRepository {
+#btnAddAPTSourceRepository,
+#btnEditAptSource,
+#btnDeleteAptSource {
     border:0;
     border-radius: 2;
     background-color: @color03;
@@ -916,6 +930,11 @@ QComboBox QAbstractItemView {
     padding: 7 15;
 }
 
+#btnDeleteAptSource {
+    background-color: @color09;
+}
+
+#btnEditAptSource:hover,
 #btnAddAPTSourceRepository:hover {
     background-color: @color10;
 }
@@ -948,18 +967,6 @@ QComboBox QAbstractItemView {
 #aptSourceCheck {
     margin-top: 3;
 }
-
-#deleteAptSourceBtn {
-    qproperty-icon: url(:/static/themes/default/img/trash.svg);
-    border: 0;
-}
-
-#editAptSourceBtn {
-    qproperty-icon: url(:/static/themes/default/img/edit.svg);
-    border: 0;
-    margin-bottom: 2;
-}
-
 
 /**************************
     GNOME SETTINGS PAGE
