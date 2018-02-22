@@ -31,6 +31,8 @@ private slots:
     void on_txtSearchAptSource_textChanged(const QString &val);
     void on_btnDeleteAptSource_clicked();
     void on_btnEditAptSource_clicked();
+    void on_aptSourceRepositoryListWidget_itemDoubleClicked(QListWidgetItem *item);
+    void on_btnCancel_clicked();
 
 private:
     void init();

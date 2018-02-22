@@ -23,6 +23,7 @@ public:
 private slots:
     void clearElements();
     void on_saveBtn_clicked();
+    void on_btnCancel_clicked();
 
 private:
     void init();

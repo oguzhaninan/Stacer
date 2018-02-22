@@ -928,7 +928,8 @@ QComboBox QAbstractItemView {
 
 #btnAddAPTSourceRepository,
 #btnEditAptSource,
-#btnDeleteAptSource {
+#btnDeleteAptSource,
+#btnCancel {
     border:0;
     border-radius: 2;
     background-color: @color03;
@@ -936,11 +937,13 @@ QComboBox QAbstractItemView {
     padding: 7 15;
 }
 
-#btnDeleteAptSource {
+#btnDeleteAptSource,
+#btnCancel {
     background-color: @color09;
 }
 
-#btnDeleteAptSource:hover {
+#btnDeleteAptSource:hover,
+#btnCancel:hover {
     background-color: #c0392b;
 }
 

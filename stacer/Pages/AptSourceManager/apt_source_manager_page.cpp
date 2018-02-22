@@ -19,8 +19,6 @@ APTSourceManagerPage::APTSourceManagerPage(QWidget *parent) :
     ui->setupUi(this);
 
     init();
-
-    ui->aptSourceRepositoryListWidget->setFocus();
 }
 
 void APTSourceManagerPage::init()
@@ -33,7 +31,7 @@ void APTSourceManagerPage::init()
 
     loadAptSources();
 
-    on_btnAddAPTSourceRepository_clicked(false);
+    on_btnCancel_clicked();
 }
 
 void APTSourceManagerPage::loadAptSources()
@@ -62,9 +60,9 @@ void APTSourceManagerPage::loadAptSources()
 
 void APTSourceManagerPage::on_btnAddAPTSourceRepository_clicked(bool checked)
 {
-    changeElementsVisible(checked);
     if (checked) {
         ui->btnAddAPTSourceRepository->setText(tr("Save"));
+        changeElementsVisible(checked);
     }
     else {
         QString aptSourceRepository = ui->txtAptSource->text().trimmed();
@@ -79,8 +77,9 @@ void APTSourceManagerPage::on_btnAddAPTSourceRepository_clicked(bool checked)
 
             ui->txtAptSource->clear();
             ui->checkEnableSource->setChecked(false);
+            changeElementsVisible(checked);
+            ui->btnAddAPTSourceRepository->setText(tr("Add APT Source"));
         }
-        ui->btnAddAPTSourceRepository->setText(tr("Add APT Source"));
     }
 }
 
@@ -88,6 +87,7 @@ void APTSourceManagerPage::changeElementsVisible(const bool checked)
 {
     ui->txtAptSource->setVisible(checked);
     ui->checkEnableSource->setVisible(checked);
+    ui->btnCancel->setVisible(checked);
     ui->btnEditAptSource->setVisible(!checked);
     ui->btnDeleteAptSource->setVisible(!checked);
     if (checked)
@@ -107,6 +107,12 @@ void APTSourceManagerPage::on_aptSourceRepositoryListWidget_itemClicked(QListWid
     } else {
         selectedAptSource.clear();
     }
+}
+
+void APTSourceManagerPage::on_aptSourceRepositoryListWidget_itemDoubleClicked(QListWidgetItem *item)
+{
+    on_aptSourceRepositoryListWidget_itemClicked(item);
+    on_btnEditAptSource_clicked();
 }
 
 void APTSourceManagerPage::on_btnDeleteAptSource_clicked()
@@ -136,4 +142,10 @@ void APTSourceManagerPage::on_btnEditAptSource_clicked()
         APTSourceEdit::selectedAptSource = selectedAptSource;
         aptSourceEditDialog->show();
     }
+}
+
+
+void APTSourceManagerPage::on_btnCancel_clicked()
+{
+    changeElementsVisible(false);
 }

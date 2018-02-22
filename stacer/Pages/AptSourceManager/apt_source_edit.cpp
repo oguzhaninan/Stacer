@@ -69,3 +69,8 @@ void APTSourceEdit::on_saveBtn_clicked()
         ui->errorMsg->show();
     }
 }
+
+void APTSourceEdit::on_btnCancel_clicked()
+{
+    close();
+}
