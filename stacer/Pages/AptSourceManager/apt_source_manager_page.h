@@ -34,6 +34,8 @@ private slots:
     void on_aptSourceRepositoryListWidget_itemDoubleClicked(QListWidgetItem *item);
     void on_btnCancel_clicked();
 
+    void on_aptSourceRepositoryListWidget_currentItemChanged(QListWidgetItem *current, QListWidgetItem *previous);
+
 private:
     void init();
 

@@ -56,7 +56,7 @@
       </sizepolicy>
      </property>
      <property name="cursor">
-      <cursorShape>ArrowCursor</cursorShape>
+      <cursorShape>PointingHandCursor</cursorShape>
      </property>
      <layout class="QHBoxLayout" name="startupAppLayout">
       <property name="spacing">

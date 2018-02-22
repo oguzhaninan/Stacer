@@ -62,13 +62,14 @@ QAbstractScrollArea::corner {
 }
 
 QListWidget {
-    selection-background-color: red;
+    show-decoration-selected: 0;
 }
 
 QListWidget::item {
+
 }
 
-QListWidget::item[selected=true] #aptSourceRepositoryItemWidget {
+QWidget[active=true] #aptSourceRepositoryItemWidget {
     background-color: orange;
 }
 
@@ -955,6 +956,10 @@ QComboBox QAbstractItemView {
 #aptSourceTitleLbl {
     color: @color11;
     padding: 10 0 5 20;
+}
+
+#txtAptSource {
+    padding: 7;
 }
 
 #lblAptSourceSelectInfo {

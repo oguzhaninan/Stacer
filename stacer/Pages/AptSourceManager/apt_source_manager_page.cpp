@@ -43,7 +43,7 @@ void APTSourceManagerPage::loadAptSources()
     for (APTSourcePtr &aptSource: aptSourceList) {
 
         QListWidgetItem *listItem = new QListWidgetItem(ui->aptSourceRepositoryListWidget);
-        listItem->setData(0, aptSource->source); // for search
+        listItem->setData(5, aptSource->source); // for search
 
         APTSourceRepositoryItem *aptSourceItem = new APTSourceRepositoryItem(aptSource, ui->aptSourceRepositoryListWidget);
 
@@ -77,10 +77,16 @@ void APTSourceManagerPage::on_btnAddAPTSourceRepository_clicked(bool checked)
 
             ui->txtAptSource->clear();
             ui->checkEnableSource->setChecked(false);
-            changeElementsVisible(checked);
-            ui->btnAddAPTSourceRepository->setText(tr("Add APT Source"));
+            on_btnCancel_clicked();
         }
     }
+}
+
+void APTSourceManagerPage::on_btnCancel_clicked()
+{
+    ui->btnAddAPTSourceRepository->setChecked(false);
+    changeElementsVisible(false);
+    ui->btnAddAPTSourceRepository->setText(tr("Add APT Source"));
 }
 
 void APTSourceManagerPage::changeElementsVisible(const bool checked)
@@ -99,7 +105,7 @@ void APTSourceManagerPage::changeElementsVisible(const bool checked)
 void APTSourceManagerPage::on_aptSourceRepositoryListWidget_itemClicked(QListWidgetItem *item)
 {
     QWidget *widget = ui->aptSourceRepositoryListWidget->itemWidget(item);
-    if (item) {
+    if (widget) {
         APTSourceRepositoryItem *aptSourceItem = dynamic_cast<APTSourceRepositoryItem*>(widget);
         if (aptSourceItem) {
             selectedAptSource = aptSourceItem->aptSource();
@@ -127,7 +133,7 @@ void APTSourceManagerPage::on_txtSearchAptSource_textChanged(const QString &val)
     for (int i = 0; i < ui->aptSourceRepositoryListWidget->count(); ++i) {
         QListWidgetItem *item = ui->aptSourceRepositoryListWidget->item(i);
         if (item) {
-            bool isContain = item->data(0).toString().contains(val, Qt::CaseInsensitive);
+            bool isContain = item->data(5).toString().contains(val, Qt::CaseInsensitive);
             ui->aptSourceRepositoryListWidget->setItemHidden(item, ! isContain);
         }
     }
@@ -144,8 +150,48 @@ void APTSourceManagerPage::on_btnEditAptSource_clicked()
     }
 }
 
-
-void APTSourceManagerPage::on_btnCancel_clicked()
+void APTSourceManagerPage::on_aptSourceRepositoryListWidget_currentItemChanged(QListWidgetItem *current,
+                                                                               QListWidgetItem *previous)
 {
-    changeElementsVisible(false);
+    qDebug() << "...";
+    if (previous) {
+        QWidget *widget = ui->aptSourceRepositoryListWidget->itemWidget(previous);
+        if (widget) {
+            widget->setStyleSheet("");
+        }
+    }
+
+    if (current) {
+        QWidget *widget = ui->aptSourceRepositoryListWidget->itemWidget(current);
+        if (widget) {
+            widget->setStyleSheet("background-color: orange;");
+        }
+    }
+
+//    qApp->setStyleSheet(qApp->styleSheet());
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
