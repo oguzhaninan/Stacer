@@ -9,7 +9,7 @@ APTSourceManagerPage::~APTSourceManagerPage()
     delete ui;
 }
 
-APTSourcePtr APTSourceManagerPage::selectedAptSource = nullptr;
+QString APTSourceManagerPage::selectedAptSource = QString();
 
 APTSourceManagerPage::APTSourceManagerPage(QWidget *parent) :
     QWidget(parent),
@@ -45,6 +45,7 @@ void APTSourceManagerPage::loadAptSources()
     for (APTSourcePtr &aptSource: aptSourceList) {
 
         QListWidgetItem *listItem = new QListWidgetItem(ui->aptSourceRepositoryListWidget);
+        listItem->setData(0, aptSource->source); // for search
 
         APTSourceRepositoryItem *aptSourceItem = new APTSourceRepositoryItem(aptSource, ui->aptSourceRepositoryListWidget);
 
@@ -97,23 +98,33 @@ void APTSourceManagerPage::changeElementsVisible(const bool checked)
 
 void APTSourceManagerPage::on_aptSourceRepositoryListWidget_itemClicked(QListWidgetItem *item)
 {
-    QWidget *widget = ui->aptSourceRepositoryListWidget->itemWidget(item);
-    if (widget) {
-        APTSourceRepositoryItem *aptSourceItem = dynamic_cast<APTSourceRepositoryItem*>(widget);
-        if (aptSourceItem) {
-            selectedAptSource = aptSourceItem->aptSource();
-        }
+//    QWidget *widget = ui->aptSourceRepositoryListWidget->itemWidget(item);
+    if (item) {
+//        APTSourceRepositoryItem *aptSourceItem = dynamic_cast<APTSourceRepositoryItem*>(widget);
+//        if (aptSourceItem) {
+            selectedAptSource = item->data(0).toString();
+//        }
+    } else {
+        selectedAptSource.clear();
     }
 }
 
 void APTSourceManagerPage::on_btnDeleteAptSource_clicked()
 {
     if (! selectedAptSource.isNull()) {
-        ToolManager::ins()->removeAPTSource(selectedAptSource->source);
+        ToolManager::ins()->removeAPTSource(selectedAptSource);
     }
 }
 
-void APTSourceManagerPage::on_txtSearchAptSource_textChanged(const QString &vak)
+void APTSourceManagerPage::on_txtSearchAptSource_textChanged(const QString &val)
 {
-
+    if (! val.isEmpty()) {
+        for (int i = 0; i < ui->aptSourceRepositoryListWidget->count(); ++i) {
+            QListWidgetItem *item = ui->aptSourceRepositoryListWidget->item(i);
+            if (item) {
+                bool isContain = item->data(0).toString().contains(val, Qt::CaseInsensitive);
+                ui->aptSourceRepositoryListWidget->setItemHidden(item, ! isContain);
+            }
+        }
+    }
 }

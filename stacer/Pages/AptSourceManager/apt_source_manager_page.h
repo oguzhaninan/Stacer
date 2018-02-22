@@ -21,7 +21,7 @@ public:
     ~APTSourceManagerPage();
 
 public:
-    static APTSourcePtr selectedAptSource;
+    static QString selectedAptSource;
 
 private slots:
     void loadAptSources();

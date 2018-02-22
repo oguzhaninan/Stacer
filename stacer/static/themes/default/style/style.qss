@@ -934,6 +934,10 @@ QComboBox QAbstractItemView {
     background-color: @color09;
 }
 
+#btnDeleteAptSource:hover {
+    background-color: #c0392b;
+}
+
 #btnEditAptSource:hover,
 #btnAddAPTSourceRepository:hover {
     background-color: @color10;
@@ -942,6 +946,12 @@ QComboBox QAbstractItemView {
 #aptSourceTitleLbl {
     color: @color11;
     padding: 10 0 5 20;
+}
+
+#lblAptSourceSelectInfo {
+    margin-top: 5;
+    font-size: 10pt;
+    color: @color05;
 }
 
 /* - APT Source Repository Item - */

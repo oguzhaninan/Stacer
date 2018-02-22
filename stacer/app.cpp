@@ -62,7 +62,7 @@ void App::init()
 
     AppManager::ins()->updateStylesheet();
 
-    on_gnomeSettingsBtn_clicked();
+    on_aptSourceManagerBtn_clicked();
 
     Utilities::addDropShadow(ui->sidebar, 60);
 }
