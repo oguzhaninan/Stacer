@@ -127,3 +127,8 @@ void ToolManager::changeStatus(const APTSourcePtr aptSource, const bool status)
     AptSourceTool::changeStatus(aptSource, status);
 }
 
+void ToolManager::changeSource(const APTSourcePtr aptSource, const QString newSource)
+{
+    AptSourceTool::changeSource(aptSource, newSource);
+}
+

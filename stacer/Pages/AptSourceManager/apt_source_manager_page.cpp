@@ -9,7 +9,7 @@ APTSourceManagerPage::~APTSourceManagerPage()
     delete ui;
 }
 
-QString APTSourceManagerPage::selectedAptSource = QString();
+APTSourcePtr APTSourceManagerPage::selectedAptSource = nullptr;
 
 APTSourceManagerPage::APTSourceManagerPage(QWidget *parent) :
     QWidget(parent),
@@ -98,8 +98,12 @@ void APTSourceManagerPage::changeElementsVisible(const bool checked)
 
 void APTSourceManagerPage::on_aptSourceRepositoryListWidget_itemClicked(QListWidgetItem *item)
 {
+    QWidget *widget = ui->aptSourceRepositoryListWidget->itemWidget(item);
     if (item) {
-        selectedAptSource = item->data(0).toString();
+        APTSourceRepositoryItem *aptSourceItem = dynamic_cast<APTSourceRepositoryItem*>(widget);
+        if (aptSourceItem) {
+            selectedAptSource = aptSourceItem->aptSource();
+        }
     } else {
         selectedAptSource.clear();
     }
@@ -107,8 +111,8 @@ void APTSourceManagerPage::on_aptSourceRepositoryListWidget_itemClicked(QListWid
 
 void APTSourceManagerPage::on_btnDeleteAptSource_clicked()
 {
-    if (! selectedAptSource.isEmpty()) {
-        ToolManager::ins()->removeAPTSource(selectedAptSource);
+    if (! selectedAptSource.isNull()) {
+        ToolManager::ins()->removeAPTSource(selectedAptSource->source);
     }
 }
 
@@ -125,7 +129,7 @@ void APTSourceManagerPage::on_txtSearchAptSource_textChanged(const QString &val)
 
 void APTSourceManagerPage::on_btnEditAptSource_clicked()
 {
-    if (! selectedAptSource.isEmpty()) {
+    if (! selectedAptSource.isNull()) {
         if (aptSourceEditDialog.isNull()) {
             aptSourceEditDialog = QSharedPointer<APTSourceEdit>(new APTSourceEdit(this));
         }

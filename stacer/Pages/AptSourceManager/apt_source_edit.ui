@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>407</width>
-    <height>310</height>
+    <height>290</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -18,16 +18,19 @@
     <number>30</number>
    </property>
    <property name="topMargin">
-    <number>20</number>
+    <number>10</number>
    </property>
    <property name="rightMargin">
     <number>30</number>
    </property>
    <property name="bottomMargin">
-    <number>20</number>
+    <number>10</number>
    </property>
-   <property name="spacing">
+   <property name="horizontalSpacing">
     <number>15</number>
+   </property>
+   <property name="verticalSpacing">
+    <number>10</number>
    </property>
    <item row="1" column="1">
     <widget class="QRadioButton" name="radioBinary">
@@ -101,7 +104,7 @@
       <string>Save</string>
      </property>
      <property name="default">
-      <bool>true</bool>
+      <bool>false</bool>
      </property>
     </widget>
    </item>

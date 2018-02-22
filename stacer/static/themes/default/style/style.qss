@@ -520,6 +520,9 @@ QLabel#systemInfoTitle {
 #StartupAppEdit #title {
     color: @color06;
     font-size: 11pt;
+    border: 0;
+    padding-bottom: 8;
+    border-bottom: 1 solid @color06;
 }
 
 #StartupAppEdit QLineEdit {
@@ -886,6 +889,9 @@ QComboBox QAbstractItemView {
 #Feedback #title {
     color: @color06;
     font-size: 11pt;
+    padding-bottom: 8;
+    border: 0;
+    border-bottom: 1 solid @color06;
 }
 
 #Feedback QLineEdit,
@@ -987,6 +993,9 @@ QComboBox QAbstractItemView {
 #APTSourceEdit #title {
     color: @color06;
     font-size: 11pt;
+    padding-bottom: 8;
+    border: 0;
+    border-bottom: 1 solid @color06;
 }
 
 #APTSourceEdit QLineEdit {

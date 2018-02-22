@@ -75,13 +75,13 @@
     <widget class="QComboBox" name="themesCmb">
      <property name="minimumSize">
       <size>
-       <width>120</width>
+       <width>150</width>
        <height>0</height>
       </size>
      </property>
      <property name="maximumSize">
       <size>
-       <width>150</width>
+       <width>200</width>
        <height>16777215</height>
       </size>
      </property>
@@ -100,13 +100,13 @@
     <widget class="QComboBox" name="languagesCmb">
      <property name="minimumSize">
       <size>
-       <width>120</width>
+       <width>150</width>
        <height>0</height>
       </size>
      </property>
      <property name="maximumSize">
       <size>
-       <width>150</width>
+       <width>200</width>
        <height>16777215</height>
       </size>
      </property>
@@ -132,13 +132,13 @@
     <widget class="QComboBox" name="disksCmb">
      <property name="minimumSize">
       <size>
-       <width>120</width>
+       <width>150</width>
        <height>0</height>
       </size>
      </property>
      <property name="maximumSize">
       <size>
-       <width>150</width>
+       <width>200</width>
        <height>16777215</height>
       </size>
      </property>

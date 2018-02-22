@@ -2,6 +2,7 @@
 #define APT_SOURCE_EDIT_H
 
 #include <QDialog>
+#include "Managers/tool_manager.h"
 
 namespace Ui {
 class APTSourceEdit;
@@ -16,7 +17,7 @@ public:
     ~APTSourceEdit();
 
 public:
-    static QString selectedAptSource;
+    static APTSourcePtr selectedAptSource;
     void show();
 
 private slots:

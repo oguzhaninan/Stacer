@@ -8,7 +8,7 @@ APTSourceEdit::~APTSourceEdit()
     delete ui;
 }
 
-QString APTSourceEdit::selectedAptSource = QString();
+APTSourcePtr APTSourceEdit::selectedAptSource = nullptr;
 
 APTSourceEdit::APTSourceEdit(QWidget *parent) :
     QDialog(parent),
@@ -29,7 +29,7 @@ void APTSourceEdit::show()
     clearElements();
 
     // example 'deb [arch=amd64 lang=en] http://packages.microsoft.com/repos/vscode stable main'
-    QString aptSource = selectedAptSource;
+    QString aptSource = selectedAptSource->source;
     QString sourceType, options, URI, distribution, components;
 
     if (aptSource.contains('[')) {
@@ -60,6 +60,7 @@ void APTSourceEdit::show()
 
 void APTSourceEdit::clearElements()
 {
+    ui->errorMsg->hide();
     ui->txtOptions->clear();
     ui->txtUri->clear();
     ui->txtDistribution->clear();
@@ -78,7 +79,7 @@ void APTSourceEdit::on_saveBtn_clicked()
                 .arg(ui->txtDistribution->text())
                 .arg(ui->txtComponents->text());
 
-        qDebug() << updatedAptSource;
+        ToolManager::ins()->changeSource(selectedAptSource, updatedAptSource);
 
         close();
     } else {

@@ -25,6 +25,7 @@ public:
     static QList<APTSourcePtr> getSourceList();
     static void removeAPTSource(const QString source);
     static void changeStatus(const APTSourcePtr aptSource, const bool status);
+    static void changeSource(const APTSourcePtr aptSource, const QString newSource);
 };
 
 #endif // AptSourceTool_H

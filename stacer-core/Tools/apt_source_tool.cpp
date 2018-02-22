@@ -22,10 +22,11 @@ void AptSourceTool::removeAPTSource(const QString source)
     }
 }
 
-void AptSourceTool::changeStatus(const APTSourcePtr aptSource, const bool status)
+void AptSourceTool::changeSource(const APTSourcePtr aptSource, const QString newSource)
 {
     QStringList sourceFileContent = FileUtil::readListFromFile(aptSource->filePath);
 
+    // find line index
     int pos = -1;
     for (int i = 0; i < sourceFileContent.count(); ++i) {
         int _pos = sourceFileContent[i].indexOf(aptSource->source);
@@ -36,15 +37,7 @@ void AptSourceTool::changeStatus(const APTSourcePtr aptSource, const bool status
     }
 
     if (pos != -1) {
-        QString line = sourceFileContent.at(pos);
-
-        line.replace("#", "");
-
-        if (status) {
-            sourceFileContent.replace(pos, line.trimmed());
-        } else {
-            sourceFileContent.replace(pos, "# " + line.trimmed());
-        }
+        sourceFileContent.replace(pos, newSource);
     }
 
     QStringList args = { aptSource->filePath };
@@ -54,6 +47,19 @@ void AptSourceTool::changeStatus(const APTSourcePtr aptSource, const bool status
     CommandUtil::sudoExec("tee", args, data);
 }
 
+void AptSourceTool::changeStatus(const APTSourcePtr aptSource, const bool status)
+{
+    QString newSource = aptSource->source;
+
+    newSource.replace("#", "");
+
+    if (! status) { // if is deactive
+        newSource = "# " + newSource.trimmed();
+    }
+
+    changeSource(aptSource, newSource);
+}
+
 QList<APTSourcePtr> AptSourceTool::getSourceList()
 {
     QList<APTSourcePtr> aptSourceList;
@@ -61,7 +67,7 @@ QList<APTSourcePtr> AptSourceTool::getSourceList()
     QDir aptSourceListDir(APT_SOURCES_LIST_D_PATH);
 
     QFileInfoList infoList = aptSourceListDir.entryInfoList({ "*.list"/*, "*.save"*/ },
-                                                            QDir::Files, QDir::Name);
+                                                            QDir::Files, QDir::Time);
     infoList.append(QFileInfo(APT_SOURCES_LIST_PATH)); // sources.list
 
     for (const QFileInfo &info : infoList) {
@@ -78,7 +84,7 @@ QList<APTSourcePtr> AptSourceTool::getSourceList()
 
                 if (_line.startsWith(QChar('#'))) { // is deactive
                     aptSource->isActive = false;
-                    _line.replace("#", "");
+                    _line.replace("#", ""); // remove comment
                 } else {
                     aptSource->isActive = true;
                 }
