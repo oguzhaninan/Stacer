@@ -8,11 +8,18 @@
 #define APT_SOURCES_LIST_D_PATH "/etc/apt/sources.list.d"
 #define APT_SOURCES_LIST_PATH "/etc/apt/sources.list"
 
+//          isSource options uri distribution componentes
+// example "deb [arch=amd64] http://packages.microsoft.com/repos/vscode stable main"
 class APTSource {
 public:
     QString filePath;
-    QString source;
     bool isSource;
+    QString options;
+    QString uri;
+    QString distribution;
+    QString components;
+
+    QString source;
     bool isActive;
 };
 

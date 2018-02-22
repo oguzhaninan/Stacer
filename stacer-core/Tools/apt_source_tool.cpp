@@ -89,15 +89,27 @@ QList<APTSourcePtr> AptSourceTool::getSourceList()
                     aptSource->isActive = true;
                 }
 
-                QStringList _lineList = _line.trimmed().split(QChar(' '));
+                // if has options
+                if (_line.contains('[')) {
+                    int pos1 = _line.indexOf('['), pos2 = _line.indexOf(']');
 
-                bool isBinary = _lineList.first() == "deb";
-                bool isSource = _lineList.first() == "deb-src";
+                    aptSource->options = _line.mid(pos1, pos2-pos1+1);
+                    _line.replace(aptSource->options, ""); // delete options section
+                }
 
-                // example "deb [arch=amd64] http://packages.microsoft.com/repos/vscode stable main"
+                QStringList sourceColumns = _line.trimmed().split(QRegExp("\\s+"));
+                bool isBinary = sourceColumns.first() == "deb";
+                bool isSource = sourceColumns.first() == "deb-src";
+
+                // example "deb http://packages.microsoft.com/repos/vscode stable main"
                 if (isBinary || isSource) {
-                    aptSource->source = _lineList.join(' ');
                     aptSource->isSource = isSource;
+                    aptSource->uri = sourceColumns.at(1);
+                    aptSource->distribution = sourceColumns.at(2);
+                    aptSource->components = sourceColumns.mid(3).join(' ');
+
+                    aptSource->source = sourceColumns.mid(1).join(' ');
+
                     aptSourceList.append(aptSource);
                 }
             }

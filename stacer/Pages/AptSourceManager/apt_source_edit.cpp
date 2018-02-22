@@ -29,31 +29,14 @@ void APTSourceEdit::show()
     clearElements();
 
     // example 'deb [arch=amd64 lang=en] http://packages.microsoft.com/repos/vscode stable main'
-    QString aptSource = selectedAptSource->source;
-    QString sourceType, options, URI, distribution, components;
-
-    if (aptSource.contains('[')) {
-        int pos1 = aptSource.indexOf('['), pos2 = aptSource.indexOf(']');
-
-        options = aptSource.mid(pos1, pos2-pos1+1);
-    }
-
-    aptSource.replace(options, ""); // delete options section
-    QStringList sourceColumns = aptSource.split(QRegExp("\\s+"));
-
-    // get values
-    sourceType = sourceColumns.takeAt(0);
-    URI = sourceColumns.takeAt(0);
-    distribution = sourceColumns.takeAt(0);
-    components = sourceColumns.join(' ');
 
     // set values to elements
-    ui->radioBinary->setChecked(sourceType == "deb");
-    ui->radioSource->setChecked(sourceType == "deb-src");
-    ui->txtOptions->setText(options);
-    ui->txtUri->setText(URI);
-    ui->txtDistribution->setText(distribution);
-    ui->txtComponents->setText(components);
+    ui->radioBinary->setChecked(! selectedAptSource->isSource);
+    ui->radioSource->setChecked(selectedAptSource->isSource);
+    ui->txtOptions->setText(selectedAptSource->options);
+    ui->txtUri->setText(selectedAptSource->uri);
+    ui->txtDistribution->setText(selectedAptSource->distribution);
+    ui->txtComponents->setText(selectedAptSource->components);
 
     QDialog::show();
 }

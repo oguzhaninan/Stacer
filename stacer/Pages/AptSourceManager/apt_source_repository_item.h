@@ -24,8 +24,6 @@ public:
 
 private slots:
     void on_aptSourceCheck_clicked(bool checked);
-//    void on_deleteAptSourceBtn_clicked();
-//    void on_editAptSourceBtn_clicked();
 
 private:
     void init();
