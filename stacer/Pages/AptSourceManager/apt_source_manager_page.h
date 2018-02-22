@@ -4,9 +4,9 @@
 #include <QWidget>
 #include <QListWidgetItem>
 #include <QFileSystemWatcher>
-#include <QFile>
 
 #include "apt_source_repository_item.h"
+#include "apt_source_edit.h"
 
 namespace Ui {
 class APTSourceManagerPage;
@@ -30,6 +30,7 @@ private slots:
     void changeElementsVisible(const bool checked);
     void on_txtSearchAptSource_textChanged(const QString &val);
     void on_btnDeleteAptSource_clicked();
+    void on_btnEditAptSource_clicked();
 
 private:
     void init();
@@ -38,6 +39,8 @@ private:
     Ui::APTSourceManagerPage *ui;
 
     QFileSystemWatcher fileSystemWatcher;
+
+    QSharedPointer<APTSourceEdit> aptSourceEditDialog;
 };
 
 #endif

@@ -978,6 +978,42 @@ QComboBox QAbstractItemView {
     margin-top: 3;
 }
 
+/* - APT Source Repository Item Edit - */
+
+#APTSourceEdit {
+    background-color: @pageContent;
+}
+
+#APTSourceEdit #title {
+    color: @color06;
+    font-size: 11pt;
+}
+
+#APTSourceEdit QLineEdit {
+    border-radius: 2;
+    padding: 9;
+    background-color: @color01;
+    font-size: 10pt;
+    color: @color05;
+}
+
+#APTSourceEdit #saveBtn {
+    border-radius: 2;
+    padding: 7 25;
+    font-size: 11pt;
+    background-color: @color03;
+    color: @color07;
+}
+
+#APTSourceEdit #saveBtn:hover {
+    background-color: @color10;
+}
+
+#APTSourceEdit #errorMsg {
+    color: @color09;
+}
+
+
 /**************************
     GNOME SETTINGS PAGE
 ***************************/

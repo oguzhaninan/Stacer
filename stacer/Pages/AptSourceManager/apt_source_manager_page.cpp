@@ -98,12 +98,8 @@ void APTSourceManagerPage::changeElementsVisible(const bool checked)
 
 void APTSourceManagerPage::on_aptSourceRepositoryListWidget_itemClicked(QListWidgetItem *item)
 {
-//    QWidget *widget = ui->aptSourceRepositoryListWidget->itemWidget(item);
     if (item) {
-//        APTSourceRepositoryItem *aptSourceItem = dynamic_cast<APTSourceRepositoryItem*>(widget);
-//        if (aptSourceItem) {
-            selectedAptSource = item->data(0).toString();
-//        }
+        selectedAptSource = item->data(0).toString();
     } else {
         selectedAptSource.clear();
     }
@@ -111,20 +107,29 @@ void APTSourceManagerPage::on_aptSourceRepositoryListWidget_itemClicked(QListWid
 
 void APTSourceManagerPage::on_btnDeleteAptSource_clicked()
 {
-    if (! selectedAptSource.isNull()) {
+    if (! selectedAptSource.isEmpty()) {
         ToolManager::ins()->removeAPTSource(selectedAptSource);
     }
 }
 
 void APTSourceManagerPage::on_txtSearchAptSource_textChanged(const QString &val)
 {
-    if (! val.isEmpty()) {
-        for (int i = 0; i < ui->aptSourceRepositoryListWidget->count(); ++i) {
-            QListWidgetItem *item = ui->aptSourceRepositoryListWidget->item(i);
-            if (item) {
-                bool isContain = item->data(0).toString().contains(val, Qt::CaseInsensitive);
-                ui->aptSourceRepositoryListWidget->setItemHidden(item, ! isContain);
-            }
+    for (int i = 0; i < ui->aptSourceRepositoryListWidget->count(); ++i) {
+        QListWidgetItem *item = ui->aptSourceRepositoryListWidget->item(i);
+        if (item) {
+            bool isContain = item->data(0).toString().contains(val, Qt::CaseInsensitive);
+            ui->aptSourceRepositoryListWidget->setItemHidden(item, ! isContain);
         }
+    }
+}
+
+void APTSourceManagerPage::on_btnEditAptSource_clicked()
+{
+    if (! selectedAptSource.isEmpty()) {
+        if (aptSourceEditDialog.isNull()) {
+            aptSourceEditDialog = QSharedPointer<APTSourceEdit>(new APTSourceEdit(this));
+        }
+        APTSourceEdit::selectedAptSource = selectedAptSource;
+        aptSourceEditDialog->show();
     }
 }

@@ -45,7 +45,8 @@ SOURCES += \
     Pages/GnomeSettings/window_manager_settings.cpp \
     Pages/GnomeSettings/appearance_settings.cpp \
     slidingstackedwidget.cpp \
-    feedback.cpp
+    feedback.cpp \
+    Pages/AptSourceManager/apt_source_edit.cpp
 
 HEADERS += \
     app.h \
@@ -74,7 +75,8 @@ HEADERS += \
     Pages/GnomeSettings/appearance_settings.h \
     slidingstackedwidget.h \
     utilities.h \
-    feedback.h
+    feedback.h \
+    Pages/AptSourceManager/apt_source_edit.h
 
 FORMS += \
     app.ui \
@@ -98,7 +100,8 @@ FORMS += \
     Pages/GnomeSettings/unity_settings.ui \
     Pages/GnomeSettings/window_manager_settings.ui \
     Pages/GnomeSettings/appearance_settings.ui \
-    feedback.ui
+    feedback.ui \
+    Pages/AptSourceManager/apt_source_edit.ui
 
 TRANSLATIONS += \
     ../translations/stacer_ar.ts \
