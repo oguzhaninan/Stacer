@@ -59,6 +59,7 @@ void GnomeSettingsTool::setValue(const QString schema, const QString key, const 
     }
     args << key << value.toString();
 
+    qDebug() << args;
     try {
         CommandUtil::exec("gsettings", args);
     } catch (const QString &ex) {
