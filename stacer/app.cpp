@@ -73,6 +73,8 @@ void App::init()
 
     connect(trayIcon, &QSystemTrayIcon::activated, this, &App::iconActivated);
     trayIcon->show();
+
+    on_gnomeSettingsBtn_clicked();
 }
 
 void App::iconActivated(QSystemTrayIcon::ActivationReason reason)

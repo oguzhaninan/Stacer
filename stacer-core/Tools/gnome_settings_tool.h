@@ -13,6 +13,15 @@ namespace GSchemas {
 
 namespace GSchemaKeys {
     const QString LauncherHideMode = "launcher-hide-mode";
+    const QString RevealTrigger = "reveal-trigger";
+    const QString EdgeResponsiveness = "edge-responsiveness";
+}
+
+namespace GValues {
+    enum RevealLocation {
+        Left = 0,
+        TopLeft = 1
+    };
 }
 
 class GnomeSettingsTool

@@ -182,7 +182,7 @@
         </widget>
        </item>
        <item row="3" column="1">
-        <widget class="QRadioButton" name="radioButton">
+        <widget class="QRadioButton" name="radioRevealLeft">
          <property name="text">
           <string>Left Side</string>
          </property>
@@ -244,21 +244,8 @@
          </property>
         </widget>
        </item>
-       <item row="4" column="1" colspan="3" alignment="Qt::AlignLeft">
-        <widget class="QCheckBox" name="checkTrashIcon">
-         <property name="cursor">
-          <cursorShape>PointingHandCursor</cursorShape>
-         </property>
-         <property name="focusPolicy">
-          <enum>Qt::NoFocus</enum>
-         </property>
-         <property name="text">
-          <string/>
-         </property>
-        </widget>
-       </item>
        <item row="3" column="3">
-        <widget class="QRadioButton" name="radioButton_2">
+        <widget class="QRadioButton" name="radioRevealTopLeft">
          <property name="text">
           <string>Top-Left Corner</string>
          </property>
@@ -595,6 +582,25 @@
          </property>
          <property name="focusPolicy">
           <enum>Qt::NoFocus</enum>
+         </property>
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+        </widget>
+       </item>
+       <item row="4" column="1">
+        <widget class="QSlider" name="sliderRevealSensitivy">
+         <property name="cursor">
+          <cursorShape>PointingHandCursor</cursorShape>
+         </property>
+         <property name="focusPolicy">
+          <enum>Qt::NoFocus</enum>
+         </property>
+         <property name="minimum">
+          <number>2</number>
+         </property>
+         <property name="maximum">
+          <number>80</number>
          </property>
          <property name="orientation">
           <enum>Qt::Horizontal</enum>

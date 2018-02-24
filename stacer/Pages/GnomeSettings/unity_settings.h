@@ -22,6 +22,11 @@ public:
 private slots:
     void on_checkLauncherAutoHide_toggled(bool checked);
 
+    void on_radioRevealLeft_clicked();
+    void on_radioRevealTopLeft_clicked();
+
+    void on_sliderRevealSensitivy_valueChanged(int value);
+
 private:
     Ui::UnitySettings *ui;
 
