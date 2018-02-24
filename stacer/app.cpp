@@ -18,10 +18,10 @@ App::App(QWidget *parent) :
     processPage(new ProcessesPage(slidingStacked)),
     uninstallerPage(new UninstallerPage(slidingStacked)),
     resourcesPage(new ResourcesPage(slidingStacked)),
-    aptSourceManagerPage(new APTSourceManagerPage(this)),
     gnomeSettingsPage(new GnomeSettingsPage(slidingStacked)),
     settingsPage(new SettingsPage(slidingStacked)),
-    feedback(new Feedback(this))
+    feedback(new Feedback(this)),
+    trayIcon(new QSystemTrayIcon(QIcon(":/static/logo.png"), this))
 {
     ui->setupUi(this);
 
@@ -56,15 +56,39 @@ void App::init()
     slidingStacked->addWidget(processPage);
     slidingStacked->addWidget(uninstallerPage);
     slidingStacked->addWidget(resourcesPage);
-    slidingStacked->addWidget(aptSourceManagerPage);
     slidingStacked->addWidget(gnomeSettingsPage);
     slidingStacked->addWidget(settingsPage);
 
+    // APT SOURCE MANAGER
+    if (ToolManager::ins()->checkSourceRepository()) {
+        aptSourceManagerPage = new APTSourceManagerPage(this);
+        slidingStacked->addWidget(aptSourceManagerPage);
+    } else {
+        ui->aptSourceManagerBtn->hide();
+    }
+
     AppManager::ins()->updateStylesheet();
 
-    on_aptSourceManagerBtn_clicked();
-
     Utilities::addDropShadow(ui->sidebar, 60);
+
+    connect(trayIcon, &QSystemTrayIcon::activated, this, &App::iconActivated);
+    trayIcon->show();
+}
+
+void App::iconActivated(QSystemTrayIcon::ActivationReason reason)
+{
+    switch (reason) {
+    case QSystemTrayIcon::Trigger:
+        qDebug() << "trigger";
+    case QSystemTrayIcon::DoubleClick:
+        qDebug() << "double";
+        break;
+    case QSystemTrayIcon::MiddleClick:
+        qDebug() << "middle";
+        break;
+    default:
+        ;
+    }
 }
 
 void App::pageClick(QWidget *w, QString title)

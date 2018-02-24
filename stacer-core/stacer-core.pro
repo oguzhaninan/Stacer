@@ -35,7 +35,8 @@ SOURCES += \
     Tools/package_tool.cpp \
     Info/process_info.cpp \
     Info/process.cpp \
-    Tools/apt_source_tool.cpp
+    Tools/apt_source_tool.cpp \
+    Tools/gnome_settings_tool.cpp
 
 HEADERS += \
         stacer-core_global.h \ 
@@ -51,7 +52,8 @@ HEADERS += \
     Tools/package_tool.h \
     Info/process_info.h \
     Info/process.h \
-    Tools/apt_source_tool.h
+    Tools/apt_source_tool.h \
+    Tools/gnome_settings_tool.h
 
 unix {
     target.path = /usr/lib

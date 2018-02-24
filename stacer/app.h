@@ -48,6 +48,7 @@ private slots:
 
     void on_feedbackBtn_clicked();
 
+    void iconActivated(QSystemTrayIcon::ActivationReason reason);
 private:
     Ui::App *ui;
 
@@ -67,6 +68,8 @@ private:
     SettingsPage *settingsPage;
 
     Feedback *feedback;
+
+    QSystemTrayIcon *trayIcon;
 };
 
 #endif // APP_H

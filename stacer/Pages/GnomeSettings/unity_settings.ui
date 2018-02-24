@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1148</width>
-    <height>751</height>
+    <width>743</width>
+    <height>746</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -39,8 +39,8 @@
        <rect>
         <x>0</x>
         <y>0</y>
-        <width>1146</width>
-        <height>749</height>
+        <width>741</width>
+        <height>744</height>
        </rect>
       </property>
       <layout class="QGridLayout" name="gridLayout">
@@ -59,122 +59,6 @@
        <property name="spacing">
         <number>10</number>
        </property>
-       <item row="0" column="0" colspan="5">
-        <widget class="QLabel" name="label">
-         <property name="accessibleName">
-          <string>general-title</string>
-         </property>
-         <property name="text">
-          <string>Launcher</string>
-         </property>
-         <property name="alignment">
-          <set>Qt::AlignCenter</set>
-         </property>
-        </widget>
-       </item>
-       <item row="2" column="0">
-        <widget class="QLabel" name="lblHomeIcon">
-         <property name="text">
-          <string>Auto Hide</string>
-         </property>
-        </widget>
-       </item>
-       <item row="2" column="1" colspan="2" alignment="Qt::AlignLeft">
-        <widget class="QCheckBox" name="checkHomeIcon">
-         <property name="cursor">
-          <cursorShape>PointingHandCursor</cursorShape>
-         </property>
-         <property name="focusPolicy">
-          <enum>Qt::NoFocus</enum>
-         </property>
-         <property name="text">
-          <string/>
-         </property>
-        </widget>
-       </item>
-       <item row="2" column="4">
-        <spacer name="horizontalSpacer_3">
-         <property name="orientation">
-          <enum>Qt::Horizontal</enum>
-         </property>
-         <property name="sizeType">
-          <enum>QSizePolicy::Expanding</enum>
-         </property>
-         <property name="sizeHint" stdset="0">
-          <size>
-           <width>40</width>
-           <height>20</height>
-          </size>
-         </property>
-        </spacer>
-       </item>
-       <item row="3" column="0">
-        <widget class="QLabel" name="lblNetworkIcon">
-         <property name="text">
-          <string>Reveal Location</string>
-         </property>
-        </widget>
-       </item>
-       <item row="3" column="1">
-        <widget class="QRadioButton" name="radioButton">
-         <property name="text">
-          <string>Left Side</string>
-         </property>
-         <attribute name="buttonGroup">
-          <string notr="true">buttonGroup</string>
-         </attribute>
-        </widget>
-       </item>
-       <item row="3" column="2">
-        <widget class="QRadioButton" name="radioButton_2">
-         <property name="text">
-          <string>Top-Left Corner</string>
-         </property>
-         <attribute name="buttonGroup">
-          <string notr="true">buttonGroup</string>
-         </attribute>
-        </widget>
-       </item>
-       <item row="4" column="0">
-        <widget class="QLabel" name="lblTrashIcon">
-         <property name="text">
-          <string>Reveal Sensitivity</string>
-         </property>
-        </widget>
-       </item>
-       <item row="4" column="1" colspan="2" alignment="Qt::AlignLeft">
-        <widget class="QCheckBox" name="checkTrashIcon">
-         <property name="cursor">
-          <cursorShape>PointingHandCursor</cursorShape>
-         </property>
-         <property name="focusPolicy">
-          <enum>Qt::NoFocus</enum>
-         </property>
-         <property name="text">
-          <string/>
-         </property>
-        </widget>
-       </item>
-       <item row="5" column="0">
-        <widget class="QLabel" name="lblMountedIcon">
-         <property name="text">
-          <string>Minimize applications with clicking</string>
-         </property>
-        </widget>
-       </item>
-       <item row="5" column="1" colspan="2" alignment="Qt::AlignLeft">
-        <widget class="QCheckBox" name="checkMountedVulmesIcon">
-         <property name="cursor">
-          <cursorShape>PointingHandCursor</cursorShape>
-         </property>
-         <property name="focusPolicy">
-          <enum>Qt::NoFocus</enum>
-         </property>
-         <property name="text">
-          <string/>
-         </property>
-        </widget>
-       </item>
        <item row="7" column="0">
         <widget class="QLabel" name="label_5">
          <property name="accessibleName">
@@ -185,106 +69,63 @@
          </property>
         </widget>
        </item>
-       <item row="8" column="0">
-        <widget class="QLabel" name="lblNetworkIcon_3">
+       <item row="17" column="0">
+        <widget class="QLabel" name="lblHomeIcon_4">
          <property name="text">
-          <string>Visibility</string>
+          <string>Blur type</string>
          </property>
         </widget>
        </item>
-       <item row="8" column="1">
-        <widget class="QRadioButton" name="radioButton_5">
+       <item row="20" column="1" colspan="3" alignment="Qt::AlignLeft">
+        <widget class="QCheckBox" name="checkHomeIcon_4">
+         <property name="cursor">
+          <cursorShape>PointingHandCursor</cursorShape>
+         </property>
+         <property name="focusPolicy">
+          <enum>Qt::NoFocus</enum>
+         </property>
          <property name="text">
-          <string>All Desktops</string>
+          <string/>
          </property>
-         <attribute name="buttonGroup">
-          <string notr="true">buttonGroup_2</string>
-         </attribute>
         </widget>
        </item>
-       <item row="8" column="2">
-        <widget class="QRadioButton" name="radioButton_6">
+       <item row="17" column="1">
+        <widget class="QRadioButton" name="radioButton_7">
          <property name="text">
-          <string>Primary Desktop</string>
-         </property>
-         <attribute name="buttonGroup">
-          <string notr="true">buttonGroup_2</string>
-         </attribute>
-        </widget>
-       </item>
-       <item row="9" column="0">
-        <widget class="QLabel" name="lblNetworkIcon_2">
-         <property name="text">
-          <string>Position</string>
+          <string>Active</string>
          </property>
         </widget>
-       </item>
-       <item row="9" column="1">
-        <widget class="QRadioButton" name="radioButton_3">
-         <property name="text">
-          <string>Left</string>
-         </property>
-         <attribute name="buttonGroup">
-          <string notr="true">buttonGroup_3</string>
-         </attribute>
-        </widget>
-       </item>
-       <item row="9" column="2">
-        <widget class="QRadioButton" name="radioButton_4">
-         <property name="text">
-          <string>Bottom</string>
-         </property>
-         <attribute name="buttonGroup">
-          <string notr="true">buttonGroup_3</string>
-         </attribute>
-        </widget>
-       </item>
-       <item row="11" column="0">
-        <widget class="QLabel" name="lblMountedIcon_2">
-         <property name="text">
-          <string>Urgent Animation</string>
-         </property>
-        </widget>
-       </item>
-       <item row="11" column="1">
-        <widget class="QComboBox" name="comboBox_2">
-         <property name="sizePolicy">
-          <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
-           <horstretch>0</horstretch>
-           <verstretch>0</verstretch>
-          </sizepolicy>
-         </property>
-         <property name="minimumSize">
-          <size>
-           <width>200</width>
-           <height>0</height>
-          </size>
-         </property>
-         <property name="maximumSize">
-          <size>
-           <width>300</width>
-           <height>16777215</height>
-          </size>
-         </property>
-         <property name="sizeAdjustPolicy">
-          <enum>QComboBox::AdjustToMinimumContentsLength</enum>
-         </property>
-        </widget>
-       </item>
-       <item row="11" column="2">
-        <widget class="QLabel" name="lblMountedIcon_4">
-         <property name="text">
-          <string>Icon size</string>
-         </property>
-        </widget>
-       </item>
-       <item row="11" column="3">
-        <widget class="QSpinBox" name="spinBox"/>
        </item>
        <item row="12" column="0">
         <widget class="QLabel" name="label_2">
          <property name="text">
           <string>Launch animation</string>
+         </property>
+        </widget>
+       </item>
+       <item row="18" column="1" colspan="3" alignment="Qt::AlignLeft">
+        <widget class="QCheckBox" name="checkHomeIcon_3">
+         <property name="cursor">
+          <cursorShape>PointingHandCursor</cursorShape>
+         </property>
+         <property name="focusPolicy">
+          <enum>Qt::NoFocus</enum>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="1" colspan="3" alignment="Qt::AlignLeft">
+        <widget class="QCheckBox" name="checkLauncherAutoHide">
+         <property name="cursor">
+          <cursorShape>PointingHandCursor</cursorShape>
+         </property>
+         <property name="focusPolicy">
+          <enum>Qt::NoFocus</enum>
+         </property>
+         <property name="text">
+          <string/>
          </property>
         </widget>
        </item>
@@ -313,15 +154,59 @@
          </property>
         </widget>
        </item>
-       <item row="12" column="2">
-        <widget class="QLabel" name="lblMountedIcon_5">
+       <item row="9" column="0">
+        <widget class="QLabel" name="lblNetworkIcon_2">
          <property name="text">
-          <string>&quot;Show Desktop&quot; icon</string>
+          <string>Position</string>
          </property>
         </widget>
        </item>
-       <item row="12" column="3">
-        <widget class="QCheckBox" name="checkMountedVulmesIcon_2">
+       <item row="8" column="3">
+        <widget class="QRadioButton" name="radioButton_6">
+         <property name="text">
+          <string>Primary Desktop</string>
+         </property>
+         <attribute name="buttonGroup">
+          <string notr="true">buttonGroup_2</string>
+         </attribute>
+        </widget>
+       </item>
+       <item row="1" column="0" colspan="6">
+        <widget class="QLabel" name="lblHomeIcon_2">
+         <property name="accessibleName">
+          <string>title</string>
+         </property>
+         <property name="text">
+          <string>Behaviour</string>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="1">
+        <widget class="QRadioButton" name="radioButton">
+         <property name="text">
+          <string>Left Side</string>
+         </property>
+         <attribute name="buttonGroup">
+          <string notr="true">buttonGroup</string>
+         </attribute>
+        </widget>
+       </item>
+       <item row="3" column="0">
+        <widget class="QLabel" name="lblNetworkIcon">
+         <property name="text">
+          <string>Reveal Location</string>
+         </property>
+        </widget>
+       </item>
+       <item row="23" column="0">
+        <widget class="QLabel" name="lblHomeIcon_11">
+         <property name="text">
+          <string>Enable search of your files</string>
+         </property>
+        </widget>
+       </item>
+       <item row="23" column="1" colspan="3" alignment="Qt::AlignLeft">
+        <widget class="QCheckBox" name="checkHomeIcon_6">
          <property name="cursor">
           <cursorShape>PointingHandCursor</cursorShape>
          </property>
@@ -333,10 +218,150 @@
          </property>
         </widget>
        </item>
-       <item row="13" column="0">
-        <widget class="QLabel" name="lblMountedIcon_3">
+       <item row="21" column="1" colspan="3" alignment="Qt::AlignLeft">
+        <widget class="QCheckBox" name="checkHomeIcon_5">
+         <property name="cursor">
+          <cursorShape>PointingHandCursor</cursorShape>
+         </property>
+         <property name="focusPolicy">
+          <enum>Qt::NoFocus</enum>
+         </property>
          <property name="text">
-          <string>Icon backgrounds</string>
+          <string/>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="0" colspan="6">
+        <widget class="QLabel" name="label">
+         <property name="accessibleName">
+          <string>general-title</string>
+         </property>
+         <property name="text">
+          <string>Launcher</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+        </widget>
+       </item>
+       <item row="4" column="1" colspan="3" alignment="Qt::AlignLeft">
+        <widget class="QCheckBox" name="checkTrashIcon">
+         <property name="cursor">
+          <cursorShape>PointingHandCursor</cursorShape>
+         </property>
+         <property name="focusPolicy">
+          <enum>Qt::NoFocus</enum>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="3">
+        <widget class="QRadioButton" name="radioButton_2">
+         <property name="text">
+          <string>Top-Left Corner</string>
+         </property>
+         <attribute name="buttonGroup">
+          <string notr="true">buttonGroup</string>
+         </attribute>
+        </widget>
+       </item>
+       <item row="5" column="1" colspan="3" alignment="Qt::AlignLeft">
+        <widget class="QCheckBox" name="checkMountedVulmesIcon">
+         <property name="cursor">
+          <cursorShape>PointingHandCursor</cursorShape>
+         </property>
+         <property name="focusPolicy">
+          <enum>Qt::NoFocus</enum>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+        </widget>
+       </item>
+       <item row="12" column="3">
+        <widget class="QLabel" name="lblMountedIcon_5">
+         <property name="text">
+          <string>&quot;Show Desktop&quot; icon</string>
+         </property>
+        </widget>
+       </item>
+       <item row="18" column="0">
+        <widget class="QLabel" name="lblHomeIcon_5">
+         <property name="text">
+          <string>Search online sources</string>
+         </property>
+        </widget>
+       </item>
+       <item row="19" column="0" colspan="6">
+        <widget class="QLabel" name="lblHomeIcon_7">
+         <property name="accessibleName">
+          <string>title</string>
+         </property>
+         <property name="text">
+          <string>Applications</string>
+         </property>
+        </widget>
+       </item>
+       <item row="8" column="0">
+        <widget class="QLabel" name="lblNetworkIcon_3">
+         <property name="text">
+          <string>Visibility</string>
+         </property>
+        </widget>
+       </item>
+       <item row="17" column="3">
+        <widget class="QRadioButton" name="radioButton_8">
+         <property name="text">
+          <string>Static</string>
+         </property>
+        </widget>
+       </item>
+       <item row="9" column="1">
+        <widget class="QRadioButton" name="radioButton_3">
+         <property name="text">
+          <string>Left</string>
+         </property>
+         <attribute name="buttonGroup">
+          <string notr="true">buttonGroup_3</string>
+         </attribute>
+        </widget>
+       </item>
+       <item row="2" column="0">
+        <widget class="QLabel" name="lblHomeIcon">
+         <property name="text">
+          <string>Auto Hide</string>
+         </property>
+        </widget>
+       </item>
+       <item row="5" column="0">
+        <widget class="QLabel" name="lblMountedIcon">
+         <property name="text">
+          <string>Minimize applications with clicking</string>
+         </property>
+        </widget>
+       </item>
+       <item row="24" column="0">
+        <spacer name="verticalSpacer">
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>20</width>
+           <height>46</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item row="6" column="0" colspan="6">
+        <widget class="QLabel" name="label_4">
+         <property name="accessibleName">
+          <string>title</string>
+         </property>
+         <property name="text">
+          <string>Appearance</string>
          </property>
         </widget>
        </item>
@@ -365,27 +390,84 @@
          </property>
         </widget>
        </item>
-       <item row="14" column="0" colspan="5">
-        <widget class="QLabel" name="label_3">
+       <item row="15" column="0" colspan="6">
+        <widget class="QLabel" name="lblHomeIcon_6">
          <property name="accessibleName">
-          <string>general-title</string>
+          <string>title</string>
          </property>
          <property name="text">
-          <string>Search</string>
-         </property>
-         <property name="alignment">
-          <set>Qt::AlignCenter</set>
+          <string>General</string>
          </property>
         </widget>
        </item>
-       <item row="16" column="0">
-        <widget class="QLabel" name="lblHomeIcon_3">
+       <item row="10" column="0" colspan="6">
+        <widget class="QLabel" name="label_6">
+         <property name="accessibleName">
+          <string>title</string>
+         </property>
          <property name="text">
-          <string>Background blur</string>
+          <string>Icons</string>
          </property>
         </widget>
        </item>
-       <item row="16" column="1" colspan="2" alignment="Qt::AlignLeft">
+       <item row="22" column="0" colspan="6">
+        <widget class="QLabel" name="lblHomeIcon_10">
+         <property name="accessibleName">
+          <string>title</string>
+         </property>
+         <property name="text">
+          <string>Files</string>
+         </property>
+        </widget>
+       </item>
+       <item row="12" column="4">
+        <widget class="QCheckBox" name="checkMountedVulmesIcon_2">
+         <property name="cursor">
+          <cursorShape>PointingHandCursor</cursorShape>
+         </property>
+         <property name="focusPolicy">
+          <enum>Qt::NoFocus</enum>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+        </widget>
+       </item>
+       <item row="9" column="3">
+        <widget class="QRadioButton" name="radioButton_4">
+         <property name="text">
+          <string>Bottom</string>
+         </property>
+         <attribute name="buttonGroup">
+          <string notr="true">buttonGroup_3</string>
+         </attribute>
+        </widget>
+       </item>
+       <item row="20" column="0">
+        <widget class="QLabel" name="lblHomeIcon_8">
+         <property name="text">
+          <string>Show &quot;More Suggestions&quot;</string>
+         </property>
+        </widget>
+       </item>
+       <item row="4" column="0">
+        <widget class="QLabel" name="lblTrashIcon">
+         <property name="text">
+          <string>Reveal Sensitivity</string>
+         </property>
+        </widget>
+       </item>
+       <item row="8" column="1">
+        <widget class="QRadioButton" name="radioButton_5">
+         <property name="text">
+          <string>All Desktops</string>
+         </property>
+         <attribute name="buttonGroup">
+          <string notr="true">buttonGroup_2</string>
+         </attribute>
+        </widget>
+       </item>
+       <item row="16" column="1" colspan="3" alignment="Qt::AlignLeft">
         <widget class="QCheckBox" name="checkHomeIcon_2">
          <property name="cursor">
           <cursorShape>PointingHandCursor</cursorShape>
@@ -398,64 +480,41 @@
          </property>
         </widget>
        </item>
-       <item row="17" column="0">
-        <widget class="QLabel" name="lblHomeIcon_4">
+       <item row="14" column="0" colspan="6">
+        <widget class="QLabel" name="label_3">
+         <property name="accessibleName">
+          <string>general-title</string>
+         </property>
          <property name="text">
-          <string>Blur type</string>
+          <string>Search</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
          </property>
         </widget>
        </item>
-       <item row="17" column="1">
-        <widget class="QRadioButton" name="radioButton_7">
-         <property name="text">
-          <string>Active</string>
+       <item row="11" column="1">
+        <widget class="QComboBox" name="comboBox_2">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
          </property>
-        </widget>
-       </item>
-       <item row="17" column="2">
-        <widget class="QRadioButton" name="radioButton_8">
-         <property name="text">
-          <string>Static</string>
+         <property name="minimumSize">
+          <size>
+           <width>200</width>
+           <height>0</height>
+          </size>
          </property>
-        </widget>
-       </item>
-       <item row="18" column="0">
-        <widget class="QLabel" name="lblHomeIcon_5">
-         <property name="text">
-          <string>Search online sources</string>
+         <property name="maximumSize">
+          <size>
+           <width>300</width>
+           <height>16777215</height>
+          </size>
          </property>
-        </widget>
-       </item>
-       <item row="18" column="1" colspan="2" alignment="Qt::AlignLeft">
-        <widget class="QCheckBox" name="checkHomeIcon_3">
-         <property name="cursor">
-          <cursorShape>PointingHandCursor</cursorShape>
-         </property>
-         <property name="focusPolicy">
-          <enum>Qt::NoFocus</enum>
-         </property>
-         <property name="text">
-          <string/>
-         </property>
-        </widget>
-       </item>
-       <item row="20" column="0">
-        <widget class="QLabel" name="lblHomeIcon_8">
-         <property name="text">
-          <string>Show &quot;More Suggestions&quot;</string>
-         </property>
-        </widget>
-       </item>
-       <item row="20" column="1" colspan="2" alignment="Qt::AlignLeft">
-        <widget class="QCheckBox" name="checkHomeIcon_4">
-         <property name="cursor">
-          <cursorShape>PointingHandCursor</cursorShape>
-         </property>
-         <property name="focusPolicy">
-          <enum>Qt::NoFocus</enum>
-         </property>
-         <property name="text">
-          <string/>
+         <property name="sizeAdjustPolicy">
+          <enum>QComboBox::AdjustToMinimumContentsLength</enum>
          </property>
         </widget>
        </item>
@@ -466,113 +525,70 @@
          </property>
         </widget>
        </item>
-       <item row="21" column="1" colspan="2" alignment="Qt::AlignLeft">
-        <widget class="QCheckBox" name="checkHomeIcon_5">
-         <property name="cursor">
-          <cursorShape>PointingHandCursor</cursorShape>
-         </property>
-         <property name="focusPolicy">
-          <enum>Qt::NoFocus</enum>
-         </property>
+       <item row="11" column="0">
+        <widget class="QLabel" name="lblMountedIcon_2">
          <property name="text">
-          <string/>
+          <string>Urgent Animation</string>
          </property>
         </widget>
        </item>
-       <item row="23" column="0">
-        <widget class="QLabel" name="lblHomeIcon_11">
+       <item row="16" column="0">
+        <widget class="QLabel" name="lblHomeIcon_3">
          <property name="text">
-          <string>Enable search of your files</string>
+          <string>Background blur</string>
          </property>
         </widget>
        </item>
-       <item row="23" column="1" colspan="2" alignment="Qt::AlignLeft">
-        <widget class="QCheckBox" name="checkHomeIcon_6">
-         <property name="cursor">
-          <cursorShape>PointingHandCursor</cursorShape>
-         </property>
-         <property name="focusPolicy">
-          <enum>Qt::NoFocus</enum>
-         </property>
+       <item row="13" column="0">
+        <widget class="QLabel" name="lblMountedIcon_3">
          <property name="text">
-          <string/>
+          <string>Icon backgrounds</string>
          </property>
         </widget>
        </item>
-       <item row="24" column="0">
-        <spacer name="verticalSpacer">
+       <item row="11" column="3">
+        <widget class="QLabel" name="lblMountedIcon_4">
+         <property name="text">
+          <string>Icon size</string>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="5">
+        <spacer name="horizontalSpacer_3">
          <property name="orientation">
-          <enum>Qt::Vertical</enum>
+          <enum>Qt::Horizontal</enum>
+         </property>
+         <property name="sizeType">
+          <enum>QSizePolicy::Expanding</enum>
          </property>
          <property name="sizeHint" stdset="0">
           <size>
-           <width>20</width>
-           <height>46</height>
+           <width>40</width>
+           <height>20</height>
           </size>
          </property>
         </spacer>
        </item>
-       <item row="1" column="0" colspan="5">
-        <widget class="QLabel" name="lblHomeIcon_2">
-         <property name="accessibleName">
-          <string>title</string>
-         </property>
-         <property name="text">
-          <string>Behaviour</string>
-         </property>
-        </widget>
+       <item row="11" column="4">
+        <widget class="QSpinBox" name="spinBox"/>
        </item>
-       <item row="10" column="0" colspan="5">
-        <widget class="QLabel" name="label_6">
-         <property name="accessibleName">
-          <string>title</string>
+       <item row="12" column="2">
+        <spacer name="horizontalSpacer">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
          </property>
-         <property name="text">
-          <string>Icons</string>
+         <property name="sizeType">
+          <enum>QSizePolicy::Fixed</enum>
          </property>
-        </widget>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>25</width>
+           <height>20</height>
+          </size>
+         </property>
+        </spacer>
        </item>
-       <item row="6" column="0" colspan="5">
-        <widget class="QLabel" name="label_4">
-         <property name="accessibleName">
-          <string>title</string>
-         </property>
-         <property name="text">
-          <string>Appearance</string>
-         </property>
-        </widget>
-       </item>
-       <item row="15" column="0" colspan="5">
-        <widget class="QLabel" name="lblHomeIcon_6">
-         <property name="accessibleName">
-          <string>title</string>
-         </property>
-         <property name="text">
-          <string>General</string>
-         </property>
-        </widget>
-       </item>
-       <item row="19" column="0" colspan="5">
-        <widget class="QLabel" name="lblHomeIcon_7">
-         <property name="accessibleName">
-          <string>title</string>
-         </property>
-         <property name="text">
-          <string>Applications</string>
-         </property>
-        </widget>
-       </item>
-       <item row="22" column="0" colspan="5">
-        <widget class="QLabel" name="lblHomeIcon_10">
-         <property name="accessibleName">
-          <string>title</string>
-         </property>
-         <property name="text">
-          <string>Files</string>
-         </property>
-        </widget>
-       </item>
-       <item row="7" column="1" colspan="2">
+       <item row="7" column="1">
         <widget class="QSlider" name="horizontalSlider">
          <property name="cursor">
           <cursorShape>PointingHandCursor</cursorShape>
@@ -594,8 +610,8 @@
  <resources/>
  <connections/>
  <buttongroups>
-  <buttongroup name="buttonGroup_2"/>
   <buttongroup name="buttonGroup"/>
+  <buttongroup name="buttonGroup_2"/>
   <buttongroup name="buttonGroup_3"/>
  </buttongroups>
 </ui>
