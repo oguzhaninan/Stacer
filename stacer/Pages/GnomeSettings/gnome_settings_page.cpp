@@ -9,10 +9,7 @@ GnomeSettingsPage::~GnomeSettingsPage()
 GnomeSettingsPage::GnomeSettingsPage(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::GnomeSettingsPage),
-    slidingStackedWidget(new SlidingStackedWidget(this)),
-    unitySettings(new UnitySettings(slidingStackedWidget)),
-    windowManagerSettings(new WindowManagerSettings(slidingStackedWidget)),
-    appearanceSettings(new AppearanceSettings(slidingStackedWidget))
+    slidingStackedWidget(new SlidingStackedWidget(this))
 {
     ui->setupUi(this);
 
@@ -21,24 +18,34 @@ GnomeSettingsPage::GnomeSettingsPage(QWidget *parent) :
 
 void GnomeSettingsPage::init()
 {
-    ui->contentGridLayout->addWidget(slidingStackedWidget, 1, 0, 1, 3);
+    ui->contentGridLayout->addWidget(slidingStackedWidget, 1, 0, 1, 1);
 
-    slidingStackedWidget->addWidget(unitySettings);
+    if (GnomeSettingsTool::ins().checkUnityAvailable()) {
+        unitySettings = new UnitySettings(slidingStackedWidget);
+        slidingStackedWidget->addWidget(unitySettings);
+    } else {
+        ui->btnUnitySettings->hide();
+        ui->btnWindowManager->setChecked(true);
+    }
+
+    windowManagerSettings = new WindowManagerSettings(slidingStackedWidget);
+    appearanceSettings = new AppearanceSettings(slidingStackedWidget);
+
     slidingStackedWidget->addWidget(windowManagerSettings);
     slidingStackedWidget->addWidget(appearanceSettings);
 }
 
 void GnomeSettingsPage::on_btnUnitySettings_clicked()
 {
-    slidingStackedWidget->slideInIdx(0);
+    slidingStackedWidget->slideInIdx(slidingStackedWidget->indexOf(unitySettings));
 }
 
 void GnomeSettingsPage::on_btnWindowManager_clicked()
 {
-    slidingStackedWidget->slideInIdx(1);
+    slidingStackedWidget->slideInIdx(slidingStackedWidget->indexOf(windowManagerSettings));
 }
 
 void GnomeSettingsPage::on_btnAppearance_clicked()
 {
-    slidingStackedWidget->slideInIdx(2);
+    slidingStackedWidget->slideInIdx(slidingStackedWidget->indexOf(appearanceSettings));
 }

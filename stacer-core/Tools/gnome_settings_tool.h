@@ -6,7 +6,6 @@
 namespace GSchemaPaths {
     const QString Unity = "/org/compiz/profiles/unity/plugins/unityshell/";
     const QString UnityLauncher = "/com/canonical/unity/launcher/";
-
 }
 
 namespace GSchemas {
@@ -70,6 +69,8 @@ public:
     }
 
     bool checkGSettings();
+    bool checkUnityAvailable();
+
     QVariant getValue(const QString schema, const QString key, const QString schemaPath = QString());
     void setValue(const QString schema, const QString key, const QVariant value, const QString schemaPath = QString());
 

@@ -31,6 +31,12 @@
    </property>
    <item>
     <widget class="QScrollArea" name="scrollArea">
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
      <property name="widgetResizable">
       <bool>true</bool>
      </property>
@@ -70,6 +76,12 @@
        </item>
        <item row="4" column="0">
         <widget class="QLabel" name="label_5">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
          <property name="accessibleName">
           <string/>
          </property>
@@ -80,6 +92,12 @@
        </item>
        <item row="16" column="4">
         <widget class="QLabel" name="lblHomeIcon_8">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
          <property name="text">
           <string>Middle click</string>
          </property>
@@ -87,6 +105,12 @@
        </item>
        <item row="18" column="0">
         <widget class="QLabel" name="lblHomeIcon_9">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
          <property name="text">
           <string>Right click</string>
          </property>
@@ -130,47 +154,20 @@
          </property>
         </spacer>
        </item>
-       <item row="1" column="0" colspan="6">
-        <widget class="QLabel" name="lblHomeIcon_2">
-         <property name="accessibleName">
-          <string>title</string>
-         </property>
-         <property name="text">
-          <string>Hardware Acceleration</string>
-         </property>
-        </widget>
-       </item>
-       <item row="12" column="0" colspan="6">
-        <widget class="QLabel" name="lblHomeIcon_6">
-         <property name="accessibleName">
-          <string>title</string>
-         </property>
-         <property name="text">
-          <string>Focus Behaviour</string>
-         </property>
-        </widget>
-       </item>
-       <item row="11" column="0" colspan="6">
-        <widget class="QLabel" name="label_3">
-         <property name="accessibleName">
-          <string>general-title</string>
-         </property>
-         <property name="text">
-          <string>Additional</string>
-         </property>
-         <property name="alignment">
-          <set>Qt::AlignCenter</set>
-         </property>
-        </widget>
-       </item>
        <item row="2" column="0">
         <widget class="QLabel" name="lblHomeIcon">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
          <property name="text">
           <string>Text quality</string>
          </property>
         </widget>
        </item>
-       <item row="8" column="2">
+       <item row="8" column="2" alignment="Qt::AlignLeft">
         <widget class="QCheckBox" name="checkHomeIcon_7">
          <property name="cursor">
           <cursorShape>PointingHandCursor</cursorShape>
@@ -185,6 +182,12 @@
        </item>
        <item row="13" column="0">
         <widget class="QLabel" name="lblHomeIcon_3">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
          <property name="text">
           <string>Raise on click</string>
          </property>
@@ -205,19 +208,6 @@
           </size>
          </property>
         </spacer>
-       </item>
-       <item row="0" column="0" colspan="6">
-        <widget class="QLabel" name="label">
-         <property name="accessibleName">
-          <string>general-title</string>
-         </property>
-         <property name="text">
-          <string>General</string>
-         </property>
-         <property name="alignment">
-          <set>Qt::AlignCenter</set>
-         </property>
-        </widget>
        </item>
        <item row="18" column="2">
         <widget class="QComboBox" name="comboBox_9">
@@ -246,6 +236,12 @@
        </item>
        <item row="9" column="0">
         <widget class="QLabel" name="label_2">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
          <property name="text">
           <string>Horizontal workspaces</string>
          </property>
@@ -302,21 +298,14 @@
          </property>
         </widget>
        </item>
-       <item row="19" column="0" colspan="6">
-        <widget class="QLabel" name="label_7">
-         <property name="accessibleName">
-          <string>general-title</string>
-         </property>
-         <property name="text">
-          <string>Window Snapping</string>
-         </property>
-         <property name="alignment">
-          <set>Qt::AlignCenter</set>
-         </property>
-        </widget>
-       </item>
        <item row="9" column="4">
         <widget class="QLabel" name="lblMountedIcon_3">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
          <property name="text">
           <string>Vertical workspaces</string>
          </property>
@@ -344,16 +333,6 @@
          </property>
          <property name="sizeAdjustPolicy">
           <enum>QComboBox::AdjustToMinimumContentsLength</enum>
-         </property>
-        </widget>
-       </item>
-       <item row="3" column="0" colspan="6">
-        <widget class="QLabel" name="label_4">
-         <property name="accessibleName">
-          <string>title</string>
-         </property>
-         <property name="text">
-          <string>Animations</string>
          </property>
         </widget>
        </item>
@@ -409,18 +388,14 @@
        </item>
        <item row="21" column="0">
         <widget class="QLabel" name="lblHomeIcon_11">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
          <property name="text">
           <string>Window Snapping</string>
-         </property>
-        </widget>
-       </item>
-       <item row="20" column="0" colspan="6">
-        <widget class="QLabel" name="lblHomeIcon_10">
-         <property name="accessibleName">
-          <string>title</string>
-         </property>
-         <property name="text">
-          <string>General</string>
          </property>
         </widget>
        </item>
@@ -437,18 +412,14 @@
          </property>
         </widget>
        </item>
-       <item row="15" column="0" colspan="6">
-        <widget class="QLabel" name="lblHomeIcon_5">
-         <property name="accessibleName">
-          <string>title</string>
-         </property>
-         <property name="text">
-          <string>Titlebar Actions</string>
-         </property>
-        </widget>
-       </item>
        <item row="14" column="0">
         <widget class="QLabel" name="lblHomeIcon_4">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
          <property name="text">
           <string>Focus mode</string>
          </property>
@@ -456,6 +427,12 @@
        </item>
        <item row="16" column="0">
         <widget class="QLabel" name="lblHomeIcon_7">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
          <property name="text">
           <string>Double click</string>
          </property>
@@ -463,6 +440,12 @@
        </item>
        <item row="5" column="4">
         <widget class="QLabel" name="lblNetworkIcon_2">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
          <property name="text">
           <string>Unminimize</string>
          </property>
@@ -470,6 +453,12 @@
        </item>
        <item row="5" column="0">
         <widget class="QLabel" name="lblNetworkIcon_3">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
          <property name="text">
           <string>Minimize</string>
          </property>
@@ -477,6 +466,12 @@
        </item>
        <item row="8" column="0">
         <widget class="QLabel" name="lblMountedIcon_2">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
          <property name="text">
           <string>Workspace switcher</string>
          </property>
@@ -507,16 +502,6 @@
          </property>
         </widget>
        </item>
-       <item row="7" column="0" colspan="6">
-        <widget class="QLabel" name="label_6">
-         <property name="accessibleName">
-          <string>title</string>
-         </property>
-         <property name="text">
-          <string>Workspace Settings</string>
-         </property>
-        </widget>
-       </item>
        <item row="9" column="6">
         <spacer name="horizontalSpacer_3">
          <property name="orientation">
@@ -532,6 +517,105 @@
           </size>
          </property>
         </spacer>
+       </item>
+       <item row="0" column="0" colspan="7">
+        <widget class="QLabel" name="label">
+         <property name="accessibleName">
+          <string>general-title</string>
+         </property>
+         <property name="text">
+          <string>General</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+        </widget>
+       </item>
+       <item row="7" column="0" colspan="7">
+        <widget class="QLabel" name="label_6">
+         <property name="accessibleName">
+          <string>title</string>
+         </property>
+         <property name="text">
+          <string>Workspace Settings</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="0" colspan="7">
+        <widget class="QLabel" name="lblHomeIcon_2">
+         <property name="accessibleName">
+          <string>title</string>
+         </property>
+         <property name="text">
+          <string>Hardware Acceleration</string>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="0" colspan="7">
+        <widget class="QLabel" name="label_4">
+         <property name="accessibleName">
+          <string>title</string>
+         </property>
+         <property name="text">
+          <string>Animations</string>
+         </property>
+        </widget>
+       </item>
+       <item row="11" column="0" colspan="7">
+        <widget class="QLabel" name="label_3">
+         <property name="accessibleName">
+          <string>general-title</string>
+         </property>
+         <property name="text">
+          <string>Additional</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+        </widget>
+       </item>
+       <item row="12" column="0" colspan="7">
+        <widget class="QLabel" name="lblHomeIcon_6">
+         <property name="accessibleName">
+          <string>title</string>
+         </property>
+         <property name="text">
+          <string>Focus Behaviour</string>
+         </property>
+        </widget>
+       </item>
+       <item row="15" column="0" colspan="7">
+        <widget class="QLabel" name="lblHomeIcon_5">
+         <property name="accessibleName">
+          <string>title</string>
+         </property>
+         <property name="text">
+          <string>Titlebar Actions</string>
+         </property>
+        </widget>
+       </item>
+       <item row="19" column="0" colspan="7">
+        <widget class="QLabel" name="label_7">
+         <property name="accessibleName">
+          <string>general-title</string>
+         </property>
+         <property name="text">
+          <string>Window Snapping</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+        </widget>
+       </item>
+       <item row="20" column="0" colspan="7">
+        <widget class="QLabel" name="lblHomeIcon_10">
+         <property name="accessibleName">
+          <string>title</string>
+         </property>
+         <property name="text">
+          <string>General</string>
+         </property>
+        </widget>
        </item>
       </layout>
      </widget>

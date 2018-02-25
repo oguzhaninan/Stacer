@@ -29,7 +29,7 @@ void UnitySettings::init()
 
     float launcherOpacity = gsettings.getValueF(GSchemas::Unity::Shell, GSchemaKeys::Unity::LauncherOpacity, GSchemaPaths::Unity);
 
-    GValues::LauncherVisibility launcherVisibility = (GValues::LauncherVisibility) gsettings.getValueI(GSchemas::Unity::Shell, GSchemaKeys::Unity::LauncherVisibility, GSchemaPaths::Unity);
+    int launcherVisibility = gsettings.getValueI(GSchemas::Unity::Shell, GSchemaKeys::Unity::LauncherVisibility, GSchemaPaths::Unity);
 
     QString launcherPosition = gsettings.getValueS(GSchemas::Unity::Launcher, GSchemaKeys::Unity::LauncherPosition);
 

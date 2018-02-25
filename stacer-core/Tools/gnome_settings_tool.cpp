@@ -7,6 +7,23 @@ bool GnomeSettingsTool::checkGSettings()
     return CommandUtil::isExecutable("gsettings");
 }
 
+bool GnomeSettingsTool::checkUnityAvailable()
+{
+    QStringList args = { "list-relocatable-schemas" };
+
+    try {
+        QString result = CommandUtil::exec("gsettings", args);
+        QStringList schemas = result.split('\n').filter(QRegExp(GSchemas::Unity::Shell));
+
+        return ! schemas.isEmpty();
+
+    } catch(const QString &ex) {
+        qWarning() << ex;
+    }
+
+    return false;
+}
+
 QVariant GnomeSettingsTool::getValue(const QString schema, const QString key, const QString schemaPath)
 {
     QStringList args = { "get" };

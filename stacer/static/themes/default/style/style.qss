@@ -1084,7 +1084,7 @@ QRadioButton::indicator:checked {
     border-radius: 3;
     padding: 7 25;
     font-size: 11pt;
-    background-color: @sidebar;
+    background-color: @circleChartBackgroundColor;
     color: @color07;
 }
 

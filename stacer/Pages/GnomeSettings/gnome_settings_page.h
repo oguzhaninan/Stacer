@@ -8,6 +8,8 @@
 #include "window_manager_settings.h"
 #include "appearance_settings.h"
 
+#include "gnome_settings_page.h"
+
 namespace Ui {
 class GnomeSettingsPage;
 }
@@ -21,11 +23,8 @@ public:
     ~GnomeSettingsPage();
 
 private slots:
-
     void on_btnUnitySettings_clicked();
-
     void on_btnWindowManager_clicked();
-
     void on_btnAppearance_clicked();
 
 private:
