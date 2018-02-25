@@ -19,8 +19,8 @@ UninstallerPage::UninstallerPage(QWidget *parent) :
 
 void UninstallerPage::init()
 {
-    auto path = QString(":/static/themes/%1/img/loading.gif").arg(AppManager::ins()->getThemeName());
-    auto loadingMovie = new QMovie(path, QByteArray(), this);
+    QString path = QString(":/static/themes/%1/img/loading.gif").arg(AppManager::ins()->getThemeName());
+    QMovie *loadingMovie = new QMovie(path, QByteArray(), this);
     ui->loading->setMovie(loadingMovie);
     loadingMovie->start();
     ui->loading->hide();

@@ -82,10 +82,13 @@
      </property>
     </widget>
    </item>
-   <item row="0" column="0" colspan="2" alignment="Qt::AlignHCenter">
+   <item row="0" column="0" colspan="2">
     <widget class="QLabel" name="title">
      <property name="text">
       <string>Application</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
      </property>
     </widget>
    </item>

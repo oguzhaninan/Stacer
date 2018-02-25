@@ -18,7 +18,7 @@ StartupAppEdit::StartupAppEdit(QWidget *parent) :
                    "Exec=%3\n"
                    "Type=Application\n"
                    "Terminal=false\n"
-                   "Hidden=true")
+                   "Hidden=true\n")
 {
     ui->setupUi(this);
 
@@ -78,20 +78,17 @@ void StartupAppEdit::changeDesktopValue(QStringList &lines, const QRegExp &reg, 
 
 void StartupAppEdit::on_saveBtn_clicked()
 {
-    if(isValid())
-    {
-        if(! selectedFilePath.isEmpty())
-        {
+    if(isValid()) {
+        if(! selectedFilePath.isEmpty()) {
             QStringList lines = FileUtil::readListFromFile(selectedFilePath);
 
             changeDesktopValue(lines, NAME_REG, QString("Name=%1").arg(ui->appNameTxt->text()));
             changeDesktopValue(lines, COMMENT_REG, QString("Comment=%1").arg(ui->appCommentTxt->text()));
             changeDesktopValue(lines, EXEC_REG, QString("Exec=%1").arg(ui->appCommandTxt->text()));
 
-            FileUtil::writeFile(selectedFilePath, QString(lines.join("\n")), QIODevice::ReadWrite | QIODevice::Truncate);
+            FileUtil::writeFile(selectedFilePath, lines.join("\n").append('\n'), QIODevice::ReadWrite | QIODevice::Truncate);
         }
-        else
-        {
+        else {
             // new file content
             QString appContent = newAppTemplate
                     .arg(ui->appNameTxt->text())
@@ -109,7 +106,7 @@ void StartupAppEdit::on_saveBtn_clicked()
         }
 
         close();
-        closeWindow(); // signal
+        emit closeWindow(); // signal
     }
     else {
         ui->errorMsg->show();

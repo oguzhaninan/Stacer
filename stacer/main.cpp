@@ -63,6 +63,7 @@ int main(int argc, char *argv[])
     splashShadowEffect->setOffset(0);
 
     QSplashScreen splash(pixmap);
+
     splash.setGraphicsEffect(splashShadowEffect);
 
     splash.show();

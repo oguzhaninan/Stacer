@@ -24,12 +24,15 @@ private slots:
     void themesCmbChanged(const int &index);
     void languagesCmbChanged(const int &index);
     void diskCmbChanged(const int &index);
+    void on_checkAutostart_clicked(bool checked);
 
 private:
     Ui::SettingsPage *ui;
 
 private:
     AppManager *apm;
+
+    QString startupAppPath;
 };
 
 #endif // SETTINGS_PAGE_H
