@@ -11,6 +11,9 @@ namespace GSchemaPaths {
 namespace GSchemas {
     const QString UnityShell = "org.compiz.unityshell";
     const QString UnityLauncher = "com.canonical.Unity.Launcher";
+    const QString UnityLens = "com.canonical.Unity.Lenses";
+    const QString UnityAppLens = "com.canonical.Unity.ApplicationsLens";
+    const QString UnityFileLens = "com.canonical.Unity.FilesLens";
 }
 
 namespace GSchemaKeys {
@@ -23,6 +26,11 @@ namespace GSchemaKeys {
     const QString LauncherPosition = "launcher-position";
 //    const QString DisableShowDesktop = "disable-show-desktop";
     const QString LauncherIconSize = "icon-size";
+    const QString DashBlur = "dash-blur-experimental";
+    const QString SearchOnlineResource = "remote-content-search";
+    const QString DisplayAvailableApps = "display-available-apps";
+    const QString DisplayRecentApps = "display-recent-apps";
+    const QString EnableSearchFile = "use-locate";
 }
 
 namespace GValues {

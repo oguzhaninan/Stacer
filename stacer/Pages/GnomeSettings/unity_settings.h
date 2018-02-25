@@ -41,6 +41,16 @@ private slots:
 
     void on_spinIconSize_valueChanged(int value);
 
+    void on_checkBackgroundBlur_clicked(bool checked);
+
+    void on_checkSearchOnlineResource_clicked(bool checked);
+
+    void on_checkMoreSuggestions_clicked(bool checked);
+
+    void on_checkRecentlyUsed_clicked(bool checked);
+
+    void on_checkSearchYourFiles_clicked(bool checked);
+
 private:
     Ui::UnitySettings *ui;
 

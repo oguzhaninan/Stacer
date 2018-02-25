@@ -37,6 +37,16 @@ void UnitySettings::init()
 
     int iconSize = gsettings.getValueI(GSchemas::UnityShell, GSchemaKeys::LauncherIconSize, GSchemaPaths::Unity);
 
+    bool dashBlur = gsettings.getValueB(GSchemas::UnityShell, GSchemaKeys::DashBlur, GSchemaPaths::Unity);
+
+    QString searchOnlineResource = gsettings.getValueS(GSchemas::UnityLens, GSchemaKeys::SearchOnlineResource);
+
+    bool displayAvailableApps = gsettings.getValueB(GSchemas::UnityAppLens, GSchemaKeys::DisplayAvailableApps);
+
+    bool displayRecentApps = gsettings.getValueB(GSchemas::UnityAppLens, GSchemaKeys::DisplayRecentApps);
+
+    bool enableSearchFiles = gsettings.getValueB(GSchemas::UnityFileLens, GSchemaKeys::EnableSearchFile);
+
 
     ui->checkLauncherAutoHide->setChecked(launcherAutoHide);
 
@@ -67,6 +77,18 @@ void UnitySettings::init()
 //    ui->checkShowDesktopIcon->setChecked(!disableShowDesktop);
 
     ui->spinIconSize->setValue(iconSize);
+
+    ui->checkBackgroundBlur->setChecked(dashBlur);
+
+    if (searchOnlineResource.contains(QRegExp("all", Qt::CaseInsensitive))) {
+        ui->checkSearchOnlineResource->setChecked(true);
+    }
+
+    ui->checkMoreSuggestions->setChecked(displayAvailableApps);
+
+    ui->checkRecentlyUsed->setChecked(displayRecentApps);
+
+    ui->checkSearchYourFiles->setChecked(enableSearchFiles);
 }
 
 void UnitySettings::on_checkLauncherAutoHide_clicked(bool checked)
@@ -127,4 +149,29 @@ void UnitySettings::on_radioLauncherPositionBottom_clicked()
 void UnitySettings::on_spinIconSize_valueChanged(int value)
 {
     gsettings.setValueI(GSchemas::UnityShell, GSchemaKeys::LauncherIconSize, value, GSchemaPaths::Unity);
+}
+
+void UnitySettings::on_checkBackgroundBlur_clicked(bool checked)
+{
+    gsettings.setValueI(GSchemas::UnityShell, GSchemaKeys::DashBlur, checked, GSchemaPaths::Unity);
+}
+
+void UnitySettings::on_checkSearchOnlineResource_clicked(bool checked)
+{
+    gsettings.setValueS(GSchemas::UnityLens, GSchemaKeys::SearchOnlineResource, (checked ? "all" : "none"));
+}
+
+void UnitySettings::on_checkMoreSuggestions_clicked(bool checked)
+{
+    gsettings.setValueB(GSchemas::UnityAppLens, GSchemaKeys::DisplayAvailableApps, checked);
+}
+
+void UnitySettings::on_checkRecentlyUsed_clicked(bool checked)
+{
+    gsettings.setValueB(GSchemas::UnityAppLens, GSchemaKeys::DisplayRecentApps, checked);
+}
+
+void UnitySettings::on_checkSearchYourFiles_clicked(bool checked)
+{
+    gsettings.setValueB(GSchemas::UnityFileLens, GSchemaKeys::EnableSearchFile, checked);
 }
