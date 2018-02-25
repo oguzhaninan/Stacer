@@ -52,7 +52,7 @@ void WindowManagerSettings::init()
 
     ui->checkRaiseOnClick->setChecked(raiseOnClick);
 
-    ui->cmbFocusMode->setCurrentText(focusMode);
+    ui->cmbFocusMode->setCurrentIndex(ui->cmbFocusMode->findData(focusMode));
 
     ui->cmbTitleBarDoubleClick->setCurrentIndex(ui->cmbTitleBarDoubleClick->findData(actionDoubleClick));
 
@@ -63,9 +63,16 @@ void WindowManagerSettings::init()
 
 void WindowManagerSettings::loadDatas()
 {
-    ui->cmbTextQuality->addItems({tr("Fast"), tr("Good"), tr("Best")});
+    QStringList textQualities = { tr("Fast"), tr("Good"), tr("Best") };
+    QStringList textFocusModes = { tr("Click"), tr("Sloppy"), tr("Mouse") };
 
-    ui->cmbFocusMode->addItems({tr("Click"), tr("Sloppy"), tr("Mouse")});
+    for (const QString &qual : textQualities) {
+        ui->cmbTextQuality->addItem(qual, qual.toLower());
+    }
+
+    for (const QString &mode : textFocusModes) {
+        ui->cmbFocusMode->addItem(mode, mode.toLower());
+    }
 
     QList<QPair<QString, QString>> titleBarClickActions = {
         {tr("Toggle Shade"), "toggle-shade"}, {tr("Maximize"), "toggle-maximize"}, {tr("Maximize Horizontally"), "toggle-maximize-horizontally"},

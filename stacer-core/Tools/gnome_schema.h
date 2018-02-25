@@ -27,6 +27,8 @@ namespace GSchemas {
     namespace Appearance {
         const QString Desktop = "org.gnome.nautilus.desktop";
         const QString Background = "org.gnome.desktop.background";
+        const QString Screensaver = "org.gnome.desktop.screensaver";
+        const QString Applications = "org.gnome.desktop.a11y.applications";
     }
 }
 
@@ -69,11 +71,13 @@ namespace GSchemaKeys {
 
     namespace Appearance {
         const QString ShowDesktopIcons = "show-desktop-icons";
-        const QString ShowComputerIcon = "computer-icon-visible";
+        const QString ShowHomeIcon = "home-icon-visible";
         const QString ShowNetworkIcon = "network-icon-visible";
         const QString ShowTrashIcon = "trash-icon-visible";
-        const QString ShowVolumesIcon = "volumes-icon-visible";
-
+        const QString ShowVolumesIcon = "volumes-visible";
+        const QString PictureOptions = "picture-options";
+        const QString ScreenKeyboard = "screen-keyboard-enabled";
+        const QString ScreenReader = "screen-reader-enabled";
     }
 }
 

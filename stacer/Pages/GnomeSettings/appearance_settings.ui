@@ -236,7 +236,7 @@
       </widget>
      </item>
      <item row="7" column="4" alignment="Qt::AlignLeft">
-      <widget class="QCheckBox" name="checkHomeIcon_3">
+      <widget class="QCheckBox" name="checkScreenReader">
        <property name="cursor">
         <cursorShape>PointingHandCursor</cursorShape>
        </property>
@@ -262,7 +262,7 @@
       </widget>
      </item>
      <item row="5" column="4">
-      <widget class="QComboBox" name="comboBox_2">
+      <widget class="QComboBox" name="cmbLoginBackMode">
        <property name="sizePolicy">
         <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
          <horstretch>0</horstretch>
@@ -313,7 +313,7 @@
       </widget>
      </item>
      <item row="5" column="1">
-      <widget class="QComboBox" name="comboBox">
+      <widget class="QComboBox" name="cmbDesktopBackMode">
        <property name="sizePolicy">
         <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
          <horstretch>0</horstretch>
@@ -338,7 +338,7 @@
       </widget>
      </item>
      <item row="7" column="1" alignment="Qt::AlignLeft">
-      <widget class="QCheckBox" name="checkHomeIcon_2">
+      <widget class="QCheckBox" name="checkScreenKeyboard">
        <property name="cursor">
         <cursorShape>PointingHandCursor</cursorShape>
        </property>

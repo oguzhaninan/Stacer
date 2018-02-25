@@ -165,7 +165,7 @@ void DashboardPage::updateDiskBar()
         QString usedText = FormatUtil::formatBytes(disk->used);
 
         int diskPercent = 0;
-        if (disk->size)
+        if (disk->size > 0)
             diskPercent = ((double) disk->used / (double) disk->size) * 100.0;
 
         diskBar->setValue(diskPercent, QString("%1 / %2")
