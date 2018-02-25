@@ -26,7 +26,6 @@ private slots:
     void cmbTitleBarDoubleClick_currentIndexChanged(int index);
     void cmbTitleBarMiddleClick_currentIndexChanged(int index);
     void cmbTitleBarRightClick_currentIndexChanged(int index);
-    void checkWindowSnapping_clicked(bool checked);
 
 private:
     void init();

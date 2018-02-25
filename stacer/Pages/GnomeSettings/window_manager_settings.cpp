@@ -42,7 +42,6 @@ void WindowManagerSettings::init()
     QString actionRightClick = gsettings.getValueS(GSchemas::Window::Preferences, GSchemaKeys::Window::ActionRightClick).replace("'", "");
 
 
-
     ui->cmbTextQuality->setCurrentIndex(textureFilter);
 
     ui->checkWorkspaceSwitcher->setChecked(workspaceSwitcher);
@@ -92,7 +91,6 @@ void WindowManagerSettings::initConnects()
     connect(ui->cmbTitleBarDoubleClick, SIGNAL(currentIndexChanged(int)), this, SLOT(cmbTitleBarDoubleClick_currentIndexChanged(int)));
     connect(ui->cmbTitleBarMiddleClick, SIGNAL(currentIndexChanged(int)), this, SLOT(cmbTitleBarMiddleClick_currentIndexChanged(int)));
     connect(ui->cmbTitleBarRightClick, SIGNAL(currentIndexChanged(int)), this, SLOT(cmbTitleBarRightClick_currentIndexChanged(int)));
-    connect(ui->checkWindowSnapping, SIGNAL(clicked(bool)), this, SLOT(checkWindowSnapping_clicked(bool)));
 }
 
 void WindowManagerSettings::cmbTextQuality_currentIndexChanged(int index)
@@ -147,9 +145,4 @@ void WindowManagerSettings::cmbTitleBarRightClick_currentIndexChanged(int index)
 {
     QString data = ui->cmbTitleBarRightClick->itemData(index).toString();
     gsettings.setValueS(GSchemas::Window::Preferences, GSchemaKeys::Window::ActionRightClick, data);
-}
-
-void WindowManagerSettings::checkWindowSnapping_clicked(bool checked)
-{
-
 }

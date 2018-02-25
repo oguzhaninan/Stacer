@@ -15,6 +15,8 @@ UnitySettings::UnitySettings(QWidget *parent) :
     ui->setupUi(this);
 
     init();
+
+    initConnects();
 }
 
 void UnitySettings::init()
@@ -125,6 +127,14 @@ void UnitySettings::init()
     ui->checkShowMyName->setChecked(showShowMyName);
 }
 
+void UnitySettings::initConnects()
+{
+    connect(ui->sliderLauncherOpacity, SIGNAL(valueChanged(int)), this, SLOT(sliderLauncherOpacity_valueChanged(int)));
+    connect(ui->sliderPanelOpacity, SIGNAL(valueChanged(int)), this, SLOT(sliderPanelOpacity_valueChanged(int)));
+    connect(ui->sliderRevealSensitivy, SIGNAL(valueChanged(int)), this, SLOT(sliderRevealSensitivy_valueChanged(int)));
+    connect(ui->spinIconSize, SIGNAL(valueChanged(int)), this, SLOT(spinIconSize_valueChanged(int)));
+}
+
 void UnitySettings::on_checkLauncherAutoHide_clicked(bool checked)
 {
     gsettings.setValueI(GSchemas::Unity::Shell, GSchemaKeys::Unity::LauncherHideMode, checked, GSchemaPaths::Unity);
@@ -140,7 +150,7 @@ void UnitySettings::on_radioRevealTopLeft_clicked()
     gsettings.setValueI(GSchemas::Unity::Shell, GSchemaKeys::Unity::RevealTrigger, GValues::RevealLocation::TopLeft, GSchemaPaths::Unity);
 }
 
-void UnitySettings::on_sliderRevealSensitivy_valueChanged(int value)
+void UnitySettings::sliderRevealSensitivy_valueChanged(int value)
 {
     gsettings.setValueF(GSchemas::Unity::Shell, GSchemaKeys::Unity::EdgeResponsiveness, (value * 0.1), GSchemaPaths::Unity);
 }
@@ -150,7 +160,7 @@ void UnitySettings::on_checkMinimizeApps_clicked(bool checked)
     gsettings.setValueB(GSchemas::Unity::Shell, GSchemaKeys::Unity::LauncherMinimizeApp, checked, GSchemaPaths::Unity);
 }
 
-void UnitySettings::on_sliderLauncherOpacity_valueChanged(int value)
+void UnitySettings::sliderLauncherOpacity_valueChanged(int value)
 {
     gsettings.setValueF(GSchemas::Unity::Shell, GSchemaKeys::Unity::LauncherOpacity, (value * 0.1), GSchemaPaths::Unity);
 }
@@ -175,7 +185,7 @@ void UnitySettings::on_radioLauncherPositionBottom_clicked()
     gsettings.setValueS(GSchemas::Unity::Launcher, GSchemaKeys::Unity::LauncherPosition, "Bottom");
 }
 
-void UnitySettings::on_spinIconSize_valueChanged(int value)
+void UnitySettings::spinIconSize_valueChanged(int value)
 {
     gsettings.setValueI(GSchemas::Unity::Shell, GSchemaKeys::Unity::LauncherIconSize, value, GSchemaPaths::Unity);
 }
@@ -205,7 +215,7 @@ void UnitySettings::on_checkSearchYourFiles_clicked(bool checked)
     gsettings.setValueB(GSchemas::Unity::FileLens, GSchemaKeys::Unity::EnableSearchFile, checked);
 }
 
-void UnitySettings::on_sliderPanelOpacity_valueChanged(int value)
+void UnitySettings::sliderPanelOpacity_valueChanged(int value)
 {
     gsettings.setValueF(GSchemas::Unity::Shell, GSchemaKeys::Unity::PanelOpacity, (value * 0.1), GSchemaPaths::Unity);
 }
