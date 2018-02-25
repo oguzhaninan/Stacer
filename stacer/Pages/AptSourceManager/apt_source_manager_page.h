@@ -3,7 +3,6 @@
 
 #include <QWidget>
 #include <QListWidgetItem>
-#include <QFileSystemWatcher>
 
 #include "apt_source_repository_item.h"
 #include "apt_source_edit.h"
@@ -34,15 +33,11 @@ private slots:
     void on_aptSourceRepositoryListWidget_itemDoubleClicked(QListWidgetItem *item);
     void on_btnCancel_clicked();
 
-    void on_aptSourceRepositoryListWidget_currentItemChanged(QListWidgetItem *current, QListWidgetItem *previous);
-
 private:
     void init();
 
 private:
     Ui::APTSourceManagerPage *ui;
-
-    QFileSystemWatcher fileSystemWatcher;
 
     QSharedPointer<APTSourceEdit> aptSourceEditDialog;
 };

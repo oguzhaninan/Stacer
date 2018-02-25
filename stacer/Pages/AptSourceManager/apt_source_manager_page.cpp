@@ -13,8 +13,7 @@ APTSourcePtr APTSourceManagerPage::selectedAptSource = nullptr;
 
 APTSourceManagerPage::APTSourceManagerPage(QWidget *parent) :
     QWidget(parent),
-    ui(new Ui::APTSourceManagerPage),
-    fileSystemWatcher(this)
+    ui(new Ui::APTSourceManagerPage)
 {
     ui->setupUi(this);
 
@@ -23,10 +22,6 @@ APTSourceManagerPage::APTSourceManagerPage(QWidget *parent) :
 
 void APTSourceManagerPage::init()
 {
-    fileSystemWatcher.addPaths({ APT_SOURCES_LIST_D_PATH, APT_SOURCES_LIST_PATH });
-    connect(&fileSystemWatcher, &QFileSystemWatcher::directoryChanged, this, &APTSourceManagerPage::loadAptSources);
-    connect(&fileSystemWatcher, &QFileSystemWatcher::fileChanged, this, &APTSourceManagerPage::loadAptSources);
-
     ui->txtAptSource->setPlaceholderText(tr("example %1").arg("'deb http://archive.ubuntu.com/ubuntu xenial main'"));
 
     loadAptSources();
@@ -47,7 +42,7 @@ void APTSourceManagerPage::loadAptSources()
 
         APTSourceRepositoryItem *aptSourceItem = new APTSourceRepositoryItem(aptSource, ui->aptSourceRepositoryListWidget);
 
-        listItem->setSizeHint(aptSourceItem->sizeHint());
+        listItem->setSizeHint(aptSourceItem->sizeHint() - QSize(0, 1));
 
         ui->aptSourceRepositoryListWidget->setItemWidget(listItem, aptSourceItem);
     }
@@ -143,55 +138,10 @@ void APTSourceManagerPage::on_btnEditAptSource_clicked()
 {
     if (! selectedAptSource.isNull()) {
         if (aptSourceEditDialog.isNull()) {
-            aptSourceEditDialog = QSharedPointer<APTSourceEdit>(new APTSourceEdit(this));
+            aptSourceEditDialog = QSharedPointer<APTSourceEdit>(new APTSourceEdit(this));            
+            connect(aptSourceEditDialog.data(), &APTSourceEdit::saved, this, &APTSourceManagerPage::loadAptSources);
         }
         APTSourceEdit::selectedAptSource = selectedAptSource;
         aptSourceEditDialog->show();
     }
 }
-
-void APTSourceManagerPage::on_aptSourceRepositoryListWidget_currentItemChanged(QListWidgetItem *current,
-                                                                               QListWidgetItem *previous)
-{
-    qDebug() << "...";
-    if (previous) {
-        QWidget *widget = ui->aptSourceRepositoryListWidget->itemWidget(previous);
-        if (widget) {
-            widget->setStyleSheet("");
-        }
-    }
-
-    if (current) {
-        QWidget *widget = ui->aptSourceRepositoryListWidget->itemWidget(current);
-        if (widget) {
-            widget->setStyleSheet("background-color: orange;");
-        }
-    }
-
-//    qApp->setStyleSheet(qApp->styleSheet());
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

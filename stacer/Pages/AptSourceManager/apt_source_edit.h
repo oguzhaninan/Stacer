@@ -20,6 +20,9 @@ public:
     static APTSourcePtr selectedAptSource;
     void show();
 
+signals:
+    void saved();
+
 private slots:
     void clearElements();
     void on_saveBtn_clicked();

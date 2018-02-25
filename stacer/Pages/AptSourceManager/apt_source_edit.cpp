@@ -64,6 +64,8 @@ void APTSourceEdit::on_saveBtn_clicked()
 
         ToolManager::ins()->changeSource(selectedAptSource, updatedAptSource);
 
+        emit saved();
+
         close();
     } else {
         ui->errorMsg->show();
