@@ -53,7 +53,8 @@ HEADERS += \
     Info/process_info.h \
     Info/process.h \
     Tools/apt_source_tool.h \
-    Tools/gnome_settings_tool.h
+    Tools/gnome_settings_tool.h \
+    Tools/gnome_schema.h
 
 unix {
     target.path = /usr/lib

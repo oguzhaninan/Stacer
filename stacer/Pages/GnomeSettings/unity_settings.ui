@@ -382,16 +382,16 @@
           <enum>Qt::NoFocus</enum>
          </property>
          <property name="minimum">
-          <number>2</number>
+          <number>1</number>
          </property>
          <property name="maximum">
-          <number>80</number>
+          <number>10</number>
          </property>
          <property name="pageStep">
           <number>1</number>
          </property>
          <property name="value">
-          <number>2</number>
+          <number>1</number>
          </property>
          <property name="orientation">
           <enum>Qt::Horizontal</enum>
@@ -772,16 +772,16 @@
           <enum>Qt::NoFocus</enum>
          </property>
          <property name="minimum">
-          <number>2</number>
+          <number>1</number>
          </property>
          <property name="maximum">
-          <number>80</number>
+          <number>10</number>
          </property>
          <property name="pageStep">
           <number>2</number>
          </property>
          <property name="value">
-          <number>2</number>
+          <number>1</number>
          </property>
          <property name="orientation">
           <enum>Qt::Horizontal</enum>
@@ -797,19 +797,19 @@
           <enum>Qt::NoFocus</enum>
          </property>
          <property name="minimum">
-          <number>2</number>
+          <number>1</number>
          </property>
          <property name="maximum">
-          <number>80</number>
+          <number>10</number>
          </property>
          <property name="pageStep">
           <number>2</number>
          </property>
          <property name="value">
-          <number>2</number>
+          <number>1</number>
          </property>
          <property name="sliderPosition">
-          <number>2</number>
+          <number>1</number>
          </property>
          <property name="orientation">
           <enum>Qt::Horizontal</enum>
