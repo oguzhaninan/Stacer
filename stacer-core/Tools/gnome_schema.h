@@ -24,6 +24,10 @@ namespace GSchemas {
         const QString Core = "org.compiz.core";
         const QString Preferences = "org.gnome.desktop.wm.preferences";
     }
+    namespace Appearance {
+        const QString Desktop = "org.gnome.nautilus.desktop";
+        const QString Background = "org.gnome.desktop.background";
+    }
 }
 
 namespace GSchemaKeys {
@@ -61,6 +65,15 @@ namespace GSchemaKeys {
         const QString ActionDoubleClick = "action-double-click-titlebar";
         const QString ActionMiddleClick = "action-middle-click-titlebar";
         const QString ActionRightClick = "action-right-click-titlebar";
+    }
+
+    namespace Appearance {
+        const QString ShowDesktopIcons = "show-desktop-icons";
+        const QString ShowComputerIcon = "computer-icon-visible";
+        const QString ShowNetworkIcon = "network-icon-visible";
+        const QString ShowTrashIcon = "trash-icon-visible";
+        const QString ShowVolumesIcon = "volumes-icon-visible";
+
     }
 }
 

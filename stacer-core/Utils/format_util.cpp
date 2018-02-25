@@ -2,11 +2,6 @@
 
 #include <QString>
 
-FormatUtil::FormatUtil()
-{
-
-}
-
 QString FormatUtil::formatBytes(const quint64 &bytes)
 {
 #define formatUnit(v, u, t) QString().sprintf("%.1f %s", \

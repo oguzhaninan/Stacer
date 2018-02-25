@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>815</width>
-    <height>435</height>
+    <width>896</width>
+    <height>467</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -45,8 +45,8 @@
        <rect>
         <x>0</x>
         <y>0</y>
-        <width>813</width>
-        <height>433</height>
+        <width>894</width>
+        <height>465</height>
        </rect>
       </property>
       <layout class="QGridLayout" name="gridLayout">
@@ -166,7 +166,7 @@
          </property>
          <property name="minimumSize">
           <size>
-           <width>200</width>
+           <width>250</width>
            <height>0</height>
           </size>
          </property>
@@ -364,7 +364,7 @@
          </property>
          <property name="minimumSize">
           <size>
-           <width>200</width>
+           <width>250</width>
            <height>0</height>
           </size>
          </property>
@@ -389,7 +389,7 @@
          </property>
          <property name="minimumSize">
           <size>
-           <width>200</width>
+           <width>250</width>
            <height>0</height>
           </size>
          </property>
@@ -424,7 +424,7 @@
          </property>
          <property name="minimumSize">
           <size>
-           <width>200</width>
+           <width>250</width>
            <height>0</height>
           </size>
          </property>
@@ -462,7 +462,7 @@
          </property>
          <property name="minimumSize">
           <size>
-           <width>200</width>
+           <width>250</width>
            <height>0</height>
           </size>
          </property>

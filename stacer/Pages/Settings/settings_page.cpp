@@ -47,7 +47,7 @@ void SettingsPage::init()
     QList<Disk*> disks = InfoManager::ins()->getDisks();
 
     for (const Disk *disk : disks) {
-        ui->disksCmb->addItem(disk->name, disk->name);
+        ui->disksCmb->addItem(QString("%1  (%2)").arg(disk->device).arg(disk->name), disk->name);
     }
 
     QString dk = apm->getDiskName();

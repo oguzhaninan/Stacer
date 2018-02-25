@@ -1,9 +1,6 @@
 #include "disk_info.h"
 #include <QDebug>
 
-DiskInfo::DiskInfo()
-{ }
-
 QList<Disk*> DiskInfo::getDisks() const
 {
     return disks;
@@ -12,22 +9,17 @@ QList<Disk*> DiskInfo::getDisks() const
 void DiskInfo::updateDiskInfo()
 {
     disks.clear();
-    try {
-        QStringList result = CommandUtil::exec("df", { "-Pl" }).split(QChar('\n'));
 
-        QRegExp sep("\\s+");
-        for (const QString &line : result.filter(QRegExp("^/")))
-        {
-            Disk *disk = new Disk;
-            QStringList slist = line.split(sep);
-            disk->name = slist.takeFirst();
-            disk->size = slist.takeFirst().toLong() << 10;
-            disk->used = slist.takeFirst().toLong() << 10;
-            disk->free = slist.takeFirst().toLong() << 10;
-    
-            disks << disk;
-        }
-    } catch (QString &ex) {
-        qCritical() << ex;
+    QList<QStorageInfo> storageInfoList = QStorageInfo::mountedVolumes();
+
+    for(const QStorageInfo &info: storageInfoList) {
+        Disk *disk = new Disk;
+        disk->name = info.displayName();
+        disk->device = info.device();
+        disk->size = info.bytesTotal();
+        disk->used = info.bytesTotal() - info.bytesFree();
+        disk->free = info.bytesFree();
+
+        disks << disk;
     }
 }

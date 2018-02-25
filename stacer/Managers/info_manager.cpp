@@ -1,10 +1,5 @@
 #include "info_manager.h"
 
-InfoManager::InfoManager()
-{
-
-}
-
 InfoManager *InfoManager::_instance = NULL;
 
 InfoManager *InfoManager::ins()

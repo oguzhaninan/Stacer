@@ -39,7 +39,6 @@ public:
     QList<Process> getProcesses() const;
     QString getUserName() const;
 private:
-    InfoManager();
     static InfoManager *_instance;
 
 private:
