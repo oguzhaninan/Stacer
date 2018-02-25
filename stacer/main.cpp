@@ -2,7 +2,7 @@
 #include <QSplashScreen>
 #include <QDebug>
 #include "app.h"
-
+#include "utilities.h"
 void messageHandler(QtMsgType type,
                     const QMessageLogContext &context,
                     const QString &message)
@@ -62,14 +62,26 @@ int main(int argc, char *argv[])
 
     qApp->setApplicationName("stacer");
     qApp->setApplicationDisplayName("Stacer");
-    qApp->setApplicationVersion("1.0.8");
+    qApp->setApplicationVersion("1.0.9");
     qApp->setWindowIcon(QIcon(":/static/logo.png"));
 
-    QPixmap pixmap(":/static/logo.png");
+
+    QGraphicsDropShadowEffect *splashShadowEffect = new QGraphicsDropShadowEffect;
+    splashShadowEffect->setBlurRadius(30);
+    splashShadowEffect->setColor(QColor(0, 0, 0, 210));
+    splashShadowEffect->setOffset(0);
+
+
+    QPixmap pixmap(":/static/splashscreen.png");
     QSplashScreen splash(pixmap);
+    splash.setGraphicsEffect(splashShadowEffect);
+
+
     splash.show();
+
     app.processEvents();
 
+    QThread::sleep(10);
 //    qInstallMessageHandler(messageHandler);
 
     App w;

@@ -66,5 +66,6 @@
         <file>static/themes/common/img/window.png</file>
         <file>static/themes/default/img/sidebar-icons/ppa-manager.png</file>
         <file>static/themes/default/img/ppa-repository.png</file>
+        <file>static/splashscreen.png</file>
     </qresource>
 </RCC>
