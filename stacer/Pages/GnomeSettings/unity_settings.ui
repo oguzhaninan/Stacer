@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>577</width>
-    <height>648</height>
+    <width>809</width>
+    <height>867</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -39,8 +39,8 @@
        <rect>
         <x>0</x>
         <y>0</y>
-        <width>575</width>
-        <height>646</height>
+        <width>807</width>
+        <height>865</height>
        </rect>
       </property>
       <layout class="QGridLayout" name="gridLayout">
@@ -59,8 +59,8 @@
        <property name="spacing">
         <number>10</number>
        </property>
-       <item row="2" column="0">
-        <widget class="QLabel" name="lblHomeIcon">
+       <item row="15" column="3">
+        <widget class="QLabel" name="lblHomeIcon_5">
          <property name="sizePolicy">
           <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
            <horstretch>0</horstretch>
@@ -68,57 +68,183 @@
           </sizepolicy>
          </property>
          <property name="text">
-          <string>Auto Hide</string>
+          <string>Search online sources</string>
          </property>
         </widget>
        </item>
-       <item row="22" column="0">
-        <spacer name="verticalSpacer">
-         <property name="orientation">
-          <enum>Qt::Vertical</enum>
-         </property>
-         <property name="sizeHint" stdset="0">
-          <size>
-           <width>20</width>
-           <height>46</height>
-          </size>
-         </property>
-        </spacer>
-       </item>
-       <item row="15" column="0">
-        <widget class="QLabel" name="lblHomeIcon_3">
-         <property name="sizePolicy">
-          <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
-           <horstretch>0</horstretch>
-           <verstretch>0</verstretch>
-          </sizepolicy>
-         </property>
-         <property name="text">
-          <string>Background blur</string>
-         </property>
-        </widget>
-       </item>
-       <item row="11" column="3">
-        <widget class="QLabel" name="lblMountedIcon_4">
-         <property name="sizePolicy">
-          <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
-           <horstretch>0</horstretch>
-           <verstretch>0</verstretch>
-          </sizepolicy>
-         </property>
-         <property name="text">
-          <string>Icon size</string>
-         </property>
-        </widget>
-       </item>
-       <item row="20" column="0" colspan="6">
-        <widget class="QLabel" name="lblHomeIcon_10">
+       <item row="6" column="0" colspan="6">
+        <widget class="QLabel" name="label_4">
          <property name="accessibleName">
           <string>title</string>
          </property>
          <property name="text">
-          <string>Files</string>
+          <string>Appearance</string>
          </property>
+        </widget>
+       </item>
+       <item row="11" column="2">
+        <spacer name="horizontalSpacer">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+         <property name="sizeType">
+          <enum>QSizePolicy::Fixed</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>15</width>
+           <height>20</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item row="18" column="0">
+        <widget class="QLabel" name="lblHomeIcon_8">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="text">
+          <string>Show &quot;More Suggestions&quot;</string>
+         </property>
+        </widget>
+       </item>
+       <item row="18" column="1" colspan="3" alignment="Qt::AlignLeft">
+        <widget class="QCheckBox" name="checkMoreSuggestions">
+         <property name="cursor">
+          <cursorShape>PointingHandCursor</cursorShape>
+         </property>
+         <property name="focusPolicy">
+          <enum>Qt::NoFocus</enum>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+        </widget>
+       </item>
+       <item row="5" column="0">
+        <widget class="QLabel" name="lblMountedIcon">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="text">
+          <string>Minimize applications with clicking</string>
+         </property>
+        </widget>
+       </item>
+       <item row="25" column="0" colspan="6">
+        <widget class="QLabel" name="lblHomeIcon_13">
+         <property name="accessibleName">
+          <string>title</string>
+         </property>
+         <property name="text">
+          <string>Indicators</string>
+         </property>
+        </widget>
+       </item>
+       <item row="22" column="0" colspan="6">
+        <widget class="QLabel" name="label_7">
+         <property name="accessibleName">
+          <string>general-title</string>
+         </property>
+         <property name="text">
+          <string>Panel</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+        </widget>
+       </item>
+       <item row="9" column="0">
+        <widget class="QLabel" name="lblNetworkIcon_2">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="text">
+          <string>Position</string>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="1" colspan="3" alignment="Qt::AlignLeft">
+        <widget class="QCheckBox" name="checkLauncherAutoHide">
+         <property name="cursor">
+          <cursorShape>PointingHandCursor</cursorShape>
+         </property>
+         <property name="focusPolicy">
+          <enum>Qt::NoFocus</enum>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+        </widget>
+       </item>
+       <item row="13" column="0" colspan="6">
+        <widget class="QLabel" name="label_3">
+         <property name="accessibleName">
+          <string>general-title</string>
+         </property>
+         <property name="text">
+          <string>Search</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+        </widget>
+       </item>
+       <item row="10" column="0" colspan="6">
+        <widget class="QLabel" name="label_6">
+         <property name="accessibleName">
+          <string>title</string>
+         </property>
+         <property name="text">
+          <string>Icons</string>
+         </property>
+        </widget>
+       </item>
+       <item row="8" column="1">
+        <widget class="QRadioButton" name="radioLauncherVisibleAllDesktop">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="cursor">
+          <cursorShape>PointingHandCursor</cursorShape>
+         </property>
+         <property name="text">
+          <string>All Desktops</string>
+         </property>
+         <attribute name="buttonGroup">
+          <string notr="true">buttonGroup_2</string>
+         </attribute>
+        </widget>
+       </item>
+       <item row="3" column="3" colspan="2">
+        <widget class="QRadioButton" name="radioRevealTopLeft">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="cursor">
+          <cursorShape>PointingHandCursor</cursorShape>
+         </property>
+         <property name="text">
+          <string>Top-Left Corner</string>
+         </property>
+         <attribute name="buttonGroup">
+          <string notr="true">buttonGroup</string>
+         </attribute>
         </widget>
        </item>
        <item row="8" column="0">
@@ -134,18 +260,79 @@
          </property>
         </widget>
        </item>
-       <item row="17" column="0" colspan="6">
-        <widget class="QLabel" name="lblHomeIcon_7">
+       <item row="0" column="0" colspan="6">
+        <widget class="QLabel" name="label">
+         <property name="accessibleName">
+          <string>general-title</string>
+         </property>
+         <property name="text">
+          <string>Launcher</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+        </widget>
+       </item>
+       <item row="15" column="4" alignment="Qt::AlignLeft">
+        <widget class="QCheckBox" name="checkSearchOnlineResource">
+         <property name="cursor">
+          <cursorShape>PointingHandCursor</cursorShape>
+         </property>
+         <property name="focusPolicy">
+          <enum>Qt::NoFocus</enum>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+        </widget>
+       </item>
+       <item row="27" column="1" alignment="Qt::AlignLeft">
+        <widget class="QCheckBox" name="checkSeconds">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="cursor">
+          <cursorShape>PointingHandCursor</cursorShape>
+         </property>
+         <property name="focusPolicy">
+          <enum>Qt::NoFocus</enum>
+         </property>
+         <property name="accessibleName">
+          <string>circle</string>
+         </property>
+         <property name="text">
+          <string>Seconds</string>
+         </property>
+        </widget>
+       </item>
+       <item row="26" column="1" alignment="Qt::AlignLeft">
+        <widget class="QCheckBox" name="checkDateTime">
+         <property name="cursor">
+          <cursorShape>PointingHandCursor</cursorShape>
+         </property>
+         <property name="focusPolicy">
+          <enum>Qt::NoFocus</enum>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+        </widget>
+       </item>
+       <item row="23" column="0" colspan="6">
+        <widget class="QLabel" name="lblHomeIcon_12">
          <property name="accessibleName">
           <string>title</string>
          </property>
          <property name="text">
-          <string>Applications</string>
+          <string>General</string>
          </property>
         </widget>
        </item>
-       <item row="9" column="1">
-        <widget class="QRadioButton" name="radioLauncherPositionLeft">
+       <item row="9" column="3">
+        <widget class="QRadioButton" name="radioLauncherPositionBottom">
          <property name="sizePolicy">
           <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
            <horstretch>0</horstretch>
@@ -156,41 +343,96 @@
           <cursorShape>PointingHandCursor</cursorShape>
          </property>
          <property name="text">
-          <string>Left</string>
+          <string>Bottom</string>
          </property>
          <attribute name="buttonGroup">
           <string notr="true">buttonGroup_3</string>
          </attribute>
         </widget>
        </item>
-       <item row="18" column="0">
-        <widget class="QLabel" name="lblHomeIcon_8">
-         <property name="sizePolicy">
-          <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
-           <horstretch>0</horstretch>
-           <verstretch>0</verstretch>
-          </sizepolicy>
+       <item row="17" column="0" colspan="6">
+        <widget class="QLabel" name="lblHomeIcon_7">
+         <property name="accessibleName">
+          <string>title</string>
          </property>
          <property name="text">
-          <string>Show &quot;More Suggestions&quot;</string>
+          <string>Applications</string>
          </property>
         </widget>
        </item>
-       <item row="3" column="0">
-        <widget class="QLabel" name="lblNetworkIcon">
-         <property name="sizePolicy">
-          <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
-           <horstretch>0</horstretch>
-           <verstretch>0</verstretch>
-          </sizepolicy>
+       <item row="19" column="1" colspan="3" alignment="Qt::AlignLeft">
+        <widget class="QCheckBox" name="checkRecentlyUsed">
+         <property name="cursor">
+          <cursorShape>PointingHandCursor</cursorShape>
+         </property>
+         <property name="focusPolicy">
+          <enum>Qt::NoFocus</enum>
          </property>
          <property name="text">
-          <string>Reveal Location</string>
+          <string/>
          </property>
         </widget>
        </item>
-       <item row="18" column="1" colspan="3" alignment="Qt::AlignLeft">
-        <widget class="QCheckBox" name="checkMoreSuggestions">
+       <item row="4" column="1">
+        <widget class="QSlider" name="sliderRevealSensitivy">
+         <property name="cursor">
+          <cursorShape>PointingHandCursor</cursorShape>
+         </property>
+         <property name="focusPolicy">
+          <enum>Qt::NoFocus</enum>
+         </property>
+         <property name="minimum">
+          <number>2</number>
+         </property>
+         <property name="maximum">
+          <number>80</number>
+         </property>
+         <property name="pageStep">
+          <number>1</number>
+         </property>
+         <property name="value">
+          <number>2</number>
+         </property>
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+        </widget>
+       </item>
+       <item row="14" column="0" colspan="6">
+        <widget class="QLabel" name="lblHomeIcon_6">
+         <property name="accessibleName">
+          <string>title</string>
+         </property>
+         <property name="text">
+          <string>General</string>
+         </property>
+        </widget>
+       </item>
+       <item row="5" column="1" colspan="3" alignment="Qt::AlignLeft">
+        <widget class="QCheckBox" name="checkMinimizeApps">
+         <property name="cursor">
+          <cursorShape>PointingHandCursor</cursorShape>
+         </property>
+         <property name="focusPolicy">
+          <enum>Qt::NoFocus</enum>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="0" colspan="6">
+        <widget class="QLabel" name="lblHomeIcon_2">
+         <property name="accessibleName">
+          <string>title</string>
+         </property>
+         <property name="text">
+          <string>Behaviour</string>
+         </property>
+        </widget>
+       </item>
+       <item row="21" column="1" colspan="3" alignment="Qt::AlignLeft">
+        <widget class="QCheckBox" name="checkSearchYourFiles">
          <property name="cursor">
           <cursorShape>PointingHandCursor</cursorShape>
          </property>
@@ -221,8 +463,44 @@
          </attribute>
         </widget>
        </item>
-       <item row="8" column="1">
-        <widget class="QRadioButton" name="radioLauncherVisibleAllDesktop">
+       <item row="20" column="0" colspan="6">
+        <widget class="QLabel" name="lblHomeIcon_10">
+         <property name="accessibleName">
+          <string>title</string>
+         </property>
+         <property name="text">
+          <string>Files</string>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="0">
+        <widget class="QLabel" name="lblHomeIcon">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="text">
+          <string>Auto Hide</string>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="0">
+        <widget class="QLabel" name="lblNetworkIcon">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="text">
+          <string>Reveal Location</string>
+         </property>
+        </widget>
+       </item>
+       <item row="9" column="1">
+        <widget class="QRadioButton" name="radioLauncherPositionLeft">
          <property name="sizePolicy">
           <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
            <horstretch>0</horstretch>
@@ -233,127 +511,26 @@
           <cursorShape>PointingHandCursor</cursorShape>
          </property>
          <property name="text">
-          <string>All Desktops</string>
+          <string>Left</string>
          </property>
          <attribute name="buttonGroup">
-          <string notr="true">buttonGroup_2</string>
+          <string notr="true">buttonGroup_3</string>
          </attribute>
         </widget>
        </item>
-       <item row="4" column="0">
-        <widget class="QLabel" name="lblTrashIcon">
+       <item row="24" column="0">
+        <widget class="QLabel" name="label_5">
          <property name="sizePolicy">
           <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
            <horstretch>0</horstretch>
            <verstretch>0</verstretch>
           </sizepolicy>
          </property>
-         <property name="text">
-          <string>Reveal Sensitivity</string>
-         </property>
-        </widget>
-       </item>
-       <item row="11" column="2">
-        <spacer name="horizontalSpacer">
-         <property name="orientation">
-          <enum>Qt::Horizontal</enum>
-         </property>
-         <property name="sizeType">
-          <enum>QSizePolicy::Fixed</enum>
-         </property>
-         <property name="sizeHint" stdset="0">
-          <size>
-           <width>25</width>
-           <height>20</height>
-          </size>
-         </property>
-        </spacer>
-       </item>
-       <item row="5" column="0">
-        <widget class="QLabel" name="lblMountedIcon">
-         <property name="sizePolicy">
-          <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
-           <horstretch>0</horstretch>
-           <verstretch>0</verstretch>
-          </sizepolicy>
-         </property>
-         <property name="text">
-          <string>Minimize applications with clicking</string>
-         </property>
-        </widget>
-       </item>
-       <item row="11" column="4">
-        <widget class="QSpinBox" name="spinIconSize">
-         <property name="minimum">
-          <number>8</number>
-         </property>
-         <property name="maximum">
-          <number>64</number>
-         </property>
-         <property name="singleStep">
-          <number>2</number>
-         </property>
-        </widget>
-       </item>
-       <item row="21" column="0">
-        <widget class="QLabel" name="lblHomeIcon_11">
-         <property name="sizePolicy">
-          <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
-           <horstretch>0</horstretch>
-           <verstretch>0</verstretch>
-          </sizepolicy>
-         </property>
-         <property name="text">
-          <string>Enable search of your files</string>
-         </property>
-        </widget>
-       </item>
-       <item row="9" column="0">
-        <widget class="QLabel" name="lblNetworkIcon_2">
-         <property name="sizePolicy">
-          <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
-           <horstretch>0</horstretch>
-           <verstretch>0</verstretch>
-          </sizepolicy>
-         </property>
-         <property name="text">
-          <string>Position</string>
-         </property>
-        </widget>
-       </item>
-       <item row="6" column="0" colspan="6">
-        <widget class="QLabel" name="label_4">
          <property name="accessibleName">
-          <string>title</string>
-         </property>
-         <property name="text">
-          <string>Appearance</string>
-         </property>
-        </widget>
-       </item>
-       <item row="15" column="1" colspan="3" alignment="Qt::AlignLeft">
-        <widget class="QCheckBox" name="checkBackgroundBlur">
-         <property name="cursor">
-          <cursorShape>PointingHandCursor</cursorShape>
-         </property>
-         <property name="focusPolicy">
-          <enum>Qt::NoFocus</enum>
-         </property>
-         <property name="text">
           <string/>
          </property>
-        </widget>
-       </item>
-       <item row="13" column="0" colspan="6">
-        <widget class="QLabel" name="label_3">
-         <property name="accessibleName">
-          <string>general-title</string>
-         </property>
          <property name="text">
-          <string>Search</string>
-         </property>
-         <property name="alignment">
-          <set>Qt::AlignCenter</set>
+          <string>Transparency Level</string>
          </property>
         </widget>
        </item>
@@ -373,119 +550,47 @@
          </property>
         </spacer>
        </item>
-       <item row="9" column="3">
-        <widget class="QRadioButton" name="radioLauncherPositionBottom">
-         <property name="sizePolicy">
-          <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
-           <horstretch>0</horstretch>
-           <verstretch>0</verstretch>
-          </sizepolicy>
-         </property>
-         <property name="cursor">
-          <cursorShape>PointingHandCursor</cursorShape>
-         </property>
-         <property name="text">
-          <string>Bottom</string>
-         </property>
-         <attribute name="buttonGroup">
-          <string notr="true">buttonGroup_3</string>
-         </attribute>
-        </widget>
-       </item>
-       <item row="2" column="1" colspan="3" alignment="Qt::AlignLeft">
-        <widget class="QCheckBox" name="checkLauncherAutoHide">
-         <property name="cursor">
-          <cursorShape>PointingHandCursor</cursorShape>
-         </property>
-         <property name="focusPolicy">
-          <enum>Qt::NoFocus</enum>
-         </property>
-         <property name="text">
-          <string/>
-         </property>
-        </widget>
-       </item>
-       <item row="7" column="1">
-        <widget class="QSlider" name="sliderLauncherOpacity">
-         <property name="cursor">
-          <cursorShape>PointingHandCursor</cursorShape>
-         </property>
-         <property name="focusPolicy">
-          <enum>Qt::NoFocus</enum>
-         </property>
-         <property name="minimum">
-          <number>1</number>
-         </property>
-         <property name="maximum">
-          <number>10</number>
-         </property>
-         <property name="pageStep">
-          <number>2</number>
-         </property>
-         <property name="value">
-          <number>1</number>
-         </property>
-         <property name="orientation">
-          <enum>Qt::Horizontal</enum>
-         </property>
-        </widget>
-       </item>
-       <item row="21" column="1" colspan="3" alignment="Qt::AlignLeft">
-        <widget class="QCheckBox" name="checkSearchYourFiles">
-         <property name="cursor">
-          <cursorShape>PointingHandCursor</cursorShape>
-         </property>
-         <property name="focusPolicy">
-          <enum>Qt::NoFocus</enum>
-         </property>
-         <property name="text">
-          <string/>
-         </property>
-        </widget>
-       </item>
-       <item row="4" column="1">
-        <widget class="QSlider" name="sliderRevealSensitivy">
-         <property name="cursor">
-          <cursorShape>PointingHandCursor</cursorShape>
-         </property>
-         <property name="focusPolicy">
-          <enum>Qt::NoFocus</enum>
-         </property>
-         <property name="minimum">
-          <number>1</number>
-         </property>
-         <property name="maximum">
-          <number>10</number>
-         </property>
-         <property name="pageStep">
-          <number>1</number>
-         </property>
-         <property name="value">
-          <number>1</number>
-         </property>
-         <property name="orientation">
-          <enum>Qt::Horizontal</enum>
-         </property>
-        </widget>
-       </item>
-       <item row="7" column="0">
-        <widget class="QLabel" name="label_5">
+       <item row="4" column="0">
+        <widget class="QLabel" name="lblTrashIcon">
          <property name="sizePolicy">
           <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
            <horstretch>0</horstretch>
            <verstretch>0</verstretch>
           </sizepolicy>
          </property>
-         <property name="accessibleName">
-          <string/>
-         </property>
          <property name="text">
-          <string>Transparency Level</string>
+          <string>Reveal Sensitivity</string>
          </property>
         </widget>
        </item>
-       <item row="19" column="1" colspan="3" alignment="Qt::AlignLeft">
-        <widget class="QCheckBox" name="checkRecentlyUsed">
+       <item row="30" column="0">
+        <spacer name="verticalSpacer">
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>20</width>
+           <height>46</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item row="21" column="0">
+        <widget class="QLabel" name="lblHomeIcon_11">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="text">
+          <string>Enable search of your files</string>
+         </property>
+        </widget>
+       </item>
+       <item row="15" column="1" alignment="Qt::AlignLeft">
+        <widget class="QCheckBox" name="checkBackgroundBlur">
          <property name="cursor">
           <cursorShape>PointingHandCursor</cursorShape>
          </property>
@@ -494,49 +599,6 @@
          </property>
          <property name="text">
           <string/>
-         </property>
-        </widget>
-       </item>
-       <item row="14" column="0" colspan="6">
-        <widget class="QLabel" name="lblHomeIcon_6">
-         <property name="accessibleName">
-          <string>title</string>
-         </property>
-         <property name="text">
-          <string>General</string>
-         </property>
-        </widget>
-       </item>
-       <item row="5" column="1" colspan="3" alignment="Qt::AlignLeft">
-        <widget class="QCheckBox" name="checkMinimizeApps">
-         <property name="cursor">
-          <cursorShape>PointingHandCursor</cursorShape>
-         </property>
-         <property name="focusPolicy">
-          <enum>Qt::NoFocus</enum>
-         </property>
-         <property name="text">
-          <string/>
-         </property>
-        </widget>
-       </item>
-       <item row="10" column="0" colspan="6">
-        <widget class="QLabel" name="label_6">
-         <property name="accessibleName">
-          <string>title</string>
-         </property>
-         <property name="text">
-          <string>Icons</string>
-         </property>
-        </widget>
-       </item>
-       <item row="1" column="0" colspan="6">
-        <widget class="QLabel" name="lblHomeIcon_2">
-         <property name="accessibleName">
-          <string>title</string>
-         </property>
-         <property name="text">
-          <string>Behaviour</string>
          </property>
         </widget>
        </item>
@@ -553,21 +615,47 @@
          </property>
         </widget>
        </item>
-       <item row="0" column="0" colspan="6">
-        <widget class="QLabel" name="label">
-         <property name="accessibleName">
-          <string>general-title</string>
+       <item row="26" column="0">
+        <widget class="QLabel" name="lblHomeIcon_3">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
          </property>
          <property name="text">
-          <string>Launcher</string>
-         </property>
-         <property name="alignment">
-          <set>Qt::AlignCenter</set>
+          <string>Date &amp; Time</string>
          </property>
         </widget>
        </item>
-       <item row="11" column="1" alignment="Qt::AlignLeft">
-        <widget class="QCheckBox" name="checkShowDesktopIcon">
+       <item row="26" column="3">
+        <widget class="QLabel" name="lblHomeIcon_4">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="text">
+          <string>24-Hour Time</string>
+         </property>
+        </widget>
+       </item>
+       <item row="27" column="0">
+        <widget class="QLabel" name="lblHomeIcon_14">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="text">
+          <string>Include</string>
+         </property>
+        </widget>
+       </item>
+       <item row="26" column="4" alignment="Qt::AlignLeft">
+        <widget class="QCheckBox" name="check24Hour">
          <property name="cursor">
           <cursorShape>PointingHandCursor</cursorShape>
          </property>
@@ -577,38 +665,6 @@
          <property name="text">
           <string/>
          </property>
-        </widget>
-       </item>
-       <item row="16" column="0">
-        <widget class="QLabel" name="lblHomeIcon_5">
-         <property name="sizePolicy">
-          <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
-           <horstretch>0</horstretch>
-           <verstretch>0</verstretch>
-          </sizepolicy>
-         </property>
-         <property name="text">
-          <string>Search online sources</string>
-         </property>
-        </widget>
-       </item>
-       <item row="3" column="3" colspan="2">
-        <widget class="QRadioButton" name="radioRevealTopLeft">
-         <property name="sizePolicy">
-          <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
-           <horstretch>0</horstretch>
-           <verstretch>0</verstretch>
-          </sizepolicy>
-         </property>
-         <property name="cursor">
-          <cursorShape>PointingHandCursor</cursorShape>
-         </property>
-         <property name="text">
-          <string>Top-Left Corner</string>
-         </property>
-         <attribute name="buttonGroup">
-          <string notr="true">buttonGroup</string>
-         </attribute>
         </widget>
        </item>
        <item row="8" column="3" colspan="2">
@@ -630,8 +686,30 @@
          </attribute>
         </widget>
        </item>
-       <item row="11" column="0">
-        <widget class="QLabel" name="lblMountedIcon_5">
+       <item row="28" column="1">
+        <widget class="QCheckBox" name="checkWeekday">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="cursor">
+          <cursorShape>PointingHandCursor</cursorShape>
+         </property>
+         <property name="focusPolicy">
+          <enum>Qt::NoFocus</enum>
+         </property>
+         <property name="accessibleName">
+          <string>circle</string>
+         </property>
+         <property name="text">
+          <string>Weekday</string>
+         </property>
+        </widget>
+       </item>
+       <item row="15" column="0">
+        <widget class="QLabel" name="lblHomeIcon_15">
          <property name="sizePolicy">
           <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
            <horstretch>0</horstretch>
@@ -639,12 +717,120 @@
           </sizepolicy>
          </property>
          <property name="text">
-          <string>&quot;Show Desktop&quot; icon</string>
+          <string>Background Blur</string>
          </property>
         </widget>
        </item>
-       <item row="16" column="1" colspan="3" alignment="Qt::AlignLeft">
-        <widget class="QCheckBox" name="checkSearchOnlineResource">
+       <item row="11" column="0">
+        <widget class="QLabel" name="lblMountedIcon_4">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="text">
+          <string>Icon size</string>
+         </property>
+        </widget>
+       </item>
+       <item row="11" column="1">
+        <widget class="QSpinBox" name="spinIconSize">
+         <property name="minimum">
+          <number>8</number>
+         </property>
+         <property name="maximum">
+          <number>64</number>
+         </property>
+         <property name="singleStep">
+          <number>2</number>
+         </property>
+        </widget>
+       </item>
+       <item row="7" column="0">
+        <widget class="QLabel" name="label_8">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="accessibleName">
+          <string/>
+         </property>
+         <property name="text">
+          <string>Transparency Level</string>
+         </property>
+        </widget>
+       </item>
+       <item row="7" column="1">
+        <widget class="QSlider" name="sliderLauncherOpacity">
+         <property name="cursor">
+          <cursorShape>PointingHandCursor</cursorShape>
+         </property>
+         <property name="focusPolicy">
+          <enum>Qt::NoFocus</enum>
+         </property>
+         <property name="minimum">
+          <number>2</number>
+         </property>
+         <property name="maximum">
+          <number>80</number>
+         </property>
+         <property name="pageStep">
+          <number>2</number>
+         </property>
+         <property name="value">
+          <number>2</number>
+         </property>
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+        </widget>
+       </item>
+       <item row="24" column="1">
+        <widget class="QSlider" name="sliderPanelOpacity">
+         <property name="cursor">
+          <cursorShape>PointingHandCursor</cursorShape>
+         </property>
+         <property name="focusPolicy">
+          <enum>Qt::NoFocus</enum>
+         </property>
+         <property name="minimum">
+          <number>2</number>
+         </property>
+         <property name="maximum">
+          <number>80</number>
+         </property>
+         <property name="pageStep">
+          <number>2</number>
+         </property>
+         <property name="value">
+          <number>2</number>
+         </property>
+         <property name="sliderPosition">
+          <number>2</number>
+         </property>
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+        </widget>
+       </item>
+       <item row="29" column="0">
+        <widget class="QLabel" name="lblHomeIcon_16">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="text">
+          <string>Volume</string>
+         </property>
+        </widget>
+       </item>
+       <item row="29" column="1" alignment="Qt::AlignLeft">
+        <widget class="QCheckBox" name="checkVolume">
          <property name="cursor">
           <cursorShape>PointingHandCursor</cursorShape>
          </property>
@@ -653,6 +839,76 @@
          </property>
          <property name="text">
           <string/>
+         </property>
+        </widget>
+       </item>
+       <item row="29" column="4">
+        <widget class="QCheckBox" name="checkShowMyName">
+         <property name="cursor">
+          <cursorShape>PointingHandCursor</cursorShape>
+         </property>
+         <property name="focusPolicy">
+          <enum>Qt::NoFocus</enum>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+        </widget>
+       </item>
+       <item row="29" column="3">
+        <widget class="QLabel" name="lblHomeIcon_17">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="text">
+          <string>Show my name</string>
+         </property>
+        </widget>
+       </item>
+       <item row="27" column="3">
+        <widget class="QCheckBox" name="checkDate">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="cursor">
+          <cursorShape>PointingHandCursor</cursorShape>
+         </property>
+         <property name="focusPolicy">
+          <enum>Qt::NoFocus</enum>
+         </property>
+         <property name="accessibleName">
+          <string>circle</string>
+         </property>
+         <property name="text">
+          <string>Date</string>
+         </property>
+        </widget>
+       </item>
+       <item row="28" column="3">
+        <widget class="QCheckBox" name="checkCalendar">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="cursor">
+          <cursorShape>PointingHandCursor</cursorShape>
+         </property>
+         <property name="focusPolicy">
+          <enum>Qt::NoFocus</enum>
+         </property>
+         <property name="accessibleName">
+          <string>circle</string>
+         </property>
+         <property name="text">
+          <string>Calendar</string>
          </property>
         </widget>
        </item>

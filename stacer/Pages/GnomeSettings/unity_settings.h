@@ -37,8 +37,6 @@ private slots:
     void on_radioLauncherPositionLeft_clicked();
     void on_radioLauncherPositionBottom_clicked();
 
-//    void on_checkShowDesktopIcon_clicked(bool checked);
-
     void on_spinIconSize_valueChanged(int value);
 
     void on_checkBackgroundBlur_clicked(bool checked);
@@ -50,6 +48,24 @@ private slots:
     void on_checkRecentlyUsed_clicked(bool checked);
 
     void on_checkSearchYourFiles_clicked(bool checked);
+
+    void on_sliderPanelOpacity_valueChanged(int value);
+
+    void on_checkDateTime_clicked(bool checked);
+
+    void on_check24Hour_clicked(bool checked);
+
+    void on_checkSeconds_clicked(bool checked);
+
+    void on_checkDate_clicked(bool checked);
+
+    void on_checkWeekday_clicked(bool checked);
+
+    void on_checkCalendar_clicked(bool checked);
+
+    void on_checkVolume_clicked(bool checked);
+
+    void on_checkShowMyName_clicked(bool checked);
 
 private:
     Ui::UnitySettings *ui;
