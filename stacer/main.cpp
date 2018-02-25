@@ -2,10 +2,8 @@
 #include <QSplashScreen>
 #include <QDebug>
 #include "app.h"
-#include "utilities.h"
-void messageHandler(QtMsgType type,
-                    const QMessageLogContext &context,
-                    const QString &message)
+
+void messageHandler(QtMsgType type, const QMessageLogContext &context, const QString &message)
 {
     Q_UNUSED(context)
 
@@ -33,20 +31,13 @@ void messageHandler(QtMsgType type,
                                 .arg(level)
                                 .arg(message);
 
-        static QString logPath = QStandardPaths::writableLocation(QStandardPaths::AppConfigLocation) + "/log";
-
-        QDir().mkdir(logPath);
+        static QString logPath = QStandardPaths::writableLocation(QStandardPaths::AppConfigLocation);
 
         QFile file(logPath + "/stacer.log");
 
-        QIODevice::OpenMode openMode;
+        QIODevice::OpenMode openMode = file.size() > (1L << 20) ? QIODevice::Truncate : QIODevice::Append;
 
-        if (file.size() > (1L << 20))
-            openMode = QIODevice::WriteOnly | QIODevice::Truncate;
-        else
-            openMode = QIODevice::WriteOnly | QIODevice::Append;
-
-        if (file.open(openMode)) {
+        if (file.open(QIODevice::WriteOnly | openMode)) {
             QTextStream stream(&file);
             stream << text << endl;
 
@@ -54,7 +45,6 @@ void messageHandler(QtMsgType type,
         }
     }
 }
-
 
 int main(int argc, char *argv[])
 {
@@ -65,23 +55,22 @@ int main(int argc, char *argv[])
     qApp->setApplicationVersion("1.0.9");
     qApp->setWindowIcon(QIcon(":/static/logo.png"));
 
+    QPixmap pixmap(":/static/splashscreen.png");
 
     QGraphicsDropShadowEffect *splashShadowEffect = new QGraphicsDropShadowEffect;
     splashShadowEffect->setBlurRadius(30);
     splashShadowEffect->setColor(QColor(0, 0, 0, 210));
     splashShadowEffect->setOffset(0);
 
-
-    QPixmap pixmap(":/static/splashscreen.png");
     QSplashScreen splash(pixmap);
     splash.setGraphicsEffect(splashShadowEffect);
-
 
     splash.show();
 
     app.processEvents();
 
-    QThread::sleep(10);
+//    QThread::sleep(10);
+
 //    qInstallMessageHandler(messageHandler);
 
     App w;

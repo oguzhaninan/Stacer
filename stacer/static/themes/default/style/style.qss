@@ -61,18 +61,6 @@ QAbstractScrollArea::corner {
     background: transparent;
 }
 
-QListWidget {
-    show-decoration-selected: 0;
-}
-
-QListWidget::item {
-
-}
-
-QWidget[active=true] #aptSourceRepositoryItemWidget {
-    background-color: orange;
-}
-
 /**************************
     QMENU
 ***************************/
@@ -733,7 +721,7 @@ QSlider::handle:horizontal {
 #packagesList {
     border:0;
     background-color: transparent;
-    font-size:11pt;
+    font-size: 11pt;
 }
 
 #packagesList::indicator {
@@ -968,6 +956,15 @@ QComboBox QAbstractItemView {
     color: @color05;
 }
 
+#aptSourceRepositoryListWidget {
+    selection-background-color: @color03;
+}
+
+#aptSourceRepositoryListWidget::item {
+    padding: 0 0 0 4;
+}
+
+
 /* - APT Source Repository Item - */
 
 #aptSourceRepositoryItemWidget {
@@ -1104,3 +1101,7 @@ QRadioButton::indicator:checked {
 }
 
 
+#lblCreatedBy {
+    font-size: 9pt;
+    color: @color06;
+}
