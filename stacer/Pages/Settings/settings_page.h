@@ -25,6 +25,7 @@ private slots:
     void languagesCmbChanged(const int &index);
     void diskCmbChanged(const int &index);
     void on_checkAutostart_clicked(bool checked);
+    void on_btnDonate_clicked();
 
 private:
     Ui::SettingsPage *ui;

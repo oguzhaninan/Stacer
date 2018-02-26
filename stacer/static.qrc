@@ -68,5 +68,6 @@
         <file>static/themes/default/img/ppa-repository.png</file>
         <file>static/splashscreen.png</file>
         <file>static/loading.svg</file>
+        <file>static/themes/common/img/donate.png</file>
     </qresource>
 </RCC>

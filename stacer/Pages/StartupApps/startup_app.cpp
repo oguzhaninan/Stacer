@@ -50,7 +50,7 @@ void StartupApp::on_startupCheck_clicked(bool status)
         lines.append(QString("Hidden=%1").arg(_status));
     }
 
-    FileUtil::writeFile(filePath, lines.join('\n'));
+    FileUtil::writeFile(filePath, lines.join('\n').append('\n'));
 }
 
 void StartupApp::on_deleteAppBtn_clicked()

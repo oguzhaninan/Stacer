@@ -18,7 +18,7 @@ public:
   static QString readStringFromFile(const QString &path, const QIODevice::OpenMode &mode = QIODevice::ReadOnly);
   static QStringList readListFromFile(const QString &path, const QIODevice::OpenMode &mode = QIODevice::ReadOnly);
 
-  static bool writeFile(const QString &path, const QString &content, const QIODevice::OpenMode &mode = QIODevice::ReadWrite);
+  static bool writeFile(const QString &path, const QString &content, const QIODevice::OpenMode &mode = QIODevice::WriteOnly | QIODevice::Truncate);
   static QStringList directoryList(const QString &path);
   static quint64 getFileSize(const QString &path);
 

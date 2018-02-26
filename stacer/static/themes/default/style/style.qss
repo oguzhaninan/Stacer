@@ -131,9 +131,10 @@ QCheckBox[accessibleName="circle"]::indicator:checked {
 
 QToolTip {
     color: @color05;
-    background-color: @color04;
-    border: 1px solid @color04;
-    border-radius: 2;
+    padding: 2;
+    background-color: @sidebar;
+    /*border: 1px solid @pageContent;*/
+    border-radius: 3;
 }
 
 /**************************
@@ -148,7 +149,6 @@ QToolTip {
     color: @color06;
     font-size: 13pt;
 }
-
 
 QKeySequenceEdit {
     border-radius: 2;
@@ -1105,3 +1105,16 @@ QRadioButton::indicator:checked {
     font-size: 9pt;
     color: @color06;
 }
+
+#btnDonate {
+    border-radius: 3;
+    padding: 5 10;
+    font-size: 11pt;
+    background-color: @color03;
+    color: @color07;
+}
+
+#btnDonate:hover {
+    background-color: @color10;
+}
+

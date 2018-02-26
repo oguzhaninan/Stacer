@@ -2,6 +2,8 @@
 #include "ui_settings_page.h"
 #include "Managers/info_manager.h"
 #include "utilities.h"
+#include <QDesktopServices>
+#include <QUrl>
 
 SettingsPage::~SettingsPage()
 {
@@ -51,7 +53,7 @@ void SettingsPage::init()
     }
 
     QString dk = apm->getDiskName();
-    ui->disksCmb->setCurrentText(dk);
+    ui->disksCmb->setCurrentIndex(ui->disksCmb->findData(dk));
 
     // start on boot
     startupAppPath = QStandardPaths::writableLocation(QStandardPaths::ConfigLocation);
@@ -70,6 +72,7 @@ void SettingsPage::init()
     Utilities::addDropShadow(ui->languagesCmb, 40);
     Utilities::addDropShadow(ui->themesCmb, 40);
     Utilities::addDropShadow(ui->disksCmb, 40);
+    Utilities::addDropShadow(ui->btnDonate, 40);
 
     connect(ui->languagesCmb, SIGNAL(currentIndexChanged(int)), this, SLOT(languagesCmbChanged(int)));
     connect(ui->themesCmb, SIGNAL(currentIndexChanged(int)), this, SLOT(themesCmbChanged(int)));    
@@ -120,4 +123,9 @@ void SettingsPage::on_checkAutostart_clicked(bool checked)
     } else {
         QFile::remove(startupAppPath);
     }
+}
+
+void SettingsPage::on_btnDonate_clicked()
+{
+    QDesktopServices::openUrl(QUrl("https://www.patreon.com/oguzhaninan"));
 }
