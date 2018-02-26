@@ -26,6 +26,7 @@ private slots:
     void diskCmbChanged(const int &index);
     void on_checkAutostart_clicked(bool checked);
     void on_btnDonate_clicked();
+    void cmbHomePageChanged(const QString text);
 
 private:
     Ui::SettingsPage *ui;

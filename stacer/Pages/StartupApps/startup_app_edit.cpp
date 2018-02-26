@@ -18,7 +18,7 @@ StartupAppEdit::StartupAppEdit(QWidget *parent) :
                    "Exec=%3\n"
                    "Type=Application\n"
                    "Terminal=false\n"
-                   "Hidden=true\n")
+                   "Hidden=false\n")
 {
     ui->setupUi(this);
 
@@ -86,7 +86,7 @@ void StartupAppEdit::on_saveBtn_clicked()
             changeDesktopValue(lines, COMMENT_REG, QString("Comment=%1").arg(ui->appCommentTxt->text()));
             changeDesktopValue(lines, EXEC_REG, QString("Exec=%1").arg(ui->appCommandTxt->text()));
 
-            FileUtil::writeFile(selectedFilePath, lines.join("\n").append('\n'), QIODevice::ReadWrite | QIODevice::Truncate);
+            FileUtil::writeFile(selectedFilePath, lines.join("\n"), QIODevice::ReadWrite | QIODevice::Truncate);
         }
         else {
             // new file content

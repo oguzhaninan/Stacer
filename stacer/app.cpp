@@ -20,7 +20,8 @@ App::App(QWidget *parent) :
     resourcesPage(new ResourcesPage(slidingStacked)),
     gnomeSettingsPage(new GnomeSettingsPage(slidingStacked)),
     settingsPage(new SettingsPage(slidingStacked)),
-    trayIcon(new QSystemTrayIcon(QIcon(":/static/logo.png"), this))
+    trayIcon(new QSystemTrayIcon(QIcon(":/static/logo.png"), this)),
+    trayMenu(new QMenu(this))
 {
     ui->setupUi(this);
 
@@ -30,11 +31,8 @@ App::App(QWidget *parent) :
 void App::init()
 {
     setGeometry(
-        QStyle::alignedRect(
-            Qt::LeftToRight,
-            Qt::AlignCenter,
-            size(),
-            qApp->desktop()->availableGeometry())
+        QStyle::alignedRect(Qt::LeftToRight, Qt::AlignCenter,
+            size(), qApp->desktop()->availableGeometry())
     );
 
     // form settings
@@ -47,33 +45,73 @@ void App::init()
 
     ui->pageContentLayout->addWidget(slidingStacked);
 
-    // add pages
-    slidingStacked->addWidget(dashboardPage);
-    slidingStacked->addWidget(startupAppsPage);
-    slidingStacked->addWidget(systemCleanerPage);
-    slidingStacked->addWidget(servicesPage);
-    slidingStacked->addWidget(processPage);
-    slidingStacked->addWidget(uninstallerPage);
-    slidingStacked->addWidget(resourcesPage);
-    slidingStacked->addWidget(gnomeSettingsPage);
-    slidingStacked->addWidget(settingsPage);
+    listPages = {
+        dashboardPage, startupAppsPage, systemCleanerPage, servicesPage, processPage,
+        uninstallerPage, resourcesPage, gnomeSettingsPage, settingsPage
+    };
+
+    listSidebarButtons = {
+        ui->dashBtn, ui->startupAppsBtn, ui->systemCleanerBtn, ui->servicesBtn, ui->processesBtn,
+        ui->uninstallerBtn, ui->resourcesBtn, ui->gnomeSettingsBtn, ui->settingsBtn
+    };
 
     // APT SOURCE MANAGER
     if (ToolManager::ins()->checkSourceRepository()) {
         aptSourceManagerPage = new APTSourceManagerPage(this);
-        slidingStacked->addWidget(aptSourceManagerPage);
+        listPages.insert(6, aptSourceManagerPage);
+        listSidebarButtons.insert(6, ui->aptSourceManagerBtn);
     } else {
         ui->aptSourceManagerBtn->hide();
+    }
+
+    // add pages
+    for (QWidget *page: listPages) {
+        slidingStacked->addWidget(page);
     }
 
     AppManager::ins()->updateStylesheet();
 
     Utilities::addDropShadow(ui->sidebar, 60);
 
+    // set home page
+    QString selectedHomePage = AppManager::ins()->getHomePage();
+    clickSidebarButton(selectedHomePage);
+
+    createTrayActions();
+
     connect(trayIcon, &QSystemTrayIcon::activated, this, &App::iconActivated);
     trayIcon->show();
+}
 
-    on_dashBtn_clicked();
+void App::clickSidebarButton(QString pageTitle)
+{
+    QWidget *selectedWidget = getPageByTitle(pageTitle);
+    if (selectedWidget) {
+        pageClick(selectedWidget);
+        checkSidebarButtonByTooltip(pageTitle);
+    } else {
+        pageClick(listPages.first());
+    }
+}
+
+void App::createTrayActions()
+{
+    for (QPushButton *button: listSidebarButtons) {
+        QString toolTip = button->toolTip();
+        QAction *action = new QAction(toolTip, this);
+        connect(action, &QAction::triggered, [=] {
+            clickSidebarButton(toolTip);
+        });
+        trayMenu->addAction(action);
+    }
+
+    trayMenu->addSeparator();
+
+    QAction *quitAction = new QAction(tr("Quit"), this);
+    connect(quitAction, &QAction::triggered, [=] {qApp->quit();});
+    trayMenu->addAction(quitAction);
+
+    trayIcon->setContextMenu(trayMenu);
 }
 
 void App::iconActivated(QSystemTrayIcon::ActivationReason reason)
@@ -87,65 +125,85 @@ void App::iconActivated(QSystemTrayIcon::ActivationReason reason)
     case QSystemTrayIcon::MiddleClick:
         qDebug() << "middle";
         break;
-    default:
-        ;
     }
 }
 
-void App::pageClick(QWidget *w, QString title)
+void App::checkSidebarButtonByTooltip(const QString &text)
 {
-    ui->pageTitle->setText(title);
-    slidingStacked->slideInIdx(slidingStacked->indexOf(w));
+    for (QPushButton *button: listSidebarButtons) {
+        if (button->toolTip() == text) {
+            button->setChecked(true);
+        }
+    }
+}
+
+QWidget* App::getPageByTitle(const QString &title)
+{
+    for (QWidget *page: listPages) {
+        if (page->windowTitle() == title) {
+            return page;
+        }
+    }
+    return nullptr;
+}
+
+void App::pageClick(QWidget *widget)
+{
+    if (widget) {
+        qDebug() << widget->windowTitle() << "---";
+        ui->pageTitle->setText(widget->windowTitle());
+        slidingStacked->slideInIdx(slidingStacked->indexOf(widget));
+    }
 }
 
 void App::on_dashBtn_clicked()
 {
-    pageClick(dashboardPage, tr("Dashboard"));
-}
-
-void App::on_systemCleanerBtn_clicked()
-{
-    pageClick(systemCleanerPage, tr("System Cleaner"));
+    pageClick(dashboardPage);
 }
 
 void App::on_startupAppsBtn_clicked()
 {
-    pageClick(startupAppsPage, tr("System Startup Apps"));
+    pageClick(startupAppsPage);
+}
+
+void App::on_systemCleanerBtn_clicked()
+{
+    pageClick(systemCleanerPage);
 }
 
 void App::on_servicesBtn_clicked()
 {
-    pageClick(servicesPage, tr("System Services"));
+    pageClick(servicesPage);
 }
 
 void App::on_uninstallerBtn_clicked()
 {
-    pageClick(uninstallerPage, tr("Uninstaller"));
-}
-
-void App::on_resourcesBtn_clicked()
-{
-    pageClick(resourcesPage, tr("Resources"));
+    pageClick(uninstallerPage);
 }
 
 void App::on_processesBtn_clicked()
 {
-    pageClick(processPage, tr("Processes"));
+    pageClick(processPage);
 }
 
-void App::on_settingsBtn_clicked()
+void App::on_resourcesBtn_clicked()
 {
-    pageClick(settingsPage, tr("Settings"));
+    pageClick(resourcesPage);
 }
 
 void App::on_aptSourceManagerBtn_clicked()
 {
-    pageClick(aptSourceManagerPage, tr("APT Source Manager"));
+    pageClick(aptSourceManagerPage);
 }
 
 void App::on_gnomeSettingsBtn_clicked()
 {
-    pageClick(gnomeSettingsPage, tr("Gnome Settings"));
+    pageClick(gnomeSettingsPage);
+}
+
+void App::on_settingsBtn_clicked()
+{
+    pageClick(settingsPage);
 }
 
 void App::on_feedbackBtn_clicked()

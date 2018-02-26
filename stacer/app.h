@@ -33,7 +33,8 @@ public:
 
 private slots:
     void init();
-    void pageClick(QWidget *w, QString title);
+    void pageClick(QWidget *widget);
+    void clickSidebarButton(QString pageTitle);
 
     void on_dashBtn_clicked();
     void on_systemCleanerBtn_clicked();
@@ -49,11 +50,19 @@ private slots:
     void on_feedbackBtn_clicked();
 
     void iconActivated(QSystemTrayIcon::ActivationReason reason);
+
+private:
+    QWidget *getPageByTitle(const QString &title);
+    void checkSidebarButtonByTooltip(const QString &text);
+    void createTrayActions();
+
 private:
     Ui::App *ui;
 
-private:
     // Pages
+    QList<QWidget*> listPages;
+    QList<QPushButton*> listSidebarButtons;
+
     SlidingStackedWidget *slidingStacked;
 
     DashboardPage *dashboardPage;
@@ -70,6 +79,8 @@ private:
     QSharedPointer<Feedback> feedback;
 
     QSystemTrayIcon *trayIcon;
+
+    QMenu *trayMenu;
 };
 
 #endif // APP_H

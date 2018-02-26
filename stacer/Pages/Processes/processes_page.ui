@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string notr="true"/>
+   <string>Processes</string>
   </property>
   <property name="styleSheet">
    <string notr="true"/>

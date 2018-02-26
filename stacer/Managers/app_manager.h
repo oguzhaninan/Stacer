@@ -17,9 +17,10 @@
 
 #include <QDebug>
 
-#define THEME_PROP "ThemeName"
-#define LANG_PROP  "Language"
-#define DISK_PROP  "DiskName"
+#define THEME_PROP      "ThemeName"
+#define LANG_PROP       "Language"
+#define DISK_PROP       "DiskName"
+#define HOMEPAGE_PROP   "HomePage"
 
 class AppManager : public QObject
 {
@@ -46,6 +47,9 @@ public:
     void setDiskName(const QString &value);
     QString getDiskName();
 
+    void setHomePage(const QString &value);
+    QString getHomePage();
+
 signals:
     void changedTheme();
     void changedSlideType(QEasingCurve::Type type);
@@ -59,6 +63,7 @@ private:
     QTranslator translator;
     QString configPath;
     QString themeName;
+
     enum QEasingCurve::Type slideType;
 
     QSettings *settings;

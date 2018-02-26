@@ -68,6 +68,15 @@ void SettingsPage::init()
         ui->checkAutostart->setChecked(false);
     }
 
+    // load pages
+    ui->cmbHomepage->addItems({
+        tr("Dashboard"), tr("Startup Apps"), tr("System Cleaner"),
+        tr("Services"), tr("Processes"), tr("Uninstaller"), tr("Resources"),
+        tr("APT Source Manager"), tr("Gnome Settings"), tr("Settings")
+    });
+
+    ui->cmbHomepage->setCurrentText(apm->getHomePage());
+
     // effects
     Utilities::addDropShadow(ui->languagesCmb, 40);
     Utilities::addDropShadow(ui->themesCmb, 40);
@@ -77,6 +86,7 @@ void SettingsPage::init()
     connect(ui->languagesCmb, SIGNAL(currentIndexChanged(int)), this, SLOT(languagesCmbChanged(int)));
     connect(ui->themesCmb, SIGNAL(currentIndexChanged(int)), this, SLOT(themesCmbChanged(int)));    
     connect(ui->disksCmb, SIGNAL(currentIndexChanged(int)), this, SLOT(diskCmbChanged(int)));
+    connect(ui->cmbHomepage, SIGNAL(currentIndexChanged(QString)), this, SLOT(cmbHomePageChanged(QString)));
 }
 
 void SettingsPage::languagesCmbChanged(const int &index)
@@ -110,16 +120,9 @@ void SettingsPage::on_checkAutostart_clicked(bool checked)
                                       "Exec=/usr/share/stacer/stacer -m \n"
                                       "Type=Application\n"
                                       "Terminal=false\n"
-                                      "Hidden=false");
+                                      "Hidden=false\n");
 
-        QFile autostartApp(startupAppPath);
-
-        if (autostartApp.open(QIODevice::WriteOnly | QIODevice::Truncate)) {
-            QTextStream stream(&autostartApp);
-            stream << appTemplate << endl;
-
-            autostartApp.close();
-        }
+        FileUtil::writeFile(startupAppPath, appTemplate);
     } else {
         QFile::remove(startupAppPath);
     }
@@ -128,4 +131,9 @@ void SettingsPage::on_checkAutostart_clicked(bool checked)
 void SettingsPage::on_btnDonate_clicked()
 {
     QDesktopServices::openUrl(QUrl("https://www.patreon.com/oguzhaninan"));
+}
+
+void SettingsPage::cmbHomePageChanged(const QString text)
+{
+    apm->setHomePage(text);
 }

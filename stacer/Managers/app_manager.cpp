@@ -139,3 +139,17 @@ QString AppManager::getDiskName()
 {
     return settings->value(DISK_PROP, "").toString();
 }
+
+/************
+ * HOMEPAGE
+ ***********/
+
+void AppManager::setHomePage(const QString &value)
+{
+    settings->setValue(HOMEPAGE_PROP, value);
+}
+
+QString AppManager::getHomePage()
+{
+    return settings->value(HOMEPAGE_PROP, "Dashboard").toString();
+}

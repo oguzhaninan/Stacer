@@ -92,7 +92,6 @@ void StartupAppsPage::setAppCount()
 
 void StartupAppsPage::openStartupAppEdit(const QString filePath)
 {
-    qDebug() << filePath;
     StartupAppEdit::selectedFilePath = filePath;
     if (startupAppEdit.isNull()) {
         startupAppEdit = QSharedPointer<StartupAppEdit>(new StartupAppEdit(this));
