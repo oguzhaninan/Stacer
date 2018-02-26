@@ -70,13 +70,23 @@ int main(int argc, char *argv[])
 
     app.processEvents();
 
-    QThread::sleep(1);
+//    QThread::sleep(1);
 
 //    qInstallMessageHandler(messageHandler);
 
     App w;
 
-    w.show();
+    QLatin1String hideOption("--hide");
+
+    if (argc > 1) {
+        QLatin1String option(argv[1]);
+        // hide
+        if (option != hideOption) {
+            w.show();
+        }
+    } else {
+        w.show();
+    }
 
     splash.finish(&w);
 

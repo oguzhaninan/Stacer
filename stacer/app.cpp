@@ -83,15 +83,10 @@ void App::init()
     trayIcon->show();
 }
 
-void App::clickSidebarButton(QString pageTitle)
+void App::closeEvent(QCloseEvent *event)
 {
-    QWidget *selectedWidget = getPageByTitle(pageTitle);
-    if (selectedWidget) {
-        pageClick(selectedWidget);
-        checkSidebarButtonByTooltip(pageTitle);
-    } else {
-        pageClick(listPages.first());
-    }
+    event->ignore();
+    hide();
 }
 
 void App::createTrayActions()
@@ -100,7 +95,7 @@ void App::createTrayActions()
         QString toolTip = button->toolTip();
         QAction *action = new QAction(toolTip, this);
         connect(action, &QAction::triggered, [=] {
-            clickSidebarButton(toolTip);
+            clickSidebarButton(toolTip, true);
         });
         trayMenu->addAction(action);
     }
@@ -128,6 +123,20 @@ void App::iconActivated(QSystemTrayIcon::ActivationReason reason)
     }
 }
 
+void App::clickSidebarButton(QString pageTitle, bool isShow)
+{
+    QWidget *selectedWidget = getPageByTitle(pageTitle);
+    if (selectedWidget) {
+        pageClick(selectedWidget, !isShow);
+        checkSidebarButtonByTooltip(pageTitle);
+    } else {
+        pageClick(listPages.first());
+    }
+    if (isShow) {
+        show();
+    }
+}
+
 void App::checkSidebarButtonByTooltip(const QString &text)
 {
     for (QPushButton *button: listSidebarButtons) {
@@ -147,12 +156,15 @@ QWidget* App::getPageByTitle(const QString &title)
     return nullptr;
 }
 
-void App::pageClick(QWidget *widget)
+void App::pageClick(QWidget *widget, bool slide)
 {
     if (widget) {
-        qDebug() << widget->windowTitle() << "---";
         ui->pageTitle->setText(widget->windowTitle());
-        slidingStacked->slideInIdx(slidingStacked->indexOf(widget));
+        if (slide) {
+            slidingStacked->slideInIdx(slidingStacked->indexOf(widget));
+        } else {
+            slidingStacked->setCurrentWidget(widget);
+        }
     }
 }
 

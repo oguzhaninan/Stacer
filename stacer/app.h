@@ -31,10 +31,13 @@ public:
     explicit App(QWidget *parent = 0);
     ~App();
 
+protected:
+    void closeEvent(QCloseEvent *event) override;
+
 private slots:
     void init();
-    void pageClick(QWidget *widget);
-    void clickSidebarButton(QString pageTitle);
+    void pageClick(QWidget *widget, bool slide = true);
+    void clickSidebarButton(QString pageTitle, bool isShow = false);
 
     void on_dashBtn_clicked();
     void on_systemCleanerBtn_clicked();

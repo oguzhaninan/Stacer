@@ -83,6 +83,7 @@ void SettingsPage::init()
     Utilities::addDropShadow(ui->disksCmb, 40);
     Utilities::addDropShadow(ui->btnDonate, 40);
 
+    // connects
     connect(ui->languagesCmb, SIGNAL(currentIndexChanged(int)), this, SLOT(languagesCmbChanged(int)));
     connect(ui->themesCmb, SIGNAL(currentIndexChanged(int)), this, SLOT(themesCmbChanged(int)));    
     connect(ui->disksCmb, SIGNAL(currentIndexChanged(int)), this, SLOT(diskCmbChanged(int)));
@@ -117,7 +118,7 @@ void SettingsPage::on_checkAutostart_clicked(bool checked)
         QString appTemplate = QString("[Desktop Entry]\n"
                                       "Name=Stacer\n"
                                       "Comment=Linux System Optimizer and Monitoring\n"
-                                      "Exec=/usr/share/stacer/stacer -m \n"
+                                      "Exec=/usr/share/stacer/stacer --hide \n"
                                       "Type=Application\n"
                                       "Terminal=false\n"
                                       "Hidden=false\n");
