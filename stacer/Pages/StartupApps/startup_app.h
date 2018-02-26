@@ -3,10 +3,10 @@
 
 #include <QWidget>
 #include <QDebug>
+#include <QSharedPointer>
 #include <Utils/file_util.h>
 
 #include "startup_app_edit.h"
-#include "startup_apps_page.h"
 
 namespace Ui {
     class StartupApp;
@@ -35,13 +35,13 @@ private slots:
     void on_editAppBtn_clicked();
 
 signals:
-    void deleteApp();
+    void deleteAppS();
+    void editStartupAppS(const QString filePath);
 
 private:
     Ui::StartupApp *ui;
 
 private:
-    StartupAppEdit *startupAppEdit;
     QString appName;
     QString appComment;
     bool enabled;

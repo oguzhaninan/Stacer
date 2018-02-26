@@ -20,7 +20,6 @@ App::App(QWidget *parent) :
     resourcesPage(new ResourcesPage(slidingStacked)),
     gnomeSettingsPage(new GnomeSettingsPage(slidingStacked)),
     settingsPage(new SettingsPage(slidingStacked)),
-    feedback(new Feedback(this)),
     trayIcon(new QSystemTrayIcon(QIcon(":/static/logo.png"), this))
 {
     ui->setupUi(this);
@@ -151,5 +150,8 @@ void App::on_gnomeSettingsBtn_clicked()
 
 void App::on_feedbackBtn_clicked()
 {
+    if (feedback.isNull()) {
+        feedback = QSharedPointer<Feedback>(new Feedback(this));
+    }
     feedback->show();
 }

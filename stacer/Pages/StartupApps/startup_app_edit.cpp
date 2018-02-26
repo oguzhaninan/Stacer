@@ -105,8 +105,8 @@ void StartupAppEdit::on_saveBtn_clicked()
             FileUtil::writeFile(path, appContent);
         }
 
+        emit startupAppAdded(); // signal
         close();
-        emit closeWindow(); // signal
     }
     else {
         ui->errorMsg->show();

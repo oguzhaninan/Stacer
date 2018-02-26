@@ -28,7 +28,7 @@ public:
     static QString selectedFilePath;
 
 signals:
-    void closeWindow();
+    void startupAppAdded();
 
 public slots:
     void show();

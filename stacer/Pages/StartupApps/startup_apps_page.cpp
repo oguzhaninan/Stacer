@@ -10,7 +10,6 @@ StartupAppsPage::~StartupAppsPage()
 StartupAppsPage::StartupAppsPage(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::StartupAppsPage),
-    startupAppEdit(new StartupAppEdit(this)),
     mFileSystemWatcher(this)
 {
     ui->setupUi(this);
@@ -26,15 +25,15 @@ void StartupAppsPage::init()
 
     loadApps();
 
-    connect(startupAppEdit, &StartupAppEdit::closeWindow, this, &StartupAppsPage::loadApps);
     connect(&mFileSystemWatcher, &QFileSystemWatcher::directoryChanged, this, &StartupAppsPage::loadApps);
+    connect(ui->addStartupAppBtn, SIGNAL(clicked()), this, SLOT(openStartupAppEdit()));
 
     Utilities::addDropShadow(ui->addStartupAppBtn, 60);
 }
 
 void StartupAppsPage::loadApps()
 {
-    // clear layout
+    // clear
     ui->startupListWidget->clear();
 
     QDir autostartFiles(mAutostartPath, "*.desktop");
@@ -67,6 +66,9 @@ void StartupAppsPage::loadApps()
             // new app
             StartupApp *app = new StartupApp(appName, enabled, f.absoluteFilePath(), this);
 
+            connect(app, &StartupApp::deleteAppS, this, &StartupAppsPage::loadApps);
+            connect(app, &StartupApp::editStartupAppS, this, &StartupAppsPage::openStartupAppEdit);
+
             item->setSizeHint(app->sizeHint());
 
             ui->startupListWidget->setItemWidget(item, app);
@@ -88,8 +90,13 @@ void StartupAppsPage::setAppCount()
     ui->startupListWidget->setVisible(count);
 }
 
-void StartupAppsPage::on_addStartupAppBtn_clicked()
+void StartupAppsPage::openStartupAppEdit(const QString filePath)
 {
-    StartupAppEdit::selectedFilePath = "";
+    qDebug() << filePath;
+    StartupAppEdit::selectedFilePath = filePath;
+    if (startupAppEdit.isNull()) {
+        startupAppEdit = QSharedPointer<StartupAppEdit>(new StartupAppEdit(this));
+        connect(startupAppEdit.data(), &StartupAppEdit::startupAppAdded, this, &StartupAppsPage::loadApps);
+    }
     startupAppEdit->show();
 }

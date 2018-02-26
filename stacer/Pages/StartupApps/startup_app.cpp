@@ -10,7 +10,6 @@ StartupApp::~StartupApp()
 StartupApp::StartupApp(const QString &appName, bool enabled, const QString &filePath, QWidget *parent) :
     QWidget(parent),
     ui(new Ui::StartupApp),
-    startupAppEdit(new StartupAppEdit(this)),
     appName(appName),
     enabled(enabled),
     filePath(filePath)
@@ -21,8 +20,6 @@ StartupApp::StartupApp(const QString &appName, bool enabled, const QString &file
     ui->startupCheck->setChecked(enabled);
 
     Utilities::addDropShadow(this, 50);
-
-    connect(startupAppEdit, &StartupAppEdit::closeWindow, (StartupAppsPage*)parent, &StartupAppsPage::loadApps);
 }
 
 void StartupApp::on_startupCheck_clicked(bool status)
@@ -56,13 +53,12 @@ void StartupApp::on_startupCheck_clicked(bool status)
 void StartupApp::on_deleteAppBtn_clicked()
 {
     if(QFile::remove(filePath))
-        emit deleteApp();
+        emit deleteAppS();
 }
 
 void StartupApp::on_editAppBtn_clicked()
 {
-    StartupAppEdit::selectedFilePath = filePath;
-    startupAppEdit->show();
+    emit editStartupAppS(filePath);
 }
 
 QString StartupApp::getAppName() const

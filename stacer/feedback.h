@@ -36,7 +36,6 @@ private:
     QString feedbackUrl;
 
     QRegExp mailRegex;
-
 };
 
 #endif // FEEDBACK_H

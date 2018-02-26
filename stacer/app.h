@@ -67,7 +67,7 @@ private:
     GnomeSettingsPage *gnomeSettingsPage;
     SettingsPage *settingsPage;
 
-    Feedback *feedback;
+    QSharedPointer<Feedback> feedback;
 
     QSystemTrayIcon *trayIcon;
 };
