@@ -48,7 +48,7 @@ QString ServiceTool::getServiceDescription(const QString &serviceName)
 {
     QStringList args = { "cat", serviceName };
 
-    QString result("");
+    QString result("Unknown");
 
     try {
         QStringList content = CommandUtil::exec("systemctl", args)
