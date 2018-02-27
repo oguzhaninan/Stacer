@@ -85,8 +85,9 @@ void App::init()
 
 void App::closeEvent(QCloseEvent *event)
 {
-    event->ignore();
-    hide();
+    event->accept();
+//    event->ignore();
+//    hide();
 }
 
 void App::createTrayActions()

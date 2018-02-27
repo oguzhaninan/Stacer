@@ -15,7 +15,7 @@ public:
     void updateMemoryInfo();
 
     quint64 getMemTotal() const;
-    quint64 getMemAvailable() const;
+    quint64 getMemFree() const;
     quint64 getMemUsed() const;
 
     quint64 getSwapTotal() const;
@@ -25,8 +25,12 @@ public:
 private:
     // memory
     quint64 memTotal;
-    quint64 memAvailable;
+    quint64 memFree;
     quint64 memUsed;
+    quint64 buffers;
+    quint64 cached;
+    quint64 sreclaimable;
+    quint64 shmem;
 
     // swap
     quint64 swapTotal;
