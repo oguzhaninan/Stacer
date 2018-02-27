@@ -28,20 +28,20 @@ void UninstallerPage::init()
 
     QtConcurrent::run(this, &UninstallerPage::loadPackages);
 
-    connect(tm, &ToolManager::uninstallFinished, this, &UninstallerPage::loadPackages);
     connect(tm, &ToolManager::uninstallStarted, this, &UninstallerPage::uninstallStarted);
+    connect(tm, &ToolManager::uninstallFinished, this, &UninstallerPage::loadPackages);
 }
 
 void UninstallerPage::loadPackages()
 {
-    uninstallStarted();
+    emit uninstallStarted();
 
     // clear items
     ui->packagesList->clear();
 
     QIcon icon(QString(":/static/themes/%1/img/package.svg").arg(AppManager::ins()->getThemeName()));
-    for (const QString &package : tm->getPackages())
-    {
+    QStringList packages = tm->getPackages();
+    for (const QString &package : packages) {
         QListWidgetItem *item = new QListWidgetItem(QIcon::fromTheme(package, icon), QString("  %1").arg(package));
 
         item->setCheckState(Qt::Unchecked);
@@ -52,7 +52,6 @@ void UninstallerPage::loadPackages()
 
     ui->packagesList->setEnabled(true);
     ui->packageSearch->setEnabled(true);
-    ui->uninstallBtn->show();
     ui->packageSearch->clear();
 
     ui->loading->hide();
@@ -65,6 +64,7 @@ void UninstallerPage::setAppCount()
     ui->packagesTitle->setText(tr("System Installed Packages (%1)").arg(count));
 
     ui->notFoundWidget->setVisible(! count);
+    ui->uninstallBtn->setVisible(count);
     ui->packagesList->setVisible(count);
 }
 
@@ -87,8 +87,7 @@ void UninstallerPage::on_uninstallBtn_clicked()
 {
     QStringList selectedPackages = getSelectedPackages();
 
-    if(! selectedPackages.isEmpty())
-    {
+    if(! selectedPackages.isEmpty()) {
         QtConcurrent::run([selectedPackages]() -> void {
             ToolManager::ins()->uninstallPackages(selectedPackages);
         });

@@ -27,7 +27,8 @@ QStringList PackageTool::getDpkgPackages()
     try {
         packageList = CommandUtil::exec("bash", {"-c", "dpkg --get-selections 2> /dev/null"})
                 .trimmed()
-                .split("\n");
+                .split('\n')
+                .filter(QRegExp("\\s+install$"));
 
         for (int i = 0; i < packageList.count(); ++i)
             packageList[i] = packageList.at(i).split(QRegExp("\\s+")).first();
@@ -66,7 +67,7 @@ QStringList PackageTool::getRpmPackages()
     try {
         packageList = CommandUtil::exec("bash", {"-c", "rpm -qa 2> /dev/null"})
                 .trimmed()
-                .split("\n");
+                .split('\n');
 
     } catch(QString &ex) {
         qCritical() << ex;
@@ -126,7 +127,7 @@ QStringList PackageTool::getPacmanPackages()
     try {
         packageList = CommandUtil::exec("bash", {"-c", "pacman -Q 2> /dev/null"})
                 .trimmed()
-                .split("\n");
+                .split('\n');
 
         for (int i = 0; i < packageList.count(); ++i)
             packageList[i] = packageList.at(i).split(QRegExp("\\s+")).first();

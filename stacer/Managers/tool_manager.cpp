@@ -81,7 +81,7 @@ QFileInfoList ToolManager::getPackageCaches() const
 
 void ToolManager::uninstallPackages(const QStringList &packages)
 {
-    uninstallStarted();
+    emit uninstallStarted();
 
     switch (PackageTool::currentPackageTool) {
     case PackageTool::PackageTools::APT:
@@ -100,7 +100,7 @@ void ToolManager::uninstallPackages(const QStringList &packages)
         break;
     }
 
-    uninstallFinished();
+    emit uninstallFinished();
 }
 
 /******************
