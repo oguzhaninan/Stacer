@@ -79,7 +79,6 @@ void App::init()
 
     createTrayActions();
 
-    connect(trayIcon, &QSystemTrayIcon::activated, this, &App::iconActivated);
     trayIcon->show();
 }
 
@@ -108,20 +107,6 @@ void App::createTrayActions()
     trayMenu->addAction(quitAction);
 
     trayIcon->setContextMenu(trayMenu);
-}
-
-void App::iconActivated(QSystemTrayIcon::ActivationReason reason)
-{
-    switch (reason) {
-    case QSystemTrayIcon::Trigger:
-        qDebug() << "trigger";
-    case QSystemTrayIcon::DoubleClick:
-        qDebug() << "double";
-        break;
-    case QSystemTrayIcon::MiddleClick:
-        qDebug() << "middle";
-        break;
-    }
 }
 
 void App::clickSidebarButton(QString pageTitle, bool isShow)

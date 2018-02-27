@@ -52,8 +52,6 @@ private slots:
 
     void on_feedbackBtn_clicked();
 
-    void iconActivated(QSystemTrayIcon::ActivationReason reason);
-
 private:
     QWidget *getPageByTitle(const QString &title);
     void checkSidebarButtonByTooltip(const QString &text);

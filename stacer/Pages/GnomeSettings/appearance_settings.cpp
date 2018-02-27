@@ -36,6 +36,10 @@ void AppearanceSettings::init()
 
     QString loginBackMode = gsettings.getValueS(GSchemas::Appearance::Screensaver, GSchemaKeys::Appearance::PictureOptions).replace("'","");
 
+    bool screenKeyboardEnabled = gsettings.getValueB(GSchemas::Appearance::Applications, GSchemaKeys::Appearance::ScreenKeyboard);
+
+    bool screenReaderEnabled = gsettings.getValueB(GSchemas::Appearance::Applications, GSchemaKeys::Appearance::ScreenReader);
+
     ui->checkShowDesktopIcons->setChecked(showDesktopIcons);
 
     ui->checkHomeIcon->setChecked(showHomeIcon);
@@ -49,6 +53,10 @@ void AppearanceSettings::init()
     ui->cmbDesktopBackMode->setCurrentIndex(ui->cmbDesktopBackMode->findData(desktopBackMode));
 
     ui->cmbLoginBackMode->setCurrentIndex(ui->cmbLoginBackMode->findData(loginBackMode));
+
+    ui->checkScreenKeyboard->setChecked(screenKeyboardEnabled);
+
+    ui->checkScreenReader->setChecked(screenReaderEnabled);
 }
 
 void AppearanceSettings::initConnects()
@@ -101,4 +109,14 @@ void AppearanceSettings::cmbDesktopBackMode_currentIndexChanged(const QString &t
 void AppearanceSettings::cmbLoginBackMode_currentIndexChanged(const QString &text)
 {
     gsettings.setValueS(GSchemas::Appearance::Screensaver, GSchemaKeys::Appearance::PictureOptions, text.toLower());
+}
+
+void AppearanceSettings::on_checkScreenKeyboard_clicked(bool checked)
+{
+    gsettings.setValueB(GSchemas::Appearance::Applications, GSchemaKeys::Appearance::ScreenKeyboard, checked);
+}
+
+void AppearanceSettings::on_checkScreenReader_clicked(bool checked)
+{
+    gsettings.setValueB(GSchemas::Appearance::Applications, GSchemaKeys::Appearance::ScreenReader, checked);
 }

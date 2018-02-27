@@ -24,6 +24,8 @@ private slots:
     void on_checkNetworkIcon_clicked(bool checked);
     void cmbDesktopBackMode_currentIndexChanged(const QString &text);
     void cmbLoginBackMode_currentIndexChanged(const QString &text);
+    void on_checkScreenKeyboard_clicked(bool checked);
+    void on_checkScreenReader_clicked(bool checked);
 
 private:
     void init();

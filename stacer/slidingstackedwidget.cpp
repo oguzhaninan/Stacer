@@ -4,7 +4,7 @@ SlidingStackedWidget::SlidingStackedWidget(QWidget *parent)
     : QStackedWidget(parent)
 {
     vertical = false;
-    speed = 200;
+    speed = 150;
     animationtype = QEasingCurve::Type::Linear;
     now = 0;
     next = 0;

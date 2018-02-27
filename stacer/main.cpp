@@ -63,7 +63,7 @@ int main(int argc, char *argv[])
 
     app.processEvents();
 
-    QThread::sleep(42);
+//    QThread::sleep(42);
 
 //    qInstallMessageHandler(messageHandler);
 
