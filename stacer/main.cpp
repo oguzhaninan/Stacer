@@ -57,20 +57,13 @@ int main(int argc, char *argv[])
 
     QPixmap pixmap(":/static/splashscreen.png");
 
-    QGraphicsDropShadowEffect *splashShadowEffect = new QGraphicsDropShadowEffect;
-    splashShadowEffect->setBlurRadius(30);
-    splashShadowEffect->setColor(QColor(0, 0, 0, 210));
-    splashShadowEffect->setOffset(0);
-
     QSplashScreen splash(pixmap);
-
-    splash.setGraphicsEffect(splashShadowEffect);
 
     splash.show();
 
     app.processEvents();
 
-//    QThread::sleep(1);
+    QThread::sleep(42);
 
 //    qInstallMessageHandler(messageHandler);
 

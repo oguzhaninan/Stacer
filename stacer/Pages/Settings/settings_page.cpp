@@ -71,8 +71,7 @@ void SettingsPage::init()
     // load pages
     ui->cmbHomepage->addItems({
         tr("Dashboard"), tr("Startup Apps"), tr("System Cleaner"),
-        tr("Services"), tr("Processes"), tr("Uninstaller"), tr("Resources"),
-        tr("APT Source Manager"), tr("Gnome Settings"), tr("Settings")
+        tr("Services"), tr("Processes"), tr("Uninstaller"), tr("Resources")
     });
 
     ui->cmbHomepage->setCurrentText(apm->getHomePage());
