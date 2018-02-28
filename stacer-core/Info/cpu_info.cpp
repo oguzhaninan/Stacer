@@ -1,14 +1,10 @@
 #include "cpu_info.h"
 
-CpuInfo::CpuInfo()
-{ }
-
 quint8 CpuInfo::getCpuCoreCount() const
 {
     static quint8 count = 0;
 
-    if (! count)
-    {
+    if (! count) {
         QStringList cpuinfo = FileUtil::readListFromFile(PROC_CPUINFO);
 
         if (! cpuinfo.isEmpty())
@@ -16,6 +12,12 @@ quint8 CpuInfo::getCpuCoreCount() const
     }
 
     return count;
+}
+
+QList<int> CpuInfo::getLoadAvgs()
+{
+    QStringList avgs = FileUtil::readStringFromFile(PROC_LOADAVG).split(QRegExp("\\s+"));
+
 }
 
 QList<int> CpuInfo::getCpuPercents() const
@@ -79,7 +81,7 @@ int CpuInfo::getCpuPercent(const QList<double> &cpuTimes, const int &processor) 
         double total = 0.0;
         for (const double &t : cpuTimes) total += t; // get total time
 
-        double idle_delta = idle - l_idles[processor];
+        double idle_delta  = idle  - l_idles[processor];
         double total_delta = total - l_totals[processor];
 
         if (total_delta)

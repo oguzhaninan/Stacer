@@ -29,7 +29,6 @@ void ResourcesPage::init()
     ui->chartsLayout->addWidget(cpuChart);
     ui->chartsLayout->addWidget(memoryChart);
     ui->chartsLayout->addWidget(networkChart);
-    ui->chartsLayout->addWidget(new QPushButton("asdsdsad"));
 
     connect(timer, &QTimer::timeout, this, &ResourcesPage::updateCpuChart);
     connect(timer, &QTimer::timeout, this, &ResourcesPage::updateMemoryChart);
