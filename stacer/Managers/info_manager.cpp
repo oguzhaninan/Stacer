@@ -28,6 +28,11 @@ QList<int> InfoManager::getCpuPercents() const
     return ci.getCpuPercents();
 }
 
+QList<double> InfoManager::getCpuLoadAvgs() const
+{
+    return ci.getLoadAvgs();
+}
+
 /********************
  * MEMORY INFORMATION
  *******************/

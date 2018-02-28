@@ -124,6 +124,8 @@ void DashboardPage::updateCpuBar()
 {
     int cpuUsedPercent = im->getCpuPercents().at(0);
 
+    qDebug() << im->getCpuLoadAvgs();
+
     // alert message
     int maxCpuPercent = AppManager::ins()->getCpuPercent();
     if (maxCpuPercent > 0) {

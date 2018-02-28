@@ -14,10 +14,18 @@ quint8 CpuInfo::getCpuCoreCount() const
     return count;
 }
 
-QList<int> CpuInfo::getLoadAvgs()
+QList<double> CpuInfo::getLoadAvgs() const
 {
-    QStringList avgs = FileUtil::readStringFromFile(PROC_LOADAVG).split(QRegExp("\\s+"));
+    QList<double> avgs;
+    QStringList strListAvgs = FileUtil::readStringFromFile(PROC_LOADAVG).split(QRegExp("\\s+"));
 
+    if (strListAvgs.count() > 2) {
+        avgs << strListAvgs.takeFirst().toDouble();
+        avgs << strListAvgs.takeFirst().toDouble();
+        avgs << strListAvgs.takeFirst().toDouble();
+    }
+
+    return avgs;
 }
 
 QList<int> CpuInfo::getCpuPercents() const
