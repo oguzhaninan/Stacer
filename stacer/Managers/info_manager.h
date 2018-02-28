@@ -29,7 +29,9 @@ public:
 
     quint64 getRXbytes() const;
     quint64 getTXbytes() const;
+
     QList<Disk *> getDisks() const;
+    QList<quint64> getDiskIO();
     void updateDiskInfo();
 
     QFileInfoList getCrashReports() const;

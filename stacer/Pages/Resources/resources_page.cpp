@@ -12,9 +12,10 @@ ResourcesPage::ResourcesPage(QWidget *parent) :
     ui(new Ui::ResourcesPage),
     im(InfoManager::ins()),
     cpuChart(new HistoryChart(tr("History of CPU"), im->getCpuCoreCount(), this)),
+    cpuLoadAvgChart(new HistoryChart(tr("History of CPU Load Averages"), 3, this)),
+    diskReadWriteChart(new HistoryChart(tr("History of Disk Read Write"), 2, this)),
     memoryChart(new HistoryChart(tr("History of Memory"), 2, this)),
     networkChart(new HistoryChart(tr("History of Network"), 2, this)),
-    cpuLoadAvgChart(new HistoryChart(tr("History of CPU Load Averages"), 3, this)),
     timer(new QTimer(this))
 {
     ui->setupUi(this);
@@ -28,7 +29,7 @@ void ResourcesPage::init()
     memoryChart->setYMax(100);
     cpuLoadAvgChart->setYMax(5);
 
-    QList<QWidget*> widgets = { cpuChart, cpuLoadAvgChart, memoryChart, networkChart };
+    QList<QWidget*> widgets = { cpuChart, cpuLoadAvgChart, diskReadWriteChart, memoryChart, networkChart };
 
     for (QWidget *widget : widgets) {
         ui->chartsLayout->addWidget(widget);
@@ -38,10 +39,60 @@ void ResourcesPage::init()
 
     connect(timer, &QTimer::timeout, this, &ResourcesPage::updateCpuChart);
     connect(timer, &QTimer::timeout, this, &ResourcesPage::updateCpuLoadAvg);
+    connect(timer, &QTimer::timeout, this, &ResourcesPage::updateDiskReadWrite);
     connect(timer, &QTimer::timeout, this, &ResourcesPage::updateMemoryChart);
     connect(timer, &QTimer::timeout, this, &ResourcesPage::updateNetworkChart);
 
     timer->start(1000);
+}
+
+void ResourcesPage::updateDiskReadWrite()
+{
+    static int second = 0;
+
+    QList<quint64> diskReadWrite = im->getDiskIO();
+
+    QVector<QSplineSeries*> seriesList = diskReadWriteChart->getSeriesList();
+
+    for (int j = 0; j < seriesList.count(); ++j) {
+        for (int i = 0; i < (second < 61 ? second : 61); ++i) {
+            seriesList.at(j)->replace(i, (i+1), seriesList.at(j)->at(i).y());
+        }
+
+        if(second > 61) seriesList.at(j)->removePoints(61, 1);
+    }
+
+    static quint64 l_readBytes  = diskReadWrite.at(0); // last
+    static quint64 l_writeBytes = diskReadWrite.at(1); // last
+    static quint64 maxY = (1L << 10) * 100; // 100 KIBI
+
+    quint64 readBytes  = diskReadWrite.at(0);
+    quint64 writeBytes = diskReadWrite.at(1);
+
+    quint64 d_readByte = (readBytes - l_readBytes);
+    quint64 d_writeByte = (writeBytes - l_writeBytes);
+
+    seriesList.at(0)->insert(0, QPointF(0, d_readByte >> 10));
+    seriesList.at(0)->setName(tr("Read %1/s Total: %2")
+                              .arg(FormatUtil::formatBytes(d_readByte))
+                              .arg(FormatUtil::formatBytes(readBytes)));
+
+
+    seriesList.at(1)->insert(0, QPointF(0, d_writeByte >> 10));
+    seriesList.at(1)->setName(tr("Write %1/s Total: %2")
+                              .arg(FormatUtil::formatBytes(d_writeByte))
+                              .arg(FormatUtil::formatBytes(writeBytes)));
+
+    maxY = qMax(qMax(maxY, d_readByte), d_writeByte);
+
+    diskReadWriteChart->setYMax(maxY >> 10);
+
+    l_readBytes  = readBytes;
+    l_writeBytes = writeBytes;
+
+    second++;
+
+    diskReadWriteChart->setSeriesList(seriesList);
 }
 
 void ResourcesPage::updateCpuLoadAvg()
@@ -88,8 +139,7 @@ void ResourcesPage::updateNetworkChart()
         for (int i = 0; i < (second < 61 ? second : 61); i++)
             seriesList.at(j)->replace(i, (i+1), seriesList.at(j)->at(i).y());
 
-        if(second > 61)
-            seriesList.at(j)->removePoints(61, 1);
+        if(second > 61) seriesList.at(j)->removePoints(61, 1);
     }
 
     static quint64 l_RXbytes = im->getRXbytes();

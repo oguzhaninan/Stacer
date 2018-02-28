@@ -15,6 +15,8 @@ class STACERCORESHARED_EXPORT DiskInfo
 public:
     QList<Disk*> getDisks() const;
     void updateDiskInfo();
+    QList<quint64> getDiskIO() const;
+    QString getDiskName() const;
 
 private:
     QList<Disk*> disks;

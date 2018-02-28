@@ -74,6 +74,11 @@ void InfoManager::updateDiskInfo()
     di.updateDiskInfo();
 }
 
+QList<quint64> InfoManager::getDiskIO()
+{
+    return di.getDiskIO();
+}
+
 /********************
  * NETWORK INFORMATION
  *******************/
