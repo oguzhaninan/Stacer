@@ -21,6 +21,7 @@ public:
 
 private slots:
     void updateCpuChart();
+    void updateCpuLoadAvg();
     void updateMemoryChart();
     void updateNetworkChart();
 
@@ -34,6 +35,7 @@ private:
     HistoryChart *cpuChart;
     HistoryChart *memoryChart;
     HistoryChart *networkChart;
+    HistoryChart *cpuLoadAvgChart;
 
     QTimer *timer;
 };

@@ -14,6 +14,7 @@ ResourcesPage::ResourcesPage(QWidget *parent) :
     cpuChart(new HistoryChart(tr("CPU History"), im->getCpuCoreCount(), this)),
     memoryChart(new HistoryChart(tr("Memory History"), 2, this)),
     networkChart(new HistoryChart(tr("Network History"), 2, this)),
+    cpuLoadAvgChart(new HistoryChart(tr("CPU Load Averages History"), 3, this)),
     timer(new QTimer(this))
 {
     ui->setupUi(this);
@@ -25,20 +26,55 @@ void ResourcesPage::init()
 {
     cpuChart->setYMax(100);
     memoryChart->setYMax(100);
+    cpuLoadAvgChart->setYMax(5);
 
-    ui->chartsLayout->addWidget(cpuChart);
-    ui->chartsLayout->addWidget(memoryChart);
-    ui->chartsLayout->addWidget(networkChart);
+    QList<QWidget*> widgets = { cpuChart, cpuLoadAvgChart, memoryChart, networkChart };
+
+    for (QWidget *widget : widgets) {
+        ui->chartsLayout->addWidget(widget);
+    }
+
+    Utilities::addDropShadow(widgets, 60);
 
     connect(timer, &QTimer::timeout, this, &ResourcesPage::updateCpuChart);
+    connect(timer, &QTimer::timeout, this, &ResourcesPage::updateCpuLoadAvg);
     connect(timer, &QTimer::timeout, this, &ResourcesPage::updateMemoryChart);
     connect(timer, &QTimer::timeout, this, &ResourcesPage::updateNetworkChart);
 
-    timer->start(1000);    
+    timer->start(1000);
+}
 
-    Utilities::addDropShadow(cpuChart, 60);
-    Utilities::addDropShadow(memoryChart, 60);
-    Utilities::addDropShadow(networkChart, 60);
+void ResourcesPage::updateCpuLoadAvg()
+{
+    static int second, maxAvg = im->getCpuCoreCount();
+
+    static int minutes[] = {1, 5, 15};
+
+    QList<double> cpuLoadAvgs = im->getCpuLoadAvgs();
+
+    QVector<QSplineSeries*> seriesList = cpuLoadAvgChart->getSeriesList();
+
+    for (int j = 0; j < seriesList.count(); ++j) {
+        double avg = cpuLoadAvgs.at(j);
+
+        for (int i = 0; i < (second < 61 ? second : 61); ++i) {
+            seriesList.at(j)->replace(i, (i+1), seriesList.at(j)->at(i).y());
+        }
+
+        seriesList.at(j)->insert(0, QPointF(0, avg));
+
+        seriesList.at(j)->setName(tr("%1 minute avarage").arg(minutes[j]));
+
+        if (second > 61) seriesList.at(j)->removePoints(61, 1);
+
+        maxAvg = qMax((int)ceil(avg), maxAvg);
+    }
+
+    cpuLoadAvgChart->setYMax(maxAvg);
+
+    second++;
+
+    cpuLoadAvgChart->setSeriesList(seriesList);
 }
 
 void ResourcesPage::updateNetworkChart()

@@ -797,6 +797,10 @@ QSlider::handle:horizontal {
     HISTORIES
 ***************************/
 
+#charts {
+    background-color: @pageContent;
+}
+
 #historyTitleLbl {
     font-size: 11pt;
     margin: 6 0 10 0;
