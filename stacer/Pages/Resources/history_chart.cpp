@@ -94,8 +94,9 @@ void HistoryChart::on_historyTitleCheck_clicked(bool checked)
 {
     QLayout *charts = topLevelWidget()->findChild<QWidget*>("charts")->layout();
 
-    for (int i = 0; i < charts->count(); ++i)
+    for (int i = 0; i < charts->count(); ++i) {
         charts->itemAt(i)->widget()->setVisible(! checked);
+    }
 
     show();
 }

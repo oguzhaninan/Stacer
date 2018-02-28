@@ -29,6 +29,7 @@ void ResourcesPage::init()
     ui->chartsLayout->addWidget(cpuChart);
     ui->chartsLayout->addWidget(memoryChart);
     ui->chartsLayout->addWidget(networkChart);
+    ui->chartsLayout->addWidget(new QPushButton("asdsdsad"));
 
     connect(timer, &QTimer::timeout, this, &ResourcesPage::updateCpuChart);
     connect(timer, &QTimer::timeout, this, &ResourcesPage::updateMemoryChart);
@@ -68,7 +69,7 @@ void ResourcesPage::updateNetworkChart()
     quint64 d_TXbytes = (TXbytes - l_TXbytes);
 
     QString downText = FormatUtil::formatBytes(d_RXbytes);
-    QString upText = FormatUtil::formatBytes(d_TXbytes);
+    QString upText   = FormatUtil::formatBytes(d_TXbytes);
 
     // Download
     seriesList.at(0)->insert(0, QPointF(0, d_RXbytes >> 10));

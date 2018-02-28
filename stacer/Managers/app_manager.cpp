@@ -13,12 +13,14 @@ AppManager *AppManager::ins()
 
 AppManager::AppManager(QObject *parent) : QObject(parent)
 {
+    trayIcon = new QSystemTrayIcon(QIcon(":/static/logo.png"), this);
+
     // font settings
     QFontDatabase::addApplicationFont(":/static/font/Ubuntu-R.ttf");
 
     configPath = QStandardPaths::writableLocation(QStandardPaths::AppConfigLocation);
 
-    settings = new QSettings(QString("%1/settings.conf").arg(configPath), QSettings::NativeFormat);
+    settings = new QSettings(QString("%1/settings.conf").arg(configPath), QSettings::IniFormat);
 
     loadLanguageList();
 
@@ -33,7 +35,12 @@ AppManager::AppManager(QObject *parent) : QObject(parent)
         qCritical() << "Translator could not load.";
     }
 
-    styleValues = new QSettings(QString(":/static/themes/%1/style/values.ini").arg(themeName), QSettings::NativeFormat);
+    styleValues = new QSettings(QString(":/static/themes/%1/style/values.ini").arg(themeName), QSettings::IniFormat);
+}
+
+QSystemTrayIcon *AppManager::getTrayIcon()
+{
+    return trayIcon;
 }
 
 QSettings *AppManager::getStyleValues() const
@@ -152,4 +159,37 @@ void AppManager::setHomePage(const QString &value)
 QString AppManager::getHomePage()
 {
     return settings->value(HOMEPAGE_PROP, "Dashboard").toString();
+}
+
+/************
+ * ALERT MESSAGES
+ ***********/
+void AppManager::setCpuPercent(const int value)
+{
+    settings->setValue(CPU_PERCENT, value);
+}
+
+int AppManager::getCpuPercent()
+{
+    return settings->value(CPU_PERCENT, 0).toInt();
+}
+
+void AppManager::setMemoryPercent(const int value)
+{
+    settings->setValue(MEMORY_PERCENT, value);
+}
+
+int AppManager::getMemoryPercent()
+{
+    return settings->value(MEMORY_PERCENT, 0).toInt();
+}
+
+void AppManager::setDiskPercent(const int value)
+{
+    settings->setValue(DISK_PERCENT, value);
+}
+
+int AppManager::getDiskPercent()
+{
+    return settings->value(DISK_PERCENT, 0).toInt();
 }

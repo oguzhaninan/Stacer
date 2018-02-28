@@ -61,11 +61,10 @@ void DashboardPage::init()
     // check update
     checkUpdate();
 
-    Utilities::addDropShadow(cpuBar, 60);
-    Utilities::addDropShadow(memBar, 60);
-    Utilities::addDropShadow(diskBar, 60);
-    Utilities::addDropShadow(downloadBar, 60);
-    Utilities::addDropShadow(uploadBar, 60);
+    QList<QWidget*> widgets = {
+        cpuBar, memBar, diskBar, downloadBar, uploadBar
+    };
+    Utilities::addDropShadow(widgets, 60);
 }
 
 void DashboardPage::checkUpdate()
@@ -125,6 +124,20 @@ void DashboardPage::updateCpuBar()
 {
     int cpuUsedPercent = im->getCpuPercents().at(0);
 
+    // alert message
+    int maxCpuPercent = AppManager::ins()->getCpuPercent();
+    if (maxCpuPercent > 0) {
+        static bool isShow = true;
+        if (cpuUsedPercent > maxCpuPercent && isShow) {
+            AppManager::ins()->getTrayIcon()->showMessage(tr("Bellek Aşımı"),
+                                                          tr("Kullanılan bellek miktarı %1% oranını aştı.").arg(maxCpuPercent),
+                                                          QIcon(":/static/logo.png"));
+            isShow = false;
+        } else if (cpuUsedPercent < maxCpuPercent) {
+            isShow = true;
+        }
+    }
+
     cpuBar->setValue(cpuUsedPercent, QString("%1%").arg(cpuUsedPercent));
 }
 
@@ -139,6 +152,20 @@ void DashboardPage::updateMemoryBar()
     QString f_memUsed  = FormatUtil::formatBytes(im->getMemUsed());
     QString f_memTotal = FormatUtil::formatBytes(im->getMemTotal());
 
+    // alert message
+    int maxMemoryPercent = AppManager::ins()->getMemoryPercent();
+    if (maxMemoryPercent > 0) {
+        static bool isShow = true;
+        if (memUsedPercent > maxMemoryPercent && isShow) {
+            AppManager::ins()->getTrayIcon()->showMessage(tr("Bellek Aşımı"),
+                                                          tr("Kullanılan bellek miktarı %1% oranını aştı.").arg(maxMemoryPercent),
+                                                          QIcon(":/static/logo.png"));
+            isShow = false;
+        } else if (memUsedPercent < maxMemoryPercent) {
+            isShow = true;
+        }
+    }
+
     memBar->setValue(memUsedPercent, QString("%1 / %2")
                      .arg(f_memUsed)
                      .arg(f_memTotal));
@@ -148,8 +175,7 @@ void DashboardPage::updateDiskBar()
 {
     im->updateDiskInfo();
 
-    if(! im->getDisks().isEmpty())
-    {
+    if(! im->getDisks().isEmpty()) {
         Disk *disk = nullptr;
         QString selectedDiskName = AppManager::ins()->getDiskName();
         for (Disk *d: im->getDisks()) {
@@ -167,6 +193,20 @@ void DashboardPage::updateDiskBar()
         int diskPercent = 0;
         if (disk->size > 0)
             diskPercent = ((double) disk->used / (double) disk->size) * 100.0;
+
+        // alert message
+        int maxDiskPercent = AppManager::ins()->getDiskPercent();
+        if (maxDiskPercent > 0) {
+            static bool isShow = true;
+            if (diskPercent > maxDiskPercent && isShow) {
+                AppManager::ins()->getTrayIcon()->showMessage(tr("Bellek Aşımı"),
+                                                              tr("Kullanılan bellek miktarı %1% oranını aştı.").arg(diskPercent),
+                                                              QIcon(":/static/logo.png"));
+                isShow = false;
+            } else if (diskPercent < maxDiskPercent) {
+                isShow = true;
+            }
+        }
 
         diskBar->setValue(diskPercent, QString("%1 / %2")
                           .arg(usedText)
@@ -188,10 +228,10 @@ void DashboardPage::updateNetworkBar()
     quint64 d_TXbytes = (TXbytes - l_TXbytes);
 
     QString downText = FormatUtil::formatBytes(d_RXbytes);
-    QString upText = FormatUtil::formatBytes(d_TXbytes);
+    QString upText   = FormatUtil::formatBytes(d_TXbytes);
 
     int downPercent = ((double) d_RXbytes / (double) max_RXbytes) * 100.0;
-    int upPercent = ((double) d_TXbytes / (double) max_TXbytes) * 100.0;
+    int upPercent   = ((double) d_TXbytes / (double) max_TXbytes) * 100.0;
 
     downloadBar->setValue(downPercent,
                           QString("%1/s").arg(downText),

@@ -76,11 +76,18 @@ void SettingsPage::init()
 
     ui->cmbHomepage->setCurrentText(apm->getHomePage());
 
+    // load resource percents
+    ui->spinCpuPercent->setValue(apm->getCpuPercent());
+    ui->spinMemoryPercent->setValue(apm->getMemoryPercent());
+    ui->spinDiskPercent->setValue(apm->getDiskPercent());
+
     // effects
-    Utilities::addDropShadow(ui->languagesCmb, 40);
-    Utilities::addDropShadow(ui->themesCmb, 40);
-    Utilities::addDropShadow(ui->disksCmb, 40);
-    Utilities::addDropShadow(ui->btnDonate, 40);
+    QList<QWidget*> widgets = {
+        ui->languagesCmb, ui->themesCmb, ui->disksCmb, ui->cmbHomepage, ui->btnDonate, ui->spinCpuPercent,
+        ui->spinMemoryPercent, ui->spinDiskPercent
+    };
+
+    Utilities::addDropShadow(widgets, 40);
 
     // connects
     connect(ui->languagesCmb, SIGNAL(currentIndexChanged(int)), this, SLOT(languagesCmbChanged(int)));
@@ -136,4 +143,19 @@ void SettingsPage::on_btnDonate_clicked()
 void SettingsPage::cmbHomePageChanged(const QString text)
 {
     apm->setHomePage(text);
+}
+
+void SettingsPage::on_spinCpuPercent_valueChanged(int value)
+{
+    apm->setCpuPercent(value);
+}
+
+void SettingsPage::on_spinMemoryPercent_valueChanged(int value)
+{
+    apm->setMemoryPercent(value);
+}
+
+void SettingsPage::on_spinDiskPercent_valueChanged(int value)
+{
+    apm->setDiskPercent(value);
 }

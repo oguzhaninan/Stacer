@@ -159,12 +159,32 @@ QKeySequenceEdit {
 }
 
 QLineEdit,
-QPlainTextEdit {
+QPlainTextEdit,
+QSpinBox {
     border-radius: 2;
-    padding: 8;
+    padding: 7;
     background-color: @color01;
     font-size: 10pt;
     color: @color05;
+}
+
+QSpinBox::up-button {
+    subcontrol-origin: border;
+    subcontrol-position: top right;
+
+    width: 16px;
+    border-image: url(:/static/themes/common/img/spinup.png) 1;
+    border-width: 1px;
+}
+
+QSpinBox::down-button {
+    subcontrol-origin: border;
+    subcontrol-position: bottom right;
+
+    width: 16px;
+    border-image: url(:/static/themes/common/img/spindown.png) 1;
+    border-width: 1px;
+    border-top-width: 0;
 }
 
 /**************************

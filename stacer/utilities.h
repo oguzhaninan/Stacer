@@ -10,11 +10,19 @@ public:
     static void
     addDropShadow(QWidget *widget, int alpha, int blur = 15)
     {
-        QGraphicsDropShadowEffect *effect = new QGraphicsDropShadowEffect(widget);
-        effect->setBlurRadius(blur);
-        effect->setColor(QColor(0, 0, 0, alpha));
-        effect->setOffset(0);
-        widget->setGraphicsEffect(effect);
+        addDropShadow(QList<QWidget*>() << widget, alpha, blur);
+    }
+
+    static void
+    addDropShadow(QList<QWidget *> widgets, int alpha, int blur = 15)
+    {
+        for (QWidget *widget: widgets) {
+            QGraphicsDropShadowEffect *effect = new QGraphicsDropShadowEffect(widget);
+            effect->setBlurRadius(blur);
+            effect->setColor(QColor(0, 0, 0, alpha));
+            effect->setOffset(0);
+            widget->setGraphicsEffect(effect);
+        }
     }
 
     static QString

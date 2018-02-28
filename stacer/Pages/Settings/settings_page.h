@@ -27,6 +27,9 @@ private slots:
     void on_checkAutostart_clicked(bool checked);
     void on_btnDonate_clicked();
     void cmbHomePageChanged(const QString text);
+    void on_spinCpuPercent_valueChanged(int value);
+    void on_spinMemoryPercent_valueChanged(int value);
+    void on_spinDiskPercent_valueChanged(int value);
 
 private:
     Ui::SettingsPage *ui;

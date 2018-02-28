@@ -12,6 +12,7 @@
 #include <QTranslator>
 #include <QFontDatabase>
 #include <QEasingCurve>
+#include <QSystemTrayIcon>
 
 #include <Utils/file_util.h>
 
@@ -21,6 +22,9 @@
 #define LANG_PROP       "Language"
 #define DISK_PROP       "DiskName"
 #define HOMEPAGE_PROP   "HomePage"
+#define CPU_PERCENT     "CPUPercent"
+#define MEMORY_PERCENT     "MemoryPercent"
+#define DISK_PERCENT     "DiskPercent"
 
 class AppManager : public QObject
 {
@@ -50,6 +54,17 @@ public:
     void setHomePage(const QString &value);
     QString getHomePage();
 
+    QSystemTrayIcon *getTrayIcon();
+
+    void setCpuPercent(const int value);
+    int getCpuPercent();
+
+    void setMemoryPercent(const int value);
+    int getMemoryPercent();
+
+    void setDiskPercent(const int value);
+    int getDiskPercent();
+
 signals:
     void changedTheme();
     void changedSlideType(QEasingCurve::Type type);
@@ -63,6 +78,8 @@ private:
     QTranslator translator;
     QString configPath;
     QString themeName;
+
+    QSystemTrayIcon *trayIcon;
 
     enum QEasingCurve::Type slideType;
 

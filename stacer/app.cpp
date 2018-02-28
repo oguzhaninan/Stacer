@@ -20,7 +20,7 @@ App::App(QWidget *parent) :
     resourcesPage(new ResourcesPage(slidingStacked)),
     gnomeSettingsPage(new GnomeSettingsPage(slidingStacked)),
     settingsPage(new SettingsPage(slidingStacked)),
-    trayIcon(new QSystemTrayIcon(QIcon(":/static/logo.png"), this)),
+    trayIcon(AppManager::ins()->getTrayIcon()),
     trayMenu(new QMenu(this))
 {
     ui->setupUi(this);
@@ -39,10 +39,6 @@ void App::init()
     ui->horizontalLayout->setContentsMargins(0,0,0,0);
     ui->horizontalLayout->setSpacing(0);
 
-    // icon sizes of the buttons on the sidebar 30x30
-    for (QPushButton *btn : ui->sidebar->findChildren<QPushButton*>())
-        btn->setIconSize(QSize(28, 28));
-
     ui->pageContentLayout->addWidget(slidingStacked);
 
     listPages = {
@@ -58,8 +54,8 @@ void App::init()
     // APT SOURCE MANAGER
     if (ToolManager::ins()->checkSourceRepository()) {
         aptSourceManagerPage = new APTSourceManagerPage(this);
-        listPages.insert(6, aptSourceManagerPage);
-        listSidebarButtons.insert(6, ui->aptSourceManagerBtn);
+        listPages.insert(7, aptSourceManagerPage);
+        listSidebarButtons.insert(7, ui->aptSourceManagerBtn);
     } else {
         ui->aptSourceManagerBtn->hide();
     }
