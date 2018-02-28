@@ -11,10 +11,10 @@ ResourcesPage::ResourcesPage(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::ResourcesPage),
     im(InfoManager::ins()),
-    cpuChart(new HistoryChart(tr("CPU History"), im->getCpuCoreCount(), this)),
-    memoryChart(new HistoryChart(tr("Memory History"), 2, this)),
-    networkChart(new HistoryChart(tr("Network History"), 2, this)),
-    cpuLoadAvgChart(new HistoryChart(tr("CPU Load Averages History"), 3, this)),
+    cpuChart(new HistoryChart(tr("History of CPU"), im->getCpuCoreCount(), this)),
+    memoryChart(new HistoryChart(tr("History of Memory"), 2, this)),
+    networkChart(new HistoryChart(tr("History of Network"), 2, this)),
+    cpuLoadAvgChart(new HistoryChart(tr("History of CPU Load Averages"), 3, this)),
     timer(new QTimer(this))
 {
     ui->setupUi(this);
@@ -63,7 +63,7 @@ void ResourcesPage::updateCpuLoadAvg()
 
         seriesList.at(j)->insert(0, QPointF(0, avg));
 
-        seriesList.at(j)->setName(tr("%1 minute avarage").arg(minutes[j]));
+        seriesList.at(j)->setName(tr("%1 Minute Avarage").arg(minutes[j]));
 
         if (second > 61) seriesList.at(j)->removePoints(61, 1);
 
