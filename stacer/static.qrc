@@ -8,17 +8,17 @@
         <file>static/themes/default/img/sidebar-icons/services.svg</file>
         <file>static/themes/default/img/sidebar-icons/startup-apps.svg</file>
         <file>static/themes/default/img/sidebar-icons/uninstaller.png</file>
-        <file>static/themes/default/img/checkbox.svg</file>
-        <file>static/themes/default/img/un-checkbox.svg</file>
+        <file>static/themes/common/img/checkbox.svg</file>
+        <file>static/themes/common/img/un-checkbox.svg</file>
         <file>static/themes/default/img/app.svg</file>
         <file>static/themes/default/img/trash.svg</file>
-        <file>static/themes/default/img/not-found.svg</file>
+        <file>static/themes/common/img/not-found.svg</file>
         <file>static/themes/default/img/edit.svg</file>
         <file>static/themes/default/img/service.svg</file>
         <file>static/themes/default/img/package.svg</file>
         <file>static/themes/default/img/search.svg</file>
-        <file>static/themes/default/img/check.svg</file>
-        <file>static/themes/default/img/un-check.svg</file>
+        <file>static/themes/common/img/check.svg</file>
+        <file>static/themes/common/img/un-check.svg</file>
         <file>static/themes/default/img/loading.gif</file>
         <file>static/themes/default/img/scanLoading.gif</file>
         <file>static/themes/default/img/refresh.svg</file>
@@ -71,5 +71,9 @@
         <file>static/themes/common/img/donate.png</file>
         <file>static/themes/common/img/spinup.png</file>
         <file>static/themes/common/img/spindown.png</file>
+        <file>static/themes/light/img/ppa-repository.png</file>
+        <file>static/themes/light/img/collapse.svg</file>
+        <file>static/themes/light/img/fit.svg</file>
+        <file>static/themes/light/img/trash.svg</file>
     </qresource>
 </RCC>

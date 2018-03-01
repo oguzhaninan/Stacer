@@ -87,7 +87,7 @@ void SettingsPage::init()
         ui->spinMemoryPercent, ui->spinDiskPercent
     };
 
-    Utilities::addDropShadow(widgets, 40);
+    Utilities::addDropShadow(widgets, 50);
 
     // connects
     connect(ui->cmbLanguages, SIGNAL(currentIndexChanged(int)), this, SLOT(cmbLanguagesChanged(int)));

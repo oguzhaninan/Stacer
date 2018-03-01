@@ -1,6 +1,7 @@
 #include "uninstaller_page.h"
 #include "ui_uninstallerpage.h"
 #include <QMovie>
+#include "utilities.h"
 
 UninstallerPage::~UninstallerPage()
 {
@@ -25,6 +26,9 @@ void UninstallerPage::init()
     loadingMovie->start();
     ui->lblLoadingUninstaller->hide();
     ui->notFoundWidget->hide();
+
+    Utilities::addDropShadow(ui->btnUninstall, 60);
+    Utilities::addDropShadow(ui->txtPackageSearch, 40);
 
     QtConcurrent::run(this, &UninstallerPage::loadPackages);
 

@@ -1,5 +1,6 @@
 #include "gnome_settings_page.h"
 #include "ui_gnome_settings_page.h"
+#include "utilities.h"
 
 GnomeSettingsPage::~GnomeSettingsPage()
 {
@@ -33,6 +34,9 @@ void GnomeSettingsPage::init()
 
     slidingStackedWidget->addWidget(windowManagerSettings);
     slidingStackedWidget->addWidget(appearanceSettings);
+
+    QList<QWidget*> widgets = { ui->btnAppearance, ui->btnUnitySettings, ui->btnWindowManager };
+    Utilities::addDropShadow(widgets, 40);
 }
 
 void GnomeSettingsPage::on_btnUnitySettings_clicked()

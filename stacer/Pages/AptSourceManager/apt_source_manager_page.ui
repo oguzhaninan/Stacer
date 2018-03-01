@@ -216,6 +216,9 @@
           <property name="focusPolicy">
            <enum>Qt::NoFocus</enum>
           </property>
+          <property name="accessibleName">
+           <string>primary</string>
+          </property>
           <property name="styleSheet">
            <string notr="true"/>
           </property>
@@ -255,6 +258,9 @@
           </property>
           <property name="focusPolicy">
            <enum>Qt::NoFocus</enum>
+          </property>
+          <property name="accessibleName">
+           <string>danger</string>
           </property>
           <property name="styleSheet">
            <string notr="true"/>
@@ -322,6 +328,9 @@
           <property name="focusPolicy">
            <enum>Qt::NoFocus</enum>
           </property>
+          <property name="accessibleName">
+           <string>primary</string>
+          </property>
           <property name="styleSheet">
            <string notr="true"/>
           </property>
@@ -351,6 +360,9 @@
           </property>
           <property name="focusPolicy">
            <enum>Qt::NoFocus</enum>
+          </property>
+          <property name="accessibleName">
+           <string>danger</string>
           </property>
           <property name="styleSheet">
            <string notr="true"/>

@@ -86,11 +86,33 @@ QMenu::indicator {
 }
 
 QMenu::indicator:non-exclusive:unchecked {
-    image: url(:/static/themes/default/img/un-check.svg);
+    image: url(:/static/themes/common/img/un-check.svg);
 }
 
 QMenu::indicator:non-exclusive:checked {
-    image: url(:/static/themes/default/img/check.svg);
+    image: url(:/static/themes/common/img/check.svg);
+}
+
+/*****************
+    QRadioButton
+******************/
+
+QRadioButton {
+    color: @color12;
+    font-size: 11pt;
+}
+
+QRadioButton::indicator {
+    width: 16;
+    height: 16;
+}
+
+QRadioButton::indicator:unchecked {
+    image: url(:/static/themes/common/img/un-check.svg);
+}
+
+QRadioButton::indicator:checked {
+    image: url(:/static/themes/common/img/check.svg);
 }
 
 /*****************
@@ -103,11 +125,11 @@ QCheckBox::indicator {
 }
 
 QCheckBox::indicator:checked {
-    image: url(:/static/themes/default/img/checkbox.svg);
+    image: url(:/static/themes/common/img/checkbox.svg);
 }
 
 QCheckBox::indicator:unchecked {
-    image: url(:/static/themes/default/img/un-checkbox.svg);
+    image: url(:/static/themes/common/img/un-checkbox.svg);
 }
 
 QCheckBox[accessibleName="circle"] {
@@ -121,11 +143,11 @@ QCheckBox[accessibleName="circle"]::indicator {
 }
 
 QCheckBox[accessibleName="circle"]::indicator:unchecked {
-    image: url(:/static/themes/default/img/un-check.svg);
+    image: url(:/static/themes/common/img/un-check.svg);
 }
 
 QCheckBox[accessibleName="circle"]::indicator:checked {
-    image: url(:/static/themes/default/img/check.svg);
+    image: url(:/static/themes/common/img/check.svg);
 }
 
 /*****************
@@ -138,7 +160,6 @@ QToolTip {
     background-color: @sidebar;
     border-radius: 3;
 }
-
 
 /***************
     Not Found
@@ -293,10 +314,23 @@ QSpinBox {
     color: @color05;
 }
 
-QPushButton[accessibleName="primary"] {
+QPushButton {
     border-radius: 2;
-    padding: 7 25;
     font-size: 11pt;
+}
+
+QPushButton[accessibleName="danger"] {
+    padding: 7 25;
+    background-color: @color09;
+    color: @color07;
+}
+
+QPushButton[accessibleName="danger"]:hover {
+    background-color: #c0392b;
+}
+
+QPushButton[accessibleName="primary"] {
+    padding: 7 25;
     background-color: @color03;
     color: @color07;
 }
@@ -328,10 +362,8 @@ QLabel[accessibleName="dialog-title"] {
 
 #sidebar QPushButton {
     border: 0px;
-    min-width: 44;
-    min-height: 44;
-    max-width: 44;
-    max-height: 44;
+    width: 44;
+    height: 44;
     border-style: solid;
     color: @color07;
     margin: 2 8;
@@ -399,9 +431,9 @@ QLabel[accessibleName="dialog-title"] {
     qproperty-icon: url(:/static/themes/default/img/sidebar-icons/feedback.svg);
 }
 
-/**************************
+/********************
     DASHBOARD PAGE
-***************************/
+*********************/
 
 /* - Circle Bar - */
 
@@ -412,8 +444,8 @@ QLabel[accessibleName="dialog-title"] {
 
 #lblCircleChartTitle,
 #lblCircleChartValue {
-    font-size: 13pt;
     color: @color05;
+    font-size: 13pt;
     margin: 0;
 }
 
@@ -531,11 +563,11 @@ QLabel[accessibleName="dialog-title"] {
 }
 
 #treeWidgetScanResult::indicator:checked {
-    image: url(:/static/themes/default/img/check.svg);
+    image: url(:/static/themes/common/img/check.svg);
 }
 
 #treeWidgetScanResult::indicator:unchecked {
-    image: url(:/static/themes/default/img/un-check.svg);
+    image: url(:/static/themes/common/img/un-check.svg);
 }
 
 #treeWidgetScanResult::branch:has-children:!has-siblings:closed,
@@ -661,9 +693,9 @@ QLabel[accessibleName="dialog-title"] {
     image: url(:/static/themes/default/img/run.svg);
 }
 
-/**************************
+/**********************
     PROCESSES PAGE
-***************************/
+***********************/
 
 #lblProcessTitle {
     color: @color11;
@@ -700,9 +732,9 @@ QLabel[accessibleName="dialog-title"] {
     margin-top: 3;
 }
 
-/**************************
+/************************
     UNINSTALLER PAGE
-***************************/
+*************************/
 
 #lblPackagesTitle {
     color: @color11;
@@ -731,11 +763,11 @@ QLabel[accessibleName="dialog-title"] {
 }
 
 #listWidgetPackages::indicator:unchecked {
-    image: url(:/static/themes/default/img/un-check.svg);
+    image: url(:/static/themes/common/img/un-check.svg);
 }
 
 #listWidgetPackages::indicator:checked {
-    image: url(:/static/themes/default/img/check.svg);
+    image: url(:/static/themes/common/img/check.svg);
 }
 
 #listWidgetPackages::item {
@@ -799,9 +831,9 @@ QLabel[accessibleName="dialog-title"] {
     color: @color06;
 }
 
-/**************************
+/*****************
     UPDATE BAR
-***************************/
+******************/
 
 #widgetUpdateBar {
     background-color: @color03;
@@ -818,9 +850,9 @@ QLabel[accessibleName="dialog-title"] {
     padding: 4 10;
 }
 
-/**************************
+/****************
     FEEDBACK
-***************************/
+*****************/
 
 #Feedback {
     background-color: @pageContent;
@@ -831,32 +863,6 @@ QLabel[accessibleName="dialog-title"] {
 ***************************/
 #listWidgetAptSources {
     background-color: transparent;
-}
-
-#btnAddAPTSourceRepository,
-#btnEditAptSource,
-#btnDeleteAptSource,
-#btnCancel {
-    border:0;
-    border-radius: 2;
-    background-color: @color03;
-    color: @color05;
-    padding: 7 15;
-}
-
-#btnDeleteAptSource,
-#btnCancel {
-    background-color: @color09;
-}
-
-#btnDeleteAptSource:hover,
-#btnCancel:hover {
-    background-color: #c0392b;
-}
-
-#btnEditAptSource:hover,
-#btnAddAPTSourceRepository:hover {
-    background-color: @color10;
 }
 
 #lblAptSourceTitle {
@@ -915,24 +921,6 @@ QLabel[accessibleName="dialog-title"] {
 /**************************
     GNOME SETTINGS PAGE
 ***************************/
-QRadioButton {
-    color: @color12;
-    font-size: 11pt;
-}
-
-QRadioButton::indicator {
-    min-width: 16;
-    min-height: 16;
-}
-
-QRadioButton::indicator:unchecked {
-    image: url(:/static/themes/default/img/un-check.svg);
-}
-
-QRadioButton::indicator:checked {
-    image: url(:/static/themes/default/img/check.svg);
-}
-
 
 #GnomeSettingsPage QLabel {
     font-size: 11pt;

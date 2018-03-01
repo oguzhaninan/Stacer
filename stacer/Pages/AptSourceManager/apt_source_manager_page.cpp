@@ -1,7 +1,7 @@
 #include "apt_source_manager_page.h"
 #include "ui_apt_source_manager_page.h"
 #include <QDebug>
-
+#include "utilities.h"
 #include "Managers/tool_manager.h"
 
 APTSourceManagerPage::~APTSourceManagerPage()
@@ -27,6 +27,8 @@ void APTSourceManagerPage::init()
     loadAptSources();
 
     on_btnCancel_clicked();
+
+    Utilities::addDropShadow(ui->txtSearchAptSource, 40);
 }
 
 void APTSourceManagerPage::loadAptSources()

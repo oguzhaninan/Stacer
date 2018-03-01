@@ -35,7 +35,7 @@ void ResourcesPage::init()
         ui->chartsLayout->addWidget(widget);
     }
 
-    Utilities::addDropShadow(widgets, 60);
+    Utilities::addDropShadow(widgets, 40);
 
     connect(timer, &QTimer::timeout, this, &ResourcesPage::updateCpuChart);
     connect(timer, &QTimer::timeout, this, &ResourcesPage::updateCpuLoadAvg);

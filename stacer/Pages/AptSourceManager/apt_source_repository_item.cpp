@@ -21,7 +21,7 @@ void APTSourceRepositoryItem::init()
 {
     ui->setupUi(this);
 
-    Utilities::addDropShadow(this, 50);
+    Utilities::addDropShadow(this, 30, 10);
 
     ui->checkAptSource->setChecked(mAptSource->isActive);
 
