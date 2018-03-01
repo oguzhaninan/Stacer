@@ -135,7 +135,7 @@
         </property>
        </spacer>
       </item>
-      <item row="0" column="6">
+      <item row="0" column="6" alignment="Qt::AlignVCenter">
        <widget class="QCheckBox" name="checkServiceRunning">
         <property name="cursor">
          <cursorShape>PointingHandCursor</cursorShape>
@@ -148,7 +148,7 @@
         </property>
        </widget>
       </item>
-      <item row="0" column="4">
+      <item row="0" column="4" alignment="Qt::AlignVCenter">
        <widget class="QCheckBox" name="checkServiceStartup">
         <property name="cursor">
          <cursorShape>PointingHandCursor</cursorShape>

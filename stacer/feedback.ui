@@ -33,14 +33,14 @@
     <number>15</number>
    </property>
    <item row="1" column="0" colspan="3">
-    <widget class="QLineEdit" name="nameTxt">
+    <widget class="QLineEdit" name="txtName">
      <property name="placeholderText">
       <string>Name</string>
      </property>
     </widget>
    </item>
    <item row="2" column="0" colspan="3">
-    <widget class="QLineEdit" name="emailTxt">
+    <widget class="QLineEdit" name="txtEmail">
      <property name="placeholderText">
       <string>Email Address</string>
      </property>
@@ -54,12 +54,15 @@
     </widget>
    </item>
    <item row="4" column="2">
-    <widget class="QPushButton" name="sendBtn">
+    <widget class="QPushButton" name="btnSend">
      <property name="cursor">
       <cursorShape>PointingHandCursor</cursorShape>
      </property>
      <property name="focusPolicy">
       <enum>Qt::NoFocus</enum>
+     </property>
+     <property name="accessibleName">
+      <string>primary</string>
      </property>
      <property name="text">
       <string>Send</string>
@@ -86,14 +89,17 @@
     </spacer>
    </item>
    <item row="3" column="0" colspan="3">
-    <widget class="QPlainTextEdit" name="messageTxt">
+    <widget class="QPlainTextEdit" name="txtMessage">
      <property name="placeholderText">
       <string>Message</string>
      </property>
     </widget>
    </item>
    <item row="0" column="0" colspan="3">
-    <widget class="QLabel" name="title">
+    <widget class="QLabel" name="lblTitle">
+     <property name="accessibleName">
+      <string>dialog-title</string>
+     </property>
      <property name="text">
       <string>Send a Feedback</string>
      </property>
@@ -105,9 +111,9 @@
   </layout>
  </widget>
  <tabstops>
-  <tabstop>nameTxt</tabstop>
-  <tabstop>emailTxt</tabstop>
-  <tabstop>messageTxt</tabstop>
+  <tabstop>txtName</tabstop>
+  <tabstop>txtEmail</tabstop>
+  <tabstop>txtMessage</tabstop>
  </tabstops>
  <resources/>
  <connections/>

@@ -46,6 +46,9 @@
      <property name="focusPolicy">
       <enum>Qt::NoFocus</enum>
      </property>
+     <property name="accessibleName">
+      <string>primary</string>
+     </property>
      <property name="text">
       <string>Save</string>
      </property>
@@ -84,6 +87,9 @@
    </item>
    <item row="0" column="0" colspan="2">
     <widget class="QLabel" name="lblTitle">
+     <property name="accessibleName">
+      <string>dialog-title</string>
+     </property>
      <property name="text">
       <string>Application</string>
      </property>

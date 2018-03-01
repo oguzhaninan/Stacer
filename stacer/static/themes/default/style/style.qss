@@ -176,6 +176,113 @@ QSpinBox::down-button {
     border-top-width: 0;
 }
 
+/***************
+    QSlider
+***************/
+
+QSlider::groove:horizontal {
+    height: 2px;
+    background: @color12;
+    margin: 2px 0;
+}
+
+QSlider::handle:horizontal {
+    background-color: @color03;
+    width: 14px;
+    height: 14px;
+    margin: -6px 0;
+    border-radius: 7px;
+}
+
+/***************
+    QComboBox
+***************/
+
+QComboBox {
+    border: 0;
+    border-radius: 2;
+    background-color: @color01;
+    padding: 4 0 4 10;
+    font-size: 11pt;
+    color: @color05;
+    min-width: 100;
+}
+
+QComboBox::drop-down {
+    background-color: @color01;
+    subcontrol-position: top right;
+    width: 14;
+    padding: 0 5;
+    color: @color05;
+
+    border-left-width: 1px;
+    border-left-color: @color01;
+    border-left-style: solid;
+    image: url(:/static/themes/default/img/down-arrow.svg);
+    border-top-right-radius: 2;
+    border-bottom-right-radius: 2;
+}
+
+QComboBox::down-arrow:on {
+    background-color: @color01;
+    color: @color05;
+}
+
+QComboBox QAbstractItemView {
+    background-color: @color01;
+    border: 0;
+}
+
+/***************
+    QTableView
+***************/
+
+QTableView {
+    background-color: transparent;
+    selection-color: @color05;
+    color: @color05;
+    font-size: 10pt;
+    gridline-color: @color08;
+    border-radius: 2;
+}
+
+QTableView::item {
+    font-size: 11pt;
+    color: @color05;
+    padding: 6 0 6 -10;
+    background-color: @color01;
+}
+
+QTableView::item:selected {
+    background-color: @color02;
+}
+
+QHeaderView::section {
+    background-color: @color02;
+    border-width: 1 1 1 0;
+    border-style: solid;
+    border-color: @color08;
+    font-size: 11pt;
+    color: @color16;
+    padding-left:10;
+}
+
+QHeaderView::up-arrow {
+    image: url(:/static/themes/default/img/asc.svg);
+}
+
+QHeaderView::down-arrow {
+    image: url(:/static/themes/default/img/dsc.svg);
+}
+
+/******************
+    QMainWindow
+*******************/
+
+QMainWindow * {
+    font-family: "Ubuntu";
+}
+
 QLineEdit,
 QPlainTextEdit,
 QSpinBox {
@@ -186,15 +293,29 @@ QSpinBox {
     color: @color05;
 }
 
-
-/******************
-    QMainWindow
-*******************/
-
-QMainWindow * {
-    font-family: "Ubuntu";
+QPushButton[accessibleName="primary"] {
+    border-radius: 2;
+    padding: 7 25;
+    font-size: 11pt;
+    background-color: @color03;
+    color: @color07;
 }
 
+QPushButton[accessibleName="primary"]:hover {
+    background-color: @color10;
+}
+
+QLabel[accessibleName="dialog-title"] {
+    color: @color06;
+    font-size: 11pt;
+    padding-bottom: 8;
+    border: 0;
+    border-bottom: 1 solid @color06;
+}
+
+#lblErrorMsg {
+    color: @color09;
+}
 
 /**************
     Sidebar
@@ -330,6 +451,12 @@ QMainWindow * {
 
 /* - System Info - */
 
+#lblSystemInfoTitle {
+    color: @color05;
+    font-size: 13pt;
+    padding-left: 5;
+}
+
 #listViewSystemInfo {
     border: 0;
     background-color: transparent;
@@ -337,33 +464,24 @@ QMainWindow * {
     color: @color06;
 }
 
-#lblSystemInfoTitle {
-    color: @color05;
-    font-size: 13pt;
-    padding-left: 5;
-}
-
 /**************************
     SYSTEM CLEANER PAGE
 ***************************/
+
+#SystemCleanerPage QCheckBox::indicator {
+    width: 26;
+    height: 26;
+}
 
 #cleanerCategories QLabel {
     font-size: 11pt;
     color: @color05;
 }
 
-#SystemCleanerPage QCheckBox::indicator {
-    width: 25;
-    height: 25;
-}
-
 /* - System Scan Button - */
 
 #SystemCleanerPage #btnScan {
     border: 0;
-}
-
-#SystemCleanerPage #btnScan {
     background: url(:/static/themes/default/img/scan.svg) no-repeat center;
 }
 
@@ -375,9 +493,6 @@ QMainWindow * {
 
 #SystemCleanerPage #btnClean {
     border: 0;
-}
-
-#SystemCleanerPage #btnClean {
     background: url(:/static/themes/default/img/clean.svg) no-repeat center;
 }
 
@@ -425,15 +540,15 @@ QMainWindow * {
 
 #treeWidgetScanResult::branch:has-children:!has-siblings:closed,
 #treeWidgetScanResult::branch:closed:has-children:has-siblings {
-    border-image: none;
     image: url(:/static/themes/default/img/right-arrow.svg);
+    border-image: none;
     padding: 4;
 }
 
 #treeWidgetScanResult::branch:open:has-children:!has-siblings,
 #treeWidgetScanResult::branch:open:has-children:has-siblings {
-    border-image: none;
     image: url(:/static/themes/default/img/down-arrow.svg);
+    border-image: none;
     padding: 4;
 }
 
@@ -446,32 +561,16 @@ QMainWindow * {
     color: @color15;
 }
 
-/**************************
+/************************
     STARTUP APPS PAGE
-***************************/
+*************************/
 #listWidgetStartup {
     background-color: transparent;
-}
-
-#btnAddStartupApp {
-    border:0;
-    border-radius: 2;
-    background-color: @color03;
-    color: @color05;
-    padding: 7 15;
-}
-
-#btnAddStartupApp:hover {
-    background-color: @color10;
 }
 
 #lblStartupAppsTitle {
     color: @color11;
     padding: 10 0 10 20;
-}
-
-#refreshAppsBtn {
-    border: 0;
 }
 
 /* - Startup App - */
@@ -515,38 +614,6 @@ QMainWindow * {
     background-color: @color08;
 }
 
-#StartupAppEdit #title {
-    color: @color06;
-    font-size: 11pt;
-    border: 0;
-    padding-bottom: 8;
-    border-bottom: 1 solid @color06;
-}
-
-#StartupAppEdit QLineEdit {
-    border-radius: 2;
-    padding: 10;
-    background-color: @color01;
-    font-size: 10pt;
-    color: @color05;
-}
-
-#StartupAppEdit #btnSave {
-    border-radius: 2;
-    padding: 7 25;
-    font-size: 11pt;
-    background-color: @color03;
-    color: @color07;
-}
-
-#StartupAppEdit #btnSave:hover {
-    background-color: @color10;
-}
-
-#StartupAppEdit #lblErrorMsg {
-    color: @color09;
-}
-
 /**************************
     SERVICES PAGE
 ***************************/
@@ -563,21 +630,17 @@ QMainWindow * {
 
 /* - Service Item - */
 
-#serviceItemWidget QCheckBox {
-    margin-top: 2;
-}
-
 #serviceItemWidget {
     border-radius: 2;
     background-color: @color01;
 }
 
-#lblServiceIcon {
-    image: url(:/static/themes/default/img/service.svg);
-}
-
 #serviceItemWidget:hover {
     background-color: @color02;
+}
+
+#lblServiceIcon {
+    image: url(:/static/themes/default/img/service.svg);
 }
 
 #ServiceItem #lblServiceName {
@@ -619,14 +682,6 @@ QMainWindow * {
     height: 14;
 }
 
-#checkAllProcesses::indicator:unchecked {
-    image: url(:/static/themes/default/img/un-check.svg);
-}
-
-#checkAllProcesses::indicator:checked {
-    image: url(:/static/themes/default/img/check.svg);
-}
-
 #txtProcessSearch {
     width: 150;
     padding: 4 12;
@@ -634,44 +689,6 @@ QMainWindow * {
     background: @color01 url(:/static/themes/default/img/search.svg) no-repeat right center;
     border: 1px solid @color02;
     color: @color12;
-}
-
-QTableView {
-    background-color: transparent;
-    selection-color: @color05;
-    color: @color05;
-    font-size: 10pt;
-    gridline-color: @color08;
-    border-radius: 2;
-}
-
-QTableView::item {
-    font-size: 11pt;
-    color: @color05;
-    padding: 6 0 6 -10;
-    background-color: @color01;
-}
-
-QTableView::item:selected {
-    background-color: @color02;
-}
-
-QHeaderView::section {
-    background-color: @color02;
-    border-width: 1 1 1 0;
-    border-style: solid;
-    border-color: @color08;
-    font-size: 11pt;
-    color: @color16;
-    padding-left:10;
-}
-
-QHeaderView::up-arrow {
-    image: url(:/static/themes/default/img/asc.svg);
-}
-
-QHeaderView::down-arrow {
-    image: url(:/static/themes/default/img/dsc.svg);
 }
 
 #lblRefresh {
@@ -683,31 +700,6 @@ QHeaderView::down-arrow {
     margin-top: 3;
 }
 
-QSlider::groove:horizontal {
-    height: 2px;
-    background: @color12;
-    margin: 2px 0;
-}
-
-QSlider::handle:horizontal {
-    background-color: @color03;
-    width: 14px;
-    height: 14px;
-    margin: -6px 0;
-    border-radius: 7px;
-}
-
-#endProcessBtn {
-    border:0;
-    border-radius: 2;
-    background-color: @color03;
-    color: @color05;
-    padding: 7 15;
-}
-
-#endProcessBtn:hover {
-    background-color: @color10;
-}
 /**************************
     UNINSTALLER PAGE
 ***************************/
@@ -719,7 +711,7 @@ QSlider::handle:horizontal {
 }
 
 #txtPackageSearch,
-#txtSearchAptSource{
+#txtSearchAptSource {
     padding: 4 12;
     border-radius: 12;
     background: @color01 url(:/static/themes/default/img/search.svg) no-repeat right center;
@@ -728,14 +720,14 @@ QSlider::handle:horizontal {
 }
 
 #listWidgetPackages {
-    border:0;
+    border: 0;
     background-color: transparent;
     font-size: 11pt;
 }
 
 #listWidgetPackages::indicator {
-    min-width: 16;
-    min-height: 16;
+    width: 16;
+    height: 16;
 }
 
 #listWidgetPackages::indicator:unchecked {
@@ -764,22 +756,6 @@ QSlider::handle:horizontal {
 
 #listWidgetPackages::item:hover {
     background-color: @color02;
-}
-
-#btnUninstall {
-    border: 0;
-    padding: 6 15;
-    color: @color11;
-    border: 1px solid @color01;
-    border-radius: 5;
-}
-
-#btnUninstall:hover {
-    background-color:  @color01;
-}
-
-#refreshPackagesBtn {
-    border: 0;
 }
 
 /****************
@@ -818,43 +794,9 @@ QSlider::handle:horizontal {
     color: @color12;
 }
 
-#SettingsPage QMenu {
-    background-color: @color01;
-}
-
-QComboBox {
-    border: 0;
-    border-radius: 2;
-    background-color: @color01;
-    padding: 4 0 4 10;
-    font-size: 11pt;
-    color: @color05;
-    min-width: 100;
-}
-
-QComboBox::drop-down {
-    background-color: @color01;
-    subcontrol-position: top right;
-    width: 14;
-    padding: 0 5;
-    color: @color05;
-
-    border-left-width: 1px;
-    border-left-color: @color01;
-    border-left-style: solid;
-    image: url(:/static/themes/default/img/down-arrow.svg);
-    border-top-right-radius: 2;
-    border-bottom-right-radius: 2;
-}
-
-QComboBox::down-arrow:on {
-    background-color: @color01;
-    color: @color05;
-}
-
-QComboBox QAbstractItemView {
-    background-color: @color01;
-    border: 0;
+#lblCreatedBy {
+    font-size: 9pt;
+    color: @color06;
 }
 
 /**************************
@@ -872,12 +814,8 @@ QComboBox QAbstractItemView {
 }
 
 #btnDownloadUpdate {
-    font-size: 10pt;
-    color: @color05;
     background-color: @color01;
-    border: 0;
     padding: 4 10;
-    border-radius: 2;
 }
 
 /**************************
@@ -886,39 +824,6 @@ QComboBox QAbstractItemView {
 
 #Feedback {
     background-color: @pageContent;
-}
-
-#Feedback #title {
-    color: @color06;
-    font-size: 11pt;
-    padding-bottom: 8;
-    border: 0;
-    border-bottom: 1 solid @color06;
-}
-
-#Feedback QLineEdit,
-#Feedback QPlainTextEdit {
-    border-radius: 2;
-    padding: 10;
-    background-color: @color01;
-    font-size: 10pt;
-    color: @color05;
-}
-
-#Feedback #sendBtn {
-    border-radius: 2;
-    padding: 7 25;
-    font-size: 11pt;
-    background-color: @color03;
-    color: @color07;
-}
-
-#Feedback #sendBtn:hover {
-    background-color: @color10;
-}
-
-#Feedback #lblErrorMsg {
-    color: @color09;
 }
 
 /**************************
@@ -1007,39 +912,6 @@ QComboBox QAbstractItemView {
     background-color: @pageContent;
 }
 
-#APTSourceEdit #lblTitle {
-    color: @color06;
-    font-size: 11pt;
-    padding-bottom: 8;
-    border: 0;
-    border-bottom: 1 solid @color06;
-}
-
-#APTSourceEdit QLineEdit {
-    border-radius: 2;
-    padding: 9;
-    background-color: @color01;
-    font-size: 10pt;
-    color: @color05;
-}
-
-#APTSourceEdit #btnSave {
-    border-radius: 2;
-    padding: 7 25;
-    font-size: 11pt;
-    background-color: @color03;
-    color: @color07;
-}
-
-#APTSourceEdit #btnSave:hover {
-    background-color: @color10;
-}
-
-#APTSourceEdit #lblErrorMsg {
-    color: @color09;
-}
-
-
 /**************************
     GNOME SETTINGS PAGE
 ***************************/
@@ -1104,29 +976,7 @@ QRadioButton::indicator:checked {
 
 /* --- Unity Settings --- */
 
-#UnitySettings {
-
-}
-
 #scrollAreaUnityContents {
     background-color: @pageContent;
-}
-
-
-#lblCreatedBy {
-    font-size: 9pt;
-    color: @color06;
-}
-
-#btnDonate {
-    border-radius: 3;
-    padding: 5 10;
-    font-size: 11pt;
-    background-color: @color03;
-    color: @color07;
-}
-
-#btnDonate:hover {
-    background-color: @color10;
 }
 

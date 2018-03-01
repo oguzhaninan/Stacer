@@ -842,7 +842,7 @@ QComboBox QAbstractItemView {
     color: @color02;
 }
 
-#Feedback #sendBtn {
+#Feedback #btnSend {
     border-radius: 2;
     padding: 7 25;
     font-size: 11pt;
@@ -850,7 +850,7 @@ QComboBox QAbstractItemView {
     color: @color01;
 }
 
-#Feedback #sendBtn:hover {
+#Feedback #btnSend:hover {
     background-color: @color10;
 }
 

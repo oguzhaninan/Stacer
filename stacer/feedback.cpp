@@ -34,11 +34,11 @@ void Feedback::init()
     connect(this, &Feedback::disableElementsS, this, &Feedback::disableElements);
 }
 
-void Feedback::on_sendBtn_clicked()
+void Feedback::on_btnSend_clicked()
 {
-    QString name = ui->nameTxt->text();
-    QString email = ui->emailTxt->text();
-    QString message = ui->messageTxt->toPlainText();
+    QString name = ui->txtName->text();
+    QString email = ui->txtEmail->text();
+    QString message = ui->txtMessage->toPlainText();
 
     bool isEmailValid = mailRegex.exactMatch(email);
 
@@ -58,7 +58,7 @@ void Feedback::on_sendBtn_clicked()
         QtConcurrent::run([=] {
             emit disableElementsS(true);
 
-            ui->sendBtn->setText(tr("Sending.."));
+            ui->btnSend->setText(tr("Sending.."));
             QStringList args;
 
             QJsonObject postData;
@@ -86,7 +86,7 @@ void Feedback::on_sendBtn_clicked()
                 emit setErrorMessageS(tr("Something went wrong, try again !"));
             }
 
-            ui->sendBtn->setText(tr("Save"));
+            ui->btnSend->setText(tr("Save"));
             emit disableElementsS(false);
         });
 
@@ -102,16 +102,16 @@ void Feedback::setErrorMessage(const QString &msg)
 
 void Feedback::disableElements(const bool status)
 {
-    ui->nameTxt->setDisabled(status);
-    ui->emailTxt->setDisabled(status);
-    ui->messageTxt->setDisabled(status);
-    ui->sendBtn->setDisabled(status);
+    ui->txtName->setDisabled(status);
+    ui->txtEmail->setDisabled(status);
+    ui->txtMessage->setDisabled(status);
+    ui->btnSend->setDisabled(status);
 }
 
 void Feedback::clearInputs()
 {
-    ui->nameTxt->clear();
-    ui->emailTxt->clear();
-    ui->messageTxt->clear();
-    ui->nameTxt->setFocus();
+    ui->txtName->clear();
+    ui->txtEmail->clear();
+    ui->txtMessage->clear();
+    ui->txtName->setFocus();
 }

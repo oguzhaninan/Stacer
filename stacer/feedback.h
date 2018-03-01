@@ -22,7 +22,7 @@ signals:
 
 private slots:
     void setErrorMessage(const QString &msg);
-    void on_sendBtn_clicked();
+    void on_btnSend_clicked();
     void clearInputs();
     void disableElements(const bool status);
 

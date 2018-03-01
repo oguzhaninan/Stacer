@@ -315,7 +315,7 @@ void SystemCleanerPage::on_btnClean_clicked()
 void SystemCleanerPage::on_btnBackToCategories_clicked()
 {
     ui->btnScan->show();
-    ui->lblLoadingCleaner->hide();
+    ui->lblLoadingScanner->hide();
     ui->checkPackageCache->setEnabled(true);
     ui->checkCrashReports->setEnabled(true);
     ui->checkAppLog->setEnabled(true);
