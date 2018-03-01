@@ -35,39 +35,6 @@
    <property name="spacing">
     <number>0</number>
    </property>
-   <item row="2" column="1">
-    <widget class="QWidget" name="lineBars" native="true">
-     <property name="sizePolicy">
-      <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
-       <horstretch>0</horstretch>
-       <verstretch>0</verstretch>
-      </sizepolicy>
-     </property>
-     <property name="minimumSize">
-      <size>
-       <width>150</width>
-       <height>0</height>
-      </size>
-     </property>
-     <layout class="QVBoxLayout" name="lineBarsLayout">
-      <property name="spacing">
-       <number>20</number>
-      </property>
-      <property name="leftMargin">
-       <number>10</number>
-      </property>
-      <property name="topMargin">
-       <number>10</number>
-      </property>
-      <property name="rightMargin">
-       <number>10</number>
-      </property>
-      <property name="bottomMargin">
-       <number>10</number>
-      </property>
-     </layout>
-    </widget>
-   </item>
    <item row="0" column="0" colspan="2">
     <widget class="QWidget" name="circleBars" native="true">
      <property name="sizePolicy">
@@ -83,6 +50,39 @@
       </size>
      </property>
      <layout class="QHBoxLayout" name="circleBarsLayout">
+      <property name="spacing">
+       <number>20</number>
+      </property>
+      <property name="leftMargin">
+       <number>10</number>
+      </property>
+      <property name="topMargin">
+       <number>5</number>
+      </property>
+      <property name="rightMargin">
+       <number>10</number>
+      </property>
+      <property name="bottomMargin">
+       <number>5</number>
+      </property>
+     </layout>
+    </widget>
+   </item>
+   <item row="2" column="1">
+    <widget class="QWidget" name="lineBars" native="true">
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+     <property name="minimumSize">
+      <size>
+       <width>150</width>
+       <height>0</height>
+      </size>
+     </property>
+     <layout class="QVBoxLayout" name="lineBarsLayout">
       <property name="spacing">
        <number>20</number>
       </property>
@@ -151,14 +151,14 @@
        </spacer>
       </item>
       <item>
-       <widget class="QLabel" name="systemInfoTitle">
+       <widget class="QLabel" name="lblSystemInfoTitle">
         <property name="text">
          <string>SYSTEM INFO</string>
         </property>
        </widget>
       </item>
       <item>
-       <widget class="QListView" name="systemInfoList">
+       <widget class="QListView" name="listViewSystemInfo">
         <property name="focusPolicy">
          <enum>Qt::NoFocus</enum>
         </property>
@@ -192,7 +192,7 @@
     </widget>
    </item>
    <item row="3" column="0" colspan="2">
-    <widget class="QWidget" name="updateBarWidget" native="true">
+    <widget class="QWidget" name="widgetUpdateBar" native="true">
      <property name="sizePolicy">
       <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
        <horstretch>0</horstretch>
@@ -225,14 +225,14 @@
        <number>0</number>
       </property>
       <item alignment="Qt::AlignLeft|Qt::AlignVCenter">
-       <widget class="QLabel" name="updateBarTextLabel">
+       <widget class="QLabel" name="lblUpdateBarText">
         <property name="text">
          <string>There are update currently available.</string>
         </property>
        </widget>
       </item>
       <item alignment="Qt::AlignRight|Qt::AlignVCenter">
-       <widget class="QPushButton" name="downloadUpdateBtn">
+       <widget class="QPushButton" name="btnDownloadUpdate">
         <property name="cursor">
          <cursorShape>PointingHandCursor</cursorShape>
         </property>

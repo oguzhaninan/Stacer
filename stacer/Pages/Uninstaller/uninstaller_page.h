@@ -26,8 +26,8 @@ private slots:
     void init();
     void setAppCount();
 
-    void on_packageSearch_textChanged(const QString &val);
-    void on_uninstallBtn_clicked();
+    void on_txtPackageSearch_textChanged(const QString &val);
+    void on_btnUninstall_clicked();
     QStringList getSelectedPackages();
     void loadPackages();
 

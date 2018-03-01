@@ -35,7 +35,7 @@ private slots:
     void updateDiskBar();
     void updateNetworkBar();
 
-    void on_downloadUpdateBtn_clicked();
+    void on_btnDownloadUpdate_clicked();
 
 private:
     Ui::DashboardPage *ui;

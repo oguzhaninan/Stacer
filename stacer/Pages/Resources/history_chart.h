@@ -28,7 +28,7 @@ public slots:
 
 private slots:
     void init();
-    void on_historyTitleCheck_clicked(bool checked);
+    void on_checkHistoryTitle_clicked(bool checked);
 
 private:
     Ui::HistoryChart *ui;

@@ -12,12 +12,12 @@ LineBar::LineBar(const QString &title, QWidget *parent) :
 {
     ui->setupUi(this);
 
-    ui->lineChartTitle->setText(title);
+    ui->lblLineChartTitle->setText(title);
 }
 
 void LineBar::setValue(const int &value, const QString &text, const QString &totalText)
 {
     ui->lineChartProgress->setValue(value);
-    ui->lineChartValue->setText(text);
-    ui->lineChartTotal->setText(totalText);
+    ui->lblLineChartValue->setText(text);
+    ui->lblLineChartTotal->setText(totalText);
 }

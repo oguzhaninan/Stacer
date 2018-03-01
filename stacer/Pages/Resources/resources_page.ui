@@ -30,7 +30,7 @@
     <number>10</number>
    </property>
    <item>
-    <widget class="QScrollArea" name="resourceScrollArea">
+    <widget class="QScrollArea" name="scrollAreaResource">
      <property name="widgetResizable">
       <bool>true</bool>
      </property>

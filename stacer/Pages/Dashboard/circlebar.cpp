@@ -17,7 +17,7 @@ CircleBar::CircleBar(const QString &title, const QStringList &colors, QWidget *p
 {
     ui->setupUi(this);
 
-    ui->chartTitle->setText(title);
+    ui->lblCircleChartTitle->setText(title);
 
     init();
 }
@@ -32,8 +32,8 @@ void CircleBar::init()
     series->setPieStartAngle(-115);
     series->setPieEndAngle(115);
     series->setLabelsVisible(false);
-    series->append("1", 0);
-    series->append("2", 0);
+    series->append("Used", 0);
+    series->append("Free", 0);
     series->slices().first()->setBorderColor(transparent);
     series->slices().last()->setBorderColor(transparent);
     QConicalGradient gradient;
@@ -44,17 +44,17 @@ void CircleBar::init()
 
     // chart settings
     chart->setBackgroundBrush(QBrush(transparent));
-    chart->setContentsMargins(-15, -18, -15, -60);
+    chart->setContentsMargins(-20, -20, -20, -65);
     chart->addSeries(series);
     chart->legend()->hide();
 
     // chartview settings
     chartView->setRenderHint(QPainter::Antialiasing);
 
-    ui->chartLayout->insertWidget(1, chartView);
+    ui->layoutCircleBar->insertWidget(1, chartView);
 
-    connect(AppManager::ins(), &AppManager::changedTheme, this, [this](){
-        auto styleValues = AppManager::ins()->getStyleValues();
+    connect(AppManager::ins(), &AppManager::changedTheme, this, [this] {
+        QSettings *styleValues = AppManager::ins()->getStyleValues();
         chartView->setBackgroundBrush(QColor(styleValues->value("@circleChartBackgroundColor").toString()));
         series->slices().last()->setColor(styleValues->value("@pageContent").toString()); // trail color
     });
@@ -65,6 +65,6 @@ void CircleBar::setValue(int value, QString valueText)
     series->slices().first()->setValue(value);
     series->slices().last()->setValue(100 - value);
 
-    ui->chartValue->setText(valueText);
+    ui->lblCircleChartValue->setText(valueText);
 }
 

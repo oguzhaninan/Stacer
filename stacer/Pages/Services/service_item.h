@@ -18,8 +18,8 @@ public:
     ~ServiceItem();
 
 private slots:
-    void on_runningBtn_clicked(bool status);
-    void on_startupBtn_clicked(bool status);
+    void on_checkServiceRunning_clicked(bool status);
+    void on_checkServiceStartup_clicked(bool status);
 
 private:
     Ui::ServiceItem *ui;

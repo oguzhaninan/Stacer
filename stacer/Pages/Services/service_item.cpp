@@ -14,31 +14,31 @@ ServiceItem::ServiceItem(const QString &name, const QString description, const b
 {
     ui->setupUi(this);
 
-    ui->serviceName->setText(name);
-    ui->lblDescription->setText("- " + description);
-    ui->runningBtn->setChecked(active);
-    ui->startupBtn->setChecked(status);
+    ui->lblServiceName->setText(name);
+    ui->lblServiceDescription->setText("- " + description);
+    ui->checkServiceRunning->setChecked(active);
+    ui->checkServiceStartup->setChecked(status);
 
-    ui->serviceName->setToolTip(name);
-    ui->lblDescription->setToolTip(description);    
+    ui->lblServiceName->setToolTip(name);
+    ui->lblServiceDescription->setToolTip(description);    
 
     Utilities::addDropShadow(this, 50);
 }
 
-void ServiceItem::on_startupBtn_clicked(bool status)
+void ServiceItem::on_checkServiceStartup_clicked(bool status)
 {
-    auto name = ui->serviceName->text();
+    auto name = ui->lblServiceName->text();
 
     tm->changeServiceStatus(name, status);
 
-    ui->startupBtn->setChecked(tm->serviceIsEnabled(name));
+    ui->checkServiceStartup->setChecked(tm->serviceIsEnabled(name));
 }
 
-void ServiceItem::on_runningBtn_clicked(bool status)
+void ServiceItem::on_checkServiceRunning_clicked(bool status)
 {
-    auto name = ui->serviceName->text();
+    auto name = ui->lblServiceName->text();
 
     tm->changeServiceActive(name, status);
 
-    ui->runningBtn->setChecked(tm->serviceIsActive(name));
+    ui->checkServiceRunning->setChecked(tm->serviceIsActive(name));
 }

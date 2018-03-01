@@ -7,22 +7,22 @@ StartupApp::~StartupApp()
     delete ui;
 }
 
-StartupApp::StartupApp(const QString &appName, bool enabled, const QString &filePath, QWidget *parent) :
+StartupApp::StartupApp(const QString &lblStartupAppName, bool enabled, const QString &filePath, QWidget *parent) :
     QWidget(parent),
     ui(new Ui::StartupApp),
-    appName(appName),
+    lblStartupAppName(lblStartupAppName),
     enabled(enabled),
     filePath(filePath)
 {
     ui->setupUi(this);
 
-    ui->appName->setText(appName);
-    ui->startupCheck->setChecked(enabled);
+    ui->lblStartupAppName->setText(lblStartupAppName);
+    ui->checkStartup->setChecked(enabled);
 
     Utilities::addDropShadow(this, 50);
 }
 
-void StartupApp::on_startupCheck_clicked(bool status)
+void StartupApp::on_checkStartup_clicked(bool status)
 {
     QStringList lines = FileUtil::readListFromFile(filePath);
 
@@ -50,25 +50,25 @@ void StartupApp::on_startupCheck_clicked(bool status)
     FileUtil::writeFile(filePath, lines.join('\n').append('\n'));
 }
 
-void StartupApp::on_deleteAppBtn_clicked()
+void StartupApp::on_btnDeleteStartupApp_clicked()
 {
     if(QFile::remove(filePath))
         emit deleteAppS();
 }
 
-void StartupApp::on_editAppBtn_clicked()
+void StartupApp::on_btnEditStartupApp_clicked()
 {
     emit editStartupAppS(filePath);
 }
 
 QString StartupApp::getAppName() const
 {
-    return appName;
+    return lblStartupAppName;
 }
 
 void StartupApp::setAppName(const QString &value)
 {
-    appName = value;
+    lblStartupAppName = value;
 }
 
 bool StartupApp::getEnabled() const

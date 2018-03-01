@@ -48,7 +48,7 @@
     <number>0</number>
    </property>
    <item>
-    <widget class="QWidget" name="startupAppWidget" native="true">
+    <widget class="QWidget" name="widgetStartupApp" native="true">
      <property name="sizePolicy">
       <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
        <horstretch>0</horstretch>
@@ -75,7 +75,7 @@
        <number>10</number>
       </property>
       <item>
-       <widget class="QLabel" name="appIcon">
+       <widget class="QLabel" name="lblStartupAppIcon">
         <property name="minimumSize">
          <size>
           <width>22</width>
@@ -97,7 +97,7 @@
        </widget>
       </item>
       <item alignment="Qt::AlignLeft|Qt::AlignVCenter">
-       <widget class="QLabel" name="appName">
+       <widget class="QLabel" name="lblStartupAppName">
         <property name="text">
          <string notr="true">App Name</string>
         </property>
@@ -117,7 +117,7 @@
        </spacer>
       </item>
       <item alignment="Qt::AlignRight|Qt::AlignVCenter">
-       <widget class="QPushButton" name="editAppBtn">
+       <widget class="QPushButton" name="btnEditStartupApp">
         <property name="cursor">
          <cursorShape>PointingHandCursor</cursorShape>
         </property>
@@ -139,7 +139,7 @@
        </widget>
       </item>
       <item alignment="Qt::AlignRight|Qt::AlignVCenter">
-       <widget class="QPushButton" name="deleteAppBtn">
+       <widget class="QPushButton" name="btnDeleteStartupApp">
         <property name="cursor">
          <cursorShape>PointingHandCursor</cursorShape>
         </property>
@@ -161,7 +161,7 @@
        </widget>
       </item>
       <item alignment="Qt::AlignRight|Qt::AlignVCenter">
-       <widget class="QCheckBox" name="startupCheck">
+       <widget class="QCheckBox" name="checkStartup">
         <property name="cursor">
          <cursorShape>PointingHandCursor</cursorShape>
         </property>

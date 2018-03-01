@@ -17,7 +17,7 @@ class StartupApp : public QWidget
     Q_OBJECT
 
 public:
-    explicit StartupApp(const QString &appName, bool enabled, const QString &filePath, QWidget *parent = 0);
+    explicit StartupApp(const QString &lblStartupAppName, bool enabled, const QString &filePath, QWidget *parent = 0);
     ~StartupApp();
 
     QString getAppName() const;
@@ -30,9 +30,9 @@ public:
     void setFilePath(const QString &value);
 
 private slots:
-    void on_startupCheck_clicked(bool);
-    void on_deleteAppBtn_clicked();
-    void on_editAppBtn_clicked();
+    void on_checkStartup_clicked(bool);
+    void on_btnDeleteStartupApp_clicked();
+    void on_btnEditStartupApp_clicked();
 
 signals:
     void deleteAppS();
@@ -42,7 +42,7 @@ private:
     Ui::StartupApp *ui;
 
 private:
-    QString appName;
+    QString lblStartupAppName;
     QString appComment;
     bool enabled;
     QString filePath;

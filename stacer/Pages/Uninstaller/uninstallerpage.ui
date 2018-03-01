@@ -30,7 +30,7 @@
     <number>0</number>
    </property>
    <item>
-    <widget class="QWidget" name="verticalWidget" native="true">
+    <widget class="QWidget" name="widgetUninstaller" native="true">
      <property name="sizePolicy">
       <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
        <horstretch>0</horstretch>
@@ -57,7 +57,7 @@
        <number>5</number>
       </property>
       <item row="0" column="0" colspan="2" alignment="Qt::AlignTop">
-       <widget class="QWidget" name="horizontalWidget" native="true">
+       <widget class="QWidget" name="widgetUninstallerTop" native="true">
         <property name="sizePolicy">
          <sizepolicy hsizetype="Expanding" vsizetype="Minimum">
           <horstretch>0</horstretch>
@@ -81,7 +81,7 @@
           <number>0</number>
          </property>
          <item alignment="Qt::AlignLeft|Qt::AlignTop">
-          <widget class="QLabel" name="packagesTitle">
+          <widget class="QLabel" name="lblPackagesTitle">
            <property name="sizePolicy">
             <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
              <horstretch>0</horstretch>
@@ -104,7 +104,7 @@
           </widget>
          </item>
          <item alignment="Qt::AlignRight|Qt::AlignTop">
-          <widget class="QLineEdit" name="packageSearch">
+          <widget class="QLineEdit" name="txtPackageSearch">
            <property name="minimumSize">
             <size>
              <width>170</width>
@@ -137,7 +137,7 @@
        </widget>
       </item>
       <item row="5" column="0" colspan="2" alignment="Qt::AlignHCenter">
-       <widget class="QLabel" name="loading">
+       <widget class="QLabel" name="lblLoadingUninstaller">
         <property name="sizePolicy">
          <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
           <horstretch>0</horstretch>
@@ -166,7 +166,7 @@
        </spacer>
       </item>
       <item row="4" column="0" colspan="2" alignment="Qt::AlignHCenter">
-       <widget class="QPushButton" name="uninstallBtn">
+       <widget class="QPushButton" name="btnUninstall">
         <property name="enabled">
          <bool>true</bool>
         </property>
@@ -229,7 +229,7 @@
           <number>0</number>
          </property>
          <item alignment="Qt::AlignHCenter|Qt::AlignBottom">
-          <widget class="QLabel" name="label">
+          <widget class="QLabel" name="lblNotFound">
            <property name="sizePolicy">
             <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
              <horstretch>0</horstretch>
@@ -245,7 +245,7 @@
        </widget>
       </item>
       <item row="2" column="0" colspan="2">
-       <widget class="QListWidget" name="packagesList">
+       <widget class="QListWidget" name="listWidgetPackages">
         <property name="font">
          <font>
           <family>Ubuntu</family>

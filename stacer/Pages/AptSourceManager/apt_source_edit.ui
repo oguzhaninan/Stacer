@@ -33,7 +33,7 @@
     <number>10</number>
    </property>
    <item row="0" column="0" colspan="4">
-    <widget class="QLabel" name="title">
+    <widget class="QLabel" name="lblTitle">
      <property name="text">
       <string>APT Source</string>
      </property>
@@ -73,7 +73,7 @@
     </widget>
    </item>
    <item row="7" column="0">
-    <widget class="QLabel" name="errorMsg">
+    <widget class="QLabel" name="lblErrorMsg">
      <property name="sizePolicy">
       <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
        <horstretch>0</horstretch>
@@ -93,7 +93,7 @@
     </widget>
    </item>
    <item row="7" column="3" alignment="Qt::AlignRight">
-    <widget class="QPushButton" name="saveBtn">
+    <widget class="QPushButton" name="btnSave">
      <property name="cursor">
       <cursorShape>PointingHandCursor</cursorShape>
      </property>

@@ -120,7 +120,7 @@
              <number>0</number>
             </property>
             <item alignment="Qt::AlignHCenter|Qt::AlignBottom">
-             <widget class="QLabel" name="label">
+             <widget class="QLabel" name="lblNotFound">
               <property name="text">
                <string>Not Found APT Source Repositories</string>
               </property>
@@ -130,7 +130,7 @@
           </widget>
          </item>
          <item>
-          <widget class="QListWidget" name="aptSourceRepositoryListWidget">
+          <widget class="QListWidget" name="listWidgetAptSources">
            <property name="focusPolicy">
             <enum>Qt::NoFocus</enum>
            </property>
@@ -385,7 +385,7 @@
        </spacer>
       </item>
       <item row="0" column="0" colspan="5">
-       <widget class="QLabel" name="aptSourceTitleLbl">
+       <widget class="QLabel" name="lblAptSourceTitle">
         <property name="font">
          <font>
           <family>Ubuntu</family>

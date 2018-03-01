@@ -39,7 +39,7 @@ void ServicesPage::getServices()
 
 void ServicesPage::loadServices()
 {
-    ui->serviceListWidget->clear();
+    ui->listWidgetServices->clear();
 
     int runningIndex = ui->cmbRunningStatus->currentIndex();
     int startupIndex = ui->cmbStartupStatus->currentIndex();
@@ -54,30 +54,30 @@ void ServicesPage::loadServices()
         if (runningFilter && startupFilter) {
             ServiceItem *service = new ServiceItem(s.name, s.description, s.status, s.active);
 
-            QListWidgetItem *item = new QListWidgetItem(ui->serviceListWidget);
+            QListWidgetItem *item = new QListWidgetItem(ui->listWidgetServices);
 
             item->setSizeHint(service->sizeHint());
 
-            ui->serviceListWidget->setItemWidget(item, service);
+            ui->listWidgetServices->setItemWidget(item, service);
         }
     }
 
     setServiceCount();
 
-    if(ui->serviceListWidget->count() > 0) {
-        ui->serviceListWidget->show();
+    if(ui->listWidgetServices->count() > 0) {
+        ui->listWidgetServices->show();
         ui->notFoundWidget->hide();
     }
     else { // list widget is empty show not found
         ui->notFoundWidget->show();
-        ui->serviceListWidget->hide();
+        ui->listWidgetServices->hide();
     }
 }
 
 void ServicesPage::setServiceCount()
 {
-    ui->servicesTitle->setText(tr("System Services (%1)")
-                               .arg(ui->serviceListWidget->count()));
+    ui->lblServicesTitle->setText(tr("System Services (%1)")
+                               .arg(ui->listWidgetServices->count()));
 }
 
 void ServicesPage::on_cmbRunningStatus_currentIndexChanged(int index)

@@ -26,15 +26,15 @@ void StartupAppsPage::init()
     loadApps();
 
     connect(&mFileSystemWatcher, &QFileSystemWatcher::directoryChanged, this, &StartupAppsPage::loadApps);
-    connect(ui->addStartupAppBtn, SIGNAL(clicked()), this, SLOT(openStartupAppEdit()));
+    connect(ui->btnAddStartupApp, SIGNAL(clicked()), this, SLOT(openStartupAppEdit()));
 
-    Utilities::addDropShadow(ui->addStartupAppBtn, 60);
+    Utilities::addDropShadow(ui->btnAddStartupApp, 60);
 }
 
 void StartupAppsPage::loadApps()
 {
     // clear
-    ui->startupListWidget->clear();
+    ui->listWidgetStartup->clear();
 
     QDir autostartFiles(mAutostartPath, "*.desktop");
 
@@ -61,7 +61,7 @@ void StartupAppsPage::loadApps()
                 enabled = (gnomeEnabled == enabledStr);
             }
 
-            QListWidgetItem *item = new QListWidgetItem(ui->startupListWidget);
+            QListWidgetItem *item = new QListWidgetItem(ui->listWidgetStartup);
 
             // new app
             StartupApp *app = new StartupApp(appName, enabled, f.absoluteFilePath(), this);
@@ -71,7 +71,7 @@ void StartupAppsPage::loadApps()
 
             item->setSizeHint(app->sizeHint());
 
-            ui->startupListWidget->setItemWidget(item, app);
+            ui->listWidgetStartup->setItemWidget(item, app);
         }
     }
 
@@ -80,14 +80,14 @@ void StartupAppsPage::loadApps()
 
 void StartupAppsPage::setAppCount()
 {
-    int count = ui->startupListWidget->count();
+    int count = ui->listWidgetStartup->count();
 
-    ui->startupAppsTitleLbl->setText(
+    ui->lblStartupAppsTitle->setText(
         tr("System Startup Applications (%1)")
         .arg(QString::number(count)));
 
     ui->notFoundWidget->setVisible(! count);
-    ui->startupListWidget->setVisible(count);
+    ui->listWidgetStartup->setVisible(count);
 }
 
 void StartupAppsPage::openStartupAppEdit(const QString filePath)

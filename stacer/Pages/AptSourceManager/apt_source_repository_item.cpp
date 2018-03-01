@@ -23,19 +23,19 @@ void APTSourceRepositoryItem::init()
 
     Utilities::addDropShadow(this, 50);
 
-    ui->aptSourceCheck->setChecked(mAptSource->isActive);
+    ui->checkAptSource->setChecked(mAptSource->isActive);
 
     QString sourceName = mAptSource->source;
     // example "deb [arch=amd64] http://packages.microsoft.com/repos/vscode stable main"
 
     if (mAptSource->isSource) {
-        ui->aptSourceRepositoryName->setText(
+        ui->lblAptSourceName->setText(
                     tr("%1 (Source Code)").arg(sourceName));
     } else {
-        ui->aptSourceRepositoryName->setText(sourceName);
+        ui->lblAptSourceName->setText(sourceName);
     }
 
-    ui->aptSourceRepositoryName->setToolTip(ui->aptSourceRepositoryName->text());
+    ui->lblAptSourceName->setToolTip(ui->lblAptSourceName->text());
 }
 
 APTSourcePtr APTSourceRepositoryItem::aptSource() const
@@ -43,7 +43,7 @@ APTSourcePtr APTSourceRepositoryItem::aptSource() const
     return mAptSource;
 }
 
-void APTSourceRepositoryItem::on_aptSourceCheck_clicked(bool checked)
+void APTSourceRepositoryItem::on_checkAptSource_clicked(bool checked)
 {
     ToolManager::ins()->changeStatus(mAptSource, checked);
 }

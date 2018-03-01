@@ -25,12 +25,12 @@ public:
 private slots:
     void loadAptSources();
     void on_btnAddAPTSourceRepository_clicked(bool checked);
-    void on_aptSourceRepositoryListWidget_itemClicked(QListWidgetItem *item);
+    void on_listWidgetAptSources_itemClicked(QListWidgetItem *item);
+    void on_listWidgetAptSources_itemDoubleClicked(QListWidgetItem *item);
     void changeElementsVisible(const bool checked);
     void on_txtSearchAptSource_textChanged(const QString &val);
     void on_btnDeleteAptSource_clicked();
     void on_btnEditAptSource_clicked();
-    void on_aptSourceRepositoryListWidget_itemDoubleClicked(QListWidgetItem *item);
     void on_btnCancel_clicked();
 
 private:

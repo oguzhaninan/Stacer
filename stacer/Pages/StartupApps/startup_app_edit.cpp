@@ -37,7 +37,7 @@ void StartupAppEdit::init()
 
     this->autostartPath = QStandardPaths::writableLocation(QStandardPaths::ConfigLocation) + "/autostart";
 
-    ui->errorMsg->hide();
+    ui->lblErrorMsg->hide();
 
     setStyleSheet(AppManager::ins()->getStylesheetFileContent());
 }
@@ -45,10 +45,10 @@ void StartupAppEdit::init()
 void StartupAppEdit::show()
 {
     // clear fields
-    ui->appNameTxt->clear();
-    ui->appCommentTxt->clear();
-    ui->appCommandTxt->clear();
-    ui->errorMsg->hide();
+    ui->txtStartupAppName->clear();
+    ui->txtStartupAppComment->clear();
+    ui->txtStartupAppCommand->clear();
+    ui->lblErrorMsg->hide();
 
     if(! selectedFilePath.isEmpty())
     {
@@ -56,9 +56,9 @@ void StartupAppEdit::show()
 
         if(! lines.isEmpty())
         {
-            ui->appNameTxt->setText(Utilities::getDesktopValue(NAME_REG, lines));
-            ui->appCommentTxt->setText(Utilities::getDesktopValue(COMMENT_REG, lines));
-            ui->appCommandTxt->setText(Utilities::getDesktopValue(EXEC_REG, lines));
+            ui->txtStartupAppName->setText(Utilities::getDesktopValue(NAME_REG, lines));
+            ui->txtStartupAppComment->setText(Utilities::getDesktopValue(COMMENT_REG, lines));
+            ui->txtStartupAppCommand->setText(Utilities::getDesktopValue(EXEC_REG, lines));
         }
     }
 
@@ -76,27 +76,27 @@ void StartupAppEdit::changeDesktopValue(QStringList &lines, const QRegExp &reg, 
     }
 }
 
-void StartupAppEdit::on_saveBtn_clicked()
+void StartupAppEdit::on_btnSave_clicked()
 {
     if(isValid()) {
         if(! selectedFilePath.isEmpty()) {
             QStringList lines = FileUtil::readListFromFile(selectedFilePath);
 
-            changeDesktopValue(lines, NAME_REG, QString("Name=%1").arg(ui->appNameTxt->text()));
-            changeDesktopValue(lines, COMMENT_REG, QString("Comment=%1").arg(ui->appCommentTxt->text()));
-            changeDesktopValue(lines, EXEC_REG, QString("Exec=%1").arg(ui->appCommandTxt->text()));
+            changeDesktopValue(lines, NAME_REG, QString("Name=%1").arg(ui->txtStartupAppName->text()));
+            changeDesktopValue(lines, COMMENT_REG, QString("Comment=%1").arg(ui->txtStartupAppComment->text()));
+            changeDesktopValue(lines, EXEC_REG, QString("Exec=%1").arg(ui->txtStartupAppCommand->text()));
 
             FileUtil::writeFile(selectedFilePath, lines.join("\n"), QIODevice::ReadWrite | QIODevice::Truncate);
         }
         else {
             // new file content
             QString appContent = newAppTemplate
-                    .arg(ui->appNameTxt->text())
-                    .arg(ui->appCommentTxt->text())
-                    .arg(ui->appCommandTxt->text());
+                    .arg(ui->txtStartupAppName->text())
+                    .arg(ui->txtStartupAppComment->text())
+                    .arg(ui->txtStartupAppCommand->text());
 
             // file name
-            QString appFileName = ui->appNameTxt->text()
+            QString appFileName = ui->txtStartupAppName->text()
                     .replace(" ", "_")
                     .replace(QRegExp("\\W+"), "");
 
@@ -109,7 +109,7 @@ void StartupAppEdit::on_saveBtn_clicked()
         close();
     }
     else {
-        ui->errorMsg->show();
+        ui->lblErrorMsg->show();
     }
 
     selectedFilePath = "";
@@ -117,7 +117,7 @@ void StartupAppEdit::on_saveBtn_clicked()
 
 bool StartupAppEdit::isValid()
 {
-    return ! ui->appNameTxt->text().isEmpty() &&
-           ! ui->appCommentTxt->text().isEmpty() &&
-           ! ui->appCommandTxt->text().isEmpty();
+    return ! ui->txtStartupAppName->text().isEmpty() &&
+           ! ui->txtStartupAppComment->text().isEmpty() &&
+           ! ui->txtStartupAppCommand->text().isEmpty();
 }

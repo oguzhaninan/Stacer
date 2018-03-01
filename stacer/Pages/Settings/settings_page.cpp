@@ -27,33 +27,33 @@ void SettingsPage::init()
 
     while (lang.hasNext()) {
         lang.next();
-        ui->languagesCmb->addItem(lang.value(), lang.key());
+        ui->cmbLanguages->addItem(lang.value(), lang.key());
     }
 
     QString lc = apm->getLanguageCode();
-    ui->languagesCmb->setCurrentText(apm->getLanguageList().value(lc));
+    ui->cmbLanguages->setCurrentText(apm->getLanguageList().value(lc));
 
     // load themes
     QMapIterator<QString, QString> theme(apm->getThemeList());
 
     while (theme.hasNext()) {
         theme.next();
-        ui->themesCmb->addItem(theme.value(), theme.key());
+        ui->cmbThemes->addItem(theme.value(), theme.key());
     }
 
     QString tn = apm->getThemeName();
-    ui->themesCmb->setCurrentText(apm->getThemeList().value(tn));
+    ui->cmbThemes->setCurrentText(apm->getThemeList().value(tn));
 
     // load disks
     InfoManager::ins()->updateDiskInfo();
     QList<Disk*> disks = InfoManager::ins()->getDisks();
 
     for (const Disk *disk : disks) {
-        ui->disksCmb->addItem(QString("%1  (%2)").arg(disk->device).arg(disk->name), disk->name);
+        ui->cmbDisks->addItem(QString("%1  (%2)").arg(disk->device).arg(disk->name), disk->name);
     }
 
     QString dk = apm->getDiskName();
-    ui->disksCmb->setCurrentIndex(ui->disksCmb->findData(dk));
+    ui->cmbDisks->setCurrentIndex(ui->cmbDisks->findData(dk));
 
     // start on boot
     startupAppPath = QStandardPaths::writableLocation(QStandardPaths::ConfigLocation);
@@ -83,29 +83,29 @@ void SettingsPage::init()
 
     // effects
     QList<QWidget*> widgets = {
-        ui->languagesCmb, ui->themesCmb, ui->disksCmb, ui->cmbHomepage, ui->btnDonate, ui->spinCpuPercent,
+        ui->cmbLanguages, ui->cmbThemes, ui->cmbDisks, ui->cmbHomepage, ui->btnDonate, ui->spinCpuPercent,
         ui->spinMemoryPercent, ui->spinDiskPercent
     };
 
     Utilities::addDropShadow(widgets, 40);
 
     // connects
-    connect(ui->languagesCmb, SIGNAL(currentIndexChanged(int)), this, SLOT(languagesCmbChanged(int)));
-    connect(ui->themesCmb, SIGNAL(currentIndexChanged(int)), this, SLOT(themesCmbChanged(int)));    
-    connect(ui->disksCmb, SIGNAL(currentIndexChanged(int)), this, SLOT(diskCmbChanged(int)));
+    connect(ui->cmbLanguages, SIGNAL(currentIndexChanged(int)), this, SLOT(cmbLanguagesChanged(int)));
+    connect(ui->cmbThemes, SIGNAL(currentIndexChanged(int)), this, SLOT(cmbThemesChanged(int)));    
+    connect(ui->cmbDisks, SIGNAL(currentIndexChanged(int)), this, SLOT(diskCmbChanged(int)));
     connect(ui->cmbHomepage, SIGNAL(currentIndexChanged(QString)), this, SLOT(cmbHomePageChanged(QString)));
 }
 
-void SettingsPage::languagesCmbChanged(const int &index)
+void SettingsPage::cmbLanguagesChanged(const int &index)
 {
-    QString langCode = ui->languagesCmb->itemData(index).toString();
+    QString langCode = ui->cmbLanguages->itemData(index).toString();
 
     apm->setLanguage(langCode);
 }
 
-void SettingsPage::themesCmbChanged(const int &index)
+void SettingsPage::cmbThemesChanged(const int &index)
 {
-    QString themeName = ui->themesCmb->itemData(index).toString();
+    QString themeName = ui->cmbThemes->itemData(index).toString();
 
     apm->setThemeName(themeName);
     apm->updateStylesheet();
@@ -113,7 +113,7 @@ void SettingsPage::themesCmbChanged(const int &index)
 
 void SettingsPage::diskCmbChanged(const int &index)
 {
-    QString diskName = ui->disksCmb->itemData(index).toString();
+    QString diskName = ui->cmbDisks->itemData(index).toString();
 
     apm->setDiskName(diskName);
 }

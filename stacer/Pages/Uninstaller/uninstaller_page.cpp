@@ -21,9 +21,9 @@ void UninstallerPage::init()
 {
     QString path = QString(":/static/themes/%1/img/loading.gif").arg(AppManager::ins()->getThemeName());
     QMovie *loadingMovie = new QMovie(path, QByteArray(), this);
-    ui->loading->setMovie(loadingMovie);
+    ui->lblLoadingUninstaller->setMovie(loadingMovie);
     loadingMovie->start();
-    ui->loading->hide();
+    ui->lblLoadingUninstaller->hide();
     ui->notFoundWidget->hide();
 
     QtConcurrent::run(this, &UninstallerPage::loadPackages);
@@ -37,7 +37,7 @@ void UninstallerPage::loadPackages()
     emit uninstallStarted();
 
     // clear items
-    ui->packagesList->clear();
+    ui->listWidgetPackages->clear();
 
     QIcon icon(QString(":/static/themes/%1/img/package.svg").arg(AppManager::ins()->getThemeName()));
     QStringList packages = tm->getPackages();
@@ -46,35 +46,35 @@ void UninstallerPage::loadPackages()
 
         item->setCheckState(Qt::Unchecked);
 
-        ui->packagesList->addItem(item);
+        ui->listWidgetPackages->addItem(item);
     }
     setAppCount();
 
-    ui->packagesList->setEnabled(true);
-    ui->packageSearch->setEnabled(true);
-    ui->packageSearch->clear();
+    ui->listWidgetPackages->setEnabled(true);
+    ui->txtPackageSearch->setEnabled(true);
+    ui->txtPackageSearch->clear();
 
-    ui->loading->hide();
+    ui->lblLoadingUninstaller->hide();
 }
 
 void UninstallerPage::setAppCount()
 {
-    int count = ui->packagesList->count();
+    int count = ui->listWidgetPackages->count();
 
-    ui->packagesTitle->setText(tr("System Installed Packages (%1)").arg(count));
+    ui->lblPackagesTitle->setText(tr("System Installed Packages (%1)").arg(count));
 
     ui->notFoundWidget->setVisible(! count);
-    ui->uninstallBtn->setVisible(count);
-    ui->packagesList->setVisible(count);
+    ui->btnUninstall->setVisible(count);
+    ui->listWidgetPackages->setVisible(count);
 }
 
 QStringList UninstallerPage::getSelectedPackages()
 {
     QStringList selectedPackages = {};
 
-    for (int i = 0; i < ui->packagesList->count(); ++i)
+    for (int i = 0; i < ui->listWidgetPackages->count(); ++i)
     {
-        QListWidgetItem *item = ui->packagesList->item(i);
+        QListWidgetItem *item = ui->listWidgetPackages->item(i);
 
         if(item->checkState() == Qt::Checked)
             selectedPackages << item->text().trimmed();
@@ -83,7 +83,7 @@ QStringList UninstallerPage::getSelectedPackages()
     return selectedPackages;
 }
 
-void UninstallerPage::on_uninstallBtn_clicked()
+void UninstallerPage::on_btnUninstall_clicked()
 {
     QStringList selectedPackages = getSelectedPackages();
 
@@ -96,21 +96,21 @@ void UninstallerPage::on_uninstallBtn_clicked()
 
 void UninstallerPage::uninstallStarted()
 {
-    ui->packagesList->setEnabled(false);
-    ui->packageSearch->setEnabled(false);
-    ui->uninstallBtn->hide();
+    ui->listWidgetPackages->setEnabled(false);
+    ui->txtPackageSearch->setEnabled(false);
+    ui->btnUninstall->hide();
 
-    ui->loading->show();
+    ui->lblLoadingUninstaller->show();
 }
 
-void UninstallerPage::on_packageSearch_textChanged(const QString &val)
+void UninstallerPage::on_txtPackageSearch_textChanged(const QString &val)
 {
     // Get matches items
-    QList<QListWidgetItem*> matches = ui->packagesList->findItems(val, Qt::MatchFlag::MatchContains);
+    QList<QListWidgetItem*> matches = ui->listWidgetPackages->findItems(val, Qt::MatchFlag::MatchContains);
 
     // All items hide
-    for (int i = 0; i < ui->packagesList->count(); ++i)
-        ui->packagesList->item(i)->setHidden(true);
+    for (int i = 0; i < ui->listWidgetPackages->count(); ++i)
+        ui->listWidgetPackages->item(i)->setHidden(true);
 
     // Matches items show
     for (QListWidgetItem* item : matches)

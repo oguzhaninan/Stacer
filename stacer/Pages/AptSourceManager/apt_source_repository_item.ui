@@ -75,7 +75,7 @@
        <number>10</number>
       </property>
       <item>
-       <widget class="QLabel" name="aptSourceIcon">
+       <widget class="QLabel" name="lblAptSourceIcon">
         <property name="minimumSize">
          <size>
           <width>26</width>
@@ -97,7 +97,7 @@
        </widget>
       </item>
       <item>
-       <widget class="QLabel" name="aptSourceRepositoryName">
+       <widget class="QLabel" name="lblAptSourceName">
         <property name="text">
          <string notr="true">APT Source Repository</string>
         </property>
@@ -117,7 +117,7 @@
        </spacer>
       </item>
       <item>
-       <widget class="QCheckBox" name="aptSourceCheck">
+       <widget class="QCheckBox" name="checkAptSource">
         <property name="cursor">
          <cursorShape>PointingHandCursor</cursorShape>
         </property>

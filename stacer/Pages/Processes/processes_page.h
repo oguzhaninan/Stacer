@@ -28,10 +28,10 @@ private slots:
     void init();
     void loadProcesses();
     QList<QStandardItem *> createRow(const Process &proc);
-    void on_processSearchBox_textChanged(const QString &val);
-    void on_refreshSlider_valueChanged(const int &i);
-    void on_endProcessBtn_clicked();
-    void on_processTable_customContextMenuRequested(const QPoint &pos);
+    void on_txtProcessSearch_textChanged(const QString &val);
+    void on_sliderRefresh_valueChanged(const int &i);
+    void on_btnEndProcess_clicked();
+    void on_tableProcess_customContextMenuRequested(const QPoint &pos);
     void loadHeaderMenu();
 
 private:

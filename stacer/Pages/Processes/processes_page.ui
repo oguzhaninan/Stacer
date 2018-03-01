@@ -50,14 +50,14 @@
       <number>10</number>
      </property>
      <item>
-      <widget class="QLabel" name="processTitleLbl">
+      <widget class="QLabel" name="lblProcessTitle">
        <property name="text">
         <string>Processes</string>
        </property>
       </widget>
      </item>
      <item>
-      <widget class="QCheckBox" name="allProcessesCheck">
+      <widget class="QCheckBox" name="checkAllProcesses">
        <property name="cursor">
         <cursorShape>PointingHandCursor</cursorShape>
        </property>
@@ -83,7 +83,7 @@
       </spacer>
      </item>
      <item alignment="Qt::AlignRight">
-      <widget class="QLineEdit" name="processSearchBox">
+      <widget class="QLineEdit" name="txtProcessSearch">
        <property name="font">
         <font>
          <pointsize>10</pointsize>
@@ -97,7 +97,7 @@
     </layout>
    </item>
    <item row="3" column="0">
-    <widget class="QTableView" name="processTable">
+    <widget class="QTableView" name="tableProcess">
      <property name="focusPolicy">
       <enum>Qt::NoFocus</enum>
      </property>
@@ -164,14 +164,14 @@
        <number>0</number>
       </property>
       <item alignment="Qt::AlignLeft|Qt::AlignVCenter">
-       <widget class="QLabel" name="refreshLabel">
+       <widget class="QLabel" name="lblRefresh">
         <property name="text">
          <string notr="true">Refresh (1)</string>
         </property>
        </widget>
       </item>
       <item alignment="Qt::AlignLeft|Qt::AlignVCenter">
-       <widget class="QSlider" name="refreshSlider">
+       <widget class="QSlider" name="sliderRefresh">
         <property name="cursor">
          <cursorShape>PointingHandCursor</cursorShape>
         </property>
@@ -200,7 +200,7 @@
        </spacer>
       </item>
       <item>
-       <widget class="QPushButton" name="endProcessBtn">
+       <widget class="QPushButton" name="btnEndProcess">
         <property name="cursor">
          <cursorShape>PointingHandCursor</cursorShape>
         </property>

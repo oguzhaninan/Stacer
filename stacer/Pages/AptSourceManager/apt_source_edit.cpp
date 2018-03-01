@@ -21,7 +21,7 @@ APTSourceEdit::APTSourceEdit(QWidget *parent) :
 
 void APTSourceEdit::init()
 {
-    ui->errorMsg->hide();
+    ui->lblErrorMsg->hide();
 }
 
 void APTSourceEdit::show()
@@ -43,7 +43,7 @@ void APTSourceEdit::show()
 
 void APTSourceEdit::clearElements()
 {
-    ui->errorMsg->hide();
+    ui->lblErrorMsg->hide();
     ui->txtOptions->clear();
     ui->txtUri->clear();
     ui->txtDistribution->clear();
@@ -68,7 +68,7 @@ void APTSourceEdit::on_saveBtn_clicked()
 
         close();
     } else {
-        ui->errorMsg->show();
+        ui->lblErrorMsg->show();
     }
 }
 

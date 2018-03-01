@@ -19,7 +19,10 @@
   <property name="windowTitle">
    <string notr="true"/>
   </property>
-  <layout class="QVBoxLayout" name="verticalLayout">
+  <property name="styleSheet">
+   <string notr="true"/>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout_2">
    <property name="spacing">
     <number>0</number>
    </property>
@@ -36,17 +39,14 @@
     <number>0</number>
    </property>
    <item>
-    <widget class="QWidget" name="chartWidget" native="true">
+    <widget class="QWidget" name="widgetCircleBar" native="true">
      <property name="sizePolicy">
       <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
        <horstretch>0</horstretch>
        <verstretch>0</verstretch>
       </sizepolicy>
      </property>
-     <property name="styleSheet">
-      <string notr="true"/>
-     </property>
-     <layout class="QVBoxLayout" name="chartLayout">
+     <layout class="QVBoxLayout" name="layoutCircleBar">
       <property name="spacing">
        <number>0</number>
       </property>
@@ -62,20 +62,26 @@
       <property name="bottomMargin">
        <number>10</number>
       </property>
-      <item alignment="Qt::AlignHCenter|Qt::AlignTop">
-       <widget class="QLabel" name="chartTitle">
+      <item alignment="Qt::AlignTop">
+       <widget class="QLabel" name="lblCircleChartTitle">
         <property name="styleSheet">
          <string notr="true"/>
         </property>
         <property name="text">
          <string notr="true">Title</string>
         </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
        </widget>
       </item>
-      <item alignment="Qt::AlignHCenter|Qt::AlignBottom">
-       <widget class="QLabel" name="chartValue">
+      <item alignment="Qt::AlignBottom">
+       <widget class="QLabel" name="lblCircleChartValue">
         <property name="text">
          <string notr="true">Value</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
         </property>
        </widget>
       </item>

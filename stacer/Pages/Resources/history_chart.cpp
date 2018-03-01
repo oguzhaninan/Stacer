@@ -23,15 +23,17 @@ HistoryChart::HistoryChart(const QString &title, const int &seriesCount, QWidget
 
 void HistoryChart::init()
 {
-    ui->historyTitleLbl->setText(title);
+    ui->lblHistoryTitle->setText(title);
 
     // create lists
-    for (int i = 0; i < seriesCount; i++)
+    for (int i = 0; i < seriesCount; i++) {
         seriesList.append(new QSplineSeries);
+    }
 
     // add series to chart
-    for (int i = 0; i < seriesList.count(); ++i)
+    for (int i = 0; i < seriesList.count(); ++i) {
         chart->addSeries(seriesList.at(i));
+    }
 
     chartView->setRenderHint(QPainter::Antialiasing);
 
@@ -42,8 +44,9 @@ void HistoryChart::init()
         0x5499C7, 0x58D68D, 0xCD6155, 0xF5B041, 0x566573
     };
     // set colors
-    for (int i = 0; i < seriesList.count(); ++i)
+    for (int i = 0; i < seriesList.count(); ++i) {
         seriesList.at(i)->setColor(QColor(colors.at(i)));
+    }
 
     // Chart Settings
     chart->createDefaultAxes();
@@ -53,7 +56,7 @@ void HistoryChart::init()
 
     chart->setContentsMargins(-11, -11, -11, -11);
     chart->setMargins(QMargins(20, 0, 10, 10));
-    ui->verticalLayout->addWidget(chartView);
+    ui->layoutHistoryChart->addWidget(chartView, 1, 0, 1, 3);
 
     // theme changed
     connect(AppManager::ins(), &AppManager::changedTheme, this, [this]() {
@@ -90,7 +93,7 @@ void HistoryChart::setSeriesList(const QVector<QSplineSeries *> &value)
     chartView->repaint();
 }
 
-void HistoryChart::on_historyTitleCheck_clicked(bool checked)
+void HistoryChart::on_checkHistoryTitle_clicked(bool checked)
 {
     QLayout *charts = topLevelWidget()->findChild<QWidget*>("charts")->layout();
 

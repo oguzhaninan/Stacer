@@ -58,7 +58,7 @@
         <number>20</number>
        </property>
        <item row="2" column="3" alignment="Qt::AlignHCenter">
-        <widget class="QLabel" name="crashReportsLabel">
+        <widget class="QLabel" name="lblCrashReports">
          <property name="text">
           <string>Crash Reports</string>
          </property>
@@ -71,7 +71,7 @@
         </widget>
        </item>
        <item row="1" column="3" alignment="Qt::AlignHCenter|Qt::AlignTop">
-        <widget class="QLabel" name="crashReportsImgLabel">
+        <widget class="QLabel" name="lblCrashReportsImg">
          <property name="minimumSize">
           <size>
            <width>90</width>
@@ -99,7 +99,7 @@
         </widget>
        </item>
        <item row="3" column="5" alignment="Qt::AlignHCenter">
-        <widget class="QCheckBox" name="appCacheCheck">
+        <widget class="QCheckBox" name="checkAppCache">
          <property name="sizePolicy">
           <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
            <horstretch>0</horstretch>
@@ -111,6 +111,9 @@
          </property>
          <property name="focusPolicy">
           <enum>Qt::NoFocus</enum>
+         </property>
+         <property name="accessibleName">
+          <string>circle</string>
          </property>
          <property name="text">
           <string/>
@@ -144,7 +147,7 @@
         </spacer>
        </item>
        <item row="1" column="5" alignment="Qt::AlignHCenter">
-        <widget class="QLabel" name="appCacheImgLabel">
+        <widget class="QLabel" name="lblAppCacheImg">
          <property name="minimumSize">
           <size>
            <width>90</width>
@@ -169,7 +172,7 @@
         </widget>
        </item>
        <item row="2" column="4" alignment="Qt::AlignHCenter">
-        <widget class="QLabel" name="logLabel">
+        <widget class="QLabel" name="lblAppLog">
          <property name="text">
           <string>Application Logs</string>
          </property>
@@ -182,7 +185,7 @@
         </widget>
        </item>
        <item row="1" column="6" alignment="Qt::AlignHCenter">
-        <widget class="QLabel" name="trashImgLabel">
+        <widget class="QLabel" name="lblTrashImg">
          <property name="minimumSize">
           <size>
            <width>90</width>
@@ -207,7 +210,7 @@
         </widget>
        </item>
        <item row="2" column="5" alignment="Qt::AlignHCenter">
-        <widget class="QLabel" name="appCacheLabel">
+        <widget class="QLabel" name="lblAppCache">
          <property name="text">
           <string>Application Caches</string>
          </property>
@@ -220,7 +223,7 @@
         </widget>
        </item>
        <item row="1" column="2" alignment="Qt::AlignHCenter">
-        <widget class="QLabel" name="packageCacheImgLabel">
+        <widget class="QLabel" name="lblPackageCacheImg">
          <property name="minimumSize">
           <size>
            <width>90</width>
@@ -248,7 +251,7 @@
         </widget>
        </item>
        <item row="3" column="6" alignment="Qt::AlignHCenter">
-        <widget class="QCheckBox" name="trashCheck">
+        <widget class="QCheckBox" name="checkTrash">
          <property name="sizePolicy">
           <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
            <horstretch>0</horstretch>
@@ -260,6 +263,9 @@
          </property>
          <property name="focusPolicy">
           <enum>Qt::NoFocus</enum>
+         </property>
+         <property name="accessibleName">
+          <string>circle</string>
          </property>
          <property name="text">
           <string/>
@@ -267,7 +273,7 @@
         </widget>
        </item>
        <item row="3" column="3" alignment="Qt::AlignHCenter">
-        <widget class="QCheckBox" name="crashReportsCheck">
+        <widget class="QCheckBox" name="checkCrashReports">
          <property name="sizePolicy">
           <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
            <horstretch>0</horstretch>
@@ -280,13 +286,16 @@
          <property name="focusPolicy">
           <enum>Qt::NoFocus</enum>
          </property>
+         <property name="accessibleName">
+          <string>circle</string>
+         </property>
          <property name="text">
           <string/>
          </property>
         </widget>
        </item>
        <item row="5" column="4" alignment="Qt::AlignHCenter">
-        <widget class="QPushButton" name="scanBtn">
+        <widget class="QPushButton" name="btnScan">
          <property name="minimumSize">
           <size>
            <width>100</width>
@@ -327,7 +336,7 @@
         </spacer>
        </item>
        <item row="3" column="2" alignment="Qt::AlignHCenter">
-        <widget class="QCheckBox" name="packageCacheCheck">
+        <widget class="QCheckBox" name="checkPackageCache">
          <property name="sizePolicy">
           <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
            <horstretch>0</horstretch>
@@ -340,13 +349,16 @@
          <property name="focusPolicy">
           <enum>Qt::NoFocus</enum>
          </property>
+         <property name="accessibleName">
+          <string>circle</string>
+         </property>
          <property name="text">
           <string/>
          </property>
         </widget>
        </item>
        <item row="2" column="6" alignment="Qt::AlignHCenter">
-        <widget class="QLabel" name="trashLabel">
+        <widget class="QLabel" name="lblTrash">
          <property name="text">
           <string>Trash</string>
          </property>
@@ -359,7 +371,7 @@
         </widget>
        </item>
        <item row="1" column="4" alignment="Qt::AlignHCenter|Qt::AlignTop">
-        <widget class="QLabel" name="logImageLabel">
+        <widget class="QLabel" name="lblLogImage">
          <property name="minimumSize">
           <size>
            <width>90</width>
@@ -384,7 +396,7 @@
         </widget>
        </item>
        <item row="2" column="2" alignment="Qt::AlignHCenter">
-        <widget class="QLabel" name="packageCacheLabel">
+        <widget class="QLabel" name="lblPackageCache">
          <property name="text">
           <string>Package Caches</string>
          </property>
@@ -397,7 +409,7 @@
         </widget>
        </item>
        <item row="3" column="4" alignment="Qt::AlignHCenter">
-        <widget class="QCheckBox" name="logCheck">
+        <widget class="QCheckBox" name="checkAppLog">
          <property name="sizePolicy">
           <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
            <horstretch>0</horstretch>
@@ -409,6 +421,9 @@
          </property>
          <property name="focusPolicy">
           <enum>Qt::NoFocus</enum>
+         </property>
+         <property name="accessibleName">
+          <string>circle</string>
          </property>
          <property name="text">
           <string/>
@@ -442,7 +457,7 @@
         </spacer>
        </item>
        <item row="6" column="4" alignment="Qt::AlignHCenter">
-        <widget class="QLabel" name="loading">
+        <widget class="QLabel" name="lblLoadingScanner">
          <property name="minimumSize">
           <size>
            <width>100</width>
@@ -474,7 +489,7 @@
         <number>0</number>
        </property>
        <item>
-        <widget class="QWidget" name="gridWidget" native="true">
+        <widget class="QWidget" name="widgetCleaner" native="true">
          <layout class="QGridLayout" name="gridLayout">
           <property name="leftMargin">
            <number>0</number>
@@ -495,7 +510,7 @@
            <number>10</number>
           </property>
           <item row="0" column="0" alignment="Qt::AlignLeft">
-           <widget class="QPushButton" name="backButtton">
+           <widget class="QPushButton" name="btnBackToCategories">
             <property name="cursor">
              <cursorShape>PointingHandCursor</cursorShape>
             </property>
@@ -544,7 +559,7 @@
            </spacer>
           </item>
           <item row="1" column="0" rowspan="2" colspan="4">
-           <widget class="QTreeWidget" name="scanResultTreeW">
+           <widget class="QTreeWidget" name="treeWidgetScanResult">
             <property name="font">
              <font>
               <stylestrategy>PreferAntialias</stylestrategy>
@@ -585,7 +600,7 @@
            </widget>
           </item>
           <item row="3" column="1" alignment="Qt::AlignHCenter">
-           <widget class="QPushButton" name="cleanBtn">
+           <widget class="QPushButton" name="btnClean">
             <property name="sizePolicy">
              <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
               <horstretch>0</horstretch>
@@ -619,7 +634,7 @@
            </widget>
           </item>
           <item row="0" column="1" alignment="Qt::AlignHCenter">
-           <widget class="QLabel" name="removedTotalSizeLbl">
+           <widget class="QLabel" name="lblRemovedTotalSize">
             <property name="minimumSize">
              <size>
               <width>20</width>
@@ -635,7 +650,7 @@
            </widget>
           </item>
           <item row="4" column="1">
-           <widget class="QLabel" name="loading_2">
+           <widget class="QLabel" name="lblLoadingCleaner">
             <property name="minimumSize">
              <size>
               <width>100</width>

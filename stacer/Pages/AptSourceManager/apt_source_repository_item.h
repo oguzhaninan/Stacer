@@ -23,7 +23,7 @@ public:
     APTSourcePtr aptSource() const;
 
 private slots:
-    void on_aptSourceCheck_clicked(bool checked);
+    void on_checkAptSource_clicked(bool checked);
 
 private:
     void init();

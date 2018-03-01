@@ -97,7 +97,7 @@ void Feedback::on_sendBtn_clicked()
 
 void Feedback::setErrorMessage(const QString &msg)
 {
-    ui->errorMsg->setText(msg);
+    ui->lblErrorMsg->setText(msg);
 }
 
 void Feedback::disableElements(const bool status)

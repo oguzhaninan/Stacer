@@ -36,7 +36,7 @@ public slots:
 private slots:
     void init();
     bool isValid();
-    void on_saveBtn_clicked();
+    void on_btnSave_clicked();
     void changeDesktopValue(QStringList &lines, const QRegExp &reg, const QString &text);
 
 private:

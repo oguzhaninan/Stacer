@@ -30,7 +30,7 @@
     <number>0</number>
    </property>
    <item row="0" column="0">
-    <widget class="QWidget" name="verticalWidget" native="true">
+    <widget class="QWidget" name="widgetStartupApps" native="true">
      <property name="sizePolicy">
       <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
        <horstretch>0</horstretch>
@@ -73,7 +73,7 @@
        </spacer>
       </item>
       <item row="5" column="2">
-       <widget class="QPushButton" name="addStartupAppBtn">
+       <widget class="QPushButton" name="btnAddStartupApp">
         <property name="sizePolicy">
          <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
           <horstretch>0</horstretch>
@@ -100,7 +100,7 @@
        </widget>
       </item>
       <item row="0" column="0" alignment="Qt::AlignLeft">
-       <widget class="QLabel" name="startupAppsTitleLbl">
+       <widget class="QLabel" name="lblStartupAppsTitle">
         <property name="font">
          <font>
           <family>Ubuntu</family>
@@ -190,7 +190,7 @@
              <number>0</number>
             </property>
             <item alignment="Qt::AlignHCenter|Qt::AlignBottom">
-             <widget class="QLabel" name="label">
+             <widget class="QLabel" name="lblNotFound">
               <property name="text">
                <string>Not Found Startup Apps</string>
               </property>
@@ -200,7 +200,7 @@
           </widget>
          </item>
          <item>
-          <widget class="QListWidget" name="startupListWidget">
+          <widget class="QListWidget" name="listWidgetStartup">
            <property name="focusPolicy">
             <enum>Qt::NoFocus</enum>
            </property>

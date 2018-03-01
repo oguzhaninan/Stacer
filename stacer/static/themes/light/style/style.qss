@@ -241,17 +241,17 @@ QWidget#lineChartWidget {
     border-radius: 1;
 }
 
-QLabel#lineChartTitle {
+QLabel#lblLineChartTitle {
     color: @color02;
     font-size: 13pt;
 }
 
-QLabel#lineChartValue {
+QLabel#lblLineChartValue {
     color: @color02;
     font-size: 13pt;
 }
 
-QLabel#lineChartTotal {
+QLabel#lblLineChartTotal {
     color: @color02;
     font-size: 11pt;
 }
@@ -268,14 +268,14 @@ QProgressBar#lineChartProgress::chunk {
 
 /* - System Info - */
 
-QListView#systemInfoList {
+QListView#listViewSystemInfo {
     border: 0;
     background-color: transparent;
     font-size: 12pt;
     color: @color02;
 }
 
-QLabel#systemInfoTitle {
+QLabel#lblSystemInfoTitle {
     color: @color02;
     font-size: 13pt;
     padding-left: 5;
@@ -305,89 +305,89 @@ QLabel#systemInfoTitle {
 
 /* - System Scan Button - */
 
-#SystemCleanerPage #scanBtn {
+#SystemCleanerPage #btnScan {
     border: 0;
 }
 
-#SystemCleanerPage #scanBtn {
+#SystemCleanerPage #btnScan {
     background: url(:/static/themes/light/img/scan.svg) no-repeat center;
 }
 
-#SystemCleanerPage #scanBtn:hover {
+#SystemCleanerPage #btnScan:hover {
     background: url(:/static/themes/light/img/scan-active.svg) no-repeat center;
 }
 
 /* - System Clean Button - */
 
-#SystemCleanerPage #cleanBtn {
+#SystemCleanerPage #btnClean {
     border: 0;
 }
 
-#SystemCleanerPage #cleanBtn {
+#SystemCleanerPage #btnClean {
     background: url(:/static/themes/light/img/clean.svg) no-repeat center;
 }
 
-#SystemCleanerPage #cleanBtn:hover {
+#SystemCleanerPage #btnClean:hover {
     background: url(:/static/themes/light/img/clean-active.svg) no-repeat center;
 }
 
 /* - System Scan Results - */
 
-#backButtton {
+#btnBackToCategories {
     border: 0;
     font-size: 11pt;
     color: @color03;
 }
 
-#scanResultTreeW {
+#treeWidgetScanResult {
     border: 1 solid @color01;
     background-color: @color01;
     border-radius: 2;
 }
 
-#scanResultTreeW QHeaderView::section {
+#treeWidgetScanResult QHeaderView::section {
     border-top: 1;
 }
 
-#scanResultTreeW::item {
+#treeWidgetScanResult::item {
     border-bottom: 1 solid @pageContent;
     padding: 7 3;
     font-size: 11pt;
     color: @color02;
 }
 
-#scanResultTreeW::indicator {
+#treeWidgetScanResult::indicator {
     width: 14;
     height: 14;
 }
 
-#scanResultTreeW::indicator:checked {
+#treeWidgetScanResult::indicator:checked {
     image: url(:/static/themes/default/img/check.svg);
 }
 
-#scanResultTreeW::indicator:unchecked {
+#treeWidgetScanResult::indicator:unchecked {
     image: url(:/static/themes/default/img/un-check.svg);
 }
 
-#scanResultTreeW::branch:has-children:!has-siblings:closed,
-#scanResultTreeW::branch:closed:has-children:has-siblings {
+#treeWidgetScanResult::branch:has-children:!has-siblings:closed,
+#treeWidgetScanResult::branch:closed:has-children:has-siblings {
     border-image: none;
     image: url(:/static/themes/light/img/right-arrow.svg);
     padding: 4;
 }
 
-#scanResultTreeW::branch:open:has-ch ildren:!has-siblings,
-#scanResultTreeW::branch:open:has-children:has-siblings {
+#treeWidgetScanResult::branch:open:has-ch ildren:!has-siblings,
+#treeWidgetScanResult::branch:open:has-children:has-siblings {
     border-image: none;
     image: url(:/static/themes/light/img/down-arrow.svg);
     padding: 4;
 }
 
-#scanResultTreeW::branch {
+#treeWidgetScanResult::branch {
     border-bottom: 1 solid @pageContent;
 }
 
-#removedTotalSizeLbl {
+#lblRemovedTotalSize {
     font-size: 11pt;
     color: @color04;
 }
@@ -395,11 +395,11 @@ QLabel#systemInfoTitle {
 /**************************
     STARTUP APPS PAGE
 ***************************/
-#startupListWidget {
+#listWidgetStartup {
     background-color: transparent;
 }
 
-#addStartupAppBtn {
+#btnAddStartupApp {
     border:0;
     border-radius: 2;
     background-color: @color03;
@@ -407,11 +407,11 @@ QLabel#systemInfoTitle {
     padding: 7 15;
 }
 
-#addStartupAppBtn:hover {
+#btnAddStartupApp:hover {
     background-color: @color10;
 }
 
-#startupAppsTitleLbl {
+#lblStartupAppsTitle {
     color: @color03;
     padding: 10 0 10 20;
 }
@@ -422,34 +422,34 @@ QLabel#systemInfoTitle {
 
 /* - Startup App - */
 
-#startupAppWidget {
+#widgetStartupApp {
     border-radius: 2;
     background-color: @color01;
 }
 
-#appIcon {
+#lblStartupAppIcon {
     image: url(:/static/themes/light/img/app.svg);
 }
 
-#startupAppWidget:hover {
+#widgetStartupApp:hover {
     background-color: @color07;
 }
 
-#startupAppWidget #appName {
+#widgetStartupApp #lblStartupAppName {
     font-size: 11pt;
     color: @color02;
 }
 
-#startupCheck {
+#checkStartup {
     margin-top: 3;
 }
 
-#startupAppWidget #deleteAppBtn {
+#widgetStartupApp #btnDeleteStartupApp {
     qproperty-icon: url(:/static/themes/default/img/trash.svg);
     border: 0;
 }
 
-#startupAppWidget #editAppBtn {
+#widgetStartupApp #btnEditStartupApp {
     qproperty-icon: url(:/static/themes/light/img/edit.svg);
     border: 0;
     margin-bottom: 2;
@@ -474,7 +474,7 @@ QLabel#systemInfoTitle {
     color: @color02;
 }
 
-#StartupAppEdit #saveBtn {
+#StartupAppEdit #btnSave {
     border-radius: 2;
     padding: 7 25;
     font-size: 11pt;
@@ -482,11 +482,11 @@ QLabel#systemInfoTitle {
     color: @color01;
 }
 
-#StartupAppEdit #saveBtn:hover {
+#StartupAppEdit #btnSave:hover {
     background-color: @color10;
 }
 
-#StartupAppEdit #errorMsg {
+#StartupAppEdit #lblErrorMsg {
     color: #f44336;
 }
 
@@ -499,7 +499,7 @@ QLabel#systemInfoTitle {
     background-color: transparent;
 }
 
-#servicesTitle {
+#lblServicesTitle {
     font-size: 11pt;
     color: @color03;
     padding: 10 0;
@@ -516,7 +516,7 @@ QLabel#systemInfoTitle {
     background-color: @color01;
 }
 
-#serviceIcon {
+#lblServiceIcon {
     image: url(:/static/themes/default/img/service.svg);
 }
 
@@ -524,21 +524,21 @@ QLabel#systemInfoTitle {
     background-color: @color07;
 }
 
-#ServiceItem #serviceName {
+#ServiceItem #lblServiceName {
     font-size: 11pt;
     color: @color02;
 }
 
-#ServiceItem #lblDescription {
+#ServiceItem #lblServiceDescription {
     font-size: 10pt;
     color: @color06;
 }
 
-#serviceStartupImg {
+#lblServiceStartupImg {
     image: url(:/static/themes/default/img/power.svg);
 }
 
-#systemRunningImg {
+#lblSystemRunningImg {
     image: url(:/static/themes/default/img/run.svg);
 }
 
@@ -546,32 +546,32 @@ QLabel#systemInfoTitle {
     PROCESSES PAGE
 ***************************/
 
-#processTitleLbl {
+#lblProcessTitle {
     color: @color03;
     padding: 10 0;
     font-size: 11pt;
 }
 
-#allProcessesCheck {
+#checkAllProcesses {
     margin-top: 2;
     color: @color02;
     font-size: 10pt;
 }
 
-#allProcessesCheck::indicator {
+#checkAllProcesses::indicator {
     width: 14;
     height: 14;
 }
 
-#allProcessesCheck::indicator:unchecked {
+#checkAllProcesses::indicator:unchecked {
     image: url(:/static/themes/default/img/un-check.svg);
 }
 
-#allProcessesCheck::indicator:checked {
+#checkAllProcesses::indicator:checked {
     image: url(:/static/themes/default/img/check.svg);
 }
 
-#processSearchBox {
+#txtProcessSearch {
     width: 150;
     padding: 4 12;
     border-radius: 12;
@@ -618,22 +618,22 @@ QHeaderView::down-arrow {
     image: url(:/static/themes/default/img/dsc.svg);
 }
 
-#refreshLabel {
+#lblRefresh {
     color: @color02;
     font-size: 10pt;
 }
 
-#refreshSlider {
+#sliderRefresh {
     margin-top: 3;
 }
 
-#refreshSlider::groove:horizontal {
+#sliderRefresh::groove:horizontal {
     height: 2px;
     background-color: @color08;
     margin: 2px 0;
 }
 
-#refreshSlider::handle:horizontal {
+#sliderRefresh::handle:horizontal {
     background-color: @color03;
     width: 14px;
     height: 14px;
@@ -656,13 +656,13 @@ QHeaderView::down-arrow {
     UNINSTALLER PAGE
 ***************************/
 
-#packagesTitle {
+#lblPackagesTitle {
     color: @color03;
     padding: 10 0;
     font-size: 11pt;
 }
 
-#packageSearch {
+#txtPackageSearch {
     padding: 4 12;
     border-radius: 12;
     background: @color01 url(:/static/themes/default/img/search.svg) no-repeat right center;
@@ -670,47 +670,47 @@ QHeaderView::down-arrow {
     color: @color08;
 }
 
-#packagesList {
+#listWidgetPackages {
     border:0;
     background-color: transparent;
     font-size:11pt;
 }
 
-#packagesList::indicator {
+#listWidgetPackages::indicator {
     min-width: 16;
     min-height: 16;
 }
 
-#packagesList::indicator:unchecked {
+#listWidgetPackages::indicator:unchecked {
     image: url(:/static/themes/default/img/un-check.svg);
 }
 
-#packagesList::indicator:checked {
+#listWidgetPackages::indicator:checked {
     image: url(:/static/themes/default/img/check.svg);
 }
 
-#packagesList::item {
+#listWidgetPackages::item {
     border-radius: 2;
     min-height: 40;
     max-height: 40;
     background-color: @color01;
 }
 
-#packagesList::item:text {
+#listWidgetPackages::item:text {
     color: @color02;
     padding-left: 15;
 }
 
-#packagesList::item:selected {
+#listWidgetPackages::item:selected {
     background-color: @color07;
     border: 0;
 }
 
-#packagesList::item:hover {
+#listWidgetPackages::item:hover {
     background-color: @color07;
 }
 
-#uninstallBtn {
+#btnUninstall {
     border: 0;
     padding: 6 15;
     color: @color02;
@@ -718,7 +718,7 @@ QHeaderView::down-arrow {
     border-radius: 5;
 }
 
-#uninstallBtn:hover {
+#btnUninstall:hover {
     background-color:  @color01;
 }
 
@@ -730,22 +730,22 @@ QHeaderView::down-arrow {
     HISTORIES
 ***************************/
 
-#historyTitleLbl {
+#lblHistoryTitleLbl {
     font-size: 11pt;
     margin: 6 0 10 0;
     color: @color02;
 }
 
-QCheckBox#historyTitleCheck::indicator {
+QCheckBox#checklblHistoryTitle::indicator {
     width: 16;
     height: 16;
 }
 
-QCheckBox#historyTitleCheck::indicator:unchecked {
+QCheckBox#checklblHistoryTitle::indicator:unchecked {
     image: url(:/static/themes/default/img/fit.svg);
 }
 
-QCheckBox#historyTitleCheck::indicator:checked {
+QCheckBox#checklblHistoryTitle::indicator:checked {
     image: url(:/static/themes/default/img/collapse.svg);
 }
 
@@ -806,12 +806,12 @@ QComboBox QAbstractItemView {
     border-radius: 2;
 }
 
-#updateBarTextLabel {
+#lblUpdateBarText {
     font-size: 10pt;
     color: @color05;
 }
 
-#downloadUpdateBtn {
+#btnDownloadUpdate {
     font-size: 10pt;
     color: @color09;
     background-color: @color01;
@@ -854,6 +854,6 @@ QComboBox QAbstractItemView {
     background-color: @color10;
 }
 
-#Feedback #errorMsg {
+#Feedback #lblErrorMsg {
     color: #f44336;
 }

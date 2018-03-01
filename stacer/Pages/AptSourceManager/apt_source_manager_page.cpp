@@ -31,25 +31,25 @@ void APTSourceManagerPage::init()
 
 void APTSourceManagerPage::loadAptSources()
 {
-    ui->aptSourceRepositoryListWidget->clear();
+    ui->listWidgetAptSources->clear();
 
     QList<APTSourcePtr> aptSourceList = ToolManager::ins()->getSourceList();
 
     for (APTSourcePtr &aptSource: aptSourceList) {
 
-        QListWidgetItem *listItem = new QListWidgetItem(ui->aptSourceRepositoryListWidget);
+        QListWidgetItem *listItem = new QListWidgetItem(ui->listWidgetAptSources);
         listItem->setData(5, aptSource->source); // for search
 
-        APTSourceRepositoryItem *aptSourceItem = new APTSourceRepositoryItem(aptSource, ui->aptSourceRepositoryListWidget);
+        APTSourceRepositoryItem *aptSourceItem = new APTSourceRepositoryItem(aptSource, ui->listWidgetAptSources);
 
         listItem->setSizeHint(aptSourceItem->sizeHint() - QSize(0, 1));
 
-        ui->aptSourceRepositoryListWidget->setItemWidget(listItem, aptSourceItem);
+        ui->listWidgetAptSources->setItemWidget(listItem, aptSourceItem);
     }
 
     ui->notFoundWidget->setVisible(aptSourceList.isEmpty());
 
-    ui->aptSourceTitleLbl->setText(tr("APT Source Repositories (%1)")
+    ui->lblAptSourceTitle->setText(tr("APT Source Repositories (%1)")
                                    .arg(aptSourceList.count()));
 }
 
@@ -97,9 +97,9 @@ void APTSourceManagerPage::changeElementsVisible(const bool checked)
         ui->bottomSectionHorizontalSpacer->changeSize(0, 0, QSizePolicy::Expanding);
 }
 
-void APTSourceManagerPage::on_aptSourceRepositoryListWidget_itemClicked(QListWidgetItem *item)
+void APTSourceManagerPage::on_listWidgetAptSources_itemClicked(QListWidgetItem *item)
 {
-    QWidget *widget = ui->aptSourceRepositoryListWidget->itemWidget(item);
+    QWidget *widget = ui->listWidgetAptSources->itemWidget(item);
     if (widget) {
         APTSourceRepositoryItem *aptSourceItem = dynamic_cast<APTSourceRepositoryItem*>(widget);
         if (aptSourceItem) {
@@ -110,9 +110,9 @@ void APTSourceManagerPage::on_aptSourceRepositoryListWidget_itemClicked(QListWid
     }
 }
 
-void APTSourceManagerPage::on_aptSourceRepositoryListWidget_itemDoubleClicked(QListWidgetItem *item)
+void APTSourceManagerPage::on_listWidgetAptSources_itemDoubleClicked(QListWidgetItem *item)
 {
-    on_aptSourceRepositoryListWidget_itemClicked(item);
+    on_listWidgetAptSources_itemClicked(item);
     on_btnEditAptSource_clicked();
 }
 
@@ -125,11 +125,11 @@ void APTSourceManagerPage::on_btnDeleteAptSource_clicked()
 
 void APTSourceManagerPage::on_txtSearchAptSource_textChanged(const QString &val)
 {
-    for (int i = 0; i < ui->aptSourceRepositoryListWidget->count(); ++i) {
-        QListWidgetItem *item = ui->aptSourceRepositoryListWidget->item(i);
+    for (int i = 0; i < ui->listWidgetAptSources->count(); ++i) {
+        QListWidgetItem *item = ui->listWidgetAptSources->item(i);
         if (item) {
             bool isContain = item->data(5).toString().contains(val, Qt::CaseInsensitive);
-            ui->aptSourceRepositoryListWidget->setItemHidden(item, ! isContain);
+            ui->listWidgetAptSources->setItemHidden(item, ! isContain);
         }
     }
 }

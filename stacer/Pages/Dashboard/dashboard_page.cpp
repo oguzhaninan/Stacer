@@ -56,7 +56,7 @@ void DashboardPage::init()
     updateDiskBar();
     updateNetworkBar();
 
-    ui->updateBarWidget->hide();
+    ui->widgetUpdateBar->hide();
 
     // check update
     checkUpdate();
@@ -89,13 +89,13 @@ void DashboardPage::checkUpdate()
                 version = ex.cap();
 
             if (qApp->applicationVersion() != version) {
-                ui->updateBarWidget->show();
+                ui->widgetUpdateBar->show();
             }
         }
     }
 }
 
-void DashboardPage::on_downloadUpdateBtn_clicked()
+void DashboardPage::on_btnDownloadUpdate_clicked()
 {
     QDesktopServices::openUrl(QUrl("https://github.com/oguzhaninan/Stacer/releases/latest"));
 }
@@ -117,7 +117,7 @@ void DashboardPage::systemInformationInit()
 
     QStringListModel *systemInfoModel = new QStringListModel(infos);
 
-    ui->systemInfoList->setModel(systemInfoModel);
+    ui->listViewSystemInfo->setModel(systemInfoModel);
 }
 
 void DashboardPage::updateCpuBar()

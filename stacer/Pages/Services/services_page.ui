@@ -30,7 +30,7 @@
     <number>0</number>
    </property>
    <item>
-    <widget class="QWidget" name="verticalWidget" native="true">
+    <widget class="QWidget" name="widgetServicePage" native="true">
      <property name="styleSheet">
       <string notr="true"/>
      </property>
@@ -65,7 +65,7 @@
          <number>5</number>
         </property>
         <item alignment="Qt::AlignLeft|Qt::AlignVCenter">
-         <widget class="QLabel" name="servicesTitle">
+         <widget class="QLabel" name="lblServicesTitle">
           <property name="font">
            <font>
             <family>Ubuntu</family>
@@ -126,7 +126,7 @@
          </spacer>
         </item>
         <item alignment="Qt::AlignLeft">
-         <widget class="QLabel" name="serviceStartupImg">
+         <widget class="QLabel" name="lblServiceStartupImg">
           <property name="sizePolicy">
            <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
             <horstretch>0</horstretch>
@@ -179,7 +179,7 @@
          </spacer>
         </item>
         <item alignment="Qt::AlignRight">
-         <widget class="QLabel" name="systemRunningImg">
+         <widget class="QLabel" name="lblSystemRunningImg">
           <property name="sizePolicy">
            <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
             <horstretch>0</horstretch>
@@ -273,7 +273,7 @@
           </spacer>
          </item>
          <item alignment="Qt::AlignHCenter|Qt::AlignBottom">
-          <widget class="QLabel" name="label">
+          <widget class="QLabel" name="lblNotFound">
            <property name="text">
             <string>Not Found System Service</string>
            </property>
@@ -296,7 +296,7 @@
        </widget>
       </item>
       <item>
-       <widget class="QListWidget" name="serviceListWidget">
+       <widget class="QListWidget" name="listWidgetServices">
         <property name="focusPolicy">
          <enum>Qt::NoFocus</enum>
         </property>

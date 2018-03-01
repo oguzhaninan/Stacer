@@ -42,7 +42,7 @@
     <number>10</number>
    </property>
    <item row="1" column="0" alignment="Qt::AlignLeft">
-    <widget class="QComboBox" name="languagesCmb">
+    <widget class="QComboBox" name="cmbLanguages">
      <property name="sizePolicy">
       <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
        <horstretch>0</horstretch>
@@ -86,7 +86,7 @@
     </widget>
    </item>
    <item row="0" column="1" alignment="Qt::AlignLeft">
-    <widget class="QLabel" name="themeLabel">
+    <widget class="QLabel" name="lblTheme">
      <property name="sizePolicy">
       <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
        <horstretch>0</horstretch>
@@ -143,7 +143,7 @@
     </widget>
    </item>
    <item row="1" column="1" alignment="Qt::AlignLeft">
-    <widget class="QComboBox" name="themesCmb">
+    <widget class="QComboBox" name="cmbThemes">
      <property name="sizePolicy">
       <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
        <horstretch>0</horstretch>
@@ -235,7 +235,7 @@
     </widget>
    </item>
    <item row="0" column="0" alignment="Qt::AlignLeft">
-    <widget class="QLabel" name="langLabel">
+    <widget class="QLabel" name="lblLanguage">
      <property name="sizePolicy">
       <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
        <horstretch>0</horstretch>
@@ -364,7 +364,7 @@
     </widget>
    </item>
    <item row="1" column="2">
-    <widget class="QComboBox" name="disksCmb">
+    <widget class="QComboBox" name="cmbDisks">
      <property name="sizePolicy">
       <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
        <horstretch>0</horstretch>
