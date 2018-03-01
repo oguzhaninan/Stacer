@@ -1,8 +1,8 @@
 /****** DEFAULT THEME ******/
 
-/**************************
-    SCROLL BAR
-***************************/
+/*****************
+    QScrollArea
+******************/
 QScrollArea {
     border: 0;
 }
@@ -61,9 +61,9 @@ QAbstractScrollArea::corner {
     background: transparent;
 }
 
-/**************************
-    QMENU
-***************************/
+/*************
+    QMenu
+**************/
 QMenu {
     background-color: @color02;
     border-radius: 2;
@@ -93,9 +93,9 @@ QMenu::indicator:non-exclusive:checked {
     image: url(:/static/themes/default/img/check.svg);
 }
 
-/**************************
-    QCHECKBOX
-***************************/
+/*****************
+    QCheckBox
+******************/
 
 QCheckBox::indicator {
     width: 44px;
@@ -128,18 +128,21 @@ QCheckBox[accessibleName="circle"]::indicator:checked {
     image: url(:/static/themes/default/img/check.svg);
 }
 
+/*****************
+    QToolTip
+******************/
 
 QToolTip {
     color: @color05;
     padding: 2;
     background-color: @sidebar;
-    /*border: 1px solid @pageContent;*/
     border-radius: 3;
 }
 
-/**************************
-    NOT FOUND
-***************************/
+
+/***************
+    Not Found
+***************/
 
 #notFoundWidget {
     background: url(:/static/themes/default/img/not-found.svg) no-repeat top center;

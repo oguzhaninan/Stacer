@@ -79,7 +79,7 @@ void ProcessesPage::loadHeaderMenu()
 // exclude headers
 #define ex(n) headers.indexOf(n)
     QList<int> hiddenHeaders = { ex("Start Time"), ex("State"), ex("Group"),
-                                 ex("Nice"), ex("CPU Time"), ex("Session") };
+                                 ex("Nice"), ex("CPU Time"), ex("Session"), ex("Virtual Memory") };
 #undef ex
 
     QList<QAction*> actions = headerMenu.actions();

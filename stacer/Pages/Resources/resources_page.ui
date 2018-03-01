@@ -27,7 +27,7 @@
     <number>10</number>
    </property>
    <property name="bottomMargin">
-    <number>1</number>
+    <number>10</number>
    </property>
    <item>
     <widget class="QScrollArea" name="resourceScrollArea">
@@ -40,7 +40,7 @@
         <x>0</x>
         <y>0</y>
         <width>868</width>
-        <height>534</height>
+        <height>525</height>
        </rect>
       </property>
       <property name="sizePolicy">
@@ -63,7 +63,7 @@
         <number>10</number>
        </property>
        <property name="bottomMargin">
-        <number>10</number>
+        <number>0</number>
        </property>
       </layout>
      </widget>

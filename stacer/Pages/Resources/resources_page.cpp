@@ -114,7 +114,9 @@ void ResourcesPage::updateCpuLoadAvg()
 
         seriesList.at(j)->insert(0, QPointF(0, avg));
 
-        seriesList.at(j)->setName(tr("%1 Minute Avarage").arg(minutes[j]));
+        seriesList.at(j)->setName(tr("%1 Minute Avarage: %2")
+                                  .arg(minutes[j])
+                                  .arg(avg));
 
         if (second > 61) seriesList.at(j)->removePoints(61, 1);
 
