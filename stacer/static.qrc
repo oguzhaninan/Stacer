@@ -2,78 +2,78 @@
     <qresource prefix="/">
         <file>static/themes/default/style/style.qss</file>
         <file>static/themes/default/img/sidebar-icons/dash.png</file>
-        <file>static/themes/default/img/sidebar-icons/cleaner.svg</file>
+        <file>static/themes/default/img/sidebar-icons/cleaner.png</file>
         <file>static/themes/default/img/sidebar-icons/process.png</file>
         <file>static/themes/default/img/sidebar-icons/resources.png</file>
-        <file>static/themes/default/img/sidebar-icons/services.svg</file>
-        <file>static/themes/default/img/sidebar-icons/startup-apps.svg</file>
+        <file>static/themes/default/img/sidebar-icons/services.png</file>
+        <file>static/themes/default/img/sidebar-icons/startup-apps.png</file>
         <file>static/themes/default/img/sidebar-icons/uninstaller.png</file>
-        <file>static/themes/common/img/checkbox.svg</file>
-        <file>static/themes/common/img/un-checkbox.svg</file>
-        <file>static/themes/default/img/app.svg</file>
-        <file>static/themes/default/img/trash.svg</file>
-        <file>static/themes/common/img/not-found.svg</file>
-        <file>static/themes/default/img/edit.svg</file>
-        <file>static/themes/default/img/service.svg</file>
-        <file>static/themes/default/img/package.svg</file>
-        <file>static/themes/default/img/search.svg</file>
-        <file>static/themes/common/img/check.svg</file>
-        <file>static/themes/common/img/un-check.svg</file>
+        <file>static/themes/common/img/checkbox.png</file>
+        <file>static/themes/common/img/un-checkbox.png</file>
+        <file>static/themes/default/img/app.png</file>
+        <file>static/themes/default/img/trash.png</file>
+        <file>static/themes/common/img/not-found.png</file>
+        <file>static/themes/default/img/edit.png</file>
+        <file>static/themes/default/img/service.png</file>
+        <file>static/themes/default/img/package.png</file>
+        <file>static/themes/default/img/search.png</file>
+        <file>static/themes/common/img/check.png</file>
+        <file>static/themes/common/img/un-check.png</file>
         <file>static/themes/default/img/loading.gif</file>
         <file>static/themes/default/img/scanLoading.gif</file>
-        <file>static/themes/default/img/refresh.svg</file>
-        <file>static/themes/default/img/asc.svg</file>
-        <file>static/themes/default/img/dsc.svg</file>
+        <file>static/themes/default/img/refresh.png</file>
+        <file>static/themes/default/img/asc.png</file>
+        <file>static/themes/default/img/dsc.png</file>
         <file>static/themes/default/img/c_package.png</file>
         <file>static/themes/default/img/c_crash.png</file>
         <file>static/themes/default/img/c_logs.png</file>
         <file>static/themes/default/img/c_cache.png</file>
         <file>static/themes/default/img/c_trash.png</file>
-        <file>static/themes/default/img/fit.svg</file>
-        <file>static/themes/default/img/collapse.svg</file>
-        <file>static/themes/default/img/scan.svg</file>
-        <file>static/themes/default/img/scan-active.svg</file>
-        <file>static/themes/default/img/clean.svg</file>
-        <file>static/themes/default/img/clean-active.svg</file>
-        <file>static/themes/default/img/down-arrow.svg</file>
-        <file>static/themes/default/img/right-arrow.svg</file>
-        <file>static/themes/default/img/back.svg</file>
+        <file>static/themes/default/img/fit.png</file>
+        <file>static/themes/default/img/collapse.png</file>
+        <file>static/themes/default/img/scan.png</file>
+        <file>static/themes/default/img/scan-active.png</file>
+        <file>static/themes/default/img/clean.png</file>
+        <file>static/themes/default/img/clean-active.png</file>
+        <file>static/themes/default/img/down-arrow.png</file>
+        <file>static/themes/default/img/right-arrow.png</file>
+        <file>static/themes/default/img/back.png</file>
         <file>static/font/Ubuntu-R.ttf</file>
-        <file>static/themes/default/img/sidebar-icons/settings.svg</file>
+        <file>static/themes/default/img/sidebar-icons/settings.png</file>
         <file>static/languages.json</file>
         <file>static/themes.json</file>
         <file>static/themes/light/style/style.qss</file>
-        <file>static/themes/light/img/app.svg</file>
-        <file>static/themes/light/img/clean-active.svg</file>
-        <file>static/themes/light/img/clean.svg</file>
-        <file>static/themes/light/img/down-arrow.svg</file>
-        <file>static/themes/light/img/edit.svg</file>
-        <file>static/themes/light/img/right-arrow.svg</file>
-        <file>static/themes/light/img/scan-active.svg</file>
-        <file>static/themes/light/img/scan.svg</file>
+        <file>static/themes/light/img/app.png</file>
+        <file>static/themes/light/img/clean-active.png</file>
+        <file>static/themes/light/img/clean.png</file>
+        <file>static/themes/light/img/down-arrow.png</file>
+        <file>static/themes/light/img/edit.png</file>
+        <file>static/themes/light/img/right-arrow.png</file>
+        <file>static/themes/light/img/scan-active.png</file>
+        <file>static/themes/light/img/scan.png</file>
         <file>static/themes/light/img/scanLoading.gif</file>
         <file>static/themes/light/img/loading.gif</file>
-        <file>static/themes/light/img/package.svg</file>
+        <file>static/themes/light/img/package.png</file>
         <file>static/themes/light/style/values.ini</file>
         <file>static/themes/default/style/values.ini</file>
         <file>static/logo.png</file>
-        <file>static/themes/default/img/run.svg</file>
-        <file>static/themes/default/img/power.svg</file>
-        <file>static/themes/default/img/sidebar-icons/feedback.svg</file>
-        <file>static/themes/default/img/sidebar-icons/gnome.svg</file>
+        <file>static/themes/default/img/run.png</file>
+        <file>static/themes/default/img/power.png</file>
+        <file>static/themes/default/img/sidebar-icons/feedback.png</file>
+        <file>static/themes/default/img/sidebar-icons/gnome.png</file>
         <file>static/themes/common/img/appearance.png</file>
         <file>static/themes/common/img/ubuntu.png</file>
         <file>static/themes/common/img/window.png</file>
         <file>static/themes/default/img/sidebar-icons/ppa-manager.png</file>
         <file>static/themes/default/img/ppa-repository.png</file>
         <file>static/splashscreen.png</file>
-        <file>static/loading.svg</file>
+        <file>static/loading.png</file>
         <file>static/themes/common/img/donate.png</file>
         <file>static/themes/common/img/spinup.png</file>
         <file>static/themes/common/img/spindown.png</file>
         <file>static/themes/light/img/ppa-repository.png</file>
-        <file>static/themes/light/img/collapse.svg</file>
-        <file>static/themes/light/img/fit.svg</file>
-        <file>static/themes/light/img/trash.svg</file>
+        <file>static/themes/light/img/collapse.png</file>
+        <file>static/themes/light/img/fit.png</file>
+        <file>static/themes/light/img/trash.png</file>
     </qresource>
 </RCC>

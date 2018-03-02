@@ -86,11 +86,11 @@ QMenu::indicator {
 }
 
 QMenu::indicator:non-exclusive:unchecked {
-    image: url(:/static/themes/common/img/un-check.svg);
+    image: url(:/static/themes/common/img/un-check.png);
 }
 
 QMenu::indicator:non-exclusive:checked {
-    image: url(:/static/themes/common/img/check.svg);
+    image: url(:/static/themes/common/img/check.png);
 }
 
 /*****************
@@ -108,11 +108,11 @@ QRadioButton::indicator {
 }
 
 QRadioButton::indicator:unchecked {
-    image: url(:/static/themes/common/img/un-check.svg);
+    image: url(:/static/themes/common/img/un-check.png);
 }
 
 QRadioButton::indicator:checked {
-    image: url(:/static/themes/common/img/check.svg);
+    image: url(:/static/themes/common/img/check.png);
 }
 
 /***************
@@ -125,11 +125,11 @@ QCheckBox::indicator {
 }
 
 QCheckBox::indicator:checked {
-    image: url(:/static/themes/common/img/checkbox.svg);
+    image: url(:/static/themes/common/img/checkbox.png);
 }
 
 QCheckBox::indicator:unchecked {
-    image: url(:/static/themes/common/img/un-checkbox.svg);
+    image: url(:/static/themes/common/img/un-checkbox.png);
 }
 
 QCheckBox[accessibleName="circle"] {
@@ -143,11 +143,11 @@ QCheckBox[accessibleName="circle"]::indicator {
 }
 
 QCheckBox[accessibleName="circle"]::indicator:unchecked {
-    image: url(:/static/themes/common/img/un-check.svg);
+    image: url(:/static/themes/common/img/un-check.png);
 }
 
 QCheckBox[accessibleName="circle"]::indicator:checked {
-    image: url(:/static/themes/common/img/check.svg);
+    image: url(:/static/themes/common/img/check.png);
 }
 
 /*****************
@@ -166,7 +166,7 @@ QToolTip {
 ***************/
 
 #notFoundWidget {
-    background: url(:/static/themes/default/img/not-found.svg) no-repeat top center;
+    background: url(:/static/themes/default/img/not-found.png) no-repeat top center;
 }
 
 #notFoundWidget QLabel {
@@ -240,7 +240,7 @@ QComboBox::drop-down {
     border-left-width: 1px;
     border-left-color: @color01;
     border-left-style: solid;
-    image: url(:/static/themes/light/img/down-arrow.svg);
+    image: url(:/static/themes/light/img/down-arrow.png);
     border-top-right-radius: 2;
     border-bottom-right-radius: 2;
 }
@@ -290,11 +290,11 @@ QHeaderView::section {
 }
 
 QHeaderView::up-arrow {
-    image: url(:/static/themes/default/img/asc.svg);
+    image: url(:/static/themes/default/img/asc.png);
 }
 
 QHeaderView::down-arrow {
-    image: url(:/static/themes/default/img/dsc.svg);
+    image: url(:/static/themes/default/img/dsc.png);
 }
 
 /******************
@@ -393,15 +393,15 @@ QLabel[accessibleName="dialog-title"] {
 }
 
 #systemCleanerBtn {
-    qproperty-icon: url(:/static/themes/default/img/sidebar-icons/cleaner.svg);
+    qproperty-icon: url(:/static/themes/default/img/sidebar-icons/cleaner.png);
 }
 
 #startupAppsBtn {
-    qproperty-icon: url(:/static/themes/default/img/sidebar-icons/startup-apps.svg);
+    qproperty-icon: url(:/static/themes/default/img/sidebar-icons/startup-apps.png);
 }
 
 #servicesBtn {
-    qproperty-icon: url(:/static/themes/default/img/sidebar-icons/services.svg);
+    qproperty-icon: url(:/static/themes/default/img/sidebar-icons/services.png);
 }
 
 #processesBtn {
@@ -421,15 +421,15 @@ QLabel[accessibleName="dialog-title"] {
 }
 
 #gnomeSettingsBtn {
-    qproperty-icon: url(:/static/themes/default/img/sidebar-icons/gnome.svg);
+    qproperty-icon: url(:/static/themes/default/img/sidebar-icons/gnome.png);
 }
 
 #settingsBtn {
-    qproperty-icon: url(:/static/themes/default/img/sidebar-icons/settings.svg);
+    qproperty-icon: url(:/static/themes/default/img/sidebar-icons/settings.png);
 }
 
 #feedbackBtn {
-    qproperty-icon: url(:/static/themes/default/img/sidebar-icons/feedback.svg);
+    qproperty-icon: url(:/static/themes/default/img/sidebar-icons/feedback.png);
 }
 
 /*********************
@@ -515,22 +515,22 @@ QLabel[accessibleName="dialog-title"] {
 
 #SystemCleanerPage #btnScan {
     border: 0;
-    background: url(:/static/themes/light/img/scan.svg) no-repeat center;
+    background: url(:/static/themes/light/img/scan.png) no-repeat center;
 }
 
 #SystemCleanerPage #btnScan:hover {
-    background: url(:/static/themes/light/img/scan-active.svg) no-repeat center;
+    background: url(:/static/themes/light/img/scan-active.png) no-repeat center;
 }
 
 /* - System Clean Button - */
 
 #SystemCleanerPage #btnClean {
     border: 0;
-    background: url(:/static/themes/light/img/clean.svg) no-repeat center;
+    background: url(:/static/themes/light/img/clean.png) no-repeat center;
 }
 
 #SystemCleanerPage #btnClean:hover {
-    background: url(:/static/themes/light/img/clean-active.svg) no-repeat center;
+    background: url(:/static/themes/light/img/clean-active.png) no-repeat center;
 }
 
 /* - System Scan Results - */
@@ -564,24 +564,24 @@ QLabel[accessibleName="dialog-title"] {
 }
 
 #treeWidgetScanResult::indicator:checked {
-    image: url(:/static/themes/common/img/check.svg);
+    image: url(:/static/themes/common/img/check.png);
 }
 
 #treeWidgetScanResult::indicator:unchecked {
-    image: url(:/static/themes/common/img/un-check.svg);
+    image: url(:/static/themes/common/img/un-check.png);
 }
 
 #treeWidgetScanResult::branch:has-children:!has-siblings:closed,
 #treeWidgetScanResult::branch:closed:has-children:has-siblings {
     border-image: none;
-    image: url(:/static/themes/light/img/right-arrow.svg);
+    image: url(:/static/themes/light/img/right-arrow.png);
     padding: 4;
 }
 
 #treeWidgetScanResult::branch:open:has-ch ildren:!has-siblings,
 #treeWidgetScanResult::branch:open:has-children:has-siblings {
     border-image: none;
-    image: url(:/static/themes/light/img/down-arrow.svg);
+    image: url(:/static/themes/light/img/down-arrow.png);
     padding: 4;
 }
 
@@ -614,7 +614,7 @@ QLabel[accessibleName="dialog-title"] {
 }
 
 #lblStartupAppIcon {
-    image: url(:/static/themes/light/img/app.svg);
+    image: url(:/static/themes/light/img/app.png);
 }
 
 #widgetStartupApp:hover {
@@ -631,12 +631,12 @@ QLabel[accessibleName="dialog-title"] {
 }
 
 #widgetStartupApp #btnDeleteStartupApp {
-    qproperty-icon: url(:/static/themes/light/img/trash.svg);
+    qproperty-icon: url(:/static/themes/light/img/trash.png);
     border: 0;
 }
 
 #widgetStartupApp #btnEditStartupApp {
-    qproperty-icon: url(:/static/themes/light/img/edit.svg);
+    qproperty-icon: url(:/static/themes/light/img/edit.png);
     border: 0;
     margin-bottom: 2;
 }
@@ -673,7 +673,7 @@ QLabel[accessibleName="dialog-title"] {
 }
 
 #lblServiceIcon {
-    image: url(:/static/themes/default/img/service.svg);
+    image: url(:/static/themes/default/img/service.png);
 }
 
 #ServiceItem #lblServiceName {
@@ -687,11 +687,11 @@ QLabel[accessibleName="dialog-title"] {
 }
 
 #lblServiceStartupImg {
-    image: url(:/static/themes/default/img/power.svg);
+    image: url(:/static/themes/default/img/power.png);
 }
 
 #lblSystemRunningImg {
-    image: url(:/static/themes/default/img/run.svg);
+    image: url(:/static/themes/default/img/run.png);
 }
 
 /*********************
@@ -719,7 +719,7 @@ QLabel[accessibleName="dialog-title"] {
     width: 150;
     padding: 4 12;
     border-radius: 12;
-    background: @color01 url(:/static/themes/default/img/search.svg) no-repeat right center;
+    background: @color01 url(:/static/themes/default/img/search.png) no-repeat right center;
     border: 1px solid @color07;
     color: @color02;
 }
@@ -747,7 +747,7 @@ QLabel[accessibleName="dialog-title"] {
 #txtSearchAptSource {
     padding: 4 12;
     border-radius: 12;
-    background: @color01 url(:/static/themes/default/img/search.svg) no-repeat right center;
+    background: @color01 url(:/static/themes/default/img/search.png) no-repeat right center;
     border: 1px solid @color07;
     color: @color08;
 }
@@ -764,11 +764,11 @@ QLabel[accessibleName="dialog-title"] {
 }
 
 #listWidgetPackages::indicator:unchecked {
-    image: url(:/static/themes/common/img/un-check.svg);
+    image: url(:/static/themes/common/img/un-check.png);
 }
 
 #listWidgetPackages::indicator:checked {
-    image: url(:/static/themes/default/img/check.svg);
+    image: url(:/static/themes/default/img/check.png);
 }
 
 #listWidgetPackages::item {
@@ -811,11 +811,11 @@ QLabel[accessibleName="dialog-title"] {
 }
 
 #checkHistoryTitle::indicator:unchecked {
-    image: url(:/static/themes/light/img/fit.svg);
+    image: url(:/static/themes/light/img/fit.png);
 }
 
 #checkHistoryTitle::indicator:checked {
-    image: url(:/static/themes/light/img/collapse.svg);
+    image: url(:/static/themes/light/img/collapse.png);
 }
 
 /****************
