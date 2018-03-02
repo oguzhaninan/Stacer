@@ -11,7 +11,7 @@ const PackageTool::PackageTools PackageTool::currentPackageTool =
                                                PackageTool::UNKNOWN;
 
 /***********
- * DPKG  /var/cache/yum/development/packages/
+ * DPKG
  ***********/
 QFileInfoList PackageTool::getDpkgPackageCaches()
 {

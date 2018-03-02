@@ -522,7 +522,7 @@
             </property>
             <property name="icon">
              <iconset resource="../../static.qrc">
-              <normaloff>:/static/themes/default/img/back.svg</normaloff>:/static/themes/default/img/back.svg</iconset>
+              <normaloff>:/static/themes/default/img/back.png</normaloff>:/static/themes/default/img/back.png</iconset>
             </property>
             <property name="iconSize">
              <size>

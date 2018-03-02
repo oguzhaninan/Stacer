@@ -227,7 +227,7 @@
           </property>
           <property name="icon">
            <iconset resource="../../static.qrc">
-            <normaloff>:/static/themes/default/img/edit.svg</normaloff>:/static/themes/default/img/edit.svg</iconset>
+            <normaloff>:/static/themes/default/img/edit.png</normaloff>:/static/themes/default/img/edit.png</iconset>
           </property>
           <property name="iconSize">
            <size>
@@ -270,7 +270,7 @@
           </property>
           <property name="icon">
            <iconset resource="../../static.qrc">
-            <normaloff>:/static/themes/default/img/trash.svg</normaloff>:/static/themes/default/img/trash.svg</iconset>
+            <normaloff>:/static/themes/default/img/trash.png</normaloff>:/static/themes/default/img/trash.png</iconset>
           </property>
           <property name="iconSize">
            <size>

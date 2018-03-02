@@ -50,7 +50,7 @@ void APTSourceEdit::clearElements()
     ui->txtComponents->clear();
 }
 
-void APTSourceEdit::on_saveBtn_clicked()
+void APTSourceEdit::on_btnSave_clicked()
 {
     if (! ui->txtUri->text().isEmpty() && ! ui->txtDistribution->text().isEmpty())
     {

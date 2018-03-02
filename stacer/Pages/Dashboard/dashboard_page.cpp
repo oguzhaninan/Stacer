@@ -129,8 +129,8 @@ void DashboardPage::updateCpuBar()
     if (maxCpuPercent > 0) {
         static bool isShow = true;
         if (cpuUsedPercent > maxCpuPercent && isShow) {
-            AppManager::ins()->getTrayIcon()->showMessage(tr("Bellek Aşımı"),
-                                                          tr("Kullanılan bellek miktarı %1% oranını aştı.").arg(maxCpuPercent),
+            AppManager::ins()->getTrayIcon()->showMessage(tr("High CPU Usage"),
+                                                          tr("The amount of CPU used is over %1%.").arg(maxCpuPercent),
                                                           QIcon(":/static/logo.png"));
             isShow = false;
         } else if (cpuUsedPercent < maxCpuPercent) {
@@ -157,8 +157,8 @@ void DashboardPage::updateMemoryBar()
     if (maxMemoryPercent > 0) {
         static bool isShow = true;
         if (memUsedPercent > maxMemoryPercent && isShow) {
-            AppManager::ins()->getTrayIcon()->showMessage(tr("Bellek Aşımı"),
-                                                          tr("Kullanılan bellek miktarı %1% oranını aştı.").arg(maxMemoryPercent),
+            AppManager::ins()->getTrayIcon()->showMessage(tr("High Memory Usage"),
+                                                          tr("The amount of memory used is over %1%.").arg(maxMemoryPercent),
                                                           QIcon(":/static/logo.png"));
             isShow = false;
         } else if (memUsedPercent < maxMemoryPercent) {
@@ -199,8 +199,8 @@ void DashboardPage::updateDiskBar()
         if (maxDiskPercent > 0) {
             static bool isShow = true;
             if (diskPercent > maxDiskPercent && isShow) {
-                AppManager::ins()->getTrayIcon()->showMessage(tr("Bellek Aşımı"),
-                                                              tr("Kullanılan bellek miktarı %1% oranını aştı.").arg(diskPercent),
+                AppManager::ins()->getTrayIcon()->showMessage(tr("High Disk Usage"),
+                                                              tr("The amount of disk used is over %1%.").arg(diskPercent),
                                                               QIcon(":/static/logo.png"));
                 isShow = false;
             } else if (diskPercent < maxDiskPercent) {

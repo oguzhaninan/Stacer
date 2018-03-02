@@ -67,8 +67,8 @@ void ProcessesPage::init()
 void ProcessesPage::loadHeaderMenu()
 {
     int i = 0;
-    for (const QString &kolon : headers) {
-        QAction *action = new QAction(kolon);
+    for (const QString &header : headers) {
+        QAction *action = new QAction(header);
         action->setCheckable(true);
         action->setChecked(true);
         action->setData(i++);

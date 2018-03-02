@@ -43,7 +43,7 @@ void UninstallerPage::loadPackages()
     // clear items
     ui->listWidgetPackages->clear();
 
-    QIcon icon(QString(":/static/themes/%1/img/package.svg").arg(AppManager::ins()->getThemeName()));
+    QIcon icon(QString(":/static/themes/%1/img/package.png").arg(AppManager::ins()->getThemeName()));
     QStringList packages = tm->getPackages();
     for (const QString &package : packages) {
         QListWidgetItem *item = new QListWidgetItem(QIcon::fromTheme(package, icon), QString("  %1").arg(package));
