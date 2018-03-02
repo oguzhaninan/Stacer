@@ -7,6 +7,8 @@ SystemInfo::SystemInfo()
     QStringList lines = FileUtil::readListFromFile(PROC_CPUINFO)
             .filter(QRegExp("^model name"));
 
+    QString unknown(QObject::tr("Unknown"));
+
     if (! lines.isEmpty()) {
         QRegExp regexp("\\s+");
         QString space(" ");
@@ -22,10 +24,10 @@ SystemInfo::SystemInfo()
             }
         } else { // AMD
             this->cpuModel = model.last();
+            this->cpuSpeed = unknown;
         }
     }
     else {
-        QString unknown(QObject::tr("Unknown"));
         this->cpuModel = unknown;
         this->cpuSpeed = unknown;
     }

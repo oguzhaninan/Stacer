@@ -131,7 +131,7 @@ void DashboardPage::updateCpuBar()
         if (cpuUsedPercent > maxCpuPercent && isShow) {
             AppManager::ins()->getTrayIcon()->showMessage(tr("High CPU Usage"),
                                                           tr("The amount of CPU used is over %1%.").arg(maxCpuPercent),
-                                                          QIcon(":/static/logo.png"));
+                                                          QIcon(":/static/themes/default/img/power.png"));
             isShow = false;
         } else if (cpuUsedPercent < maxCpuPercent) {
             isShow = true;
@@ -191,8 +191,9 @@ void DashboardPage::updateDiskBar()
         QString usedText = FormatUtil::formatBytes(disk->used);
 
         int diskPercent = 0;
-        if (disk->size > 0)
+        if (disk->size > 0) {
             diskPercent = ((double) disk->used / (double) disk->size) * 100.0;
+        }
 
         // alert message
         int maxDiskPercent = AppManager::ins()->getDiskPercent();

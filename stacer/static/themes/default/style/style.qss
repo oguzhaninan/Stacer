@@ -255,6 +255,16 @@ QComboBox QAbstractItemView {
 }
 
 /***************
+    QGroupBox
+***************/
+
+QGroupBox::title {
+    font-size: 11pt;
+    font-weight: bold;
+    color: @color06;
+}
+
+/***************
     QTableView
 ***************/
 
@@ -387,47 +397,47 @@ QLabel[accessibleName="dialog-title"] {
     background-color: @color08;
 }
 
-#dashBtn {
+#btnDash {
     qproperty-icon: url(:/static/themes/default/img/sidebar-icons/dash.png);
 }
 
-#systemCleanerBtn {
+#btnSystemCleaner {
     qproperty-icon: url(:/static/themes/default/img/sidebar-icons/cleaner.png);
 }
 
-#startupAppsBtn {
+#btnStartupApps {
     qproperty-icon: url(:/static/themes/default/img/sidebar-icons/startup-apps.png);
 }
 
-#servicesBtn {
+#btnServices {
     qproperty-icon: url(:/static/themes/default/img/sidebar-icons/services.png);
 }
 
-#processesBtn {
+#btnProcesses {
     qproperty-icon: url(:/static/themes/default/img/sidebar-icons/process.png);
 }
 
-#uninstallerBtn {
+#btnUninstaller {
     qproperty-icon: url(:/static/themes/default/img/sidebar-icons/uninstaller.png);
 }
 
-#resourcesBtn {
+#btnResources {
     qproperty-icon: url(:/static/themes/default/img/sidebar-icons/resources.png);
 }
 
-#aptSourceManagerBtn {
+#btnAptSourceManager {
     qproperty-icon: url(:/static/themes/default/img/sidebar-icons/ppa-manager.png);
 }
 
-#gnomeSettingsBtn {
+#btnGnomeSettings {
     qproperty-icon: url(:/static/themes/default/img/sidebar-icons/gnome.png);
 }
 
-#settingsBtn {
+#btnSettings {
     qproperty-icon: url(:/static/themes/default/img/sidebar-icons/settings.png);
 }
 
-#feedbackBtn {
+#btnFeedback {
     qproperty-icon: url(:/static/themes/default/img/sidebar-icons/feedback.png);
 }
 

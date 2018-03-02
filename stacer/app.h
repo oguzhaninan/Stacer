@@ -39,18 +39,18 @@ private slots:
     void pageClick(QWidget *widget, bool slide = true);
     void clickSidebarButton(QString pageTitle, bool isShow = false);
 
-    void on_dashBtn_clicked();
-    void on_systemCleanerBtn_clicked();
-    void on_startupAppsBtn_clicked();
-    void on_servicesBtn_clicked();
-    void on_uninstallerBtn_clicked();
-    void on_resourcesBtn_clicked();
-    void on_processesBtn_clicked();
-    void on_settingsBtn_clicked();
-    void on_gnomeSettingsBtn_clicked();
-    void on_aptSourceManagerBtn_clicked();
+    void on_btnDash_clicked();
+    void on_btnSystemCleaner_clicked();
+    void on_btnStartupApps_clicked();
+    void on_btnServices_clicked();
+    void on_btnUninstaller_clicked();
+    void on_btnResources_clicked();
+    void on_btnProcesses_clicked();
+    void on_btnSettings_clicked();
+    void on_btnGnomeSettings_clicked();
+    void on_btnAptSourceManager_clicked();
 
-    void on_feedbackBtn_clicked();
+    void on_btnFeedback_clicked();
 
 private:
     QWidget *getPageByTitle(const QString &title);

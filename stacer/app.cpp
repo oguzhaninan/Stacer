@@ -18,7 +18,6 @@ App::App(QWidget *parent) :
     processPage(new ProcessesPage(slidingStacked)),
     uninstallerPage(new UninstallerPage(slidingStacked)),
     resourcesPage(new ResourcesPage(slidingStacked)),
-    gnomeSettingsPage(new GnomeSettingsPage(slidingStacked)),
     settingsPage(new SettingsPage(slidingStacked)),
     trayIcon(AppManager::ins()->getTrayIcon()),
     trayMenu(new QMenu(this))
@@ -42,22 +41,31 @@ void App::init()
     ui->pageContentLayout->addWidget(slidingStacked);
 
     listPages = {
-        dashboardPage, startupAppsPage, systemCleanerPage, servicesPage, processPage,
-        uninstallerPage, resourcesPage, gnomeSettingsPage, settingsPage
+        dashboardPage, startupAppsPage, systemCleanerPage, servicesPage,
+        processPage, uninstallerPage, resourcesPage, settingsPage
     };
 
     listSidebarButtons = {
-        ui->dashBtn, ui->startupAppsBtn, ui->systemCleanerBtn, ui->servicesBtn, ui->processesBtn,
-        ui->uninstallerBtn, ui->resourcesBtn, ui->gnomeSettingsBtn, ui->settingsBtn
+        ui->btnDash, ui->btnStartupApps, ui->btnSystemCleaner, ui->btnServices,
+        ui->btnProcesses, ui->btnUninstaller, ui->btnResources, ui->btnSettings
     };
 
     // APT SOURCE MANAGER
-    if (ToolManager::ins()->checkSourceRepository()) {
-        aptSourceManagerPage = new APTSourceManagerPage(this);
+    if (!ToolManager::ins()->checkSourceRepository()) {
+        aptSourceManagerPage = new APTSourceManagerPage(slidingStacked);
         listPages.insert(7, aptSourceManagerPage);
-        listSidebarButtons.insert(7, ui->aptSourceManagerBtn);
+        listSidebarButtons.insert(7, ui->btnAptSourceManager);
     } else {
-        ui->aptSourceManagerBtn->hide();
+        ui->btnAptSourceManager->hide();
+    }
+
+    // GNOME SETTINGS
+    if (!GnomeSettingsTool::ins().checkGSettings()) {
+        gnomeSettingsPage = new GnomeSettingsPage(slidingStacked);
+        listPages.insert(8, gnomeSettingsPage);
+        listSidebarButtons.insert(8, ui->btnGnomeSettings);
+    } else {
+        ui->btnGnomeSettings->hide();
     }
 
     // add pages
@@ -150,57 +158,57 @@ void App::pageClick(QWidget *widget, bool slide)
     }
 }
 
-void App::on_dashBtn_clicked()
+void App::on_btnDash_clicked()
 {
     pageClick(dashboardPage);
 }
 
-void App::on_startupAppsBtn_clicked()
+void App::on_btnStartupApps_clicked()
 {
     pageClick(startupAppsPage);
 }
 
-void App::on_systemCleanerBtn_clicked()
+void App::on_btnSystemCleaner_clicked()
 {
     pageClick(systemCleanerPage);
 }
 
-void App::on_servicesBtn_clicked()
+void App::on_btnServices_clicked()
 {
     pageClick(servicesPage);
 }
 
-void App::on_uninstallerBtn_clicked()
+void App::on_btnUninstaller_clicked()
 {
     pageClick(uninstallerPage);
 }
 
-void App::on_processesBtn_clicked()
+void App::on_btnProcesses_clicked()
 {
     pageClick(processPage);
 }
 
-void App::on_resourcesBtn_clicked()
+void App::on_btnResources_clicked()
 {
     pageClick(resourcesPage);
 }
 
-void App::on_aptSourceManagerBtn_clicked()
+void App::on_btnAptSourceManager_clicked()
 {
     pageClick(aptSourceManagerPage);
 }
 
-void App::on_gnomeSettingsBtn_clicked()
+void App::on_btnGnomeSettings_clicked()
 {
     pageClick(gnomeSettingsPage);
 }
 
-void App::on_settingsBtn_clicked()
+void App::on_btnSettings_clicked()
 {
     pageClick(settingsPage);
 }
 
-void App::on_feedbackBtn_clicked()
+void App::on_btnFeedback_clicked()
 {
     if (feedback.isNull()) {
         feedback = QSharedPointer<Feedback>(new Feedback(this));

@@ -90,7 +90,7 @@
         </spacer>
        </item>
        <item>
-        <widget class="QPushButton" name="dashBtn">
+        <widget class="QPushButton" name="btnDash">
          <property name="cursor">
           <cursorShape>PointingHandCursor</cursorShape>
          </property>
@@ -124,7 +124,7 @@
         </widget>
        </item>
        <item>
-        <widget class="QPushButton" name="startupAppsBtn">
+        <widget class="QPushButton" name="btnStartupApps">
          <property name="cursor">
           <cursorShape>PointingHandCursor</cursorShape>
          </property>
@@ -152,7 +152,7 @@
         </widget>
        </item>
        <item>
-        <widget class="QPushButton" name="systemCleanerBtn">
+        <widget class="QPushButton" name="btnSystemCleaner">
          <property name="cursor">
           <cursorShape>PointingHandCursor</cursorShape>
          </property>
@@ -183,7 +183,7 @@
         </widget>
        </item>
        <item>
-        <widget class="QPushButton" name="servicesBtn">
+        <widget class="QPushButton" name="btnServices">
          <property name="cursor">
           <cursorShape>PointingHandCursor</cursorShape>
          </property>
@@ -211,7 +211,7 @@
         </widget>
        </item>
        <item>
-        <widget class="QPushButton" name="processesBtn">
+        <widget class="QPushButton" name="btnProcesses">
          <property name="cursor">
           <cursorShape>PointingHandCursor</cursorShape>
          </property>
@@ -239,7 +239,7 @@
         </widget>
        </item>
        <item>
-        <widget class="QPushButton" name="uninstallerBtn">
+        <widget class="QPushButton" name="btnUninstaller">
          <property name="cursor">
           <cursorShape>PointingHandCursor</cursorShape>
          </property>
@@ -267,7 +267,7 @@
         </widget>
        </item>
        <item>
-        <widget class="QPushButton" name="resourcesBtn">
+        <widget class="QPushButton" name="btnResources">
          <property name="cursor">
           <cursorShape>PointingHandCursor</cursorShape>
          </property>
@@ -295,7 +295,7 @@
         </widget>
        </item>
        <item>
-        <widget class="QPushButton" name="aptSourceManagerBtn">
+        <widget class="QPushButton" name="btnAptSourceManager">
          <property name="cursor">
           <cursorShape>PointingHandCursor</cursorShape>
          </property>
@@ -323,7 +323,7 @@
         </widget>
        </item>
        <item>
-        <widget class="QPushButton" name="gnomeSettingsBtn">
+        <widget class="QPushButton" name="btnGnomeSettings">
          <property name="cursor">
           <cursorShape>PointingHandCursor</cursorShape>
          </property>
@@ -351,7 +351,7 @@
         </widget>
        </item>
        <item>
-        <widget class="QPushButton" name="settingsBtn">
+        <widget class="QPushButton" name="btnSettings">
          <property name="cursor">
           <cursorShape>PointingHandCursor</cursorShape>
          </property>
@@ -392,7 +392,7 @@
         </spacer>
        </item>
        <item>
-        <widget class="QPushButton" name="feedbackBtn">
+        <widget class="QPushButton" name="btnFeedback">
          <property name="cursor">
           <cursorShape>PointingHandCursor</cursorShape>
          </property>
@@ -417,18 +417,18 @@
         </widget>
        </item>
       </layout>
-      <zorder>dashBtn</zorder>
-      <zorder>servicesBtn</zorder>
-      <zorder>uninstallerBtn</zorder>
-      <zorder>startupAppsBtn</zorder>
-      <zorder>resourcesBtn</zorder>
+      <zorder>btnDash</zorder>
+      <zorder>btnServices</zorder>
+      <zorder>btnUninstaller</zorder>
+      <zorder>btnStartupApps</zorder>
+      <zorder>btnResources</zorder>
       <zorder>verticalSpacer_2</zorder>
-      <zorder>systemCleanerBtn</zorder>
-      <zorder>processesBtn</zorder>
-      <zorder>settingsBtn</zorder>
-      <zorder>feedbackBtn</zorder>
-      <zorder>gnomeSettingsBtn</zorder>
-      <zorder>aptSourceManagerBtn</zorder>
+      <zorder>btnSystemCleaner</zorder>
+      <zorder>btnProcesses</zorder>
+      <zorder>btnSettings</zorder>
+      <zorder>btnFeedback</zorder>
+      <zorder>btnGnomeSettings</zorder>
+      <zorder>btnAptSourceManager</zorder>
      </widget>
     </item>
     <item>
