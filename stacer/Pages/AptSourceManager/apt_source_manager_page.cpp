@@ -44,7 +44,7 @@ void APTSourceManagerPage::loadAptSources()
 
         APTSourceRepositoryItem *aptSourceItem = new APTSourceRepositoryItem(aptSource, ui->listWidgetAptSources);
 
-        listItem->setSizeHint(aptSourceItem->sizeHint() - QSize(0, 1));
+        listItem->setSizeHint(aptSourceItem->sizeHint() + QSize(0, 1));
 
         ui->listWidgetAptSources->setItemWidget(listItem, aptSourceItem);
     }
@@ -75,6 +75,7 @@ void APTSourceManagerPage::on_btnAddAPTSourceRepository_clicked(bool checked)
             ui->txtAptSource->clear();
             ui->checkEnableSource->setChecked(false);
             on_btnCancel_clicked();
+            loadAptSources();
         }
     }
 }
@@ -121,7 +122,8 @@ void APTSourceManagerPage::on_listWidgetAptSources_itemDoubleClicked(QListWidget
 void APTSourceManagerPage::on_btnDeleteAptSource_clicked()
 {
     if (! selectedAptSource.isNull()) {
-        ToolManager::ins()->removeAPTSource(selectedAptSource->source);
+        ToolManager::ins()->removeAPTSource(selectedAptSource);
+        loadAptSources();
     }
 }
 

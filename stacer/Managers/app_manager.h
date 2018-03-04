@@ -23,12 +23,13 @@
 #define DISK_PROP       "DiskName"
 #define HOMEPAGE_PROP   "HomePage"
 #define CPU_PERCENT     "CPUPercent"
-#define MEMORY_PERCENT     "MemoryPercent"
-#define DISK_PERCENT     "DiskPercent"
+#define MEMORY_PERCENT  "MemoryPercent"
+#define DISK_PERCENT    "DiskPercent"
 
 class AppManager : public QObject
 {
     Q_OBJECT
+
 public:
     static AppManager *ins();
 
@@ -44,9 +45,6 @@ public:
     QMap<QString, QString> getThemeList() const;
     void loadThemeList();
     QSettings *getStyleValues() const;
-
-    void setSlideType(const QEasingCurve::Type type);
-    QEasingCurve::Type getSlideType() const;
 
     void setDiskName(const QString &value);
     QString getDiskName();
@@ -67,7 +65,6 @@ public:
 
 signals:
     void changedTheme();
-    void changedSlideType(QEasingCurve::Type type);
     void changedDisk();
 
 private:
@@ -80,8 +77,6 @@ private:
     QString themeName;
 
     QSystemTrayIcon *trayIcon;
-
-    enum QEasingCurve::Type slideType;
 
     QSettings *settings;
     QSettings *styleValues;

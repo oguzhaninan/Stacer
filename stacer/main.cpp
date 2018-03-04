@@ -71,13 +71,7 @@ int main(int argc, char *argv[])
 
     QLatin1String hideOption("--hide");
 
-    if (argc > 1) {
-        QLatin1String option(argv[1]);
-        // hide
-        if (option != hideOption) {
-            w.show();
-        }
-    } else {
+    if (argc < 2 || QString(argv[1]) != hideOption) {
         w.show();
     }
 

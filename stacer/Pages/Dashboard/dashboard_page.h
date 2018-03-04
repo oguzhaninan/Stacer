@@ -50,6 +50,8 @@ private:
 
     QTimer *timer;
     InfoManager *im;
+
+    QIcon iconTray;
 };
 
 #endif // DASHBOARDPAGE_H

@@ -10,6 +10,7 @@
 
 //          isSource options uri distribution componentes
 // example "deb [arch=amd64] http://packages.microsoft.com/repos/vscode stable main"
+
 class APTSource {
 public:
     QString filePath;
@@ -30,7 +31,7 @@ class AptSourceTool
 public:
     static bool checkSourceRepository();
     static QList<APTSourcePtr> getSourceList();
-    static void removeAPTSource(const QString source);
+    static void removeAPTSource(const APTSourcePtr aptSource);
     static void changeStatus(const APTSourcePtr aptSource, const bool status);
     static void changeSource(const APTSourcePtr aptSource, const QString newSource);
 };

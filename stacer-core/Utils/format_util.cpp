@@ -17,12 +17,8 @@ QString FormatUtil::formatBytes(const quint64 &bytes)
       return formatUnit(bytes, MEBI, "MiB");
     else if (bytes < TEBI) // GiB
       return formatUnit(bytes, GIBI, "GiB");
-    else if (bytes < PEBI) // TiB
+    else                   // TiB
       return formatUnit(bytes, TEBI, "TiB");
-    else if (bytes < EXBI) // PiB
-      return formatUnit(bytes, PEBI, "PiB");
-    else                   // EiB
-      return formatUnit(bytes, EXBI, "EiB");
 
 #undef formatUnit
 }

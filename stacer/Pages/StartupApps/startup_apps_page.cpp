@@ -19,7 +19,10 @@ StartupAppsPage::StartupAppsPage(QWidget *parent) :
 
 void StartupAppsPage::init()
 {
-    this->mAutostartPath = QStandardPaths::writableLocation(QStandardPaths::ConfigLocation) + "/autostart";
+    this->mAutostartPath = QStandardPaths::writableLocation(QStandardPaths::ConfigLocation).append("/autostart");
+    if (! QDir(this->mAutostartPath).exists()) {
+        QDir().mkdir(this->mAutostartPath);
+    }
 
     mFileSystemWatcher.addPath(this->mAutostartPath);
 

@@ -17,7 +17,8 @@ DashboardPage::DashboardPage(QWidget *parent) :
     downloadBar(new LineBar(tr("DOWNLOAD"), this)),
     uploadBar(new LineBar(tr("UPLOAD"), this)),
     timer(new QTimer(this)),
-    im(InfoManager::ins())
+    im(InfoManager::ins()),
+    iconTray(QIcon(":/static/logo.png"))
 {
     ui->setupUi(this);
 
@@ -131,7 +132,7 @@ void DashboardPage::updateCpuBar()
         if (cpuUsedPercent > maxCpuPercent && isShow) {
             AppManager::ins()->getTrayIcon()->showMessage(tr("High CPU Usage"),
                                                           tr("The amount of CPU used is over %1%.").arg(maxCpuPercent),
-                                                          QIcon(":/static/themes/default/img/power.png"));
+                                                          iconTray);
             isShow = false;
         } else if (cpuUsedPercent < maxCpuPercent) {
             isShow = true;
@@ -159,7 +160,7 @@ void DashboardPage::updateMemoryBar()
         if (memUsedPercent > maxMemoryPercent && isShow) {
             AppManager::ins()->getTrayIcon()->showMessage(tr("High Memory Usage"),
                                                           tr("The amount of memory used is over %1%.").arg(maxMemoryPercent),
-                                                          QIcon(":/static/logo.png"));
+                                                          iconTray);
             isShow = false;
         } else if (memUsedPercent < maxMemoryPercent) {
             isShow = true;
@@ -202,7 +203,7 @@ void DashboardPage::updateDiskBar()
             if (diskPercent > maxDiskPercent && isShow) {
                 AppManager::ins()->getTrayIcon()->showMessage(tr("High Disk Usage"),
                                                               tr("The amount of disk used is over %1%.").arg(diskPercent),
-                                                              QIcon(":/static/logo.png"));
+                                                              iconTray);
                 isShow = false;
             } else if (diskPercent < maxDiskPercent) {
                 isShow = true;

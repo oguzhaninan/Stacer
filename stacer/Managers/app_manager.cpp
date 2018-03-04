@@ -4,7 +4,7 @@ AppManager *AppManager::_instance = nullptr;
 
 AppManager *AppManager::ins()
 {
-    if (_instance == nullptr) {
+    if (! _instance) {
         _instance = new AppManager;
     }
 

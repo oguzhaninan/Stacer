@@ -117,7 +117,7 @@ QList<APTSourcePtr> ToolManager::getSourceList() const
     return AptSourceTool::getSourceList();
 }
 
-void ToolManager::removeAPTSource(const QString source)
+void ToolManager::removeAPTSource(const APTSourcePtr source)
 {
     AptSourceTool::removeAPTSource(source);
 }

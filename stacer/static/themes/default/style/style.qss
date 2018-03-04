@@ -166,7 +166,7 @@ QToolTip {
 ***************/
 
 #notFoundWidget {
-    background: url(:/static/themes/default/img/not-found.png) no-repeat top center;
+    background: url(:/static/themes/common/img/not-found.png) no-repeat top center;
 }
 
 #notFoundWidget QLabel {
@@ -892,10 +892,6 @@ QLabel[accessibleName="dialog-title"] {
 
 #listWidgetAptSources {
     selection-background-color: @color03;
-}
-
-#listWidgetAptSources::item {
-    padding: 0 0 0 4;
 }
 
 /* - APT Source Repository Item - */

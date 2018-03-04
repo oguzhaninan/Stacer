@@ -212,8 +212,7 @@ bool SystemCleanerPage::cleanValid()
 
 void SystemCleanerPage::systemClean()
 {
-    if (cleanValid())
-    {
+    if (cleanValid()) {
         ui->btnClean->hide();
         ui->lblLoadingCleaner->show();
         ui->treeWidgetScanResult->setEnabled(false);
@@ -253,10 +252,10 @@ void SystemCleanerPage::systemClean()
 
                 if (it->checkState(0) == Qt::Checked) {
 
-                    QString homePath = QStandardPaths::writableLocation(QStandardPaths::HomeLocation);
+                    QString trashPath = QStandardPaths::writableLocation(QStandardPaths::HomeLocation).append("/.local/share/Trash");
 
-                    QDir(homePath + "/.local/share/Trash/files").removeRecursively();
-                    QDir(homePath + "/.local/share/Trash/info").removeRecursively();
+                    QDir(trashPath + "/files").removeRecursively();
+                    QDir(trashPath + "/info").removeRecursively();
                 }
             }
         }
@@ -270,8 +269,6 @@ void SystemCleanerPage::systemClean()
         if(! filesToDelete.isEmpty()) {
             CommandUtil::sudoExec("rm", QStringList() << "-rf" << filesToDelete);
         }
-
-        QThread::sleep(1);
 
         for (int i = 0; i < tree->topLevelItemCount(); ++i) {
             // clear removed childs
@@ -315,6 +312,7 @@ void SystemCleanerPage::on_btnClean_clicked()
 void SystemCleanerPage::on_btnBackToCategories_clicked()
 {
     ui->btnScan->show();
+    ui->lblRemovedTotalSize->clear();
     ui->lblLoadingScanner->hide();
     ui->checkPackageCache->setEnabled(true);
     ui->checkCrashReports->setEnabled(true);

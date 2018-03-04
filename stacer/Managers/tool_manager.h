@@ -30,7 +30,7 @@ public slots:
 
     bool checkSourceRepository() const;
     QList<APTSourcePtr> getSourceList() const;
-    void removeAPTSource(const QString source);
+    void removeAPTSource(const APTSourcePtr source);
     void changeStatus(const APTSourcePtr aptSource, const bool status);
     void changeSource(const APTSourcePtr aptSource, const QString newSource);
 

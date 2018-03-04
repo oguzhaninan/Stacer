@@ -56,8 +56,8 @@ void SettingsPage::init()
     ui->cmbDisks->setCurrentIndex(ui->cmbDisks->findData(dk));
 
     // start on boot
-    startupAppPath = QStandardPaths::writableLocation(QStandardPaths::ConfigLocation);
-    startupAppPath.append("/autostart/stacer.desktop");
+    startupAppPath = QStandardPaths::writableLocation(QStandardPaths::ConfigLocation).append("/autostart");
+    startupAppPath.append("/stacer.desktop");
 
     QFile startupAppFile(startupAppPath);
     if (startupAppFile.exists()) {

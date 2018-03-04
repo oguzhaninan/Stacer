@@ -9,12 +9,10 @@ public:
     static QString formatBytes(const quint64 &bytes);
 
 private:
-    static const quint64 KIBI = 1L << 10;
-    static const quint64 MEBI = 1L << 20;
-    static const quint64 GIBI = 1L << 30;
-    static const quint64 TEBI = 1L << 40;
-    static const quint64 PEBI = 1L << 50;
-    static const quint64 EXBI = 1L << 60;
+    static const quint64 KIBI = 1UL << 10UL;
+    static const quint64 MEBI = 1UL << 20UL;
+    static const quint64 GIBI = 1UL << 30UL;
+    static const quint64 TEBI = 1UL << 40UL;
 
 };
 

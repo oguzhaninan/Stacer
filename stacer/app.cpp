@@ -51,7 +51,7 @@ void App::init()
     };
 
     // APT SOURCE MANAGER
-    if (!ToolManager::ins()->checkSourceRepository()) {
+    if (ToolManager::ins()->checkSourceRepository()) {
         aptSourceManagerPage = new APTSourceManagerPage(slidingStacked);
         listPages.insert(7, aptSourceManagerPage);
         listSidebarButtons.insert(7, ui->btnAptSourceManager);
@@ -60,7 +60,7 @@ void App::init()
     }
 
     // GNOME SETTINGS
-    if (!GnomeSettingsTool::ins().checkGSettings()) {
+    if (GnomeSettingsTool::ins().checkGSettings()) {
         gnomeSettingsPage = new GnomeSettingsPage(slidingStacked);
         listPages.insert(8, gnomeSettingsPage);
         listSidebarButtons.insert(8, ui->btnGnomeSettings);

@@ -14,8 +14,7 @@ class APTSourceRepositoryItem : public QWidget
     Q_OBJECT
 
 public:
-    explicit APTSourceRepositoryItem(APTSourcePtr aptSource,
-                               QWidget *parent = 0);
+    explicit APTSourceRepositoryItem(APTSourcePtr aptSource, QWidget *parent = 0);
 
     ~APTSourceRepositoryItem();
 

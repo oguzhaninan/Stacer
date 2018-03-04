@@ -166,7 +166,7 @@ QToolTip {
 ***************/
 
 #notFoundWidget {
-    background: url(:/static/themes/default/img/not-found.png) no-repeat top center;
+    background: url(:/static/themes/common/img/not-found.png) no-repeat top center;
 }
 
 #notFoundWidget QLabel {

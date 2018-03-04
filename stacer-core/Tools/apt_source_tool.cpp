@@ -12,14 +12,9 @@ bool AptSourceTool::checkSourceRepository()
     return isExists;
 }
 
-void AptSourceTool::removeAPTSource(const QString source)
+void AptSourceTool::removeAPTSource(const APTSourcePtr aptSource)
 {
-    QStringList args = { "-r", "-y", source };
-    try {
-        CommandUtil::sudoExec("add-apt-repository", args);
-    } catch(QString &ex) {
-        qDebug() << ex;
-    }
+    changeSource(aptSource, "");
 }
 
 void AptSourceTool::changeSource(const APTSourcePtr aptSource, const QString newSource)
@@ -42,7 +37,7 @@ void AptSourceTool::changeSource(const APTSourcePtr aptSource, const QString new
 
     QStringList args = { aptSource->filePath };
 
-    QByteArray data = sourceFileContent.join('\n').toUtf8();
+    QByteArray data = sourceFileContent.join('\n').append('\n').toUtf8();
 
     CommandUtil::sudoExec("tee", args, data);
 }
@@ -90,11 +85,13 @@ QList<APTSourcePtr> AptSourceTool::getSourceList()
                 }
 
                 // if has options
-                if (_line.contains('[')) {
+                if (_line.contains(" [")) {
                     int pos1 = _line.indexOf('['), pos2 = _line.indexOf(']');
 
-                    aptSource->options = _line.mid(pos1, pos2-pos1+1);
-                    _line.replace(aptSource->options, ""); // delete options section
+                    if (pos1 != -1 && pos2 != -1) {
+                        aptSource->options = _line.mid(pos1, pos2-pos1+1);
+                        _line.replace(aptSource->options, ""); // delete options section
+                    }
                 }
 
                 QStringList sourceColumns = _line.trimmed().split(QRegExp("\\s+"));
@@ -108,7 +105,8 @@ QList<APTSourcePtr> AptSourceTool::getSourceList()
                     aptSource->distribution = sourceColumns.at(2);
                     aptSource->components = sourceColumns.mid(3).join(' ');
 
-                    aptSource->source = sourceColumns.mid(1).join(' ');
+                    aptSource->source = line.trimmed().replace("#", "").trimmed();
+                    qDebug() << aptSource->source;
 
                     aptSourceList.append(aptSource);
                 }

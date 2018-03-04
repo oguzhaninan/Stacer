@@ -78,6 +78,12 @@ void AppearanceSettings::loadDatas()
 
 void AppearanceSettings::on_checkShowDesktopIcons_clicked(bool checked)
 {
+    if (! checked) {
+        ui->checkHomeIcon->setChecked(checked);
+        ui->checkNetworkIcon->setChecked(checked);
+        ui->checkMountedVulmesIcon->setChecked(checked);
+        ui->checkTrashIcon->setChecked(checked);
+    }
     gsettings.setValueB(GSchemas::Appearance::Background, GSchemaKeys::Appearance::ShowDesktopIcons, checked);
 }
 
