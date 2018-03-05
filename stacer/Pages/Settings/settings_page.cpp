@@ -13,7 +13,8 @@ SettingsPage::~SettingsPage()
 SettingsPage::SettingsPage(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::SettingsPage),
-    apm(AppManager::ins())
+    apm(AppManager::ins()),
+    mSettingManager(SettingManager::ins())
 {
     ui->setupUi(this);
 
@@ -30,7 +31,7 @@ void SettingsPage::init()
         ui->cmbLanguages->addItem(lang.value(), lang.key());
     }
 
-    QString lc = apm->getLanguageCode();
+    QString lc = mSettingManager->getLanguage();
     ui->cmbLanguages->setCurrentText(apm->getLanguageList().value(lc));
 
     // load themes
@@ -41,7 +42,7 @@ void SettingsPage::init()
         ui->cmbThemes->addItem(theme.value(), theme.key());
     }
 
-    QString tn = apm->getThemeName();
+    QString tn = mSettingManager->getThemeName();
     ui->cmbThemes->setCurrentText(apm->getThemeList().value(tn));
 
     // load disks
@@ -52,7 +53,7 @@ void SettingsPage::init()
         ui->cmbDisks->addItem(QString("%1  (%2)").arg(disk->device).arg(disk->name), disk->name);
     }
 
-    QString dk = apm->getDiskName();
+    QString dk = mSettingManager->getDiskName();
     ui->cmbDisks->setCurrentIndex(ui->cmbDisks->findData(dk));
 
     // start on boot
@@ -69,22 +70,22 @@ void SettingsPage::init()
     }
 
     // load pages
-    ui->cmbHomepage->addItems({
+    ui->cmbStartPage->addItems({
         tr("Dashboard"), tr("Startup Apps"), tr("System Cleaner"),
         tr("Services"), tr("Processes"), tr("Uninstaller"), tr("Resources")
     });
 
-    ui->cmbHomepage->setCurrentText(apm->getHomePage());
+    ui->cmbStartPage->setCurrentText(mSettingManager->getStartPage());
 
     // load resource percents
-    ui->spinCpuPercent->setValue(apm->getCpuPercent());
-    ui->spinMemoryPercent->setValue(apm->getMemoryPercent());
-    ui->spinDiskPercent->setValue(apm->getDiskPercent());
+    ui->spinCpuPercent->setValue(mSettingManager->getCpuAlertPercent());
+    ui->spinMemoryPercent->setValue(mSettingManager->getMemoryAlertPercent());
+    ui->spinDiskPercent->setValue(mSettingManager->getDiskAlertPercent());
 
     // effects
     QList<QWidget*> widgets = {
-        ui->cmbLanguages, ui->cmbThemes, ui->cmbDisks, ui->cmbHomepage, ui->btnDonate, ui->spinCpuPercent,
-        ui->spinMemoryPercent, ui->spinDiskPercent
+        ui->cmbLanguages, ui->cmbThemes, ui->cmbDisks, ui->cmbStartPage, ui->btnDonate,
+        ui->spinCpuPercent, ui->spinMemoryPercent, ui->spinDiskPercent
     };
 
     Utilities::addDropShadow(widgets, 50);
@@ -92,30 +93,30 @@ void SettingsPage::init()
     // connects
     connect(ui->cmbLanguages, SIGNAL(currentIndexChanged(int)), this, SLOT(cmbLanguagesChanged(int)));
     connect(ui->cmbThemes, SIGNAL(currentIndexChanged(int)), this, SLOT(cmbThemesChanged(int)));    
-    connect(ui->cmbDisks, SIGNAL(currentIndexChanged(int)), this, SLOT(diskCmbChanged(int)));
-    connect(ui->cmbHomepage, SIGNAL(currentIndexChanged(QString)), this, SLOT(cmbHomePageChanged(QString)));
+    connect(ui->cmbDisks, SIGNAL(currentIndexChanged(int)), this, SLOT(cmbDiskChanged(int)));
+    connect(ui->cmbStartPage, SIGNAL(currentIndexChanged(QString)), this, SLOT(cmbStartPageChanged(QString)));
 }
 
 void SettingsPage::cmbLanguagesChanged(const int &index)
 {
     QString langCode = ui->cmbLanguages->itemData(index).toString();
 
-    apm->setLanguage(langCode);
+    mSettingManager->setLanguage(langCode);
 }
 
 void SettingsPage::cmbThemesChanged(const int &index)
 {
     QString themeName = ui->cmbThemes->itemData(index).toString();
 
-    apm->setThemeName(themeName);
+    mSettingManager->setThemeName(themeName);
     apm->updateStylesheet();
 }
 
-void SettingsPage::diskCmbChanged(const int &index)
+void SettingsPage::cmbDiskChanged(const int &index)
 {
     QString diskName = ui->cmbDisks->itemData(index).toString();
 
-    apm->setDiskName(diskName);
+    mSettingManager->setDiskName(diskName);
 }
 
 void SettingsPage::on_checkAutostart_clicked(bool checked)
@@ -140,22 +141,22 @@ void SettingsPage::on_btnDonate_clicked()
     QDesktopServices::openUrl(QUrl("https://www.patreon.com/oguzhaninan"));
 }
 
-void SettingsPage::cmbHomePageChanged(const QString text)
+void SettingsPage::cmbStartPageChanged(const QString text)
 {
-    apm->setHomePage(text);
+    mSettingManager->setStartPage(text);
 }
 
 void SettingsPage::on_spinCpuPercent_valueChanged(int value)
 {
-    apm->setCpuPercent(value);
+    mSettingManager->setCpuAlertPercent(value);
 }
 
 void SettingsPage::on_spinMemoryPercent_valueChanged(int value)
 {
-    apm->setMemoryPercent(value);
+    mSettingManager->setMemoryAlertPercent(value);
 }
 
 void SettingsPage::on_spinDiskPercent_valueChanged(int value)
 {
-    apm->setDiskPercent(value);
+    mSettingManager->setDiskAlertPercent(value);
 }

@@ -36,8 +36,8 @@ void SystemCleanerPage::init()
     ui->treeWidgetScanResult->setHeaderLabels({ tr("File Name"), tr("Size") });
 
     // loaders
-    connect(AppManager::ins(), &AppManager::changedTheme, this, [this]() {
-        QString themeName = AppManager::ins()->getThemeName();
+    connect(SignalMapper::ins(), &SignalMapper::changedAppTheme, [=] {
+        QString themeName = SettingManager::ins()->getThemeName();
 
         if (loadingMovie)
             loadingMovie->deleteLater();

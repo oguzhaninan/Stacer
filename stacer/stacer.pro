@@ -46,7 +46,8 @@ SOURCES += \
     Pages/GnomeSettings/appearance_settings.cpp \
     slidingstackedwidget.cpp \
     feedback.cpp \
-    Pages/AptSourceManager/apt_source_edit.cpp
+    Pages/AptSourceManager/apt_source_edit.cpp \
+    Managers/setting_manager.cpp
 
 HEADERS += \
     app.h \
@@ -76,7 +77,9 @@ HEADERS += \
     slidingstackedwidget.h \
     utilities.h \
     feedback.h \
-    Pages/AptSourceManager/apt_source_edit.h
+    Pages/AptSourceManager/apt_source_edit.h \
+    Managers/setting_manager.h \
+    signal_mapper.h
 
 FORMS += \
     app.ui \

@@ -20,7 +20,7 @@ UninstallerPage::UninstallerPage(QWidget *parent) :
 
 void UninstallerPage::init()
 {
-    QString path = QString(":/static/themes/%1/img/loading.gif").arg(AppManager::ins()->getThemeName());
+    QString path = QString(":/static/themes/%1/img/loading.gif").arg(SettingManager::ins()->getThemeName());
     QMovie *loadingMovie = new QMovie(path, QByteArray(), this);
     ui->lblLoadingUninstaller->setMovie(loadingMovie);
     loadingMovie->start();
@@ -43,7 +43,7 @@ void UninstallerPage::loadPackages()
     // clear items
     ui->listWidgetPackages->clear();
 
-    QIcon icon(QString(":/static/themes/%1/img/package.png").arg(AppManager::ins()->getThemeName()));
+    QIcon icon(QString(":/static/themes/%1/img/package.png").arg(SettingManager::ins()->getThemeName()));
     QStringList packages = tm->getPackages();
     for (const QString &package : packages) {
         QListWidgetItem *item = new QListWidgetItem(QIcon::fromTheme(package, icon), QString("  %1").arg(package));

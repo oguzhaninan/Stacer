@@ -59,15 +59,19 @@ void HistoryChart::init()
     ui->layoutHistoryChart->addWidget(chartView, 1, 0, 1, 3);
 
     // theme changed
-    connect(AppManager::ins(), &AppManager::changedTheme, this, [this]() {
-        chart->axisX()->setLabelsColor(apm->getStyleValues()->value("@chartLabelColor").toString());
-        chart->axisX()->setGridLineColor(apm->getStyleValues()->value("@chartGridColor").toString());
+    connect(SignalMapper::ins(), &SignalMapper::changedAppTheme, [=] {
+        QString chartLabelColor = apm->getStyleValues()->value("@chartLabelColor").toString();
+        QString chartGridColor = apm->getStyleValues()->value("@chartGridColor").toString();
+        QString historyChartBackground = apm->getStyleValues()->value("@historyChartBackgroundColor").toString();
 
-        chart->axisY()->setLabelsColor(apm->getStyleValues()->value("@chartLabelColor").toString());
-        chart->axisY()->setGridLineColor(apm->getStyleValues()->value("@chartGridColor").toString());
+        chart->axisX()->setLabelsColor(chartLabelColor);
+        chart->axisX()->setGridLineColor(chartGridColor);
 
-        chart->setBackgroundBrush(QColor(apm->getStyleValues()->value("@historyChartBackgroundColor").toString()));
-        chart->legend()->setLabelColor(apm->getStyleValues()->value("@chartLabelColor").toString());
+        chart->axisY()->setLabelsColor(chartLabelColor);
+        chart->axisY()->setGridLineColor(chartGridColor);
+
+        chart->setBackgroundBrush(QColor(historyChartBackground));
+        chart->legend()->setLabelColor(chartLabelColor);
     });
 }
 

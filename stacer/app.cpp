@@ -77,9 +77,8 @@ void App::init()
 
     Utilities::addDropShadow(ui->sidebar, 60);
 
-    // set home page
-    QString selectedHomePage = AppManager::ins()->getHomePage();
-    clickSidebarButton(selectedHomePage);
+    // set start page
+    clickSidebarButton(SettingManager::ins()->getStartPage());
 
     createTrayActions();
 

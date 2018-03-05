@@ -5,6 +5,7 @@
 
 #include "slidingstackedwidget.h"
 #include "Managers/app_manager.h"
+#include "Managers/setting_manager.h"
 
 // Pages
 #include "Pages/Dashboard/dashboard_page.h"

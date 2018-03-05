@@ -13,6 +13,8 @@
 #include "circlebar.h"
 #include "linebar.h"
 
+#include "Managers/setting_manager.h"
+
 namespace Ui {
     class DashboardPage;
 }
@@ -52,6 +54,8 @@ private:
     InfoManager *im;
 
     QIcon iconTray;
+
+    SettingManager *mSettingManager;
 };
 
 #endif // DASHBOARDPAGE_H

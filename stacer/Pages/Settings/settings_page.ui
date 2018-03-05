@@ -112,7 +112,7 @@
     </widget>
    </item>
    <item row="1" column="3">
-    <widget class="QComboBox" name="cmbHomepage">
+    <widget class="QComboBox" name="cmbStartPage">
      <property name="sizePolicy">
       <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
        <horstretch>0</horstretch>

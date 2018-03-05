@@ -18,7 +18,8 @@ DashboardPage::DashboardPage(QWidget *parent) :
     uploadBar(new LineBar(tr("UPLOAD"), this)),
     timer(new QTimer(this)),
     im(InfoManager::ins()),
-    iconTray(QIcon(":/static/logo.png"))
+    iconTray(QIcon(":/static/logo.png")),
+    mSettingManager(SettingManager::ins())
 {
     ui->setupUi(this);
 
@@ -43,11 +44,9 @@ void DashboardPage::init()
     connect(timer, &QTimer::timeout, this, &DashboardPage::updateMemoryBar);
     connect(timer, &QTimer::timeout, this, &DashboardPage::updateNetworkBar);
 
-    connect(AppManager::ins(), &AppManager::changedDisk, this, &DashboardPage::updateDiskBar);
-
     QTimer *timerDisk = new QTimer;
     connect(timerDisk, &QTimer::timeout, this, &DashboardPage::updateDiskBar);
-    timerDisk->start(10 * 1000);
+    timerDisk->start(5 * 1000);
 
     timer->start(1 * 1000);
 
@@ -126,7 +125,7 @@ void DashboardPage::updateCpuBar()
     int cpuUsedPercent = im->getCpuPercents().at(0);
 
     // alert message
-    int maxCpuPercent = AppManager::ins()->getCpuPercent();
+    int maxCpuPercent = mSettingManager->getCpuAlertPercent();
     if (maxCpuPercent > 0) {
         static bool isShow = true;
         if (cpuUsedPercent > maxCpuPercent && isShow) {
@@ -154,7 +153,7 @@ void DashboardPage::updateMemoryBar()
     QString f_memTotal = FormatUtil::formatBytes(im->getMemTotal());
 
     // alert message
-    int maxMemoryPercent = AppManager::ins()->getMemoryPercent();
+    int maxMemoryPercent = mSettingManager->getMemoryAlertPercent();
     if (maxMemoryPercent > 0) {
         static bool isShow = true;
         if (memUsedPercent > maxMemoryPercent && isShow) {
@@ -178,7 +177,7 @@ void DashboardPage::updateDiskBar()
 
     if(! im->getDisks().isEmpty()) {
         Disk *disk = nullptr;
-        QString selectedDiskName = AppManager::ins()->getDiskName();
+        QString selectedDiskName = mSettingManager->getDiskName();
         for (Disk *d: im->getDisks()) {
             if (d->name.trimmed() == selectedDiskName.trimmed())
                 disk = d;
@@ -197,7 +196,7 @@ void DashboardPage::updateDiskBar()
         }
 
         // alert message
-        int maxDiskPercent = AppManager::ins()->getDiskPercent();
+        int maxDiskPercent = mSettingManager->getDiskAlertPercent();
         if (maxDiskPercent > 0) {
             static bool isShow = true;
             if (diskPercent > maxDiskPercent && isShow) {

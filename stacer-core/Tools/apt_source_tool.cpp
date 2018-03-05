@@ -106,7 +106,7 @@ QList<APTSourcePtr> AptSourceTool::getSourceList()
                     aptSource->components = sourceColumns.mid(3).join(' ');
 
                     aptSource->source = line.trimmed().replace("#", "").trimmed();
-                    qDebug() << aptSource->source;
+//                    qDebug() << aptSource->source;
 
                     aptSourceList.append(aptSource);
                 }

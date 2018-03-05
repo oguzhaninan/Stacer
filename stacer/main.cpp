@@ -1,6 +1,8 @@
 #include <QApplication>
 #include <QSplashScreen>
 #include <QDebug>
+#include <QFontDatabase>
+
 #include "app.h"
 
 void messageHandler(QtMsgType type, const QMessageLogContext &context, const QString &message)
@@ -55,11 +57,13 @@ int main(int argc, char *argv[])
     qApp->setApplicationVersion("1.0.9");
     qApp->setWindowIcon(QIcon(":/static/logo.png"));
 
-    QPixmap pixmap(":/static/splashscreen.png");
+    QFontDatabase::addApplicationFont(":/static/font/Ubuntu-R.ttf");
 
-    QSplashScreen splash(pixmap);
+    QPixmap pixSplash(":/static/splashscreen.png");
 
-    splash.show();
+    QSplashScreen *splash = new QSplashScreen(pixSplash);
+
+    splash->show();
 
     app.processEvents();
 
@@ -75,7 +79,9 @@ int main(int argc, char *argv[])
         w.show();
     }
 
-    splash.finish(&w);
+    splash->finish(&w);
+
+    delete splash;
 
     return app.exec();
 }
