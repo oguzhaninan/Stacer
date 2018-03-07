@@ -319,7 +319,7 @@ QLineEdit,
 QPlainTextEdit,
 QSpinBox {
     border-radius: 2;
-    padding: 7;
+    padding: 8;
     background-color: @color01;
     font-size: 10pt;
     color: @color02;
@@ -377,8 +377,8 @@ QLabel[accessibleName="dialog-title"] {
     height: 44;
     border-style: solid;
     color: @color01;
-    margin: 2 8;
-    border-radius:2;
+    margin: 3 8;
+    border-radius: 2;
 }
 
 #sidebar QPushButton:checked,
