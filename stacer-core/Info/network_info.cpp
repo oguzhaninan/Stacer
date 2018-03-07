@@ -1,22 +1,29 @@
 #include "network_info.h"
+#include <QDebug>
 
 NetworkInfo::NetworkInfo()
 {
-    QStringList lines = FileUtil::readListFromFile(PROC_NET_ROUTE);
+    for (const QNetworkInterface &net: QNetworkInterface::allInterfaces()) {
 
-    if(lines.count() > 2)
-        defaultNetworkInterface = lines
-                .at(2)
-                .split(QRegExp("\\s+"))
-                .first();
-    else
-        defaultNetworkInterface = "";
+        if ((net.flags()  & QNetworkInterface::IsUp) &&
+            (net.flags()  & QNetworkInterface::IsRunning) &&
+            !(net.flags() & QNetworkInterface::IsLoopBack))
+        {
+            defaultNetworkInterface = net.name();
+            break;
+        }
+    }
 
     rxPath = QString("/sys/class/net/%1/statistics/rx_bytes")
             .arg(defaultNetworkInterface);
 
     txPath = QString("/sys/class/net/%1/statistics/tx_bytes")
             .arg(defaultNetworkInterface);
+}
+
+QList<QNetworkInterface> NetworkInfo::getAllInterfaces()
+{
+    return QNetworkInterface::allInterfaces();
 }
 
 QString NetworkInfo::getDefaultNetworkInterface() const

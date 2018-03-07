@@ -3,8 +3,7 @@
 
 #include "Utils/file_util.h"
 #include "Utils/command_util.h"
-
-#define PROC_NET_ROUTE "/proc/net/route"
+#include <QtNetwork/QNetworkInterface>
 
 #include "stacer-core_global.h"
 
@@ -14,6 +13,7 @@ public:
     NetworkInfo();
 
     QString getDefaultNetworkInterface() const;
+    QList<QNetworkInterface> getAllInterfaces();
 
     quint64 getRXbytes() const;
     quint64 getTXbytes() const;
