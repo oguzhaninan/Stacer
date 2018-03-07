@@ -3,7 +3,10 @@
     <img src="https://raw.githubusercontent.com/oguzhaninan/Stacer/native/screenshots/header.png" width="800">    
 </p>
 <p align="center">
-  <b>Linux System Optimizer and Monitoring</b>
+  <b>Linux System Optimizer and Monitoring</b>   <br>
+  <a href="https://www.patreon.com/oguzhaninan">
+		<img alt="Patreon" src="https://c5.patreon.com/external/logo/become_a_patron_button.png"/>
+	</a>
 </p>
 
 <p align="center">
