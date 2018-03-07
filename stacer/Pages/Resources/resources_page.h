@@ -27,19 +27,21 @@ private slots:
     void updateNetworkChart();
 
 private:
-    Ui::ResourcesPage *ui;
+
     void init();
 
 private:
+    Ui::ResourcesPage *ui;
+
     InfoManager *im;
 
-    HistoryChart *cpuChart;
-    HistoryChart *cpuLoadAvgChart;
-    HistoryChart *diskReadWriteChart;
-    HistoryChart *memoryChart;
-    HistoryChart *networkChart;
+    HistoryChart *mChartCpu;
+    HistoryChart *mChartCpuLoadAvg;
+    HistoryChart *mChartDiskReadWrite;
+    HistoryChart *mChartMemory;
+    HistoryChart *mChartNetwork;
 
-    QTimer *timer;
+    QTimer *mTimer;
 };
 
 #endif // RESOURCESPAGE_H

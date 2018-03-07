@@ -7,6 +7,7 @@
 #include <QTimer>
 
 #include "Managers/app_manager.h"
+#include "Utils/format_util.h"
 
 namespace Ui {
     class HistoryChart;
@@ -17,14 +18,16 @@ class HistoryChart : public QWidget
     Q_OBJECT
 
 public:
-    explicit HistoryChart(const QString &title, const int &seriesCount, QWidget *parent = 0);
+    explicit HistoryChart(const QString &title, const int &seriesCount, QCategoryAxis* categoriAxisY = nullptr, QWidget *parent = 0);
     ~HistoryChart();
 
     QVector<QSplineSeries *> getSeriesList() const;
+    QCategoryAxis *getAxisY();
 
 public slots:
     void setYMax(const int &value);
-    void setSeriesList(const QVector<QSplineSeries *> &value);
+    void setSeriesList(const QVector<QSplineSeries *> &seriesList);
+    void setCategoryAxisYLabels();
 
 private slots:
     void init();
@@ -35,12 +38,12 @@ private:
 
 private:
     QString title;
-    int yMax;
     int seriesCount;
     QChartView *chartView;
     QChart *chart;
-    QVector<QSplineSeries *> seriesList;
-    AppManager *apm;
+    QVector<QSplineSeries *> mSeriesList;
+
+    QCategoryAxis *axisY;
 };
 
 #endif // HISTORYCHART_H

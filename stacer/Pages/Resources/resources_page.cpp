@@ -1,4 +1,4 @@
-#include "resources_page.h"
+ #include "resources_page.h"
 #include "ui_resources_page.h"
 #include "utilities.h"
 
@@ -11,12 +11,12 @@ ResourcesPage::ResourcesPage(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::ResourcesPage),
     im(InfoManager::ins()),
-    cpuChart(new HistoryChart(tr("History of CPU"), im->getCpuCoreCount(), this)),
-    cpuLoadAvgChart(new HistoryChart(tr("History of CPU Load Averages"), 3, this)),
-    diskReadWriteChart(new HistoryChart(tr("History of Disk Read Write"), 2, this)),
-    memoryChart(new HistoryChart(tr("History of Memory"), 2, this)),
-    networkChart(new HistoryChart(tr("History of Network"), 2, this)),
-    timer(new QTimer(this))
+    mChartCpu(new HistoryChart(tr("History of CPU"), im->getCpuCoreCount(), nullptr, this)),
+    mChartCpuLoadAvg(new HistoryChart(tr("History of CPU Load Averages"), 3, nullptr, this)),
+    mChartDiskReadWrite(new HistoryChart(tr("History of Disk Read Write"), 2, new QCategoryAxis, this)),
+    mChartMemory(new HistoryChart(tr("History of Memory"), 2, nullptr, this)),
+    mChartNetwork(new HistoryChart(tr("History of Network"), 2, new QCategoryAxis, this)),
+    mTimer(new QTimer(this))
 {
     ui->setupUi(this);
 
@@ -25,11 +25,10 @@ ResourcesPage::ResourcesPage(QWidget *parent) :
 
 void ResourcesPage::init()
 {
-    cpuChart->setYMax(100);
-    memoryChart->setYMax(100);
-    cpuLoadAvgChart->setYMax(5);
+    mChartCpu->setYMax(100);
+    mChartMemory->setYMax(100);
 
-    QList<QWidget*> widgets = { cpuChart, cpuLoadAvgChart, diskReadWriteChart, memoryChart, networkChart };
+    QList<QWidget*> widgets = { mChartCpu, mChartCpuLoadAvg, mChartDiskReadWrite, mChartMemory, mChartNetwork };
 
     for (QWidget *widget : widgets) {
         ui->chartsLayout->addWidget(widget);
@@ -37,13 +36,13 @@ void ResourcesPage::init()
 
     Utilities::addDropShadow(widgets, 40);
 
-    connect(timer, &QTimer::timeout, this, &ResourcesPage::updateCpuChart);
-    connect(timer, &QTimer::timeout, this, &ResourcesPage::updateCpuLoadAvg);
-    connect(timer, &QTimer::timeout, this, &ResourcesPage::updateDiskReadWrite);
-    connect(timer, &QTimer::timeout, this, &ResourcesPage::updateMemoryChart);
-    connect(timer, &QTimer::timeout, this, &ResourcesPage::updateNetworkChart);
+    connect(mTimer, &QTimer::timeout, this, &ResourcesPage::updateCpuChart);
+    connect(mTimer, &QTimer::timeout, this, &ResourcesPage::updateCpuLoadAvg);
+    connect(mTimer, &QTimer::timeout, this, &ResourcesPage::updateDiskReadWrite);
+    connect(mTimer, &QTimer::timeout, this, &ResourcesPage::updateMemoryChart);
+    connect(mTimer, &QTimer::timeout, this, &ResourcesPage::updateNetworkChart);
 
-    timer->start(1000);
+    mTimer->start(1000);
 }
 
 void ResourcesPage::updateDiskReadWrite()
@@ -52,7 +51,7 @@ void ResourcesPage::updateDiskReadWrite()
 
     QList<quint64> diskReadWrite = im->getDiskIO();
 
-    QVector<QSplineSeries*> seriesList = diskReadWriteChart->getSeriesList();
+    QVector<QSplineSeries*> seriesList = mChartDiskReadWrite->getSeriesList();
 
     for (int j = 0; j < seriesList.count(); ++j) {
         for (int i = 0; i < (second < 61 ? second : 61); ++i) {
@@ -72,27 +71,29 @@ void ResourcesPage::updateDiskReadWrite()
     quint64 d_readByte = (readBytes - l_readBytes);
     quint64 d_writeByte = (writeBytes - l_writeBytes);
 
-    seriesList.at(0)->insert(0, QPointF(0, d_readByte >> 10));
+    seriesList.at(0)->insert(0, QPointF(0, d_readByte));
     seriesList.at(0)->setName(tr("Read %1/s Total: %2")
                               .arg(FormatUtil::formatBytes(d_readByte))
                               .arg(FormatUtil::formatBytes(readBytes)));
 
 
-    seriesList.at(1)->insert(0, QPointF(0, d_writeByte >> 10));
+    seriesList.at(1)->insert(0, QPointF(0, d_writeByte));
     seriesList.at(1)->setName(tr("Write %1/s Total: %2")
                               .arg(FormatUtil::formatBytes(d_writeByte))
                               .arg(FormatUtil::formatBytes(writeBytes)));
 
     maxY = qMax(qMax(maxY, d_readByte), d_writeByte);
 
-    diskReadWriteChart->setYMax(maxY >> 10);
-
     l_readBytes  = readBytes;
     l_writeBytes = writeBytes;
 
-    second++;
+    mChartDiskReadWrite->setYMax(maxY);
 
-    diskReadWriteChart->setSeriesList(seriesList);
+    mChartDiskReadWrite->setSeriesList(seriesList);
+
+    mChartDiskReadWrite->setCategoryAxisYLabels();
+
+    second++;
 }
 
 void ResourcesPage::updateCpuLoadAvg()
@@ -103,7 +104,7 @@ void ResourcesPage::updateCpuLoadAvg()
 
     QList<double> cpuLoadAvgs = im->getCpuLoadAvgs();
 
-    QVector<QSplineSeries*> seriesList = cpuLoadAvgChart->getSeriesList();
+    QVector<QSplineSeries*> seriesList = mChartCpuLoadAvg->getSeriesList();
 
     for (int j = 0; j < seriesList.count(); ++j) {
         double avg = cpuLoadAvgs.at(j);
@@ -123,18 +124,18 @@ void ResourcesPage::updateCpuLoadAvg()
         maxAvg = qMax((int)ceil(avg), maxAvg);
     }
 
-    cpuLoadAvgChart->setYMax(maxAvg);
+    mChartCpuLoadAvg->setYMax(maxAvg);
+
+    mChartCpuLoadAvg->setSeriesList(seriesList);
 
     second++;
-
-    cpuLoadAvgChart->setSeriesList(seriesList);
 }
 
 void ResourcesPage::updateNetworkChart()
 {
     static int second = 0;
 
-    QVector<QSplineSeries *> seriesList = networkChart->getSeriesList();
+    QVector<QSplineSeries *> seriesList = mChartNetwork->getSeriesList();
 
     // points swap
     for (int j = 0; j < seriesList.count(); j++) {
@@ -144,13 +145,13 @@ void ResourcesPage::updateNetworkChart()
         if(second > 61) seriesList.at(j)->removePoints(61, 1);
     }
 
-    static quint64 l_RXbytes = im->getRXbytes();
-    static quint64 l_TXbytes = im->getTXbytes();
-    static quint64 max_RXbytes = 1L << 20; // 1 MEBI
-    static quint64 max_TXbytes = 1L << 20; // 1 MEBI
-
     quint64 RXbytes = im->getRXbytes();
     quint64 TXbytes = im->getTXbytes();
+
+    static quint64 l_RXbytes = RXbytes;
+    static quint64 l_TXbytes = TXbytes;
+    static quint64 max_RXbytes = 1L << 20; // 1 MEBI
+    static quint64 max_TXbytes = 1L << 20; // 1 MEBI
 
     quint64 d_RXbytes = (RXbytes - l_RXbytes);
     quint64 d_TXbytes = (TXbytes - l_TXbytes);
@@ -159,12 +160,12 @@ void ResourcesPage::updateNetworkChart()
     QString upText   = FormatUtil::formatBytes(d_TXbytes);
 
     // Download
-    seriesList.at(0)->insert(0, QPointF(0, d_RXbytes >> 10));
+    seriesList.at(0)->insert(0, QPointF(0, d_RXbytes));
     seriesList.at(0)->setName(tr("Download %1/s Total: %2")
                               .arg(downText)
                               .arg(FormatUtil::formatBytes(RXbytes)));
 
-    seriesList.at(1)->insert(0, QPointF(0, d_TXbytes >> 10));
+    seriesList.at(1)->insert(0, QPointF(0, d_TXbytes));
     seriesList.at(1)->setName(tr("Upload %1/s  Total: %2")
                               .arg(upText)
                               .arg(FormatUtil::formatBytes(TXbytes)));
@@ -172,22 +173,25 @@ void ResourcesPage::updateNetworkChart()
     max_RXbytes = qMax(max_RXbytes, d_RXbytes);
     max_TXbytes = qMax(max_TXbytes, d_TXbytes);
 
-    int max = qMax(max_RXbytes, max_TXbytes) >> 10;
-    networkChart->setYMax(max);
+    int max = qMax(max_RXbytes, max_TXbytes);
 
     l_RXbytes = RXbytes;
     l_TXbytes = TXbytes;
 
-    second++;
+    mChartNetwork->setYMax(max);
 
-    networkChart->setSeriesList(seriesList);
+    mChartNetwork->setSeriesList(seriesList);
+
+    mChartNetwork->setCategoryAxisYLabels();
+
+    second++;
 }
 
 void ResourcesPage::updateMemoryChart()
 {
     static int second = 0;
 
-    QVector<QSplineSeries *> seriesList = memoryChart->getSeriesList();
+    QVector<QSplineSeries *> seriesList = mChartMemory->getSeriesList();
 
     im->updateMemoryInfo();
 
@@ -220,9 +224,9 @@ void ResourcesPage::updateMemoryChart()
                               .arg(QString().sprintf("%.1f",percent2))
                               .arg(FormatUtil::formatBytes(im->getMemTotal())));
 
-    second++;
+    mChartMemory->setSeriesList(seriesList);
 
-    memoryChart->setSeriesList(seriesList);
+    second++;
 }
 
 void ResourcesPage::updateCpuChart()
@@ -231,7 +235,7 @@ void ResourcesPage::updateCpuChart()
 
     QList<int> cpuPercents = im->getCpuPercents();
 
-    QVector<QSplineSeries *> seriesList = cpuChart->getSeriesList();
+    QVector<QSplineSeries *> seriesList = mChartCpu->getSeriesList();
 
     for (int j = 0; j < seriesList.count(); j++){
         int p = cpuPercents.at(j+1);
@@ -246,7 +250,7 @@ void ResourcesPage::updateCpuChart()
         if(second > 61) seriesList.at(j)->removePoints(61, 1);
     }
 
-    second++;
+    mChartCpu->setSeriesList(seriesList);
 
-    cpuChart->setSeriesList(seriesList);
+    second++;
 }
