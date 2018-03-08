@@ -8,13 +8,16 @@ class SignalMapper : public QObject
     Q_OBJECT
 
 public:
-    static SignalMapper *ins() {
-        static SignalMapper *instance = new SignalMapper;
-        return instance;
-    }
+    static SignalMapper *ins();
 
 signals:
-    void changedAppTheme();
+    void sigChangedAppTheme();
+    void sigUninstallStarted();
+    void sigUninstallFinished();
+
+private:
+    static SignalMapper *instance;
+
 };
 
 #endif // SIGNAL_MAPPER_H
