@@ -79,7 +79,7 @@
            <string notr="true"/>
           </property>
           <property name="text">
-           <string>System Services</string>
+           <string notr="true">System Services</string>
           </property>
          </widget>
         </item>

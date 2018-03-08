@@ -61,18 +61,20 @@ void AppearanceSettings::init()
 
 void AppearanceSettings::initConnects()
 {
-    connect(ui->cmbDesktopBackMode, SIGNAL(currentIndexChanged(QString)), this, SLOT(cmbDesktopBackMode_currentIndexChanged(QString)));
-    connect(ui->cmbLoginBackMode, SIGNAL(currentIndexChanged(QString)), this, SLOT(cmbLoginBackMode_currentIndexChanged(QString)));
+    connect(ui->cmbDesktopBackMode, SIGNAL(currentIndexChanged(int)), this, SLOT(cmbDesktopBackMode_currentIndexChanged(int)));
+    connect(ui->cmbLoginBackMode, SIGNAL(currentIndexChanged(int)), this, SLOT(cmbLoginBackMode_currentIndexChanged(int)));
 }
 
 void AppearanceSettings::loadDatas()
 {
-    QStringList backgroundModes = { tr("None"), tr("Wallpaper"), tr("Centered"),
-                                    tr("Scaled"), tr("Stretched"), tr("Zoom"), tr("Spanned") };
+    QList<QPair<QString, QString>> backgroundModes = {
+        {tr("None"), "none"}, {tr("Wallpaper"), "wallpaper"}, {tr("Centered"), "centered"},
+        {tr("Scaled"), "scaled"}, {tr("Stretched"), "stretched"}, {tr("Zoom"), "zoom"}, {tr("Spanned"), "spanned"}
+    };
 
-    for (const QString &mode : backgroundModes) {
-        ui->cmbDesktopBackMode->addItem(mode, mode.toLower());
-        ui->cmbLoginBackMode->addItem(mode, mode.toLower());
+    for (const QPair<QString, QString> &mode : backgroundModes) {
+        ui->cmbDesktopBackMode->addItem(mode.first, mode.second);
+        ui->cmbLoginBackMode->addItem(mode.first, mode.second);
     }
 }
 
@@ -107,14 +109,16 @@ void AppearanceSettings::on_checkNetworkIcon_clicked(bool checked)
     gsettings.setValueB(GSchemas::Appearance::Desktop, GSchemaKeys::Appearance::ShowNetworkIcon, checked);
 }
 
-void AppearanceSettings::cmbDesktopBackMode_currentIndexChanged(const QString &text)
+void AppearanceSettings::cmbDesktopBackMode_currentIndexChanged(int index)
 {
-    gsettings.setValueS(GSchemas::Appearance::Background, GSchemaKeys::Appearance::PictureOptions, text.toLower());
+    QString data = ui->cmbDesktopBackMode->itemData(index).toString();
+    gsettings.setValueS(GSchemas::Appearance::Background, GSchemaKeys::Appearance::PictureOptions, data);
 }
 
-void AppearanceSettings::cmbLoginBackMode_currentIndexChanged(const QString &text)
+void AppearanceSettings::cmbLoginBackMode_currentIndexChanged(int index)
 {
-    gsettings.setValueS(GSchemas::Appearance::Screensaver, GSchemaKeys::Appearance::PictureOptions, text.toLower());
+    QString data = ui->cmbLoginBackMode->itemData(index).toString();
+    gsettings.setValueS(GSchemas::Appearance::Screensaver, GSchemaKeys::Appearance::PictureOptions, data);
 }
 
 void AppearanceSettings::on_checkScreenKeyboard_clicked(bool checked)

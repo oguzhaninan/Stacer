@@ -64,20 +64,22 @@ void WindowManagerSettings::init()
 void WindowManagerSettings::loadDatas()
 {
     QStringList textQualities = { tr("Fast"), tr("Good"), tr("Best") };
-    QStringList textFocusModes = { tr("Click"), tr("Sloppy"), tr("Mouse") };
+    QList<QPair<QString, QString>> textFocusModes = {
+        {tr("Click"), "click"},  {tr("Sloppy") , "sloppy"}, {tr("Mouse"), "mouse"}
+    };
 
     for (const QString &qual : textQualities) {
         ui->cmbTextQuality->addItem(qual, qual.toLower());
     }
 
-    for (const QString &mode : textFocusModes) {
-        ui->cmbFocusMode->addItem(mode, mode.toLower());
+    for (const QPair<QString, QString> &mode : textFocusModes) {
+        ui->cmbFocusMode->addItem(mode.first, mode.second);
     }
 
     QList<QPair<QString, QString>> titleBarClickActions = {
         {tr("Toggle Shade"), "toggle-shade"}, {tr("Maximize"), "toggle-maximize"}, {tr("Maximize Horizontally"), "toggle-maximize-horizontally"},
         {tr("Maximize Vertically"), "toggle-maximize-vertically"}, {tr("Minimize"), "minimize"},
-        {tr("none"), "none"}, {tr("Lower"), "lower"}, {tr("Menu"), "menu"}
+        {tr("None"), "none"}, {tr("Lower"), "lower"}, {tr("Menu"), "menu"}
     };
 
     for (const QPair<QString, QString> &action : titleBarClickActions) {
@@ -94,7 +96,7 @@ void WindowManagerSettings::initConnects()
     connect(ui->spinHorizonWorkspace, SIGNAL(valueChanged(int)), this, SLOT(spinHorizonWorkspace_valueChanged(int)));
     connect(ui->spinVerticWorkspace, SIGNAL(valueChanged(int)), this, SLOT(spinVerticWorkspace_valueChanged(int)));
     connect(ui->checkRaiseOnClick, SIGNAL(clicked(bool)), this, SLOT(checkRaiseOnClick_clicked(bool)));
-    connect(ui->cmbFocusMode, SIGNAL(currentIndexChanged(QString)), this, SLOT(cmbFocusMode_currentIndexChanged(QString)));
+    connect(ui->cmbFocusMode, SIGNAL(currentIndexChanged(int)), this, SLOT(cmbFocusMode_currentIndexChanged(int)));
     connect(ui->cmbTitleBarDoubleClick, SIGNAL(currentIndexChanged(int)), this, SLOT(cmbTitleBarDoubleClick_currentIndexChanged(int)));
     connect(ui->cmbTitleBarMiddleClick, SIGNAL(currentIndexChanged(int)), this, SLOT(cmbTitleBarMiddleClick_currentIndexChanged(int)));
     connect(ui->cmbTitleBarRightClick, SIGNAL(currentIndexChanged(int)), this, SLOT(cmbTitleBarRightClick_currentIndexChanged(int)));
@@ -131,9 +133,10 @@ void WindowManagerSettings::checkRaiseOnClick_clicked(bool checked)
     gsettings.setValueI(GSchemas::Window::Preferences, GSchemaKeys::Window::RaiseOnClick, checked);
 }
 
-void WindowManagerSettings::cmbFocusMode_currentIndexChanged(QString text)
-{
-    gsettings.setValueS(GSchemas::Window::Preferences, GSchemaKeys::Window::FocusMode, text.toLower());
+void WindowManagerSettings::cmbFocusMode_currentIndexChanged(int index)
+{    
+    QString data = ui->cmbFocusMode->itemData(index).toString();
+    gsettings.setValueS(GSchemas::Window::Preferences, GSchemaKeys::Window::FocusMode, data);
 }
 
 void WindowManagerSettings::cmbTitleBarDoubleClick_currentIndexChanged(int index)

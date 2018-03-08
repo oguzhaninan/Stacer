@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>APT Source Manager</string>
+   <string>APT Repository Manager</string>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout_2">
    <property name="spacing">
@@ -122,7 +122,7 @@
             <item alignment="Qt::AlignHCenter|Qt::AlignBottom">
              <widget class="QLabel" name="lblNotFound">
               <property name="text">
-               <string>Not Found APT Source Repositories</string>
+               <string>Not Found APT Repositories</string>
               </property>
              </widget>
             </item>
@@ -217,7 +217,7 @@
            <enum>Qt::NoFocus</enum>
           </property>
           <property name="accessibleName">
-           <string>primary</string>
+           <string notr="true">primary</string>
           </property>
           <property name="styleSheet">
            <string notr="true"/>
@@ -260,7 +260,7 @@
            <enum>Qt::NoFocus</enum>
           </property>
           <property name="accessibleName">
-           <string>danger</string>
+           <string notr="true">danger</string>
           </property>
           <property name="styleSheet">
            <string notr="true"/>
@@ -302,7 +302,7 @@
         <item>
          <widget class="QCheckBox" name="checkEnableSource">
           <property name="accessibleName">
-           <string>circle</string>
+           <string notr="true">circle</string>
           </property>
           <property name="text">
            <string>Enable Source</string>
@@ -329,13 +329,13 @@
            <enum>Qt::NoFocus</enum>
           </property>
           <property name="accessibleName">
-           <string>primary</string>
+           <string notr="true">primary</string>
           </property>
           <property name="styleSheet">
            <string notr="true"/>
           </property>
           <property name="text">
-           <string>Add APT Source</string>
+           <string>Add Repository</string>
           </property>
           <property name="checkable">
            <bool>true</bool>
@@ -362,7 +362,7 @@
            <enum>Qt::NoFocus</enum>
           </property>
           <property name="accessibleName">
-           <string>danger</string>
+           <string notr="true">danger</string>
           </property>
           <property name="styleSheet">
            <string notr="true"/>
@@ -409,7 +409,7 @@
          <string notr="true"/>
         </property>
         <property name="text">
-         <string notr="true">APT Source Repositories</string>
+         <string notr="true"/>
         </property>
        </widget>
       </item>

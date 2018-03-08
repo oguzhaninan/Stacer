@@ -22,8 +22,8 @@ private slots:
     void on_checkTrashIcon_clicked(bool checked);
     void on_checkMountedVulmesIcon_clicked(bool checked);
     void on_checkNetworkIcon_clicked(bool checked);
-    void cmbDesktopBackMode_currentIndexChanged(const QString &text);
-    void cmbLoginBackMode_currentIndexChanged(const QString &text);
+    void cmbDesktopBackMode_currentIndexChanged(int index);
+    void cmbLoginBackMode_currentIndexChanged(int index);
     void on_checkScreenKeyboard_clicked(bool checked);
     void on_checkScreenReader_clicked(bool checked);
 

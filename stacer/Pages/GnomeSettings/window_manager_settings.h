@@ -22,7 +22,7 @@ private slots:
     void spinHorizonWorkspace_valueChanged(int value);
     void spinVerticWorkspace_valueChanged(int value);
     void checkRaiseOnClick_clicked(bool checked);
-    void cmbFocusMode_currentIndexChanged(QString text);
+    void cmbFocusMode_currentIndexChanged(int index);
     void cmbTitleBarDoubleClick_currentIndexChanged(int index);
     void cmbTitleBarMiddleClick_currentIndexChanged(int index);
     void cmbTitleBarRightClick_currentIndexChanged(int index);

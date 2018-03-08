@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>APT Source Edit</string>
+   <string>APT Repository Edit</string>
   </property>
   <layout class="QGridLayout" name="gridLayout">
    <property name="leftMargin">
@@ -32,10 +32,10 @@
    <item row="0" column="0" colspan="4">
     <widget class="QLabel" name="lblTitle">
      <property name="accessibleName">
-      <string>dialog-title</string>
+      <string notr="true">dialog-title</string>
      </property>
      <property name="text">
-      <string>APT Source</string>
+      <string>APT Repository</string>
      </property>
      <property name="alignment">
       <set>Qt::AlignCenter</set>
@@ -65,7 +65,7 @@
       <enum>Qt::NoFocus</enum>
      </property>
      <property name="accessibleName">
-      <string>danger</string>
+      <string notr="true">danger</string>
      </property>
      <property name="text">
       <string>Cancel</string>
@@ -104,7 +104,7 @@
       <enum>Qt::NoFocus</enum>
      </property>
      <property name="accessibleName">
-      <string>primary</string>
+      <string notr="true">primary</string>
      </property>
      <property name="text">
       <string>Save</string>

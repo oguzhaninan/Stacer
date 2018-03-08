@@ -68,7 +68,7 @@
       <enum>Qt::NoFocus</enum>
      </property>
      <property name="accessibleName">
-      <string>primary</string>
+      <string notr="true">primary</string>
      </property>
      <property name="text">
       <string>Save</string>
@@ -81,7 +81,7 @@
    <item row="0" column="0" colspan="2" alignment="Qt::AlignTop">
     <widget class="QLabel" name="lblTitle">
      <property name="accessibleName">
-      <string>dialog-title</string>
+      <string notr="true">dialog-title</string>
      </property>
      <property name="text">
       <string>Application</string>

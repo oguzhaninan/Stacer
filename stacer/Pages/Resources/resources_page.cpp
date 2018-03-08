@@ -72,13 +72,13 @@ void ResourcesPage::updateDiskReadWrite()
     quint64 d_writeByte = (writeBytes - l_writeBytes);
 
     seriesList.at(0)->insert(0, QPointF(0, d_readByte));
-    seriesList.at(0)->setName(tr("Read %1/s Total: %2")
+    seriesList.at(0)->setName(tr("Read: %1/s Total: %2")
                               .arg(FormatUtil::formatBytes(d_readByte))
                               .arg(FormatUtil::formatBytes(readBytes)));
 
 
     seriesList.at(1)->insert(0, QPointF(0, d_writeByte));
-    seriesList.at(1)->setName(tr("Write %1/s Total: %2")
+    seriesList.at(1)->setName(tr("Write: %1/s Total: %2")
                               .arg(FormatUtil::formatBytes(d_writeByte))
                               .arg(FormatUtil::formatBytes(writeBytes)));
 

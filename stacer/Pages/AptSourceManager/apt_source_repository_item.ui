@@ -98,6 +98,9 @@
       </item>
       <item>
        <widget class="QLabel" name="lblAptSourceName">
+        <property name="accessibleName">
+         <string notr="true"/>
+        </property>
         <property name="text">
          <string notr="true">APT Source Repository</string>
         </property>

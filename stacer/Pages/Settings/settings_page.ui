@@ -182,7 +182,7 @@
       <bool>false</bool>
      </property>
      <property name="suffix">
-      <string> %</string>
+      <string notr="true"> %</string>
      </property>
      <property name="minimum">
       <number>0</number>
@@ -211,7 +211,7 @@
       <enum>Qt::ClickFocus</enum>
      </property>
      <property name="suffix">
-      <string> %</string>
+      <string notr="true"> %</string>
      </property>
      <property name="minimum">
       <number>0</number>
@@ -256,7 +256,7 @@
       </sizepolicy>
      </property>
      <property name="text">
-      <string>Start on boot</string>
+      <string>Autostart Stacer</string>
      </property>
     </widget>
    </item>
@@ -279,7 +279,7 @@
       <enum>Qt::ClickFocus</enum>
      </property>
      <property name="suffix">
-      <string> %</string>
+      <string notr="true"> %</string>
      </property>
      <property name="minimum">
       <number>0</number>
@@ -311,10 +311,10 @@
       </sizepolicy>
      </property>
      <property name="accessibleName">
-      <string>title</string>
+      <string notr="true">title</string>
      </property>
      <property name="text">
-      <string>Alert messages (Show a warning after a certain level)</string>
+      <string>Alert messages (Show a warning after the specified percentage)</string>
      </property>
     </widget>
    </item>
@@ -349,7 +349,7 @@
       <enum>Qt::NoFocus</enum>
      </property>
      <property name="accessibleName">
-      <string>primary</string>
+      <string notr="true">primary</string>
      </property>
      <property name="text">
       <string>Donate</string>
@@ -419,7 +419,7 @@
       </sizepolicy>
      </property>
      <property name="text">
-      <string>Home Page</string>
+      <string>Start Page</string>
      </property>
     </widget>
    </item>

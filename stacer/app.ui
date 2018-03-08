@@ -303,7 +303,7 @@
           <enum>Qt::NoFocus</enum>
          </property>
          <property name="toolTip">
-          <string>APT Source Manager</string>
+          <string>APT Repository Manager</string>
          </property>
          <property name="text">
           <string/>

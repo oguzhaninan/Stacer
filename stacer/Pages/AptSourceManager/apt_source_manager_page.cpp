@@ -52,7 +52,7 @@ void APTSourceManagerPage::loadAptSources()
 
     ui->notFoundWidget->setVisible(aptSourceList.isEmpty());
 
-    ui->lblAptSourceTitle->setText(tr("APT Source Repositories (%1)")
+    ui->lblAptSourceTitle->setText(tr("APT Repositories (%1)")
                                    .arg(aptSourceList.count()));
 }
 
@@ -79,7 +79,7 @@ void APTSourceManagerPage::on_btnCancel_clicked()
 {
     ui->btnAddAPTSourceRepository->setChecked(false);
     changeElementsVisible(false);
-    ui->btnAddAPTSourceRepository->setText(tr("Add APT Repository"));
+    ui->btnAddAPTSourceRepository->setText(tr("Add Repository"));
 }
 
 void APTSourceManagerPage::changeElementsVisible(const bool checked)

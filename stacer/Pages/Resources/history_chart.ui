@@ -71,8 +71,11 @@
        <verstretch>0</verstretch>
       </sizepolicy>
      </property>
+     <property name="accessibleName">
+      <string notr="true"/>
+     </property>
      <property name="text">
-      <string>Chart Title</string>
+      <string notr="true">Chart Title</string>
      </property>
     </widget>
    </item>

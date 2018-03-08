@@ -65,7 +65,7 @@
         <enum>Qt::NoFocus</enum>
        </property>
        <property name="accessibleName">
-        <string>circle</string>
+        <string notr="true">circle</string>
        </property>
        <property name="text">
         <string>All Processes</string>
@@ -211,7 +211,7 @@
          <enum>Qt::NoFocus</enum>
         </property>
         <property name="accessibleName">
-         <string>primary</string>
+         <string notr="true">primary</string>
         </property>
         <property name="text">
          <string>End Process</string>

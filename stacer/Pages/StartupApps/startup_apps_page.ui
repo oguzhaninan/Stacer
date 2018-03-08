@@ -92,7 +92,7 @@
          <enum>Qt::NoFocus</enum>
         </property>
         <property name="accessibleName">
-         <string>primary</string>
+         <string notr="true">primary</string>
         </property>
         <property name="styleSheet">
          <string notr="true"/>
@@ -111,11 +111,14 @@
           <italic>false</italic>
          </font>
         </property>
+        <property name="accessibleName">
+         <string/>
+        </property>
         <property name="styleSheet">
          <string notr="true"/>
         </property>
         <property name="text">
-         <string>System Startup Applications</string>
+         <string notr="true">System Startup Applications</string>
         </property>
        </widget>
       </item>

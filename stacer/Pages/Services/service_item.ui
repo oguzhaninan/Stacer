@@ -164,7 +164,7 @@
       <item row="0" column="2">
        <widget class="QLabel" name="lblServiceDescription">
         <property name="text">
-         <string>Description</string>
+         <string notr="true">Description</string>
         </property>
        </widget>
       </item>
