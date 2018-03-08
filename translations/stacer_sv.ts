@@ -93,7 +93,7 @@
     </message>
     <message>
         <location filename="../stacer/Pages/AptSourceManager/apt_source_manager_page.ui" line="338"/>
-        <location filename="../stacer/Pages/AptSourceManager/apt_source_manager_page.cpp" line="82"/>
+        <location filename="../stacer/Pages/AptSourceManager/apt_source_manager_page.cpp" line="86"/>
         <source>Add Repository</source>
         <translation type="unfinished"></translation>
     </message>
@@ -113,12 +113,12 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../stacer/Pages/AptSourceManager/apt_source_manager_page.cpp" line="55"/>
+        <location filename="../stacer/Pages/AptSourceManager/apt_source_manager_page.cpp" line="59"/>
         <source>APT Repositories (%1)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../stacer/Pages/AptSourceManager/apt_source_manager_page.cpp" line="62"/>
+        <location filename="../stacer/Pages/AptSourceManager/apt_source_manager_page.cpp" line="66"/>
         <source>Save</source>
         <translation type="unfinished">Spara</translation>
     </message>
@@ -644,23 +644,23 @@
     </message>
     <message>
         <location filename="../stacer/Pages/Resources/resources_page.cpp" line="164"/>
-        <source>Download %1/s Total: %2</source>
-        <translation>Nerladdning %1/s Total: %2</translation>
+        <source>Download: %1/s Total: %2</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../stacer/Pages/Resources/resources_page.cpp" line="169"/>
-        <source>Upload %1/s  Total: %2</source>
-        <translation>Uppladdning %1/s  Total: %2</translation>
+        <source>Upload: %1/s  Total: %2</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../stacer/Pages/Resources/resources_page.cpp" line="213"/>
-        <source>Swap %1 (%2%) %3</source>
-        <translation>Swap %1 (%2%) %3</translation>
+        <source>Swap: %1 (%2%) %3</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../stacer/Pages/Resources/resources_page.cpp" line="222"/>
-        <source>Memory %1 (%2%) %3</source>
-        <translation>Minne %1 (%2%) %3</translation>
+        <source>Memory: %1 (%2%) %3</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../stacer/Pages/Resources/resources_page.ui" line="14"/>
@@ -676,17 +676,17 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../stacer/Pages/Services/services_page.ui" line="158"/>
+        <location filename="../stacer/Pages/Services/services_page.ui" line="137"/>
         <source>Startup at boot ?</source>
         <translation>Uppstart vid boot ?</translation>
     </message>
     <message>
-        <location filename="../stacer/Pages/Services/services_page.ui" line="211"/>
+        <location filename="../stacer/Pages/Services/services_page.ui" line="190"/>
         <source>Running Now ?</source>
         <translation>Körs nu?</translation>
     </message>
     <message>
-        <location filename="../stacer/Pages/Services/services_page.ui" line="281"/>
+        <location filename="../stacer/Pages/Services/services_page.ui" line="244"/>
         <source>Not Found System Service</source>
         <translation>Ingen systemtjänst funnen</translation>
     </message>
@@ -954,19 +954,14 @@
 <context>
     <name>UninstallerPage</name>
     <message>
-        <location filename="../stacer/Pages/Uninstaller/uninstallerpage.ui" line="191"/>
+        <location filename="../stacer/Pages/Uninstaller/uninstallerpage.ui" line="140"/>
         <source>Uninstall Selected</source>
         <translation>Avinstallera markerade</translation>
     </message>
     <message>
-        <location filename="../stacer/Pages/Uninstaller/uninstallerpage.ui" line="243"/>
+        <location filename="../stacer/Pages/Uninstaller/uninstallerpage.ui" line="192"/>
         <source>Not Found Installed Packages</source>
         <translation>Installerade paket ej funna.</translation>
-    </message>
-    <message>
-        <location filename="../stacer/Pages/Uninstaller/uninstallerpage.ui" line="102"/>
-        <source>System Installed Packages</source>
-        <translation>Systemets installerade paket</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/Uninstaller/uninstallerpage.ui" line="14"/>
@@ -974,12 +969,12 @@
         <translation type="unfinished">Avinstallerare</translation>
     </message>
     <message>
-        <location filename="../stacer/Pages/Uninstaller/uninstallerpage.ui" line="132"/>
+        <location filename="../stacer/Pages/Uninstaller/uninstallerpage.ui" line="90"/>
         <source>Search...</source>
         <translation>Sök...</translation>
     </message>
     <message>
-        <location filename="../stacer/Pages/Uninstaller/uninstaller_page.cpp" line="68"/>
+        <location filename="../stacer/Pages/Uninstaller/uninstaller_page.cpp" line="67"/>
         <source>System Installed Packages (%1)</source>
         <translation>Systemets installerade Paket (%1)</translation>
     </message>

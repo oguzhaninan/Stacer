@@ -93,7 +93,7 @@
     </message>
     <message>
         <location filename="../stacer/Pages/AptSourceManager/apt_source_manager_page.ui" line="338"/>
-        <location filename="../stacer/Pages/AptSourceManager/apt_source_manager_page.cpp" line="82"/>
+        <location filename="../stacer/Pages/AptSourceManager/apt_source_manager_page.cpp" line="86"/>
         <source>Add Repository</source>
         <translation type="unfinished"></translation>
     </message>
@@ -113,12 +113,12 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../stacer/Pages/AptSourceManager/apt_source_manager_page.cpp" line="55"/>
+        <location filename="../stacer/Pages/AptSourceManager/apt_source_manager_page.cpp" line="59"/>
         <source>APT Repositories (%1)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../stacer/Pages/AptSourceManager/apt_source_manager_page.cpp" line="62"/>
+        <location filename="../stacer/Pages/AptSourceManager/apt_source_manager_page.cpp" line="66"/>
         <source>Save</source>
         <translation type="unfinished">बचाना</translation>
     </message>
@@ -644,23 +644,23 @@
     </message>
     <message>
         <location filename="../stacer/Pages/Resources/resources_page.cpp" line="164"/>
-        <source>Download %1/s Total: %2</source>
-        <translation>डाउनलोड %1/s कुल: %2</translation>
+        <source>Download: %1/s Total: %2</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../stacer/Pages/Resources/resources_page.cpp" line="169"/>
-        <source>Upload %1/s  Total: %2</source>
-        <translation>अपलोड %1/s  कुल: %2</translation>
+        <source>Upload: %1/s  Total: %2</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../stacer/Pages/Resources/resources_page.cpp" line="213"/>
-        <source>Swap %1 (%2%) %3</source>
-        <translation>विनिमय %1 (%2%) %3</translation>
+        <source>Swap: %1 (%2%) %3</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../stacer/Pages/Resources/resources_page.cpp" line="222"/>
-        <source>Memory %1 (%2%) %3</source>
-        <translation>याद %1 (%2%) %3</translation>
+        <source>Memory: %1 (%2%) %3</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../stacer/Pages/Resources/resources_page.ui" line="14"/>
@@ -676,17 +676,17 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../stacer/Pages/Services/services_page.ui" line="158"/>
+        <location filename="../stacer/Pages/Services/services_page.ui" line="137"/>
         <source>Startup at boot ?</source>
         <translation>बूट पर स्टार्टअप?</translation>
     </message>
     <message>
-        <location filename="../stacer/Pages/Services/services_page.ui" line="211"/>
+        <location filename="../stacer/Pages/Services/services_page.ui" line="190"/>
         <source>Running Now ?</source>
         <translation>अब चल रहा है?</translation>
     </message>
     <message>
-        <location filename="../stacer/Pages/Services/services_page.ui" line="281"/>
+        <location filename="../stacer/Pages/Services/services_page.ui" line="244"/>
         <source>Not Found System Service</source>
         <translation>सिस्टम सर्विस नहीं मिला</translation>
     </message>
@@ -954,19 +954,14 @@
 <context>
     <name>UninstallerPage</name>
     <message>
-        <location filename="../stacer/Pages/Uninstaller/uninstallerpage.ui" line="191"/>
+        <location filename="../stacer/Pages/Uninstaller/uninstallerpage.ui" line="140"/>
         <source>Uninstall Selected</source>
         <translation>स्थापना रद्द करें चयनित</translation>
     </message>
     <message>
-        <location filename="../stacer/Pages/Uninstaller/uninstallerpage.ui" line="243"/>
+        <location filename="../stacer/Pages/Uninstaller/uninstallerpage.ui" line="192"/>
         <source>Not Found Installed Packages</source>
         <translation>स्थापित नहीं मिला संकुल</translation>
-    </message>
-    <message>
-        <location filename="../stacer/Pages/Uninstaller/uninstallerpage.ui" line="102"/>
-        <source>System Installed Packages</source>
-        <translation>सिस्टम स्थापित संकुल</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/Uninstaller/uninstallerpage.ui" line="14"/>
@@ -974,12 +969,12 @@
         <translation type="unfinished">अनइंस्टॉलर</translation>
     </message>
     <message>
-        <location filename="../stacer/Pages/Uninstaller/uninstallerpage.ui" line="132"/>
+        <location filename="../stacer/Pages/Uninstaller/uninstallerpage.ui" line="90"/>
         <source>Search...</source>
         <translation>खोज...</translation>
     </message>
     <message>
-        <location filename="../stacer/Pages/Uninstaller/uninstaller_page.cpp" line="68"/>
+        <location filename="../stacer/Pages/Uninstaller/uninstaller_page.cpp" line="67"/>
         <source>System Installed Packages (%1)</source>
         <translation>सिस्टम स्थापित संकुल (%1)</translation>
     </message>

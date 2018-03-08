@@ -31,7 +31,7 @@
     <message>
         <location filename="../stacer/Pages/AptSourceManager/apt_source_edit.ui" line="87"/>
         <source>Fields cannot be left blank. </source>
-        <translation type="unfinished">Les champs ne peuvent pas être laissés en blanc. </translation>
+        <translation>Les champs ne peuvent pas être laissés en blanc. </translation>
     </message>
     <message>
         <location filename="../stacer/Pages/AptSourceManager/apt_source_edit.ui" line="94"/>
@@ -41,7 +41,7 @@
     <message>
         <location filename="../stacer/Pages/AptSourceManager/apt_source_edit.ui" line="110"/>
         <source>Save</source>
-        <translation type="unfinished">Sauver</translation>
+        <translation>Sauver</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/AptSourceManager/apt_source_edit.ui" line="133"/>
@@ -64,12 +64,12 @@
     <message>
         <location filename="../stacer/Pages/AptSourceManager/apt_source_manager_page.ui" line="188"/>
         <source>Search...</source>
-        <translation type="unfinished">Chercher...</translation>
+        <translation>Chercher...</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/AptSourceManager/apt_source_manager_page.ui" line="226"/>
         <source>Edit</source>
-        <translation type="unfinished">Modifier</translation>
+        <translation>Modifier</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/AptSourceManager/apt_source_manager_page.ui" line="14"/>
@@ -84,7 +84,7 @@
     <message>
         <location filename="../stacer/Pages/AptSourceManager/apt_source_manager_page.ui" line="269"/>
         <source>Delete</source>
-        <translation type="unfinished">Effacer</translation>
+        <translation>Effacer</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/AptSourceManager/apt_source_manager_page.ui" line="308"/>
@@ -93,7 +93,7 @@
     </message>
     <message>
         <location filename="../stacer/Pages/AptSourceManager/apt_source_manager_page.ui" line="338"/>
-        <location filename="../stacer/Pages/AptSourceManager/apt_source_manager_page.cpp" line="82"/>
+        <location filename="../stacer/Pages/AptSourceManager/apt_source_manager_page.cpp" line="86"/>
         <source>Add Repository</source>
         <translation type="unfinished"></translation>
     </message>
@@ -113,14 +113,14 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../stacer/Pages/AptSourceManager/apt_source_manager_page.cpp" line="55"/>
+        <location filename="../stacer/Pages/AptSourceManager/apt_source_manager_page.cpp" line="59"/>
         <source>APT Repositories (%1)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../stacer/Pages/AptSourceManager/apt_source_manager_page.cpp" line="62"/>
+        <location filename="../stacer/Pages/AptSourceManager/apt_source_manager_page.cpp" line="66"/>
         <source>Save</source>
-        <translation type="unfinished">Sauver</translation>
+        <translation>Sauver</translation>
     </message>
 </context>
 <context>
@@ -171,7 +171,7 @@
     <message>
         <location filename="../stacer/app.ui" line="194"/>
         <source>Services</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../stacer/app.ui" line="334"/>
@@ -297,7 +297,7 @@
     <message>
         <location filename="../stacer/Pages/Dashboard/dashboard_page.ui" line="20"/>
         <source>Dashboard</source>
-        <translation type="unfinished">Tableau de bord</translation>
+        <translation>Tableau de bord</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/Dashboard/dashboard_page.ui" line="156"/>
@@ -472,7 +472,7 @@
     <message>
         <location filename="../stacer/feedback.cpp" line="89"/>
         <source>Save</source>
-        <translation type="unfinished">Sauver</translation>
+        <translation>Sauver</translation>
     </message>
     <message>
         <location filename="../stacer/feedback.cpp" line="94"/>
@@ -597,7 +597,7 @@
     <message>
         <location filename="../stacer/Managers/setting_manager.cpp" line="61"/>
         <source>Dashboard</source>
-        <translation type="unfinished">Tableau de bord</translation>
+        <translation>Tableau de bord</translation>
     </message>
 </context>
 <context>
@@ -644,28 +644,28 @@
     </message>
     <message>
         <location filename="../stacer/Pages/Resources/resources_page.cpp" line="164"/>
-        <source>Download %1/s Total: %2</source>
-        <translation>Télécharger %1 /s Total :%2</translation>
+        <source>Download: %1/s Total: %2</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../stacer/Pages/Resources/resources_page.cpp" line="169"/>
-        <source>Upload %1/s  Total: %2</source>
-        <translation>Télécharger %1/s  Total: %2</translation>
+        <source>Upload: %1/s  Total: %2</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../stacer/Pages/Resources/resources_page.cpp" line="213"/>
-        <source>Swap %1 (%2%) %3</source>
-        <translation>Échanger %1 (%2%) %3</translation>
+        <source>Swap: %1 (%2%) %3</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../stacer/Pages/Resources/resources_page.cpp" line="222"/>
-        <source>Memory %1 (%2%) %3</source>
-        <translation>Mémoire %1 (%2%) %3</translation>
+        <source>Memory: %1 (%2%) %3</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../stacer/Pages/Resources/resources_page.ui" line="14"/>
         <source>Resources</source>
-        <translation type="unfinished">Ressources</translation>
+        <translation>Ressources</translation>
     </message>
 </context>
 <context>
@@ -676,17 +676,17 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../stacer/Pages/Services/services_page.ui" line="158"/>
+        <location filename="../stacer/Pages/Services/services_page.ui" line="137"/>
         <source>Startup at boot ?</source>
         <translation>Démarrage au démarrage ?</translation>
     </message>
     <message>
-        <location filename="../stacer/Pages/Services/services_page.ui" line="211"/>
+        <location filename="../stacer/Pages/Services/services_page.ui" line="190"/>
         <source>Running Now ?</source>
         <translation>Vous Exécutez Maintenant?</translation>
     </message>
     <message>
-        <location filename="../stacer/Pages/Services/services_page.ui" line="281"/>
+        <location filename="../stacer/Pages/Services/services_page.ui" line="244"/>
         <source>Not Found System Service</source>
         <translation>Service Système non Trouvé</translation>
     </message>
@@ -731,7 +731,7 @@
     <message>
         <location filename="../stacer/Pages/Settings/settings_page.ui" line="20"/>
         <source>Settings</source>
-        <translation type="unfinished">Options</translation>
+        <translation>Options</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/Settings/settings_page.ui" line="110"/>
@@ -791,7 +791,7 @@
     <message>
         <location filename="../stacer/Pages/Settings/settings_page.cpp" line="74"/>
         <source>Dashboard</source>
-        <translation type="unfinished">Tableau de bord</translation>
+        <translation>Tableau de bord</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/Settings/settings_page.cpp" line="74"/>
@@ -801,7 +801,7 @@
     <message>
         <location filename="../stacer/Pages/Settings/settings_page.cpp" line="74"/>
         <source>System Cleaner</source>
-        <translation type="unfinished">Nettoyeur Système</translation>
+        <translation>Nettoyeur Système</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/Settings/settings_page.cpp" line="75"/>
@@ -811,17 +811,17 @@
     <message>
         <location filename="../stacer/Pages/Settings/settings_page.cpp" line="75"/>
         <source>Processes</source>
-        <translation type="unfinished">Processus</translation>
+        <translation>Processus</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/Settings/settings_page.cpp" line="75"/>
         <source>Uninstaller</source>
-        <translation type="unfinished">Paquets Installés sur le Système</translation>
+        <translation>Paquets Installés sur le Système</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/Settings/settings_page.cpp" line="75"/>
         <source>Resources</source>
-        <translation type="unfinished">Ressources</translation>
+        <translation>Ressources</translation>
     </message>
 </context>
 <context>
@@ -903,7 +903,7 @@
     <message>
         <location filename="../stacer/Pages/SystemCleaner/system_cleaner_page.ui" line="14"/>
         <source>System Cleaner</source>
-        <translation type="unfinished">Nettoyeur Système</translation>
+        <translation>Nettoyeur Système</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/SystemCleaner/system_cleaner_page.ui" line="63"/>
@@ -956,30 +956,25 @@
     <message>
         <location filename="../stacer/Pages/Uninstaller/uninstallerpage.ui" line="14"/>
         <source>Uninstaller</source>
-        <translation type="unfinished">Paquets Installés sur le Système</translation>
+        <translation>Paquets Installés sur le Système</translation>
     </message>
     <message>
-        <location filename="../stacer/Pages/Uninstaller/uninstallerpage.ui" line="102"/>
-        <source>System Installed Packages</source>
-        <translation>Forfaits Installés par Système</translation>
-    </message>
-    <message>
-        <location filename="../stacer/Pages/Uninstaller/uninstallerpage.ui" line="132"/>
+        <location filename="../stacer/Pages/Uninstaller/uninstallerpage.ui" line="90"/>
         <source>Search...</source>
         <translation>Chercher...</translation>
     </message>
     <message>
-        <location filename="../stacer/Pages/Uninstaller/uninstallerpage.ui" line="243"/>
+        <location filename="../stacer/Pages/Uninstaller/uninstallerpage.ui" line="192"/>
         <source>Not Found Installed Packages</source>
         <translation>Paquets Installés non Trouvés</translation>
     </message>
     <message>
-        <location filename="../stacer/Pages/Uninstaller/uninstallerpage.ui" line="191"/>
+        <location filename="../stacer/Pages/Uninstaller/uninstallerpage.ui" line="140"/>
         <source>Uninstall Selected</source>
         <translation>Désinstallation Sélectionnée</translation>
     </message>
     <message>
-        <location filename="../stacer/Pages/Uninstaller/uninstaller_page.cpp" line="68"/>
+        <location filename="../stacer/Pages/Uninstaller/uninstaller_page.cpp" line="67"/>
         <source>System Installed Packages (%1)</source>
         <translation>Forfaits Installés par Système (%1)</translation>
     </message>
