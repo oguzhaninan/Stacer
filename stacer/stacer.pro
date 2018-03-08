@@ -1,3 +1,4 @@
+
 QT       += core gui charts svg concurrent
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
@@ -6,6 +7,8 @@ TARGET = stacer
 TEMPLATE = app
 
 CONFIG += c++11
+
+QMAKE_CXXFLAGS += -O2
 
 # The following define makes your compiler emit warnings if you use
 # any feature of Qt which as been marked as deprecated (the exact warnings
@@ -44,10 +47,11 @@ SOURCES += \
     Pages/GnomeSettings/unity_settings.cpp \
     Pages/GnomeSettings/window_manager_settings.cpp \
     Pages/GnomeSettings/appearance_settings.cpp \
-    slidingstackedwidget.cpp \
     feedback.cpp \
     Pages/AptSourceManager/apt_source_edit.cpp \
-    Managers/setting_manager.cpp
+    Managers/setting_manager.cpp \
+    sliding_stacked_widget.cpp \
+    signal_mapper.cpp
 
 HEADERS += \
     app.h \
@@ -74,7 +78,7 @@ HEADERS += \
     Pages/GnomeSettings/unity_settings.h \
     Pages/GnomeSettings/window_manager_settings.h \
     Pages/GnomeSettings/appearance_settings.h \
-    slidingstackedwidget.h \
+    sliding_stacked_widget.h \
     utilities.h \
     feedback.h \
     Pages/AptSourceManager/apt_source_edit.h \
