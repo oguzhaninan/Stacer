@@ -52,7 +52,8 @@ void APTSourceEdit::clearElements()
 
 void APTSourceEdit::on_btnSave_clicked()
 {
-    if (! ui->txtUri->text().isEmpty() && ! ui->txtDistribution->text().isEmpty())
+    if (! ui->txtUri->text().isEmpty() &&
+        ! ui->txtDistribution->text().isEmpty())
     {
         QString sourceType = ui->radioBinary->isChecked() ? "deb" : "deb-src";
         QString updatedAptSource = QString("%1 %2 %3 %4 %5")
@@ -62,7 +63,7 @@ void APTSourceEdit::on_btnSave_clicked()
                 .arg(ui->txtDistribution->text())
                 .arg(ui->txtComponents->text());
 
-        ToolManager::ins()->changeSource(selectedAptSource, updatedAptSource);
+        ToolManager::ins()->changeAPTSource(selectedAptSource, updatedAptSource);
 
         emit saved();
 

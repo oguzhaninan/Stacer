@@ -22,8 +22,8 @@ AppManager::AppManager()
 
     loadThemeList();
 
-    if (translator.load(QString("stacer_%1").arg(mSettingManager->getLanguage()), qApp->applicationDirPath() + "/translations")) {
-        qApp->installTranslator(&translator);
+    if (mTranslator.load(QString("stacer_%1").arg(mSettingManager->getLanguage()), qApp->applicationDirPath() + "/translations")) {
+        qApp->installTranslator(&mTranslator);
         (mSettingManager->getLanguage() == "ar") ? qApp->setLayoutDirection(Qt::RightToLeft) : qApp->setLayoutDirection(Qt::LeftToRight);
     } else {
         qCritical() << "Translator could not load.";
@@ -37,7 +37,7 @@ QSystemTrayIcon *AppManager::getTrayIcon()
 
 QSettings *AppManager::getStyleValues() const
 {
-    return styleValues;
+    return mStyleValues;
 }
 
 void AppManager::loadLanguageList()
@@ -49,13 +49,13 @@ void AppManager::loadLanguageList()
 
         QJsonObject ob = lanuages.at(i).toObject();
 
-        languageList.insert(ob["value"].toString(), ob["text"].toString());
+        mLanguageList.insert(ob["value"].toString(), ob["text"].toString());
     }
 }
 
 QMap<QString, QString> AppManager::getLanguageList() const
 {
-    return languageList;
+    return mLanguageList;
 }
 
 void AppManager::loadThemeList()
@@ -67,33 +67,33 @@ void AppManager::loadThemeList()
 
         QJsonObject ob = themes.at(i).toObject();
 
-        themeList.insert(ob["value"].toString(), ob["text"].toString());
+        mThemeList.insert(ob["value"].toString(), ob["text"].toString());
     }
 }
 
 QMap<QString, QString> AppManager::getThemeList() const
 {
-    return themeList;
+    return mThemeList;
 }
 
 void AppManager::updateStylesheet()
 {
     QString appThemePath = QString(":/static/themes/%1/style").arg(mSettingManager->getThemeName());
-    styleValues = new QSettings(QString("%1/values.ini").arg(appThemePath), QSettings::IniFormat);
+    mStyleValues = new QSettings(QString("%1/values.ini").arg(appThemePath), QSettings::IniFormat);
 
-    stylesheetFileContent = FileUtil::readStringFromFile(QString("%1/style.qss").arg(appThemePath));
+    mStylesheetFileContent = FileUtil::readStringFromFile(QString("%1/style.qss").arg(appThemePath));
 
     // set values example: @color01 => #fff
-    for (const QString &key : styleValues->allKeys()) {
-        stylesheetFileContent.replace(key, styleValues->value(key).toString());
+    for (const QString &key : mStyleValues->allKeys()) {
+        mStylesheetFileContent.replace(key, mStyleValues->value(key).toString());
     }
 
-    qApp->setStyleSheet(stylesheetFileContent);
+    qApp->setStyleSheet(mStylesheetFileContent);
 
-    emit SignalMapper::ins()->changedAppTheme();
+    emit SignalMapper::ins()->sigChangedAppTheme();
 }
 
 QString AppManager::getStylesheetFileContent() const
 {
-    return stylesheetFileContent;
+    return mStylesheetFileContent;
 }

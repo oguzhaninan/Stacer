@@ -3,17 +3,11 @@
 
 #include "Utils/file_util.h"
 
-// defines
-#define PROC_PID_CMD "/proc/%1/comm"
-#define PROC_PID_STATUS "/proc/%1/comm"
-
 #include "stacer-core_global.h"
 
 class STACERCORESHARED_EXPORT Process {
 
 public:
-    Process();
-
     pid_t getPid() const;
     void setPid(const pid_t &value);
 

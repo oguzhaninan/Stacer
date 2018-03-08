@@ -3,7 +3,7 @@
 
 #include <QMainWindow>
 
-#include "slidingstackedwidget.h"
+#include "sliding_stacked_widget.h"
 #include "Managers/app_manager.h"
 #include "Managers/setting_manager.h"
 
@@ -62,10 +62,10 @@ private:
     Ui::App *ui;
 
     // Pages
-    QList<QWidget*> listPages;
-    QList<QPushButton*> listSidebarButtons;
+    QList<QWidget*> mListPages;
+    QList<QPushButton*> mListSidebarButtons;
 
-    SlidingStackedWidget *slidingStacked;
+    SlidingStackedWidget *mSlidingStacked;
 
     DashboardPage *dashboardPage;
     StartupAppsPage *startupAppsPage;
@@ -80,9 +80,9 @@ private:
 
     QSharedPointer<Feedback> feedback;
 
-    QSystemTrayIcon *trayIcon;
+    QSystemTrayIcon *mTrayIcon;
 
-    QMenu *trayMenu;
+    QMenu *mTrayMenu;
 };
 
 #endif // APP_H

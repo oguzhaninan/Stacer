@@ -44,7 +44,7 @@ SystemInfo::SystemInfo()
     try {
         if (name.isEmpty())
             name = CommandUtil::exec("whoami").trimmed();
-    } catch (QString &ex) {
+    } catch (const QString &ex) {
         qCritical() << ex;
     }
 

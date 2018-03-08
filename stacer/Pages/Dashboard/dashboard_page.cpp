@@ -11,14 +11,13 @@ DashboardPage::~DashboardPage()
 DashboardPage::DashboardPage(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::DashboardPage),
-    cpuBar(new CircleBar(tr("CPU"), {"#A8E063", "#56AB2F"}, this)),
-    memBar(new CircleBar(tr("MEMORY"), {"#FFB75E", "#ED8F03"}, this)),
-    diskBar(new CircleBar(tr("DISK"), {"#DC2430", "#7B4397"}, this)),
-    downloadBar(new LineBar(tr("DOWNLOAD"), this)),
-    uploadBar(new LineBar(tr("UPLOAD"), this)),
-    timer(new QTimer(this)),
+    mCpuBar(new CircleBar(tr("CPU"), {"#A8E063", "#56AB2F"}, this)),
+    mMemBar(new CircleBar(tr("MEMORY"), {"#FFB75E", "#ED8F03"}, this)),
+    mDiskBar(new CircleBar(tr("DISK"), {"#DC2430", "#7B4397"}, this)),
+    mDownloadBar(new LineBar(tr("DOWNLOAD"), this)),
+    mUploadBar(new LineBar(tr("UPLOAD"), this)),
+    mTimer(new QTimer(this)),
     im(InfoManager::ins()),
-    iconTray(QIcon(":/static/logo.png")),
     mSettingManager(SettingManager::ins())
 {
     ui->setupUi(this);
@@ -31,24 +30,24 @@ DashboardPage::DashboardPage(QWidget *parent) :
 void DashboardPage::init()
 {
     // Circle bars
-    ui->circleBarsLayout->addWidget(cpuBar);
-    ui->circleBarsLayout->addWidget(memBar);
-    ui->circleBarsLayout->addWidget(diskBar);
+    ui->circleBarsLayout->addWidget(mCpuBar);
+    ui->circleBarsLayout->addWidget(mMemBar);
+    ui->circleBarsLayout->addWidget(mDiskBar);
 
     // line bars
-    ui->lineBarsLayout->addWidget(downloadBar);
-    ui->lineBarsLayout->addWidget(uploadBar);
+    ui->lineBarsLayout->addWidget(mDownloadBar);
+    ui->lineBarsLayout->addWidget(mUploadBar);
 
     // connections
-    connect(timer, &QTimer::timeout, this, &DashboardPage::updateCpuBar);
-    connect(timer, &QTimer::timeout, this, &DashboardPage::updateMemoryBar);
-    connect(timer, &QTimer::timeout, this, &DashboardPage::updateNetworkBar);
+    connect(mTimer, &QTimer::timeout, this, &DashboardPage::updateCpuBar);
+    connect(mTimer, &QTimer::timeout, this, &DashboardPage::updateMemoryBar);
+    connect(mTimer, &QTimer::timeout, this, &DashboardPage::updateNetworkBar);
 
     QTimer *timerDisk = new QTimer;
     connect(timerDisk, &QTimer::timeout, this, &DashboardPage::updateDiskBar);
     timerDisk->start(5 * 1000);
 
-    timer->start(1 * 1000);
+    mTimer->start(1 * 1000);
 
     // initialization
     updateCpuBar();
@@ -59,11 +58,13 @@ void DashboardPage::init()
     ui->widgetUpdateBar->hide();
 
     // check update
-    checkUpdate();
+    QtConcurrent::run(this, &DashboardPage::checkUpdate);
+    connect(this, &DashboardPage::sigShowUpdateBar, ui->widgetUpdateBar, &QWidget::show);
 
     QList<QWidget*> widgets = {
-        cpuBar, memBar, diskBar, downloadBar, uploadBar
+        mCpuBar, mMemBar, mDiskBar, mDownloadBar, mUploadBar
     };
+
     Utilities::addDropShadow(widgets, 60);
 }
 
@@ -72,24 +73,24 @@ void DashboardPage::checkUpdate()
     QString requestResult;
 
     if (CommandUtil::isExecutable("curl")) {
-        try {
+        try {            
             requestResult = CommandUtil::exec("curl", { "https://api.github.com/repos/oguzhaninan/Stacer/releases/latest" });
-        } catch (QString &ex) {
+        } catch (const QString &ex) {
             qCritical() << ex;
         }
 
         if (! requestResult.isEmpty()) {
             QJsonDocument result = QJsonDocument::fromJson(requestResult.toUtf8());
 
-            QRegExp ex("[0-9].[0-9].[0-9]");
+            QRegExp ex("([0-9].[0-9].[0-9])");
             ex.indexIn(result.object().value("tag_name").toString());
 
             QString version;
-            if (! ex.captureCount())
+            if (ex.matchedLength() > 0)
                 version = ex.cap();
 
             if (qApp->applicationVersion() != version) {
-                ui->widgetUpdateBar->show();
+                emit sigShowUpdateBar();
             }
         }
     }
@@ -125,20 +126,20 @@ void DashboardPage::updateCpuBar()
     int cpuUsedPercent = im->getCpuPercents().at(0);
 
     // alert message
-    int maxCpuPercent = mSettingManager->getCpuAlertPercent();
-    if (maxCpuPercent > 0) {
+    int cpuAlerPercent = mSettingManager->getCpuAlertPercent();
+    if (cpuAlerPercent > 0) {
         static bool isShow = true;
-        if (cpuUsedPercent > maxCpuPercent && isShow) {
+        if (cpuUsedPercent > cpuAlerPercent && isShow) {
             AppManager::ins()->getTrayIcon()->showMessage(tr("High CPU Usage"),
-                                                          tr("The amount of CPU used is over %1%.").arg(maxCpuPercent),
-                                                          iconTray);
+                                                          tr("The amount of CPU used is over %1%.").arg(cpuAlerPercent),
+                                                          QSystemTrayIcon::Warning);
             isShow = false;
-        } else if (cpuUsedPercent < maxCpuPercent) {
+        } else if (cpuUsedPercent < cpuAlerPercent) {
             isShow = true;
         }
     }
 
-    cpuBar->setValue(cpuUsedPercent, QString("%1%").arg(cpuUsedPercent));
+    mCpuBar->setValue(cpuUsedPercent, QString("%1%").arg(cpuUsedPercent));
 }
 
 void DashboardPage::updateMemoryBar()
@@ -146,27 +147,28 @@ void DashboardPage::updateMemoryBar()
     im->updateMemoryInfo();
 
     int memUsedPercent = 0;
-    if (im->getMemTotal())
+    if (im->getMemTotal()) {
         memUsedPercent = ((double)im->getMemUsed() / (double)im->getMemTotal()) * 100.0;
+    }
 
     QString f_memUsed  = FormatUtil::formatBytes(im->getMemUsed());
     QString f_memTotal = FormatUtil::formatBytes(im->getMemTotal());
 
     // alert message
-    int maxMemoryPercent = mSettingManager->getMemoryAlertPercent();
-    if (maxMemoryPercent > 0) {
+    int memoryAlertPercent = mSettingManager->getMemoryAlertPercent();
+    if (memoryAlertPercent > 0) {
         static bool isShow = true;
-        if (memUsedPercent > maxMemoryPercent && isShow) {
+        if (memUsedPercent > memoryAlertPercent && isShow) {
             AppManager::ins()->getTrayIcon()->showMessage(tr("High Memory Usage"),
-                                                          tr("The amount of memory used is over %1%.").arg(maxMemoryPercent),
-                                                          iconTray);
+                                                          tr("The amount of memory used is over %1%.").arg(memoryAlertPercent),
+                                                          QSystemTrayIcon::Warning);
             isShow = false;
-        } else if (memUsedPercent < maxMemoryPercent) {
+        } else if (memUsedPercent < memoryAlertPercent) {
             isShow = true;
         }
     }
 
-    memBar->setValue(memUsedPercent, QString("%1 / %2")
+    mMemBar->setValue(memUsedPercent, QString("%1 / %2")
                      .arg(f_memUsed)
                      .arg(f_memTotal));
 }
@@ -183,12 +185,9 @@ void DashboardPage::updateDiskBar()
                 disk = d;
         }
 
-        if (disk == nullptr) {
+        if (! disk) {
             disk = im->getDisks().at(0);
         }
-
-        QString sizeText = FormatUtil::formatBytes(disk->size);
-        QString usedText = FormatUtil::formatBytes(disk->used);
 
         int diskPercent = 0;
         if (disk->size > 0) {
@@ -196,20 +195,23 @@ void DashboardPage::updateDiskBar()
         }
 
         // alert message
-        int maxDiskPercent = mSettingManager->getDiskAlertPercent();
-        if (maxDiskPercent > 0) {
+        int diskAlertPercent = mSettingManager->getDiskAlertPercent();
+        if (diskAlertPercent > 0) {
             static bool isShow = true;
-            if (diskPercent > maxDiskPercent && isShow) {
+            if (diskPercent > diskAlertPercent && isShow) {
                 AppManager::ins()->getTrayIcon()->showMessage(tr("High Disk Usage"),
-                                                              tr("The amount of disk used is over %1%.").arg(diskPercent),
-                                                              iconTray);
+                                                              tr("The amount of disk used is over %1%.").arg(diskAlertPercent),
+                                                              QSystemTrayIcon::Warning);
                 isShow = false;
-            } else if (diskPercent < maxDiskPercent) {
+            } else if (diskPercent < diskAlertPercent) {
                 isShow = true;
             }
         }
 
-        diskBar->setValue(diskPercent, QString("%1 / %2")
+        QString sizeText = FormatUtil::formatBytes(disk->size);
+        QString usedText = FormatUtil::formatBytes(disk->used);
+
+        mDiskBar->setValue(diskPercent, QString("%1 / %2")
                           .arg(usedText)
                           .arg(sizeText));
     }
@@ -234,11 +236,11 @@ void DashboardPage::updateNetworkBar()
     int downPercent = ((double) d_RXbytes / (double) max_RXbytes) * 100.0;
     int upPercent   = ((double) d_TXbytes / (double) max_TXbytes) * 100.0;
 
-    downloadBar->setValue(downPercent,
+    mDownloadBar->setValue(downPercent,
                           QString("%1/s").arg(downText),
                           tr("Total: %1").arg(FormatUtil::formatBytes(RXbytes)));
 
-    uploadBar->setValue(upPercent,
+    mUploadBar->setValue(upPercent,
                         QString("%1/s").arg(upText),
                         tr("Total: %1").arg(FormatUtil::formatBytes(TXbytes)));
 

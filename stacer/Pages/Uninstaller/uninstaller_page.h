@@ -7,6 +7,7 @@
 
 #include "Managers/tool_manager.h"
 #include "Managers/app_manager.h"
+#include "signal_mapper.h"
 
 namespace Ui {
     class UninstallerPage;
@@ -22,10 +23,12 @@ public:
 
 public slots:
     void uninstallStarted();
-private slots:
-    void init();
-    void setAppCount();
 
+private:
+    void init();
+
+private slots:
+    void setAppCount();
     void on_txtPackageSearch_textChanged(const QString &val);
     void on_btnUninstall_clicked();
     QStringList getSelectedPackages();
@@ -34,7 +37,6 @@ private slots:
 private:
     Ui::UninstallerPage *ui;
 
-private:
     ToolManager *tm;
 };
 

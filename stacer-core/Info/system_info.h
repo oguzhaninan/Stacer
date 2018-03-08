@@ -9,6 +9,7 @@
 #define PROC_CPUINFO "/proc/cpuinfo"
 
 #include "stacer-core_global.h"
+
 class STACERCORESHARED_EXPORT SystemInfo
 {
 public:
@@ -21,18 +22,16 @@ public:
     QString getCpuModel() const;
     QString getCpuSpeed() const;
     QString getCpuCore() const;
+    QString getUsername() const;
 
     QFileInfoList getCrashReports() const;
     QFileInfoList getAppLogs() const;
     QFileInfoList getAppCaches() const;
 
-    QString getUsername() const;
-
 private:
     QString cpuCore;
     QString cpuModel;
     QString cpuSpeed;
-
     QString username;
 };
 

@@ -23,27 +23,26 @@ public:
 
     QVector<QSplineSeries *> getSeriesList() const;
     QCategoryAxis *getAxisY();
-
-public slots:
     void setYMax(const int &value);
     void setSeriesList(const QVector<QSplineSeries *> &seriesList);
     void setCategoryAxisYLabels();
 
 private slots:
-    void init();
     void on_checkHistoryTitle_clicked(bool checked);
+
+private:
+    void init();
 
 private:
     Ui::HistoryChart *ui;
 
-private:
-    QString title;
-    int seriesCount;
-    QChartView *chartView;
-    QChart *chart;
+    QString mTitle;
+    int mSeriesCount;
+    QChartView *mChartView;
+    QChart *mChart;
     QVector<QSplineSeries *> mSeriesList;
 
-    QCategoryAxis *axisY;
+    QCategoryAxis *mAxisY;
 };
 
 #endif // HISTORYCHART_H

@@ -39,7 +39,7 @@ private:
 private:
     AppManager *apm;
 
-    QString startupAppPath;
+    QString mStartupAppPath;
 
     SettingManager *mSettingManager;
 };

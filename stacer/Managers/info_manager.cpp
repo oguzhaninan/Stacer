@@ -1,13 +1,14 @@
 #include "info_manager.h"
 
-InfoManager *InfoManager::_instance = NULL;
+InfoManager *InfoManager::instance = nullptr;
 
 InfoManager *InfoManager::ins()
 {
-    if(_instance == NULL)
-        _instance = new InfoManager;
+    if(! instance){
+        instance = new InfoManager;
+    }
 
-    return _instance;
+    return instance;
 }
 
 QString InfoManager::getUserName() const
@@ -15,9 +16,9 @@ QString InfoManager::getUserName() const
     return si.getUsername();
 }
 
-/********************
- * CPU INFORMATION
- *******************/
+/*
+ * CPU Provider
+ */
 quint8 InfoManager::getCpuCoreCount() const
 {
     return ci.getCpuCoreCount();
@@ -33,9 +34,9 @@ QList<double> InfoManager::getCpuLoadAvgs() const
     return ci.getLoadAvgs();
 }
 
-/********************
- * MEMORY INFORMATION
- *******************/
+/*
+ * Memory Provider
+ */
 void InfoManager::updateMemoryInfo()
 {
     mi.updateMemoryInfo();
@@ -61,9 +62,9 @@ quint64 InfoManager::getMemTotal() const
     return mi.getMemTotal();
 }
 
-/********************
- * DISK INFORMATION
- *******************/
+/*
+ * Disk Provider
+ */
 QList<Disk*> InfoManager::getDisks() const
 {
     return di.getDisks();
@@ -80,7 +81,7 @@ QList<quint64> InfoManager::getDiskIO()
 }
 
 /********************
- * NETWORK INFORMATION
+ * Network Provider
  *******************/
 quint64 InfoManager::getRXbytes() const
 {
@@ -93,7 +94,7 @@ quint64 InfoManager::getTXbytes() const
 }
 
 /********************
- * CLEANER INFORMATION
+ * System Provider
  *******************/
 QFileInfoList InfoManager::getCrashReports() const
 {
@@ -111,7 +112,7 @@ QFileInfoList InfoManager::getAppCaches() const
 }
 
 /********************
- * PROCESSES INFORMATION
+ * Process Provider
  *******************/
 void InfoManager::updateProcesses()
 {

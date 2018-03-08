@@ -10,8 +10,6 @@
 #include <Info/system_info.h>
 #include <Info/process_info.h>
 
-#include <Utils/format_util.h>
-
 class InfoManager
 {
 public:
@@ -41,8 +39,9 @@ public:
     void updateProcesses();
     QList<Process> getProcesses() const;
     QString getUserName() const;
+
 private:
-    static InfoManager *_instance;
+    static InfoManager *instance;
 
 private:
     CpuInfo ci;

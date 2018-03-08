@@ -36,7 +36,7 @@ private:
     Ui::StartupAppsPage *ui;
 
 private:
-    QSharedPointer<StartupAppEdit> startupAppEdit;
+    QSharedPointer<StartupAppEdit> mStartupAppEdit;
 
     QFileSystemWatcher mFileSystemWatcher;
     QString mAutostartPath;

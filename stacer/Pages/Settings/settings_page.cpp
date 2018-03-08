@@ -57,12 +57,12 @@ void SettingsPage::init()
     ui->cmbDisks->setCurrentIndex(ui->cmbDisks->findData(dk));
 
     // start on boot
-    startupAppPath = QStandardPaths::writableLocation(QStandardPaths::ConfigLocation).append("/autostart");
-    startupAppPath.append("/stacer.desktop");
+    mStartupAppPath = QStandardPaths::writableLocation(QStandardPaths::ConfigLocation).append("/autostart");
+    mStartupAppPath.append("/stacer.desktop");
 
-    QFile startupAppFile(startupAppPath);
+    QFile startupAppFile(mStartupAppPath);
     if (startupAppFile.exists()) {
-        QStringList appContent = FileUtil::readListFromFile(startupAppPath);
+        QStringList appContent = FileUtil::readListFromFile(mStartupAppPath);
         QString isHidden = Utilities::getDesktopValue(QRegExp("^Hidden=.*"), appContent).toLower();
         ui->checkAutostart->setChecked(isHidden == "false");
     } else {
@@ -125,14 +125,14 @@ void SettingsPage::on_checkAutostart_clicked(bool checked)
         QString appTemplate = QString("[Desktop Entry]\n"
                                       "Name=Stacer\n"
                                       "Comment=Linux System Optimizer and Monitoring\n"
-                                      "Exec=/usr/share/stacer/stacer --hide \n"
+                                      "Exec=stacer --hide \n"
                                       "Type=Application\n"
                                       "Terminal=false\n"
                                       "Hidden=false\n");
 
-        FileUtil::writeFile(startupAppPath, appTemplate);
+        FileUtil::writeFile(mStartupAppPath, appTemplate);
     } else {
-        QFile::remove(startupAppPath);
+        QFile::remove(mStartupAppPath);
     }
 }
 

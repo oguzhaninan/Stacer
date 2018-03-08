@@ -20,8 +20,8 @@ UninstallerPage::UninstallerPage(QWidget *parent) :
 
 void UninstallerPage::init()
 {
-    QString path = QString(":/static/themes/%1/img/loading.gif").arg(SettingManager::ins()->getThemeName());
-    QMovie *loadingMovie = new QMovie(path, QByteArray(), this);
+    QString iconLoading = QString(":/static/themes/%1/img/loading.gif").arg(SettingManager::ins()->getThemeName());
+    QMovie *loadingMovie = new QMovie(iconLoading, QByteArray(), this);
     ui->lblLoadingUninstaller->setMovie(loadingMovie);
     loadingMovie->start();
     ui->lblLoadingUninstaller->hide();
@@ -32,8 +32,8 @@ void UninstallerPage::init()
 
     QtConcurrent::run(this, &UninstallerPage::loadPackages);
 
-    connect(tm, &ToolManager::uninstallStarted, this, &UninstallerPage::uninstallStarted);
-    connect(tm, &ToolManager::uninstallFinished, this, &UninstallerPage::loadPackages);
+    connect(SignalMapper::ins(), &SignalMapper::sigUninstallStarted, this, &UninstallerPage::uninstallStarted);
+    connect(SignalMapper::ins(), &SignalMapper::sigUninstallFinished, this, &UninstallerPage::loadPackages);
 }
 
 void UninstallerPage::loadPackages()
@@ -43,7 +43,7 @@ void UninstallerPage::loadPackages()
     // clear items
     ui->listWidgetPackages->clear();
 
-    QIcon icon(QString(":/static/themes/%1/img/package.png").arg(SettingManager::ins()->getThemeName()));
+    QIcon icon(":/static/themes/common/img/package.png");
     QStringList packages = tm->getPackages();
     for (const QString &package : packages) {
         QListWidgetItem *item = new QListWidgetItem(QIcon::fromTheme(package, icon), QString("  %1").arg(package));
@@ -92,8 +92,10 @@ void UninstallerPage::on_btnUninstall_clicked()
     QStringList selectedPackages = getSelectedPackages();
 
     if(! selectedPackages.isEmpty()) {
-        QtConcurrent::run([selectedPackages]() -> void {
+        QtConcurrent::run([=] {
+            emit SignalMapper::ins()->sigUninstallStarted();
             ToolManager::ins()->uninstallPackages(selectedPackages);
+            emit SignalMapper::ins()->sigUninstallFinished();
         });
     }
 }

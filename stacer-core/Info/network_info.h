@@ -1,9 +1,9 @@
 #ifndef NETWORK_INFO_H
 #define NETWORK_INFO_H
 
+#include <QtNetwork/QNetworkInterface>
 #include "Utils/file_util.h"
 #include "Utils/command_util.h"
-#include <QtNetwork/QNetworkInterface>
 
 #include "stacer-core_global.h"
 

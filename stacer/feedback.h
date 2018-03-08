@@ -32,10 +32,10 @@ private:
 private:
     Ui::Feedback *ui;
 
-    QString header;
-    QString feedbackUrl;
+    QString mHeader;
+    QString mFeedbackUrl;
 
-    QRegExp mailRegex;
+    QRegExp mMailRegex;
 };
 
 #endif // FEEDBACK_H

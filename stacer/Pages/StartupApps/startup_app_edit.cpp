@@ -1,6 +1,7 @@
 #include "startup_app_edit.h"
 #include "ui_startup_app_edit.h"
 #include "utilities.h"
+#include <QDebug>
 
 StartupAppEdit::~StartupAppEdit()
 {
@@ -12,7 +13,7 @@ QString StartupAppEdit::selectedFilePath = "";
 StartupAppEdit::StartupAppEdit(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::StartupAppEdit),
-    newAppTemplate("[Desktop Entry]\n"
+    mNewAppTemplate("[Desktop Entry]\n"
                    "Name=%1\n"
                    "Comment=%2\n"
                    "Exec=%3\n"
@@ -28,14 +29,11 @@ StartupAppEdit::StartupAppEdit(QWidget *parent) :
 void StartupAppEdit::init()
 {
     setGeometry(
-        QStyle::alignedRect(
-            Qt::LeftToRight,
-            Qt::AlignCenter,
-            size(),
-            qApp->desktop()->availableGeometry())
+        QStyle::alignedRect(Qt::LeftToRight, Qt::AlignCenter,
+            size(), qApp->desktop()->availableGeometry())
     );
 
-    this->autostartPath = QStandardPaths::writableLocation(QStandardPaths::ConfigLocation) + "/autostart";
+    mAutostartPath = QStandardPaths::writableLocation(QStandardPaths::ConfigLocation) + "/autostart";
 
     ui->lblErrorMsg->hide();
 
@@ -90,17 +88,20 @@ void StartupAppEdit::on_btnSave_clicked()
         }
         else {
             // new file content
-            QString appContent = newAppTemplate
+            QString appContent = mNewAppTemplate
                     .arg(ui->txtStartupAppName->text())
                     .arg(ui->txtStartupAppComment->text())
                     .arg(ui->txtStartupAppCommand->text());
 
             // file name
             QString appFileName = ui->txtStartupAppName->text()
-                    .replace(" ", "_")
-                    .replace(QRegExp("\\W+"), "");
+                    .simplified()
+                    .replace(' ', '-')
+                    .toLower();
 
-            QString path = QString("%1/%2.desktop").arg(autostartPath).arg(appFileName);
+            qDebug() << appFileName;
+
+            QString path = QString("%1/%2.desktop").arg(mAutostartPath).arg(appFileName);
 
             FileUtil::writeFile(path, appContent);
         }

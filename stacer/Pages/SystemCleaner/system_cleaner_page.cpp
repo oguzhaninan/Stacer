@@ -4,10 +4,6 @@
 SystemCleanerPage::~SystemCleanerPage()
 {
     delete ui;
-    if (loadingMovie)
-        loadingMovie->deleteLater();
-    if (loadingMovie_2)
-        loadingMovie_2->deleteLater();
 }
 
 SystemCleanerPage::SystemCleanerPage(QWidget *parent) :
@@ -15,9 +11,9 @@ SystemCleanerPage::SystemCleanerPage(QWidget *parent) :
     ui(new Ui::SystemCleanerPage),
     im(InfoManager::ins()),
     tmr(ToolManager::ins()),
-    defaultIcon(QIcon::fromTheme("application-x-executable")),
-    loadingMovie(nullptr),
-    loadingMovie_2(nullptr)
+    mDefaultIcon(QIcon::fromTheme("application-x-executable")),
+    mLoadingMovie(nullptr),
+    mLoadingMovie_2(nullptr)
 {
     ui->setupUi(this);
 
@@ -36,21 +32,17 @@ void SystemCleanerPage::init()
     ui->treeWidgetScanResult->setHeaderLabels({ tr("File Name"), tr("Size") });
 
     // loaders
-    connect(SignalMapper::ins(), &SignalMapper::changedAppTheme, [=] {
+    connect(SignalMapper::ins(), &SignalMapper::sigChangedAppTheme, [=] {
         QString themeName = SettingManager::ins()->getThemeName();
 
-        if (loadingMovie)
-            loadingMovie->deleteLater();
-        loadingMovie = new QMovie(QString(":/static/themes/%1/img/scanLoading.gif").arg(themeName));
-        ui->lblLoadingScanner->setMovie(loadingMovie);
-        loadingMovie->start();
+        mLoadingMovie = new QMovie(QString(":/static/themes/%1/img/scanLoading.gif").arg(themeName));
+        ui->lblLoadingScanner->setMovie(mLoadingMovie);
+        mLoadingMovie->start();
         ui->lblLoadingScanner->hide();
 
-        if (loadingMovie_2)
-            loadingMovie_2->deleteLater();
-        loadingMovie_2 = new QMovie(QString(":/static/themes/%1/img/loading.gif").arg(themeName));
-        ui->lblLoadingCleaner->setMovie(loadingMovie_2);
-        loadingMovie_2->start();
+        mLoadingMovie_2 = new QMovie(QString(":/static/themes/%1/img/loading.gif").arg(themeName));
+        ui->lblLoadingCleaner->setMovie(mLoadingMovie_2);
+        mLoadingMovie_2->start();
         ui->lblLoadingCleaner->hide();
     });
 }
@@ -95,7 +87,7 @@ void SystemCleanerPage::addTreeRoot(const CleanCategories &cat, const QString &t
 void SystemCleanerPage::addTreeChild(const QString &data, const QString &text, const quint64 &size, QTreeWidgetItem *parent)
 {
     QTreeWidgetItem *item = new QTreeWidgetItem(parent);
-    item->setIcon(0, QIcon::fromTheme(text, defaultIcon));
+    item->setIcon(0, QIcon::fromTheme(text, mDefaultIcon));
     item->setText(0, text);
     item->setText(1, FormatUtil::formatBytes(size));
     item->setData(2, 0, data);

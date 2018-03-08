@@ -2,7 +2,6 @@
 #define APTSourceRepositoryItem_H
 
 #include <QWidget>
-#include <QFileInfo>
 #include "Managers/tool_manager.h"
 
 namespace Ui {
@@ -15,7 +14,6 @@ class APTSourceRepositoryItem : public QWidget
 
 public:
     explicit APTSourceRepositoryItem(APTSourcePtr aptSource, QWidget *parent = 0);
-
     ~APTSourceRepositoryItem();
 
 public:

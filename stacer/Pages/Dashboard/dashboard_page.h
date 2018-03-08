@@ -9,7 +9,7 @@
 #include <QDesktopServices>
 #include <QtConcurrent>
 
-#include <Managers/info_manager.h>
+#include "Managers/info_manager.h"
 #include "circlebar.h"
 #include "linebar.h"
 
@@ -39,21 +39,22 @@ private slots:
 
     void on_btnDownloadUpdate_clicked();
 
+signals:
+    void sigShowUpdateBar();
+
 private:
     Ui::DashboardPage *ui;
 
 private:
-    CircleBar* cpuBar;
-    CircleBar* memBar;
-    CircleBar* diskBar;
+    CircleBar* mCpuBar;
+    CircleBar* mMemBar;
+    CircleBar* mDiskBar;
 
-    LineBar *downloadBar;
-    LineBar *uploadBar;
+    LineBar *mDownloadBar;
+    LineBar *mUploadBar;
 
-    QTimer *timer;
+    QTimer *mTimer;
     InfoManager *im;
-
-    QIcon iconTray;
 
     SettingManager *mSettingManager;
 };

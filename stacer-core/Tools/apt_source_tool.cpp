@@ -17,6 +17,18 @@ void AptSourceTool::removeAPTSource(const APTSourcePtr aptSource)
     changeSource(aptSource, "");
 }
 
+void AptSourceTool::addRepository(const QString &repository, const bool isSource)
+{
+    if (! repository.isEmpty()) {
+        QStringList args = { "-y", repository };
+        if (isSource) {
+            args << "-s";
+        }
+
+        CommandUtil::sudoExec("add-apt-repository", args);
+    }
+}
+
 void AptSourceTool::changeSource(const APTSourcePtr aptSource, const QString newSource)
 {
     QStringList sourceFileContent = FileUtil::readListFromFile(aptSource->filePath);
@@ -32,14 +44,18 @@ void AptSourceTool::changeSource(const APTSourcePtr aptSource, const QString new
     }
 
     if (pos != -1) {
-        sourceFileContent.replace(pos, newSource);
+        if (newSource.isEmpty()) {
+            sourceFileContent.removeAt(pos);
+        } else {
+            sourceFileContent.replace(pos, newSource);
+        }
+
+        QStringList args = { aptSource->filePath };
+
+        QByteArray data = sourceFileContent.join('\n').append('\n').toUtf8();
+
+        CommandUtil::sudoExec("tee", args, data);
     }
-
-    QStringList args = { aptSource->filePath };
-
-    QByteArray data = sourceFileContent.join('\n').append('\n').toUtf8();
-
-    CommandUtil::sudoExec("tee", args, data);
 }
 
 void AptSourceTool::changeStatus(const APTSourcePtr aptSource, const bool status)
@@ -59,57 +75,46 @@ QList<APTSourcePtr> AptSourceTool::getSourceList()
 {
     QList<APTSourcePtr> aptSourceList;
 
-    QDir aptSourceListDir(APT_SOURCES_LIST_D_PATH);
-
-    QFileInfoList infoList = aptSourceListDir.entryInfoList({ "*.list"/*, "*.save"*/ },
-                                                            QDir::Files, QDir::Time);
+    QFileInfoList infoList = QDir(APT_SOURCES_LIST_D_PATH).entryInfoList({"*.list"}, QDir::Files, QDir::Time);
     infoList.append(QFileInfo(APT_SOURCES_LIST_PATH)); // sources.list
 
+    // example "deb [arch=amd64] http://packages.microsoft.com/repos/vscode stable main"
     for (const QFileInfo &info : infoList) {
 
-        QStringList fileContent = FileUtil::readListFromFile(info.absoluteFilePath());
+        QStringList fileContent = FileUtil::readListFromFile(info.absoluteFilePath()).filter(QRegExp("^\\s{0,}#{0,}\\s{0,}deb"));
 
         for (const QString &line : fileContent) {
             QString _line = line.trimmed();
 
-            if (! _line.isEmpty()) {
+            APTSourcePtr aptSource(new APTSource);
+            aptSource->filePath = info.absoluteFilePath();
 
-                APTSourcePtr aptSource(new APTSource);
-                aptSource->filePath = info.absoluteFilePath();
+            aptSource->isActive = ! _line.startsWith(QChar('#'));
 
-                if (_line.startsWith(QChar('#'))) { // is deactive
-                    aptSource->isActive = false;
-                    _line.replace("#", ""); // remove comment
-                } else {
-                    aptSource->isActive = true;
-                }
+            _line.remove('#'); // remove comment
 
-                // if has options
-                if (_line.contains(" [")) {
-                    int pos1 = _line.indexOf('['), pos2 = _line.indexOf(']');
+            // if has options
+            QRegExp regexOption("(\\s[\\[]+.*[\\]]+)");
+            regexOption.indexIn(_line);
+            if (regexOption.matchedLength() > 0) {
+                aptSource->options = regexOption.cap().trimmed();
+            }
+            // remove options
+            _line.remove(regexOption);
 
-                    if (pos1 != -1 && pos2 != -1) {
-                        aptSource->options = _line.mid(pos1, pos2-pos1+1);
-                        _line.replace(aptSource->options, ""); // delete options section
-                    }
-                }
+            QStringList sourceColumns = _line.trimmed().split(QRegExp("\\s+"));
+            bool isBinary = sourceColumns.first() == "deb";
+            bool isSource = sourceColumns.first() == "deb-src";
 
-                QStringList sourceColumns = _line.trimmed().split(QRegExp("\\s+"));
-                bool isBinary = sourceColumns.first() == "deb";
-                bool isSource = sourceColumns.first() == "deb-src";
+            if ((isBinary || isSource) && sourceColumns.count() > 2) {
+                aptSource->isSource = isSource;
+                aptSource->uri = sourceColumns.at(1);
+                aptSource->distribution = sourceColumns.at(2);
+                aptSource->components = sourceColumns.mid(3).join(' ');
 
-                // example "deb http://packages.microsoft.com/repos/vscode stable main"
-                if (isBinary || isSource) {
-                    aptSource->isSource = isSource;
-                    aptSource->uri = sourceColumns.at(1);
-                    aptSource->distribution = sourceColumns.at(2);
-                    aptSource->components = sourceColumns.mid(3).join(' ');
+                aptSource->source = line.trimmed().remove('#').trimmed();
 
-                    aptSource->source = line.trimmed().replace("#", "").trimmed();
-//                    qDebug() << aptSource->source;
-
-                    aptSourceList.append(aptSource);
-                }
+                aptSourceList.append(aptSource);
             }
         }
     }

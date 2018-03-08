@@ -22,7 +22,8 @@ APTSourceManagerPage::APTSourceManagerPage(QWidget *parent) :
 
 void APTSourceManagerPage::init()
 {
-    ui->txtAptSource->setPlaceholderText(tr("example %1").arg("'deb http://archive.ubuntu.com/ubuntu xenial main'"));
+    ui->txtAptSource->setPlaceholderText(tr("example %1")
+                                         .arg("'deb http://archive.ubuntu.com/ubuntu xenial main'"));
 
     loadAptSources();
 
@@ -60,17 +61,11 @@ void APTSourceManagerPage::on_btnAddAPTSourceRepository_clicked(bool checked)
     if (checked) {
         ui->btnAddAPTSourceRepository->setText(tr("Save"));
         changeElementsVisible(checked);
-    }
-    else {
+    } else {
         QString aptSourceRepository = ui->txtAptSource->text().trimmed();
 
-        if (!aptSourceRepository.isEmpty()) {
-            QStringList args = { "-y", aptSourceRepository };
-            if (ui->checkEnableSource->isChecked()) {
-                args << "-s";
-            }
-
-            CommandUtil::sudoExec("add-apt-repository", args);
+        if (! aptSourceRepository.isEmpty()) {
+            ToolManager::ins()->addAPTRepository(aptSourceRepository, ui->checkEnableSource->isChecked());
 
             ui->txtAptSource->clear();
             ui->checkEnableSource->setChecked(false);
@@ -84,7 +79,7 @@ void APTSourceManagerPage::on_btnCancel_clicked()
 {
     ui->btnAddAPTSourceRepository->setChecked(false);
     changeElementsVisible(false);
-    ui->btnAddAPTSourceRepository->setText(tr("Add APT Source"));
+    ui->btnAddAPTSourceRepository->setText(tr("Add APT Repository"));
 }
 
 void APTSourceManagerPage::changeElementsVisible(const bool checked)
@@ -94,10 +89,7 @@ void APTSourceManagerPage::changeElementsVisible(const bool checked)
     ui->btnCancel->setVisible(checked);
     ui->btnEditAptSource->setVisible(!checked);
     ui->btnDeleteAptSource->setVisible(!checked);
-    if (checked)
-        ui->bottomSectionHorizontalSpacer->changeSize(0, 0, QSizePolicy::Minimum);
-    else
-        ui->bottomSectionHorizontalSpacer->changeSize(0, 0, QSizePolicy::Expanding);
+    ui->bottomSectionHorizontalSpacer->changeSize(0, 0, checked ? QSizePolicy::Minimum : QSizePolicy::Expanding);
 }
 
 void APTSourceManagerPage::on_listWidgetAptSources_itemClicked(QListWidgetItem *item)
@@ -141,11 +133,11 @@ void APTSourceManagerPage::on_txtSearchAptSource_textChanged(const QString &val)
 void APTSourceManagerPage::on_btnEditAptSource_clicked()
 {
     if (! selectedAptSource.isNull()) {
-        if (aptSourceEditDialog.isNull()) {
-            aptSourceEditDialog = QSharedPointer<APTSourceEdit>(new APTSourceEdit(this));            
-            connect(aptSourceEditDialog.data(), &APTSourceEdit::saved, this, &APTSourceManagerPage::loadAptSources);
+        if (mAptSourceEditDialog.isNull()) {
+            mAptSourceEditDialog = QSharedPointer<APTSourceEdit>(new APTSourceEdit(this));
+            connect(mAptSourceEditDialog.data(), &APTSourceEdit::saved, this, &APTSourceManagerPage::loadAptSources);
         }
         APTSourceEdit::selectedAptSource = selectedAptSource;
-        aptSourceEditDialog->show();
+        mAptSourceEditDialog->show();
     }
 }

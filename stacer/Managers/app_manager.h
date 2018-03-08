@@ -3,7 +3,6 @@
 
 #include <QApplication>
 #include <QMap>
-#include <QStandardPaths>
 #include <QSettings>
 #include <QJsonDocument>
 #include <QJsonArray>
@@ -39,14 +38,14 @@ private:
     AppManager();
 
 private:
-    QTranslator translator;
+    QTranslator mTranslator;
     QSystemTrayIcon *mTrayIcon;
 
-    QSettings *styleValues;
+    QSettings *mStyleValues;
 
-    QMap<QString, QString> languageList;
-    QMap<QString, QString> themeList;
-    QString stylesheetFileContent;
+    QMap<QString, QString> mLanguageList;
+    QMap<QString, QString> mThemeList;
+    QString mStylesheetFileContent;
 
     SettingManager *mSettingManager;
 };

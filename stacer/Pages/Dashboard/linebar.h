@@ -17,6 +17,7 @@ public:
 
 public slots:
     void setValue(const int &value, const QString &text, const QString &totalText);
+
 private:
     Ui::LineBar *ui;
 };

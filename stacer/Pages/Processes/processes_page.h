@@ -27,24 +27,23 @@ public:
 private slots:
     void init();
     void loadProcesses();
+    void loadHeaderMenu();
     QList<QStandardItem *> createRow(const Process &proc);
     void on_txtProcessSearch_textChanged(const QString &val);
     void on_sliderRefresh_valueChanged(const int &i);
     void on_btnEndProcess_clicked();
     void on_tableProcess_customContextMenuRequested(const QPoint &pos);
-    void loadHeaderMenu();
 
 private:
     Ui::ProcessesPage *ui;
 
-private:
-    QStandardItemModel *model;
-    QSortFilterProxyModel *sortModel;
-    QModelIndex seletedRowModel;
-    QStringList headers;
+    QStandardItemModel *mItemModel;
+    QSortFilterProxyModel *mSortFilterModel;
+    QModelIndex mSeletedRowModel;
+    QStringList mHeaders;
+    QMenu mHeaderMenu;
+    QTimer *mTimer;
     InfoManager *im;
-    QTimer *timer;
-    QMenu headerMenu;
 };
 
 #endif // PROCESSESPAGE_H

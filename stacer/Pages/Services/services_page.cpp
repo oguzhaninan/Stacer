@@ -64,14 +64,10 @@ void ServicesPage::loadServices()
 
     setServiceCount();
 
-    if(ui->listWidgetServices->count() > 0) {
-        ui->listWidgetServices->show();
-        ui->notFoundWidget->hide();
-    }
-    else { // list widget is empty show not found
-        ui->notFoundWidget->show();
-        ui->listWidgetServices->hide();
-    }
+    bool isListEmpty = ui->listWidgetServices->count() == 0;
+
+    ui->listWidgetServices->setVisible(! isListEmpty);
+    ui->notFoundWidget->setVisible(isListEmpty);
 }
 
 void ServicesPage::setServiceCount()

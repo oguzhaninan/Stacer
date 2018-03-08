@@ -16,10 +16,12 @@ quint8 CpuInfo::getCpuCoreCount() const
 
 QList<double> CpuInfo::getLoadAvgs() const
 {
-    QList<double> avgs;
+    QList<double> avgs = {0, 0, 0};
+
     QStringList strListAvgs = FileUtil::readStringFromFile(PROC_LOADAVG).split(QRegExp("\\s+"));
 
     if (strListAvgs.count() > 2) {
+        avgs.clear();
         avgs << strListAvgs.takeFirst().toDouble();
         avgs << strListAvgs.takeFirst().toDouble();
         avgs << strListAvgs.takeFirst().toDouble();

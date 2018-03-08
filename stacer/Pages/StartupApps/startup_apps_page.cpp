@@ -19,12 +19,12 @@ StartupAppsPage::StartupAppsPage(QWidget *parent) :
 
 void StartupAppsPage::init()
 {
-    this->mAutostartPath = QStandardPaths::writableLocation(QStandardPaths::ConfigLocation).append("/autostart");
-    if (! QDir(this->mAutostartPath).exists()) {
-        QDir().mkdir(this->mAutostartPath);
+    mAutostartPath = QStandardPaths::writableLocation(QStandardPaths::ConfigLocation).append("/autostart/");
+    if (! QDir(mAutostartPath).exists()) {
+        QDir().mkdir(mAutostartPath);
     }
 
-    mFileSystemWatcher.addPath(this->mAutostartPath);
+    mFileSystemWatcher.addPath(mAutostartPath);
 
     loadApps();
 
@@ -86,7 +86,7 @@ void StartupAppsPage::setAppCount()
     int count = ui->listWidgetStartup->count();
 
     ui->lblStartupAppsTitle->setText(
-        tr("System Startup Applications (%1)")
+        tr("Startup Applications (%1)")
         .arg(QString::number(count)));
 
     ui->notFoundWidget->setVisible(! count);
@@ -96,9 +96,9 @@ void StartupAppsPage::setAppCount()
 void StartupAppsPage::openStartupAppEdit(const QString filePath)
 {
     StartupAppEdit::selectedFilePath = filePath;
-    if (startupAppEdit.isNull()) {
-        startupAppEdit = QSharedPointer<StartupAppEdit>(new StartupAppEdit(this));
-        connect(startupAppEdit.data(), &StartupAppEdit::startupAppAdded, this, &StartupAppsPage::loadApps);
+    if (mStartupAppEdit.isNull()) {
+        mStartupAppEdit = QSharedPointer<StartupAppEdit>(new StartupAppEdit(this));
+        connect(mStartupAppEdit.data(), &StartupAppEdit::startupAppAdded, this, &StartupAppsPage::loadApps);
     }
-    startupAppEdit->show();
+    mStartupAppEdit->show();
 }

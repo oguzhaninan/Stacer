@@ -7,16 +7,16 @@ StartupApp::~StartupApp()
     delete ui;
 }
 
-StartupApp::StartupApp(const QString &lblStartupAppName, bool enabled, const QString &filePath, QWidget *parent) :
+StartupApp::StartupApp(const QString &startupAppName, bool enabled, const QString &filePath, QWidget *parent) :
     QWidget(parent),
     ui(new Ui::StartupApp),
-    lblStartupAppName(lblStartupAppName),
-    enabled(enabled),
-    filePath(filePath)
+    mStartupAppName(startupAppName),
+    mEnabled(enabled),
+    mFilePath(filePath)
 {
     ui->setupUi(this);
 
-    ui->lblStartupAppName->setText(lblStartupAppName);
+    ui->lblStartupAppName->setText(startupAppName);
     ui->checkStartup->setChecked(enabled);
 
     Utilities::addDropShadow(this, 50);
@@ -24,7 +24,7 @@ StartupApp::StartupApp(const QString &lblStartupAppName, bool enabled, const QSt
 
 void StartupApp::on_checkStartup_clicked(bool status)
 {
-    QStringList lines = FileUtil::readListFromFile(filePath);
+    QStringList lines = FileUtil::readListFromFile(mFilePath);
 
     // Hidden=[true|false]
     int pos = lines.indexOf(HIDDEN_REG);
@@ -47,47 +47,48 @@ void StartupApp::on_checkStartup_clicked(bool status)
         lines.append(QString("Hidden=%1").arg(_status));
     }
 
-    FileUtil::writeFile(filePath, lines.join('\n').append('\n'));
+    FileUtil::writeFile(mFilePath, lines.join('\n').append('\n'));
 }
 
 void StartupApp::on_btnDeleteStartupApp_clicked()
 {
-    if(QFile::remove(filePath))
+    if (QFile::remove(mFilePath)) {
         emit deleteAppS();
+    }
 }
 
 void StartupApp::on_btnEditStartupApp_clicked()
 {
-    emit editStartupAppS(filePath);
+    emit editStartupAppS(mFilePath);
 }
 
 QString StartupApp::getAppName() const
 {
-    return lblStartupAppName;
+    return mStartupAppName;
 }
 
 void StartupApp::setAppName(const QString &value)
 {
-    lblStartupAppName = value;
+    mStartupAppName = value;
 }
 
 bool StartupApp::getEnabled() const
 {
-    return enabled;
+    return mEnabled;
 }
 
 void StartupApp::setEnabled(bool value)
 {
-    enabled = value;
+    mEnabled = value;
 }
 
 QString StartupApp::getFilePath() const
 {
-    return filePath;
+    return mFilePath;
 }
 
 void StartupApp::setFilePath(const QString &value)
 {
-    filePath = value;
+    mFilePath = value;
 }
 

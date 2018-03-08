@@ -15,9 +15,9 @@ Feedback::~Feedback()
 Feedback::Feedback(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::Feedback),
-    header("Content-Type: application/json"),
-    feedbackUrl("https://stacer-web-api.herokuapp.com/feedback"),
-    mailRegex("\\b[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,4}\\b")
+    mHeader("Content-Type: application/json"),
+    mFeedbackUrl("https://stacer-web-api.herokuapp.com/feedback"),
+    mMailRegex("\\b[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,4}\\b")
 {
     ui->setupUi(this);
 
@@ -26,10 +26,10 @@ Feedback::Feedback(QWidget *parent) :
 
 void Feedback::init()
 {
-    mailRegex.setCaseSensitivity(Qt::CaseInsensitive);
-    mailRegex.setPatternSyntax(QRegExp::RegExp);
+    mMailRegex.setCaseSensitivity(Qt::CaseInsensitive);
+    mMailRegex.setPatternSyntax(QRegExp::RegExp);
 
-    connect(this, &Feedback::clearInputsS, this, &Feedback::clearInputs);
+    connect(this, &Feedback::clearInputsS,     this, &Feedback::clearInputs);
     connect(this, &Feedback::setErrorMessageS, this, &Feedback::setErrorMessage);
     connect(this, &Feedback::disableElementsS, this, &Feedback::disableElements);
 }
@@ -40,7 +40,7 @@ void Feedback::on_btnSend_clicked()
     QString email = ui->txtEmail->text();
     QString message = ui->txtMessage->toPlainText();
 
-    bool isEmailValid = mailRegex.exactMatch(email);
+    bool isEmailValid = mMailRegex.exactMatch(email);
 
     if (! isEmailValid) {
         emit setErrorMessageS(tr("Email address is not valid !"));
@@ -68,7 +68,7 @@ void Feedback::on_btnSend_clicked()
 
             QJsonDocument json(postData);
 
-            args << "-d" << json.toJson() << "-H" << header << "-X" << "POST" << feedbackUrl;
+            args << "-d" << json.toJson() << "-H" << mHeader << "-X" << "POST" << mFeedbackUrl;
 
             try {
                 QString result = CommandUtil::exec("curl", args);

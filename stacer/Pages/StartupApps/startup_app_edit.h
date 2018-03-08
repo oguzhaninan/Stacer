@@ -43,8 +43,8 @@ private:
     Ui::StartupAppEdit *ui;
 
 private:
-    QString newAppTemplate;
-    QString autostartPath;
+    QString mNewAppTemplate;
+    QString mAutostartPath;
 };
 
 #endif // STARTUP_APP_EDIT_H

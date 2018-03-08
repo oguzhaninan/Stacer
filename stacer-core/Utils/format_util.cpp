@@ -19,6 +19,5 @@ QString FormatUtil::formatBytes(const quint64 &bytes)
       return formatUnit(bytes, GIBI, "GiB");
     else                   // TiB
       return formatUnit(bytes, TEBI, "TiB");
-
 #undef formatUnit
 }

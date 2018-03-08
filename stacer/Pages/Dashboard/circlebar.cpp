@@ -4,16 +4,16 @@
 CircleBar::~CircleBar()
 {
     delete ui;
-    delete chart;
+    delete mChart;
 }
 
 CircleBar::CircleBar(const QString &title, const QStringList &colors, QWidget *parent) :
     QWidget(parent),
     ui(new Ui::CircleBar),
-    colors(colors),
-    chart(new QChart),
-    chartView(new QChartView(chart)),
-    series(new QPieSeries(this))
+    mColors(colors),
+    mChart(new QChart),
+    mChartView(new QChartView(mChart)),
+    mSeries(new QPieSeries(this))
 {
     ui->setupUi(this);
 
@@ -27,43 +27,44 @@ void CircleBar::init()
     QColor transparent("transparent");
 
     // series settings
-    series->setHoleSize(0.67);
-    series->setPieSize(165);
-    series->setPieStartAngle(-115);
-    series->setPieEndAngle(115);
-    series->setLabelsVisible(false);
-    series->append("Used", 0);
-    series->append("Free", 0);
-    series->slices().first()->setBorderColor(transparent);
-    series->slices().last()->setBorderColor(transparent);
+    mSeries->setHoleSize(0.67);
+    mSeries->setPieSize(165);
+    mSeries->setPieStartAngle(-115);
+    mSeries->setPieEndAngle(115);
+    mSeries->setLabelsVisible(false);
+    mSeries->append("Used", 0);
+    mSeries->append("Free", 0);
+    mSeries->slices().first()->setBorderColor(transparent);
+    mSeries->slices().last()->setBorderColor(transparent);
     QConicalGradient gradient;
     gradient.setAngle(115);
-    for (int i = 0; i < colors.count(); ++i)
-        gradient.setColorAt(i, QColor(colors.at(i)));
-    series->slices().first()->setBrush(gradient);
+    for (int i = 0; i < mColors.count(); ++i) {
+        gradient.setColorAt(i, QColor(mColors.at(i)));
+    }
+    mSeries->slices().first()->setBrush(gradient);
 
     // chart settings
-    chart->setBackgroundBrush(QBrush(transparent));
-    chart->setContentsMargins(-20, -20, -20, -65);
-    chart->addSeries(series);
-    chart->legend()->hide();
+    mChart->setBackgroundBrush(QBrush(transparent));
+    mChart->setContentsMargins(-20, -20, -20, -65);
+    mChart->addSeries(mSeries);
+    mChart->legend()->hide();
 
     // chartview settings
-    chartView->setRenderHint(QPainter::Antialiasing);
+    mChartView->setRenderHint(QPainter::Antialiasing);
 
-    ui->layoutCircleBar->insertWidget(1, chartView);
+    ui->layoutCircleBar->insertWidget(1, mChartView);
 
-    connect(SignalMapper::ins(), &SignalMapper::changedAppTheme, [=] {
+    connect(SignalMapper::ins(), &SignalMapper::sigChangedAppTheme, [=] {
         QSettings *styleValues = AppManager::ins()->getStyleValues();
-        chartView->setBackgroundBrush(QColor(styleValues->value("@circleChartBackgroundColor").toString()));
-        series->slices().last()->setColor(styleValues->value("@pageContent").toString()); // trail color
+        mChartView->setBackgroundBrush(QColor(styleValues->value("@circleChartBackgroundColor").toString()));
+        mSeries->slices().last()->setColor(styleValues->value("@pageContent").toString()); // trail color
     });
 }
 
-void CircleBar::setValue(int value, QString valueText)
+void CircleBar::setValue(const int &value, const QString &valueText)
 {
-    series->slices().first()->setValue(value);
-    series->slices().last()->setValue(100 - value);
+    mSeries->slices().first()->setValue(value);
+    mSeries->slices().last()->setValue(100 - value);
 
     ui->lblCircleChartValue->setText(valueText);
 }

@@ -26,14 +26,14 @@ void APTSourceRepositoryItem::init()
     ui->checkAptSource->setChecked(mAptSource->isActive);
 
     // example "deb [arch=amd64] http://packages.microsoft.com/repos/vscode stable main"
-    QString sourceName = mAptSource->source;
+    QString source = mAptSource->source;
 
-    sourceName = sourceName.remove(QRegularExpression("\[.*?\]"));
+    source.remove(QRegExp("\\s[\\[]+.*[\\]]+"));
 
     if (mAptSource->isSource) {
-        ui->lblAptSourceName->setText(tr("%1 (Source Code)").arg(sourceName));
+        ui->lblAptSourceName->setText(tr("%1 (Source Code)").arg(source));
     } else {
-        ui->lblAptSourceName->setText(sourceName);
+        ui->lblAptSourceName->setText(source);
     }
 
     ui->lblAptSourceName->setToolTip(ui->lblAptSourceName->text());
@@ -46,5 +46,5 @@ APTSourcePtr APTSourceRepositoryItem::aptSource() const
 
 void APTSourceRepositoryItem::on_checkAptSource_clicked(bool checked)
 {
-    ToolManager::ins()->changeStatus(mAptSource, checked);
+    ToolManager::ins()->changeAPTStatus(mAptSource, checked);
 }

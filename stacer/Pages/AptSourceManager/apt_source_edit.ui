@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>452</width>
-    <height>260</height>
+    <height>295</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -26,11 +26,8 @@
    <property name="bottomMargin">
     <number>15</number>
    </property>
-   <property name="horizontalSpacing">
+   <property name="spacing">
     <number>15</number>
-   </property>
-   <property name="verticalSpacing">
-    <number>10</number>
    </property>
    <item row="0" column="0" colspan="4">
     <widget class="QLabel" name="lblTitle">

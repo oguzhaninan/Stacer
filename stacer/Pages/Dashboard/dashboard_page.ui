@@ -30,7 +30,7 @@
     <number>5</number>
    </property>
    <property name="bottomMargin">
-    <number>10</number>
+    <number>5</number>
    </property>
    <property name="spacing">
     <number>0</number>

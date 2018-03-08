@@ -1,10 +1,5 @@
 #include "process.h"
 
-Process::Process()
-{
-
-}
-
 pid_t Process::getPid() const
 {
     return pid;

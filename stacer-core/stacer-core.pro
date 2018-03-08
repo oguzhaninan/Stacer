@@ -6,6 +6,10 @@
 
 QT       -= gui
 
+QT       += core network
+
+CONFIG += c++11
+
 TARGET = stacer-core
 TEMPLATE = lib
 

@@ -10,17 +10,9 @@ App::~App()
 App::App(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::App),
-    slidingStacked(new SlidingStackedWidget(this)),
-    dashboardPage(new DashboardPage(slidingStacked)),
-    startupAppsPage(new StartupAppsPage(slidingStacked)),
-    systemCleanerPage(new SystemCleanerPage(slidingStacked)),
-    servicesPage(new ServicesPage(slidingStacked)),
-    processPage(new ProcessesPage(slidingStacked)),
-    uninstallerPage(new UninstallerPage(slidingStacked)),
-    resourcesPage(new ResourcesPage(slidingStacked)),
-    settingsPage(new SettingsPage(slidingStacked)),
-    trayIcon(AppManager::ins()->getTrayIcon()),
-    trayMenu(new QMenu(this))
+    mSlidingStacked(new SlidingStackedWidget(this)),
+    mTrayIcon(AppManager::ins()->getTrayIcon()),
+    mTrayMenu(new QMenu(this))
 {
     ui->setupUi(this);
 
@@ -38,39 +30,51 @@ void App::init()
     ui->horizontalLayout->setContentsMargins(0,0,0,0);
     ui->horizontalLayout->setSpacing(0);
 
-    ui->pageContentLayout->addWidget(slidingStacked);
+    dashboardPage = new DashboardPage(mSlidingStacked);
+    startupAppsPage = new StartupAppsPage(mSlidingStacked);
+    systemCleanerPage = new SystemCleanerPage(mSlidingStacked);
+    servicesPage = new ServicesPage(mSlidingStacked);
+    processPage = new ProcessesPage(mSlidingStacked);
+    uninstallerPage = new UninstallerPage(mSlidingStacked);
+    resourcesPage = new ResourcesPage(mSlidingStacked);
+    settingsPage = new SettingsPage(mSlidingStacked);
 
-    listPages = {
+    ui->pageContentLayout->addWidget(mSlidingStacked);
+
+    mListPages = {
         dashboardPage, startupAppsPage, systemCleanerPage, servicesPage,
         processPage, uninstallerPage, resourcesPage, settingsPage
     };
 
-    listSidebarButtons = {
+    mListSidebarButtons = {
         ui->btnDash, ui->btnStartupApps, ui->btnSystemCleaner, ui->btnServices,
         ui->btnProcesses, ui->btnUninstaller, ui->btnResources, ui->btnSettings
     };
 
     // APT SOURCE MANAGER
     if (ToolManager::ins()->checkSourceRepository()) {
-        aptSourceManagerPage = new APTSourceManagerPage(slidingStacked);
-        listPages.insert(7, aptSourceManagerPage);
-        listSidebarButtons.insert(7, ui->btnAptSourceManager);
+        aptSourceManagerPage = new APTSourceManagerPage(mSlidingStacked);
+        mListPages.insert(7, aptSourceManagerPage);
+        mListSidebarButtons.insert(7, ui->btnAptSourceManager);
     } else {
         ui->btnAptSourceManager->hide();
     }
 
     // GNOME SETTINGS
-    if (GnomeSettingsTool::ins().checkGSettings()) {
-        gnomeSettingsPage = new GnomeSettingsPage(slidingStacked);
-        listPages.insert(8, gnomeSettingsPage);
-        listSidebarButtons.insert(8, ui->btnGnomeSettings);
+    bool checkDesktopSession = QString(qgetenv("DESKTOP_SESSION")).contains(QRegExp("ubuntu", Qt::CaseInsensitive));
+    bool checkDistribution = SystemInfo().getDistribution().contains(QRegExp("ubuntu", Qt::CaseInsensitive));;
+
+    if (checkDesktopSession || checkDistribution) {
+        gnomeSettingsPage = new GnomeSettingsPage(mSlidingStacked);
+        mListPages.insert(8, gnomeSettingsPage);
+        mListSidebarButtons.insert(8, ui->btnGnomeSettings);
     } else {
         ui->btnGnomeSettings->hide();
     }
 
     // add pages
-    for (QWidget *page: listPages) {
-        slidingStacked->addWidget(page);
+    for (QWidget *page: mListPages) {
+        mSlidingStacked->addWidget(page);
     }
 
     AppManager::ins()->updateStylesheet();
@@ -82,34 +86,33 @@ void App::init()
 
     createTrayActions();
 
-    trayIcon->show();
+    mTrayIcon->show();
 }
 
 void App::closeEvent(QCloseEvent *event)
 {
-    event->accept();
-//    event->ignore();
-//    hide();
+    event->ignore();
+    hide();
 }
 
 void App::createTrayActions()
 {
-    for (QPushButton *button: listSidebarButtons) {
+    for (QPushButton *button: mListSidebarButtons) {
         QString toolTip = button->toolTip();
         QAction *action = new QAction(toolTip, this);
         connect(action, &QAction::triggered, [=] {
             clickSidebarButton(toolTip, true);
         });
-        trayMenu->addAction(action);
+        mTrayMenu->addAction(action);
     }
 
-    trayMenu->addSeparator();
+    mTrayMenu->addSeparator();
 
     QAction *quitAction = new QAction(tr("Quit"), this);
     connect(quitAction, &QAction::triggered, [=] {qApp->quit();});
-    trayMenu->addAction(quitAction);
+    mTrayMenu->addAction(quitAction);
 
-    trayIcon->setContextMenu(trayMenu);
+    mTrayIcon->setContextMenu(mTrayMenu);
 }
 
 void App::clickSidebarButton(QString pageTitle, bool isShow)
@@ -119,16 +122,14 @@ void App::clickSidebarButton(QString pageTitle, bool isShow)
         pageClick(selectedWidget, !isShow);
         checkSidebarButtonByTooltip(pageTitle);
     } else {
-        pageClick(listPages.first());
+        pageClick(mListPages.first());
     }
-    if (isShow) {
-        show();
-    }
+    setVisible(isShow);
 }
 
 void App::checkSidebarButtonByTooltip(const QString &text)
 {
-    for (QPushButton *button: listSidebarButtons) {
+    for (QPushButton *button: mListSidebarButtons) {
         if (button->toolTip() == text) {
             button->setChecked(true);
         }
@@ -137,7 +138,7 @@ void App::checkSidebarButtonByTooltip(const QString &text)
 
 QWidget* App::getPageByTitle(const QString &title)
 {
-    for (QWidget *page: listPages) {
+    for (QWidget *page: mListPages) {
         if (page->windowTitle() == title) {
             return page;
         }
@@ -150,9 +151,9 @@ void App::pageClick(QWidget *widget, bool slide)
     if (widget) {
         ui->pageTitle->setText(widget->windowTitle());
         if (slide) {
-            slidingStacked->slideInIdx(slidingStacked->indexOf(widget));
+            mSlidingStacked->slideInIdx(mSlidingStacked->indexOf(widget));
         } else {
-            slidingStacked->setCurrentWidget(widget);
+            mSlidingStacked->setCurrentWidget(widget);
         }
     }
 }

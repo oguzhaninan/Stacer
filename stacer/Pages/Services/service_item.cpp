@@ -7,7 +7,11 @@ ServiceItem::~ServiceItem()
     delete ui;
 }
 
-ServiceItem::ServiceItem(const QString &name, const QString description, const bool status, const bool active, QWidget *parent) :
+ServiceItem::ServiceItem(const QString &name,
+                         const QString description,
+                         const bool status,
+                         const bool active,
+                         QWidget *parent) :
     QWidget(parent),
     ui(new Ui::ServiceItem),
     tm(ToolManager::ins())
@@ -27,7 +31,7 @@ ServiceItem::ServiceItem(const QString &name, const QString description, const b
 
 void ServiceItem::on_checkServiceStartup_clicked(bool status)
 {
-    auto name = ui->lblServiceName->text();
+    QString name = ui->lblServiceName->text();
 
     tm->changeServiceStatus(name, status);
 
@@ -36,7 +40,7 @@ void ServiceItem::on_checkServiceStartup_clicked(bool status)
 
 void ServiceItem::on_checkServiceRunning_clicked(bool status)
 {
-    auto name = ui->lblServiceName->text();
+    QString name = ui->lblServiceName->text();
 
     tm->changeServiceActive(name, status);
 
