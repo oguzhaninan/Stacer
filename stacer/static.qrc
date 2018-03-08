@@ -15,7 +15,6 @@
         <file>static/themes/common/img/not-found.png</file>
         <file>static/themes/default/img/edit.png</file>
         <file>static/themes/default/img/service.png</file>
-        <file>static/themes/default/img/package.png</file>
         <file>static/themes/default/img/search.png</file>
         <file>static/themes/common/img/check.png</file>
         <file>static/themes/common/img/un-check.png</file>
@@ -53,7 +52,6 @@
         <file>static/themes/light/img/scan.png</file>
         <file>static/themes/light/img/scanLoading.gif</file>
         <file>static/themes/light/img/loading.gif</file>
-        <file>static/themes/light/img/package.png</file>
         <file>static/themes/light/style/values.ini</file>
         <file>static/themes/default/style/values.ini</file>
         <file>static/logo.png</file>
@@ -74,5 +72,6 @@
         <file>static/themes/light/img/collapse.png</file>
         <file>static/themes/light/img/fit.png</file>
         <file>static/themes/light/img/trash.png</file>
+        <file>static/themes/common/img/package.png</file>
     </qresource>
 </RCC>
