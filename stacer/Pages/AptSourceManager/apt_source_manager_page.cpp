@@ -29,7 +29,11 @@ void APTSourceManagerPage::init()
 
     on_btnCancel_clicked();
 
-    Utilities::addDropShadow(ui->txtSearchAptSource, 40);
+    QList<QWidget*> widgets = {
+        ui->btnAddAPTSourceRepository, ui->btnCancel, ui->btnDeleteAptSource, ui->btnEditAptSource,
+        ui->txtSearchAptSource, ui->txtSearchAptSource
+    };
+    Utilities::addDropShadow(widgets, 40);
 }
 
 void APTSourceManagerPage::loadAptSources()
