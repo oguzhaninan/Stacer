@@ -6,27 +6,27 @@
     <message>
         <location filename="../stacer/Pages/AptSourceManager/apt_source_edit.ui" line="14"/>
         <source>APT Repository Edit</source>
-        <translation type="unfinished"></translation>
+        <translation>APT Référentiel Modifier</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/AptSourceManager/apt_source_edit.ui" line="38"/>
         <source>APT Repository</source>
-        <translation type="unfinished"></translation>
+        <translation>APT Référentiel</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/AptSourceManager/apt_source_edit.ui" line="48"/>
         <source>Components</source>
-        <translation type="unfinished"></translation>
+        <translation>Composants</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/AptSourceManager/apt_source_edit.ui" line="55"/>
         <source>Options</source>
-        <translation type="unfinished"></translation>
+        <translation>Options</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/AptSourceManager/apt_source_edit.ui" line="71"/>
         <source>Cancel</source>
-        <translation type="unfinished"></translation>
+        <translation>Annuler</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/AptSourceManager/apt_source_edit.ui" line="87"/>
@@ -36,7 +36,7 @@
     <message>
         <location filename="../stacer/Pages/AptSourceManager/apt_source_edit.ui" line="94"/>
         <source>URI</source>
-        <translation type="unfinished"></translation>
+        <translation>URI</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/AptSourceManager/apt_source_edit.ui" line="110"/>
@@ -46,17 +46,17 @@
     <message>
         <location filename="../stacer/Pages/AptSourceManager/apt_source_edit.ui" line="133"/>
         <source>Distribution</source>
-        <translation type="unfinished"></translation>
+        <translation>Distribution</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/AptSourceManager/apt_source_edit.ui" line="152"/>
         <source>Source</source>
-        <translation type="unfinished"></translation>
+        <translation>La source</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/AptSourceManager/apt_source_edit.ui" line="177"/>
         <source>Binary</source>
-        <translation type="unfinished"></translation>
+        <translation>Binaire</translation>
     </message>
 </context>
 <context>
@@ -74,12 +74,12 @@
     <message>
         <location filename="../stacer/Pages/AptSourceManager/apt_source_manager_page.ui" line="14"/>
         <source>APT Repository Manager</source>
-        <translation type="unfinished"></translation>
+        <translation>APT Gestionnaire de référentiel</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/AptSourceManager/apt_source_manager_page.ui" line="125"/>
         <source>Not Found APT Repositories</source>
-        <translation type="unfinished"></translation>
+        <translation>Les référentiels APT non trouvés</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/AptSourceManager/apt_source_manager_page.ui" line="269"/>
@@ -89,33 +89,33 @@
     <message>
         <location filename="../stacer/Pages/AptSourceManager/apt_source_manager_page.ui" line="308"/>
         <source>Enable Source</source>
-        <translation type="unfinished"></translation>
+        <translation>Activer la source</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/AptSourceManager/apt_source_manager_page.ui" line="338"/>
         <location filename="../stacer/Pages/AptSourceManager/apt_source_manager_page.cpp" line="86"/>
         <source>Add Repository</source>
-        <translation type="unfinished"></translation>
+        <translation>Ajouter un référentiel</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/AptSourceManager/apt_source_manager_page.ui" line="371"/>
         <source>Cancel</source>
-        <translation type="unfinished"></translation>
+        <translation>Annuler</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/AptSourceManager/apt_source_manager_page.ui" line="419"/>
         <source>Select to delete or edit.</source>
-        <translation type="unfinished"></translation>
+        <translation>Sélectionnez pour supprimer ou modifier.</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/AptSourceManager/apt_source_manager_page.cpp" line="25"/>
         <source>example %1</source>
-        <translation type="unfinished"></translation>
+        <translation>exemple %1</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/AptSourceManager/apt_source_manager_page.cpp" line="59"/>
         <source>APT Repositories (%1)</source>
-        <translation type="unfinished"></translation>
+        <translation>Référentiels APT (%1)</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/AptSourceManager/apt_source_manager_page.cpp" line="66"/>
@@ -128,7 +128,7 @@
     <message>
         <location filename="../stacer/Pages/AptSourceManager/apt_source_repository_item.cpp" line="34"/>
         <source>%1 (Source Code)</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 (Code Source)</translation>
     </message>
 </context>
 <context>
@@ -141,7 +141,7 @@
     <message>
         <location filename="../stacer/app.ui" line="135"/>
         <source>Startup Apps</source>
-        <translation type="unfinished"></translation>
+        <translation>Applications de démarrage</translation>
     </message>
     <message>
         <location filename="../stacer/app.ui" line="163"/>
@@ -151,7 +151,7 @@
     <message>
         <location filename="../stacer/app.ui" line="306"/>
         <source>APT Repository Manager</source>
-        <translation type="unfinished"></translation>
+        <translation>APT Gestionnaire de référentiel</translation>
     </message>
     <message>
         <location filename="../stacer/app.ui" line="250"/>
@@ -176,7 +176,7 @@
     <message>
         <location filename="../stacer/app.ui" line="334"/>
         <source>Gnome Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Paramètres Gnome</translation>
     </message>
     <message>
         <location filename="../stacer/app.ui" line="362"/>
@@ -186,12 +186,12 @@
     <message>
         <location filename="../stacer/app.ui" line="403"/>
         <source>Feedback</source>
-        <translation type="unfinished"></translation>
+        <translation>Retour d&apos;information</translation>
     </message>
     <message>
         <location filename="../stacer/app.cpp" line="111"/>
         <source>Quit</source>
-        <translation type="unfinished"></translation>
+        <translation>Quitter</translation>
     </message>
 </context>
 <context>
@@ -377,32 +377,32 @@
     <message>
         <location filename="../stacer/Pages/Dashboard/dashboard_page.cpp" line="133"/>
         <source>High CPU Usage</source>
-        <translation type="unfinished"></translation>
+        <translation>Utilisation élevée du CPU</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/Dashboard/dashboard_page.cpp" line="134"/>
         <source>The amount of CPU used is over %1%.</source>
-        <translation type="unfinished"></translation>
+        <translation>La quantité de CPU utilisée est terminée %1%.</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/Dashboard/dashboard_page.cpp" line="162"/>
         <source>High Memory Usage</source>
-        <translation type="unfinished"></translation>
+        <translation>Utilisation élevée de la mémoire</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/Dashboard/dashboard_page.cpp" line="163"/>
         <source>The amount of memory used is over %1%.</source>
-        <translation type="unfinished"></translation>
+        <translation>La quantité de mémoire utilisée est terminée %1%.</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/Dashboard/dashboard_page.cpp" line="202"/>
         <source>High Disk Usage</source>
-        <translation type="unfinished"></translation>
+        <translation>Utilisation élevée du disque</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/Dashboard/dashboard_page.cpp" line="203"/>
         <source>The amount of disk used is over %1%.</source>
-        <translation type="unfinished"></translation>
+        <translation>La quantité de disque utilisée est terminée %1%.</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/Dashboard/dashboard_page.cpp" line="241"/>
