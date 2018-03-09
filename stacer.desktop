@@ -1,4 +1,3 @@
-#!/usr/bin/env xdg-open
 [Desktop Entry]
 Name=Stacer
 Exec=stacer
@@ -7,4 +6,4 @@ Icon=stacer
 Type=Application
 Terminal=false
 Encoding=UTF-8
-Categories=Utilities;
+Categories=Utility;

@@ -1,10 +1,9 @@
-#!/usr/bin/env xdg-open
 [Desktop Entry]
-Name=Stacer
-Exec=gksu -u $USER stacer
+Name=Stacer (Sudo)
+Exec=gksu stacer
 Comment=Linux System Optimizer and Monitoring
 Icon=stacer
 Type=Application
 Terminal=false
 Encoding=UTF-8
-Categories=Utilities;
+Categories=Utility;

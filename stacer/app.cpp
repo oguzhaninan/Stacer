@@ -125,6 +125,7 @@ void App::clickSidebarButton(QString pageTitle, bool isShow)
         pageClick(mListPages.first());
     }
     setVisible(isShow);
+    if (isShow) activateWindow();
 }
 
 void App::checkSidebarButtonByTooltip(const QString &text)
