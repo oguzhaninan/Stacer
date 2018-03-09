@@ -857,7 +857,7 @@ QLabel[accessibleName="dialog-title"] {
 }
 
 #btnDownloadUpdate {
-    background-color: @color02;
+    background-color: @sidebar;
     padding: 4 10;
 }
 
@@ -894,10 +894,6 @@ QLabel[accessibleName="dialog-title"] {
 
 #listWidgetAptSources {
     selection-background-color: @color03;
-}
-
-#listWidgetAptSources::item {
-    padding: 0 0 0 4;
 }
 
 /* - APT Source Repository Item - */

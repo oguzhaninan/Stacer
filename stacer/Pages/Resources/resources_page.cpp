@@ -161,12 +161,12 @@ void ResourcesPage::updateNetworkChart()
 
     // Download
     seriesList.at(0)->insert(0, QPointF(0, d_RXbytes));
-    seriesList.at(0)->setName(tr("Download %1/s Total: %2")
+    seriesList.at(0)->setName(tr("Download: %1/s Total: %2")
                               .arg(downText)
                               .arg(FormatUtil::formatBytes(RXbytes)));
 
     seriesList.at(1)->insert(0, QPointF(0, d_TXbytes));
-    seriesList.at(1)->setName(tr("Upload %1/s  Total: %2")
+    seriesList.at(1)->setName(tr("Upload: %1/s  Total: %2")
                               .arg(upText)
                               .arg(FormatUtil::formatBytes(TXbytes)));
 
@@ -210,7 +210,7 @@ void ResourcesPage::updateMemoryChart()
         percent = ((double) im->getSwapUsed() / (double) im->getSwapTotal()) * 100.0;
 
     seriesList.at(0)->insert(0, QPointF(0, percent));
-    seriesList.at(0)->setName(tr("Swap %1 (%2%) %3")
+    seriesList.at(0)->setName(tr("Swap: %1 (%2%) %3")
                               .arg(FormatUtil::formatBytes(im->getSwapUsed()))
                               .arg(QString().sprintf("%.1f",percent))
                               .arg(FormatUtil::formatBytes(im->getSwapTotal())));
@@ -219,7 +219,7 @@ void ResourcesPage::updateMemoryChart()
     double percent2 = ((double) im->getMemUsed() / (double) im->getMemTotal()) * 100.0;
 
     seriesList.at(1)->insert(0, QPointF(0, percent2));
-    seriesList.at(1)->setName(tr("Memory %1 (%2%) %3")
+    seriesList.at(1)->setName(tr("Memory: %1 (%2%) %3")
                               .arg(FormatUtil::formatBytes(im->getMemUsed()))
                               .arg(QString().sprintf("%.1f",percent2))
                               .arg(FormatUtil::formatBytes(im->getMemTotal())));
@@ -245,7 +245,7 @@ void ResourcesPage::updateCpuChart()
 
         seriesList.at(j)->insert(0, QPointF(0, p));
 
-        seriesList.at(j)->setName(QString("CPU%1 %2%").arg(j+1).arg(p));
+        seriesList.at(j)->setName(QString("CPU%1: %2%").arg(j+1).arg(p));
 
         if(second > 61) seriesList.at(j)->removePoints(61, 1);
     }

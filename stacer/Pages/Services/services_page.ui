@@ -13,326 +13,273 @@
   <property name="windowTitle">
    <string>Services</string>
   </property>
-  <layout class="QVBoxLayout" name="verticalLayout_2">
-   <property name="spacing">
-    <number>0</number>
-   </property>
+  <layout class="QGridLayout" name="gridLayout">
    <property name="leftMargin">
-    <number>0</number>
+    <number>30</number>
    </property>
    <property name="topMargin">
     <number>0</number>
    </property>
    <property name="rightMargin">
-    <number>0</number>
+    <number>30</number>
    </property>
    <property name="bottomMargin">
+    <number>25</number>
+   </property>
+   <property name="spacing">
     <number>0</number>
    </property>
-   <item>
-    <widget class="QWidget" name="widgetServicePage" native="true">
+   <item row="0" column="0">
+    <layout class="QHBoxLayout" name="titlesLayout">
+     <property name="spacing">
+      <number>20</number>
+     </property>
+     <property name="leftMargin">
+      <number>15</number>
+     </property>
+     <property name="topMargin">
+      <number>5</number>
+     </property>
+     <property name="rightMargin">
+      <number>45</number>
+     </property>
+     <property name="bottomMargin">
+      <number>5</number>
+     </property>
+     <item alignment="Qt::AlignLeft|Qt::AlignVCenter">
+      <widget class="QLabel" name="lblServicesTitle">
+       <property name="font">
+        <font>
+         <family>Ubuntu</family>
+         <pointsize>11</pointsize>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true"/>
+       </property>
+       <property name="text">
+        <string notr="true">System Services</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QComboBox" name="cmbStartupStatus">
+       <property name="minimumSize">
+        <size>
+         <width>120</width>
+         <height>0</height>
+        </size>
+       </property>
+       <property name="sizeAdjustPolicy">
+        <enum>QComboBox::AdjustToMinimumContentsLength</enum>
+       </property>
+       <property name="frame">
+        <bool>false</bool>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QComboBox" name="cmbRunningStatus">
+       <property name="minimumSize">
+        <size>
+         <width>120</width>
+         <height>0</height>
+        </size>
+       </property>
+       <property name="sizeAdjustPolicy">
+        <enum>QComboBox::AdjustToMinimumContentsLength</enum>
+       </property>
+       <property name="frame">
+        <bool>false</bool>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <spacer name="horizontalSpacer">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>40</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item alignment="Qt::AlignLeft">
+      <widget class="QLabel" name="lblServiceStartupImg">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="minimumSize">
+        <size>
+         <width>20</width>
+         <height>20</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>80</width>
+         <height>16777215</height>
+        </size>
+       </property>
+       <property name="font">
+        <font>
+         <family>Ubuntu</family>
+         <pointsize>10</pointsize>
+        </font>
+       </property>
+       <property name="toolTip">
+        <string>Startup at boot ?</string>
+       </property>
+       <property name="styleSheet">
+        <string notr="true"/>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <spacer name="horizontalSpacer_2">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeType">
+        <enum>QSizePolicy::Fixed</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>40</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item alignment="Qt::AlignRight">
+      <widget class="QLabel" name="lblSystemRunningImg">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="minimumSize">
+        <size>
+         <width>20</width>
+         <height>20</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>100</width>
+         <height>16777215</height>
+        </size>
+       </property>
+       <property name="font">
+        <font>
+         <family>Ubuntu</family>
+         <pointsize>10</pointsize>
+        </font>
+       </property>
+       <property name="toolTip">
+        <string>Running Now ?</string>
+       </property>
+       <property name="styleSheet">
+        <string notr="true"/>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+   <item row="1" column="0" alignment="Qt::AlignVCenter">
+    <widget class="QWidget" name="notFoundWidget" native="true">
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+     <property name="minimumSize">
+      <size>
+       <width>0</width>
+       <height>200</height>
+      </size>
+     </property>
+     <property name="maximumSize">
+      <size>
+       <width>16777215</width>
+       <height>9999999</height>
+      </size>
+     </property>
      <property name="styleSheet">
       <string notr="true"/>
      </property>
-     <layout class="QVBoxLayout" name="verticalLayout">
+     <layout class="QVBoxLayout" name="notFoundLayout">
       <property name="spacing">
        <number>0</number>
       </property>
       <property name="leftMargin">
-       <number>30</number>
+       <number>0</number>
       </property>
       <property name="topMargin">
-       <number>5</number>
+       <number>0</number>
       </property>
       <property name="rightMargin">
-       <number>30</number>
+       <number>0</number>
       </property>
       <property name="bottomMargin">
-       <number>30</number>
+       <number>0</number>
       </property>
-      <item>
-       <layout class="QHBoxLayout" name="titlesLayout">
-        <property name="spacing">
-         <number>20</number>
-        </property>
-        <property name="leftMargin">
-         <number>15</number>
-        </property>
-        <property name="topMargin">
-         <number>5</number>
-        </property>
-        <property name="rightMargin">
-         <number>45</number>
-        </property>
-        <property name="bottomMargin">
-         <number>5</number>
-        </property>
-        <item alignment="Qt::AlignLeft|Qt::AlignVCenter">
-         <widget class="QLabel" name="lblServicesTitle">
-          <property name="font">
-           <font>
-            <family>Ubuntu</family>
-            <pointsize>11</pointsize>
-           </font>
-          </property>
-          <property name="styleSheet">
-           <string notr="true"/>
-          </property>
-          <property name="text">
-           <string notr="true">System Services</string>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QComboBox" name="cmbStartupStatus">
-          <property name="minimumSize">
-           <size>
-            <width>120</width>
-            <height>0</height>
-           </size>
-          </property>
-          <property name="sizeAdjustPolicy">
-           <enum>QComboBox::AdjustToMinimumContentsLength</enum>
-          </property>
-          <property name="frame">
-           <bool>false</bool>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QComboBox" name="cmbRunningStatus">
-          <property name="minimumSize">
-           <size>
-            <width>120</width>
-            <height>0</height>
-           </size>
-          </property>
-          <property name="sizeAdjustPolicy">
-           <enum>QComboBox::AdjustToMinimumContentsLength</enum>
-          </property>
-          <property name="frame">
-           <bool>false</bool>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <spacer name="horizontalSpacer">
-          <property name="orientation">
-           <enum>Qt::Horizontal</enum>
-          </property>
-          <property name="sizeHint" stdset="0">
-           <size>
-            <width>40</width>
-            <height>20</height>
-           </size>
-          </property>
-         </spacer>
-        </item>
-        <item alignment="Qt::AlignLeft">
-         <widget class="QLabel" name="lblServiceStartupImg">
-          <property name="sizePolicy">
-           <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-            <horstretch>0</horstretch>
-            <verstretch>0</verstretch>
-           </sizepolicy>
-          </property>
-          <property name="minimumSize">
-           <size>
-            <width>20</width>
-            <height>20</height>
-           </size>
-          </property>
-          <property name="maximumSize">
-           <size>
-            <width>80</width>
-            <height>16777215</height>
-           </size>
-          </property>
-          <property name="font">
-           <font>
-            <family>Ubuntu</family>
-            <pointsize>10</pointsize>
-           </font>
-          </property>
-          <property name="toolTip">
-           <string>Startup at boot ?</string>
-          </property>
-          <property name="styleSheet">
-           <string notr="true"/>
-          </property>
-          <property name="text">
-           <string/>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <spacer name="horizontalSpacer_2">
-          <property name="orientation">
-           <enum>Qt::Horizontal</enum>
-          </property>
-          <property name="sizeType">
-           <enum>QSizePolicy::Fixed</enum>
-          </property>
-          <property name="sizeHint" stdset="0">
-           <size>
-            <width>40</width>
-            <height>20</height>
-           </size>
-          </property>
-         </spacer>
-        </item>
-        <item alignment="Qt::AlignRight">
-         <widget class="QLabel" name="lblSystemRunningImg">
-          <property name="sizePolicy">
-           <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-            <horstretch>0</horstretch>
-            <verstretch>0</verstretch>
-           </sizepolicy>
-          </property>
-          <property name="minimumSize">
-           <size>
-            <width>20</width>
-            <height>20</height>
-           </size>
-          </property>
-          <property name="maximumSize">
-           <size>
-            <width>100</width>
-            <height>16777215</height>
-           </size>
-          </property>
-          <property name="font">
-           <font>
-            <family>Ubuntu</family>
-            <pointsize>10</pointsize>
-           </font>
-          </property>
-          <property name="toolTip">
-           <string>Running Now ?</string>
-          </property>
-          <property name="styleSheet">
-           <string notr="true"/>
-          </property>
-          <property name="text">
-           <string/>
-          </property>
-         </widget>
-        </item>
-       </layout>
-      </item>
-      <item>
-       <widget class="QWidget" name="notFoundWidget" native="true">
-        <property name="sizePolicy">
-         <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
-          <horstretch>0</horstretch>
-          <verstretch>0</verstretch>
-         </sizepolicy>
-        </property>
-        <property name="minimumSize">
-         <size>
-          <width>0</width>
-          <height>200</height>
-         </size>
-        </property>
-        <property name="maximumSize">
-         <size>
-          <width>16777215</width>
-          <height>9999999</height>
-         </size>
-        </property>
-        <property name="styleSheet">
-         <string notr="true"/>
-        </property>
-        <layout class="QVBoxLayout" name="notFoundLayout">
-         <property name="spacing">
-          <number>0</number>
-         </property>
-         <property name="leftMargin">
-          <number>0</number>
-         </property>
-         <property name="topMargin">
-          <number>0</number>
-         </property>
-         <property name="rightMargin">
-          <number>0</number>
-         </property>
-         <property name="bottomMargin">
-          <number>0</number>
-         </property>
-         <item>
-          <spacer name="verticalSpacer_2">
-           <property name="orientation">
-            <enum>Qt::Vertical</enum>
-           </property>
-           <property name="sizeType">
-            <enum>QSizePolicy::Fixed</enum>
-           </property>
-           <property name="sizeHint" stdset="0">
-            <size>
-             <width>20</width>
-             <height>180</height>
-            </size>
-           </property>
-          </spacer>
-         </item>
-         <item alignment="Qt::AlignHCenter|Qt::AlignBottom">
-          <widget class="QLabel" name="lblNotFound">
-           <property name="text">
-            <string>Not Found System Service</string>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <spacer name="verticalSpacer">
-           <property name="orientation">
-            <enum>Qt::Vertical</enum>
-           </property>
-           <property name="sizeHint" stdset="0">
-            <size>
-             <width>20</width>
-             <height>0</height>
-            </size>
-           </property>
-          </spacer>
-         </item>
-        </layout>
-       </widget>
-      </item>
-      <item>
-       <widget class="QListWidget" name="listWidgetServices">
-        <property name="focusPolicy">
-         <enum>Qt::NoFocus</enum>
-        </property>
-        <property name="frameShape">
-         <enum>QFrame::NoFrame</enum>
-        </property>
-        <property name="horizontalScrollBarPolicy">
-         <enum>Qt::ScrollBarAlwaysOff</enum>
-        </property>
-        <property name="editTriggers">
-         <set>QAbstractItemView::NoEditTriggers</set>
-        </property>
-        <property name="selectionMode">
-         <enum>QAbstractItemView::NoSelection</enum>
-        </property>
-        <property name="selectionBehavior">
-         <enum>QAbstractItemView::SelectRows</enum>
-        </property>
-        <property name="resizeMode">
-         <enum>QListView::Adjust</enum>
-        </property>
-        <property name="layoutMode">
-         <enum>QListView::Batched</enum>
-        </property>
-        <property name="spacing">
-         <number>4</number>
-        </property>
-        <property name="uniformItemSizes">
-         <bool>true</bool>
+      <item alignment="Qt::AlignHCenter|Qt::AlignBottom">
+       <widget class="QLabel" name="lblNotFound">
+        <property name="text">
+         <string>Not Found System Service</string>
         </property>
        </widget>
       </item>
      </layout>
+    </widget>
+   </item>
+   <item row="2" column="0">
+    <widget class="QListWidget" name="listWidgetServices">
+     <property name="focusPolicy">
+      <enum>Qt::NoFocus</enum>
+     </property>
+     <property name="frameShape">
+      <enum>QFrame::NoFrame</enum>
+     </property>
+     <property name="horizontalScrollBarPolicy">
+      <enum>Qt::ScrollBarAlwaysOff</enum>
+     </property>
+     <property name="editTriggers">
+      <set>QAbstractItemView::NoEditTriggers</set>
+     </property>
+     <property name="selectionMode">
+      <enum>QAbstractItemView::NoSelection</enum>
+     </property>
+     <property name="selectionBehavior">
+      <enum>QAbstractItemView::SelectRows</enum>
+     </property>
+     <property name="resizeMode">
+      <enum>QListView::Adjust</enum>
+     </property>
+     <property name="layoutMode">
+      <enum>QListView::Batched</enum>
+     </property>
+     <property name="spacing">
+      <number>4</number>
+     </property>
+     <property name="uniformItemSizes">
+      <bool>true</bool>
+     </property>
     </widget>
    </item>
   </layout>

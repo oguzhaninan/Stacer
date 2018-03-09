@@ -25,7 +25,6 @@ void UninstallerPage::init()
     ui->lblLoadingUninstaller->setMovie(loadingMovie);
     loadingMovie->start();
     ui->lblLoadingUninstaller->hide();
-    ui->notFoundWidget->hide();
 
     Utilities::addDropShadow(ui->btnUninstall, 60);
     Utilities::addDropShadow(ui->txtPackageSearch, 40);
