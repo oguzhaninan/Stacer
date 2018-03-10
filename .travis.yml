@@ -14,5 +14,5 @@ before_script:
 - cmake -DCMAKE_BUILD_TYPE=release -DCMAKE_CXX_COMPILER=clang++ -DCMAKE_PREFIX_PATH=$QTDIR/bin ..
 script:
 - make -j $(nproc)
-- lupdate ../stacer/stacer.pro
+- lupdate ../stacer/stacer.pro -no-obsolete
 - lrelease ../stacer/stacer.pro
