@@ -79,16 +79,15 @@ void ProcessesPage::loadHeaderMenu()
         mHeaderMenu.addAction(action);
     }
 
-// exclude headers
-#define ex(n) mHeaders.indexOf(n)
-    QList<int> hiddenHeaders = { ex("Start Time"), ex("State"), ex("Group"),
-                                 ex("Nice"), ex("CPU Time"), ex("Session"), ex("Virtual Memory") };
-#undef ex
+    // exclude headers
+    QList<int> hiddenHeaders = { 3, 6, 7, 8, 9, 10, 11 };
 
     QList<QAction*> actions = mHeaderMenu.actions();
     for (const int i : hiddenHeaders) {
-        ui->tableProcess->horizontalHeader()->setSectionHidden(i, true);
-        actions.at(i)->setChecked(false);
+        if (i < mHeaders.count()) {
+            ui->tableProcess->horizontalHeader()->setSectionHidden(i, true);
+            actions.at(i)->setChecked(false);
+        }
     }
 }
 
