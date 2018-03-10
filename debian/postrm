@@ -1,0 +1,6 @@
+#!/bin/sh
+
+unlink /usr/bin/stacer
+rm -rf /usr/share/stacer
+
+exit 0 
