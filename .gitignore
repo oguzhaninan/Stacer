@@ -1,5 +1,6 @@
-Stacer.pro.user*
+Stacer.pro.*
 dist/
 build/
 #*.AppImage
 .vscode
+Release/
