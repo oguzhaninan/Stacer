@@ -1,9 +1,0 @@
-[Desktop Entry]
-Name=Stacer (Sudo)
-Exec=gksu stacer
-Comment=Linux System Optimizer and Monitoring
-Icon=stacer
-Type=Application
-Terminal=false
-Encoding=UTF-8
-Categories=Utility;
