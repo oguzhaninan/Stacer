@@ -4,7 +4,7 @@ RELEASE=Release
 DIR=stacer-$VERSION
 
 mkdir $RELEASE
-mkdir build || cd build
+mkdir build ; cd build
 cmake -DCMAKE_BUILD_TYPE=debug -DCMAKE_CXX_COMPILER=g++ -DCMAKE_PREFIX_PATH=$QTDIR/bin ..
 make -j `nproc`
 cd ..
