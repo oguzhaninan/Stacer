@@ -53,8 +53,10 @@ void SettingsPage::init()
         ui->cmbDisks->addItem(QString("%1  (%2)").arg(disk->device).arg(disk->name), disk->name);
     }
 
-    QString dk = mSettingManager->getDiskName();
-    ui->cmbDisks->setCurrentIndex(ui->cmbDisks->findData(dk));
+    QString dk = mSettingManager->getDiskName().isEmpty() ? QStorageInfo::root().displayName() : mSettingManager->getDiskName();
+    if (! dk.isEmpty()) {
+        ui->cmbDisks->setCurrentIndex(ui->cmbDisks->findData(dk));
+    }
 
     // start on boot
     mStartupAppPath = QStandardPaths::writableLocation(QStandardPaths::ConfigLocation).append("/autostart");

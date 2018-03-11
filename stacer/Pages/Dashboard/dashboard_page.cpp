@@ -186,7 +186,11 @@ void DashboardPage::updateDiskBar()
         }
 
         if (! disk) {
-            disk = im->getDisks().at(0);
+            for (Disk *d: im->getDisks())
+                if (d->name.trimmed() == QStorageInfo::root().displayName().trimmed())
+                    disk = d;
+            if (! disk)
+                disk = im->getDisks().at(0);
         }
 
         int diskPercent = 0;

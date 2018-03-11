@@ -521,12 +521,13 @@ QLabel[accessibleName="dialog-title"] {
     SYSTEM CLEANER PAGE
 ***************************/
 
-#SystemCleanerPage QCheckBox::indicator {
+#SystemCleanerPage QCheckBox[accessibleName=circle]::indicator {
     width: 26;
     height: 26;
 }
 
-#cleanerCategories QLabel {
+#cleanerCategories QLabel,
+#checkSelectAllSystemScan {
     font-size: 11pt;
     color: @color05;
 }

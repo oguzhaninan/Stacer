@@ -67,7 +67,6 @@ int main(int argc, char *argv[])
 
     app.processEvents();
 
-    qInstallMessageHandler(messageHandler);
 
     App w;
 

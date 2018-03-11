@@ -134,8 +134,6 @@ void SystemCleanerPage::systemScan()
         ui->checkAppCache->setEnabled(false);
         ui->checkTrash->setEnabled(false);
 
-        QThread::sleep(1);
-
         ui->treeWidgetScanResult->clear();
 
         // Package Caches
@@ -313,4 +311,14 @@ void SystemCleanerPage::on_btnBackToCategories_clicked()
     ui->checkTrash->setEnabled(true);
     ui->treeWidgetScanResult->clear();
     ui->stackedWidget->setCurrentIndex(0);
+    ui->checkSelectAllSystemScan->setChecked(false);
+}
+
+void SystemCleanerPage::on_checkSelectAllSystemScan_clicked(bool checked)
+{
+    ui->checkAppCache->setChecked(checked);
+    ui->checkAppLog->setChecked(checked);
+    ui->checkCrashReports->setChecked(checked);
+    ui->checkPackageCache->setChecked(checked);
+    ui->checkTrash->setChecked(checked);
 }

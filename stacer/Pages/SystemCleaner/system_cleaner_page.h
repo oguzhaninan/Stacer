@@ -48,6 +48,8 @@ private slots:
     void systemClean();
     bool cleanValid();
 
+    void on_checkSelectAllSystemScan_clicked(bool checked);
+
 private:
     void init();
 
