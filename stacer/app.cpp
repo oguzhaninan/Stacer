@@ -87,12 +87,34 @@ void App::init()
     createTrayActions();
 
     mTrayIcon->show();
+
+    createQuitMessageBox();
+}
+
+void App::createQuitMessageBox()
+{
+    mBtnQuit = new QPushButton(tr("Quit"), this);
+    mBtnQuit->setAccessibleName("danger");
+    mBtnContinue = new QPushButton(tr("Continue"), this);
+    mBtnContinue->setAccessibleName("primary");
+    mQuitMsgBox = new QMessageBox(this);
+    mQuitMsgBox->setWindowTitle(tr("Quit"));
+    mQuitMsgBox->setText(tr("Will the program continue to work in the system tray?"));
+    mQuitMsgBox->addButton(mBtnQuit, QMessageBox::YesRole);
+    mQuitMsgBox->addButton(mBtnContinue,  QMessageBox::NoRole);
 }
 
 void App::closeEvent(QCloseEvent *event)
 {
-    event->ignore();
-    hide();
+    mQuitMsgBox->exec();
+    if (mQuitMsgBox->clickedButton() == mBtnContinue) {
+        event->ignore();
+        hide();
+    } else if (mQuitMsgBox->clickedButton() == mBtnQuit) {
+        event->accept();
+    } else {
+        event->ignore();
+    }
 }
 
 void App::createTrayActions()

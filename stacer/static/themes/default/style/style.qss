@@ -62,6 +62,17 @@ QAbstractScrollArea::corner {
 }
 
 /*************
+    QMessageBox
+**************/
+QMessageBox {
+    background-color: #212f3c;
+}
+
+QMessageBox QLabel {
+    color: #fefefe;
+}
+
+/*************
     QMenu
 **************/
 QMenu {

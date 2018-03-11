@@ -57,6 +57,7 @@ private:
     QWidget *getPageByTitle(const QString &title);
     void checkSidebarButtonByTooltip(const QString &text);
     void createTrayActions();
+    void createQuitMessageBox();
 
 private:
     Ui::App *ui;
@@ -83,6 +84,9 @@ private:
     QSystemTrayIcon *mTrayIcon;
 
     QMenu *mTrayMenu;
+
+    QPushButton *mBtnQuit, *mBtnContinue;
+    QMessageBox *mQuitMsgBox;
 };
 
 #endif // APP_H
