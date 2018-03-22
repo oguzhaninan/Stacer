@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>784</width>
-    <height>507</height>
+    <width>1025</width>
+    <height>736</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -101,7 +101,7 @@
          </property>
         </widget>
        </item>
-       <item row="4" column="5" alignment="Qt::AlignHCenter">
+       <item row="4" column="5" alignment="Qt::AlignHCenter|Qt::AlignTop">
         <widget class="QCheckBox" name="checkAppCache">
          <property name="sizePolicy">
           <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
@@ -253,7 +253,7 @@
          </property>
         </widget>
        </item>
-       <item row="4" column="6" alignment="Qt::AlignHCenter">
+       <item row="4" column="6" alignment="Qt::AlignHCenter|Qt::AlignTop">
         <widget class="QCheckBox" name="checkTrash">
          <property name="sizePolicy">
           <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
@@ -275,7 +275,7 @@
          </property>
         </widget>
        </item>
-       <item row="4" column="3" alignment="Qt::AlignHCenter">
+       <item row="4" column="3" alignment="Qt::AlignHCenter|Qt::AlignTop">
         <widget class="QCheckBox" name="checkCrashReports">
          <property name="sizePolicy">
           <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
@@ -338,7 +338,7 @@
          </property>
         </spacer>
        </item>
-       <item row="4" column="2" alignment="Qt::AlignHCenter">
+       <item row="4" column="2" alignment="Qt::AlignHCenter|Qt::AlignTop">
         <widget class="QCheckBox" name="checkPackageCache">
          <property name="sizePolicy">
           <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
@@ -411,7 +411,7 @@
          </property>
         </widget>
        </item>
-       <item row="4" column="4" alignment="Qt::AlignHCenter">
+       <item row="4" column="4" alignment="Qt::AlignHCenter|Qt::AlignTop">
         <widget class="QCheckBox" name="checkAppLog">
          <property name="sizePolicy">
           <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
@@ -472,7 +472,7 @@
          </property>
         </widget>
        </item>
-       <item row="10" column="4">
+       <item row="10" column="4" alignment="Qt::AlignHCenter|Qt::AlignTop">
         <widget class="QCheckBox" name="checkSelectAllSystemScan">
          <property name="sizePolicy">
           <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
