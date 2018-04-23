@@ -10,5 +10,5 @@ Vcs-Browser: https://github.com/oguzhaninan/Stacer.git
 Package: stacer
 Architecture: all
 Depends: ${misc:Depends}
-Recommends: systemd curl
+Recommends: systemd, curl
 Description: Linux System Optimizer and Monitoring
