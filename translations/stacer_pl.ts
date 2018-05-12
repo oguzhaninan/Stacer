@@ -1066,7 +1066,7 @@
     <message>
         <location filename="../stacer/Pages/GnomeSettings/unity_settings.ui" line="507"/>
         <source>Left</source>
-        <translation>Na lewo</translation>>
+        <translation>Na lewo</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/GnomeSettings/unity_settings.ui" line="526"/>
