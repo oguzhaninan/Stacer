@@ -1,6 +1,7 @@
 #include "app.h"
 #include "ui_app.h"
 #include "utilities.h"
+#include <QStyle>
 
 App::~App()
 {
