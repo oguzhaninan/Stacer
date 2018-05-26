@@ -2,6 +2,7 @@
 #include "ui_startup_app_edit.h"
 #include "utilities.h"
 #include <QDebug>
+#include <QStyle>
 
 StartupAppEdit::~StartupAppEdit()
 {
