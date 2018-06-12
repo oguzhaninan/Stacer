@@ -76,8 +76,8 @@
 
 ### Fedora x64
 
-1. Download `stacer_1.0.9_x64.rpm` from the [Stacer releases page](https://github.com/oguzhaninan/Stacer/releases).
-2. Run `sudo rpm --install stacer*.rpm` on the downloaded package.
+1. Download `stacer_1.0.9_amd64.rpm` from the [Stacer releases page](https://github.com/oguzhaninan/Stacer/releases).
+2. Run `sudo rpm --install stacer*.rpm --nodeps --force` on the downloaded package.
 3. Launch Stacer using the installed `stacer` command.
 
 ## Build from source with CMake (Qt Version Qt 5.x)
