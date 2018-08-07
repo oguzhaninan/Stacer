@@ -7,6 +7,10 @@
   <a href="https://www.patreon.com/oguzhaninan">
 		<img alt="Patreon" src="https://c5.patreon.com/external/logo/become_a_patron_button.png"/>
 	</a>
+	
+<a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=PDMEZXLTSRLHE">
+	<img src="https://avaazimages.s3.amazonaws.com/paypal_donate_button.jpg" width="250" />
+</a>
 </p>
 
 <p align="center">
