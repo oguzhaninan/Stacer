@@ -1,0 +1,32 @@
+name: stacer
+version: native
+summary: Linux System Optimizer and Monitoring
+description: |
+        Stacer is an open source system optimizer and Application Monitor that helps users to manage entire system with different aspects, its an all in one system utility. It's features are Dashboard, System Cleaner, Startup Apps, Services, Uninstaller and Resources.
+
+grade: devel 
+confinement: strict 
+
+apps:
+  stacer:
+     command: stacer
+     plugs: [network, home, unity7]
+                            
+parts:
+  stacer:
+    plugin: nil 
+    source: .
+    build-packages:
+        - qt-sdk
+    after:
+        - linuxdeployqt
+    install: |
+         ./deploy.sh
+         ./install.sh
+
+  linuxdeployqt:
+        plugin: qmake
+        source: https://github.com/probonopd/linuxdeployqt.git 
+        build-packages:
+             - g++
+             - libgl1-mesa-dev
