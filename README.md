@@ -5,18 +5,15 @@
 <p align="center">
   <b>Linux System Optimizer and Monitoring</b>   <br>
   <a href="https://www.patreon.com/oguzhaninan">
-		<img alt="Patreon" src="https://c5.patreon.com/external/logo/become_a_patron_button.png"/>
-	</a>
+	<img alt="Patreon" src="https://c5.patreon.com/external/logo/become_a_patron_button.png" height="50" />
+</a>
 	
 <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=PDMEZXLTSRLHE">
-	<img src="https://avaazimages.s3.amazonaws.com/paypal_donate_button.jpg" width="250" />
+	<img src="https://avaazimages.s3.amazonaws.com/paypal_donate_button.jpg" height="50"  />
 </a>
 </p>
 
 <p align="center">
-    <a href="https://github.com/sindresorhus/awesome-electron">
-		<img alt="Awesome"  src="https://cdn.rawgit.com/sindresorhus/awesome/d7305f38d29fed78fa85652e3a63e154dd8e8829/media/badge.svg"/>
-	</a>    
 	<a href="https://sourceforge.net/projects/stacer/files/" rel="nofollow">
 		<img alt="Download Stacer" src="https://img.shields.io/sourceforge/dt/stacer.svg"/>
 	</a>
