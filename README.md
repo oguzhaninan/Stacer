@@ -20,6 +20,10 @@
 	<a href="http://www.kernel.org">
 		<img alt="Platform (GNU/Linux)" src="https://img.shields.io/badge/platform-GNU/Linux-blue.svg"/>
 	</a>
+	<a href="https://github.com/oguzhaninan/Stacer/releases">
+		<img alt="Github All Releases" src="https://img.shields.io/github/downloads/oguzhaninan/stacer/total.svg"/>
+	</a>
+
 </p>
 <p align="center">
 	<a href="https://sourceforge.net/projects/stacer/files/" >
