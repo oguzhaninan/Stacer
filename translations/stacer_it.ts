@@ -1309,7 +1309,7 @@
     <message>
         <location filename="../stacer/Pages/GnomeSettings/window_manager_settings.cpp" line="82"/>
         <source>Menu</source>
-        <translation>Menù</translation>
+        <translation>Men&ugrave;</translation>
     </message>
 </context>
 </TS>
