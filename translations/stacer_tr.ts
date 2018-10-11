@@ -645,22 +645,22 @@
     <message>
         <location filename="../stacer/Pages/Resources/resources_page.cpp" line="164"/>
         <source>Download: %1/s Total: %2</source>
-        <translation></translation>
+        <translation>İndirme: %1/s Toplam: %2</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/Resources/resources_page.cpp" line="169"/>
         <source>Upload: %1/s  Total: %2</source>
-        <translation></translation>
+        <translation>Gönderme %1/s  Toplam: %2</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/Resources/resources_page.cpp" line="213"/>
         <source>Swap: %1 (%2%) %3</source>
-        <translation></translation>
+        <translation>Takas Alanı: %1 (%2%) %3</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/Resources/resources_page.cpp" line="222"/>
         <source>Memory: %1 (%2%) %3</source>
-        <translation></translation>
+        <translation>Dahili Hafıza: %1 (%2%) %3</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/Resources/resources_page.ui" line="14"/>
