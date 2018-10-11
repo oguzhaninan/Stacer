@@ -645,22 +645,22 @@
     <message>
         <location filename="../stacer/Pages/Resources/resources_page.cpp" line="164"/>
         <source>Download: %1/s Total: %2</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../stacer/Pages/Resources/resources_page.cpp" line="169"/>
         <source>Upload: %1/s  Total: %2</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../stacer/Pages/Resources/resources_page.cpp" line="213"/>
         <source>Swap: %1 (%2%) %3</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../stacer/Pages/Resources/resources_page.cpp" line="222"/>
         <source>Memory: %1 (%2%) %3</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../stacer/Pages/Resources/resources_page.ui" line="14"/>
@@ -984,79 +984,79 @@
     <message>
         <location filename="../stacer/Pages/GnomeSettings/unity_settings.ui" line="65"/>
         <source>Applications</source>
-        <translation type="unfinished"></translation>
+        <translation>Uygulamalar</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/GnomeSettings/unity_settings.ui" line="108"/>
         <source>Show &quot;Recently Used&quot; applications</source>
-        <translation type="unfinished"></translation>
+        <translation>Göster &quot;Son Kullanılan&quot; uygulamalar</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/GnomeSettings/unity_settings.ui" line="134"/>
         <source>Enable search of your files</source>
-        <translation type="unfinished"></translation>
+        <translation>Dosyalarınızı aramayı etkinleştirin</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/GnomeSettings/unity_settings.ui" line="160"/>
         <source>Show &quot;More Suggestions&quot;</source>
-        <translation type="unfinished"></translation>
+        <translation>Göster &quot;Daha Fazla Öneri&quot;</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/GnomeSettings/unity_settings.ui" line="186"/>
         <source>Search</source>
-        <translation type="unfinished"></translation>
+        <translation>Ara</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/GnomeSettings/unity_settings.ui" line="196"/>
         <location filename="../stacer/Pages/GnomeSettings/unity_settings.ui" line="683"/>
         <source>General</source>
-        <translation type="unfinished"></translation>
+        <translation>Genel</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/GnomeSettings/unity_settings.ui" line="229"/>
         <location filename="../stacer/Pages/GnomeSettings/unity_settings.ui" line="660"/>
         <source>Transparency Level</source>
-        <translation type="unfinished"></translation>
+        <translation>Şeffaflık Seviyesi</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/GnomeSettings/unity_settings.ui" line="280"/>
         <source>Behaviour</source>
-        <translation type="unfinished"></translation>
+        <translation>Davranış</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/GnomeSettings/unity_settings.ui" line="323"/>
         <source>Auto Hide</source>
-        <translation type="unfinished"></translation>
+        <translation>Otomatik Gizle</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/GnomeSettings/unity_settings.ui" line="339"/>
         <source>Left Side</source>
-        <translation type="unfinished"></translation>
+        <translation>Sol Kısım</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/GnomeSettings/unity_settings.ui" line="380"/>
         <source>Minimize applications with clicking</source>
-        <translation type="unfinished"></translation>
+        <translation>Tıklayarak uygulamaları küçültün</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/GnomeSettings/unity_settings.ui" line="396"/>
         <source>Top-Left Corner</source>
-        <translation type="unfinished"></translation>
+        <translation>Sol Üst Köşe</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/GnomeSettings/unity_settings.ui" line="412"/>
         <source>Reveal Sensitivity</source>
-        <translation type="unfinished"></translation>
+        <translation>Hassasiyeti Göster</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/GnomeSettings/unity_settings.ui" line="438"/>
         <source>Reveal Location</source>
-        <translation type="unfinished"></translation>
+        <translation>Konumu Göster</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/GnomeSettings/unity_settings.ui" line="464"/>
         <source>Launcher</source>
-        <translation type="unfinished"></translation>
+        <translation>Başlatıcı</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/GnomeSettings/unity_settings.ui" line="474"/>
@@ -1066,102 +1066,102 @@
     <message>
         <location filename="../stacer/Pages/GnomeSettings/unity_settings.ui" line="507"/>
         <source>Left</source>
-        <translation type="unfinished"></translation>
+        <translation>Sol</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/GnomeSettings/unity_settings.ui" line="526"/>
         <source>Bottom</source>
-        <translation type="unfinished"></translation>
+        <translation>Alt</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/GnomeSettings/unity_settings.ui" line="542"/>
         <source>Visibility</source>
-        <translation type="unfinished"></translation>
+        <translation>Görünürlük</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/GnomeSettings/unity_settings.ui" line="558"/>
         <source>Primary Desktop</source>
-        <translation type="unfinished"></translation>
+        <translation>Birincil Masaüstü</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/GnomeSettings/unity_settings.ui" line="612"/>
         <source>Icon size</source>
-        <translation type="unfinished"></translation>
+        <translation>Simge boyutu</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/GnomeSettings/unity_settings.ui" line="628"/>
         <source>All Desktops</source>
-        <translation type="unfinished"></translation>
+        <translation>Tüm Masaüstü</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/GnomeSettings/unity_settings.ui" line="644"/>
         <source>Position</source>
-        <translation type="unfinished"></translation>
+        <translation>Pozisyon</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/GnomeSettings/unity_settings.ui" line="726"/>
         <source>Search online sources</source>
-        <translation type="unfinished"></translation>
+        <translation>Çevrimiçi arama kaynağı</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/GnomeSettings/unity_settings.ui" line="752"/>
         <source>Background Blur</source>
-        <translation type="unfinished"></translation>
+        <translation>Arka Plan Bulanıklığı</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/GnomeSettings/unity_settings.ui" line="778"/>
         <source>Panel</source>
-        <translation type="unfinished"></translation>
+        <translation>Panel</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/GnomeSettings/unity_settings.ui" line="801"/>
         <source>Indicators</source>
-        <translation type="unfinished"></translation>
+        <translation>Göstergeler</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/GnomeSettings/unity_settings.ui" line="840"/>
         <source>Date</source>
-        <translation type="unfinished"></translation>
+        <translation>Tarih</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/GnomeSettings/unity_settings.ui" line="862"/>
         <source>Calendar</source>
-        <translation type="unfinished"></translation>
+        <translation>Takvim</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/GnomeSettings/unity_settings.ui" line="875"/>
         <source>Date &amp; Time</source>
-        <translation type="unfinished"></translation>
+        <translation>Tarih &amp; Zaman</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/GnomeSettings/unity_settings.ui" line="888"/>
         <source>24-Hour Time</source>
-        <translation type="unfinished"></translation>
+        <translation>24 Saat Dilimi</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/GnomeSettings/unity_settings.ui" line="910"/>
         <source>Weekday</source>
-        <translation type="unfinished"></translation>
+        <translation>İş Günü</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/GnomeSettings/unity_settings.ui" line="923"/>
         <source>Include</source>
-        <translation type="unfinished"></translation>
+        <translation>Dahil Et</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/GnomeSettings/unity_settings.ui" line="945"/>
         <source>Seconds</source>
-        <translation type="unfinished"></translation>
+        <translation>Saniye</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/GnomeSettings/unity_settings.ui" line="958"/>
         <source>Volume</source>
-        <translation type="unfinished"></translation>
+        <translation>Ses</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/GnomeSettings/unity_settings.ui" line="971"/>
         <source>Show my name</source>
-        <translation type="unfinished"></translation>
+        <translation>İsmimi göster</translation>
     </message>
 </context>
 <context>
@@ -1169,147 +1169,147 @@
     <message>
         <location filename="../stacer/Pages/GnomeSettings/window_manager_settings.ui" line="90"/>
         <source>General</source>
-        <translation type="unfinished"></translation>
+        <translation>Genel</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/GnomeSettings/window_manager_settings.ui" line="100"/>
         <source>Titlebar Actions</source>
-        <translation type="unfinished"></translation>
+        <translation>Başlık Çubuğu İşlemleri</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/GnomeSettings/window_manager_settings.ui" line="155"/>
         <source>Right click</source>
-        <translation type="unfinished"></translation>
+        <translation>Sağ tıklama</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/GnomeSettings/window_manager_settings.ui" line="168"/>
         <source>Double click</source>
-        <translation type="unfinished"></translation>
+        <translation>Çift tıklama</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/GnomeSettings/window_manager_settings.ui" line="181"/>
         <source>Middle click</source>
-        <translation type="unfinished"></translation>
+        <translation>Orta tıklama</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/GnomeSettings/window_manager_settings.ui" line="257"/>
         <source>Additional</source>
-        <translation type="unfinished"></translation>
+        <translation>İlave</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/GnomeSettings/window_manager_settings.ui" line="267"/>
         <source>Workspace Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Çalışma Alanı Ayarları</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/GnomeSettings/window_manager_settings.ui" line="310"/>
         <source>Vertical workspaces</source>
-        <translation type="unfinished"></translation>
+        <translation>Dikey çalışma alanları</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/GnomeSettings/window_manager_settings.ui" line="333"/>
         <source>Workspace switcher</source>
-        <translation type="unfinished"></translation>
+        <translation>Çalışma alanı değiştirici</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/GnomeSettings/window_manager_settings.ui" line="356"/>
         <source>Horizontal workspaces</source>
-        <translation type="unfinished"></translation>
+        <translation>Yatay çalışma alanları</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/GnomeSettings/window_manager_settings.ui" line="379"/>
         <source>Focus Behaviour</source>
-        <translation type="unfinished"></translation>
+        <translation>Odak Davranışı</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/GnomeSettings/window_manager_settings.ui" line="409"/>
         <source>Focus mode</source>
-        <translation type="unfinished"></translation>
+        <translation>Odak modu</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/GnomeSettings/window_manager_settings.ui" line="460"/>
         <source>Raise on click</source>
-        <translation type="unfinished"></translation>
+        <translation>Tıklayınca büyüt</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/GnomeSettings/window_manager_settings.ui" line="483"/>
         <source>Hardware Acceleration</source>
-        <translation type="unfinished"></translation>
+        <translation>Donanım Hızlandırma</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/GnomeSettings/window_manager_settings.ui" line="538"/>
         <source>Text quality</source>
-        <translation type="unfinished"></translation>
+        <translation>Yazı kalitesi</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/GnomeSettings/window_manager_settings.cpp" line="66"/>
         <source>Fast</source>
-        <translation type="unfinished"></translation>
+        <translation>Hızlı</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/GnomeSettings/window_manager_settings.cpp" line="66"/>
         <source>Good</source>
-        <translation type="unfinished"></translation>
+        <translation>İyi</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/GnomeSettings/window_manager_settings.cpp" line="66"/>
         <source>Best</source>
-        <translation type="unfinished"></translation>
+        <translation>En İyi</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/GnomeSettings/window_manager_settings.cpp" line="68"/>
         <source>Click</source>
-        <translation type="unfinished"></translation>
+        <translation>Tıklama</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/GnomeSettings/window_manager_settings.cpp" line="68"/>
         <source>Sloppy</source>
-        <translation type="unfinished"></translation>
+        <translation>Yarım</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/GnomeSettings/window_manager_settings.cpp" line="68"/>
         <source>Mouse</source>
-        <translation type="unfinished"></translation>
+        <translation>Fare</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/GnomeSettings/window_manager_settings.cpp" line="80"/>
         <source>Toggle Shade</source>
-        <translation type="unfinished"></translation>
+        <translation>Ekran Geçişi</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/GnomeSettings/window_manager_settings.cpp" line="80"/>
         <source>Maximize</source>
-        <translation type="unfinished"></translation>
+        <translation>Büyüt</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/GnomeSettings/window_manager_settings.cpp" line="80"/>
         <source>Maximize Horizontally</source>
-        <translation type="unfinished"></translation>
+        <translation>Yatay Büyüt</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/GnomeSettings/window_manager_settings.cpp" line="81"/>
         <source>Maximize Vertically</source>
-        <translation type="unfinished"></translation>
+        <translation>Dikey Büyüt</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/GnomeSettings/window_manager_settings.cpp" line="81"/>
         <source>Minimize</source>
-        <translation type="unfinished"></translation>
+        <translation>Küçült</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/GnomeSettings/window_manager_settings.cpp" line="82"/>
         <source>None</source>
-        <translation type="unfinished">Yok</translation>
+        <translation>Yok</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/GnomeSettings/window_manager_settings.cpp" line="82"/>
         <source>Lower</source>
-        <translation type="unfinished"></translation>
+        <translation>Alt</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/GnomeSettings/window_manager_settings.cpp" line="82"/>
         <source>Menu</source>
-        <translation type="unfinished"></translation>
+        <translation>Menü</translation>
     </message>
 </context>
 </TS>
