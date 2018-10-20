@@ -234,17 +234,17 @@
     <message>
         <location filename="../stacer/Pages/GnomeSettings/appearance_settings.ui" line="282"/>
         <source>Home Icon</source>
-        <translation>Icona Home</translation>
+        <translation>Home</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/GnomeSettings/appearance_settings.ui" line="308"/>
         <source>Trash Icon</source>
-        <translation>Icona Cestino</translation>
+        <translation>Cestino</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/GnomeSettings/appearance_settings.ui" line="321"/>
         <source>Mounted Volumes Icon</source>
-        <translation>Icona Volumi Montati</translation>
+        <translation>Volumi Montati</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/GnomeSettings/appearance_settings.ui" line="347"/>
@@ -254,12 +254,12 @@
     <message>
         <location filename="../stacer/Pages/GnomeSettings/appearance_settings.ui" line="373"/>
         <source>Network Icon</source>
-        <translation>Icona Rete</translation>
+        <translation>Rete</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/GnomeSettings/appearance_settings.cpp" line="71"/>
         <source>None</source>
-        <translation>Nessuna</translation>
+        <translation>Nessuno</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/GnomeSettings/appearance_settings.cpp" line="71"/>
@@ -307,12 +307,12 @@
     <message>
         <location filename="../stacer/Pages/Dashboard/dashboard_page.ui" line="230"/>
         <source>There are update currently available.</source>
-        <translation>Attualmente ci sono aggiornamenti disponibili.</translation>
+        <translation>Ci sono aggiornamenti attualmente disponibili.</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/Dashboard/dashboard_page.ui" line="246"/>
         <source>Download</source>
-        <translation>Download</translation>
+        <translation>Scarica</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/Dashboard/dashboard_page.cpp" line="14"/>
@@ -564,7 +564,7 @@
     <message>
         <location filename="../stacer/Pages/Processes/processes_page.cpp" line="28"/>
         <source>Nice</source>
-        <translation>Tempo CPU</translation>
+        <translation>Nice</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/Processes/processes_page.cpp" line="28"/>
@@ -751,7 +751,7 @@
     <message>
         <location filename="../stacer/Pages/Settings/settings_page.ui" line="246"/>
         <source>Language</source>
-        <translation>Linguaggio</translation>
+        <translation>Lingua</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/Settings/settings_page.ui" line="259"/>
@@ -857,12 +857,12 @@
     <message>
         <location filename="../stacer/Pages/StartupApps/startup_app_edit.ui" line="58"/>
         <source>App Comment</source>
-        <translation>Commento App</translation>
+        <translation>Commento</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/StartupApps/startup_app_edit.ui" line="51"/>
         <source>App Name</source>
-        <translation>Nome App</translation>
+        <translation>Nome</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/StartupApps/startup_app_edit.ui" line="97"/>
@@ -931,6 +931,11 @@
         <translation>Cache dei Pacchetti</translation>
     </message>
     <message>
+        <location filename="../stacer/Pages/SystemCleaner/system_cleaner_page.ui" line="493"/>
+        <source>Select All</source>
+        <translation>Seleziona Tutto</translation>
+    </message>
+    <message>
         <location filename="../stacer/Pages/SystemCleaner/system_cleaner_page.ui" line="521"/>
         <source> Back</source>
         <translation> Indietro</translation>
@@ -956,7 +961,7 @@
     <message>
         <location filename="../stacer/Pages/Uninstaller/uninstallerpage.ui" line="14"/>
         <source>Uninstaller</source>
-        <translation></translation>
+        <translation>Uninstaller</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/Uninstaller/uninstallerpage.ui" line="90"/>
@@ -1309,7 +1314,7 @@
     <message>
         <location filename="../stacer/Pages/GnomeSettings/window_manager_settings.cpp" line="82"/>
         <source>Menu</source>
-        <translation>Men&#249;</translation>
+        <translation>Menu</translation>
     </message>
 </context>
 </TS>
