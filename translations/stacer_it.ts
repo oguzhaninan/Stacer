@@ -36,7 +36,7 @@
     <message>
         <location filename="../stacer/Pages/AptSourceManager/apt_source_edit.ui" line="94"/>
         <source>URI</source>
-        <translation type="unfinished"></translation>
+        <translation>URI</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/AptSourceManager/apt_source_edit.ui" line="110"/>
@@ -136,12 +136,12 @@
     <message>
         <location filename="../stacer/app.ui" line="101"/>
         <source>Dashboard</source>
-        <translation type="unfinished"></translation>
+        <translation>Dashboard</translation>
     </message>
     <message>
         <location filename="../stacer/app.ui" line="135"/>
         <source>Startup Apps</source>
-        <translation>App d'Avvio</translation>
+        <translation>App d&apos;Avvio</translation>
     </message>
     <message>
         <location filename="../stacer/app.ui" line="163"/>
@@ -151,7 +151,7 @@
     <message>
         <location filename="../stacer/app.ui" line="250"/>
         <source>Uninstaller</source>
-        <translation type="unfinished"></translation>
+        <translation>Uninstaller</translation>
     </message>
     <message>
         <location filename="../stacer/app.ui" line="278"/>
@@ -186,7 +186,7 @@
     <message>
         <location filename="../stacer/app.ui" line="403"/>
         <source>Feedback</source>
-        <translation type="unfinished"></translation>
+        <translation>Feedback</translation>
     </message>
     <message>
         <location filename="../stacer/app.cpp" line="111"/>
@@ -297,7 +297,7 @@
     <message>
         <location filename="../stacer/Pages/Dashboard/dashboard_page.ui" line="20"/>
         <source>Dashboard</source>
-        <translation type="unfinished"></translation>
+        <translation>Dashboard</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/Dashboard/dashboard_page.ui" line="156"/>
@@ -312,12 +312,12 @@
     <message>
         <location filename="../stacer/Pages/Dashboard/dashboard_page.ui" line="246"/>
         <source>Download</source>
-        <translation type="unfinished"></translation>
+        <translation>Download</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/Dashboard/dashboard_page.cpp" line="14"/>
         <source>CPU</source>
-        <translation type="unfinished"></translation>
+        <translation>CPU</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/Dashboard/dashboard_page.cpp" line="15"/>
@@ -332,17 +332,17 @@
     <message>
         <location filename="../stacer/Pages/Dashboard/dashboard_page.cpp" line="17"/>
         <source>DOWNLOAD</source>
-        <translation type="unfinished"></translation>
+        <translation>DOWNLOAD</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/Dashboard/dashboard_page.cpp" line="18"/>
         <source>UPLOAD</source>
-        <translation type="unfinished"></translation>
+        <translation>UPLOAD</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/Dashboard/dashboard_page.cpp" line="111"/>
         <source>Hostname: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Hostname: %1</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/Dashboard/dashboard_page.cpp" line="112"/>
@@ -367,7 +367,7 @@
     <message>
         <location filename="../stacer/Pages/Dashboard/dashboard_page.cpp" line="117"/>
         <source>CPU Speed: %1</source>
-        <translation>Velocità CPU: %1</translation>
+        <translation>Velocit&#224; CPU: %1</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/Dashboard/dashboard_page.cpp" line="116"/>
@@ -382,7 +382,7 @@
     <message>
         <location filename="../stacer/Pages/Dashboard/dashboard_page.cpp" line="134"/>
         <source>The amount of CPU used is over %1%.</source>
-        <translation>La quantità di CPU utilizzata &egrave; superiore al %1%</translation>
+        <translation>La quantit&#224; di CPU utilizzata &#232; superiore al %1%.</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/Dashboard/dashboard_page.cpp" line="162"/>
@@ -392,7 +392,7 @@
     <message>
         <location filename="../stacer/Pages/Dashboard/dashboard_page.cpp" line="163"/>
         <source>The amount of memory used is over %1%.</source>
-        <translation>La quantità di memoria utilizzata &egrave; superiore al %1%</translation>
+        <translation>La quantit&#224; di memoria utilizzata &#232; superiore al %1%.</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/Dashboard/dashboard_page.cpp" line="202"/>
@@ -402,7 +402,7 @@
     <message>
         <location filename="../stacer/Pages/Dashboard/dashboard_page.cpp" line="203"/>
         <source>The amount of disk used is over %1%.</source>
-        <translation>Lo spazio sul disco utilizzato &egrave; superiore al %1%</translation>
+        <translation>Lo spazio sul disco utilizzato &#232; superiore al %1%.</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/Dashboard/dashboard_page.cpp" line="241"/>
@@ -416,7 +416,7 @@
     <message>
         <location filename="../stacer/feedback.ui" line="14"/>
         <source>Feedback</source>
-        <translation type="unfinished"></translation>
+        <translation>Feedback</translation>
     </message>
     <message>
         <location filename="../stacer/feedback.ui" line="38"/>
@@ -446,7 +446,7 @@
     <message>
         <location filename="../stacer/feedback.cpp" line="46"/>
         <source>Email address is not valid !</source>
-        <translation>L'indirizzo e-mail non &egrave; valido !</translation>
+        <translation>L&apos;indirizzo e-mail non &#232; valido !</translation>
     </message>
     <message>
         <location filename="../stacer/feedback.cpp" line="51"/>
@@ -461,13 +461,13 @@
     <message>
         <location filename="../stacer/feedback.cpp" line="79"/>
         <source>&lt;font color=&apos;#2ecc71&apos;&gt;Your Feedback has been successfully sended.&lt;/font&gt;</source>
-        <translation>&lt;font color=&apos;#2ecc71&apos;&gt;Il tuo Feedback &egrave; stato inviato con successo.&lt;/font&gt;</translation>
+        <translation>&lt;font color=&apos;#2ecc71&apos;&gt;Il tuo Feedback &#232; stato inviato con successo.&lt;/font&gt;</translation>
     </message>
     <message>
         <location filename="../stacer/feedback.cpp" line="81"/>
         <location filename="../stacer/feedback.cpp" line="86"/>
         <source>Something went wrong, try again !</source>
-        <translation>Qualcosa &egrave; andato storto, prova ancora !</translation>
+        <translation>Qualcosa &#232; andato storto, prova ancora !</translation>
     </message>
     <message>
         <location filename="../stacer/feedback.cpp" line="89"/>
@@ -564,7 +564,7 @@
     <message>
         <location filename="../stacer/Pages/Processes/processes_page.cpp" line="28"/>
         <source>Nice</source>
-        <translation type="unfinished"></translation>
+        <translation>Tempo CPU</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/Processes/processes_page.cpp" line="28"/>
@@ -597,7 +597,7 @@
     <message>
         <location filename="../stacer/Managers/setting_manager.cpp" line="61"/>
         <source>Dashboard</source>
-        <translation type="unfinished"></translation>
+        <translation>Dashboard</translation>
     </message>
 </context>
 <context>
@@ -655,7 +655,7 @@
     <message>
         <location filename="../stacer/Pages/Resources/resources_page.cpp" line="213"/>
         <source>Swap: %1 (%2%) %3</source>
-        <translation type="unfinished"></translation>
+        <translation>Swap: %1 (%2) %3</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/Resources/resources_page.cpp" line="222"/>
@@ -678,7 +678,7 @@
     <message>
         <location filename="../stacer/Pages/Services/services_page.ui" line="137"/>
         <source>Startup at boot ?</source>
-        <translation>Avviare all'Avvio ?</translation>
+        <translation>Avviare all&apos;Avvio ?</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/Services/services_page.ui" line="190"/>
@@ -791,12 +791,12 @@
     <message>
         <location filename="../stacer/Pages/Settings/settings_page.cpp" line="74"/>
         <source>Dashboard</source>
-        <translation type="unfinished"></translation>
+        <translation>Dashboard</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/Settings/settings_page.cpp" line="74"/>
         <source>Startup Apps</source>
-        <translation>App d'Avvio</translation>
+        <translation>App d&apos;Avvio</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/Settings/settings_page.cpp" line="74"/>
@@ -816,7 +816,7 @@
     <message>
         <location filename="../stacer/Pages/Settings/settings_page.cpp" line="75"/>
         <source>Uninstaller</source>
-        <translation type="unfinished"></translation>
+        <translation>Uninstaller</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/Settings/settings_page.cpp" line="75"/>
@@ -842,7 +842,7 @@
     <message>
         <location filename="../stacer/Pages/StartupApps/startup_app_edit.ui" line="20"/>
         <source>Startup App</source>
-        <translation>App d'Avvio</translation>
+        <translation>App d&apos;Avvio</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/StartupApps/startup_app_edit.ui" line="74"/>
@@ -880,22 +880,22 @@
     <message>
         <location filename="../stacer/Pages/StartupApps/startup_apps_page.ui" line="201"/>
         <source>Not Found Startup Apps</source>
-        <translation>Nessuna App d'Avvio Trovata</translation>
+        <translation>Nessuna App d&apos;Avvio Trovata</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/StartupApps/startup_apps_page.ui" line="14"/>
         <source>Startup Apps</source>
-        <translation>App d'Avvio</translation>
+        <translation>App d&apos;Avvio</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/StartupApps/startup_apps_page.ui" line="101"/>
         <source>Add Startup App</source>
-        <translation>Aggiungi App d'Avvio</translation>
+        <translation>Aggiungi App d&apos;Avvio</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/StartupApps/startup_apps_page.cpp" line="89"/>
         <source>Startup Applications (%1)</source>
-        <translation>Applicazioni d'Avvio (%1)</translation>
+        <translation>Applicazioni d&apos;Avvio (%1)</translation>
     </message>
 </context>
 <context>
@@ -1046,7 +1046,7 @@
     <message>
         <location filename="../stacer/Pages/GnomeSettings/unity_settings.ui" line="412"/>
         <source>Reveal Sensitivity</source>
-        <translation>Sensibilit&agrave;</translation>
+        <translation>Sensibilit&#224;</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/GnomeSettings/unity_settings.ui" line="438"/>
@@ -1056,7 +1056,7 @@
     <message>
         <location filename="../stacer/Pages/GnomeSettings/unity_settings.ui" line="464"/>
         <source>Launcher</source>
-        <translation type="unfinished"></translation>
+        <translation>Launcher</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/GnomeSettings/unity_settings.ui" line="474"/>
@@ -1076,7 +1076,7 @@
     <message>
         <location filename="../stacer/Pages/GnomeSettings/unity_settings.ui" line="542"/>
         <source>Visibility</source>
-        <translation>Visibilit&agrave;</translation>
+        <translation>Visibilit&#224;</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/GnomeSettings/unity_settings.ui" line="558"/>
@@ -1156,7 +1156,7 @@
     <message>
         <location filename="../stacer/Pages/GnomeSettings/unity_settings.ui" line="958"/>
         <source>Volume</source>
-        <translation type="unfinished"></translation>
+        <translation>Volume</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/GnomeSettings/unity_settings.ui" line="971"/>
@@ -1224,7 +1224,7 @@
     <message>
         <location filename="../stacer/Pages/GnomeSettings/window_manager_settings.ui" line="409"/>
         <source>Focus mode</source>
-        <translation>Modalità Focalizzazione</translation>
+        <translation>Modalit&#224; Focalizzazione</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/GnomeSettings/window_manager_settings.ui" line="460"/>
@@ -1239,7 +1239,7 @@
     <message>
         <location filename="../stacer/Pages/GnomeSettings/window_manager_settings.ui" line="538"/>
         <source>Text quality</source>
-        <translation>Qualità del testo</translation>
+        <translation>Qualit&#224; del testo</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/GnomeSettings/window_manager_settings.cpp" line="66"/>
@@ -1259,22 +1259,22 @@
     <message>
         <location filename="../stacer/Pages/GnomeSettings/window_manager_settings.cpp" line="68"/>
         <source>Click</source>
-        <translation type="unfinished"></translation>
+        <translation>Click</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/GnomeSettings/window_manager_settings.cpp" line="68"/>
         <source>Sloppy</source>
-        <translation type="unfinished"></translation>
+        <translation>Scadente</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/GnomeSettings/window_manager_settings.cpp" line="68"/>
         <source>Mouse</source>
-        <translation type="unfinished"></translation>
+        <translation>Mouse</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/GnomeSettings/window_manager_settings.cpp" line="80"/>
         <source>Toggle Shade</source>
-        <translation>Alterna Tonalità</translation>
+        <translation>Alterna Tonalit&#224;</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/GnomeSettings/window_manager_settings.cpp" line="80"/>
@@ -1309,7 +1309,7 @@
     <message>
         <location filename="../stacer/Pages/GnomeSettings/window_manager_settings.cpp" line="82"/>
         <source>Menu</source>
-        <translation>Men&ugrave;</translation>
+        <translation>Men&#249;</translation>
     </message>
 </context>
 </TS>
