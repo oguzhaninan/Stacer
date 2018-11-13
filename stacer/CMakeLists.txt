@@ -38,7 +38,10 @@ add_executable(${PROJECT_NAME}
 )
 
 target_link_libraries(${PROJECT_NAME}
-  stacer-core  Qt5::Core  Qt5::Gui  Qt5::Widgets  Qt5::Charts  Qt5::Svg  Qt5::Concurrent
+	stacer-core  Qt5::Core  Qt5::Gui  Qt5::Widgets  Qt5::Charts  Qt5::Svg  Qt5::Concurrent ${PCRECPP_LIBRARIES}
+)
+target_include_directories(${PROJECT_NAME} PUBLIC
+	"${PCRECPP_INCLUDE_DIRS}"
 )
 
 # Running LTO in Release builds, if the C++ compiler is GNU GCC

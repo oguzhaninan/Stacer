@@ -40,7 +40,8 @@ SOURCES += \
     Info/process_info.cpp \
     Info/process.cpp \
     Tools/apt_source_tool.cpp \
-    Tools/gnome_settings_tool.cpp
+    Tools/gnome_settings_tool.cpp \
+    Types/Applications/desktop.cpp
 
 HEADERS += \
         stacer-core_global.h \ 
@@ -58,9 +59,12 @@ HEADERS += \
     Info/process.h \
     Tools/apt_source_tool.h \
     Tools/gnome_settings_tool.h \
-    Tools/gnome_schema.h
+    Tools/gnome_schema.h \
+    Types/Applications/desktop.h
 
 unix {
     target.path = /usr/lib
+    LIBS     += $$[PCRECPP_LIBRARIES]
+    INCLUDEPATH += $$[PCRECPP_INCLUDE_DIRS]
     INSTALLS += target
 }

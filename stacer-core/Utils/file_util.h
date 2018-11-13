@@ -20,6 +20,9 @@ public:
 
   static bool writeFile(const QString &path, const QString &content, const QIODevice::OpenMode &mode = QIODevice::WriteOnly | QIODevice::Truncate);
   static QStringList directoryList(const QString &path);
+  static QStringList directoryList(const QString &path, const bool include_dir);
+  static QStringList countFilesPerType(const QString &path, QString *opt_exten, long long *out_count, const bool include_dir=false);
+  static QStringList getDesktopFiles(long long *out_totals = nullptr, const bool include_dir=false);
   static quint64 getFileSize(const QString &path);
 
 private:

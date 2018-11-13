@@ -532,6 +532,11 @@ QLabel[accessibleName="dialog-title"] {
     color: @color05;
 }
 
+#SystemCleanerPage QCheckBox[accessibleName=Broken_Applications] {
+    font-size: 11pt;
+    color: @color05;
+}
+
 /* - System Scan Button - */
 
 #SystemCleanerPage #btnScan {

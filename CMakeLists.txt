@@ -4,6 +4,9 @@ project(Stacer)
 # Adding features(build cache + faster linkers) and reasonable defaults(Debug build by default)
 include("${CMAKE_CURRENT_SOURCE_DIR}/cmake/cxxbasics/CXXBasics.cmake")
 
+#PCRECPP
+include("${CMAKE_CURRENT_SOURCE_DIR}/cmake/FindPCRECPP.cmake")
+
 # Setting a cleaner directory structure for the generated binaries
 set(CMAKE_BINARY_DIR        "${CMAKE_BINARY_DIR}/output")
 set(EXECUTABLE_OUTPUT_PATH  "${CMAKE_BINARY_DIR}/")

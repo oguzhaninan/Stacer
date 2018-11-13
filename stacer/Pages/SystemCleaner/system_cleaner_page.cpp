@@ -1,6 +1,14 @@
 ﻿#include "system_cleaner_page.h"
 #include "ui_system_cleaner_page.h"
 
+/* hack to add a custom flag for the treeview items
+ * * * i am not refactoring omg
+ */
+constexpr decltype(Qt::ItemIsEnabled) flags_notapath(void)
+{
+    return static_cast<Qt::ItemFlag>(512);
+}
+
 SystemCleanerPage::~SystemCleanerPage()
 {
     delete ui;
@@ -218,6 +226,9 @@ void SystemCleanerPage::systemClean()
         for (int i = 0; i < tree->topLevelItemCount(); ++i) {
 
             QTreeWidgetItem *it = tree->topLevelItem(i);
+            
+            if (it->flags() & flags_notapath() != 0) // ITEM NOT TO BE HANDLED BY LOOP
+                continue;
 
             CleanCategories cat = (CleanCategories) it->data(2, 0).toInt();
 
@@ -271,7 +282,10 @@ void SystemCleanerPage::systemClean()
         for (int i = 0; i < tree->topLevelItemCount(); ++i) {
 
             QTreeWidgetItem *it = tree->topLevelItem(i);
-
+            
+            if (it->flags() & flags_notapath() != 0) // ITEM NOT TO BE HANDLED BY LOOP
+                continue;
+            
             it->setText(0, QString("%1 (%2)")
                         .arg(it->data(2, 1).toString())
                         .arg(it->childCount()));
@@ -317,8 +331,15 @@ void SystemCleanerPage::on_btnBackToCategories_clicked()
 void SystemCleanerPage::on_checkSelectAllSystemScan_clicked(bool checked)
 {
     ui->checkAppCache->setChecked(checked);
-    ui->checkAppLog->setChecked(checked);
+    ui->checkAppLog->setChecked(checked); 
     ui->checkCrashReports->setChecked(checked);
     ui->checkPackageCache->setChecked(checked);
     ui->checkTrash->setChecked(checked);
+    
+    if (ui->checkBrokenApps->isChecked() & ui->checkSelectAllSystemScan->isChecked() != checked) {
+        ui->checkBrokenApps->setChecked(!checked);
+    } else {
+        ui->checkBrokenApps->setChecked(checked);
+    }
+
 }
