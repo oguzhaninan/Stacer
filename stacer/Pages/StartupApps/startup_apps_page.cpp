@@ -17,18 +17,55 @@ StartupAppsPage::StartupAppsPage(QWidget *parent) :
     init();
 }
 
+bool StartupAppsPage::checkIfDisabled(const QString& as_path)
+{
+    const QString disabled_str("X-GNOME-Autostart-enabled=false");
+    QFile autostart_file(as_path);
+
+    autostart_file.open(QIODevice::ReadOnly | QIODevice::Text);
+
+    if (autostart_file.readAll().indexOf(disabled_str, 0) != -1)
+        return true;
+
+    return false;
+}
+
 void StartupAppsPage::init()
 {
-    mAutostartPath = QStandardPaths::writableLocation(QStandardPaths::ConfigLocation).append("/autostart/");
-    if (! QDir(mAutostartPath).exists()) {
-        QDir().mkdir(mAutostartPath);
+    mAutostartPath = QStandardPaths::writableLocation(QStandardPaths::ConfigLocation).append("/autostart");
+    QFileInfo asfi(mAutostartPath);
+    bool startups_disabled = false;
+
+    /* original behavior, autostart is a dir and not...
+     * * a pre-exisiting file as is case on my machine.
+     */
+    if (asfi.isDir() == true) {
+        mAutostartPath.append("/");
+    }
+    else {
+    /* altered behavior for if a file is at this location instead
+     * * check for disabled string
+     * * * if found, don't add watcher
+     */
+        startups_disabled = checkIfDisabled(mAutostartPath);
     }
 
-    mFileSystemWatcher.addPath(mAutostartPath);
+    if (!startups_disabled) {
+        if (! QDir(mAutostartPath).exists()) {
+            QDir().mkdir(mAutostartPath);
+        }
 
-    loadApps();
+        mFileSystemWatcher.addPath(mAutostartPath);
 
-    connect(&mFileSystemWatcher, &QFileSystemWatcher::directoryChanged, this, &StartupAppsPage::loadApps);
+        loadApps();
+
+        connect(&mFileSystemWatcher, &QFileSystemWatcher::directoryChanged, this, &StartupAppsPage::loadApps);
+    }
+    else {
+        ui->lblNotFound->setText("Startup Apps are disabled.");
+        ui->btnAddStartupApp->setEnabled(false);
+    }
+
     connect(ui->btnAddStartupApp, SIGNAL(clicked()), this, SLOT(openStartupAppEdit()));
 
     Utilities::addDropShadow(ui->btnAddStartupApp, 60);
