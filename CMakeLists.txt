@@ -27,3 +27,8 @@ add_definitions(-DQT_DEPRECATED_WARNINGS)
 # Subprojects
 add_subdirectory(stacer-core)
 add_subdirectory(stacer)
+
+# Tests & Tests!!!
+enable_testing()
+add_subdirectory(tests)
+

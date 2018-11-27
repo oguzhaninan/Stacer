@@ -11,6 +11,8 @@ constexpr decltype(Qt::ItemIsEnabled) flags_notapath(void)
 
 SystemCleanerPage::~SystemCleanerPage()
 {
+    this->invalidateTree(ui->treeWidgetScanResult);
+
     delete ui;
 }
 
@@ -53,6 +55,9 @@ void SystemCleanerPage::init()
         mLoadingMovie_2->start();
         ui->lblLoadingCleaner->hide();
     });
+
+    // memory management :o
+    connect(this, SIGNAL(treeInvalidated(QTreeWidget*)), this, SLOT(invalidateTree(QTreeWidget*)));
 }
 
 void SystemCleanerPage::addTreeRoot(const CleanCategories &cat, const QString &title, const QFileInfoList &infos, bool noChild)
@@ -92,6 +97,25 @@ void SystemCleanerPage::addTreeRoot(const CleanCategories &cat, const QString &t
     root->setText(1, QString("%1").arg(FormatUtil::formatBytes(totalSize)));
 }
 
+void SystemCleanerPage::addCallbackRoot(const QString &title, typeCallback callback)
+{
+    QVariant variant;
+    const CleanCategories cc = SystemCleanerPage::BROKEN_APPLICATIONS;
+    QTreeWidgetItem *root    = new QTreeWidgetItem(ui->treeWidgetScanResult);
+    scpCallback     cb;
+
+    cb.pointer = &callback;
+    cb.callback = callback;
+    variant.setValue(cb);
+    root->setData(2, 0, cc);
+    root->setData(2, 1, title);
+    root->setData(3, 0, variant);
+    root->setCheckState(0, Qt::Unchecked);
+    root->setFlags(root->flags() | flags_notapath());
+
+    root->setText(0,QString("%1").arg(title));
+}
+
 void SystemCleanerPage::addTreeChild(const QString &data, const QString &text, const quint64 &size, QTreeWidgetItem *parent)
 {
     QTreeWidgetItem *item = new QTreeWidgetItem(parent);
@@ -128,6 +152,7 @@ void SystemCleanerPage::on_treeWidgetScanResult_itemClicked(QTreeWidgetItem *ite
 
 void SystemCleanerPage::systemScan()
 {
+
     if (ui->checkPackageCache->isChecked() ||
         ui->checkCrashReports->isChecked() ||
         ui->checkAppLog->isChecked()       ||
@@ -180,6 +205,13 @@ void SystemCleanerPage::systemScan()
                         true);
         }
 
+        // Broken Applications
+        if(ui->checkBrokenApps->isChecked()) {
+            addCallbackRoot(ui->checkBrokenApps->text(),[](QTreeWidgetItem *item){
+
+            });
+        }
+
         // scan results page
         ui->stackedWidget->setCurrentIndex(1);
 
@@ -227,8 +259,18 @@ void SystemCleanerPage::systemClean()
 
             QTreeWidgetItem *it = tree->topLevelItem(i);
             
-            if (it->flags() & flags_notapath() != 0) // ITEM NOT TO BE HANDLED BY LOOP
+            if (it->flags() & flags_notapath() != 0)
+            {
+                scpCallback cb = it->data(3,0).value<scpCallback>();
+
+                if (cb.is_callback())
+                {
+                    decltype(cb.callback) cbp;
+                    cbp = cb.callback;
+                    cbp(it);
+                }
                 continue;
+            }
 
             CleanCategories cat = (CleanCategories) it->data(2, 0).toInt();
 
@@ -326,6 +368,8 @@ void SystemCleanerPage::on_btnBackToCategories_clicked()
     ui->treeWidgetScanResult->clear();
     ui->stackedWidget->setCurrentIndex(0);
     ui->checkSelectAllSystemScan->setChecked(false);
+
+    emit treeInvalidated(ui->treeWidgetScanResult);
 }
 
 void SystemCleanerPage::on_checkSelectAllSystemScan_clicked(bool checked)
@@ -342,4 +386,17 @@ void SystemCleanerPage::on_checkSelectAllSystemScan_clicked(bool checked)
         ui->checkBrokenApps->setChecked(checked);
     }
 
+}
+
+void SystemCleanerPage::invalidateTree(QTreeWidget *tree)
+{
+    auto items = ui->treeWidgetScanResult->findItems(QString("*"), Qt::MatchWrap | Qt::MatchWildcard | Qt::MatchRecursive);
+
+    if (!ui->treeWidgetScanResult->children().empty() || !items.empty())
+    {
+        for (auto a = items.begin(); a != items.end(); ++a)
+        {
+            delete *a;
+        }
+    }
 }
