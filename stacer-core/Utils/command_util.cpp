@@ -4,6 +4,7 @@
 #include <QTextStream>
 #include <QStandardPaths>
 #include <QDebug>
+#include <utility>
 
 QString CommandUtil::sudoExec(const QString &cmd, QStringList args, QByteArray data)
 {
@@ -44,7 +45,10 @@ QString CommandUtil::exec(const QString &cmd, QStringList args, QByteArray data)
     if (process->error() != QProcess::UnknownError)
         throw err;
 
-    return stdOut.readAll().trimmed();
+    QString&& ret = stdOut.readAll().trimmed();
+    delete process;
+
+    return std::move(ret);
 }
 
 bool CommandUtil::isExecutable(const QString &cmd)
