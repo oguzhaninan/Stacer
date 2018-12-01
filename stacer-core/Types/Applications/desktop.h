@@ -61,7 +61,7 @@ namespace Types
         
         // Returns count of broken apps 
         // // list_broke is ptr to QStringList that will be modified
-        qint64 listBrokenApps(const QStringList& list_all, QStringList *list_broke);
+        qint64 STACERCOREFUNCTION_EXPORT listBrokenApps(const QStringList& list_all, QStringList *list_broke);
     };
 };
 
