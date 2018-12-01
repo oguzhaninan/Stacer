@@ -532,6 +532,11 @@ QLabel[accessibleName="dialog-title"] {
     color: @color05;
 }
 
+/* - Broken Apps Checkbox - */
+QCheckBox[unclicked_yet=true]::indicator::checked {
+    image: url(:/static/themes/common/img/checkbox-precheck.png);
+}
+
 #SystemCleanerPage QCheckBox[accessibleName=Broken_Applications] {
     font-size: 11pt;
     color: @color05;

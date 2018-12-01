@@ -526,6 +526,9 @@
          <property name="checked">
           <bool>true</bool>
          </property>
+         <property name="unclicked_yet" stdset="0">
+          <bool>true</bool>
+         </property>
         </widget>
        </item>
       </layout>

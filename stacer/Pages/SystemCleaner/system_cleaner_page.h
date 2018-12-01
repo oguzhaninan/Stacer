@@ -64,6 +64,9 @@ private slots:
 
     void invalidateTree(QTreeWidget *tree);
 
+    void on_checkBrokenApps_stateChanged(int state);
+    void on_checkBrokenApps_clicked();
+
 private:
     void init();
 

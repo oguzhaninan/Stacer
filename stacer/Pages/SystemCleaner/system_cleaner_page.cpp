@@ -400,3 +400,46 @@ void SystemCleanerPage::invalidateTree(QTreeWidget *tree)
         }
     }
 }
+
+void SystemCleanerPage::on_checkBrokenApps_stateChanged(int state)
+{
+    const Qt::CheckState cs = static_cast<Qt::CheckState>(state);
+
+    if (cs == Qt::Checked)
+        return;
+
+    if (ui->checkBrokenApps->property("unclicked_yet").value<bool>() == true)
+    {
+        QVariant falsevar;
+        falsevar.setValue(false);
+
+        ui->checkBrokenApps->setProperty("unclicked_yet", falsevar);
+        ui->checkBrokenApps->style()->unpolish(ui->checkBrokenApps);
+        ui->checkBrokenApps->style()->polish(ui->checkBrokenApps);
+    }
+}
+
+void SystemCleanerPage::on_checkBrokenApps_clicked()
+{
+    bool checky = !ui->checkBrokenApps->isChecked();
+
+    if (ui->checkBrokenApps->property("unclicked_yet").value<bool>() == true)
+    {
+        QVariant falsevar;
+        falsevar.setValue(false);
+
+        ui->checkBrokenApps->setProperty("unclicked_yet", falsevar);
+        ui->checkBrokenApps->style()->unpolish(ui->checkBrokenApps);
+        ui->checkBrokenApps->style()->polish(ui->checkBrokenApps);
+    }
+
+    if (!checky)
+    {
+        ui->checkBrokenApps->setChecked(true);
+    }
+    else
+    {
+        ui->checkBrokenApps->setChecked(false);
+    }
+}
+
