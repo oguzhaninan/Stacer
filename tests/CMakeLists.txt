@@ -4,7 +4,10 @@ set(TEST_OUT "${PROJECT_ROOT}/output/")
 
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
 set(CMAKE_AUTOMOC ON)
-add_definitions(-DGNU_SOURCE)
+
+if(__COMPILER_GNU)
+    add_definitions(-DGNU_SOURCE)
+endif()
 
 find_package(Qt5 COMPONENTS Core REQUIRED)
 

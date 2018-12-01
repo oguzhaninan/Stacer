@@ -34,6 +34,15 @@ void BrokenApp::run()
     QProcessEnvironment qpe = QProcessEnvironment::systemEnvironment();
     QString             path = qpe.value("PATH", broken);
     QStringList         exec_list;
+    QFileInfo           fpt(m_deskfile.second->exec_name); // full path test = fpt
+                    /* - If the exec_name is a full path to executable, we good - */
+    
+    if (fpt.exists() && fpt.isExecutable())
+    {
+        m_broken = false;
+        m_ran = &m_broken;
+        return;
+    }
 
     if (path == broken)
         throw DesktopException(DesktopException::ExceptionType::BadEnvironment);

@@ -31,6 +31,10 @@ set_directory_properties(PROPERTIES  ADDITIONAL_MAKE_CLEAN_FILES  "${QM_FILES}")
 set(CMAKE_AUTOUIC ON)
 set(CMAKE_AUTORCC ON)
 
+if(__COMPILER_GNU)
+    add_definitions(-DGNU_SOURCE)
+endif()
+
 add_executable(${PROJECT_NAME}
   ${${PROJECT_NAME}_srcs}
   "${CMAKE_CURRENT_SOURCE_DIR}/static.qrc"

@@ -97,7 +97,7 @@ void SystemCleanerPage::addTreeRoot(const CleanCategories &cat, const QString &t
     root->setText(1, QString("%1").arg(FormatUtil::formatBytes(totalSize)));
 }
 
-void SystemCleanerPage::addCallbackRoot(const QString &title, typeCallback callback)
+void SystemCleanerPage::addCallbackRoot(const QString &title, typeCallback callback, QTreeWidgetItem **out)
 {
     QVariant variant;
     const CleanCategories cc = SystemCleanerPage::BROKEN_APPLICATIONS;
@@ -114,6 +114,8 @@ void SystemCleanerPage::addCallbackRoot(const QString &title, typeCallback callb
     root->setFlags(root->flags() | flags_notapath());
 
     root->setText(0,QString("%1").arg(title));
+    
+    *out = root;
 }
 
 void SystemCleanerPage::addTreeChild(const QString &data, const QString &text, const quint64 &size, QTreeWidgetItem *parent)
@@ -207,9 +209,39 @@ void SystemCleanerPage::systemScan()
 
         // Broken Applications
         if(ui->checkBrokenApps->isChecked()) {
-            addCallbackRoot(ui->checkBrokenApps->text(),[](QTreeWidgetItem *item){
-
-            });
+            //oops
+            QTreeWidgetItem *badhack = nullptr;
+            
+            addCallbackRoot(ui->checkBrokenApps->text(),[](QTreeWidgetItem *item, bool is_scan){
+                qint64 all{}, broken{};
+                QStringList ls_all = FileUtil::getDesktopFiles(&all, true);
+                QStringList *ls_brk = new QStringList();
+                
+                using namespace Types::Applications;
+                broken = listBrokenApps(ls_all, ls_brk);
+                all    = ls_all.length();
+                
+                if (is_scan)
+                {
+                    item->setText(0, QString("%1 (%2 / %3)").arg(item->text(0)).arg(broken)
+                                     .arg(all));
+                    return;
+                }
+                else // // // CALLED FROM SYSTEM CLEAN
+                {
+                    
+                }
+                
+                delete ls_brk;
+            }, &badhack);
+            
+            scpCallback cb = badhack->data(3,0).value<scpCallback>();
+            if (cb.is_callback())
+            {
+                decltype(cb.callback) cbp;
+                cbp = cb.callback;
+                cbp(badhack,true);
+            }
         }
 
         // scan results page
@@ -267,7 +299,7 @@ void SystemCleanerPage::systemClean()
                 {
                     decltype(cb.callback) cbp;
                     cbp = cb.callback;
-                    cbp(it);
+                    cbp(it,false);
                 }
                 continue;
             }

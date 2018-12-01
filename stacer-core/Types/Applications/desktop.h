@@ -1,12 +1,14 @@
 #ifndef __DESKTOP_H_
 #define __DESKTOP_H_
 
+#include <algorithm>
 #include <pcrecpp.h>
 #include <utility>
 #include <string>
 #include <QException>
 #include <QTextStream>
 #include <QString>
+#include <QStringList>
 #include <QFile>
 
 #include "stacer-core_global.h"
@@ -50,10 +52,16 @@ namespace Types
         
         /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
         
+        void STACERCOREFUNCTION_EXPORT freeDesktop(Desktop *to_free);
+        
         void STACERCOREFUNCTION_EXPORT loadDesktopFile(const QString& path, Desktop** out_desktop);
 
         // TRUE If broken
         bool STACERCOREFUNCTION_EXPORT loadAndCheckDesktopFile(const QString& path);
+        
+        // Returns count of broken apps 
+        // // list_broke is ptr to QStringList that will be modified
+        qint64 listBrokenApps(const QStringList& list_all, QStringList *list_broke);
     };
 };
 
