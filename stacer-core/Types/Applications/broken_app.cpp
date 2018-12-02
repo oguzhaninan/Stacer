@@ -1,6 +1,8 @@
 #include <algorithm>
+#include <atomic>
 #include "broken_app.h"
-#include "command_util.h"
+#include "Types/command.hpp"
+#include "Utils/command_util.h"
 
 inline namespace Types { inline namespace Applications {
 /*** begin namespace ***/
@@ -27,6 +29,8 @@ BrokenApp::~BrokenApp()
 
 void BrokenApp::run()
 {
+    static std::atomic_int  times(0);
+
     if (m_ran != nullptr)
         return;
 
@@ -80,6 +84,34 @@ void BrokenApp::run()
 
     delete qfi;
     delete str;
+
+    QString *en  = &m_deskfile.second->exec_name;
+    QString *sot = nullptr;
+    if (en->length() < 2 ||
+            CommandUtil:: isExecutable(*en) == false)
+    {
+        if (times.load(std::memory_order_relaxed) == 1)
+        {
+            times.fetch_sub(1, std::memory_order_relaxed);
+            m_broken = true;
+            m_ran = &m_broken;
+            return;
+        }
+
+        QString cmd_s = QString("grep \"^Exec\" %1 | tail -1")
+                .arg(m_deskfile.second->file_path);
+        PosixCmd cmdcmd(cmd_s);
+
+        sot = cmdcmd.runCommand(cmd_s);
+        sot->remove(0, 5);
+        *en = sot->remove(sot->indexOf('\x20', 0),std::abs(sot->indexOf('\x20', 0)-sot->length()));
+
+        delete sot;
+        times.fetch_add(1,std::memory_order_relaxed);
+        return this->run();
+    }
+    if (times.load(std::memory_order_relaxed) == 1)
+        times.fetch_sub(1, std::memory_order_relaxed);
 
     // m_broken == whatever
     m_ran = &m_broken;

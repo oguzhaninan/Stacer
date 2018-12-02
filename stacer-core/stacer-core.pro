@@ -43,7 +43,8 @@ SOURCES += \
     Tools/gnome_settings_tool.cpp \
     Types/Applications/command.cpp  \
     Types/Applications/desktop.cpp \
-    Types/Applications/broken_app.cpp
+    Types/Applications/broken_app.cpp \
+    Types/command.cpp
 
 HEADERS += \
         stacer-core_global.h \ 
@@ -65,7 +66,8 @@ HEADERS += \
     Types/Applications/command.hpp \
     Types/Applications/desktop.h \
     Types/Applications/broken_app.h \
-    Types/metacallback.hpp
+    Types/metacallback.hpp \
+    Types/command.hpp
 
 unix {
     target.path = /usr/lib
