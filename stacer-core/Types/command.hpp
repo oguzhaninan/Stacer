@@ -47,6 +47,7 @@ public:
     PosixCmd(QString cmd_full, const bool store_stdout = true);
     virtual ~PosixCmd();
 
+    virtual void runCommand(QString *cmd = nullptr);
     virtual QString *runCommand(QString cmd);
     
     virtual QString convert_data() const;

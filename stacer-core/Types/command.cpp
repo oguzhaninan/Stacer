@@ -21,6 +21,25 @@ PosixCmd::~PosixCmd()
 
 }
 
+void PosixCmd::runCommand(QString *cmd)
+{
+    FILE *fp = nullptr;
+
+    if (cmd == nullptr)
+    {
+        fp = popen(p_cmdstr.toStdString().c_str(), "r");
+    }
+    else
+    {
+        fp = popen(cmd->toStdString().c_str(), "r");
+    }
+
+    if (fp == nullptr)
+        return;
+
+    pclose(fp);
+}
+
 QString* PosixCmd::runCommand(QString cmd)
 {
     FILE *fp = popen(cmd.toStdString().c_str(), "r");
@@ -35,6 +54,7 @@ QString* PosixCmd::runCommand(QString cmd)
     }
     while(feof(fp) == 0);
     \
+    pclose(fp);
     return new QString(convert_data());
 }
 

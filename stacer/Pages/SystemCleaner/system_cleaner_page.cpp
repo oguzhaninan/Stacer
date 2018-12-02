@@ -1,6 +1,8 @@
 ﻿#include "system_cleaner_page.h"
 #include "ui_system_cleaner_page.h"
 
+#include "Types/command.hpp"
+
 /* hack to add a custom flag for the treeview items
  * * * i am not refactoring omg
  */
@@ -111,7 +113,7 @@ void SystemCleanerPage::addCallbackRoot(const QString &title, typeCallback callb
     root->setData(2, 1, title);
     root->setData(3, 0, variant);
     root->setCheckState(0, Qt::Unchecked);
-    root->setFlags(root->flags() | flags_notapath());
+    root->setFlags(flags_notapath());
 
     root->setText(0,QString("%1").arg(title));
     
@@ -229,7 +231,26 @@ void SystemCleanerPage::systemScan()
                 }
                 else // // // CALLED FROM SYSTEM CLEAN
                 {
-                    
+                    // we must backup 1st
+                    QString path_bu = QStandardPaths::locate(QStandardPaths::HomeLocation,".local",
+                                                             QStandardPaths::LocateDirectory);
+                    // prepare mkdir
+                    using namespace Types;
+                    PosixCmd com_1(QString("mkdir -p %1/backup/").arg(path_bu), false);
+                    path_bu += "/backup";
+
+                    //mkdir
+                    com_1.runCommand();
+
+                    for (const auto& str : QStringList(*ls_brk))
+                    {
+                        using namespace Types;
+                        PosixCmd com_2(QString("cp -dr %1 %2%1").arg(str).arg(path_bu), false);
+                        com_2.runCommand();
+                    }
+                    /*
+                     * Now we can delete the bull!!!! files...
+                     */
                 }
                 
                 delete ls_brk;
