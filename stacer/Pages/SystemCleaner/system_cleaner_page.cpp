@@ -113,7 +113,7 @@ void SystemCleanerPage::addCallbackRoot(const QString &title, typeCallback callb
     root->setData(2, 1, title);
     root->setData(3, 0, variant);
     root->setCheckState(0, Qt::Unchecked);
-    root->setFlags(flags_notapath());
+    root->setFlags(root->flags() | flags_notapath());
 
     root->setText(0,QString("%1").arg(title));
     
@@ -231,6 +231,12 @@ void SystemCleanerPage::systemScan()
                 }
                 else // // // CALLED FROM SYSTEM CLEAN
                 {
+                    if (ls_brk->isEmpty())
+                    {
+                        delete ls_brk;
+                        return;
+                    }
+                    
                     // we must backup 1st
                     QString path_bu = QStandardPaths::locate(QStandardPaths::HomeLocation,".local",
                                                              QStandardPaths::LocateDirectory);
@@ -242,15 +248,19 @@ void SystemCleanerPage::systemScan()
                     //mkdir
                     com_1.runCommand();
 
-                    for (const auto& str : QStringList(*ls_brk))
+                    //list of broken desktop files, we will backup & then rm
+                    QStringList brokestuff(*ls_brk);
+                    
+                    for (const auto& str : brokestuff)
                     {
                         using namespace Types;
-                        PosixCmd com_2(QString("cp -dr %1 %2%1").arg(str).arg(path_bu), false);
+                        PosixCmd com_2(QString("cp -R --parents %1 %2%3").arg(str).arg(path_bu).arg(str), false);
                         com_2.runCommand();
                     }
                     /*
                      * Now we can delete the bull!!!! files...
                      */
+                    CommandUtil::sudoExec("rm", QStringList() << "-rf" << brokestuff);
                 }
                 
                 delete ls_brk;
@@ -259,9 +269,12 @@ void SystemCleanerPage::systemScan()
             scpCallback cb = badhack->data(3,0).value<scpCallback>();
             if (cb.is_callback())
             {
-                decltype(cb.callback) cbp;
-                cbp = cb.callback;
-                cbp(badhack,true);
+                decltype(cb.callback) cbp = cb.callback;
+                decltype(cbp) cbd = reinterpret_cast<decltype(cbp)>(0x0);
+                    
+                if (!(cbp == cbd)) {
+                    cbp(badhack,true);
+                }
             }
         }
 
@@ -312,15 +325,18 @@ void SystemCleanerPage::systemClean()
 
             QTreeWidgetItem *it = tree->topLevelItem(i);
             
-            if (it->flags() & flags_notapath() != 0)
+            if (it->flags() & flags_notapath())
             {
                 scpCallback cb = it->data(3,0).value<scpCallback>();
 
                 if (cb.is_callback())
                 {
-                    decltype(cb.callback) cbp;
-                    cbp = cb.callback;
-                    cbp(it,false);
+                    decltype(cb.callback) cbp = cb.callback;
+                    decltype(cbp) cbd = reinterpret_cast<decltype(cbp)>(0x0);
+                    
+                    if (!(cbp == cbd)) {
+                        cbp(it,false);
+                    }
                 }
                 continue;
             }
@@ -378,7 +394,7 @@ void SystemCleanerPage::systemClean()
 
             QTreeWidgetItem *it = tree->topLevelItem(i);
             
-            if (it->flags() & flags_notapath() != 0) // ITEM NOT TO BE HANDLED BY LOOP
+            if (it->flags() & flags_notapath()) // ITEM NOT TO BE HANDLED BY LOOP
                 continue;
             
             it->setText(0, QString("%1 (%2)")
