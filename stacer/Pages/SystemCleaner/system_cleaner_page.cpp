@@ -3,6 +3,8 @@
 
 SystemCleanerPage::~SystemCleanerPage()
 {
+    this->invalidateTree(ui->treeWidgetScanResult);
+
     delete ui;
 }
 
@@ -45,6 +47,9 @@ void SystemCleanerPage::init()
         mLoadingMovie_2->start();
         ui->lblLoadingCleaner->hide();
     });
+
+    // memory management :o
+    connect(this, SIGNAL(treeInvalidated(QTreeWidget*)), this, SLOT(invalidateTree(QTreeWidget*)));
 }
 
 void SystemCleanerPage::addTreeRoot(const CleanCategories &cat, const QString &title, const QFileInfoList &infos, bool noChild)
@@ -312,6 +317,8 @@ void SystemCleanerPage::on_btnBackToCategories_clicked()
     ui->treeWidgetScanResult->clear();
     ui->stackedWidget->setCurrentIndex(0);
     ui->checkSelectAllSystemScan->setChecked(false);
+
+    emit treeInvalidated(ui->treeWidgetScanResult);
 }
 
 void SystemCleanerPage::on_checkSelectAllSystemScan_clicked(bool checked)
@@ -321,4 +328,17 @@ void SystemCleanerPage::on_checkSelectAllSystemScan_clicked(bool checked)
     ui->checkCrashReports->setChecked(checked);
     ui->checkPackageCache->setChecked(checked);
     ui->checkTrash->setChecked(checked);
+}
+
+void SystemCleanerPage::invalidateTree(QTreeWidget *tree)
+{
+    auto items = ui->treeWidgetScanResult->findItems(QString("*"), Qt::MatchWrap | Qt::MatchWildcard | Qt::MatchRecursive);
+
+    if (!ui->treeWidgetScanResult->children().empty() || !items.empty())
+    {
+        for (auto a = items.begin(); a != items.end(); ++a)
+        {
+            delete *a;
+        }
+    }
 }

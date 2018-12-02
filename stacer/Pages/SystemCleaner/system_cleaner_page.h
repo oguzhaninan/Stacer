@@ -34,6 +34,9 @@ public:
     explicit SystemCleanerPage(QWidget *parent = 0);
     ~SystemCleanerPage();
 
+signals:
+    void treeInvalidated(QTreeWidget *tree);
+
 private slots:
     void addTreeRoot(const CleanCategories &cat, const QString &title, const QFileInfoList &infos, bool noChild = false);
     void addTreeChild(const CleanCategories &cat, const QString &text, const quint64 &size);
@@ -49,6 +52,8 @@ private slots:
     bool cleanValid();
 
     void on_checkSelectAllSystemScan_clicked(bool checked);
+
+    void invalidateTree(QTreeWidget *tree);
 
 private:
     void init();
