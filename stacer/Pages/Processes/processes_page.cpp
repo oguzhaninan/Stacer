@@ -95,6 +95,7 @@ void ProcessesPage::loadProcesses()
 {
     QModelIndexList selecteds = ui->tableProcess->selectionModel()->selectedRows();
 
+    cleanupItemModel(&mItemModel, mItemModel->rowCount(), mItemModel->columnCount());
     mItemModel->removeRows(0, mItemModel->rowCount());
 
     im->updateProcesses();
@@ -237,5 +238,31 @@ void ProcessesPage::on_tableProcess_customContextMenuRequested(const QPoint &pos
 
     if (action) {
         ui->tableProcess->horizontalHeader()->setSectionHidden(action->data().toInt(), ! action->isChecked());
+    }
+}
+
+void ProcessesPage::cleanupItemModel(QStandardItemModel **model, int model_rows, int model_cols)
+{
+    QStandardItemModel *mod = *model;
+    QStandardItem *itm = nullptr;
+    QModelIndex qmi;
+
+
+    if (model_rows < 1)
+        return;
+
+    for (int i=0; i <= model_cols; i++)
+    {
+        for (int j=0; j < model_rows; j++)
+        {
+            // create an index
+            qmi = mod->sibling(j, i, QModelIndex());
+            // crap, just give up
+            if (!qmi.isValid())
+                continue;
+            // clear the data
+            itm = mod->item(j, i);
+            delete itm;
+        }
     }
 }

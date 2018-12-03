@@ -12,6 +12,8 @@
 
 #include "Managers/info_manager.h"
 
+#define STACER_DATA 1
+
 namespace Ui {
     class ProcessesPage;
 }
@@ -44,6 +46,8 @@ private:
     QMenu mHeaderMenu;
     QTimer *mTimer;
     InfoManager *im;
+
+    void cleanupItemModel(QStandardItemModel **model, int model_rows, int model_cols);
 };
 
 #endif // PROCESSESPAGE_H
