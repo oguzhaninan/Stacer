@@ -59,7 +59,7 @@
 - curl, grep, systemd
 
 ###### Required Libraries
-- libpcre++0v5, libpcre++0v5 _(if building)_
+- libpcre++0v5, libpcre++0v5-dev _(if building)_
 
 ### PPA Repository (for ubuntu)
 1. `sudo add-apt-repository ppa:oguzhaninan/stacer`   
@@ -130,7 +130,7 @@
     <img src="https://raw.githubusercontent.com/oguzhaninan/Stacer/native/screenshots/Screenshot-1.0.9-11.png" width="700">
 </p>
 
-libpcre++0v5<p align="center">
+<p align="center">
     <img src="https://raw.githubusercontent.com/oguzhaninan/Stacer/native/screenshots/Screenshot-1.0.9-12.png" width="700">
 </p>
 
