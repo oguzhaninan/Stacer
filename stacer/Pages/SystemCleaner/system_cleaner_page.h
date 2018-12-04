@@ -13,9 +13,18 @@
 #include <Managers/info_manager.h>
 #include <Managers/tool_manager.h>
 
+#include "Types/metacallback.hpp"
+#include "Types/Applications/broken_app.h"
+#include "Types/Applications/desktop.h"
+
 namespace Ui {
     class SystemCleanerPage;
 }
+
+typedef void(*typeCallback)(QTreeWidgetItem*,bool);
+typedef typename Types::MetaCallback<::typeCallback> scpCallback;
+
+Q_DECLARE_METATYPE(Types::MetaCallback<::typeCallback>)
 
 class SystemCleanerPage : public QWidget
 {
@@ -27,7 +36,8 @@ public:
         CRASH_REPORTS,
         APPLICATION_LOGS,
         APPLICATION_CACHES,
-        TRASH
+        TRASH,
+        BROKEN_APPLICATIONS
     };
 
 public:
@@ -39,6 +49,7 @@ signals:
 
 private slots:
     void addTreeRoot(const CleanCategories &cat, const QString &title, const QFileInfoList &infos, bool noChild = false);
+    void addCallbackRoot(const QString &title, typeCallback callback, QTreeWidgetItem **out = nullptr);
     void addTreeChild(const CleanCategories &cat, const QString &text, const quint64 &size);
     void addTreeChild(const QString &data, const QString &text, const quint64 &size, QTreeWidgetItem *parent);
 
@@ -54,6 +65,9 @@ private slots:
     void on_checkSelectAllSystemScan_clicked(bool checked);
 
     void invalidateTree(QTreeWidget *tree);
+
+    void on_checkBrokenApps_stateChanged(int state);
+    void on_checkBrokenApps_clicked();
 
 private:
     void init();

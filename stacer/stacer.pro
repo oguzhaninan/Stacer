@@ -130,7 +130,7 @@ TRANSLATIONS += \
 RESOURCES += \
     static.qrc
 
-unix:!macx: LIBS += -L$$OUT_PWD/../stacer-core/ -lstacer-core
+unix:!macx: LIBS += -L$$OUT_PWD/../stacer-core/ -lstacer-core $$[PCRECPP_LIBRARIES]
 
-INCLUDEPATH += $$PWD/../stacer-core
+INCLUDEPATH += $$PWD/../stacer-core $$[PCRECPP_INCLUDE_DIRS]
 DEPENDPATH += $$PWD/../stacer-core

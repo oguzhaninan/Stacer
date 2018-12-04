@@ -12,7 +12,15 @@ file(GLOB_RECURSE ${PROJECT_NAME}_srcs "${CMAKE_CURRENT_SOURCE_DIR}/**.cpp")
 
 add_definitions(-DSTACERCORE_LIBRARY)
 
+if(__COMPILER_GNU)
+    add_definitions(-DGNU_SOURCE)
+endif()
+
 find_package(Qt5  COMPONENTS  Core Network REQUIRED)
 
 add_library(${PROJECT_NAME}  STATIC  ${${PROJECT_NAME}_srcs})
-target_link_libraries(${PROJECT_NAME} Qt5::Core Qt5::Network)
+target_link_libraries(${PROJECT_NAME} Qt5::Core Qt5::Network ${PCRECPP_LIBRARIES})
+target_include_directories(${PROJECT_NAME} PUBLIC
+	"${PCRECPP_INCLUDE_DIRS}"
+)
+

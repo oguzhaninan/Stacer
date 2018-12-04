@@ -1,6 +1,16 @@
 ﻿#include "system_cleaner_page.h"
 #include "ui_system_cleaner_page.h"
 
+#include "Types/command.hpp"
+
+/* hack to add a custom flag for the treeview items
+ * * * i am not refactoring omg
+ */
+constexpr decltype(Qt::ItemIsEnabled) flags_notapath(void)
+{
+    return static_cast<Qt::ItemFlag>(512);
+}
+
 SystemCleanerPage::~SystemCleanerPage()
 {
     this->invalidateTree(ui->treeWidgetScanResult);
@@ -89,6 +99,27 @@ void SystemCleanerPage::addTreeRoot(const CleanCategories &cat, const QString &t
     root->setText(1, QString("%1").arg(FormatUtil::formatBytes(totalSize)));
 }
 
+void SystemCleanerPage::addCallbackRoot(const QString &title, typeCallback callback, QTreeWidgetItem **out)
+{
+    QVariant variant;
+    const CleanCategories cc = SystemCleanerPage::BROKEN_APPLICATIONS;
+    QTreeWidgetItem *root    = new QTreeWidgetItem(ui->treeWidgetScanResult);
+    scpCallback     cb;
+
+    cb.pointer = &callback;
+    cb.callback = callback;
+    variant.setValue(cb);
+    root->setData(2, 0, cc);
+    root->setData(2, 1, title);
+    root->setData(3, 0, variant);
+    root->setCheckState(0, Qt::Unchecked);
+    root->setFlags(root->flags() | flags_notapath());
+
+    root->setText(0,QString("%1").arg(title));
+    
+    *out = root;
+}
+
 void SystemCleanerPage::addTreeChild(const QString &data, const QString &text, const quint64 &size, QTreeWidgetItem *parent)
 {
     QTreeWidgetItem *item = new QTreeWidgetItem(parent);
@@ -125,6 +156,7 @@ void SystemCleanerPage::on_treeWidgetScanResult_itemClicked(QTreeWidgetItem *ite
 
 void SystemCleanerPage::systemScan()
 {
+
     if (ui->checkPackageCache->isChecked() ||
         ui->checkCrashReports->isChecked() ||
         ui->checkAppLog->isChecked()       ||
@@ -177,6 +209,75 @@ void SystemCleanerPage::systemScan()
                         true);
         }
 
+        // Broken Applications
+        if(ui->checkBrokenApps->isChecked()) {
+            //oops
+            QTreeWidgetItem *badhack = nullptr;
+            
+            addCallbackRoot(ui->checkBrokenApps->text(),[](QTreeWidgetItem *item, bool is_scan){
+                qint64 all{}, broken{};
+                QStringList ls_all = FileUtil::getDesktopFiles(&all, true);
+                QStringList *ls_brk = new QStringList();
+                
+                using namespace Types::Applications;
+                broken = listBrokenApps(ls_all, ls_brk);
+                all    = ls_all.length();
+                
+                if (is_scan)
+                {
+                    item->setText(0, QString("%1 (%2 / %3)").arg(item->text(0)).arg(broken)
+                                     .arg(all));
+                    return;
+                }
+                else // // // CALLED FROM SYSTEM CLEAN
+                {
+                    if (ls_brk->isEmpty())
+                    {
+                        delete ls_brk;
+                        return;
+                    }
+                    
+                    // we must backup 1st
+                    QString path_bu = QStandardPaths::locate(QStandardPaths::HomeLocation,".local",
+                                                             QStandardPaths::LocateDirectory);
+                    // prepare mkdir
+                    using namespace Types;
+                    PosixCmd com_1(QString("mkdir -p %1/backup/").arg(path_bu), false);
+                    path_bu += "/backup";
+
+                    //mkdir
+                    com_1.runCommand();
+
+                    //list of broken desktop files, we will backup & then rm
+                    QStringList brokestuff(*ls_brk);
+                    
+                    for (const auto& str : brokestuff)
+                    {
+                        using namespace Types;
+                        PosixCmd com_2(QString("cp -R --parents %1 %2%3").arg(str).arg(path_bu).arg(str), false);
+                        com_2.runCommand();
+                    }
+                    /*
+                     * Now we can delete the bull!!!! files...
+                     */
+                    CommandUtil::sudoExec("rm", QStringList() << "-rf" << brokestuff);
+                }
+                
+                delete ls_brk;
+            }, &badhack);
+            
+            scpCallback cb = badhack->data(3,0).value<scpCallback>();
+            if (cb.is_callback())
+            {
+                decltype(cb.callback) cbp = cb.callback;
+                decltype(cbp) cbd = reinterpret_cast<decltype(cbp)>(0x0);
+                    
+                if (!(cbp == cbd)) {
+                    cbp(badhack,true);
+                }
+            }
+        }
+
         // scan results page
         ui->stackedWidget->setCurrentIndex(1);
 
@@ -223,6 +324,22 @@ void SystemCleanerPage::systemClean()
         for (int i = 0; i < tree->topLevelItemCount(); ++i) {
 
             QTreeWidgetItem *it = tree->topLevelItem(i);
+            
+            if (it->flags() & flags_notapath())
+            {
+                scpCallback cb = it->data(3,0).value<scpCallback>();
+
+                if (cb.is_callback())
+                {
+                    decltype(cb.callback) cbp = cb.callback;
+                    decltype(cbp) cbd = reinterpret_cast<decltype(cbp)>(0x0);
+                    
+                    if (!(cbp == cbd)) {
+                        cbp(it,false);
+                    }
+                }
+                continue;
+            }
 
             CleanCategories cat = (CleanCategories) it->data(2, 0).toInt();
 
@@ -276,7 +393,10 @@ void SystemCleanerPage::systemClean()
         for (int i = 0; i < tree->topLevelItemCount(); ++i) {
 
             QTreeWidgetItem *it = tree->topLevelItem(i);
-
+            
+            if (it->flags() & flags_notapath()) // ITEM NOT TO BE HANDLED BY LOOP
+                continue;
+            
             it->setText(0, QString("%1 (%2)")
                         .arg(it->data(2, 1).toString())
                         .arg(it->childCount()));
@@ -324,10 +444,17 @@ void SystemCleanerPage::on_btnBackToCategories_clicked()
 void SystemCleanerPage::on_checkSelectAllSystemScan_clicked(bool checked)
 {
     ui->checkAppCache->setChecked(checked);
-    ui->checkAppLog->setChecked(checked);
+    ui->checkAppLog->setChecked(checked); 
     ui->checkCrashReports->setChecked(checked);
     ui->checkPackageCache->setChecked(checked);
     ui->checkTrash->setChecked(checked);
+    
+    if (ui->checkBrokenApps->isChecked() & ui->checkSelectAllSystemScan->isChecked() != checked) {
+        ui->checkBrokenApps->setChecked(!checked);
+    } else {
+        ui->checkBrokenApps->setChecked(checked);
+    }
+
 }
 
 void SystemCleanerPage::invalidateTree(QTreeWidget *tree)
@@ -342,3 +469,46 @@ void SystemCleanerPage::invalidateTree(QTreeWidget *tree)
         }
     }
 }
+
+void SystemCleanerPage::on_checkBrokenApps_stateChanged(int state)
+{
+    const Qt::CheckState cs = static_cast<Qt::CheckState>(state);
+
+    if (cs == Qt::Checked)
+        return;
+
+    if (ui->checkBrokenApps->property("unclicked_yet").value<bool>() == true)
+    {
+        QVariant falsevar;
+        falsevar.setValue(false);
+
+        ui->checkBrokenApps->setProperty("unclicked_yet", falsevar);
+        ui->checkBrokenApps->style()->unpolish(ui->checkBrokenApps);
+        ui->checkBrokenApps->style()->polish(ui->checkBrokenApps);
+    }
+}
+
+void SystemCleanerPage::on_checkBrokenApps_clicked()
+{
+    bool checky = !ui->checkBrokenApps->isChecked();
+
+    if (ui->checkBrokenApps->property("unclicked_yet").value<bool>() == true)
+    {
+        QVariant falsevar;
+        falsevar.setValue(false);
+
+        ui->checkBrokenApps->setProperty("unclicked_yet", falsevar);
+        ui->checkBrokenApps->style()->unpolish(ui->checkBrokenApps);
+        ui->checkBrokenApps->style()->polish(ui->checkBrokenApps);
+    }
+
+    if (!checky)
+    {
+        ui->checkBrokenApps->setChecked(true);
+    }
+    else
+    {
+        ui->checkBrokenApps->setChecked(false);
+    }
+}
+

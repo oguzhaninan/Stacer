@@ -31,6 +31,10 @@ set_directory_properties(PROPERTIES  ADDITIONAL_MAKE_CLEAN_FILES  "${QM_FILES}")
 set(CMAKE_AUTOUIC ON)
 set(CMAKE_AUTORCC ON)
 
+if(__COMPILER_GNU)
+    add_definitions(-DGNU_SOURCE)
+endif()
+
 add_executable(${PROJECT_NAME}
   ${${PROJECT_NAME}_srcs}
   "${CMAKE_CURRENT_SOURCE_DIR}/static.qrc"
@@ -38,7 +42,10 @@ add_executable(${PROJECT_NAME}
 )
 
 target_link_libraries(${PROJECT_NAME}
-  stacer-core  Qt5::Core  Qt5::Gui  Qt5::Widgets  Qt5::Charts  Qt5::Svg  Qt5::Concurrent
+	stacer-core  Qt5::Core  Qt5::Gui  Qt5::Widgets  Qt5::Charts  Qt5::Svg  Qt5::Concurrent ${PCRECPP_LIBRARIES}
+)
+target_include_directories(${PROJECT_NAME} PUBLIC
+	"${PCRECPP_INCLUDE_DIRS}"
 )
 
 # Running LTO in Release builds, if the C++ compiler is GNU GCC

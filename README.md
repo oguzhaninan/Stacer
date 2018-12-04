@@ -55,7 +55,11 @@
 </p>
 
 ### Required Packages
-- curl, systemd
+###### Required Binaries
+- curl, grep, systemd
+
+###### Required Libraries
+- libpcre++0v5, libpcre++0v5-dev _(if building)_
 
 ### PPA Repository (for ubuntu)
 1. `sudo add-apt-repository ppa:oguzhaninan/stacer`   

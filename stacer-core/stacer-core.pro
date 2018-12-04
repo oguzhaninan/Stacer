@@ -40,7 +40,11 @@ SOURCES += \
     Info/process_info.cpp \
     Info/process.cpp \
     Tools/apt_source_tool.cpp \
-    Tools/gnome_settings_tool.cpp
+    Tools/gnome_settings_tool.cpp \
+    Types/Applications/command.cpp  \
+    Types/Applications/desktop.cpp \
+    Types/Applications/broken_app.cpp \
+    Types/command.cpp
 
 HEADERS += \
         stacer-core_global.h \ 
@@ -58,9 +62,16 @@ HEADERS += \
     Info/process.h \
     Tools/apt_source_tool.h \
     Tools/gnome_settings_tool.h \
-    Tools/gnome_schema.h
+    Tools/gnome_schema.h \
+    Types/Applications/command.hpp \
+    Types/Applications/desktop.h \
+    Types/Applications/broken_app.h \
+    Types/metacallback.hpp \
+    Types/command.hpp
 
 unix {
     target.path = /usr/lib
+    LIBS     += $$[PCRECPP_LIBRARIES]
+    INCLUDEPATH += $$[PCRECPP_INCLUDE_DIRS]
     INSTALLS += target
 }
