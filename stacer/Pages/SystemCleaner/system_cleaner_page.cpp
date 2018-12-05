@@ -465,7 +465,17 @@ void SystemCleanerPage::invalidateTree(QTreeWidget *tree)
     {
         for (auto a = items.begin(); a != items.end(); ++a)
         {
-            delete *a;
+            auto* c = *a;
+            c = q_check_ptr<QTreeWidgetItem>(c);
+            /** double-check pointer we're about to free **/
+            quintptr addr = reinterpret_cast<quintptr>(c);
+            addr = addr & 0xFFFFFFFFFFFFFF00; /*
+                                               * the 0x55/0x54 is not from here
+                                               */
+            if (c != nullptr && addr != 0)
+            {
+                delete c;
+            }
         }
     }
 }
