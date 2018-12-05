@@ -459,14 +459,26 @@ void SystemCleanerPage::on_checkSelectAllSystemScan_clicked(bool checked)
 
 void SystemCleanerPage::invalidateTree(QTreeWidget *tree)
 {
-    auto items = ui->treeWidgetScanResult->findItems(QString("*"), Qt::MatchWrap | Qt::MatchWildcard | Qt::MatchRecursive);
+    auto items = tree->findItems(QString("*"), Qt::MatchWrap | Qt::MatchWildcard | Qt::MatchRecursive);
+    QTreeView *view = qobject_cast<QTreeView*>(tree);
 
     if (!ui->treeWidgetScanResult->children().empty() || !items.empty())
     {
         for (auto a = items.begin(); a != items.end(); ++a)
         {
-            delete *a;
+            auto* c = *a;
+            c = q_check_ptr<QTreeWidgetItem>(c);
+            /** double-check pointer we're about to free **/
+            quintptr addr = reinterpret_cast<quintptr>(c);
+            addr = addr & 0xFFFFFFFFFFFFFF00; /*
+                                               * the 0x55/0x54 is not from here
+                                               */
+            if (c != nullptr && addr != 0)
+            {
+                delete c;
+            }
         }
+	view->reset();
     }
 }
 
