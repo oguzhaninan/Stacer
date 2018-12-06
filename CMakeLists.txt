@@ -7,6 +7,10 @@ include("${CMAKE_CURRENT_SOURCE_DIR}/cmake/cxxbasics/CXXBasics.cmake")
 #PCRECPP
 include("${CMAKE_CURRENT_SOURCE_DIR}/cmake/FindPCRECPP.cmake")
 
+#sdbusplus
+include("${CMAKE_CURRENT_SOURCE_DIR}/cmake/Sdbusplus.cmake")
+
+
 # Setting a cleaner directory structure for the generated binaries
 set(CMAKE_BINARY_DIR        "${CMAKE_BINARY_DIR}/output")
 set(EXECUTABLE_OUTPUT_PATH  "${CMAKE_BINARY_DIR}/")
@@ -18,11 +22,35 @@ set(PROJECT_ROOT "${CMAKE_CURRENT_SOURCE_DIR}")
 set(CMAKE_AUTOMOC ON)
 find_package(Qt5  COMPONENTS  Core Gui Widgets Charts Svg Concurrent REQUIRED)
 
+#
+####!!! sdbusplus is a c++17 library . Sweet 17!!!###
 # Setting the minimum C++ standard and passing the Qt-specific define
-set(CMAKE_CXX_STANDARD           11)
+set(STR_CPP17 "-std=c++17")
+if(CMAKE_REQUIRED_FLAGS)
+    set(CMAKE_REQUIRED_FLAGS ${STR_CPP17} ${CMAKE_REQUIRED_FLAGS})
+else()
+    set(CMAKE_REQUIRED_FLAGS ${STR_CPP17})
+endif()
+message(STATUS "cmake_required_flags equals thus far: ${CMAKE_REQUIRED_FLAGS}")
+
+set(CMAKE_CXX_STANDARD           17)
 set(CMAKE_CXX_EXTENSIONS         YES)
 set(CMAKE_CXX_STANDARD_REQUIRED  YES)
+#set(CMAKE_CXX_STANDARD           11)
+#set(CMAKE_CXX_EXTENSIONS         YES)
+#set(CMAKE_CXX_STANDARD_REQUIRED  YES)
 add_definitions(-DQT_DEPRECATED_WARNINGS)
+
+# Configurations for system-specifics #
+####
+# sizeof's
+include(CheckTypeSize)
+check_type_size(bool SIZEOF_BOOL LANGUAGE CXX)
+
+####
+configure_file(Stacer-cfg.h.in Stacer-cfg.h)
+file(COPY ${PROJECT_ROOT}/Stacer-cfg.h DESTINATION ${PROJECT_ROOT}/stacer/)
+file(COPY ${PROJECT_ROOT}/Stacer-cfg.h DESTINATION ${PROJECT_ROOT}/stacer-core/)
 
 # Subprojects
 add_subdirectory(stacer-core)

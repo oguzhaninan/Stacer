@@ -6,7 +6,7 @@ greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 TARGET = stacer
 TEMPLATE = app
 
-CONFIG += c++11
+CONFIG += c++17
 
 QMAKE_CXXFLAGS += -O2
 
@@ -130,7 +130,9 @@ TRANSLATIONS += \
 RESOURCES += \
     static.qrc
 
-unix:!macx: LIBS += -L$$OUT_PWD/../stacer-core/ -lstacer-core $$[PCRECPP_LIBRARIES]
+unix:!macx: LIBS += -L$$OUT_PWD/../stacer-core/ -lstacer-core $$[PCRECPP_LIBRARIES] $$[SDBUSPLUS_LIBRARIES]
 
-INCLUDEPATH += $$PWD/../stacer-core $$[PCRECPP_INCLUDE_DIRS]
+INCLUDEPATH += $$PWD/../stacer-core $$[PCRECPP_INCLUDE_DIRS] $$[SDBUSPLUS_INCLUDE_DIRS]
 DEPENDPATH += $$PWD/../stacer-core
+
+QMAKE_CXXFLAGS += $$[CMAKE_REQUIRED_FLAGS]
