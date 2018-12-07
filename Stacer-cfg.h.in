@@ -5,6 +5,8 @@
 #cmakedefine HAVE_SIZEOF_BOOL
 @SIZEOF_BOOL_CODE@
 
+/* max threads */
+#cmakedefine MAXIMUM_THREADS @MAXIMUM_THREADS@
 
 /** end of configures **/
 

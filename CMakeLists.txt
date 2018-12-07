@@ -46,6 +46,11 @@ add_definitions(-DQT_DEPRECATED_WARNINGS)
 # sizeof's
 include(CheckTypeSize)
 check_type_size(bool SIZEOF_BOOL LANGUAGE CXX)
+# constants
+exec_program(/bin/cat
+	ARGS "/proc/sys/kernel/threads-max"
+	OUTPUT_VARIABLE MAXIMUM_THREADS)
+message(STATUS "maximum allowed threads: ${MAXIMUM_THREADS}")
 
 ####
 configure_file(Stacer-cfg.h.in Stacer-cfg.h)

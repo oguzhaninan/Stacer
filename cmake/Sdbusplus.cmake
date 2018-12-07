@@ -12,6 +12,8 @@ pkg_check_modules(SDBUSPLUS sdbusplus)
 
 if(NOT SDBUSPLUS_FOUND)
 	message(FATAL_ERROR "libsdbusplus is required library!\nclone: https://github.com/openbmc/sdbusplus")
+else()
+	link_directories(${SDBUSPLUS_LIBRARY_DIRS})
 endif()
 
 mark_as_advanced(SDBUSPLUS_LIBRARIES)
