@@ -4,7 +4,7 @@
 #include <type_traits>
 #include <QObject>
 
-namespace Types
+inline namespace Types
 {
     template<class T, class = typename std::enable_if<std::is_pointer<T>::value, T>::type>
     struct _MetaCallback
