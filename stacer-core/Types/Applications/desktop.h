@@ -13,9 +13,9 @@
 
 #include "stacer-core_global.h"
 
-namespace Types
+inline namespace Types
 {
-    namespace Applications
+    inline namespace Applications
     {
         class DesktopException : public QException
         {
@@ -49,17 +49,17 @@ namespace Types
         } DesktopFile;
 
         typedef std::pair<QFile*, DesktopFile*> Desktop;
-        
+
         /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
-        
+
         void STACERCOREFUNCTION_EXPORT freeDesktop(Desktop *to_free);
-        
+
         void STACERCOREFUNCTION_EXPORT loadDesktopFile(const QString& path, Desktop** out_desktop);
 
         // TRUE If broken
         bool STACERCOREFUNCTION_EXPORT loadAndCheckDesktopFile(const QString& path);
-        
-        // Returns count of broken apps 
+
+        // Returns count of broken apps
         // // list_broke is ptr to QStringList that will be modified
         qint64 STACERCOREFUNCTION_EXPORT listBrokenApps(const QStringList& list_all, QStringList *list_broke);
     };

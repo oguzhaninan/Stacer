@@ -5,7 +5,7 @@
 #include <utility>
 #include <QString>
 
-namespace Types {
+inline namespace Types {
 /*B*/
 
 static QString BlankString = "";
@@ -19,20 +19,20 @@ class Command
 public:
     Command() { m_data = nullptr;}
     virtual   ~Command() { if (m_data) { if (!array_data()) { delete m_data; } else { delete[] m_data; }}}
-    
+
     virtual typename std::add_pointer<T>::type runCommand(T cmd) { return nullptr; }
 
-    
+
     virtual T convert_data() const { return T(); }
 protected:
     DATA    *m_data;
 
     // is array? as in, is delete[] req'd
     constexpr bool array_data(void) { return ARR; }
-    
+
 public:
     const decltype(m_data)    get_data() const { return m_data; }
-    
+
 };
 
 //
@@ -49,7 +49,7 @@ public:
 
     virtual void runCommand(QString *cmd = nullptr);
     virtual QString *runCommand(QString cmd);
-    
+
     virtual QString convert_data() const;
     virtual QString* command() const;
 
