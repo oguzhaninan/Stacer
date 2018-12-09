@@ -4,16 +4,19 @@
 #include "Types/command.hpp"
 #include "Utils/command_util.h"
 
-inline namespace Types { inline namespace Applications {
-/*** begin namespace ***/
+/*
+ *inline namespace Types { inline namespace Applications {
+ *
+ * GCC 8.2.X wants us to type more :(	
+ */
 
-BrokenApp::BrokenApp(const Desktop& desktop)
+Types::Applications::BrokenApp::BrokenApp(const Desktop& desktop)
     : m_broken(false), m_ran(nullptr), m_deskfile(desktop)
 {
 
 }
 
-BrokenApp::BrokenApp(const Desktop *desktop)
+Types::Applications::BrokenApp::BrokenApp(const Desktop *desktop)
     : m_broken(false), m_ran(nullptr)
 {
     Desktop tmp;
@@ -22,12 +25,12 @@ BrokenApp::BrokenApp(const Desktop *desktop)
     m_deskfile = std::move(tmp);
 }
 
-BrokenApp::~BrokenApp()
+Types::Applications::BrokenApp::~BrokenApp()
 {
 
 }
 
-void BrokenApp::run()
+void Types::Applications::BrokenApp::run()
 {
     static std::atomic_int  times(0);
 
@@ -117,7 +120,7 @@ void BrokenApp::run()
     m_ran = &m_broken;
 }
 
-bool BrokenApp::isBroken() const
+bool Types::Applications::BrokenApp::isBroken() const
 {
     if (m_ran == nullptr)
         throw DesktopException(DesktopException::ExceptionType::NotParsedError);
@@ -126,4 +129,4 @@ bool BrokenApp::isBroken() const
 }
 
 /*** end namespace ***/
-} }
+//} }
