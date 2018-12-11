@@ -52,6 +52,9 @@ exec_program(/bin/cat
 	OUTPUT_VARIABLE MAXIMUM_THREADS)
 message(STATUS "maximum allowed threads: ${MAXIMUM_THREADS}")
 
+string(CONCAT TARGET_ARCHY "TARGET_" "${CXXBASICS_CXX_COMPILER_TARGET_ARCH}")
+string(TOUPPER "${TARGET_ARCHY}" TARGET_ARCHY)
+
 ####
 configure_file(Stacer-cfg.h.in Stacer-cfg.h)
 file(COPY ${PROJECT_ROOT}/Stacer-cfg.h DESTINATION ${PROJECT_ROOT}/stacer/)

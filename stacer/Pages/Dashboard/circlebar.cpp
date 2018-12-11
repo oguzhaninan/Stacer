@@ -13,7 +13,9 @@ CircleBar::CircleBar(const QString &title, const QStringList &colors, QWidget *p
     mColors(colors),
     mChart(new QChart),
     mChartView(new QChartView(mChart)),
-    mSeries(new QPieSeries(this))
+    mSeries(new QPieSeries(this)),
+    mNumPages(0),
+    mCurPage(0)
 {
     ui->setupUi(this);
 
@@ -22,6 +24,47 @@ CircleBar::CircleBar(const QString &title, const QStringList &colors, QWidget *p
     init();
 }
 
+qint64 CircleBar::numPages() const
+{
+    return mNumPages;
+}
+
+qint64 CircleBar::curPage() const
+{
+    return mCurPage;
+}
+
+void CircleBar::setNumPages(const qint64& pages)
+{
+    qint64 val = pages;
+    mNumPages = val;
+}
+void CircleBar::setCurPage(const qint64& page)
+{
+    qint64 val = page;
+    mCurPage = val;
+}
+
+CircleBar *CircleBar::current() const
+{
+    if (mNumPages < 1)
+    {
+        return (CircleBar*)this;
+    }
+    else
+    {
+        if (mCurPage <= 0)
+        {
+            return (CircleBar*)this;
+        }
+        else
+        {
+            return qobject_cast<CircleBar*>(mPageList[mCurPage]);
+        }
+    }
+
+    return (CircleBar*)this;
+}
 void CircleBar::init()
 {
     QColor transparent("transparent");
@@ -69,3 +112,29 @@ void CircleBar::setValue(const int &value, const QString &valueText)
     ui->lblCircleChartValue->setText(valueText);
 }
 
+void CircleBar::mousePressEvent(QMouseEvent *event)
+{
+    qint64 cur = this->curPage();
+
+    switch (event->button())
+    {
+        case Qt::LeftButton:
+            if (this->numPages() < 1)
+                return;
+
+            emit change_page(cur, ++cur);
+        break;
+        case Qt::RightButton:
+            if (this->numPages() < 1)
+                return;
+            if (cur-1 >= 0)
+            {
+                emit change_page(cur, --cur);
+            }
+            else { return; }
+        break;
+        default:
+            return;
+        break;
+    }
+}

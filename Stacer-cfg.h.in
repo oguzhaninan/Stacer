@@ -1,12 +1,17 @@
 #ifndef _STACER_CFG_H_
 #define _STACER_CFG_H_
 
+
 /* bool */
 #cmakedefine HAVE_SIZEOF_BOOL
 @SIZEOF_BOOL_CODE@
 
 /* max threads */
 #cmakedefine MAXIMUM_THREADS @MAXIMUM_THREADS@
+
+/* target architecture */
+#define @TARGET_ARCHY@
+#cmakedefine TARGET_ARCH @TARGET_ARCHY@
 
 /** end of configures **/
 
