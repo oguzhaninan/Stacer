@@ -98,7 +98,7 @@ void BrokenApp::run()
             return;
         }
 
-        QString cmd_s = QString("grep \"^Exec\" %1 | tail -1")
+        QString cmd_s = QString("grep \"^Exec\" \'%1\' | tail -1")
                 .arg(m_deskfile.second->file_path);
         PosixCmd cmdcmd(cmd_s);
 
