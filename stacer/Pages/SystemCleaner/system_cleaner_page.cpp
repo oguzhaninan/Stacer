@@ -11,6 +11,9 @@ constexpr decltype(Qt::ItemIsEnabled) flags_notapath(void)
     return static_cast<Qt::ItemFlag>(512);
 }
 
+// screw u sigsegv
+int SystemCleanerPage::mDestructed = 0;
+
 SystemCleanerPage::~SystemCleanerPage()
 {
     this->invalidateTree(ui->treeWidgetScanResult);
@@ -60,6 +63,8 @@ void SystemCleanerPage::init()
 
     // memory management :o
     connect(this, SIGNAL(treeInvalidated(QTreeWidget*)), this, SLOT(invalidateTree(QTreeWidget*)));
+    // more mm >:o
+    connect(this, &SystemCleanerPage::destroyed, this, &SystemCleanerPage::when_destroyed);
 }
 
 void SystemCleanerPage::addTreeRoot(const CleanCategories &cat, const QString &title, const QFileInfoList &infos, bool noChild)
@@ -480,6 +485,12 @@ void SystemCleanerPage::invalidateTree(QTreeWidget *tree)
         }
 	view->reset();
     }
+}
+
+void SystemCleanerPage::when_destroyed()
+{
+    int *deaths = &mDestructed;
+    mDestructed = ++(*deaths);
 }
 
 void SystemCleanerPage::on_checkBrokenApps_stateChanged(int state)

@@ -65,6 +65,7 @@ private slots:
     void on_checkSelectAllSystemScan_clicked(bool checked);
 
     void invalidateTree(QTreeWidget *tree);
+    void when_destroyed();
 
     void on_checkBrokenApps_stateChanged(int state);
     void on_checkBrokenApps_clicked();
@@ -81,6 +82,13 @@ private:
     QIcon mDefaultIcon;
     QMovie *mLoadingMovie;
     QMovie *mLoadingMovie_2;
+
+    /*
+     * this counter still didnt help
+     * i must assume that the cause of the sigsegv on exit
+     * is the fault of the threads that spawn on sys scan
+     */
+    static int    mDestructed;
 };
 
 #endif // SYSTEMCLEANERPAGE_H

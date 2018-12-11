@@ -17,6 +17,7 @@
 #else
      typedef bool union_bool;
 #endif
+#endif
 
 //---
 #endif
