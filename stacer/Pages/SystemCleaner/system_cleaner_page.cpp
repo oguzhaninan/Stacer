@@ -459,7 +459,8 @@ void SystemCleanerPage::on_checkSelectAllSystemScan_clicked(bool checked)
 
 void SystemCleanerPage::invalidateTree(QTreeWidget *tree)
 {
-    auto items = ui->treeWidgetScanResult->findItems(QString("*"), Qt::MatchWrap | Qt::MatchWildcard | Qt::MatchRecursive);
+    auto items = tree->findItems(QString("*"), Qt::MatchWrap | Qt::MatchWildcard | Qt::MatchRecursive);
+    QTreeView *view = qobject_cast<QTreeView*>(tree);
 
     if (!ui->treeWidgetScanResult->children().empty() || !items.empty())
     {
@@ -477,6 +478,7 @@ void SystemCleanerPage::invalidateTree(QTreeWidget *tree)
                 delete c;
             }
         }
+	view->reset();
     }
 }
 
