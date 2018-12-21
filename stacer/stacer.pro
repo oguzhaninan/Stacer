@@ -51,7 +51,8 @@ SOURCES += \
     Pages/AptSourceManager/apt_source_edit.cpp \
     Managers/setting_manager.cpp \
     sliding_stacked_widget.cpp \
-    signal_mapper.cpp
+    signal_mapper.cpp \
+    Pages/SystemCleaner/system_cleaner_mediadir.cpp
 
 HEADERS += \
     app.h \
@@ -83,7 +84,8 @@ HEADERS += \
     feedback.h \
     Pages/AptSourceManager/apt_source_edit.h \
     Managers/setting_manager.h \
-    signal_mapper.h
+    signal_mapper.h \
+    Pages/SystemCleaner/system_cleaner_mediadir.h
 
 FORMS += \
     app.ui \

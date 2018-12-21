@@ -73,73 +73,6 @@
          </property>
         </widget>
        </item>
-       <item row="2" column="2" alignment="Qt::AlignHCenter">
-        <widget class="QLabel" name="lblPackageCacheImg">
-         <property name="minimumSize">
-          <size>
-           <width>90</width>
-           <height>90</height>
-          </size>
-         </property>
-         <property name="maximumSize">
-          <size>
-           <width>90</width>
-           <height>90</height>
-          </size>
-         </property>
-         <property name="textFormat">
-          <enum>Qt::AutoText</enum>
-         </property>
-         <property name="pixmap">
-          <pixmap resource="../../static.qrc">:/static/themes/default/img/c_package.png</pixmap>
-         </property>
-         <property name="scaledContents">
-          <bool>false</bool>
-         </property>
-         <property name="alignment">
-          <set>Qt::AlignCenter</set>
-         </property>
-        </widget>
-       </item>
-       <item row="3" column="3" alignment="Qt::AlignHCenter">
-        <widget class="QLabel" name="lblCrashReports">
-         <property name="text">
-          <string>Crash Reports</string>
-         </property>
-         <property name="alignment">
-          <set>Qt::AlignCenter</set>
-         </property>
-         <property name="wordWrap">
-          <bool>true</bool>
-         </property>
-        </widget>
-       </item>
-       <item row="2" column="1">
-        <spacer name="horizontalSpacer_2">
-         <property name="orientation">
-          <enum>Qt::Horizontal</enum>
-         </property>
-         <property name="sizeHint" stdset="0">
-          <size>
-           <width>40</width>
-           <height>20</height>
-          </size>
-         </property>
-        </spacer>
-       </item>
-       <item row="3" column="6" alignment="Qt::AlignHCenter">
-        <widget class="QLabel" name="lblTrash">
-         <property name="text">
-          <string>Trash</string>
-         </property>
-         <property name="alignment">
-          <set>Qt::AlignCenter</set>
-         </property>
-         <property name="wordWrap">
-          <bool>true</bool>
-         </property>
-        </widget>
-       </item>
        <item row="4" column="2" alignment="Qt::AlignHCenter|Qt::AlignTop">
         <widget class="QCheckBox" name="checkPackageCache">
          <property name="sizePolicy">
@@ -162,10 +95,171 @@
          </property>
         </widget>
        </item>
-       <item row="3" column="2" alignment="Qt::AlignHCenter">
-        <widget class="QLabel" name="lblPackageCache">
+       <item row="2" column="1">
+        <spacer name="horizontalSpacer_2">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>40</width>
+           <height>20</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item row="9" column="4" alignment="Qt::AlignHCenter">
+        <widget class="QPushButton" name="btnScan">
+         <property name="minimumSize">
+          <size>
+           <width>100</width>
+           <height>100</height>
+          </size>
+         </property>
+         <property name="cursor">
+          <cursorShape>PointingHandCursor</cursorShape>
+         </property>
+         <property name="focusPolicy">
+          <enum>Qt::NoFocus</enum>
+         </property>
          <property name="text">
-          <string>Package Caches</string>
+          <string/>
+         </property>
+         <property name="iconSize">
+          <size>
+           <width>100</width>
+           <height>100</height>
+          </size>
+         </property>
+        </widget>
+       </item>
+       <item row="6" column="4">
+        <spacer name="verticalSpacer_5">
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
+         </property>
+         <property name="sizeType">
+          <enum>QSizePolicy::Fixed</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>20</width>
+           <height>30</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item row="3" column="3" alignment="Qt::AlignHCenter">
+        <widget class="QLabel" name="lblCrashReports">
+         <property name="text">
+          <string>Crash Reports</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+         <property name="wordWrap">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+       <item row="12" column="4" alignment="Qt::AlignHCenter|Qt::AlignTop">
+        <widget class="QCheckBox" name="checkSelectAllSystemScan">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="cursor">
+          <cursorShape>PointingHandCursor</cursorShape>
+         </property>
+         <property name="focusPolicy">
+          <enum>Qt::NoFocus</enum>
+         </property>
+         <property name="accessibleName">
+          <string notr="true"/>
+         </property>
+         <property name="text">
+          <string>Select All</string>
+         </property>
+         <property name="iconSize">
+          <size>
+           <width>30</width>
+           <height>30</height>
+          </size>
+         </property>
+        </widget>
+       </item>
+       <item row="7" column="2">
+        <widget class="QCheckBox" name="checkBrokenApps">
+         <property name="cursor">
+          <cursorShape>PointingHandCursor</cursorShape>
+         </property>
+         <property name="focusPolicy">
+          <enum>Qt::NoFocus</enum>
+         </property>
+         <property name="toolTip">
+          <string>Check this if you wish to remove any and all broken *.desktop files left behind by improperly installed applications. [Default: Yes]</string>
+         </property>
+         <property name="accessibleName">
+          <string>Broken_Applications</string>
+         </property>
+         <property name="layoutDirection">
+          <enum>Qt::LeftToRight</enum>
+         </property>
+         <property name="styleSheet">
+          <string notr="true"/>
+         </property>
+         <property name="text">
+          <string>Broken Apps</string>
+         </property>
+         <property name="checked">
+          <bool>true</bool>
+         </property>
+         <property name="unclicked_yet" stdset="0">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+       <item row="4" column="3" alignment="Qt::AlignHCenter|Qt::AlignTop">
+        <widget class="QCheckBox" name="checkCrashReports">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="cursor">
+          <cursorShape>PointingHandCursor</cursorShape>
+         </property>
+         <property name="focusPolicy">
+          <enum>Qt::NoFocus</enum>
+         </property>
+         <property name="accessibleName">
+          <string notr="true">circle</string>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="4">
+        <spacer name="verticalSpacer">
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>20</width>
+           <height>100</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item row="3" column="4" alignment="Qt::AlignHCenter">
+        <widget class="QLabel" name="lblAppLog">
+         <property name="text">
+          <string>Application Logs</string>
          </property>
          <property name="alignment">
           <set>Qt::AlignCenter</set>
@@ -200,41 +294,6 @@
          </property>
         </widget>
        </item>
-       <item row="4" column="6" alignment="Qt::AlignHCenter|Qt::AlignTop">
-        <widget class="QCheckBox" name="checkTrash">
-         <property name="sizePolicy">
-          <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
-           <horstretch>0</horstretch>
-           <verstretch>0</verstretch>
-          </sizepolicy>
-         </property>
-         <property name="cursor">
-          <cursorShape>PointingHandCursor</cursorShape>
-         </property>
-         <property name="focusPolicy">
-          <enum>Qt::NoFocus</enum>
-         </property>
-         <property name="accessibleName">
-          <string notr="true">circle</string>
-         </property>
-         <property name="text">
-          <string/>
-         </property>
-        </widget>
-       </item>
-       <item row="13" column="2" colspan="5">
-        <spacer name="verticalSpacer_4">
-         <property name="orientation">
-          <enum>Qt::Vertical</enum>
-         </property>
-         <property name="sizeHint" stdset="0">
-          <size>
-           <width>20</width>
-           <height>0</height>
-          </size>
-         </property>
-        </spacer>
-       </item>
        <item row="4" column="4" alignment="Qt::AlignHCenter|Qt::AlignTop">
         <widget class="QCheckBox" name="checkAppLog">
          <property name="sizePolicy">
@@ -254,101 +313,6 @@
          </property>
          <property name="text">
           <string/>
-         </property>
-        </widget>
-       </item>
-       <item row="2" column="8">
-        <spacer name="horizontalSpacer_3">
-         <property name="orientation">
-          <enum>Qt::Horizontal</enum>
-         </property>
-         <property name="sizeHint" stdset="0">
-          <size>
-           <width>40</width>
-           <height>20</height>
-          </size>
-         </property>
-        </spacer>
-       </item>
-       <item row="11" column="4" alignment="Qt::AlignHCenter">
-        <widget class="QLabel" name="lblLoadingScanner">
-         <property name="minimumSize">
-          <size>
-           <width>100</width>
-           <height>100</height>
-          </size>
-         </property>
-         <property name="text">
-          <string/>
-         </property>
-        </widget>
-       </item>
-       <item row="6" column="4">
-        <spacer name="verticalSpacer_5">
-         <property name="orientation">
-          <enum>Qt::Vertical</enum>
-         </property>
-         <property name="sizeType">
-          <enum>QSizePolicy::Fixed</enum>
-         </property>
-         <property name="sizeHint" stdset="0">
-          <size>
-           <width>20</width>
-           <height>30</height>
-          </size>
-         </property>
-        </spacer>
-       </item>
-       <item row="2" column="6" alignment="Qt::AlignHCenter">
-        <widget class="QLabel" name="lblTrashImg">
-         <property name="minimumSize">
-          <size>
-           <width>90</width>
-           <height>90</height>
-          </size>
-         </property>
-         <property name="maximumSize">
-          <size>
-           <width>90</width>
-           <height>90</height>
-          </size>
-         </property>
-         <property name="text">
-          <string/>
-         </property>
-         <property name="pixmap">
-          <pixmap resource="../../static.qrc">:/static/themes/default/img/c_trash.png</pixmap>
-         </property>
-         <property name="alignment">
-          <set>Qt::AlignCenter</set>
-         </property>
-        </widget>
-       </item>
-       <item row="12" column="4" alignment="Qt::AlignHCenter|Qt::AlignTop">
-        <widget class="QCheckBox" name="checkSelectAllSystemScan">
-         <property name="sizePolicy">
-          <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
-           <horstretch>0</horstretch>
-           <verstretch>0</verstretch>
-          </sizepolicy>
-         </property>
-         <property name="cursor">
-          <cursorShape>PointingHandCursor</cursorShape>
-         </property>
-         <property name="focusPolicy">
-          <enum>Qt::NoFocus</enum>
-         </property>
-         <property name="accessibleName">
-          <string notr="true"/>
-         </property>
-         <property name="text">
-          <string>Select All</string>
-         </property>
-         <property name="iconSize">
-          <size>
-           <width>30</width>
-           <height>30</height>
-          </size>
          </property>
         </widget>
        </item>
@@ -380,101 +344,6 @@
          </property>
         </widget>
        </item>
-       <item row="4" column="5" alignment="Qt::AlignHCenter|Qt::AlignTop">
-        <widget class="QCheckBox" name="checkAppCache">
-         <property name="sizePolicy">
-          <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
-           <horstretch>0</horstretch>
-           <verstretch>0</verstretch>
-          </sizepolicy>
-         </property>
-         <property name="cursor">
-          <cursorShape>PointingHandCursor</cursorShape>
-         </property>
-         <property name="focusPolicy">
-          <enum>Qt::NoFocus</enum>
-         </property>
-         <property name="accessibleName">
-          <string notr="true">circle</string>
-         </property>
-         <property name="text">
-          <string/>
-         </property>
-        </widget>
-       </item>
-       <item row="3" column="4" alignment="Qt::AlignHCenter">
-        <widget class="QLabel" name="lblAppLog">
-         <property name="text">
-          <string>Application Logs</string>
-         </property>
-         <property name="alignment">
-          <set>Qt::AlignCenter</set>
-         </property>
-         <property name="wordWrap">
-          <bool>true</bool>
-         </property>
-        </widget>
-       </item>
-       <item row="9" column="4" alignment="Qt::AlignHCenter">
-        <widget class="QPushButton" name="btnScan">
-         <property name="minimumSize">
-          <size>
-           <width>100</width>
-           <height>100</height>
-          </size>
-         </property>
-         <property name="cursor">
-          <cursorShape>PointingHandCursor</cursorShape>
-         </property>
-         <property name="focusPolicy">
-          <enum>Qt::NoFocus</enum>
-         </property>
-         <property name="text">
-          <string/>
-         </property>
-         <property name="iconSize">
-          <size>
-           <width>100</width>
-           <height>100</height>
-          </size>
-         </property>
-        </widget>
-       </item>
-       <item row="0" column="4">
-        <spacer name="verticalSpacer">
-         <property name="orientation">
-          <enum>Qt::Vertical</enum>
-         </property>
-         <property name="sizeHint" stdset="0">
-          <size>
-           <width>20</width>
-           <height>100</height>
-          </size>
-         </property>
-        </spacer>
-       </item>
-       <item row="4" column="3" alignment="Qt::AlignHCenter|Qt::AlignTop">
-        <widget class="QCheckBox" name="checkCrashReports">
-         <property name="sizePolicy">
-          <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
-           <horstretch>0</horstretch>
-           <verstretch>0</verstretch>
-          </sizepolicy>
-         </property>
-         <property name="cursor">
-          <cursorShape>PointingHandCursor</cursorShape>
-         </property>
-         <property name="focusPolicy">
-          <enum>Qt::NoFocus</enum>
-         </property>
-         <property name="accessibleName">
-          <string notr="true">circle</string>
-         </property>
-         <property name="text">
-          <string/>
-         </property>
-        </widget>
-       </item>
        <item row="2" column="5" alignment="Qt::AlignHCenter">
         <widget class="QLabel" name="lblAppCacheImg">
          <property name="minimumSize">
@@ -500,36 +369,239 @@
          </property>
         </widget>
        </item>
-       <item row="7" column="2">
-        <widget class="QCheckBox" name="checkBrokenApps">
+       <item row="13" column="2" colspan="5">
+        <spacer name="verticalSpacer_4">
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>20</width>
+           <height>0</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item row="2" column="2" alignment="Qt::AlignHCenter">
+        <widget class="QLabel" name="lblPackageCacheImg">
+         <property name="minimumSize">
+          <size>
+           <width>90</width>
+           <height>90</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>90</width>
+           <height>90</height>
+          </size>
+         </property>
+         <property name="textFormat">
+          <enum>Qt::AutoText</enum>
+         </property>
+         <property name="pixmap">
+          <pixmap resource="../../static.qrc">:/static/themes/default/img/c_package.png</pixmap>
+         </property>
+         <property name="scaledContents">
+          <bool>false</bool>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="2" alignment="Qt::AlignHCenter">
+        <widget class="QLabel" name="lblPackageCache">
+         <property name="text">
+          <string>Package Caches</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+         <property name="wordWrap">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="6" alignment="Qt::AlignHCenter">
+        <widget class="QLabel" name="lblTrash">
+         <property name="text">
+          <string>Trash</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+         <property name="wordWrap">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+       <item row="4" column="5" alignment="Qt::AlignHCenter|Qt::AlignTop">
+        <widget class="QCheckBox" name="checkAppCache">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
          <property name="cursor">
           <cursorShape>PointingHandCursor</cursorShape>
          </property>
          <property name="focusPolicy">
           <enum>Qt::NoFocus</enum>
          </property>
-         <property name="toolTip">
-          <string>Check this if you wish to remove any and all broken *.desktop files left behind by improperly installed applications. [Default: Yes]</string>
-         </property>
          <property name="accessibleName">
-          <string>Broken_Applications</string>
-         </property>
-         <property name="layoutDirection">
-          <enum>Qt::LeftToRight</enum>
-         </property>
-         <property name="styleSheet">
-          <string notr="true"/>
+          <string notr="true">circle</string>
          </property>
          <property name="text">
-          <string>Broken Apps</string>
-         </property>
-         <property name="checked">
-          <bool>true</bool>
-         </property>
-         <property name="unclicked_yet" stdset="0">
-          <bool>true</bool>
+          <string/>
          </property>
         </widget>
+       </item>
+       <item row="11" column="4" alignment="Qt::AlignHCenter">
+        <widget class="QLabel" name="lblLoadingScanner">
+         <property name="minimumSize">
+          <size>
+           <width>100</width>
+           <height>100</height>
+          </size>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="6" alignment="Qt::AlignHCenter">
+        <widget class="QLabel" name="lblTrashImg">
+         <property name="minimumSize">
+          <size>
+           <width>90</width>
+           <height>90</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>90</width>
+           <height>90</height>
+          </size>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+         <property name="pixmap">
+          <pixmap resource="../../static.qrc">:/static/themes/default/img/c_trash.png</pixmap>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="8">
+        <spacer name="horizontalSpacer_3">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>40</width>
+           <height>20</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item row="4" column="6" alignment="Qt::AlignHCenter|Qt::AlignTop">
+        <widget class="QCheckBox" name="checkTrash">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="cursor">
+          <cursorShape>PointingHandCursor</cursorShape>
+         </property>
+         <property name="focusPolicy">
+          <enum>Qt::NoFocus</enum>
+         </property>
+         <property name="accessibleName">
+          <string notr="true">circle</string>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+        </widget>
+       </item>
+       <item row="7" column="5">
+        <layout class="QHBoxLayout" name="horizontalLayout">
+         <item>
+          <widget class="QCheckBox" name="checkMediaFiles">
+           <property name="cursor">
+            <cursorShape>PointingHandCursor</cursorShape>
+           </property>
+           <property name="focusPolicy">
+            <enum>Qt::NoFocus</enum>
+           </property>
+           <property name="toolTip">
+            <string>Check if you wish to scan for unwanted media files... [Default: No]</string>
+           </property>
+           <property name="styleSheet">
+            <string notr="true"/>
+           </property>
+           <property name="text">
+            <string>Media Files</string>
+           </property>
+          </widget>
+         </item>
+         <item alignment="Qt::AlignRight|Qt::AlignVCenter">
+          <widget class="QPushButton" name="btnMediaFileDlg">
+           <property name="enabled">
+            <bool>false</bool>
+           </property>
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="minimumSize">
+            <size>
+             <width>32</width>
+             <height>25</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>32</width>
+             <height>32</height>
+            </size>
+           </property>
+           <property name="sizeIncrement">
+            <size>
+             <width>1</width>
+             <height>7</height>
+            </size>
+           </property>
+           <property name="cursor">
+            <cursorShape>PointingHandCursor</cursorShape>
+           </property>
+           <property name="focusPolicy">
+            <enum>Qt::NoFocus</enum>
+           </property>
+           <property name="toolTip">
+            <string>Configure &amp; choose what type(s) of media files to scan for inside your home or other directories...</string>
+           </property>
+           <property name="accessibleName">
+            <string>Media_Files_Dlg</string>
+           </property>
+           <property name="styleSheet">
+            <string notr="true"/>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+          </widget>
+         </item>
+        </layout>
        </item>
       </layout>
      </widget>
@@ -742,5 +814,22 @@
  <resources>
   <include location="../../static.qrc"/>
  </resources>
- <connections/>
+ <connections>
+  <connection>
+   <sender>checkMediaFiles</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>btnMediaFileDlg</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>641</x>
+     <y>365</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>712</x>
+     <y>365</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
 </ui>

@@ -1,4 +1,5 @@
-﻿#include "system_cleaner_page.h"
+﻿#include <QtDebug>
+#include "system_cleaner_page.h"
 #include "ui_system_cleaner_page.h"
 
 #include "Types/command.hpp"
@@ -28,7 +29,8 @@ SystemCleanerPage::SystemCleanerPage(QWidget *parent) :
     tmr(ToolManager::ins()),
     mDefaultIcon(QIcon::fromTheme("application-x-executable")),
     mLoadingMovie(nullptr),
-    mLoadingMovie_2(nullptr)
+    mLoadingMovie_2(nullptr),
+    mMediaDirs(nullptr)
 {
     ui->setupUi(this);
 
@@ -60,6 +62,9 @@ void SystemCleanerPage::init()
         mLoadingMovie_2->start();
         ui->lblLoadingCleaner->hide();
     });
+
+    // for our media dirs support
+    mMediaDirs = new SystemCleanerMediaDir(this);
 
     // memory management :o
     connect(this, SIGNAL(treeInvalidated(QTreeWidget*)), this, SLOT(invalidateTree(QTreeWidget*)));
@@ -281,6 +286,16 @@ void SystemCleanerPage::systemScan()
                     cbp(badhack,true);
                 }
             }
+        }
+
+        // Media Files
+        if (ui->checkMediaFiles->isChecked()) {
+            qDebug("SystemCleanerPage::mMediaDirs : There are %d media dirs added...", mMediaDirs->mediaDirectories()->count());
+
+            addTreeRoot(MEDIA_FILES,
+                        ui->checkMediaFiles->text(),
+                        mMediaDirs->fetchFIL(),
+                        false);
         }
 
         // scan results page

@@ -542,6 +542,28 @@ QCheckBox[unclicked_yet=true]::indicator::checked {
     color: @color05;
 }
 
+/* - Media Files Checkbox - */
+#SystemCleanerPage #checkMediaFiles {
+    font-size: 11pt;
+    color: @color05;
+}
+
+/* - Button next to the Media Files Checkbox - */
+#SystemCleanerPage QPushButton[accessibleName=Media_Files_Dlg] {
+    background: transparent url(:/static/themes/common/img/butt_thumb_normal.png) no-repeat center;
+    border: 1px solid @color08;
+}
+
+#SystemCleanerPage QPushButton[accessibleName=Media_Files_Dlg]:disabled {
+    background: transparent url(:/static/themes/common/img/butt_thumb_disabled.png) no-repeat center;
+    border: 1px solid @color08;
+}
+
+#SystemCleanerPage QPushButton[accessibleName=Media_Files_Dlg]:pressed {
+    background: transparent url(:/static/themes/common/img/butt_thumb_pressed.png) no-repeat center;
+    border: 1px solid @color08;
+}
+
 /* - System Scan Button - */
 
 #SystemCleanerPage #btnScan {

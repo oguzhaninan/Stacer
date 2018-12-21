@@ -11,9 +11,9 @@
         <file>static/themes/common/img/checkbox.png</file>
         <file>static/themes/common/img/checkbox-precheck.png</file>
         <file>static/themes/common/img/un-checkbox.png</file>
-        <file>stacer/static/themes/common/img/butt_thumb_disabled.png</file>
-        <file>stacer/static/themes/common/img/butt_thumb_normal.png</file>
-        <file>stacer/static/themes/common/img/butt_thumb_pressed.png</file>
+        <file>static/themes/common/img/butt_thumb_disabled.png</file>
+        <file>static/themes/common/img/butt_thumb_normal.png</file>
+        <file>static/themes/common/img/butt_thumb_pressed.png</file>
         <file>static/themes/default/img/app.png</file>
         <file>static/themes/default/img/trash.png</file>
         <file>static/themes/common/img/not-found.png</file>

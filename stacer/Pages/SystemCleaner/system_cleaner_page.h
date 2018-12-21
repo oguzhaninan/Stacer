@@ -17,6 +17,8 @@
 #include "Types/Applications/broken_app.h"
 #include "Types/Applications/desktop.h"
 
+#include "Pages/SystemCleaner/system_cleaner_mediadir.h"
+
 namespace Ui {
     class SystemCleanerPage;
 }
@@ -37,7 +39,8 @@ public:
         APPLICATION_LOGS,
         APPLICATION_CACHES,
         TRASH,
-        BROKEN_APPLICATIONS
+        BROKEN_APPLICATIONS,
+        MEDIA_FILES
     };
 
 public:
@@ -83,6 +86,7 @@ private:
     QMovie *mLoadingMovie;
     QMovie *mLoadingMovie_2;
 
+    SystemCleanerMediaDir *mMediaDirs;
     /*
      * this counter still didnt help
      * i must assume that the cause of the sigsegv on exit
