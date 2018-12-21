@@ -52,7 +52,8 @@ SOURCES += \
     Managers/setting_manager.cpp \
     sliding_stacked_widget.cpp \
     signal_mapper.cpp \
-    Pages/SystemCleaner/system_cleaner_mediadir.cpp
+    Pages/SystemCleaner/system_cleaner_mediadir.cpp \
+    Pages/SystemCleaner/system_cleaner_md_dialog.cpp
 
 HEADERS += \
     app.h \
@@ -85,7 +86,8 @@ HEADERS += \
     Pages/AptSourceManager/apt_source_edit.h \
     Managers/setting_manager.h \
     signal_mapper.h \
-    Pages/SystemCleaner/system_cleaner_mediadir.h
+    Pages/SystemCleaner/system_cleaner_mediadir.h \
+    Pages/SystemCleaner/system_cleaner_md_dialog.h
 
 FORMS += \
     app.ui \
@@ -110,7 +112,8 @@ FORMS += \
     Pages/GnomeSettings/window_manager_settings.ui \
     Pages/GnomeSettings/appearance_settings.ui \
     feedback.ui \
-    Pages/AptSourceManager/apt_source_edit.ui
+    Pages/AptSourceManager/apt_source_edit.ui \
+    Pages/SystemCleaner/system_cleaner_md_dialog.ui
 
 TRANSLATIONS += \
     ../translations/stacer_ar.ts \
