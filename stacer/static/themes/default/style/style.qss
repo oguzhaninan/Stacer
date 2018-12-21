@@ -1025,6 +1025,14 @@ QCheckBox[unclicked_yet=true]::indicator::checked {
     color: @color08;
 }
 
+#dialogMediaFiles QListView {
+    background: @color06 url(:/static/themes/common/img/listview_bg.png) repeat 100%;
+}
+
+#buttonBoxDialog * {
+    padding: 1 32 1 32;
+}
+
 #lblMediaDirectories, #lblMediaFiletypes, #buttonBoxDialog QPushButton {
     color: @color05;
     font-size: 11pt;
@@ -1036,3 +1044,19 @@ QCheckBox[unclicked_yet=true]::indicator::checked {
     font-weight: bold;
 }
 
+#btnRemoveDirectory, #btnRemoveFiletypes {
+    background: @color01 url(:/static/themes/common/img/butt_remove.png) no-repeat center;
+    background-clip: content-box;
+}
+
+#btnAddDirectory {
+    background: @color01;
+    border-image: url(:/static/themes/common/img/butt_folder.png) 0 0 0 0 stretch stretch;
+    background-clip: content-box;
+}
+
+#btnAddFiletypes {
+    background: @color01;
+    border-image: url(:/static/themes/common/img/butt_addition.png) 0 0 0 0 stretch stretch;
+    background-clip: content-box;
+}

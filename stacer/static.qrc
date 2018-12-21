@@ -14,6 +14,10 @@
         <file>static/themes/common/img/butt_thumb_disabled.png</file>
         <file>static/themes/common/img/butt_thumb_normal.png</file>
         <file>static/themes/common/img/butt_thumb_pressed.png</file>
+        <file>static/themes/common/img/butt_folder.png</file>
+        <file>static/themes/common/img/butt_remove.png</file>
+        <file>static/themes/common/img/butt_addition.png</file>
+        <file>static/themes/common/img/listview_bg.png</file>
         <file>static/themes/default/img/app.png</file>
         <file>static/themes/default/img/trash.png</file>
         <file>static/themes/common/img/not-found.png</file>
