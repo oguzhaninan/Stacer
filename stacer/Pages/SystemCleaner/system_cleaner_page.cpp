@@ -1,4 +1,5 @@
 ﻿#include <QtDebug>
+#include "system_cleaner_md_dialog.h"
 #include "system_cleaner_page.h"
 #include "ui_system_cleaner_page.h"
 
@@ -550,3 +551,9 @@ void SystemCleanerPage::on_checkBrokenApps_clicked()
     }
 }
 
+void SystemCleanerPage::on_btnMediaFileDlg_clicked()
+{
+    auto* dialog = dialogMediaFilesFactory::createDialog(this, mMediaDirs);
+
+    dialog->show();
+}

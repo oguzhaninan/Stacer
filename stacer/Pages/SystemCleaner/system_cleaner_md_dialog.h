@@ -2,6 +2,7 @@
 #define SYSTEM_CLEANER_MD_DIALOG_H
 
 #include <QDialog>
+#include "system_cleaner_mediadir.h"
 
 namespace Ui
 {
@@ -15,9 +16,11 @@ class dialogMediaFiles : public QDialog
 public:
     explicit dialogMediaFiles(QWidget *parent = 0);
     virtual ~dialogMediaFiles();
-    
+
 private:
     Ui::dialogMediaFiles    *ui;
+
+    SystemCleanerMediaDir   *scmd;
 
     friend class dialogMediaFilesFactory;
 };
@@ -27,7 +30,7 @@ class dialogMediaFilesFactory
 public:
     virtual ~dialogMediaFilesFactory();
 
-    static dialogMediaFiles* createDialog(QWidget *parent);
+    static dialogMediaFiles* createDialog(QWidget *parent, SystemCleanerMediaDir *dirs);
 protected:
     dialogMediaFilesFactory() = default;
     dialogMediaFilesFactory(const dialogMediaFilesFactory& other) = delete;

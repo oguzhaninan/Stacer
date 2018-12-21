@@ -73,6 +73,7 @@ private slots:
     void on_checkBrokenApps_stateChanged(int state);
     void on_checkBrokenApps_clicked();
 
+    void on_btnMediaFileDlg_clicked();
 private:
     void init();
 

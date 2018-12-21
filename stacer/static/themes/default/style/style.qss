@@ -1018,3 +1018,21 @@ QCheckBox[unclicked_yet=true]::indicator::checked {
     background-color: @pageContent;
 }
 
+
+/***** DIALOG BOX FOR MEDIA DIRS ******/
+#dialogMediaFiles {
+    background-color: @color08;
+    color: @color08;
+}
+
+#lblMediaDirectories, #lblMediaFiletypes, #buttonBoxDialog QPushButton {
+    color: @color05;
+    font-size: 11pt;
+}
+
+#buttonBoxDialog QPushButton {
+    color: @color05;
+    font-size: 13pt;
+    font-weight: bold;
+}
+
