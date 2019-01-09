@@ -53,7 +53,8 @@ SOURCES += \
     sliding_stacked_widget.cpp \
     signal_mapper.cpp \
     Pages/SystemCleaner/system_cleaner_mediadir.cpp \
-    Pages/SystemCleaner/system_cleaner_md_dialog.cpp
+    Pages/SystemCleaner/system_cleaner_md_dialog.cpp \
+    Pages/SystemCleaner/system_cleaner_md_preset.cpp
 
 HEADERS += \
     app.h \
@@ -87,7 +88,8 @@ HEADERS += \
     Managers/setting_manager.h \
     signal_mapper.h \
     Pages/SystemCleaner/system_cleaner_mediadir.h \
-    Pages/SystemCleaner/system_cleaner_md_dialog.h
+    Pages/SystemCleaner/system_cleaner_md_dialog.h \
+    Pages/SystemCleaner/system_cleaner_md_preset.h
 
 FORMS += \
     app.ui \

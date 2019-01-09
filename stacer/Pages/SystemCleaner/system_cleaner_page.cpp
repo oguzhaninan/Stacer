@@ -31,7 +31,8 @@ SystemCleanerPage::SystemCleanerPage(QWidget *parent) :
     mDefaultIcon(QIcon::fromTheme("application-x-executable")),
     mLoadingMovie(nullptr),
     mLoadingMovie_2(nullptr),
-    mMediaDirs(nullptr)
+    mMediaDirs(nullptr),
+    mMDPreset(SystemCleanerMDPreset::loadPreset(":/static/default_mdir.json"))
 {
     ui->setupUi(this);
 
@@ -66,6 +67,8 @@ void SystemCleanerPage::init()
 
     // for our media dirs support
     mMediaDirs = new SystemCleanerMediaDir(this);
+    mMDPreset->setMediaDirs(&mMediaDirs);
+    mMDPreset->getData();
 
     // memory management :o
     connect(this, SIGNAL(treeInvalidated(QTreeWidget*)), this, SLOT(invalidateTree(QTreeWidget*)));

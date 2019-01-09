@@ -18,6 +18,7 @@
 #include "Types/Applications/desktop.h"
 
 #include "Pages/SystemCleaner/system_cleaner_mediadir.h"
+#include "Pages/SystemCleaner/system_cleaner_md_preset.h"
 
 namespace Ui {
     class SystemCleanerPage;
@@ -88,6 +89,7 @@ private:
     QMovie *mLoadingMovie_2;
 
     SystemCleanerMediaDir *mMediaDirs;
+    SystemCleanerMDPreset *mMDPreset;
     /*
      * this counter still didnt help
      * i must assume that the cause of the sigsegv on exit

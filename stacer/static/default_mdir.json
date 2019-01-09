@@ -1,0 +1,9 @@
+{
+	"defaults": [
+		"~/Downloads",
+		"~/Pictures",
+		"~/Videos",
+		["*.mp4","*.avi","*.mkv","*.png","*.gif","*.deb","*.exe","*.zip"]
+	]
+}
+

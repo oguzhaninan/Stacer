@@ -49,6 +49,7 @@
         <file>static/themes/default/img/sidebar-icons/settings.png</file>
         <file>static/languages.json</file>
         <file>static/themes.json</file>
+	<file>static/default_mdir.json</file>
         <file>static/themes/light/style/style.qss</file>
         <file>static/themes/light/img/app.png</file>
         <file>static/themes/light/img/clean-active.png</file>
