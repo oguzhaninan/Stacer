@@ -1,3 +1,7 @@
+branches:
+    only:
+    - native
+    - master
 language: cpp
 compiler: clang
 sudo: require
@@ -6,7 +10,7 @@ before_install:
 - sudo add-apt-repository ppa:beineri/opt-qt591-trusty -y
 - sudo apt-get update -qq
 install:
-- sudo apt-get -y -qq install cmake
+- sudo apt-get -y -qq install cmake libpcre++-dev
 - sudo apt-get -y -qq install libgl1-mesa-dev qt59base qt59imageformats qt59svg qt59charts-no-lgpl qt59tools
 - source /opt/qt*/bin/qt*-env.sh
 before_script:
