@@ -46,6 +46,7 @@ MediaDirData** SystemCleanerMDPreset::getData()
 {
     QVariant            document = this->toVariant();
     QList<QVariant>     doculist;
+    QVariantMap         documap;
     QStringList         directories;
     QStringList         filters;
     size_t              mdd_size  = 0;
@@ -54,9 +55,22 @@ MediaDirData** SystemCleanerMDPreset::getData()
     if (this->mediaDirs() == nullptr)
         throw QException();
 
-    if (document.canConvert(QMetaType::QVariantList))
+    if (document.canConvert(QMetaType::QVariantList))       // array base element
     {
         doculist = document.toList();
+        if (doculist.isEmpty())
+            throw QException();
+    }
+    else if (document.canConvert(QMetaType::QVariantMap))   // object base element
+    {
+        documap  = document.toMap();
+        if (documap.empty())
+            throw QException();
+        
+        if (!documap["defaults"].canConvert(QMetaType::QVariantList))
+            throw QException();
+        
+        doculist = documap["defaults"].toList();
         if (doculist.isEmpty())
             throw QException();
     }
@@ -75,12 +89,13 @@ MediaDirData** SystemCleanerMDPreset::getData()
         }
         else if (val.isArray())
         {
-            while (!val.toArray().isEmpty())
+            for (int j = 0; j < val.toArray().count(); j++)
             {
-                filters << val.toArray().takeAt(val.toArray().count()-1).toString();
+                filters << val.toArray().takeAt(j).toString();
             }
         }
     }
+    
     /** count number of directories **/
     if (directories.count() == 1)
     {
@@ -96,6 +111,11 @@ MediaDirData** SystemCleanerMDPreset::getData()
     {
         mdd_array[i] = new MediaDirData();
         mdd_array[i]->set_data(directories[i], filters);
+    }
+    /** setup the pad MDD if it's supposed 2 exist **/
+    if (mdd_size > directories.count())
+    {
+        mdd_array[mdd_size-1] = new MediaDirData();
     }
     
     return mdd_array;
