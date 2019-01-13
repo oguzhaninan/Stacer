@@ -6,6 +6,11 @@ language: cpp
 compiler: clang
 sudo: require
 dist: trusty
+addons:
+    apt:
+        packages:
+        - autoconf-archive
+        - pkg-config
 before_install:
 - sudo add-apt-repository ppa:beineri/opt-qt591-trusty -y
 - sudo apt-get update -qq
