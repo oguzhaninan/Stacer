@@ -68,7 +68,10 @@ void SystemCleanerPage::init()
     // for our media dirs support
     mMediaDirs = new SystemCleanerMediaDir(this);
     mMDPreset->setMediaDirs(&mMediaDirs);
-    mMDPreset->getData();
+    MediaDirData **data = mMDPreset->getData();
+    mMediaDirs->addMDDs(data, mMDPreset->sizeofData());
+    // // done w/ these
+    SystemCleanerMDPreset::cleanupData(data, mMDPreset->sizeofData());
 
     // memory management :o
     connect(this, SIGNAL(treeInvalidated(QTreeWidget*)), this, SLOT(invalidateTree(QTreeWidget*)));

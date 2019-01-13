@@ -106,3 +106,25 @@ void SystemCleanerMediaDir::addDefaultDirs(const bool do_it)
     const QString& default_mediadir = QStandardPaths::writableLocation(QStandardPaths::HomeLocation);
     addDirectory(default_mediadir);
 }
+
+void SystemCleanerMediaDir::addMDDs(MediaDirData **mdds, const size_t mdds_len)
+{
+    QString blank;
+    QStringList blankel;
+    
+    for (int i = 0; i < mdds_len; i++)
+    {
+        if ((QString&)mdds[i]->directory() == blank)
+            continue;
+        
+        addDirectory((QString&)mdds[i]->directory());
+        
+        if (!((QStringList&)mdds[i]->filters() == blankel))
+        {
+            for (const auto& str : (QStringList&)mdds[i]->filters())
+            {
+                addFilterToDirectory((QString&)mdds[i]->directory(), str);
+            }
+        }
+    }
+}

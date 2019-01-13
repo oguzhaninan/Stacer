@@ -3,7 +3,8 @@
 
 SystemCleanerMDPreset::SystemCleanerMDPreset(const QByteArray& jsondata)
     : QJsonDocument(QJsonDocument::fromJson(jsondata)), QSharedData(), pSelf(nullptr),
-      pMediaDirs(nullptr)
+      pMediaDirs(nullptr),
+      pSzDataArray(0)
 {
     qDebug("\t\tLoaded JSON File.");
 }
@@ -13,6 +14,7 @@ SystemCleanerMDPreset::SystemCleanerMDPreset(const SystemCleanerMDPreset& other)
 {
     pSelf = QSharedDataPointer<SystemCleanerMDPreset>(const_cast<SystemCleanerMDPreset*>(other.pSelf.data()));
     pMediaDirs = other.pMediaDirs;
+    pSzDataArray = other.pSzDataArray;
 }
 
 SystemCleanerMDPreset::~SystemCleanerMDPreset()
@@ -118,7 +120,18 @@ MediaDirData** SystemCleanerMDPreset::getData()
         mdd_array[mdd_size-1] = new MediaDirData();
     }
     
+    pSzDataArray = mdd_size;
     return mdd_array;
+}
+
+void SystemCleanerMDPreset::cleanupData(MediaDirData **datas, const size_t num_datas)
+{
+    for (int i = 0; i < num_datas; i++)
+    {
+        delete datas[i];
+    }
+    
+    delete[] datas;
 }
 
 void SystemCleanerMDPreset::setMediaDirs(SystemCleanerMediaDir **media_dirs)
@@ -130,3 +143,9 @@ SystemCleanerMediaDir* SystemCleanerMDPreset::mediaDirs() const
 {
     return pMediaDirs;
 }
+
+const size_t SystemCleanerMDPreset::sizeofData() const
+{
+    return pSzDataArray;
+}
+
