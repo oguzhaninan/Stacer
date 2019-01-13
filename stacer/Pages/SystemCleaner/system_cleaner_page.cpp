@@ -68,10 +68,6 @@ void SystemCleanerPage::init()
     // for our media dirs support
     mMediaDirs = new SystemCleanerMediaDir(this);
     mMDPreset->setMediaDirs(&mMediaDirs);
-    MediaDirData **data = mMDPreset->getData();
-    mMediaDirs->addMDDs(data, mMDPreset->sizeofData());
-    // // done w/ these
-    SystemCleanerMDPreset::cleanupData(data, mMDPreset->sizeofData());
 
     // memory management :o
     connect(this, SIGNAL(treeInvalidated(QTreeWidget*)), this, SLOT(invalidateTree(QTreeWidget*)));
@@ -559,7 +555,7 @@ void SystemCleanerPage::on_checkBrokenApps_clicked()
 
 void SystemCleanerPage::on_btnMediaFileDlg_clicked()
 {
-    auto* dialog = dialogMediaFilesFactory::createDialog(this, mMediaDirs);
+    auto* dialog = dialogMediaFilesFactory::createDialog(this, mMediaDirs, { mMDPreset });
 
     dialog->show();
 }
