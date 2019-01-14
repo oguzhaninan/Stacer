@@ -15,9 +15,9 @@ public:
     virtual ~MediaDirData() { }
 
     const QString& directory(QString *dir) {if(dir){mKey=QString(*dir);} return const_cast<QString&>(mKey);}
-    QString& directory() { return mKey; }
+    QString& directory()  const { return const_cast<QString&>(mKey); }
     const QStringList& filters(QStringList *filt) {if(filt){QStringList qsl;std::copy(filt,filt+1,&qsl);mValues.clear();mValues << qsl;} return const_cast<QStringList&>(mValues);}
-    QStringList& filters() { return mValues; }
+    QStringList& filters() const { return const_cast<QStringList&>(mValues); }
 
     virtual void set_data(QString& key, QStringList& value);
 private:
@@ -46,6 +46,7 @@ public:
 
 signals:
     void   addedMediaDirectory(QString *dir, QStringList *filters, const QString& lastfilter);
+	void   mediaDataRead(const MediaDirData *data);
     void   firstDirAdded(void);
 
 private slots:
@@ -54,7 +55,7 @@ private slots:
 public slots:
     void addDirectory(const QString& dir);
     void addFilterToDirectory(const QString& dir);
-    void addFilterToDirectory(const QString& dir, const QString& filter);
+    void addFilterToDirectory(const QString& dir, const QString& filter, const bool emitsig=true);
     
     void addDefaultDirs(const bool do_it=false);
     void addMDDs(MediaDirData **mdds, const size_t mdds_len);

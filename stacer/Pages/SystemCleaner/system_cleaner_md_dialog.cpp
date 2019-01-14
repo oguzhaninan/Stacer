@@ -32,6 +32,13 @@ void dialogMediaFiles::showEvent(QShowEvent *event)
     }
 }
 
+void dialogMediaFiles::changeEvent(QEvent *event)
+{
+    QDialog::changeEvent(event);
+    if (!event->type() == QEvent::ModifiedChange)
+        return;
+}
+
 void dialogMediaFiles::on_addMD(QString *dir, QStringList *filters, const QString& lastfilter)
 {
     // only the dir was added, ignore & wait until we have filters AND directories
@@ -51,42 +58,46 @@ void dialogMediaFiles::on_addMD(QString *dir, QStringList *filters, const QStrin
     // DIRS
     //
     QString dir2ins(*dir);
-    
-    if (rc_dir > 1)
+
+    if (rc_dir >= 1)
     {
-        if (wid_dir->item(rc_dir)->data(Qt::DisplayRole).toString() == dir2ins ||
-               wid_dir->item(--rc_dir)->data(Qt::DisplayRole).toString() == dir2ins)
-        {
+        auto list = wid_dir->findItems(dir2ins, Qt::MatchContains | Qt::MatchWrap | Qt::MatchRecursive);
+        if (!list.isEmpty())
             return;
-        }
     }
+    QListWidgetItem item = QListWidgetItem(dir2ins, wid_dir, QMetaType::QString);
+    item.setData(Qt::DisplayRole, QVariant(dir2ins));
+    wid_dir->insertItem(rc_dir, new QListWidgetItem(item));
     
-    wid_dir->insertItem(rc_dir, dir2ins);       // add to top listbox
     //
-    // FILTER
+    // FILTERS
     //
     QStringList fil2ins(*filters);
     
-    if (rc_fil > 1)
-    {
-        for (int i=0; i < rc_fil; i++)
-        {
-            if (fil2ins.contains(wid_fil->item(i)->data(Qt::DisplayRole).toString()) ||
-                    fil2ins.contains(lastfilter) || 
-                    lastfilter == wid_fil->item(i)->data(Qt::DisplayRole).toString())
-            {
-                auto *a = wid_fil->takeItem(i);
-                delete a;
-            }
-        }
-    }
-    
     wid_fil->insertItems(rc_fil, fil2ins);      // add to bottom listbox
+    
+    //
+    // event to signify we changed it
+    QCoreApplication::postEvent(this, new QEvent(QEvent::ModifiedChange));
 }
 
+void dialogMediaFiles::on_readMD(const MediaDirData *data)
+{
+    // only use this for filters
+    // ;_; awful spaghetti
+    
+    auto *wid_fil = ui->listViewFiletypes;
+    int rc_fil = wid_fil->currentIndex().row();
+    
+    wid_fil->insertItems(rc_fil, data->filters());
+    // event to signify we changed it
+    QCoreApplication::postEvent(this, new QEvent(QEvent::ModifiedChange));
+}
+    
 void dialogMediaFiles::init()
 {
     connect(scmd, SIGNAL(addedMediaDirectory(QString*, QStringList*,const QString&)), this, SLOT(on_addMD(QString*, QStringList*, const QString&)));
+    connect(scmd, SIGNAL(mediaDataRead(const MediaDirData*)), this, SLOT(on_readMD(const MediaDirData*)));
 }
 
 dialogMediaFilesFactory* dialogMediaFilesFactory::mDMFF = nullptr;

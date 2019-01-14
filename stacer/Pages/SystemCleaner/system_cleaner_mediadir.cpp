@@ -65,16 +65,22 @@ void SystemCleanerMediaDir::addFilterToDirectory(const QString& filter)
     {
         const QString& okey = mDirectories.begin().key();
         QStringList filters = mDirectories.take(okey);
-        filters << filter;
-        mDirectories.insert(okey, filters);
+        if (filter.length() > 0)
+        {
+            filters << filter;
+            mDirectories.insert(okey, filters);
+        }
         emitkey = QString(okey);
     }
     else
     {
         const QString& okey = mDirectories.end().key();
         QStringList filters = mDirectories.take(okey);
-        filters << filter;
-        mDirectories.insert(okey, filters);
+        if (filter.length() > 0)
+        {
+            filters << filter;
+            mDirectories.insert(okey, filters);
+        }
         emitkey = QString(okey);
     }
     
@@ -84,16 +90,26 @@ void SystemCleanerMediaDir::addFilterToDirectory(const QString& filter)
         mContainsAnything = true;
     emit addedMediaDirectory(const_cast<QString*>(a), const_cast<QStringList*>(b), filter);
 }
-void SystemCleanerMediaDir::addFilterToDirectory(const QString& dir, const QString& filter)
+void SystemCleanerMediaDir::addFilterToDirectory(const QString& dir, const QString& filter, const bool emitsig)
 {
-    QStringList filters = mDirectories.take(dir);
-    filters << filter;
-    mDirectories.insert(dir,filters);
+    addDirectory(dir);
+    
+    if (filter.length() > 0)
+    {
+        QStringList filters = mDirectories.take(dir);
+        filters << filter;
+        mDirectories.insert(dir,filters);
+    }
     
     auto *a = &mDirectories.constFind(dir).key();
     auto *b = &mDirectories.constFind(dir).value();
     if(!mContainsAnything)
         mContainsAnything = true;
+    /*
+     * emitsig only disables the MDD signal below
+     */
+    if(!emitsig)
+        return;
     emit addedMediaDirectory(const_cast<QString*>(a), const_cast<QStringList*>(b), filter);
 }
 
@@ -110,20 +126,33 @@ void SystemCleanerMediaDir::addMDDs(MediaDirData **mdds, const size_t mdds_len)
 {
     QString blank;
     QStringList blankel;
+    int control_it = 0;
     
     for (int i = 0; i < mdds_len; i++)
     {
         if ((QString&)mdds[i]->directory() == blank)
             continue;
         
-        addDirectory((QString&)mdds[i]->directory());
-        
         if (!((QStringList&)mdds[i]->filters() == blankel))
         {
+            if (i > 0 && ( (QStringList&)mdds[i]->filters() == (QStringList&)mdds[i-1]->filters() ))
+            {
+                addFilterToDirectory((QString&)mdds[i]->directory(), blank);
+            }
+            
             for (const auto& str : (QStringList&)mdds[i]->filters())
             {
-                addFilterToDirectory((QString&)mdds[i]->directory(), str);
+                if (control_it == 0)
+                {
+                    addFilterToDirectory((QString&)mdds[i]->directory(), str);
+                }
+                else
+                {
+                    addFilterToDirectory((QString&)mdds[i]->directory(), str, false);
+                }
+                control_it += 1;
             }
         }
+        emit mediaDataRead(mdds[i]);
     }
 }

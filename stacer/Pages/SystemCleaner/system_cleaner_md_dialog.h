@@ -24,9 +24,11 @@ public:
 
 protected:
     virtual void showEvent(QShowEvent *event);
+    virtual void changeEvent(QEvent *event);
 
 public slots:
     void on_addMD(QString *dir, QStringList *filters, const QString& lastfilter);
+    void on_readMD(const MediaDirData *data);
 
 private slots:
     void init();

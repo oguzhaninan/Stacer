@@ -72,6 +72,9 @@
          <property name="styleSheet">
           <string notr="true"/>
          </property>
+         <property name="currentRow">
+          <number>0</number>
+         </property>
         </widget>
        </item>
        <item>
@@ -214,6 +217,9 @@
          </property>
          <property name="styleSheet">
           <string notr="true"/>
+         </property>
+         <property name="currentRow">
+          <number>0</number>
          </property>
         </widget>
        </item>

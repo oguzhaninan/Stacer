@@ -145,6 +145,6 @@ QString FileUtil::expandHomePath(const QString &tilde_path)
 {
     QString relapath(tilde_path);
     
-    return std::move(QString("%1/%2").arg(QStandardPaths::writableLocation(QStandardPaths::HomeLocation))
+    return std::move(QString("%1%2").arg(QStandardPaths::writableLocation(QStandardPaths::HomeLocation))
                         .arg(relapath.remove('~')));
 }
