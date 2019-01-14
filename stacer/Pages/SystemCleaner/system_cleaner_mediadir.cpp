@@ -1,3 +1,4 @@
+#include <QDebug>
 #include "system_cleaner_mediadir.h"
 
 void MediaDirData::set_data(QString& key, QStringList& value)
@@ -15,20 +16,23 @@ SystemCleanerMediaDir::SystemCleanerMediaDir(QObject *parent) : QObject(parent),
 QFileInfoList SystemCleanerMediaDir::fetchFIL(void)
 {
     QFileInfoList qfili;
+    QStringList fil_grandtotal;
 
     if (mDirectories.count() < 1)
         return qfili;
 
-    for (auto dir = mDirectories.keyBegin(); dir != mDirectories.keyEnd(); ++dir)
+    for (const auto& filter : mDirectories.values())
     {
-
-        const QString& key = dir.base().key();
-        const QStringList val = mDirectories.value(key, QStringList());
-        QDir qdir(key);
-        if (!val.isEmpty())
-            qdir.setNameFilters(val);
-        qfili << qdir.entryInfoList(QDir::Files | QDir::Dirs | QDir::NoDotAndDotDot);
+        fil_grandtotal << filter;
     }
+    for (const auto& path : mDirectories.keys())
+    {
+        QDir dir(path);
+        dir.setNameFilters(fil_grandtotal);
+        qfili += dir.entryInfoList(QDir::Files | QDir::Dirs | QDir::NoDotAndDotDot);
+    }
+
+    qDebug("QFileInfoList for SystemCleanerMediaDir == %d", qfili.count());
 
     return qfili;
 }
@@ -154,5 +158,15 @@ void SystemCleanerMediaDir::addMDDs(MediaDirData **mdds, const size_t mdds_len)
             }
         }
         emit mediaDataRead(mdds[i]);
+    }
+}
+
+void SystemCleanerMediaDir::addDirByData(MediaDirData& data)
+{
+    addDirectory(data.directory());
+
+    for (const auto& s : data.filters())
+    {
+        addFilterToDirectory(data.directory(),s,false);
     }
 }

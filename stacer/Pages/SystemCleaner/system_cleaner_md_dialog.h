@@ -3,9 +3,12 @@
 
 #include <initializer_list>
 #include <QList>
+#include <QFileDialog>
 #include <QDialog>
 #include "system_cleaner_mediadir.h"
 #include "system_cleaner_md_preset.h"
+
+#include "Utils/file_util.h"
 
 namespace Ui
 {
@@ -32,6 +35,11 @@ public slots:
 
 private slots:
     void init();
+
+    void on_btnAddDirectory_clicked();
+
+signals:
+    void addingNewDirectory(MediaDirData& mdd);
 
 private:
     Ui::dialogMediaFiles    *ui;

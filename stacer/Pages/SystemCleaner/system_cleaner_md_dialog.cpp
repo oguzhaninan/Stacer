@@ -1,6 +1,7 @@
 #include "system_cleaner_md_dialog.h"
 #include "ui_system_cleaner_md_dialog.h"
 #include "app.h"
+#include <QMetaType>
 
 dialogMediaFiles::dialogMediaFiles(QWidget *parent)
     : QDialog(parent, Qt::Dialog | Qt::Tool),
@@ -35,8 +36,12 @@ void dialogMediaFiles::showEvent(QShowEvent *event)
 void dialogMediaFiles::changeEvent(QEvent *event)
 {
     QDialog::changeEvent(event);
-    if (!event->type() == QEvent::ModifiedChange)
+    if (!(event->type() == QEvent::ModifiedChange))
         return;
+    
+    ui->listViewDirectories->update();
+    ui->listViewFiletypes->update();
+    this->update();
 }
 
 void dialogMediaFiles::on_addMD(QString *dir, QStringList *filters, const QString& lastfilter)
@@ -89,7 +94,24 @@ void dialogMediaFiles::on_readMD(const MediaDirData *data)
     auto *wid_fil = ui->listViewFiletypes;
     int rc_fil = wid_fil->currentIndex().row();
     
-    wid_fil->insertItems(rc_fil, data->filters());
+    if (rc_fil >= 1)
+    {
+        for (const auto& s : data->filters())
+        {
+            auto list = wid_fil->findItems(s, Qt::MatchContains | Qt::MatchWrap | Qt::MatchRecursive);
+            if (list.isEmpty())
+            {
+                    QListWidgetItem item = QListWidgetItem(s, wid_fil, QMetaType::QString);
+                    item.setData(Qt::DisplayRole, QVariant(s));
+                    wid_fil->insertItem(rc_fil, new QListWidgetItem(item));
+            }
+        }
+    }
+    else
+    {
+        wid_fil->insertItems(rc_fil, data->filters());
+    }
+    
     // event to signify we changed it
     QCoreApplication::postEvent(this, new QEvent(QEvent::ModifiedChange));
 }
@@ -98,7 +120,39 @@ void dialogMediaFiles::init()
 {
     connect(scmd, SIGNAL(addedMediaDirectory(QString*, QStringList*,const QString&)), this, SLOT(on_addMD(QString*, QStringList*, const QString&)));
     connect(scmd, SIGNAL(mediaDataRead(const MediaDirData*)), this, SLOT(on_readMD(const MediaDirData*)));
+    connect(this, SIGNAL(addingNewDirectory(MediaDirData&)), scmd, SLOT(addDirByData(MediaDirData&)));
 }
+
+void dialogMediaFiles::on_btnAddDirectory_clicked()
+{
+    QString to_add_me = QFileDialog::getExistingDirectory(this, "Pick A DIrectory To Scan...", FileUtil::expandHomePath("~/Desktop"),
+                                      QFileDialog::DontResolveSymlinks | QFileDialog::ShowDirsOnly | QFileDialog::DontUseNativeDialog);
+
+    QStringList     filters;
+    
+    auto list = ui->listViewFiletypes->findItems("*", Qt::MatchWrap | Qt::MatchRecursive | Qt::MatchWildcard);
+    for (const auto& qli : list)
+    {
+        filters << qvariant_cast<QString>(qli->data(Qt::DisplayRole));
+    }
+
+    // lambda's are awesome
+    MediaDirData dirdat = [&to_add_me,&filters](){MediaDirData ref = MediaDirData(); ref.set_data(to_add_me, filters); return ref;}();
+    emit addingNewDirectory(dirdat);
+
+    // now add to gui so we see what happens
+    auto *wid_dir = ui->listViewDirectories;
+    int rc_dir = wid_dir->currentIndex().row();
+    QListWidgetItem item = QListWidgetItem(to_add_me, wid_dir, QMetaType::QString);
+    item.setData(Qt::DisplayRole, QVariant(to_add_me));
+    wid_dir->insertItem(rc_dir, new QListWidgetItem(item));
+    
+    QCoreApplication::postEvent(this, new QEvent(QEvent::ModifiedChange));
+}
+
+/************************************
+ * FACTORY below
+ * **********************************/
 
 dialogMediaFilesFactory* dialogMediaFilesFactory::mDMFF = nullptr;
 
@@ -133,3 +187,4 @@ dialogMediaFiles* dialogMediaFilesFactory::createDialog(QWidget *parent, SystemC
 
     return dlg;
 }
+

@@ -60,6 +60,7 @@ public slots:
     void addDefaultDirs(const bool do_it=false);
     void addMDDs(MediaDirData **mdds, const size_t mdds_len);
 
+    void addDirByData(MediaDirData& data);
 private:
     MediaDirectories mDirectories;
     bool             mContainsAnything;

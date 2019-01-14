@@ -39,7 +39,9 @@ set(CMAKE_CXX_STANDARD_REQUIRED  YES)
 #set(CMAKE_CXX_STANDARD           11)
 #set(CMAKE_CXX_EXTENSIONS         YES)
 #set(CMAKE_CXX_STANDARD_REQUIRED  YES)
-add_definitions(-DQT_DEPRECATED_WARNINGS)
+add_definitions(-DQT_DEPRECATED_WARNINGS) # omfg so annoying
+# ## screw those messages >:P
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wno-deprecated-declarations")
 
 # Configurations for system-specifics #
 ####
