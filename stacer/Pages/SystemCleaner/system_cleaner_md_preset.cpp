@@ -112,7 +112,16 @@ MediaDirData** SystemCleanerMDPreset::getData()
     for (int i = 0; i < directories.count(); i++)
     {
         mdd_array[i] = new MediaDirData();
-        mdd_array[i]->set_data(directories[i], filters);
+        if (!directories[i].contains('~'))
+        {
+            mdd_array[i]->set_data(directories[i], filters);
+        }
+        else
+        {
+            QString expanded = FileUtil::expandHomePath(directories[i]);
+            mdd_array[i]->set_data(expanded,
+                                   filters);
+        }
     }
     /** setup the pad MDD if it's supposed 2 exist **/
     if (mdd_size > directories.count())

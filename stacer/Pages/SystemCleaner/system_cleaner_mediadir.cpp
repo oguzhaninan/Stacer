@@ -55,7 +55,6 @@ void SystemCleanerMediaDir::addDirectory(const QString& dir)
 	auto *a = &mDirectories.constFind(dir).key();
     if(!mContainsAnything)
         mContainsAnything = true;
-	emit addedMediaDirectory(const_cast<QString*>(a), nullptr);
 }
 
 void SystemCleanerMediaDir::addFilterToDirectory(const QString& filter)
@@ -83,7 +82,7 @@ void SystemCleanerMediaDir::addFilterToDirectory(const QString& filter)
     auto *b = &mDirectories.constFind(emitkey).value();
     if(!mContainsAnything)
         mContainsAnything = true;
-    emit addedMediaDirectory(const_cast<QString*>(a), const_cast<QStringList*>(b));
+    emit addedMediaDirectory(const_cast<QString*>(a), const_cast<QStringList*>(b), filter);
 }
 void SystemCleanerMediaDir::addFilterToDirectory(const QString& dir, const QString& filter)
 {
@@ -95,7 +94,7 @@ void SystemCleanerMediaDir::addFilterToDirectory(const QString& dir, const QStri
     auto *b = &mDirectories.constFind(dir).value();
     if(!mContainsAnything)
         mContainsAnything = true;
-    emit addedMediaDirectory(const_cast<QString*>(a), const_cast<QStringList*>(b));
+    emit addedMediaDirectory(const_cast<QString*>(a), const_cast<QStringList*>(b), filter);
 }
 
 void SystemCleanerMediaDir::addDefaultDirs(const bool do_it)

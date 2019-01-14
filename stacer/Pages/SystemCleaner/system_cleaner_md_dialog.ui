@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>452</width>
-    <height>498</height>
+    <height>518</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -40,8 +40,8 @@
        <property name="sizeConstraint">
         <enum>QLayout::SetDefaultConstraint</enum>
        </property>
-       <item alignment="Qt::AlignLeft">
-        <widget class="QListView" name="listViewDirectories">
+       <item>
+        <widget class="QListWidget" name="listViewDirectories">
          <property name="sizePolicy">
           <sizepolicy hsizetype="Expanding" vsizetype="MinimumExpanding">
            <horstretch>0</horstretch>
@@ -192,8 +192,8 @@
      </item>
      <item>
       <layout class="QHBoxLayout" name="horizontalLayout_2">
-       <item alignment="Qt::AlignLeft">
-        <widget class="QListView" name="listViewFiletypes">
+       <item>
+        <widget class="QListWidget" name="listViewFiletypes">
          <property name="minimumSize">
           <size>
            <width>320</width>

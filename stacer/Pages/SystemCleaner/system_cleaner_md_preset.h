@@ -7,6 +7,7 @@
 #include <QJsonDocument>
 #include <QSharedDataPointer>
 #include <QVariant>
+#include "Utils/file_util.h"
 #include "Pages/SystemCleaner/system_cleaner_mediadir.h"
 
 class SystemCleanerMDPreset : public QJsonDocument, public QSharedData

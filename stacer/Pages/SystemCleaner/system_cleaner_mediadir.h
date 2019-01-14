@@ -45,7 +45,7 @@ public:
     bool containsAnything() const;
 
 signals:
-    void   addedMediaDirectory(QString *dir, QStringList *filters);
+    void   addedMediaDirectory(QString *dir, QStringList *filters, const QString& lastfilter);
     void   firstDirAdded(void);
 
 private slots:

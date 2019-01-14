@@ -26,7 +26,7 @@ protected:
     virtual void showEvent(QShowEvent *event);
 
 public slots:
-    void on_addMD(QString *dir, QStringList *filters);
+    void on_addMD(QString *dir, QStringList *filters, const QString& lastfilter);
 
 private slots:
     void init();

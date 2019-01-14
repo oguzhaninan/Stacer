@@ -24,6 +24,7 @@ public:
   static QStringList countFilesPerType(const QString &path, QString *opt_exten, long long *out_count, const bool include_dir=false);
   static QStringList getDesktopFiles(long long *out_totals = nullptr, const bool include_dir=false);
   static quint64 getFileSize(const QString &path);
+  static QString expandHomePath(const QString &tilde_path);
 
 private:
   FileUtil();

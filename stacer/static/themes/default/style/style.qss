@@ -1025,7 +1025,7 @@ QCheckBox[unclicked_yet=true]::indicator::checked {
     color: @color08;
 }
 
-#dialogMediaFiles QListView {
+#dialogMediaFiles QListView, QListWidget {
     background: @color06 url(:/static/themes/common/img/listview_bg.png) repeat 100%;
 }
 
