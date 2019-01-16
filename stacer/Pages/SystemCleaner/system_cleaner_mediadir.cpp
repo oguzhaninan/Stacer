@@ -47,6 +47,29 @@ bool SystemCleanerMediaDir::containsAnything() const
     return mContainsAnything;
 }
 
+MediaDirData SystemCleanerMediaDir::operator [](const int i)
+{
+    int h = i;
+    int j = 0;
+
+    pMediaDirectories pmd = &this->mDirectories;
+
+
+    if (mDirectories.count() < i)
+        throw;
+
+    for (const auto& k : mDirectories.keys())
+    {
+        if (j == h)
+        {
+            break;
+        }
+        j = ++j;
+    }
+
+    return [&j,&pmd] { MediaDirData x; x.set_data(pmd->keys()[j], pmd->values()[j]); return x; }();
+}
+
 void SystemCleanerMediaDir::init()
 {
     // DOES NOTHING

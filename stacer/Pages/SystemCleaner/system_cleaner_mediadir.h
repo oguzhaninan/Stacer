@@ -44,6 +44,8 @@ public:
     pMediaDirectories mediaDirectories() const;
     bool containsAnything() const;
 
+    virtual MediaDirData operator [](const int i);
+
 signals:
     void   addedMediaDirectory(QString *dir, QStringList *filters, const QString& lastfilter);
 	void   mediaDataRead(const MediaDirData *data);

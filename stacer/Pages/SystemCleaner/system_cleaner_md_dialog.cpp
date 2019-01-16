@@ -1,5 +1,6 @@
 #include "system_cleaner_md_dialog.h"
 #include "ui_system_cleaner_md_dialog.h"
+#include "system_cleaner_mediadir.h"
 #include "app.h"
 #include <QMetaType>
 
@@ -30,6 +31,23 @@ void dialogMediaFiles::showEvent(QShowEvent *event)
             list_presets.removeFirst();
             SystemCleanerMDPreset::cleanupData(data, sz);
         }
+    }
+    else {
+        //
+        // BOTH OUR WIDGETS
+        //
+        auto *wid_dir = ui->listViewDirectories;
+        auto *wid_fil = ui->listViewFiletypes;
+        // row count
+        int rc_dir = wid_dir->currentIndex().row();
+        int rc_fil = wid_dir->currentIndex().row();
+
+        for (int i = 0; i < scmd->mediaDirectories()->count(); i++)
+        {
+            wid_dir->insertItem(rc_dir, scmd->mediaDirectories()->keys()[i]);
+            wid_fil->insertItems(rc_fil, scmd->mediaDirectories()->values()[i]);
+        }
+        QCoreApplication::postEvent(this, new QEvent(QEvent::ModifiedChange));
     }
 }
 
@@ -173,12 +191,15 @@ dialogMediaFiles* dialogMediaFilesFactory::createDialog(QWidget *parent, SystemC
 
     dlg->scmd = dirs;
 
-    for (auto a = presets.begin(); a != presets.end(); ++a)
+    if (presets.size() != 0)
     {
-        auto *b = *a;
-        if (b->mediaDirs() == nullptr)
-            b->setMediaDirs(&dlg->scmd);
-        dlg->list_presets.append(b);
+        for (auto a = presets.begin(); a != presets.end(); ++a)
+        {
+            auto *b = *a;
+            if (b->mediaDirs() == nullptr)
+                b->setMediaDirs(&dlg->scmd);
+            dlg->list_presets.append(b);
+        }
     }
 
     AppManager::ins()->updateStylesheet();

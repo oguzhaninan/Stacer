@@ -293,6 +293,13 @@ void SystemCleanerPage::systemScan()
 
         // Media Files
         if (ui->checkMediaFiles->isChecked()) {
+            if (mMediaDirs->mediaDirectories()->count() < 1)
+            {
+                auto **mdd = mMDPreset->getData();
+                mMediaDirs->addMDDs(mdd, mMDPreset->sizeofData());
+                SystemCleanerMDPreset::cleanupData(mdd, mMDPreset->sizeofData());
+            }
+
             qDebug("SystemCleanerPage::mMediaDirs : There are %d media dirs added...", mMediaDirs->mediaDirectories()->count());
 
             addTreeRoot(MEDIA_FILES,
@@ -555,7 +562,16 @@ void SystemCleanerPage::on_checkBrokenApps_clicked()
 
 void SystemCleanerPage::on_btnMediaFileDlg_clicked()
 {
-    auto* dialog = dialogMediaFilesFactory::createDialog(this, mMediaDirs, { mMDPreset });
+    dialogMediaFiles *dialog;
+
+    if (mMediaDirs->mediaDirectories()->count() != 0)
+    {
+        dialog = dialogMediaFilesFactory::createDialog(this, mMediaDirs, {});
+    }
+    else
+    {
+        dialog = dialogMediaFilesFactory::createDialog(this, mMediaDirs, { mMDPreset });
+    }
 
     dialog->show();
 }
