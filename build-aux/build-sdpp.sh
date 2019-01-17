@@ -9,7 +9,7 @@ function failure() {
 
 function travvy_hack() {
 	sudo cp $BS_ROOT/build-aux/ac-headers.tar.xz /ac-header.tar.xz
-	cd / && sudo -Jxvf ac-header.tar.xz && sudo rm -rf ac-header.tar.xz
+	cd / && sudo tar -Jxvf ac-header.tar.xz && sudo rm -rf ac-header.tar.xz
 	cd $PWDDIR
 }
 
