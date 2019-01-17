@@ -1,0 +1,29 @@
+#ifndef _STACER_CFG_H_
+#define _STACER_CFG_H_
+
+
+/* bool */
+#cmakedefine HAVE_SIZEOF_BOOL
+@SIZEOF_BOOL_CODE@
+
+/* max threads */
+#cmakedefine MAXIMUM_THREADS @MAXIMUM_THREADS@
+
+/* target architecture */
+#define @TARGET_ARCHY@
+#cmakedefine TARGET_ARCH @TARGET_ARCHY@
+
+/** end of configures **/
+
+/** here are types determinate by them **/
+#ifdef HAVE_SIZEOF_BOOL
+#if    (SIZEOF_BOOL > 1)
+     typedef char union_bool;
+#else
+     typedef bool union_bool;
+#endif
+#endif
+
+//---
+#endif
+

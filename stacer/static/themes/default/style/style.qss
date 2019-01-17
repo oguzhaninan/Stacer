@@ -532,6 +532,12 @@ QLabel[accessibleName="dialog-title"] {
     color: @color05;
 }
 
+/* - Filler Widgets - */
+#widgetFill01, #widgetFill02, #widgetFill03 {
+    color: @color17;
+    background-color: @color17;
+}
+
 /* - Broken Apps Checkbox - */
 QCheckBox[unclicked_yet=true]::indicator::checked {
     image: url(:/static/themes/common/img/checkbox-precheck.png);
@@ -540,6 +546,28 @@ QCheckBox[unclicked_yet=true]::indicator::checked {
 #SystemCleanerPage QCheckBox[accessibleName=Broken_Applications] {
     font-size: 11pt;
     color: @color05;
+}
+
+/* - Media Files Checkbox - */
+#SystemCleanerPage #checkMediaFiles {
+    font-size: 11pt;
+    color: @color05;
+}
+
+/* - Button next to the Media Files Checkbox - */
+#SystemCleanerPage QPushButton[accessibleName=Media_Files_Dlg] {
+    background: transparent url(:/static/themes/common/img/butt_thumb_normal.png) no-repeat center;
+    border: 1px solid @color08;
+}
+
+#SystemCleanerPage QPushButton[accessibleName=Media_Files_Dlg]:disabled {
+    background: transparent url(:/static/themes/common/img/butt_thumb_disabled.png) no-repeat center;
+    border: 1px solid @color08;
+}
+
+#SystemCleanerPage QPushButton[accessibleName=Media_Files_Dlg]:pressed {
+    background: transparent url(:/static/themes/common/img/butt_thumb_pressed.png) no-repeat center;
+    border: 1px solid @color08;
 }
 
 /* - System Scan Button - */
@@ -996,3 +1024,69 @@ QCheckBox[unclicked_yet=true]::indicator::checked {
     background-color: @pageContent;
 }
 
+
+/***** DIALOG BOX FOR MEDIA DIRS ******/
+#dialogMediaFiles {
+    background-color: @color08;
+    color: @color08;
+}
+
+#dialogMediaFiles QListView, QListWidget {
+    background: @color06 url(:/static/themes/common/img/listview_bg.png) repeat 100%;
+}
+
+#buttonBoxDialog * {
+    padding: 1 32 1 32;
+}
+
+#lblMediaDirectories, #lblMediaFiletypes, #buttonBoxDialog QPushButton {
+    color: @color05;
+    font-size: 11pt;
+}
+
+#buttonBoxDialog QPushButton {
+    color: @color05;
+    font-size: 13pt;
+    font-weight: bold;
+}
+
+#btnRemoveDirectory, #btnRemoveFiletypes {
+    background: @color01 url(:/static/themes/common/img/butt_remove.png) no-repeat center;
+    background-clip: content-box;
+}
+
+#btnAddDirectory {
+    background: @color01;
+    border-image: url(:/static/themes/common/img/butt_folder.png) 0 0 0 0 stretch stretch;
+    background-clip: content-box;
+}
+
+#btnAddFiletypes {
+    background: @color01;
+    border-image: url(:/static/themes/common/img/butt_addition.png) 0 0 0 0 stretch stretch;
+    background-clip: content-box;
+}
+
+QInputDialog.QLineEdit {
+    background-color: @color06;
+}
+
+QInputDialog.QLabel, QInputDialog.QPushButton, QInputDialog QLabel, QInputDialog QPushButton {
+    color: @color05;
+}
+
+QInputDialog {
+    background-color: @color08;
+}
+
+QFileDialog {
+    background-color: @color17;
+}
+
+QFileDialog.QLabel, QFileDialog.QPushButton, QFileDialog QLabel, QFileDialog QPushButton {
+    color: @color05;
+}
+
+QFileDialog.QTreeWidget, QFileDialog QTreeWidget {
+    background-color: @color06;
+}

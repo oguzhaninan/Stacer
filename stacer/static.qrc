@@ -11,6 +11,13 @@
         <file>static/themes/common/img/checkbox.png</file>
         <file>static/themes/common/img/checkbox-precheck.png</file>
         <file>static/themes/common/img/un-checkbox.png</file>
+        <file>static/themes/common/img/butt_thumb_disabled.png</file>
+        <file>static/themes/common/img/butt_thumb_normal.png</file>
+        <file>static/themes/common/img/butt_thumb_pressed.png</file>
+        <file>static/themes/common/img/butt_folder.png</file>
+        <file>static/themes/common/img/butt_remove.png</file>
+        <file>static/themes/common/img/butt_addition.png</file>
+        <file>static/themes/common/img/listview_bg.png</file>
         <file>static/themes/default/img/app.png</file>
         <file>static/themes/default/img/trash.png</file>
         <file>static/themes/common/img/not-found.png</file>
@@ -42,6 +49,7 @@
         <file>static/themes/default/img/sidebar-icons/settings.png</file>
         <file>static/languages.json</file>
         <file>static/themes.json</file>
+	<file>static/default_mdir.json</file>
         <file>static/themes/light/style/style.qss</file>
         <file>static/themes/light/img/app.png</file>
         <file>static/themes/light/img/clean-active.png</file>

@@ -13,7 +13,8 @@ App::App(QWidget *parent) :
     ui(new Ui::App),
     mSlidingStacked(new SlidingStackedWidget(this)),
     mTrayIcon(AppManager::ins()->getTrayIcon()),
-    mTrayMenu(new QMenu(this))
+    mTrayMenu(new QMenu(this)),
+    mAppThread(nullptr)
 {
     ui->setupUi(this);
 
@@ -22,6 +23,9 @@ App::App(QWidget *parent) :
 
 void App::init()
 {
+    // get our base thread
+    mAppThread = App::parentThread(reinterpret_cast<QObject*>(this));
+ 
     setGeometry(
         QStyle::alignedRect(Qt::LeftToRight, Qt::AlignCenter,
             size(), qApp->desktop()->availableGeometry())

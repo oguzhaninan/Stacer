@@ -8,7 +8,7 @@ QT       -= gui
 
 QT       += core network
 
-CONFIG += c++11
+CONFIG += c++17
 
 TARGET = stacer-core
 TEMPLATE = lib
@@ -74,4 +74,5 @@ unix {
     LIBS     += $$[PCRECPP_LIBRARIES]
     INCLUDEPATH += $$[PCRECPP_INCLUDE_DIRS]
     INSTALLS += target
+    QMAKE_CXXFLAGS += $$[CMAKE_REQUIRED_FLAGS]
 }

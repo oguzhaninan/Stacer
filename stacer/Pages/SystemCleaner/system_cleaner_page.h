@@ -17,6 +17,9 @@
 #include "Types/Applications/broken_app.h"
 #include "Types/Applications/desktop.h"
 
+#include "Pages/SystemCleaner/system_cleaner_mediadir.h"
+#include "Pages/SystemCleaner/system_cleaner_md_preset.h"
+
 namespace Ui {
     class SystemCleanerPage;
 }
@@ -37,7 +40,8 @@ public:
         APPLICATION_LOGS,
         APPLICATION_CACHES,
         TRASH,
-        BROKEN_APPLICATIONS
+        BROKEN_APPLICATIONS,
+        MEDIA_FILES
     };
 
 public:
@@ -65,10 +69,12 @@ private slots:
     void on_checkSelectAllSystemScan_clicked(bool checked);
 
     void invalidateTree(QTreeWidget *tree);
+    void when_destroyed();
 
     void on_checkBrokenApps_stateChanged(int state);
     void on_checkBrokenApps_clicked();
 
+    void on_btnMediaFileDlg_clicked();
 private:
     void init();
 
@@ -81,6 +87,15 @@ private:
     QIcon mDefaultIcon;
     QMovie *mLoadingMovie;
     QMovie *mLoadingMovie_2;
+
+    SystemCleanerMediaDir *mMediaDirs;
+    SystemCleanerMDPreset *mMDPreset;
+    /*
+     * this counter still didnt help
+     * i must assume that the cause of the sigsegv on exit
+     * is the fault of the threads that spawn on sys scan
+     */
+    static int    mDestructed;
 };
 
 #endif // SYSTEMCLEANERPAGE_H

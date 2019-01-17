@@ -2,10 +2,14 @@
 #define APP_H
 
 #include <QMainWindow>
+#include <QThread>
 
 #include "sliding_stacked_widget.h"
 #include "Managers/app_manager.h"
 #include "Managers/setting_manager.h"
+
+// Config header
+#include "Stacer-cfg.h"
 
 // Pages
 #include "Pages/Dashboard/dashboard_page.h"
@@ -31,6 +35,9 @@ class App : public QMainWindow
 public:
     explicit App(QWidget *parent = 0);
     ~App();
+
+    static constexpr int maximumThreads() { return MAXIMUM_THREADS; }
+    static QThread*      parentThread(const QObject* inspect) { return inspect->thread(); }
 
 protected:
     void closeEvent(QCloseEvent *event) override;
@@ -87,6 +94,8 @@ private:
 
     QPushButton *mBtnQuit, *mBtnContinue;
     QMessageBox *mQuitMsgBox;
+
+    QThread	*mAppThread;
 };
 
 #endif // APP_H

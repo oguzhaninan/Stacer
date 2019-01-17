@@ -6,7 +6,7 @@ greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 TARGET = stacer
 TEMPLATE = app
 
-CONFIG += c++11
+CONFIG += c++17
 
 QMAKE_CXXFLAGS += -O2
 
@@ -51,7 +51,10 @@ SOURCES += \
     Pages/AptSourceManager/apt_source_edit.cpp \
     Managers/setting_manager.cpp \
     sliding_stacked_widget.cpp \
-    signal_mapper.cpp
+    signal_mapper.cpp \
+    Pages/SystemCleaner/system_cleaner_mediadir.cpp \
+    Pages/SystemCleaner/system_cleaner_md_dialog.cpp \
+    Pages/SystemCleaner/system_cleaner_md_preset.cpp
 
 HEADERS += \
     app.h \
@@ -83,7 +86,10 @@ HEADERS += \
     feedback.h \
     Pages/AptSourceManager/apt_source_edit.h \
     Managers/setting_manager.h \
-    signal_mapper.h
+    signal_mapper.h \
+    Pages/SystemCleaner/system_cleaner_mediadir.h \
+    Pages/SystemCleaner/system_cleaner_md_dialog.h \
+    Pages/SystemCleaner/system_cleaner_md_preset.h
 
 FORMS += \
     app.ui \
@@ -108,7 +114,8 @@ FORMS += \
     Pages/GnomeSettings/window_manager_settings.ui \
     Pages/GnomeSettings/appearance_settings.ui \
     feedback.ui \
-    Pages/AptSourceManager/apt_source_edit.ui
+    Pages/AptSourceManager/apt_source_edit.ui \
+    Pages/SystemCleaner/system_cleaner_md_dialog.ui
 
 TRANSLATIONS += \
     ../translations/stacer_ar.ts \
@@ -130,7 +137,9 @@ TRANSLATIONS += \
 RESOURCES += \
     static.qrc
 
-unix:!macx: LIBS += -L$$OUT_PWD/../stacer-core/ -lstacer-core $$[PCRECPP_LIBRARIES]
+unix:!macx: LIBS += -L$$OUT_PWD/../stacer-core/ -lstacer-core $$[PCRECPP_LIBRARIES] $$[SDBUSPLUS_LIBRARIES]
 
-INCLUDEPATH += $$PWD/../stacer-core $$[PCRECPP_INCLUDE_DIRS]
+INCLUDEPATH += $$PWD/../stacer-core $$[PCRECPP_INCLUDE_DIRS] $$[SDBUSPLUS_INCLUDE_DIRS]
 DEPENDPATH += $$PWD/../stacer-core
+
+QMAKE_CXXFLAGS += $$[CMAKE_REQUIRED_FLAGS]

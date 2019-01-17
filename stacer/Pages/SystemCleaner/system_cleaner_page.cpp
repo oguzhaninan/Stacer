@@ -1,4 +1,6 @@
-﻿#include "system_cleaner_page.h"
+﻿#include <QtDebug>
+#include "system_cleaner_md_dialog.h"
+#include "system_cleaner_page.h"
 #include "ui_system_cleaner_page.h"
 
 #include "Types/command.hpp"
@@ -10,6 +12,9 @@ constexpr decltype(Qt::ItemIsEnabled) flags_notapath(void)
 {
     return static_cast<Qt::ItemFlag>(512);
 }
+
+// screw u sigsegv
+int SystemCleanerPage::mDestructed = 0;
 
 SystemCleanerPage::~SystemCleanerPage()
 {
@@ -25,7 +30,9 @@ SystemCleanerPage::SystemCleanerPage(QWidget *parent) :
     tmr(ToolManager::ins()),
     mDefaultIcon(QIcon::fromTheme("application-x-executable")),
     mLoadingMovie(nullptr),
-    mLoadingMovie_2(nullptr)
+    mLoadingMovie_2(nullptr),
+    mMediaDirs(nullptr),
+    mMDPreset(SystemCleanerMDPreset::loadPreset(":/static/default_mdir.json"))
 {
     ui->setupUi(this);
 
@@ -58,8 +65,14 @@ void SystemCleanerPage::init()
         ui->lblLoadingCleaner->hide();
     });
 
+    // for our media dirs support
+    mMediaDirs = new SystemCleanerMediaDir(this);
+    mMDPreset->setMediaDirs(&mMediaDirs);
+
     // memory management :o
     connect(this, SIGNAL(treeInvalidated(QTreeWidget*)), this, SLOT(invalidateTree(QTreeWidget*)));
+    // more mm >:o
+    connect(this, &SystemCleanerPage::destroyed, this, &SystemCleanerPage::when_destroyed);
 }
 
 void SystemCleanerPage::addTreeRoot(const CleanCategories &cat, const QString &title, const QFileInfoList &infos, bool noChild)
@@ -278,6 +291,23 @@ void SystemCleanerPage::systemScan()
             }
         }
 
+        // Media Files
+        if (ui->checkMediaFiles->isChecked()) {
+            if (mMediaDirs->mediaDirectories()->count() < 1)
+            {
+                auto **mdd = mMDPreset->getData();
+                mMediaDirs->addMDDs(mdd, mMDPreset->sizeofData());
+                SystemCleanerMDPreset::cleanupData(mdd, mMDPreset->sizeofData());
+            }
+
+            qDebug("SystemCleanerPage::mMediaDirs : There are %d media dirs added...", mMediaDirs->mediaDirectories()->count());
+
+            addTreeRoot(MEDIA_FILES,
+                        ui->checkMediaFiles->text(),
+                        mMediaDirs->fetchFIL(),
+                        false);
+        }
+
         // scan results page
         ui->stackedWidget->setCurrentIndex(1);
 
@@ -482,6 +512,12 @@ void SystemCleanerPage::invalidateTree(QTreeWidget *tree)
     }
 }
 
+void SystemCleanerPage::when_destroyed()
+{
+    int *deaths = &mDestructed;
+    mDestructed = ++(*deaths);
+}
+
 void SystemCleanerPage::on_checkBrokenApps_stateChanged(int state)
 {
     const Qt::CheckState cs = static_cast<Qt::CheckState>(state);
@@ -524,3 +560,19 @@ void SystemCleanerPage::on_checkBrokenApps_clicked()
     }
 }
 
+void SystemCleanerPage::on_btnMediaFileDlg_clicked()
+{
+    dialogMediaFiles *dialog;
+
+    if (mMediaDirs->mediaDirectories()->count() != 0)
+    {
+        dialog = dialogMediaFilesFactory::createDialog(this, mMediaDirs, {});
+        mMediaDirs->reinitialize();
+    }
+    else
+    {
+        dialog = dialogMediaFilesFactory::createDialog(this, mMediaDirs, { mMDPreset });
+    }
+
+    dialog->show();
+}
