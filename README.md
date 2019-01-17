@@ -54,9 +54,13 @@
 	</a>
 </p>
 
+
+#### Building from Source???
+<a href="#build-source">Click Here.</a>
+
 ### Required Packages
 ###### Required Binaries
-- curl, grep, systemd
+- wget, curl, grep, systemd
 
 ###### Required Libraries
 - libpcre++0v5, libpcre++0v5-dev _(if building)_
@@ -78,7 +82,15 @@
 2. Run `sudo rpm --install stacer*.rpm --nodeps --force` on the downloaded package.
 3. Launch Stacer using the installed `stacer` command.
 
+<a target="_self" id="build-source">&nbsp;</a>
 ## Build from source with CMake (Qt Version Qt 5.x)
+##### First off...
+If you don't have [libsdbusplus](https://github.com/openbmc/sdbusplus) installed on your machine, execute:
+```
+build-aux/build-sddp.sh
+```
+
+##### Afterwards...
 1. mkdir build && cd build
 2. cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_PREFIX_PATH=/qt/path/bin ..
 3. make -j `nproc`
