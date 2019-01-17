@@ -9,15 +9,33 @@ dist: trusty
 addons:
     apt:
         packages:
-        - autoconf-archive
-        - pkg-config
+        - curl 
+        - git 
+        - autoconf
+        - libtool
+        - pkg-config 
+        - g++ 
+        - libsystemd-daemon-dev
+        - libsystemd-id128-dev
+        - libsystemd-login-dev
+        - python 
+        - python-yaml 
+        - python-mako
+env:
+    global:
+        - SKIP_DEPS=1
+        - DISTRO_DISTRO=$TRAVIS_DIST
 before_install:
 - sudo add-apt-repository ppa:beineri/opt-qt591-trusty -y
+- sudo add-apt-repository ppa:reddit/ppa -y
 - sudo apt-get update -qq
+- wget http://ftp.br.debian.org/debian/pool/main/i/inflection/python-inflection_0.3.1-1_all.deb
 install:
-- sudo apt-get -y -qq install cmake libpcre++-dev
+- sudo dpkg -i python-inflection_0.3.1-1_all.deb
+- sudo apt-get --fix-broken -y -qq install cmake libpcre++-dev
 - sudo apt-get -y -qq install libgl1-mesa-dev qt59base qt59imageformats qt59svg qt59charts-no-lgpl qt59tools
 - source /opt/qt*/bin/qt*-env.sh
+- source build-aux/build-sdpp.sh
 before_script:
 - mkdir build && cd build
 - cmake -DCMAKE_BUILD_TYPE=release -DCMAKE_CXX_COMPILER=clang++ -DCMAKE_PREFIX_PATH=$QTDIR/bin ..
