@@ -603,6 +603,69 @@
          </item>
         </layout>
        </item>
+       <item row="7" column="3" alignment="Qt::AlignHCenter">
+        <widget class="QWidget" name="widgetFill01" native="true">
+         <property name="minimumSize">
+          <size>
+           <width>90</width>
+           <height>8</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>90</width>
+           <height>8</height>
+          </size>
+         </property>
+         <property name="styleSheet">
+          <string notr="true"/>
+         </property>
+        </widget>
+       </item>
+       <item row="7" column="4" alignment="Qt::AlignHCenter">
+        <widget class="QWidget" name="widgetFill02" native="true">
+         <property name="minimumSize">
+          <size>
+           <width>90</width>
+           <height>8</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>90</width>
+           <height>8</height>
+          </size>
+         </property>
+         <property name="styleSheet">
+          <string notr="true"/>
+         </property>
+        </widget>
+       </item>
+       <item row="7" column="6">
+        <widget class="QWidget" name="widgetFill03" native="true">
+         <property name="minimumSize">
+          <size>
+           <width>90</width>
+           <height>8</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>90</width>
+           <height>8</height>
+          </size>
+         </property>
+         <property name="sizeIncrement">
+          <size>
+           <width>0</width>
+           <height>0</height>
+          </size>
+         </property>
+         <property name="styleSheet">
+          <string notr="true"/>
+         </property>
+        </widget>
+       </item>
       </layout>
      </widget>
      <widget class="QWidget" name="cleanerPage">

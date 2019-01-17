@@ -47,7 +47,7 @@ bool SystemCleanerMediaDir::containsAnything() const
     return mContainsAnything;
 }
 
-MediaDirData SystemCleanerMediaDir::operator [](const int i)
+MediaDirData SystemCleanerMediaDir::at(const int i)
 {
     int h = i;
     int j = 0;
@@ -70,11 +70,16 @@ MediaDirData SystemCleanerMediaDir::operator [](const int i)
     return [&j,&pmd] { MediaDirData x; x.set_data(pmd->keys()[j], pmd->values()[j]); return x; }();
 }
 
+MediaDirData SystemCleanerMediaDir::operator [](const int i)
+{
+    return this->at(i);
+}
+
 void SystemCleanerMediaDir::init()
 {
-    // DOES NOTHING
-    addDefaultDirs(false);
+    /* blank */
 }
+
 void SystemCleanerMediaDir::addDirectory(const QString& dir)
 {
     mDirectories.insert(dir, QStringList());
@@ -140,15 +145,6 @@ void SystemCleanerMediaDir::addFilterToDirectory(const QString& dir, const QStri
     emit addedMediaDirectory(const_cast<QString*>(a), const_cast<QStringList*>(b), filter);
 }
 
-void SystemCleanerMediaDir::addDefaultDirs(const bool do_it)
-{
-    if (!do_it)
-        return;
-    
-    const QString& default_mediadir = QStandardPaths::writableLocation(QStandardPaths::HomeLocation);
-    addDirectory(default_mediadir);
-}
-
 void SystemCleanerMediaDir::addMDDs(MediaDirData **mdds, const size_t mdds_len)
 {
     QString blank;
@@ -192,4 +188,30 @@ void SystemCleanerMediaDir::addDirByData(MediaDirData& data)
     {
         addFilterToDirectory(data.directory(),s,false);
     }
+}
+
+void SystemCleanerMediaDir::removeDirectory(const QString& dir)
+{
+    mDirectories.remove(dir);
+}
+
+void SystemCleanerMediaDir::reinitialize(void)
+{
+    const int len = mediaDirectories()->count();
+    MediaDirData **mdds = new MediaDirData*[len];
+    
+    for (int i=0; i < len; i++)
+    {
+        mdds[i] = new MediaDirData(this->at(i));
+        emit mediaDataRead(mdds[i]);
+    }
+    
+    mDirectories.clear();
+    
+    for (int j=0; j < len; j++)
+    {
+        addDirByData(*mdds[j]);
+        delete mdds[j];
+    }
+    delete[] mdds;
 }

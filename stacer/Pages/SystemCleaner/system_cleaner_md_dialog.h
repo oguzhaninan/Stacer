@@ -3,6 +3,7 @@
 
 #include <initializer_list>
 #include <QList>
+#include <QInputDialog>
 #include <QFileDialog>
 #include <QDialog>
 #include "system_cleaner_mediadir.h"
@@ -37,6 +38,12 @@ private slots:
     void init();
 
     void on_btnAddDirectory_clicked();
+
+    void on_btnAddFiletypes_clicked();
+
+    void on_btnRemoveDirectory_clicked();
+
+    void on_btnRemoveFiletypes_clicked();
 
 signals:
     void addingNewDirectory(MediaDirData& mdd);

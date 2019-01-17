@@ -532,6 +532,12 @@ QLabel[accessibleName="dialog-title"] {
     color: @color05;
 }
 
+/* - Filler Widgets - */
+#widgetFill01, #widgetFill02, #widgetFill03 {
+    color: @color17;
+    background-color: @color17;
+}
+
 /* - Broken Apps Checkbox - */
 QCheckBox[unclicked_yet=true]::indicator::checked {
     image: url(:/static/themes/common/img/checkbox-precheck.png);
@@ -1059,4 +1065,28 @@ QCheckBox[unclicked_yet=true]::indicator::checked {
     background: @color01;
     border-image: url(:/static/themes/common/img/butt_addition.png) 0 0 0 0 stretch stretch;
     background-clip: content-box;
+}
+
+QInputDialog.QLineEdit {
+    background-color: @color06;
+}
+
+QInputDialog.QLabel, QInputDialog.QPushButton, QInputDialog QLabel, QInputDialog QPushButton {
+    color: @color05;
+}
+
+QInputDialog {
+    background-color: @color08;
+}
+
+QFileDialog {
+    background-color: @color17;
+}
+
+QFileDialog.QLabel, QFileDialog.QPushButton, QFileDialog QLabel, QFileDialog QPushButton {
+    color: @color05;
+}
+
+QFileDialog.QTreeWidget, QFileDialog QTreeWidget {
+    background-color: @color06;
 }

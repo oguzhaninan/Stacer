@@ -12,6 +12,7 @@
 class MediaDirData {
 public:
     MediaDirData() = default;
+    MediaDirData(const MediaDirData& other) = default;
     virtual ~MediaDirData() { }
 
     const QString& directory(QString *dir) {if(dir){mKey=QString(*dir);} return const_cast<QString&>(mKey);}
@@ -44,6 +45,7 @@ public:
     pMediaDirectories mediaDirectories() const;
     bool containsAnything() const;
 
+    virtual MediaDirData at(const int i);
     virtual MediaDirData operator [](const int i);
 
 signals:
@@ -59,10 +61,12 @@ public slots:
     void addFilterToDirectory(const QString& dir);
     void addFilterToDirectory(const QString& dir, const QString& filter, const bool emitsig=true);
     
-    void addDefaultDirs(const bool do_it=false);
     void addMDDs(MediaDirData **mdds, const size_t mdds_len);
-
     void addDirByData(MediaDirData& data);
+    
+    void removeDirectory(const QString& dir);
+
+    void reinitialize(void);
 private:
     MediaDirectories mDirectories;
     bool             mContainsAnything;

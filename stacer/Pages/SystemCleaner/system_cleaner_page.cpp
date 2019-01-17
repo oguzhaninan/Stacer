@@ -567,6 +567,7 @@ void SystemCleanerPage::on_btnMediaFileDlg_clicked()
     if (mMediaDirs->mediaDirectories()->count() != 0)
     {
         dialog = dialogMediaFilesFactory::createDialog(this, mMediaDirs, {});
+        mMediaDirs->reinitialize();
     }
     else
     {

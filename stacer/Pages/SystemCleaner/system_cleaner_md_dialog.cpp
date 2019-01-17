@@ -60,6 +60,9 @@ void dialogMediaFiles::changeEvent(QEvent *event)
     ui->listViewDirectories->update();
     ui->listViewFiletypes->update();
     this->update();
+
+    QCoreApplication::postEvent(ui->listViewDirectories, new QEvent(QEvent::Show));
+    QCoreApplication::postEvent(ui->listViewFiletypes, new QEvent(QEvent::Show));
 }
 
 void dialogMediaFiles::on_addMD(QString *dir, QStringList *filters, const QString& lastfilter)
@@ -146,6 +149,9 @@ void dialogMediaFiles::on_btnAddDirectory_clicked()
     QString to_add_me = QFileDialog::getExistingDirectory(this, "Pick A DIrectory To Scan...", FileUtil::expandHomePath("~/Desktop"),
                                       QFileDialog::DontResolveSymlinks | QFileDialog::ShowDirsOnly | QFileDialog::DontUseNativeDialog);
 
+    if (to_add_me.length() < 1)
+        return;
+
     QStringList     filters;
     
     auto list = ui->listViewFiletypes->findItems("*", Qt::MatchWrap | Qt::MatchRecursive | Qt::MatchWildcard);
@@ -166,6 +172,95 @@ void dialogMediaFiles::on_btnAddDirectory_clicked()
     wid_dir->insertItem(rc_dir, new QListWidgetItem(item));
     
     QCoreApplication::postEvent(this, new QEvent(QEvent::ModifiedChange));
+}
+
+void dialogMediaFiles::on_btnAddFiletypes_clicked()
+{
+    bool clicked_okay = false;
+    auto res = QInputDialog::getText(this, "Input new filter by file extension:", "Enter extension, e.g.: \'*.ext\'", QLineEdit::Normal, "*.ext", &clicked_okay);
+
+    if (!clicked_okay)
+        return;
+
+    QStringList qsl = scmd->mediaDirectories()->keys();
+    for (auto a = qsl.begin(); a != qsl.end(); ++a)
+    {
+        scmd->addFilterToDirectory(*a, res, false);
+    }
+
+    auto *wid_fil = ui->listViewFiletypes;
+    int rc_fil = wid_fil->currentIndex().row();
+    QListWidgetItem item = QListWidgetItem(res, wid_fil, QMetaType::QString);
+    item.setData(Qt::DisplayRole, QVariant(res));
+    wid_fil->insertItem(rc_fil, new QListWidgetItem(item));
+}
+
+void dialogMediaFiles::on_btnRemoveDirectory_clicked()
+{
+    auto *wid_dir = ui->listViewDirectories;
+    bool changed = false;
+
+    if (wid_dir->selectedItems().empty())
+    {
+        return;
+    }
+    else
+    {
+        for (auto *a : wid_dir->selectedItems())
+        {
+            for (auto& b : scmd->mediaDirectories()->keys())
+            {
+                if (b == a->text() || b == qvariant_cast<QString>(a->data(Qt::DisplayRole)))
+                {
+                    scmd->removeDirectory(b);
+                }
+            }
+            wid_dir->removeItemWidget(a);
+            changed = true;
+        }
+    }
+
+    if (changed)
+    {
+        wid_dir->repaint(wid_dir->geometry());
+        QCoreApplication::postEvent(this, new QEvent(QEvent::ModifiedChange));
+        QCoreApplication::postEvent(wid_dir, new QEvent(QEvent::ModifiedChange));
+    }
+}
+
+void dialogMediaFiles::on_btnRemoveFiletypes_clicked()
+{
+    auto *wid_fil = ui->listViewFiletypes;
+    bool changed = false;
+
+    if (wid_fil->selectedItems().empty())
+    {
+        return;
+    }
+    else
+    {
+        for (auto *a : wid_fil->selectedItems())
+        {
+            for (auto& b : scmd->mediaDirectories()->values())
+            {
+                if (b.contains(a->text(), Qt::CaseInsensitive) ||
+                     b.contains(qvariant_cast<QString>(a->data(Qt::DisplayRole)), Qt::CaseInsensitive))
+                {
+                    b.removeAll(a->text());
+                    b.removeAll(qvariant_cast<QString>(a->data(Qt::DisplayRole)));
+                }
+            }
+            wid_fil->removeItemWidget(a);
+            changed = true;
+        }
+    }
+
+    if (changed)
+    {
+        wid_fil->repaint(wid_fil->geometry());
+        QCoreApplication::postEvent(this, new QEvent(QEvent::ModifiedChange));
+        QCoreApplication::postEvent(wid_fil, new QEvent(QEvent::ModifiedChange));
+    }
 }
 
 /************************************
@@ -208,4 +303,3 @@ dialogMediaFiles* dialogMediaFilesFactory::createDialog(QWidget *parent, SystemC
 
     return dlg;
 }
-
