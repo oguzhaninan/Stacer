@@ -1,6 +1,14 @@
 # searches for https://github.com/openbmc/sdbusplus via pkg-config
 # SDBUSPLUS_xxx vars
 #
+macro(build_sdbusplus)
+	execute_process(COMMAND ./build-aux/build-sdpp.sh
+			WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR})
+endmacro(build_sdbusplus)
+
+if(DEFINED WILLBUILD_SDPP)
+	return()
+endif()
 
 include(FindPkgConfig)
 if(NOT PKG_CONFIG_FOUND)

@@ -21,6 +21,22 @@ set(LIBRARY_OUTPUT_PATH     "${CMAKE_BINARY_DIR}/lib")
 set(PROJECT_ROOT "${CMAKE_CURRENT_SOURCE_DIR}")
 set(PROJECT_BRANCH "${BTB_CURRENT_BRANCH}")
 
+#  #
+##### OPTIONAL BUILDING OF SDBUSPLUS
+#  #
+option(SDPP_BUILD "Build or re-build libsdbusplus. Disabled by default" OFF)
+if(DEFINED SDPP_BUILD_ISSET OR DEFINED WILLBUILD_SDPP)
+	build_sdbusplus()
+endif()
+
+#  #
+##### ALLOW/DISALLOW BUILDING BY BRANCH ONLY HERE
+#  #
+set(PROJECT_BRANCH_ONLY "all")
+if(NOT DEFINED FORCEBUILD)
+	bybranch_build(${PROJECT_BRANCH_ONLY})
+endif()
+
 # Activating MOC and searching for the Qt5 dependencies
 set(CMAKE_AUTOMOC ON)
 find_package(Qt5  COMPONENTS  Core Gui Widgets Charts Svg Concurrent REQUIRED)
