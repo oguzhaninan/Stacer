@@ -104,7 +104,7 @@ void App::createQuitMessageBox()
     mQuitMsgBox->setWindowTitle(tr("Quit"));
     mQuitMsgBox->setText(tr("Will the program continue to work in the system tray?"));
     mQuitMsgBox->addButton(mBtnQuit, QMessageBox::YesRole);
-    mQuitMsgBox->addButton(mBtnContinue,  QMessageBox::NoRole);
+    mQuitMsgBox->addButton(mBtnContinue, QMessageBox::NoRole);
     mQuitMsgBox->setCheckBox(check);
 
     connect(check, &QCheckBox::toggled, [this](bool checked) {
