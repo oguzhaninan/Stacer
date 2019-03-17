@@ -115,3 +115,8 @@ void Feedback::clearInputs()
     ui->txtMessage->clear();
     ui->txtName->setFocus();
 }
+
+void Feedback::on_btnClose_clicked()
+{
+    this->close();
+}

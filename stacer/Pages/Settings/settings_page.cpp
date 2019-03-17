@@ -71,6 +71,9 @@ void SettingsPage::init()
         ui->checkAutostart->setChecked(false);
     }
 
+    // app quit dont ask
+    ui->checkAppQuitDontAsk->setChecked(mSettingManager->getAppQuitDialogDontAsk());
+
     // load pages
     ui->cmbStartPage->addItems({
         tr("Dashboard"), tr("Startup Apps"), tr("System Cleaner"),
@@ -161,4 +164,9 @@ void SettingsPage::on_spinMemoryPercent_valueChanged(int value)
 void SettingsPage::on_spinDiskPercent_valueChanged(int value)
 {
     mSettingManager->setDiskAlertPercent(value);
+}
+
+void SettingsPage::on_checkAppQuitDontAsk_clicked(bool checked)
+{
+    mSettingManager->setAppQuitDialogDontAsk(checked);
 }

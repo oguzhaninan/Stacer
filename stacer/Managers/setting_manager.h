@@ -12,6 +12,8 @@ namespace SettingKeys {
     const QString CPUAlertPercent("CPUAlertPercent");
     const QString MemoryAlertPercent("MemoryAlertPercent");
     const QString DiskAlertPercent("DiskAlertPercent");
+    const QString AppQuitDialogDontAsk("AppQuitDialogDontAsk");
+    const QString AppQuitDialogChoice("AppQuitDialogChoice");
 }
 
 class SettingManager
@@ -41,6 +43,12 @@ public:
 
     void setDiskAlertPercent(const int value);
     int getDiskAlertPercent() const;
+
+    void setAppQuitDialogDontAsk(const bool value);
+    bool getAppQuitDialogDontAsk() const;
+
+    void setAppQuitDialogChoice(const QString &value);
+    QString getAppQuitDialogChoice() const;
 
 private:
     static SettingManager *instance;
