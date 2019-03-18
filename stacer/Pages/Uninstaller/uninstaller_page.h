@@ -34,6 +34,10 @@ private slots:
     QStringList getSelectedPackages();
     void loadPackages();
 
+    void on_btnSystemPackages_clicked(bool checked);
+
+    void on_btnSnapPackages_clicked();
+
 private:
     Ui::UninstallerPage *ui;
 

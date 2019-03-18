@@ -176,11 +176,11 @@ QToolTip {
     Not Found
 ***************/
 
-#notFoundWidget {
+#notFoundWidget, QWidget[accessibleName="notFoundWidget"] {
     background: url(:/static/themes/common/img/not-found.png) no-repeat top center;
 }
 
-#notFoundWidget QLabel {
+#notFoundWidget QLabel, QWidget[accessibleName="notFoundWidget"] QLabel{
     color: @color06;
     font-size: 13pt;
 }
@@ -757,6 +757,19 @@ QLabel[accessibleName="dialog-title"] {
 /************************
     UNINSTALLER PAGE
 *************************/
+
+#UninstallerPage #nav QPushButton {
+    border-radius: 3;
+    padding: 5 18;
+    font-size: 10pt;
+    background-color: @circleChartBackgroundColor;
+    color: @color07;
+}
+
+#UninstallerPage #nav QPushButton:hover,
+#UninstallerPage #nav QPushButton:checked {
+    background-color: @color03;
+}
 
 #lblPackagesTitle {
     color: @color11;

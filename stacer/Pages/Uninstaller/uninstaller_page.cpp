@@ -26,8 +26,10 @@ void UninstallerPage::init()
     loadingMovie->start();
     ui->lblLoadingUninstaller->hide();
 
-    Utilities::addDropShadow(ui->btnUninstall, 60);
-    Utilities::addDropShadow(ui->txtPackageSearch, 40);
+    ui->stackedWidget->setCurrentIndex(0);
+
+    QList<QWidget*> widgets = { ui->txtPackageSearch, ui->btnUninstall, ui->btnSystemPackages, ui->btnSnapPackages };
+    Utilities::addDropShadow(widgets, 40);
 
     QtConcurrent::run(this, &UninstallerPage::loadPackages);
 
@@ -64,7 +66,9 @@ void UninstallerPage::setAppCount()
 {
     int count = ui->listWidgetPackages->count();
 
-    ui->lblPackagesTitle->setText(tr("System Installed Packages (%1)").arg(count));
+//    ui->lblPackagesTitle->setText(tr("System Installed Packages (%1)").arg(count));
+
+    ui->btnSystemPackages->setText(tr("Packages (%1)").arg(count));
 
     ui->notFoundWidget->setVisible(! count);
     ui->btnUninstall->setVisible(count);
@@ -120,4 +124,14 @@ void UninstallerPage::on_txtPackageSearch_textChanged(const QString &val)
     // Matches items show
     for (QListWidgetItem* item : matches)
         item->setHidden(false);
+}
+
+void UninstallerPage::on_btnSystemPackages_clicked(bool checked)
+{
+    ui->stackedWidget->setCurrentIndex(0);
+}
+
+void UninstallerPage::on_btnSnapPackages_clicked()
+{
+    ui->stackedWidget->setCurrentIndex(1);
 }
