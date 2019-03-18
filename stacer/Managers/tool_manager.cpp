@@ -61,6 +61,16 @@ QStringList ToolManager::getPackages() const
     }
 }
 
+QStringList ToolManager::getSnapPackages() const
+{
+    return PackageTool::getSnapPackages();
+}
+
+bool ToolManager::uninstallSnapPackages(const QStringList packages)
+{
+    return PackageTool::snapRemovePackages(packages);
+}
+
 QFileInfoList ToolManager::getPackageCaches() const
 {
     switch (PackageTool::currentPackageTool) {

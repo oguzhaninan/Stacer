@@ -32,10 +32,10 @@ private slots:
     void on_txtPackageSearch_textChanged(const QString &val);
     void on_btnUninstall_clicked();
     QStringList getSelectedPackages();
+    QStringList getSelectedSnapPackages();
     void loadPackages();
-
-    void on_btnSystemPackages_clicked(bool checked);
-
+    void loadSnapPackages();
+    void on_btnSystemPackages_clicked();
     void on_btnSnapPackages_clicked();
 
 private:
