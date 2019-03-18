@@ -6,6 +6,7 @@
 #include <QMap>
 #include <QMovie>
 #include <QDebug>
+#include <QDir>
 #include <QtConcurrent>
 #include <QThread>
 #include "Managers/app_manager.h"
@@ -49,6 +50,8 @@ private slots:
     bool cleanValid();
 
     void on_checkSelectAllSystemScan_clicked(bool checked);
+
+    void on_checkBox_clicked(bool checked);
 
 private:
     void init();

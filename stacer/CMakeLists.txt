@@ -1,3 +1,4 @@
+
 cmake_minimum_required(VERSION 3.1 FATAL_ERROR)
 project(stacer)
 
@@ -54,7 +55,7 @@ install(
 )
 
 install(
-  FILES           "${PROJECT_ROOT}/stacer.desktop"
+  FILES           "${PROJECT_ROOT}/applications/stacer.desktop"
   DESTINATION     share/applications
   CONFIGURATIONS  Release RelWithDebInfo MinSizeRel
 )

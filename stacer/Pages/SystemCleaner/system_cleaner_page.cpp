@@ -168,7 +168,7 @@ void SystemCleanerPage::systemScan()
         if(ui->checkTrash->isChecked()) {
             addTreeRoot(TRASH,
                         ui->lblTrash->text(),
-                        { QFileInfo("/home/oguzhan/.local/share/Trash/") },
+                        { QFileInfo(QDir::homePath() + "/.local/share/Trash/") },
                         true);
         }
 
@@ -321,4 +321,16 @@ void SystemCleanerPage::on_checkSelectAllSystemScan_clicked(bool checked)
     ui->checkCrashReports->setChecked(checked);
     ui->checkPackageCache->setChecked(checked);
     ui->checkTrash->setChecked(checked);
+}
+
+void SystemCleanerPage::on_checkBox_clicked(bool checked)
+{
+    for (int i = 0; i < ui->treeWidgetScanResult->topLevelItemCount(); ++i)
+    {
+        QTreeWidgetItem *it = ui->treeWidgetScanResult->topLevelItem(i);
+        it->setCheckState(0, (checked ? Qt::Checked : Qt::Unchecked));
+
+        for (int j = 0; j < it->childCount(); ++j)
+            it->child(j)->setCheckState(0, (checked ? Qt::Checked : Qt::Unchecked));
+    }
 }

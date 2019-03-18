@@ -521,7 +521,7 @@ QLabel[accessibleName="dialog-title"] {
     SYSTEM CLEANER PAGE
 ***************************/
 
-#SystemCleanerPage QCheckBox[accessibleName=circle]::indicator {
+#cleanerCategories QCheckBox[accessibleName=circle]::indicator {
     width: 26;
     height: 26;
 }

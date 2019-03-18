@@ -58,9 +58,9 @@
 - curl, systemd
 
 ### PPA Repository (for ubuntu)
-1. `sudo add-apt-repository ppa:oguzhaninan/stacer`   
+1. `sudo add-apt-repository ppa:oguzhaninan/stacer -y`   
 2. `sudo apt-get update`   
-3. `sudo apt-get install stacer`
+3. `sudo apt-get install stacer -y`
 
 ### Debian x64
 

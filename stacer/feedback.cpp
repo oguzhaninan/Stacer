@@ -47,8 +47,8 @@ void Feedback::on_btnSend_clicked()
         return;
     }
 
-    if (message.length() < 25) {
-        emit setErrorMessageS(tr("Your message must be at least 25 characters !"));
+    if (message.length() < 5) {
+        emit setErrorMessageS(tr("Your message must be at least 5 characters !"));
         return;
     }
 

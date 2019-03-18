@@ -2,6 +2,7 @@
 #include "ui_app.h"
 #include "utilities.h"
 #include <QStyle>
+#include <QDebug>
 
 App::~App()
 {
