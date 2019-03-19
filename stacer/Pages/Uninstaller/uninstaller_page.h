@@ -38,6 +38,10 @@ private slots:
     void on_btnSystemPackages_clicked();
     void on_btnSnapPackages_clicked();
 
+    void on_listWidgetSnapPackages_itemClicked(QListWidgetItem *item);
+
+    void on_listWidgetPackages_itemClicked(QListWidgetItem *item);
+
 private:
     Ui::UninstallerPage *ui;
 

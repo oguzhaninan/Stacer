@@ -136,17 +136,16 @@ QStringList UninstallerPage::getSelectedSnapPackages()
 
 void UninstallerPage::on_btnUninstall_clicked()
 {
-    QStringList selectedPackages = ui->stackedWidget->currentIndex() == 0 ? getSelectedPackages() : getSelectedSnapPackages();
+    QStringList selectedPackages = getSelectedPackages();
+    QStringList selectedSnapPackages = getSelectedSnapPackages();
 
-    if (!selectedPackages.isEmpty()) {
+    if (!selectedPackages.isEmpty() || !selectedSnapPackages.isEmpty()) {
         QtConcurrent::run([=]
         {
             emit SignalMapper::ins()->sigUninstallStarted();
 
-            switch (ui->stackedWidget->currentIndex()) {
-                case 0: ToolManager::ins()->uninstallPackages(selectedPackages); break;
-                case 1: ToolManager::ins()->uninstallSnapPackages(selectedPackages); break;
-            }
+            ToolManager::ins()->uninstallPackages(selectedPackages);
+            ToolManager::ins()->uninstallSnapPackages(selectedSnapPackages);
 
             emit SignalMapper::ins()->sigUninstallFinished();
         });
@@ -191,4 +190,18 @@ void UninstallerPage::on_btnSystemPackages_clicked()
 void UninstallerPage::on_btnSnapPackages_clicked()
 {
     ui->stackedWidget->setCurrentIndex(1);
+}
+
+void UninstallerPage::on_listWidgetSnapPackages_itemClicked(QListWidgetItem *item)
+{
+    Q_UNUSED(item);
+    ui->btnUninstall->setText(tr("Uninstal Selected (%1)")
+                              .arg(getSelectedSnapPackages().count() + getSelectedPackages().count()));
+}
+
+void UninstallerPage::on_listWidgetPackages_itemClicked(QListWidgetItem *item)
+{
+    Q_UNUSED(item);
+    ui->btnUninstall->setText(tr("Uninstal Selected (%1)")
+                              .arg(getSelectedSnapPackages().count() + getSelectedPackages().count()));
 }
