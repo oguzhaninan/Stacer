@@ -180,7 +180,7 @@ QToolTip {
     background: url(:/static/themes/common/img/not-found.png) no-repeat top center;
 }
 
-#notFoundWidget QLabel, QWidget[accessibleName="notFoundWidget"] QLabel{
+#notFoundWidget QLabel, QWidget[accessibleName="notFoundWidget"] {
     color: @color06;
     font-size: 13pt;
 }
@@ -760,7 +760,7 @@ QLabel[accessibleName="dialog-title"] {
 
 #UninstallerPage #nav QPushButton {
     border-radius: 3;
-    padding: 5 18;
+    padding: 5 12;
     font-size: 10pt;
     background-color: @circleChartBackgroundColor;
     color: @color07;
