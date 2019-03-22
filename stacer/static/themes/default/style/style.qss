@@ -420,6 +420,10 @@ QLabel[accessibleName="dialog-title"] {
     qproperty-icon: url(:/static/themes/default/img/sidebar-icons/startup-apps.png);
 }
 
+#btnSearch {
+    qproperty-icon: url(:/static/themes/default/img/sidebar-icons/search.png);
+}
+
 #btnServices {
     qproperty-icon: url(:/static/themes/default/img/sidebar-icons/services.png);
 }

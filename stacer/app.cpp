@@ -34,6 +34,7 @@ void App::init()
 
     dashboardPage = new DashboardPage(mSlidingStacked);
     startupAppsPage = new StartupAppsPage(mSlidingStacked);
+    searchPage = new SearchPage(mSlidingStacked);
     systemCleanerPage = new SystemCleanerPage(mSlidingStacked);
     servicesPage = new ServicesPage(mSlidingStacked);
     processPage = new ProcessesPage(mSlidingStacked);

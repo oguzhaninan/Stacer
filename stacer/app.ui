@@ -183,6 +183,34 @@
         </widget>
        </item>
        <item>
+        <widget class="QPushButton" name="btnSearch">
+         <property name="cursor">
+          <cursorShape>PointingHandCursor</cursorShape>
+         </property>
+         <property name="focusPolicy">
+          <enum>Qt::NoFocus</enum>
+         </property>
+         <property name="toolTip">
+          <string>Search</string>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+         <property name="iconSize">
+          <size>
+           <width>28</width>
+           <height>28</height>
+          </size>
+         </property>
+         <property name="checkable">
+          <bool>true</bool>
+         </property>
+         <attribute name="buttonGroup">
+          <string notr="true">sidebarBtnGroup</string>
+         </attribute>
+        </widget>
+       </item>
+       <item>
         <widget class="QPushButton" name="btnServices">
          <property name="cursor">
           <cursorShape>PointingHandCursor</cursorShape>
@@ -429,6 +457,7 @@
       <zorder>btnFeedback</zorder>
       <zorder>btnGnomeSettings</zorder>
       <zorder>btnAptSourceManager</zorder>
+      <zorder>btnSearch</zorder>
      </widget>
     </item>
     <item>

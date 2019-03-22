@@ -51,7 +51,8 @@ SOURCES += \
     Pages/AptSourceManager/apt_source_edit.cpp \
     Managers/setting_manager.cpp \
     sliding_stacked_widget.cpp \
-    signal_mapper.cpp
+    signal_mapper.cpp \
+    Pages/Search/search_page.cpp
 
 HEADERS += \
     app.h \
@@ -83,7 +84,8 @@ HEADERS += \
     feedback.h \
     Pages/AptSourceManager/apt_source_edit.h \
     Managers/setting_manager.h \
-    signal_mapper.h
+    signal_mapper.h \
+    Pages/Search/search_page.h
 
 FORMS += \
     app.ui \
@@ -108,7 +110,8 @@ FORMS += \
     Pages/GnomeSettings/window_manager_settings.ui \
     Pages/GnomeSettings/appearance_settings.ui \
     feedback.ui \
-    Pages/AptSourceManager/apt_source_edit.ui
+    Pages/AptSourceManager/apt_source_edit.ui \
+    Pages/Search/search_page.ui
 
 TRANSLATIONS += \
     ../translations/stacer_ar.ts \

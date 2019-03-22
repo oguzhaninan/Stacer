@@ -18,6 +18,7 @@
 #include "Pages/Settings/settings_page.h"
 #include "Pages/AptSourceManager/apt_source_manager_page.h"
 #include "Pages/GnomeSettings/gnome_settings_page.h"
+#include "Pages/Search/search_page.h"
 #include "feedback.h"
 
 namespace Ui {
@@ -71,6 +72,7 @@ private:
     DashboardPage *dashboardPage;
     StartupAppsPage *startupAppsPage;
     SystemCleanerPage *systemCleanerPage;
+    SearchPage *searchPage;
     ServicesPage *servicesPage;
     ProcessesPage *processPage;
     UninstallerPage *uninstallerPage;
