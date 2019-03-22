@@ -45,12 +45,12 @@ void App::init()
     ui->pageContentLayout->addWidget(mSlidingStacked);
 
     mListPages = {
-        dashboardPage, startupAppsPage, systemCleanerPage, servicesPage,
+        dashboardPage, startupAppsPage, systemCleanerPage, searchPage, servicesPage,
         processPage, uninstallerPage, resourcesPage, settingsPage
     };
 
     mListSidebarButtons = {
-        ui->btnDash, ui->btnStartupApps, ui->btnSystemCleaner, ui->btnServices,
+        ui->btnDash, ui->btnStartupApps, ui->btnSystemCleaner, ui->btnSearch, ui->btnServices,
         ui->btnProcesses, ui->btnUninstaller, ui->btnResources, ui->btnSettings
     };
 
@@ -92,6 +92,8 @@ void App::init()
     mTrayIcon->show();
 
     createQuitMessageBox();
+
+    on_btnSearch_clicked();
 }
 
 void App::createQuitMessageBox()
@@ -215,6 +217,11 @@ void App::on_btnStartupApps_clicked()
 void App::on_btnSystemCleaner_clicked()
 {
     pageClick(systemCleanerPage);
+}
+
+void App::on_btnSearch_clicked()
+{
+    pageClick(searchPage);
 }
 
 void App::on_btnServices_clicked()

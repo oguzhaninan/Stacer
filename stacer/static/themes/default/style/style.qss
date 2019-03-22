@@ -1006,3 +1006,19 @@ QLabel[accessibleName="dialog-title"] {
     background-color: @pageContent;
 }
 
+/*******************************
+SEARCH
+*******************************/
+#txtSearchInput {
+    padding: 6 12 6 24;
+    border-radius: 12;
+    background: @color01 url(:/static/themes/default/img/search.png) no-repeat left center;
+    border: 1px solid @color02;
+    color: @color12;
+}
+
+#btnSearchAdvanve {
+    padding: 4;
+    background-color: @color03;
+    color: @color07;
+}

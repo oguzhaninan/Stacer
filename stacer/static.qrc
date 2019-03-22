@@ -73,5 +73,6 @@
         <file>static/themes/light/img/fit.png</file>
         <file>static/themes/light/img/trash.png</file>
         <file>static/themes/common/img/package.png</file>
+        <file>static/themes/default/img/sidebar-icons/search.png</file>
     </qresource>
 </RCC>

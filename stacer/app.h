@@ -45,6 +45,7 @@ private slots:
     void on_btnSystemCleaner_clicked();
     void on_btnStartupApps_clicked();
     void on_btnServices_clicked();
+    void on_btnSearch_clicked();
     void on_btnUninstaller_clicked();
     void on_btnResources_clicked();
     void on_btnProcesses_clicked();
