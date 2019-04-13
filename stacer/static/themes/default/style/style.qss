@@ -1046,6 +1046,10 @@ SEARCH
     color: @color06;
 }
 
+#advanceSearchPane QLineEdit {
+    padding: 4 6;
+}
+
 #btnAdvancePaneToggle {
     font-size: 10pt;
     text-decoration: underline;

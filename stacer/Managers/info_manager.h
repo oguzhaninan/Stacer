@@ -39,6 +39,8 @@ public:
     void updateProcesses();
     QList<Process> getProcesses() const;
     QString getUserName() const;
+    QStringList getUserList() const;
+    QStringList getGroupList() const;
 
 private:
     static InfoManager *instance;

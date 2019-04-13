@@ -61,6 +61,30 @@ QString SystemInfo::getHostname() const
     return QSysInfo::machineHostName();
 }
 
+QStringList SystemInfo::getUserList() const
+{
+    QStringList passwdUsers = FileUtil::readListFromFile("/etc/passwd");
+    QStringList users;
+
+    for(QString &row: passwdUsers) {
+        users.append(row.split(":").at(0));
+    }
+
+    return users;
+}
+
+QStringList SystemInfo::getGroupList() const
+{
+    QStringList groupFile = FileUtil::readListFromFile("/etc/group");
+    QStringList groups;
+
+    for(QString &row: groupFile) {
+        groups.append(row.split(":").at(0));
+    }
+
+    return groups;
+}
+
 QString SystemInfo::getPlatform() const
 {
     return QString("%1 %2")

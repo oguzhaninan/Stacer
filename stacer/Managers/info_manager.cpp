@@ -16,6 +16,16 @@ QString InfoManager::getUserName() const
     return si.getUsername();
 }
 
+QStringList InfoManager::getUserList() const
+{
+    return si.getUserList();
+}
+
+QStringList InfoManager::getGroupList() const
+{
+    return si.getGroupList();
+}
+
 /*
  * CPU Provider
  */

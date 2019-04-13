@@ -28,6 +28,10 @@ public:
     QFileInfoList getAppLogs() const;
     QFileInfoList getAppCaches() const;
 
+    QStringList getUserList() const;
+    QStringList getGroupList() const;
+
+private slots:
 private:
     QString cpuCore;
     QString cpuModel;
