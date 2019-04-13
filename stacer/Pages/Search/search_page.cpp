@@ -12,3 +12,15 @@ SearchPage::~SearchPage()
 {
     delete ui;
 }
+
+void SearchPage::on_btnBrowseSearchDir_clicked()
+{
+    QString selectedDirPath = QFileDialog::getExistingDirectory(this, tr("Select Directory"), "/",
+                                      QFileDialog::ShowDirsOnly | QFileDialog::DontResolveSymlinks);
+
+    QDir selectedDir(selectedDirPath);
+
+    if (! selectedDirPath.isEmpty() && selectedDir.exists()) {
+        ui->lblSearchDir->setText(tr("Directory: %1").arg(selectedDirPath));
+    }
+}

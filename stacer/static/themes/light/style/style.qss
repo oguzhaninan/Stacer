@@ -1007,3 +1007,21 @@ QLabel[accessibleName="dialog-title"] {
 #scrollAreaUnityContents {
     background-color: @pageContent;
 }
+
+/*******************************
+SEARCH
+*******************************/
+#txtSearchInput {
+    padding: 5 12 5 24;
+    border-radius: 12;
+    background: @color01 url(:/static/themes/default/img/search.png) no-repeat left center;
+    border: 1px solid @color02;
+    color: @color12;
+}
+
+#btnSearchAdvance {
+    padding: 3;
+    background-color: @color03;
+    color: @color07;
+}
+

@@ -959,7 +959,6 @@ QLabel[accessibleName="dialog-title"] {
 /**************************
     GNOME SETTINGS PAGE
 ***************************/
-
 #GnomeSettingsPage QLabel {
     font-size: 11pt;
     color: @color12;
@@ -1010,15 +1009,26 @@ QLabel[accessibleName="dialog-title"] {
 SEARCH
 *******************************/
 #txtSearchInput {
-    padding: 6 12 6 24;
+    padding: 5 12 5 24;
     border-radius: 12;
     background: @color01 url(:/static/themes/default/img/search.png) no-repeat left center;
     border: 1px solid @color02;
     color: @color12;
 }
 
-#btnSearchAdvanve {
-    padding: 4;
+#btnSearchAdvance {
+    padding: 3;
     background-color: @color03;
     color: @color07;
+}
+
+#lblSearchDir {
+    font-size: 10pt;
+    color: @color06;
+}
+
+#btnBrowseSearchDir {
+    background-color: @color01;
+    padding: 6 8;
+    color: @color05;
 }
