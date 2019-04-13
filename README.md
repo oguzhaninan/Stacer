@@ -9,7 +9,7 @@
 </a>
 	
 <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=PDMEZXLTSRLHE">
-	<img src="https://avaazimages.s3.amazonaws.com/paypal_donate_button.jpg" height="50"  />
+	<img src="https://avaazimages.s3.amazonaws.com/paypal_donate_button.jpg" height="50" />
 </a>
 </p>
 
@@ -34,7 +34,7 @@
 ## Reviews
 <p align="left">
     <a href="http://www.omgubuntu.co.uk/2017/01/stacer-system-optimizer-for-ubuntu">
-		<img width="70px" src="http://www.omgubuntu.co.uk/wp-content/themes/omgubuntu-theme-3.6.1/images/logo.png"/>
+		<img width="65px" src="https://oguzhaninan.github.io/Stacer-Web/images/sites/site0.png"/>
 	</a>        
     <a href="http://www.diolinux.com.br/2017/02/stacer-um-programa-para-otimizar-o-ubuntu.html">
 		<img width="170px" src="http://coletivo.semanadolinux.com.br/images/site/diolinux.png"/>
