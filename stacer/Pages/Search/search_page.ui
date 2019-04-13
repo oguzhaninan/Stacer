@@ -26,13 +26,71 @@
    <property name="bottomMargin">
     <number>15</number>
    </property>
-   <property name="horizontalSpacing">
+   <property name="spacing">
     <number>10</number>
    </property>
-   <property name="verticalSpacing">
-    <number>8</number>
-   </property>
-   <item row="3" column="0" colspan="4">
+   <item row="3" column="0" colspan="5">
+    <layout class="QHBoxLayout" name="footer">
+     <property name="spacing">
+      <number>10</number>
+     </property>
+     <property name="bottomMargin">
+      <number>0</number>
+     </property>
+     <item>
+      <widget class="QLabel" name="lblSearchDir">
+       <property name="lineWidth">
+        <number>0</number>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="textFormat">
+        <enum>Qt::PlainText</enum>
+       </property>
+       <property name="scaledContents">
+        <bool>true</bool>
+       </property>
+       <property name="wordWrap">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <spacer name="horizontalSpacer_4">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>0</width>
+         <height>0</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item>
+      <widget class="QPushButton" name="btnAdvancePaneToggle">
+       <property name="cursor">
+        <cursorShape>PointingHandCursor</cursorShape>
+       </property>
+       <property name="accessibleName">
+        <string notr="true"/>
+       </property>
+       <property name="text">
+        <string>Advanced Search</string>
+       </property>
+       <property name="checkable">
+        <bool>false</bool>
+       </property>
+       <property name="checked">
+        <bool>false</bool>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+   <item row="5" column="0" colspan="5">
     <widget class="QTableView" name="tableFoundResults">
      <property name="focusPolicy">
       <enum>Qt::NoFocus</enum>
@@ -81,80 +139,7 @@
      </attribute>
     </widget>
    </item>
-   <item row="0" column="1" alignment="Qt::AlignTop">
-    <widget class="QLineEdit" name="txtSearchInput">
-     <property name="font">
-      <font>
-       <pointsize>10</pointsize>
-      </font>
-     </property>
-     <property name="placeholderText">
-      <string>Search...</string>
-     </property>
-    </widget>
-   </item>
-   <item row="0" column="3" alignment="Qt::AlignTop">
-    <widget class="QPushButton" name="btnSearchAdvance">
-     <property name="cursor">
-      <cursorShape>PointingHandCursor</cursorShape>
-     </property>
-     <property name="focusPolicy">
-      <enum>Qt::NoFocus</enum>
-     </property>
-     <property name="accessibleName">
-      <string>primary</string>
-     </property>
-     <property name="text">
-      <string/>
-     </property>
-     <property name="icon">
-      <iconset resource="../../static.qrc">
-       <normaloff>:/static/themes/default/img/sidebar-icons/search.png</normaloff>:/static/themes/default/img/sidebar-icons/search.png</iconset>
-     </property>
-     <property name="iconSize">
-      <size>
-       <width>24</width>
-       <height>24</height>
-      </size>
-     </property>
-    </widget>
-   </item>
-   <item row="2" column="0" colspan="4">
-    <widget class="QLabel" name="lblSearchDir">
-     <property name="lineWidth">
-      <number>0</number>
-     </property>
-     <property name="text">
-      <string/>
-     </property>
-     <property name="textFormat">
-      <enum>Qt::PlainText</enum>
-     </property>
-     <property name="scaledContents">
-      <bool>true</bool>
-     </property>
-     <property name="wordWrap">
-      <bool>true</bool>
-     </property>
-    </widget>
-   </item>
-   <item row="0" column="0" alignment="Qt::AlignTop">
-    <widget class="QPushButton" name="btnBrowseSearchDir">
-     <property name="cursor">
-      <cursorShape>PointingHandCursor</cursorShape>
-     </property>
-     <property name="focusPolicy">
-      <enum>Qt::NoFocus</enum>
-     </property>
-     <property name="accessibleName">
-      <string/>
-     </property>
-     <property name="text">
-      <string>Browse...</string>
-     </property>
-    </widget>
-   </item>
-   <item row="1" column="0" colspan="4">
+   <item row="2" column="0" colspan="5">
     <widget class="QWidget" name="advanceSearchPane" native="true">
      <layout class="QGridLayout" name="gridLayout_2">
       <property name="leftMargin">
@@ -172,34 +157,7 @@
       <property name="spacing">
        <number>10</number>
       </property>
-      <item row="0" column="0" colspan="3">
-       <widget class="QLabel" name="lblKeyword">
-        <property name="text">
-         <string>Keyword</string>
-        </property>
-       </widget>
-      </item>
-      <item row="1" column="0" alignment="Qt::AlignLeft">
-       <widget class="QCheckBox" name="checkRegEx">
-        <property name="accessibleName">
-         <string>circle</string>
-        </property>
-        <property name="text">
-         <string>RegEx</string>
-        </property>
-       </widget>
-      </item>
-      <item row="1" column="1" alignment="Qt::AlignLeft">
-       <widget class="QCheckBox" name="checkInvert">
-        <property name="accessibleName">
-         <string>circle</string>
-        </property>
-        <property name="text">
-         <string>Invert</string>
-        </property>
-       </widget>
-      </item>
-      <item row="1" column="2">
+      <item row="1" column="5" colspan="3">
        <spacer name="horizontalSpacer">
         <property name="orientation">
          <enum>Qt::Horizontal</enum>
@@ -212,93 +170,447 @@
         </property>
        </spacer>
       </item>
-      <item row="2" column="0" colspan="3">
-       <widget class="QLabel" name="lblKeyword_2">
+      <item row="1" column="1" alignment="Qt::AlignLeft">
+       <widget class="QCheckBox" name="checkRegEx">
+        <property name="accessibleName">
+         <string>circle</string>
+        </property>
+        <property name="text">
+         <string>RegEx</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="0">
+       <widget class="QLabel" name="lblKeyword">
+        <property name="text">
+         <string>Keyword:</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="2" alignment="Qt::AlignLeft">
+       <widget class="QCheckBox" name="checkInvert">
+        <property name="accessibleName">
+         <string>circle</string>
+        </property>
+        <property name="text">
+         <string>Invert</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="4">
+       <widget class="QCheckBox" name="checkEmpty">
+        <property name="accessibleName">
+         <string>circle</string>
+        </property>
+        <property name="text">
+         <string>Empty</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="3" alignment="Qt::AlignLeft">
+       <widget class="QLabel" name="lblFileOrFolder">
+        <property name="text">
+         <string>File or Folder:</string>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="0" colspan="5">
+       <widget class="QLabel" name="lblTime">
+        <property name="text">
+         <string>Time</string>
+        </property>
+       </widget>
+      </item>
+      <item row="5" column="0" colspan="5">
+       <widget class="QLabel" name="lblSize">
         <property name="text">
          <string>Size</string>
         </property>
        </widget>
       </item>
-      <item row="3" column="0" alignment="Qt::AlignLeft">
-       <widget class="QComboBox" name="cmbSearchTypes_2">
-        <property name="minimumSize">
-         <size>
-          <width>0</width>
-          <height>0</height>
-         </size>
+      <item row="3" column="0" colspan="8">
+       <layout class="QHBoxLayout" name="horizontalLayout">
+        <property name="spacing">
+         <number>10</number>
         </property>
-        <property name="maximumSize">
-         <size>
-          <width>16777215</width>
-          <height>25</height>
-         </size>
-        </property>
-        <property name="frame">
-         <bool>false</bool>
+        <property name="topMargin">
+         <number>0</number>
         </property>
         <item>
-         <property name="text">
-          <string>All</string>
-         </property>
+         <widget class="QComboBox" name="cmbTimeType">
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>28</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>16777215</width>
+            <height>28</height>
+           </size>
+          </property>
+          <property name="frame">
+           <bool>false</bool>
+          </property>
+          <item>
+           <property name="text">
+            <string>Access</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Modification</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Change</string>
+           </property>
+          </item>
+         </widget>
         </item>
         <item>
-         <property name="text">
-          <string>Files</string>
-         </property>
+         <widget class="QComboBox" name="cmbTimeCriteria">
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>28</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>16777215</width>
+            <height>28</height>
+           </size>
+          </property>
+          <property name="frame">
+           <bool>false</bool>
+          </property>
+          <item>
+           <property name="text">
+            <string>Smaller (&lt;)</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Equal (=)</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Greater (&gt;)</string>
+           </property>
+          </item>
+         </widget>
         </item>
         <item>
-         <property name="text">
-          <string>Folders</string>
-         </property>
+         <widget class="QSpinBox" name="spinTime">
+          <property name="minimumSize">
+           <size>
+            <width>60</width>
+            <height>28</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>50</width>
+            <height>16777215</height>
+           </size>
+          </property>
+          <property name="frame">
+           <bool>true</bool>
+          </property>
+          <property name="buttonSymbols">
+           <enum>QAbstractSpinBox::NoButtons</enum>
+          </property>
+          <property name="maximum">
+           <number>9999999</number>
+          </property>
+         </widget>
         </item>
         <item>
-         <property name="text">
-          <string>Symbolic Links</string>
-         </property>
+         <widget class="QComboBox" name="cmbTimeUnits">
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>28</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>16777215</width>
+            <height>28</height>
+           </size>
+          </property>
+          <property name="frame">
+           <bool>false</bool>
+          </property>
+          <item>
+           <property name="text">
+            <string>Second</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Minute</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Hour</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Day</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Week</string>
+           </property>
+          </item>
+         </widget>
         </item>
-       </widget>
+        <item>
+         <spacer name="horizontalSpacer_2">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>40</width>
+            <height>20</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+       </layout>
+      </item>
+      <item row="6" column="0" colspan="8">
+       <layout class="QHBoxLayout" name="horizontalLayout_2">
+        <property name="spacing">
+         <number>10</number>
+        </property>
+        <property name="topMargin">
+         <number>0</number>
+        </property>
+        <item>
+         <widget class="QComboBox" name="cmbSizeCriteria">
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>28</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>16777215</width>
+            <height>28</height>
+           </size>
+          </property>
+          <property name="frame">
+           <bool>false</bool>
+          </property>
+          <item>
+           <property name="text">
+            <string>Smaller (&lt;)</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Equal (=)</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Greater (&gt;)</string>
+           </property>
+          </item>
+         </widget>
+        </item>
+        <item>
+         <widget class="QSpinBox" name="spinSize">
+          <property name="minimumSize">
+           <size>
+            <width>15</width>
+            <height>28</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>68</width>
+            <height>16777215</height>
+           </size>
+          </property>
+          <property name="buttonSymbols">
+           <enum>QAbstractSpinBox::NoButtons</enum>
+          </property>
+          <property name="maximum">
+           <number>9999999</number>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QComboBox" name="cmbSizeUnits">
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>28</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>16777215</width>
+            <height>28</height>
+           </size>
+          </property>
+          <property name="frame">
+           <bool>false</bool>
+          </property>
+          <item>
+           <property name="text">
+            <string>Bytes</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Kilobytes</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Megabytes</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Gigabytes</string>
+           </property>
+          </item>
+         </widget>
+        </item>
+        <item>
+         <spacer name="horizontalSpacer_3">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>40</width>
+            <height>20</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+       </layout>
       </item>
      </layout>
     </widget>
    </item>
-   <item row="0" column="2">
-    <widget class="QComboBox" name="cmbSearchTypes">
-     <property name="minimumSize">
-      <size>
-       <width>0</width>
-       <height>30</height>
-      </size>
+   <item row="1" column="0" colspan="5">
+    <layout class="QHBoxLayout" name="horizontalLayout_3">
+     <property name="spacing">
+      <number>10</number>
      </property>
-     <property name="maximumSize">
-      <size>
-       <width>16777215</width>
-       <height>25</height>
-      </size>
-     </property>
-     <property name="frame">
-      <bool>false</bool>
+     <property name="bottomMargin">
+      <number>0</number>
      </property>
      <item>
-      <property name="text">
-       <string>All</string>
-      </property>
+      <widget class="QPushButton" name="btnBrowseSearchDir">
+       <property name="cursor">
+        <cursorShape>PointingHandCursor</cursorShape>
+       </property>
+       <property name="focusPolicy">
+        <enum>Qt::NoFocus</enum>
+       </property>
+       <property name="accessibleName">
+        <string/>
+       </property>
+       <property name="text">
+        <string>Browse...</string>
+       </property>
+      </widget>
      </item>
      <item>
-      <property name="text">
-       <string>Files</string>
-      </property>
+      <widget class="QLineEdit" name="txtSearchInput">
+       <property name="font">
+        <font>
+         <pointsize>10</pointsize>
+        </font>
+       </property>
+       <property name="placeholderText">
+        <string>Search...</string>
+       </property>
+      </widget>
      </item>
      <item>
-      <property name="text">
-       <string>Folders</string>
-      </property>
+      <widget class="QComboBox" name="cmbSearchTypes">
+       <property name="minimumSize">
+        <size>
+         <width>0</width>
+         <height>30</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>16777215</width>
+         <height>25</height>
+        </size>
+       </property>
+       <property name="frame">
+        <bool>false</bool>
+       </property>
+       <item>
+        <property name="text">
+         <string>All</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Files</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Folders</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Symbolic Links</string>
+        </property>
+       </item>
+      </widget>
      </item>
      <item>
-      <property name="text">
-       <string>Symbolic Links</string>
-      </property>
+      <widget class="QPushButton" name="btnSearchAdvance">
+       <property name="cursor">
+        <cursorShape>PointingHandCursor</cursorShape>
+       </property>
+       <property name="focusPolicy">
+        <enum>Qt::NoFocus</enum>
+       </property>
+       <property name="accessibleName">
+        <string>primary</string>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="icon">
+        <iconset resource="../../static.qrc">
+         <normaloff>:/static/themes/default/img/sidebar-icons/search.png</normaloff>:/static/themes/default/img/sidebar-icons/search.png</iconset>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>24</width>
+         <height>24</height>
+        </size>
+       </property>
+      </widget>
      </item>
-    </widget>
+    </layout>
    </item>
   </layout>
  </widget>

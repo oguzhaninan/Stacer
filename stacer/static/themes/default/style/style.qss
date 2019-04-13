@@ -1032,3 +1032,23 @@ SEARCH
     padding: 6 8;
     color: @color05;
 }
+
+#advanceSearchPane QSpinBox {
+    padding: 4 6;
+}
+
+#advanceSearchPane QCheckBox[accessibleName="circle"]::indicator {
+    width: 15px;
+    height: 15px;
+}
+
+#advanceSearchPane QLabel {
+    color: @color06;
+}
+
+#btnAdvancePaneToggle {
+    font-size: 10pt;
+    text-decoration: underline;
+    color: @color03;
+}
+

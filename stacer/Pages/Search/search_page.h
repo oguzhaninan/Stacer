@@ -18,6 +18,9 @@ public:
 
 private slots:
     void on_btnBrowseSearchDir_clicked();
+    void init();
+
+    void on_btnAdvancePaneToggle_clicked();
 
 private:
     Ui::SearchPage *ui;
