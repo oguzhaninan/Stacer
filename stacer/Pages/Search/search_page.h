@@ -4,6 +4,7 @@
 #include <QWidget>
 #include <QFileDialog>
 #include "Managers/info_manager.h"
+#include "utilities.h"
 
 namespace Ui {
 class SearchPage;
@@ -23,11 +24,8 @@ private slots:
 
     void on_btnAdvancePaneToggle_clicked();
     void on_checkFilterTime_clicked(bool checked);
-    void on_checkFilterPermissions_clicked(bool checked);
-    void on_checkFilterSize_clicked(bool checked);
-    void on_checkFilterOwner_clicked(bool checked);
-
     void on_btnSearchAdvance_clicked();
+    void initComboboxValues();
 
 private:
     Ui::SearchPage *ui;

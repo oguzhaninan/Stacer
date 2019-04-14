@@ -144,148 +144,13 @@
       <property name="spacing">
        <number>12</number>
       </property>
-      <item row="6" column="0" colspan="4">
-       <layout class="QHBoxLayout" name="horizontalLayout_2">
-        <property name="spacing">
-         <number>10</number>
-        </property>
-        <property name="topMargin">
-         <number>0</number>
-        </property>
-        <item>
-         <widget class="QComboBox" name="cmbSizeCriteria">
-          <property name="minimumSize">
-           <size>
-            <width>0</width>
-            <height>28</height>
-           </size>
-          </property>
-          <property name="maximumSize">
-           <size>
-            <width>16777215</width>
-            <height>28</height>
-           </size>
-          </property>
-          <property name="frame">
-           <bool>false</bool>
-          </property>
-          <item>
-           <property name="text">
-            <string>Smaller (&lt;)</string>
-           </property>
-          </item>
-          <item>
-           <property name="text">
-            <string>Equal (=)</string>
-           </property>
-          </item>
-          <item>
-           <property name="text">
-            <string>Greater (&gt;)</string>
-           </property>
-          </item>
-         </widget>
-        </item>
-        <item>
-         <widget class="QSpinBox" name="spinSize">
-          <property name="minimumSize">
-           <size>
-            <width>15</width>
-            <height>28</height>
-           </size>
-          </property>
-          <property name="maximumSize">
-           <size>
-            <width>68</width>
-            <height>16777215</height>
-           </size>
-          </property>
-          <property name="buttonSymbols">
-           <enum>QAbstractSpinBox::NoButtons</enum>
-          </property>
-          <property name="maximum">
-           <number>9999999</number>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QComboBox" name="cmbSizeUnits">
-          <property name="minimumSize">
-           <size>
-            <width>0</width>
-            <height>28</height>
-           </size>
-          </property>
-          <property name="maximumSize">
-           <size>
-            <width>16777215</width>
-            <height>28</height>
-           </size>
-          </property>
-          <property name="frame">
-           <bool>false</bool>
-          </property>
-          <item>
-           <property name="text">
-            <string>Bytes</string>
-           </property>
-          </item>
-          <item>
-           <property name="text">
-            <string>Kilobytes</string>
-           </property>
-          </item>
-          <item>
-           <property name="text">
-            <string>Megabytes</string>
-           </property>
-          </item>
-          <item>
-           <property name="text">
-            <string>Gigabytes</string>
-           </property>
-          </item>
-         </widget>
-        </item>
-       </layout>
-      </item>
-      <item row="1" column="1" alignment="Qt::AlignLeft">
-       <widget class="QCheckBox" name="checkRegEx">
+      <item row="2" column="0" colspan="4">
+       <widget class="QCheckBox" name="checkFilterTime">
         <property name="accessibleName">
          <string>circle</string>
         </property>
         <property name="text">
-         <string>RegEx</string>
-        </property>
-       </widget>
-      </item>
-      <item row="1" column="4">
-       <widget class="QCheckBox" name="checkEmpty">
-        <property name="accessibleName">
-         <string>circle</string>
-        </property>
-        <property name="text">
-         <string>Empty</string>
-        </property>
-       </widget>
-      </item>
-      <item row="1" column="5" colspan="3">
-       <spacer name="horizontalSpacer">
-        <property name="orientation">
-         <enum>Qt::Horizontal</enum>
-        </property>
-        <property name="sizeHint" stdset="0">
-         <size>
-          <width>40</width>
-          <height>20</height>
-         </size>
-        </property>
-       </spacer>
-      </item>
-      <item row="1" column="3" alignment="Qt::AlignLeft">
-       <widget class="QLabel" name="lblFileOrFolder">
-        <property name="text">
-         <string>File or Folder:</string>
+         <string>Time</string>
         </property>
        </widget>
       </item>
@@ -299,12 +164,113 @@
         </property>
        </widget>
       </item>
-      <item row="1" column="0">
-       <widget class="QLabel" name="lblKeyword">
-        <property name="text">
-         <string>Keyword:</string>
+      <item row="6" column="7">
+       <spacer name="horizontalSpacer_3">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
         </property>
-       </widget>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>40</width>
+          <height>20</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item row="3" column="0" colspan="4">
+       <layout class="QHBoxLayout" name="layoutTime">
+        <property name="spacing">
+         <number>10</number>
+        </property>
+        <property name="topMargin">
+         <number>0</number>
+        </property>
+        <property name="bottomMargin">
+         <number>4</number>
+        </property>
+        <item>
+         <widget class="QComboBox" name="cmbTimeType">
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>28</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>16777215</width>
+            <height>28</height>
+           </size>
+          </property>
+          <property name="frame">
+           <bool>false</bool>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QComboBox" name="cmbTimeCriteria">
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>28</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>16777215</width>
+            <height>28</height>
+           </size>
+          </property>
+          <property name="frame">
+           <bool>false</bool>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QSpinBox" name="spinTime">
+          <property name="minimumSize">
+           <size>
+            <width>60</width>
+            <height>28</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>50</width>
+            <height>16777215</height>
+           </size>
+          </property>
+          <property name="frame">
+           <bool>true</bool>
+          </property>
+          <property name="buttonSymbols">
+           <enum>QAbstractSpinBox::NoButtons</enum>
+          </property>
+          <property name="maximum">
+           <number>9999999</number>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QComboBox" name="cmbTimeUnits">
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>28</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>16777215</width>
+            <height>28</height>
+           </size>
+          </property>
+          <property name="frame">
+           <bool>false</bool>
+          </property>
+         </widget>
+        </item>
+       </layout>
       </item>
       <item row="6" column="4" colspan="3">
        <layout class="QHBoxLayout" name="layoutOwner">
@@ -357,8 +323,18 @@
         </item>
        </layout>
       </item>
-      <item row="6" column="7">
-       <spacer name="horizontalSpacer_3">
+      <item row="1" column="0">
+       <widget class="QCheckBox" name="checkSearchAsRoot">
+        <property name="accessibleName">
+         <string>circle</string>
+        </property>
+        <property name="text">
+         <string>Search as Root</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="6" colspan="2">
+       <spacer name="horizontalSpacer">
         <property name="orientation">
          <enum>Qt::Horizontal</enum>
         </property>
@@ -370,45 +346,29 @@
         </property>
        </spacer>
       </item>
-      <item row="3" column="6">
-       <layout class="QHBoxLayout" name="layoutOwner_2">
-        <property name="spacing">
-         <number>5</number>
+      <item row="1" column="5">
+       <widget class="QCheckBox" name="checkEmpty">
+        <property name="accessibleName">
+         <string>circle</string>
         </property>
-        <property name="bottomMargin">
-         <number>4</number>
+        <property name="text">
+         <string>Empty</string>
         </property>
-        <item>
-         <widget class="QCheckBox" name="checkPermRead">
-          <property name="accessibleName">
-           <string>circle</string>
-          </property>
-          <property name="text">
-           <string>Read</string>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QCheckBox" name="checkPermWrite">
-          <property name="accessibleName">
-           <string>circle</string>
-          </property>
-          <property name="text">
-           <string>Write</string>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QCheckBox" name="checkPermExec">
-          <property name="accessibleName">
-           <string>circle</string>
-          </property>
-          <property name="text">
-           <string>Execute</string>
-          </property>
-         </widget>
-        </item>
-       </layout>
+       </widget>
+      </item>
+      <item row="5" column="4" colspan="3">
+       <widget class="QLabel" name="lblOwner">
+        <property name="text">
+         <string>Owner</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="4">
+       <widget class="QLabel" name="lblFileOrFolder">
+        <property name="text">
+         <string>File or Folder:</string>
+        </property>
+       </widget>
       </item>
       <item row="3" column="7">
        <spacer name="horizontalSpacer_2">
@@ -423,59 +383,66 @@
         </property>
        </spacer>
       </item>
-      <item row="2" column="0">
-       <widget class="QCheckBox" name="checkFilterTime">
+      <item row="3" column="4" colspan="3">
+       <layout class="QHBoxLayout" name="layoutOwner_2">
+        <property name="spacing">
+         <number>5</number>
+        </property>
+        <property name="bottomMargin">
+         <number>4</number>
+        </property>
+        <item>
+         <widget class="QCheckBox" name="checkPermReadable">
+          <property name="accessibleName">
+           <string>circle</string>
+          </property>
+          <property name="text">
+           <string>Readable</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QCheckBox" name="checkPermWritable">
+          <property name="accessibleName">
+           <string>circle</string>
+          </property>
+          <property name="text">
+           <string>Writable</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QCheckBox" name="checkPermExecutable">
+          <property name="accessibleName">
+           <string>circle</string>
+          </property>
+          <property name="text">
+           <string>Executable</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+      <item row="1" column="1">
+       <widget class="QCheckBox" name="checkRegEx">
         <property name="accessibleName">
          <string>circle</string>
         </property>
         <property name="text">
-         <string>Time</string>
+         <string>RegEx</string>
         </property>
        </widget>
       </item>
-      <item row="2" column="6">
-       <widget class="QCheckBox" name="checkFilterPermissions">
-        <property name="accessibleName">
-         <string>circle</string>
-        </property>
-        <property name="text">
-         <string>Permissions</string>
-        </property>
-       </widget>
-      </item>
-      <item row="5" column="0" colspan="4">
-       <widget class="QCheckBox" name="checkFilterSize">
-        <property name="accessibleName">
-         <string>circle</string>
-        </property>
-        <property name="text">
-         <string>Size</string>
-        </property>
-       </widget>
-      </item>
-      <item row="5" column="4" colspan="3">
-       <widget class="QCheckBox" name="checkFilterOwner">
-        <property name="accessibleName">
-         <string>circle</string>
-        </property>
-        <property name="text">
-         <string>Owner</string>
-        </property>
-       </widget>
-      </item>
-      <item row="3" column="0" colspan="6">
-       <layout class="QHBoxLayout" name="layoutTime">
+      <item row="6" column="0" colspan="4">
+       <layout class="QHBoxLayout" name="horizontalLayout_2">
         <property name="spacing">
          <number>10</number>
         </property>
         <property name="topMargin">
          <number>0</number>
         </property>
-        <property name="bottomMargin">
-         <number>4</number>
-        </property>
         <item>
-         <widget class="QComboBox" name="cmbTimeType">
+         <widget class="QComboBox" name="cmbSizeCriteria">
           <property name="minimumSize">
            <size>
             <width>0</width>
@@ -491,73 +458,21 @@
           <property name="frame">
            <bool>false</bool>
           </property>
-          <item>
-           <property name="text">
-            <string>Access</string>
-           </property>
-          </item>
-          <item>
-           <property name="text">
-            <string>Modification</string>
-           </property>
-          </item>
-          <item>
-           <property name="text">
-            <string>Change</string>
-           </property>
-          </item>
          </widget>
         </item>
         <item>
-         <widget class="QComboBox" name="cmbTimeCriteria">
+         <widget class="QSpinBox" name="spinSize">
           <property name="minimumSize">
            <size>
-            <width>0</width>
+            <width>15</width>
             <height>28</height>
            </size>
           </property>
           <property name="maximumSize">
            <size>
-            <width>16777215</width>
-            <height>28</height>
-           </size>
-          </property>
-          <property name="frame">
-           <bool>false</bool>
-          </property>
-          <item>
-           <property name="text">
-            <string>Smaller (&lt;)</string>
-           </property>
-          </item>
-          <item>
-           <property name="text">
-            <string>Equal (=)</string>
-           </property>
-          </item>
-          <item>
-           <property name="text">
-            <string>Greater (&gt;)</string>
-           </property>
-          </item>
-         </widget>
-        </item>
-        <item>
-         <widget class="QSpinBox" name="spinTime">
-          <property name="minimumSize">
-           <size>
-            <width>60</width>
-            <height>28</height>
-           </size>
-          </property>
-          <property name="maximumSize">
-           <size>
-            <width>50</width>
+            <width>68</width>
             <height>16777215</height>
            </size>
-          </property>
-          <property name="frame">
-           <bool>true</bool>
           </property>
           <property name="buttonSymbols">
            <enum>QAbstractSpinBox::NoButtons</enum>
@@ -568,7 +483,7 @@
          </widget>
         </item>
         <item>
-         <widget class="QComboBox" name="cmbTimeUnits">
+         <widget class="QComboBox" name="cmbSizeUnits">
           <property name="minimumSize">
            <size>
             <width>0</width>
@@ -584,34 +499,23 @@
           <property name="frame">
            <bool>false</bool>
           </property>
-          <item>
-           <property name="text">
-            <string>Second</string>
-           </property>
-          </item>
-          <item>
-           <property name="text">
-            <string>Minute</string>
-           </property>
-          </item>
-          <item>
-           <property name="text">
-            <string>Hour</string>
-           </property>
-          </item>
-          <item>
-           <property name="text">
-            <string>Day</string>
-           </property>
-          </item>
-          <item>
-           <property name="text">
-            <string>Week</string>
-           </property>
-          </item>
          </widget>
         </item>
        </layout>
+      </item>
+      <item row="2" column="4" colspan="3">
+       <widget class="QLabel" name="lblPermissions">
+        <property name="text">
+         <string>Permissions</string>
+        </property>
+       </widget>
+      </item>
+      <item row="5" column="0" colspan="4">
+       <widget class="QLabel" name="lblSize">
+        <property name="text">
+         <string>Size</string>
+        </property>
+       </widget>
       </item>
      </layout>
     </widget>
@@ -669,26 +573,6 @@
        <property name="frame">
         <bool>false</bool>
        </property>
-       <item>
-        <property name="text">
-         <string>All</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>Files</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>Folders</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>Symbolic Links</string>
-        </property>
-       </item>
       </widget>
      </item>
      <item>
