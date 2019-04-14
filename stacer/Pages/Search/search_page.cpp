@@ -39,6 +39,7 @@ void SearchPage::on_btnBrowseSearchDir_clicked()
 
     if (! selectedDirPath.isEmpty() && selectedDir.exists()) {
         ui->lblSearchDir->setText(tr("Directory: %1").arg(selectedDirPath));
+        mSelectedDirectory = selectedDirPath;
     }
 }
 
@@ -75,4 +76,13 @@ void SearchPage::on_checkFilterOwner_clicked(bool checked)
 {
     ui->cmbUsers->setEnabled(checked);
     ui->cmbGroups->setEnabled(checked);
+}
+
+void SearchPage::on_btnSearchAdvance_clicked()
+{
+    if (mSelectedDirectory.isEmpty()) {
+
+    } else {
+
+    }
 }

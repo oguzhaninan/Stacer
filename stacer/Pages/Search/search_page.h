@@ -27,8 +27,12 @@ private slots:
     void on_checkFilterSize_clicked(bool checked);
     void on_checkFilterOwner_clicked(bool checked);
 
+    void on_btnSearchAdvance_clicked();
+
 private:
     Ui::SearchPage *ui;
+
+    QString mSelectedDirectory;
 };
 
 #endif // SEARCH_PAGE_H

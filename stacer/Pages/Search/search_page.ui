@@ -37,7 +37,7 @@
      <property name="bottomMargin">
       <number>0</number>
      </property>
-     <item>
+     <item alignment="Qt::AlignLeft">
       <widget class="QLabel" name="lblSearchDir">
        <property name="lineWidth">
         <number>0</number>
@@ -52,24 +52,11 @@
         <bool>true</bool>
        </property>
        <property name="wordWrap">
-        <bool>true</bool>
+        <bool>false</bool>
        </property>
       </widget>
      </item>
-     <item>
-      <spacer name="horizontalSpacer_4">
-       <property name="orientation">
-        <enum>Qt::Horizontal</enum>
-       </property>
-       <property name="sizeHint" stdset="0">
-        <size>
-         <width>0</width>
-         <height>0</height>
-        </size>
-       </property>
-      </spacer>
-     </item>
-     <item>
+     <item alignment="Qt::AlignRight">
       <widget class="QPushButton" name="btnAdvancePaneToggle">
        <property name="cursor">
         <cursorShape>PointingHandCursor</cursorShape>
@@ -155,7 +142,7 @@
        <number>2</number>
       </property>
       <property name="spacing">
-       <number>10</number>
+       <number>12</number>
       </property>
       <item row="6" column="0" colspan="4">
        <layout class="QHBoxLayout" name="horizontalLayout_2">
@@ -388,6 +375,9 @@
         <property name="spacing">
          <number>5</number>
         </property>
+        <property name="bottomMargin">
+         <number>4</number>
+        </property>
         <item>
          <widget class="QCheckBox" name="checkPermRead">
           <property name="accessibleName">
@@ -480,6 +470,9 @@
         </property>
         <property name="topMargin">
          <number>0</number>
+        </property>
+        <property name="bottomMargin">
+         <number>4</number>
         </property>
         <item>
          <widget class="QComboBox" name="cmbTimeType">
