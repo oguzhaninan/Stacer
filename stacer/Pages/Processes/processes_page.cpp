@@ -101,7 +101,6 @@ void ProcessesPage::loadProcesses()
     QList<Process> processes = im->getProcesses();
     QString username = im->getUserName();
 
-
     if (ui->checkAllProcesses->isChecked()) {
         for (const Process &proc : processes) {
             mItemModel->appendRow(createRow(proc));
@@ -117,7 +116,7 @@ void ProcessesPage::loadProcesses()
     ui->lblProcessTitle->setText(tr("Processes (%1)").arg(mItemModel->rowCount()));
 
     // selected item
-    if(! selecteds.isEmpty()) {
+    if (! selecteds.isEmpty()) {
         mSeletedRowModel = selecteds.first();
 
         for (int i = 0; i < mSortFilterModel->rowCount(); ++i) {

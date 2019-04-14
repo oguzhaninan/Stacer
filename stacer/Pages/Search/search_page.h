@@ -32,6 +32,8 @@ private slots:
     void on_btnSearchAdvance_clicked();
     void initComboboxValues();
     void on_tableFoundResults_customContextMenuRequested(const QPoint &pos);
+    void on_tableFoundResults_header_customContextMenuRequested(const QPoint &pos);
+    void loadTableRowMenu();
     void loadHeaderMenu();
     void loadDataToTable(const QList<QFileInfo> &results);
     QList<QStandardItem *> createRow(const QFileInfo &fileInfo);
@@ -44,8 +46,8 @@ private:
     QStringList mTableHeaders;
     QStandardItemModel *mItemModel;
     QSortFilterProxyModel *mSortFilterModel;
-    QModelIndex mSeletedRowModel;
     QMenu mHeaderMenu;
+    QMenu mTableRowMenu;
 };
 
 #endif // SEARCH_PAGE_H

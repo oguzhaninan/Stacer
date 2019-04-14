@@ -47,7 +47,7 @@
       <set>QAbstractItemView::NoEditTriggers</set>
      </property>
      <property name="selectionMode">
-      <enum>QAbstractItemView::SingleSelection</enum>
+      <enum>QAbstractItemView::ExtendedSelection</enum>
      </property>
      <property name="selectionBehavior">
       <enum>QAbstractItemView::SelectRows</enum>
@@ -626,7 +626,7 @@
      </layout>
     </widget>
    </item>
-   <item row="6" column="0" alignment="Qt::AlignLeft">
+   <item row="6" column="1" alignment="Qt::AlignRight">
     <widget class="QLabel" name="lblFoundFilesInfo">
      <property name="lineWidth">
       <number>0</number>

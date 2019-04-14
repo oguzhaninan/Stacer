@@ -1,6 +1,7 @@
 #include "search_page.h"
 #include "ui_search_page.h"
 #include <qdebug.h>
+#include <QClipboard>
 
 SearchPage::SearchPage(QWidget *parent) :
     QWidget(parent),
@@ -21,7 +22,7 @@ SearchPage::~SearchPage()
 void SearchPage::init()
 {
     mTableHeaders = QStringList {
-        tr("Name"), tr("Path"), tr("Size"), tr("User"), tr("Group"), tr("Permissions"),
+        tr("Name"), tr("Path"), tr("Size"), tr("User"), tr("Group"),
         tr("Creation Time"), tr("Last Access"), tr("Last Modification"), tr("Last Change"),
     };
 
@@ -39,15 +40,17 @@ void SearchPage::init()
     ui->tableFoundResults->horizontalHeader()->setFixedHeight(32);
     ui->tableFoundResults->horizontalHeader()->setDefaultAlignment(Qt::AlignLeft | Qt::AlignVCenter);
     ui->tableFoundResults->horizontalHeader()->setCursor(Qt::PointingHandCursor);
-    ui->tableFoundResults->horizontalHeader()->resizeSection(0, 130);
-    ui->tableFoundResults->horizontalHeader()->resizeSection(1, 130);
+    ui->tableFoundResults->horizontalHeader()->resizeSection(0, 150);
+    ui->tableFoundResults->horizontalHeader()->resizeSection(1, 150);
 
     ui->tableFoundResults->horizontalHeader()->setContextMenuPolicy(Qt::CustomContextMenu);
+    ui->tableFoundResults->setContextMenuPolicy(Qt::CustomContextMenu);
 
     connect(ui->tableFoundResults->horizontalHeader(), SIGNAL(customContextMenuRequested(const QPoint&)),
-        this, SLOT(on_tableFoundResults_customContextMenuRequested(const QPoint&)));
+        this, SLOT(on_tableFoundResults_header_customContextMenuRequested(const QPoint&)));
 
     loadHeaderMenu();
+    loadTableRowMenu();
 
     ui->advanceSearchPane->setHidden(false);
     on_btnAdvancePaneToggle_clicked();
@@ -55,12 +58,27 @@ void SearchPage::init()
     initComboboxValues();
 
     QList<QWidget*> widgets = {
-        ui->btnBrowseSearchDir, ui->btnSearchAdvance, ui->txtSearchInput, ui->cmbGroups, ui->cmbSearchTypes,
-        ui->cmbSizeCriteria, ui->cmbSizeUnits, ui->cmbTimeCriteria, ui->cmbTimeType, ui->cmbUsers,
-        ui->tableFoundResults
+        ui->btnBrowseSearchDir, ui->btnSearchAdvance, ui->txtSearchInput, ui->cmbGroups,
+        ui->cmbSizeCriteria, ui->cmbSizeUnits, ui->cmbTimeCriteria, ui->cmbTimeType,
+         ui->cmbSearchTypes, ui->tableFoundResults, ui->cmbUsers
     };
 
     Utilities::addDropShadow(widgets, 30);
+}
+
+void SearchPage::loadTableRowMenu()
+{
+    QAction *actionOpenFolder = new QAction(tr("Open Folder"));
+    actionOpenFolder->setData("open-folder");
+    mTableRowMenu.addAction(actionOpenFolder);
+
+    QAction *actionMoveTrash = new QAction(tr("Move Trash"));
+    actionMoveTrash->setData("move-trash");
+    mTableRowMenu.addAction(actionMoveTrash);
+
+    QAction *actionDelete = new QAction(tr("Delete"));
+    actionDelete->setData("delete");
+    mTableRowMenu.addAction(actionDelete);
 }
 
 void SearchPage::loadHeaderMenu()
@@ -76,7 +94,7 @@ void SearchPage::loadHeaderMenu()
     }
 
     // exclude headers
-    QList<int> hiddenHeaders = { 4, 5, 7, 8, 9 };
+    QList<int> hiddenHeaders = { 4, 6, 7, 8 };
 
     QList<QAction*> actions = mHeaderMenu.actions();
     for (const int i : hiddenHeaders) {
@@ -212,10 +230,6 @@ void SearchPage::on_btnSearchAdvance_clicked()
             findQuery.append(ui->cmbGroups->currentText());
         }
 
-        //findQuery.append("-printf");
-        //findQuery.append("'%y|%p|%f|%s|%A+|%T+|%C+|%u|%g\n'");
-        //findQuery.append("'%p'");
-
         // searching
         QString result;
 
@@ -276,13 +290,9 @@ QList<QStandardItem*> SearchPage::createRow(const QFileInfo &fileInfo)
     i_group->setData(fileInfo.group(), data);
     i_group->setData(fileInfo.group(), Qt::ToolTipRole);
 
-    QStandardItem *i_permissions = new QStandardItem(fileInfo.group());
-    i_permissions->setData(fileInfo.group(), data);
-    i_permissions->setData(fileInfo.group(), Qt::ToolTipRole);
-
-    QStandardItem *i_creationTime = new QStandardItem(fileInfo.birthTime().toString(dateFormat));
-    i_creationTime->setData(fileInfo.birthTime().toString(dateFormat), data);
-    i_creationTime->setData(fileInfo.birthTime().toString(dateFormat), Qt::ToolTipRole);
+    QStandardItem *i_creationTime = new QStandardItem(fileInfo.created().toString(dateFormat));
+    i_creationTime->setData(fileInfo.created().toString(dateFormat), data);
+    i_creationTime->setData(fileInfo.created().toString(dateFormat), Qt::ToolTipRole);
 
     QStandardItem *i_lastAccess = new QStandardItem(fileInfo.lastRead().toString(dateFormat));
     i_lastAccess->setData(fileInfo.lastRead().toString(dateFormat), data);
@@ -297,17 +307,37 @@ QList<QStandardItem*> SearchPage::createRow(const QFileInfo &fileInfo)
     i_lastChange->setData(fileInfo.metadataChangeTime().toString(dateFormat), Qt::ToolTipRole);
 
     return {
-        i_name, i_path, i_size, i_user, i_group, i_permissions,
+        i_name, i_path, i_size, i_user, i_group,
         i_creationTime, i_lastAccess, i_lastModify, i_lastChange
     };
 }
 
-void SearchPage::on_tableFoundResults_customContextMenuRequested(const QPoint &pos)
+void SearchPage::on_tableFoundResults_header_customContextMenuRequested(const QPoint &pos)
 {
     QPoint globalPos = ui->tableFoundResults->mapToGlobal(pos);
     QAction *action = mHeaderMenu.exec(globalPos);
 
     if (action) {
         ui->tableFoundResults->horizontalHeader()->setSectionHidden(action->data().toInt(), ! action->isChecked());
+    }
+}
+
+void SearchPage::on_tableFoundResults_customContextMenuRequested(const QPoint &pos)
+{
+    QPoint globalPos = ui->tableFoundResults->mapToGlobal(pos);
+    QAction *action = mTableRowMenu.exec(globalPos);
+
+    if (action) {
+        QModelIndexList selecteds = ui->tableFoundResults->selectionModel()->selectedRows();
+
+        if (action->data().toString() == "open-folder") {
+            qDebug() << mSortFilterModel->itemData(selecteds.first());
+        }
+        else if (action->data().toString() == "move-trash") {
+
+        }
+        else if (action->data().toString() == "delete" ) {
+
+        }
     }
 }
