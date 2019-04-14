@@ -29,55 +29,7 @@
    <property name="spacing">
     <number>10</number>
    </property>
-   <item row="3" column="0" colspan="5">
-    <layout class="QHBoxLayout" name="footer">
-     <property name="spacing">
-      <number>10</number>
-     </property>
-     <property name="bottomMargin">
-      <number>0</number>
-     </property>
-     <item alignment="Qt::AlignLeft">
-      <widget class="QLabel" name="lblSearchDir">
-       <property name="lineWidth">
-        <number>0</number>
-       </property>
-       <property name="text">
-        <string/>
-       </property>
-       <property name="textFormat">
-        <enum>Qt::PlainText</enum>
-       </property>
-       <property name="scaledContents">
-        <bool>true</bool>
-       </property>
-       <property name="wordWrap">
-        <bool>false</bool>
-       </property>
-      </widget>
-     </item>
-     <item alignment="Qt::AlignRight">
-      <widget class="QPushButton" name="btnAdvancePaneToggle">
-       <property name="cursor">
-        <cursorShape>PointingHandCursor</cursorShape>
-       </property>
-       <property name="accessibleName">
-        <string notr="true"/>
-       </property>
-       <property name="text">
-        <string>Advanced Search</string>
-       </property>
-       <property name="checkable">
-        <bool>false</bool>
-       </property>
-       <property name="checked">
-        <bool>false</bool>
-       </property>
-      </widget>
-     </item>
-    </layout>
-   </item>
-   <item row="5" column="0" colspan="5">
+   <item row="5" column="0" colspan="2">
     <widget class="QTableView" name="tableFoundResults">
      <property name="focusPolicy">
       <enum>Qt::NoFocus</enum>
@@ -126,7 +78,138 @@
      </attribute>
     </widget>
    </item>
-   <item row="2" column="0" colspan="5">
+   <item row="1" column="0" colspan="2">
+    <layout class="QHBoxLayout" name="horizontalLayout_3">
+     <property name="spacing">
+      <number>10</number>
+     </property>
+     <property name="bottomMargin">
+      <number>0</number>
+     </property>
+     <item alignment="Qt::AlignTop">
+      <widget class="QPushButton" name="btnBrowseSearchDir">
+       <property name="cursor">
+        <cursorShape>PointingHandCursor</cursorShape>
+       </property>
+       <property name="focusPolicy">
+        <enum>Qt::NoFocus</enum>
+       </property>
+       <property name="accessibleName">
+        <string/>
+       </property>
+       <property name="text">
+        <string>Browse...</string>
+       </property>
+      </widget>
+     </item>
+     <item alignment="Qt::AlignTop">
+      <widget class="QLineEdit" name="txtSearchInput">
+       <property name="font">
+        <font>
+         <pointsize>10</pointsize>
+        </font>
+       </property>
+       <property name="placeholderText">
+        <string>Search...</string>
+       </property>
+      </widget>
+     </item>
+     <item alignment="Qt::AlignTop">
+      <widget class="QComboBox" name="cmbSearchTypes">
+       <property name="minimumSize">
+        <size>
+         <width>0</width>
+         <height>30</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>16777215</width>
+         <height>25</height>
+        </size>
+       </property>
+       <property name="frame">
+        <bool>false</bool>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="btnSearchAdvance">
+       <property name="cursor">
+        <cursorShape>PointingHandCursor</cursorShape>
+       </property>
+       <property name="focusPolicy">
+        <enum>Qt::NoFocus</enum>
+       </property>
+       <property name="accessibleName">
+        <string>primary</string>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="icon">
+        <iconset resource="../../static.qrc">
+         <normaloff>:/static/themes/default/img/sidebar-icons/search.png</normaloff>:/static/themes/default/img/sidebar-icons/search.png</iconset>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>24</width>
+         <height>24</height>
+        </size>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+   <item row="3" column="0" colspan="2">
+    <layout class="QHBoxLayout" name="footer">
+     <property name="spacing">
+      <number>10</number>
+     </property>
+     <property name="bottomMargin">
+      <number>0</number>
+     </property>
+     <item alignment="Qt::AlignLeft">
+      <widget class="QLabel" name="lblSearchDir">
+       <property name="lineWidth">
+        <number>0</number>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="textFormat">
+        <enum>Qt::PlainText</enum>
+       </property>
+       <property name="scaledContents">
+        <bool>true</bool>
+       </property>
+       <property name="wordWrap">
+        <bool>false</bool>
+       </property>
+      </widget>
+     </item>
+     <item alignment="Qt::AlignRight">
+      <widget class="QPushButton" name="btnAdvancePaneToggle">
+       <property name="cursor">
+        <cursorShape>PointingHandCursor</cursorShape>
+       </property>
+       <property name="accessibleName">
+        <string notr="true"/>
+       </property>
+       <property name="text">
+        <string>Advanced Search</string>
+       </property>
+       <property name="checkable">
+        <bool>false</bool>
+       </property>
+       <property name="checked">
+        <bool>false</bool>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+   <item row="2" column="0" colspan="2">
     <widget class="QWidget" name="advanceSearchPane" native="true">
      <layout class="QGridLayout" name="gridLayout_2">
       <property name="leftMargin">
@@ -144,18 +227,14 @@
       <property name="spacing">
        <number>12</number>
       </property>
-      <item row="2" column="0" colspan="4">
-       <widget class="QCheckBox" name="checkFilterTime">
-        <property name="accessibleName">
-         <string>circle</string>
-        </property>
-        <property name="text">
-         <string>Time</string>
-        </property>
-       </widget>
-      </item>
       <item row="1" column="2" alignment="Qt::AlignLeft">
        <widget class="QCheckBox" name="checkInvert">
+        <property name="cursor">
+         <cursorShape>PointingHandCursor</cursorShape>
+        </property>
+        <property name="focusPolicy">
+         <enum>Qt::NoFocus</enum>
+        </property>
         <property name="accessibleName">
          <string>circle</string>
         </property>
@@ -230,7 +309,7 @@
          <widget class="QSpinBox" name="spinTime">
           <property name="minimumSize">
            <size>
-            <width>60</width>
+            <width>100</width>
             <height>28</height>
            </size>
           </property>
@@ -246,27 +325,11 @@
           <property name="buttonSymbols">
            <enum>QAbstractSpinBox::NoButtons</enum>
           </property>
+          <property name="suffix">
+           <string> minute</string>
+          </property>
           <property name="maximum">
            <number>9999999</number>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QComboBox" name="cmbTimeUnits">
-          <property name="minimumSize">
-           <size>
-            <width>0</width>
-            <height>28</height>
-           </size>
-          </property>
-          <property name="maximumSize">
-           <size>
-            <width>16777215</width>
-            <height>28</height>
-           </size>
-          </property>
-          <property name="frame">
-           <bool>false</bool>
           </property>
          </widget>
         </item>
@@ -325,6 +388,12 @@
       </item>
       <item row="1" column="0">
        <widget class="QCheckBox" name="checkSearchAsRoot">
+        <property name="cursor">
+         <cursorShape>PointingHandCursor</cursorShape>
+        </property>
+        <property name="focusPolicy">
+         <enum>Qt::NoFocus</enum>
+        </property>
         <property name="accessibleName">
          <string>circle</string>
         </property>
@@ -348,6 +417,12 @@
       </item>
       <item row="1" column="5">
        <widget class="QCheckBox" name="checkEmpty">
+        <property name="cursor">
+         <cursorShape>PointingHandCursor</cursorShape>
+        </property>
+        <property name="focusPolicy">
+         <enum>Qt::NoFocus</enum>
+        </property>
         <property name="accessibleName">
          <string>circle</string>
         </property>
@@ -383,48 +458,14 @@
         </property>
        </spacer>
       </item>
-      <item row="3" column="4" colspan="3">
-       <layout class="QHBoxLayout" name="layoutOwner_2">
-        <property name="spacing">
-         <number>5</number>
-        </property>
-        <property name="bottomMargin">
-         <number>4</number>
-        </property>
-        <item>
-         <widget class="QCheckBox" name="checkPermReadable">
-          <property name="accessibleName">
-           <string>circle</string>
-          </property>
-          <property name="text">
-           <string>Readable</string>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QCheckBox" name="checkPermWritable">
-          <property name="accessibleName">
-           <string>circle</string>
-          </property>
-          <property name="text">
-           <string>Writable</string>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QCheckBox" name="checkPermExecutable">
-          <property name="accessibleName">
-           <string>circle</string>
-          </property>
-          <property name="text">
-           <string>Executable</string>
-          </property>
-         </widget>
-        </item>
-       </layout>
-      </item>
       <item row="1" column="1">
        <widget class="QCheckBox" name="checkRegEx">
+        <property name="cursor">
+         <cursorShape>PointingHandCursor</cursorShape>
+        </property>
+        <property name="focusPolicy">
+         <enum>Qt::NoFocus</enum>
+        </property>
         <property name="accessibleName">
          <string>circle</string>
         </property>
@@ -517,91 +558,92 @@
         </property>
        </widget>
       </item>
+      <item row="3" column="4" colspan="3">
+       <layout class="QHBoxLayout" name="layoutOwner_2">
+        <property name="spacing">
+         <number>5</number>
+        </property>
+        <property name="bottomMargin">
+         <number>4</number>
+        </property>
+        <item>
+         <widget class="QCheckBox" name="checkPermReadable">
+          <property name="cursor">
+           <cursorShape>PointingHandCursor</cursorShape>
+          </property>
+          <property name="focusPolicy">
+           <enum>Qt::NoFocus</enum>
+          </property>
+          <property name="accessibleName">
+           <string>circle</string>
+          </property>
+          <property name="text">
+           <string>Readable</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QCheckBox" name="checkPermWritable">
+          <property name="cursor">
+           <cursorShape>PointingHandCursor</cursorShape>
+          </property>
+          <property name="focusPolicy">
+           <enum>Qt::NoFocus</enum>
+          </property>
+          <property name="accessibleName">
+           <string>circle</string>
+          </property>
+          <property name="text">
+           <string>Writable</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QCheckBox" name="checkPermExecutable">
+          <property name="cursor">
+           <cursorShape>PointingHandCursor</cursorShape>
+          </property>
+          <property name="focusPolicy">
+           <enum>Qt::NoFocus</enum>
+          </property>
+          <property name="accessibleName">
+           <string>circle</string>
+          </property>
+          <property name="text">
+           <string>Executable</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+      <item row="2" column="0" colspan="4">
+       <widget class="QLabel" name="lblTime">
+        <property name="text">
+         <string>Time</string>
+        </property>
+       </widget>
+      </item>
      </layout>
     </widget>
    </item>
-   <item row="1" column="0" colspan="5">
-    <layout class="QHBoxLayout" name="horizontalLayout_3">
-     <property name="spacing">
-      <number>10</number>
-     </property>
-     <property name="bottomMargin">
+   <item row="6" column="0" alignment="Qt::AlignLeft">
+    <widget class="QLabel" name="lblFoundFilesInfo">
+     <property name="lineWidth">
       <number>0</number>
      </property>
-     <item alignment="Qt::AlignTop">
-      <widget class="QPushButton" name="btnBrowseSearchDir">
-       <property name="cursor">
-        <cursorShape>PointingHandCursor</cursorShape>
-       </property>
-       <property name="focusPolicy">
-        <enum>Qt::NoFocus</enum>
-       </property>
-       <property name="accessibleName">
-        <string/>
-       </property>
-       <property name="text">
-        <string>Browse...</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QLineEdit" name="txtSearchInput">
-       <property name="font">
-        <font>
-         <pointsize>10</pointsize>
-        </font>
-       </property>
-       <property name="placeholderText">
-        <string>Search...</string>
-       </property>
-      </widget>
-     </item>
-     <item alignment="Qt::AlignTop">
-      <widget class="QComboBox" name="cmbSearchTypes">
-       <property name="minimumSize">
-        <size>
-         <width>0</width>
-         <height>30</height>
-        </size>
-       </property>
-       <property name="maximumSize">
-        <size>
-         <width>16777215</width>
-         <height>25</height>
-        </size>
-       </property>
-       <property name="frame">
-        <bool>false</bool>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QPushButton" name="btnSearchAdvance">
-       <property name="cursor">
-        <cursorShape>PointingHandCursor</cursorShape>
-       </property>
-       <property name="focusPolicy">
-        <enum>Qt::NoFocus</enum>
-       </property>
-       <property name="accessibleName">
-        <string>primary</string>
-       </property>
-       <property name="text">
-        <string/>
-       </property>
-       <property name="icon">
-        <iconset resource="../../static.qrc">
-         <normaloff>:/static/themes/default/img/sidebar-icons/search.png</normaloff>:/static/themes/default/img/sidebar-icons/search.png</iconset>
-       </property>
-       <property name="iconSize">
-        <size>
-         <width>24</width>
-         <height>24</height>
-        </size>
-       </property>
-      </widget>
-     </item>
-    </layout>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="textFormat">
+      <enum>Qt::PlainText</enum>
+     </property>
+     <property name="scaledContents">
+      <bool>true</bool>
+     </property>
+     <property name="wordWrap">
+      <bool>false</bool>
+     </property>
+    </widget>
    </item>
   </layout>
  </widget>

@@ -1022,7 +1022,8 @@ SEARCH
     color: @color07;
 }
 
-#lblSearchDir {
+#lblSearchDir,
+#lblFoundFilesInfo {
     font-size: 10pt;
     color: @color06;
 }

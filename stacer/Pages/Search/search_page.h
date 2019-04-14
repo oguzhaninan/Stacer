@@ -5,6 +5,12 @@
 #include <QFileDialog>
 #include "Managers/info_manager.h"
 #include "utilities.h"
+#include <QStandardItemModel>
+#include <QSortFilterProxyModel>
+#include <QMenu>
+#include <QAction>
+#include <QDateTime>
+#include "Utils/format_util.h"
 
 namespace Ui {
 class SearchPage;
@@ -23,14 +29,23 @@ private slots:
     void init();
 
     void on_btnAdvancePaneToggle_clicked();
-    void on_checkFilterTime_clicked(bool checked);
     void on_btnSearchAdvance_clicked();
     void initComboboxValues();
+    void on_tableFoundResults_customContextMenuRequested(const QPoint &pos);
+    void loadHeaderMenu();
+    void loadDataToTable(const QList<QFileInfo> &results);
+    QList<QStandardItem *> createRow(const QFileInfo &fileInfo);
 
 private:
     Ui::SearchPage *ui;
 
     QString mSelectedDirectory;
+
+    QStringList mTableHeaders;
+    QStandardItemModel *mItemModel;
+    QSortFilterProxyModel *mSortFilterModel;
+    QModelIndex mSeletedRowModel;
+    QMenu mHeaderMenu;
 };
 
 #endif // SEARCH_PAGE_H

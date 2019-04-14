@@ -21,7 +21,7 @@ ProcessesPage::ProcessesPage(QWidget *parent) :
 }
 
 void ProcessesPage::init()
-{    
+{
     mHeaders = QStringList {
         "PID", tr("Resident Memory"), tr("%Memory"), tr("Virtual Memory"),
         tr("User"), "%CPU", tr("Start Time"), tr("State"), tr("Group"),
@@ -47,7 +47,6 @@ void ProcessesPage::init()
     ui->tableProcess->horizontalHeader()->setFixedHeight(36);
     ui->tableProcess->horizontalHeader()->setDefaultAlignment(Qt::AlignLeft | Qt::AlignVCenter);
     ui->tableProcess->horizontalHeader()->setCursor(Qt::PointingHandCursor);
-
     ui->tableProcess->horizontalHeader()->resizeSection(0, 70);
 
     loadProcesses();
