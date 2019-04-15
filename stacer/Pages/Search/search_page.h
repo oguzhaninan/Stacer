@@ -14,6 +14,7 @@
 #include "Managers/setting_manager.h"
 #include <QMovie>
 #include <QtConcurrent>
+#include <QDesktopServices>
 
 namespace Ui {
 class SearchPage;
@@ -42,6 +43,8 @@ private slots:
     void searching();
     QList<QStandardItem *> createRow(const QString &filepath);
 
+    void on_tableFoundResults_doubleClicked(const QModelIndex &index);
+
 private:
     Ui::SearchPage *ui;
 
@@ -52,6 +55,8 @@ private:
     QSortFilterProxyModel *mSortFilterModel;
     QMenu mHeaderMenu;
     QMenu mTableRowMenu;
+    QString mSearchResultDateFormat;
+    int rowRole;
 };
 
 #endif // SEARCH_PAGE_H

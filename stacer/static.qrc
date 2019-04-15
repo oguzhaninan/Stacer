@@ -76,5 +76,6 @@
         <file>static/themes/default/img/sidebar-icons/search.png</file>
         <file>static/themes/common/img/folder.png</file>
         <file>static/themes/common/img/trash_2.png</file>
+        <file>static/themes/common/img/delete.png</file>
     </qresource>
 </RCC>

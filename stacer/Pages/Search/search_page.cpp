@@ -27,9 +27,8 @@ void SearchPage::init()
     };
 
     // Table settings
-    mSortFilterModel->setSourceModel(mItemModel);
-
     mItemModel->setHorizontalHeaderLabels(mTableHeaders);
+    mSortFilterModel->setSourceModel(mItemModel);
 
     ui->tableFoundResults->setModel(mSortFilterModel);
     mSortFilterModel->setSortRole(1);
@@ -51,6 +50,9 @@ void SearchPage::init()
 
     loadHeaderMenu();
     loadTableRowMenu();
+
+    rowRole = 1;
+    mSearchResultDateFormat = "dd.MM.yyyy hh:mm:ss";
 
     ui->advanceSearchPane->setHidden(false);
     on_btnAdvancePaneToggle_clicked();
@@ -84,7 +86,7 @@ void SearchPage::loadTableRowMenu()
     actionMoveTrash->setData("move-trash");
     mTableRowMenu.addAction(actionMoveTrash);
 
-    QAction *actionDelete = new QAction(QIcon(":/static/themes/default/img/trash.png"), tr("Delete"));
+    QAction *actionDelete = new QAction(QIcon(":/static/themes/common/img/delete.png"), tr("Delete"));
     actionDelete->setData("delete");
     mTableRowMenu.addAction(actionDelete);
 }
@@ -287,45 +289,43 @@ void SearchPage::loadDataToTable(const QList<QString> &foundFiles)
 
 QList<QStandardItem*> SearchPage::createRow(const QString &filepath)
 {
-    int data = 1;
-    QString dateFormat("dd.MM.yyyy hh:mm:ss");
     QFileInfo *fileInfo = new QFileInfo(filepath);
 
     QStandardItem *i_name = new QStandardItem(fileInfo->fileName());
-    i_name->setData(fileInfo->fileName(), data);
+    i_name->setData(fileInfo->fileName(), rowRole);
     i_name->setData(fileInfo->fileName(), Qt::ToolTipRole);
 
     QStandardItem *i_path = new QStandardItem(fileInfo->path());
-    i_path->setData(fileInfo->path(), data);
+    i_path->setData(fileInfo->path(), rowRole);
     i_path->setData(fileInfo->path(), Qt::ToolTipRole);
 
     QStandardItem *i_size = new QStandardItem(FormatUtil::formatBytes(fileInfo->size()));
-    i_size->setData(fileInfo->size(), data);
+    i_size->setData(fileInfo->size(), rowRole);
     i_size->setData(fileInfo->size(), Qt::ToolTipRole);
 
     QStandardItem *i_user = new QStandardItem(fileInfo->owner());
-    i_user->setData(fileInfo->owner(), data);
+    i_user->setData(fileInfo->owner(), rowRole);
     i_user->setData(fileInfo->owner(), Qt::ToolTipRole);
 
     QStandardItem *i_group = new QStandardItem(fileInfo->group());
-    i_group->setData(fileInfo->group(), data);
+    i_group->setData(fileInfo->group(), rowRole);
     i_group->setData(fileInfo->group(), Qt::ToolTipRole);
 
-    QStandardItem *i_creationTime = new QStandardItem(fileInfo->created().toString(dateFormat));
-    i_creationTime->setData(fileInfo->created().toString(dateFormat), data);
-    i_creationTime->setData(fileInfo->created().toString(dateFormat), Qt::ToolTipRole);
+    QStandardItem *i_creationTime = new QStandardItem(fileInfo->created().toString(mSearchResultDateFormat));
+    i_creationTime->setData(fileInfo->created().toString(mSearchResultDateFormat), rowRole);
+    i_creationTime->setData(fileInfo->created().toString(mSearchResultDateFormat), Qt::ToolTipRole);
 
-    QStandardItem *i_lastAccess = new QStandardItem(fileInfo->lastRead().toString(dateFormat));
-    i_lastAccess->setData(fileInfo->lastRead().toString(dateFormat), data);
-    i_lastAccess->setData(fileInfo->lastRead().toString(dateFormat), Qt::ToolTipRole);
+    QStandardItem *i_lastAccess = new QStandardItem(fileInfo->lastRead().toString(mSearchResultDateFormat));
+    i_lastAccess->setData(fileInfo->lastRead().toString(mSearchResultDateFormat), rowRole);
+    i_lastAccess->setData(fileInfo->lastRead().toString(mSearchResultDateFormat), Qt::ToolTipRole);
 
-    QStandardItem *i_lastModify = new QStandardItem(fileInfo->lastModified().toString(dateFormat));
-    i_lastModify->setData(fileInfo->lastModified().toString(dateFormat), data);
-    i_lastModify->setData(fileInfo->lastModified().toString(dateFormat), Qt::ToolTipRole);
+    QStandardItem *i_lastModify = new QStandardItem(fileInfo->lastModified().toString(mSearchResultDateFormat));
+    i_lastModify->setData(fileInfo->lastModified().toString(mSearchResultDateFormat), rowRole);
+    i_lastModify->setData(fileInfo->lastModified().toString(mSearchResultDateFormat), Qt::ToolTipRole);
 
-    QStandardItem *i_lastChange = new QStandardItem(fileInfo->metadataChangeTime().toString(dateFormat));
-    i_lastChange->setData(fileInfo->metadataChangeTime().toString(dateFormat), data);
-    i_lastChange->setData(fileInfo->metadataChangeTime().toString(dateFormat), Qt::ToolTipRole);
+    QStandardItem *i_lastChange = new QStandardItem(fileInfo->metadataChangeTime().toString(mSearchResultDateFormat));
+    i_lastChange->setData(fileInfo->metadataChangeTime().toString(mSearchResultDateFormat), rowRole);
+    i_lastChange->setData(fileInfo->metadataChangeTime().toString(mSearchResultDateFormat), Qt::ToolTipRole);
 
     delete fileInfo;
 
@@ -347,20 +347,36 @@ void SearchPage::on_tableFoundResults_header_customContextMenuRequested(const QP
 
 void SearchPage::on_tableFoundResults_customContextMenuRequested(const QPoint &pos)
 {
-    QPoint globalPos = ui->tableFoundResults->mapToGlobal(pos);
-    QAction *action = mTableRowMenu.exec(globalPos);
+    if (mItemModel->rowCount() > 0) {
+        QPoint globalPos = ui->tableFoundResults->mapToGlobal(pos);
+        QAction *action = mTableRowMenu.exec(globalPos);
 
-    if (action) {
         QModelIndexList selecteds = ui->tableFoundResults->selectionModel()->selectedRows();
 
-        if (action->data().toString() == "open-folder") {
-            qDebug() << mSortFilterModel->itemData(selecteds.first());
-        }
-        else if (action->data().toString() == "move-trash") {
+        if (action && ! selecteds.isEmpty()) {
+            if (action->data().toString() == "open-folder") {
+                for (QModelIndex &index : selecteds) {
+                    QUrl folderPath = mSortFilterModel->index(index.row(), 1).data(rowRole).toUrl();
+                    QDesktopServices::openUrl(folderPath);
+                }
+            }
+            else if (action->data().toString() == "move-trash") {
+                for (QModelIndex &index : selecteds) {
+                    QString fileName = mSortFilterModel->index(index.row(), 0).data(rowRole).toString();
+                    QString folderPath = mSortFilterModel->index(index.row(), 1).data(rowRole).toString();
+                    qDebug() << folderPath + "/" + fileName;
+                }
+            }
+            else if (action->data().toString() == "delete" ) {
 
-        }
-        else if (action->data().toString() == "delete" ) {
-
+            }
         }
     }
+}
+
+void SearchPage::on_tableFoundResults_doubleClicked(const QModelIndex &index)
+{
+    qDebug() << index.data(rowRole).toUrl();
+    QUrl folderPath = mSortFilterModel->index(index.row(), 1).data(rowRole).toUrl();
+    QDesktopServices::openUrl(folderPath);
 }
