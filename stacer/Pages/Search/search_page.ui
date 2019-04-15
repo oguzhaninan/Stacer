@@ -29,56 +29,26 @@
    <property name="spacing">
     <number>10</number>
    </property>
-   <item row="5" column="0" colspan="2">
-    <widget class="QTableView" name="tableFoundResults">
-     <property name="focusPolicy">
-      <enum>Qt::NoFocus</enum>
+   <item row="8" column="0" alignment="Qt::AlignLeft">
+    <widget class="QLabel" name="lblFoundFilesInfo">
+     <property name="lineWidth">
+      <number>0</number>
      </property>
-     <property name="frameShape">
-      <enum>QFrame::NoFrame</enum>
+     <property name="text">
+      <string/>
      </property>
-     <property name="frameShadow">
-      <enum>QFrame::Sunken</enum>
+     <property name="textFormat">
+      <enum>Qt::PlainText</enum>
      </property>
-     <property name="sizeAdjustPolicy">
-      <enum>QAbstractScrollArea::AdjustToContents</enum>
-     </property>
-     <property name="editTriggers">
-      <set>QAbstractItemView::NoEditTriggers</set>
-     </property>
-     <property name="selectionMode">
-      <enum>QAbstractItemView::ExtendedSelection</enum>
-     </property>
-     <property name="selectionBehavior">
-      <enum>QAbstractItemView::SelectRows</enum>
-     </property>
-     <property name="textElideMode">
-      <enum>Qt::ElideMiddle</enum>
-     </property>
-     <property name="gridStyle">
-      <enum>Qt::SolidLine</enum>
-     </property>
-     <property name="sortingEnabled">
+     <property name="scaledContents">
       <bool>true</bool>
      </property>
      <property name="wordWrap">
-      <bool>true</bool>
-     </property>
-     <property name="cornerButtonEnabled">
-      <bool>true</bool>
-     </property>
-     <attribute name="horizontalHeaderCascadingSectionResizes">
       <bool>false</bool>
-     </attribute>
-     <attribute name="horizontalHeaderStretchLastSection">
-      <bool>true</bool>
-     </attribute>
-     <attribute name="verticalHeaderVisible">
-      <bool>false</bool>
-     </attribute>
+     </property>
     </widget>
    </item>
-   <item row="1" column="0" colspan="2">
+   <item row="2" column="0" colspan="2">
     <layout class="QHBoxLayout" name="horizontalLayout_3">
      <property name="spacing">
       <number>10</number>
@@ -161,7 +131,7 @@
      </item>
     </layout>
    </item>
-   <item row="3" column="0" colspan="2">
+   <item row="4" column="0" colspan="2">
     <layout class="QHBoxLayout" name="footer">
      <property name="spacing">
       <number>10</number>
@@ -209,7 +179,7 @@
      </item>
     </layout>
    </item>
-   <item row="2" column="0" colspan="2">
+   <item row="3" column="0" colspan="2">
     <widget class="QWidget" name="advanceSearchPane" native="true">
      <layout class="QGridLayout" name="gridLayout_2">
       <property name="leftMargin">
@@ -626,23 +596,70 @@
      </layout>
     </widget>
    </item>
-   <item row="6" column="1" alignment="Qt::AlignRight">
-    <widget class="QLabel" name="lblFoundFilesInfo">
-     <property name="lineWidth">
-      <number>0</number>
-     </property>
+   <item row="1" column="0" colspan="2">
+    <widget class="QLabel" name="lblErrorMsg">
      <property name="text">
       <string/>
      </property>
-     <property name="textFormat">
-      <enum>Qt::PlainText</enum>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
      </property>
-     <property name="scaledContents">
+    </widget>
+   </item>
+   <item row="7" column="0" colspan="2" alignment="Qt::AlignHCenter">
+    <widget class="QLabel" name="lblLoadingSearching">
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
+   </item>
+   <item row="6" column="0" colspan="2">
+    <widget class="QTableView" name="tableFoundResults">
+     <property name="focusPolicy">
+      <enum>Qt::NoFocus</enum>
+     </property>
+     <property name="frameShape">
+      <enum>QFrame::NoFrame</enum>
+     </property>
+     <property name="frameShadow">
+      <enum>QFrame::Sunken</enum>
+     </property>
+     <property name="sizeAdjustPolicy">
+      <enum>QAbstractScrollArea::AdjustToContents</enum>
+     </property>
+     <property name="editTriggers">
+      <set>QAbstractItemView::NoEditTriggers</set>
+     </property>
+     <property name="selectionMode">
+      <enum>QAbstractItemView::ExtendedSelection</enum>
+     </property>
+     <property name="selectionBehavior">
+      <enum>QAbstractItemView::SelectRows</enum>
+     </property>
+     <property name="textElideMode">
+      <enum>Qt::ElideMiddle</enum>
+     </property>
+     <property name="gridStyle">
+      <enum>Qt::SolidLine</enum>
+     </property>
+     <property name="sortingEnabled">
       <bool>true</bool>
      </property>
      <property name="wordWrap">
-      <bool>false</bool>
+      <bool>true</bool>
      </property>
+     <property name="cornerButtonEnabled">
+      <bool>true</bool>
+     </property>
+     <attribute name="horizontalHeaderCascadingSectionResizes">
+      <bool>false</bool>
+     </attribute>
+     <attribute name="horizontalHeaderStretchLastSection">
+      <bool>true</bool>
+     </attribute>
+     <attribute name="verticalHeaderVisible">
+      <bool>false</bool>
+     </attribute>
     </widget>
    </item>
   </layout>

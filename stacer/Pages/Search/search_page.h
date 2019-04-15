@@ -11,6 +11,9 @@
 #include <QAction>
 #include <QDateTime>
 #include "Utils/format_util.h"
+#include "Managers/setting_manager.h"
+#include <QMovie>
+#include <QtConcurrent>
 
 namespace Ui {
 class SearchPage;
@@ -25,9 +28,9 @@ public:
     ~SearchPage();
 
 private slots:
-    void on_btnBrowseSearchDir_clicked();
     void init();
 
+    void on_btnBrowseSearchDir_clicked();
     void on_btnAdvancePaneToggle_clicked();
     void on_btnSearchAdvance_clicked();
     void initComboboxValues();
@@ -35,8 +38,9 @@ private slots:
     void on_tableFoundResults_header_customContextMenuRequested(const QPoint &pos);
     void loadTableRowMenu();
     void loadHeaderMenu();
-    void loadDataToTable(const QList<QFileInfo> &results);
-    QList<QStandardItem *> createRow(const QFileInfo &fileInfo);
+    void loadDataToTable(const QList<QString> &results);
+    void searching();
+    QList<QStandardItem *> createRow(const QString &filepath);
 
 private:
     Ui::SearchPage *ui;

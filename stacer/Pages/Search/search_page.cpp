@@ -55,6 +55,14 @@ void SearchPage::init()
     ui->advanceSearchPane->setHidden(false);
     on_btnAdvancePaneToggle_clicked();
 
+    ui->lblErrorMsg->hide();
+
+    QString iconLoading = QString(":/static/themes/%1/img/loading.gif").arg(SettingManager::ins()->getThemeName());
+    QMovie *loadingMovie = new QMovie(iconLoading, QByteArray(), this);
+    ui->lblLoadingSearching->setMovie(loadingMovie);
+    loadingMovie->start();
+    ui->lblLoadingSearching->hide();
+
     initComboboxValues();
 
     QList<QWidget*> widgets = {
@@ -68,15 +76,15 @@ void SearchPage::init()
 
 void SearchPage::loadTableRowMenu()
 {
-    QAction *actionOpenFolder = new QAction(tr("Open Folder"));
+    QAction *actionOpenFolder = new QAction(QIcon(":/static/themes/common/img/folder.png"), tr("Open Folder"));
     actionOpenFolder->setData("open-folder");
     mTableRowMenu.addAction(actionOpenFolder);
 
-    QAction *actionMoveTrash = new QAction(tr("Move Trash"));
+    QAction *actionMoveTrash = new QAction(QIcon(":/static/themes/common/img/trash_2.png"), tr("Move Trash"));
     actionMoveTrash->setData("move-trash");
     mTableRowMenu.addAction(actionMoveTrash);
 
-    QAction *actionDelete = new QAction(tr("Delete"));
+    QAction *actionDelete = new QAction(QIcon(":/static/themes/default/img/trash.png"), tr("Delete"));
     actionDelete->setData("delete");
     mTableRowMenu.addAction(actionDelete);
 }
@@ -160,10 +168,20 @@ void SearchPage::on_btnAdvancePaneToggle_clicked()
 
 void SearchPage::on_btnSearchAdvance_clicked()
 {
+    QtConcurrent::run(this, &SearchPage::searching);
+}
+
+void SearchPage::searching()
+{
     if (mSelectedDirectory.isEmpty()) {
-
-
+        ui->lblErrorMsg->show();
+        ui->lblErrorMsg->setText(tr("Select the search directory."));
     } else {
+        ui->lblErrorMsg->hide();
+
+        ui->lblLoadingSearching->show();
+        ui->btnSearchAdvance->setEnabled(false);
+
         QStringList findQuery(mSelectedDirectory);
 
         if (! ui->txtSearchInput->text().isEmpty()) {
@@ -240,71 +258,76 @@ void SearchPage::on_btnSearchAdvance_clicked()
                 result = CommandUtil::exec("find", findQuery);
             }
 
-            QList<QFileInfo> foundFiles;
-            for (const QString &filepath: result.split("\n")) {
-                foundFiles << QFileInfo(filepath);
+            if (result.trimmed().isEmpty()) {
+                mItemModel->removeRows(0, mItemModel->rowCount()); // clear table
+            } else {
+                loadDataToTable(result.split("\n"));
             }
-
-            loadDataToTable(foundFiles);
-
         } catch (QString ex) {
             qDebug() << ex;
         }
 
+        ui->lblLoadingSearching->hide();
+        ui->btnSearchAdvance->setEnabled(true);
     }
 }
 
-void SearchPage::loadDataToTable(const QList<QFileInfo> &foundFiles)
+void SearchPage::loadDataToTable(const QList<QString> &foundFiles)
 {
     mItemModel->removeRows(0, mItemModel->rowCount());
 
-    for (const QFileInfo &file : foundFiles) {
+    for (const QString &file : foundFiles.mid(0, 2000)) {
         mItemModel->appendRow(createRow(file));
     }
 
-    ui->lblFoundFilesInfo->setText(tr("%1 files found").arg(foundFiles.count()));
+    ui->lblFoundFilesInfo->setText(tr("%1 files found. Showing %2 of them.")
+                                   .arg(foundFiles.count())
+                                   .arg(mItemModel->rowCount()));
 }
 
-QList<QStandardItem*> SearchPage::createRow(const QFileInfo &fileInfo)
+QList<QStandardItem*> SearchPage::createRow(const QString &filepath)
 {
     int data = 1;
     QString dateFormat("dd.MM.yyyy hh:mm:ss");
+    QFileInfo *fileInfo = new QFileInfo(filepath);
 
-    QStandardItem *i_name = new QStandardItem(fileInfo.fileName());
-    i_name->setData(fileInfo.fileName(), data);
-    i_name->setData(fileInfo.fileName(), Qt::ToolTipRole);
+    QStandardItem *i_name = new QStandardItem(fileInfo->fileName());
+    i_name->setData(fileInfo->fileName(), data);
+    i_name->setData(fileInfo->fileName(), Qt::ToolTipRole);
 
-    QStandardItem *i_path = new QStandardItem(fileInfo.path());
-    i_path->setData(fileInfo.path(), data);
-    i_path->setData(fileInfo.path(), Qt::ToolTipRole);
+    QStandardItem *i_path = new QStandardItem(fileInfo->path());
+    i_path->setData(fileInfo->path(), data);
+    i_path->setData(fileInfo->path(), Qt::ToolTipRole);
 
-    QStandardItem *i_size = new QStandardItem(FormatUtil::formatBytes(fileInfo.size()));
-    i_size->setData(fileInfo.size(), data);
-    i_size->setData(fileInfo.size(), Qt::ToolTipRole);
+    QStandardItem *i_size = new QStandardItem(FormatUtil::formatBytes(fileInfo->size()));
+    i_size->setData(fileInfo->size(), data);
+    i_size->setData(fileInfo->size(), Qt::ToolTipRole);
 
-    QStandardItem *i_user = new QStandardItem(fileInfo.owner());
-    i_user->setData(fileInfo.owner(), data);
-    i_user->setData(fileInfo.owner(), Qt::ToolTipRole);
+    QStandardItem *i_user = new QStandardItem(fileInfo->owner());
+    i_user->setData(fileInfo->owner(), data);
+    i_user->setData(fileInfo->owner(), Qt::ToolTipRole);
 
-    QStandardItem *i_group = new QStandardItem(fileInfo.group());
-    i_group->setData(fileInfo.group(), data);
-    i_group->setData(fileInfo.group(), Qt::ToolTipRole);
+    QStandardItem *i_group = new QStandardItem(fileInfo->group());
+    i_group->setData(fileInfo->group(), data);
+    i_group->setData(fileInfo->group(), Qt::ToolTipRole);
 
-    QStandardItem *i_creationTime = new QStandardItem(fileInfo.created().toString(dateFormat));
-    i_creationTime->setData(fileInfo.created().toString(dateFormat), data);
-    i_creationTime->setData(fileInfo.created().toString(dateFormat), Qt::ToolTipRole);
+    QStandardItem *i_creationTime = new QStandardItem(fileInfo->created().toString(dateFormat));
+    i_creationTime->setData(fileInfo->created().toString(dateFormat), data);
+    i_creationTime->setData(fileInfo->created().toString(dateFormat), Qt::ToolTipRole);
 
-    QStandardItem *i_lastAccess = new QStandardItem(fileInfo.lastRead().toString(dateFormat));
-    i_lastAccess->setData(fileInfo.lastRead().toString(dateFormat), data);
-    i_lastAccess->setData(fileInfo.lastRead().toString(dateFormat), Qt::ToolTipRole);
+    QStandardItem *i_lastAccess = new QStandardItem(fileInfo->lastRead().toString(dateFormat));
+    i_lastAccess->setData(fileInfo->lastRead().toString(dateFormat), data);
+    i_lastAccess->setData(fileInfo->lastRead().toString(dateFormat), Qt::ToolTipRole);
 
-    QStandardItem *i_lastModify = new QStandardItem(fileInfo.lastModified().toString(dateFormat));
-    i_lastModify->setData(fileInfo.lastModified().toString(dateFormat), data);
-    i_lastModify->setData(fileInfo.lastModified().toString(dateFormat), Qt::ToolTipRole);
+    QStandardItem *i_lastModify = new QStandardItem(fileInfo->lastModified().toString(dateFormat));
+    i_lastModify->setData(fileInfo->lastModified().toString(dateFormat), data);
+    i_lastModify->setData(fileInfo->lastModified().toString(dateFormat), Qt::ToolTipRole);
 
-    QStandardItem *i_lastChange = new QStandardItem(fileInfo.metadataChangeTime().toString(dateFormat));
-    i_lastChange->setData(fileInfo.metadataChangeTime().toString(dateFormat), data);
-    i_lastChange->setData(fileInfo.metadataChangeTime().toString(dateFormat), Qt::ToolTipRole);
+    QStandardItem *i_lastChange = new QStandardItem(fileInfo->metadataChangeTime().toString(dateFormat));
+    i_lastChange->setData(fileInfo->metadataChangeTime().toString(dateFormat), data);
+    i_lastChange->setData(fileInfo->metadataChangeTime().toString(dateFormat), Qt::ToolTipRole);
+
+    delete fileInfo;
 
     return {
         i_name, i_path, i_size, i_user, i_group,

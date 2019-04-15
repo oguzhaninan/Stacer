@@ -23,7 +23,6 @@ QString CommandUtil::sudoExec(const QString &cmd, QStringList args, QByteArray d
 QString CommandUtil::exec(const QString &cmd, QStringList args, QByteArray data)
 {
     QProcess* process = new QProcess;
-
     process->start(cmd, args);
 
     if (! data.isEmpty()) {
@@ -32,7 +31,8 @@ QString CommandUtil::exec(const QString &cmd, QStringList args, QByteArray data)
         process->closeWriteChannel();
     }
 
-    process->waitForFinished();
+    // 10 minutes
+    process->waitForFinished(600*1000);
 
     QTextStream stdOut(process->readAllStandardOutput());
 
