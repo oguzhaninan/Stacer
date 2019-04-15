@@ -362,11 +362,34 @@ void SearchPage::on_tableFoundResults_customContextMenuRequested(const QPoint &p
                 }
             }
             else if (action->data().toString() == "move-trash") {
-                for (QModelIndex &index : selecteds) {
+                QString trashPath(QDir::homePath() + "/.local/share/Trash");
+
+                while (! selectionModel->selectedRows().isEmpty()) {
+                    QModelIndex index = selectionModel->selectedRows().first();
+
                     QString fileName = mSortFilterModel->index(index.row(), 0).data(rowRole).toString();
                     QString folderPath = mSortFilterModel->index(index.row(), 1).data(rowRole).toString();
-                    qDebug() << folderPath + "/" + fileName;
+
+                    QString filePath = folderPath + "/" + fileName;
+
+                    CommandUtil::exec("mv", {filePath, trashPath + "/files"});
+
+                    if (QFile(filePath).exists()) {
+                        selectionModel->select(index, QItemSelectionModel::Deselect);
+                    } else {
+                        QString infoContent = QString("[Trash Info]\n"
+                                            "Path=%1\n"
+                                            "DeletionDate=%2")
+                                .arg(filePath)
+                                .arg(QDateTime::currentDateTime().toString("yyyy-MM-ddThh:mm:ss"));
+
+                        FileUtil::writeFile(trashPath + "/info/" + fileName + ".trashinfo", infoContent);
+
+                        mSortFilterModel->removeRow(index.row());
+                    }
                 }
+
+                selectionModel->clearSelection();
             }
             else if (action->data().toString() == "delete") {
                 while (! selectionModel->selectedRows().isEmpty()) {
@@ -374,7 +397,7 @@ void SearchPage::on_tableFoundResults_customContextMenuRequested(const QPoint &p
 
                     QString fileName = mSortFilterModel->index(index.row(), 0).data(rowRole).toString();
                     QString folderPath = mSortFilterModel->index(index.row(), 1).data(rowRole).toString();
-                    CommandUtil::exec("rm", {"-f", folderPath + "/" + fileName });
+                    CommandUtil::exec("rm", {"-rf", folderPath + "/" + fileName });
 
                     mSortFilterModel->removeRow(index.row());
                 }
