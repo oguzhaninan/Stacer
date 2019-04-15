@@ -352,6 +352,7 @@ void SearchPage::on_tableFoundResults_customContextMenuRequested(const QPoint &p
         QAction *action = mTableRowMenu.exec(globalPos);
 
         QModelIndexList selecteds = ui->tableFoundResults->selectionModel()->selectedRows();
+        QItemSelectionModel *selectionModel = ui->tableFoundResults->selectionModel();
 
         if (action && ! selecteds.isEmpty()) {
             if (action->data().toString() == "open-folder") {
@@ -367,8 +368,16 @@ void SearchPage::on_tableFoundResults_customContextMenuRequested(const QPoint &p
                     qDebug() << folderPath + "/" + fileName;
                 }
             }
-            else if (action->data().toString() == "delete" ) {
+            else if (action->data().toString() == "delete") {
+                while (! selectionModel->selectedRows().isEmpty()) {
+                    QModelIndex index = selectionModel->selectedRows().first();
 
+                    QString fileName = mSortFilterModel->index(index.row(), 0).data(rowRole).toString();
+                    QString folderPath = mSortFilterModel->index(index.row(), 1).data(rowRole).toString();
+                    CommandUtil::exec("rm", {"-f", folderPath + "/" + fileName });
+
+                    mSortFilterModel->removeRow(index.row());
+                }
             }
         }
     }
