@@ -24,10 +24,7 @@ bool StartupAppsPage::checkIfDisabled(const QString& as_path)
 
     autostart_file.open(QIODevice::ReadOnly | QIODevice::Text);
 
-    if (autostart_file.readAll().indexOf(disabled_str, 0) != -1)
-        return true;
-
-    return false;
+    return autostart_file.readAll().indexOf(disabled_str, 0) != -1;
 }
 
 void StartupAppsPage::init()
@@ -62,7 +59,7 @@ void StartupAppsPage::init()
         connect(&mFileSystemWatcher, &QFileSystemWatcher::directoryChanged, this, &StartupAppsPage::loadApps);
     }
     else {
-        ui->lblNotFound->setText("Startup Apps are disabled.");
+        ui->lblNotFound->setText(tr("Startup Apps are disabled."));
         ui->btnAddStartupApp->setEnabled(false);
     }
 

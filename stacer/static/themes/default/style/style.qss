@@ -659,7 +659,7 @@ QLabel[accessibleName="dialog-title"] {
 }
 
 #widgetStartupApp #btnDeleteStartupApp {
-    qproperty-icon: url(:/static/themes/common/img/trash.png);
+    qproperty-icon: url(:/static/themes/default/img/trash.png);
     border: 0;
 }
 

@@ -187,13 +187,21 @@ void SearchPage::searching()
         QStringList findQuery(mSelectedDirectory);
 
         if (! ui->txtSearchInput->text().isEmpty()) {
-            if (ui->checkRegEx->isChecked()) {
-                findQuery.append("-iname");
+            if (ui->checkCaseInsensitive->isChecked()) {
+                if (ui->checkRegEx->isChecked()) {
+                    findQuery.append("-iregex");
+                } else {
+                    findQuery.append("-iname");
+                }
             } else {
-                findQuery.append("-name");
+                if (ui->checkRegEx->isChecked()) {
+                    findQuery.append("-regex");
+                } else {
+                    findQuery.append("-name");
+                }
             }
 
-            findQuery.append(QString("'%1'").arg(ui->txtSearchInput->text()));
+            findQuery.append(QString("%1").arg(ui->txtSearchInput->text()));
         }
 
         if (ui->checkInvert->isChecked()) {
@@ -266,7 +274,8 @@ void SearchPage::searching()
                 loadDataToTable(result.split("\n"));
             }
         } catch (QString ex) {
-            qDebug() << ex;
+            ui->lblErrorMsg->show();
+            ui->lblErrorMsg->setText(tr("Somethings went wrong, try again."));
         }
 
         ui->lblLoadingSearching->hide();
@@ -278,12 +287,12 @@ void SearchPage::loadDataToTable(const QList<QString> &foundFiles)
 {
     mItemModel->removeRows(0, mItemModel->rowCount());
 
-    for (const QString &file : foundFiles.mid(0, 2000)) {
+    for (const QString &file : foundFiles.mid(1, 2000)) {
         mItemModel->appendRow(createRow(file));
     }
 
     ui->lblFoundFilesInfo->setText(tr("%1 files found. Showing %2 of them.")
-                                   .arg(foundFiles.count())
+                                   .arg(foundFiles.count()-1)
                                    .arg(mItemModel->rowCount()));
 }
 
@@ -397,10 +406,19 @@ void SearchPage::on_tableFoundResults_customContextMenuRequested(const QPoint &p
 
                     QString fileName = mSortFilterModel->index(index.row(), 0).data(rowRole).toString();
                     QString folderPath = mSortFilterModel->index(index.row(), 1).data(rowRole).toString();
-                    CommandUtil::exec("rm", {"-rf", folderPath + "/" + fileName });
 
-                    mSortFilterModel->removeRow(index.row());
+                    QString filePath = folderPath + "/" + fileName;
+
+                    CommandUtil::exec("rm", {"-rf", filePath });
+
+                    if (QFile(filePath).exists()) {
+                        selectionModel->select(index, QItemSelectionModel::Deselect);
+                    } else {
+                        mSortFilterModel->removeRow(index.row());
+                    }
                 }
+
+                selectionModel->clearSelection();
             }
         }
     }
@@ -408,7 +426,6 @@ void SearchPage::on_tableFoundResults_customContextMenuRequested(const QPoint &p
 
 void SearchPage::on_tableFoundResults_doubleClicked(const QModelIndex &index)
 {
-    qDebug() << index.data(rowRole).toUrl();
     QUrl folderPath = mSortFilterModel->index(index.row(), 1).data(rowRole).toUrl();
     QDesktopServices::openUrl(folderPath);
 }

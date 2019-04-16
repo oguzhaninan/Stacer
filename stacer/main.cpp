@@ -54,7 +54,7 @@ int main(int argc, char *argv[])
 
     qApp->setApplicationName("stacer");
     qApp->setApplicationDisplayName("Stacer");
-    qApp->setApplicationVersion("1.0.9");
+    qApp->setApplicationVersion("1.1.0");
     qApp->setWindowIcon(QIcon(":/static/logo.png"));
 
     QFontDatabase::addApplicationFont(":/static/font/Ubuntu-R.ttf");
@@ -66,7 +66,6 @@ int main(int argc, char *argv[])
     splash->show();
 
     app.processEvents();
-
 
     App w;
 
