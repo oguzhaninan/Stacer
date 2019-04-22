@@ -76,7 +76,7 @@ void SettingsPage::init()
 
     // load pages
     ui->cmbStartPage->addItems({
-        tr("Dashboard"), tr("Startup Apps"), tr("System Cleaner"),
+        tr("Dashboard"), tr("Startup Apps"), tr("System Cleaner"), tr("Search"),
         tr("Services"), tr("Processes"), tr("Uninstaller"), tr("Resources")
     });
 

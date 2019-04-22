@@ -6,6 +6,7 @@
 
 #include "history_chart.h"
 #include "Managers/info_manager.h"
+#include <QChart>
 
 namespace Ui {
     class ResourcesPage;
@@ -27,7 +28,6 @@ private slots:
     void updateNetworkChart();
 
 private:
-
     void init();
 
 private:

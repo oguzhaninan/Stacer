@@ -92,8 +92,6 @@ void App::init()
     mTrayIcon->show();
 
     createQuitMessageBox();
-
-    on_btnSearch_clicked();
 }
 
 void App::createQuitMessageBox()

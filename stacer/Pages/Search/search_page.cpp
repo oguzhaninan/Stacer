@@ -381,7 +381,12 @@ void SearchPage::on_tableFoundResults_customContextMenuRequested(const QPoint &p
 
                     QString filePath = folderPath + "/" + fileName;
 
-                    CommandUtil::exec("mv", {filePath, trashPath + "/files"});
+                    bool isAnotherUser = QFileInfo(filePath).owner() != InfoManager::ins()->getUserName();
+                    if (isAnotherUser) {
+                        CommandUtil::sudoExec("mv", {filePath, trashPath + "/files"});
+                    } else {
+                        CommandUtil::exec("mv", {filePath, trashPath + "/files"});
+                    }
 
                     if (QFile(filePath).exists()) {
                         selectionModel->select(index, QItemSelectionModel::Deselect);
@@ -409,7 +414,12 @@ void SearchPage::on_tableFoundResults_customContextMenuRequested(const QPoint &p
 
                     QString filePath = folderPath + "/" + fileName;
 
-                    CommandUtil::exec("rm", {"-rf", filePath });
+                    bool isAnotherUser = QFileInfo(filePath).owner() != InfoManager::ins()->getUserName();
+                    if (isAnotherUser) {
+                        CommandUtil::sudoExec("rm", {"-rf", filePath });
+                    } else {
+                        CommandUtil::exec("rm", {"-rf", filePath });
+                    }
 
                     if (QFile(filePath).exists()) {
                         selectionModel->select(index, QItemSelectionModel::Deselect);
