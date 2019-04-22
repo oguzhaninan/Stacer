@@ -16,6 +16,7 @@ ResourcesPage::ResourcesPage(QWidget *parent) :
     mChartDiskReadWrite(new HistoryChart(tr("History of Disk Read Write"), 2, new QCategoryAxis, this)),
     mChartMemory(new HistoryChart(tr("History of Memory"), 2, nullptr, this)),
     mChartNetwork(new HistoryChart(tr("History of Network"), 2, new QCategoryAxis, this)),
+    mChartDiskPie(new QChart),
     mTimer(new QTimer(this))
 {
     ui->setupUi(this);
@@ -25,6 +26,13 @@ ResourcesPage::ResourcesPage(QWidget *parent) :
 
 void ResourcesPage::init()
 {
+    chartColors = {
+        0x2ecc71, 0xe74c3c, 0x3498db, 0xf1c40f, 0xe67e22,
+        0x1abc9c, 0x9b59b6, 0x34495e, 0xd35400, 0xc0392b,
+        0x8e44ad, 0xFF8F00, 0xEF6C00, 0x4E342E, 0x424242,
+        0x5499C7, 0x58D68D, 0xCD6155, 0xF5B041, 0x566573
+    };
+
     mChartCpu->setYMax(100);
     mChartMemory->setYMax(100);
 
@@ -44,33 +52,87 @@ void ResourcesPage::init()
 
     mTimer->start(1000);
 
+    initDiskPieChart();
+}
 
+void ResourcesPage::initDiskPieChart()
+{
     QPieSeries *series = new QPieSeries();
-    series->append("Jane", 1);
-    series->append("Joe", 2);
-    series->append("Andy", 3);
-    series->append("Barbara", 4);
-    series->append("Axel", 5);
 
-    QPieSlice *slice = series->slices().at(1);
-    slice->setExploded();
-    slice->setLabelVisible();
-    slice->setPen(QPen(Qt::darkGreen, 2));
-    slice->setBrush(Qt::green);
+    for (const Disk *disk : InfoManager::ins()->getDisks()) {
+        series->append(disk->name, disk->size);
+    }
 
-    QChart *chart = new QChart();
-    chart->setAnimationOptions(QChart::AllAnimations);
-    chart->legend()->setVisible(true);
-    chart->legend()->setAlignment(Qt::AlignRight);
-    chart->addSeries(series);
-    chart->setTitle("Simple piechart example");
-    chart->setMinimumHeight(300);
+    for (int i = 0; i < series->count(); ++i) {
+        QPieSlice *slice = series->slices().at(i);
+        slice->setBrush(QColor((i < chartColors.count() ? chartColors.at(i) : i - chartColors.count())));
+        slice->setBorderColor(QColor(Qt::white));
+        connect(slice, &QPieSlice::hovered, this, [=](bool show) {
+            slice->setExploded(show);
+            slice->setLabelVisible(show);
+            slice->setLabel(QString::number(slice->value()));
+        });
+    }
 
-    QChartView *chartView = new QChartView(chart);
-    chartView->setRenderHint(QPainter::Antialiasing);
+    mChartDiskPie->setAnimationOptions(QChart::AllAnimations);
+    mChartDiskPie->legend()->setVisible(true);
+    mChartDiskPie->legend()->setAlignment(Qt::AlignRight);
+    mChartDiskPie->addSeries(series);
+    mChartDiskPie->setMinimumHeight(400);
 
-    ui->chartsLayout->addWidget(chartView);
+    QChartView *mChartViewDiskPie = new QChartView(mChartDiskPie);
+    mChartViewDiskPie->setRenderHint(QPainter::Antialiasing);
 
+    mChartDiskPie->setContentsMargins(-11, -11, -11, -11);
+    mChartDiskPie->setMargins(QMargins(20, 10, 10, 10));
+
+    gridWidgetDiskPie = new QWidget(this);
+    gridLayoutDiskPie = new QGridLayout(gridWidgetDiskPie);
+    gridWidgetDiskPie->setLayout(gridLayoutDiskPie);
+    gridLayoutDiskPie->setContentsMargins(0,0,0,0);
+    gridLayoutDiskPie->setHorizontalSpacing(10);
+    gridLayoutDiskPie->setVerticalSpacing(0);
+
+    QLabel *lblChartTitle = new QLabel(gridWidgetDiskPie);
+    lblChartTitle->setObjectName("lblHistoryTitle");
+    lblChartTitle->setText(tr("Disks"));
+
+    QCheckBox *checkHistoryTitle = new QCheckBox(gridWidgetDiskPie);
+    checkHistoryTitle->setObjectName("checkHistoryTitle");
+    checkHistoryTitle->setCursor(QCursor(Qt::CursorShape::PointingHandCursor));
+    connect(checkHistoryTitle, &QCheckBox::clicked, this, [=](bool checked) {
+        QLayout *charts = topLevelWidget()->findChild<QWidget*>("charts")->layout();
+
+        for (int i = 0; i < charts->count(); ++i) {
+            charts->itemAt(i)->widget()->setVisible(! checked);
+        }
+
+        gridWidgetDiskPie->show();
+    });
+
+    QSpacerItem *horizontalSpacer = new QSpacerItem(0, 0, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+    gridLayoutDiskPie->addWidget(lblChartTitle, 0, 0);
+    gridLayoutDiskPie->addWidget(checkHistoryTitle, 0, 1);
+    gridLayoutDiskPie->addItem(horizontalSpacer, 0, 2);
+    gridLayoutDiskPie->addWidget(mChartViewDiskPie, 1, 0, 1, 3);
+
+    ui->chartsLayout->addWidget(gridWidgetDiskPie);
+
+    // theme changed
+    connect(SignalMapper::ins(), &SignalMapper::sigChangedAppTheme, [=] {
+        QString chartLabelColor = AppManager::ins()->getStyleValues()->value("@chartLabelColor").toString();
+        QString chartGridColor = AppManager::ins()->getStyleValues()->value("@chartGridColor").toString();
+        QString historyChartBackground = AppManager::ins()->getStyleValues()->value("@historyChartBackgroundColor").toString();
+
+        for (int i = 0; i < series->count(); ++i) {
+            series->slices().at(i)->setLabelBrush(QColor(chartGridColor));
+        }
+
+        mChartDiskPie->setBackgroundBrush(QColor(historyChartBackground));
+        mChartDiskPie->legend()->setLabelColor(chartLabelColor);
+        mChartDiskPie->setTitleBrush(QColor(chartGridColor));
+    });
 }
 
 void ResourcesPage::updateDiskReadWrite()

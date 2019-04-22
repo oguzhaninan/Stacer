@@ -7,6 +7,7 @@
 #include "history_chart.h"
 #include "Managers/info_manager.h"
 #include <QChart>
+#include <QSpacerItem>
 
 namespace Ui {
     class ResourcesPage;
@@ -26,6 +27,7 @@ private slots:
     void updateDiskReadWrite();
     void updateMemoryChart();
     void updateNetworkChart();
+    void initDiskPieChart();
 
 private:
     void init();
@@ -40,6 +42,14 @@ private:
     HistoryChart *mChartDiskReadWrite;
     HistoryChart *mChartMemory;
     HistoryChart *mChartNetwork;
+
+    QChartView *mChartViewDiskPie;
+    QChart *mChartDiskPie;
+
+    QWidget *gridWidgetDiskPie;
+    QGridLayout *gridLayoutDiskPie;
+
+    QList<int> chartColors;
 
     QTimer *mTimer;
 };

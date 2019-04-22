@@ -11,16 +11,18 @@ void DiskInfo::updateDiskInfo()
     disks.clear();
 
     QList<QStorageInfo> storageInfoList = QStorageInfo::mountedVolumes();
-
     for(const QStorageInfo &info: storageInfoList) {
-        Disk *disk = new Disk;
-        disk->name = info.displayName();
-        disk->device = info.device();
-        disk->size = info.bytesTotal();
-        disk->used = info.bytesTotal() - info.bytesFree();
-        disk->free = info.bytesFree();
+        if (info.isValid()) {
+            qDebug()<< "type: " <<info.subvolume();
+            Disk *disk = new Disk;
+            disk->name = info.displayName();
+            disk->device = info.device();
+            disk->size = info.bytesTotal();
+            disk->used = info.bytesTotal() - info.bytesFree();
+            disk->free = info.bytesFree();
 
-        disks << disk;
+            disks << disk;
+        }
     }
 }
 
