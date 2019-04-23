@@ -28,6 +28,7 @@ private slots:
     void updateMemoryChart();
     void updateNetworkChart();
     void initDiskPieChart();
+    void diskPieSeriesCustomize();
 
 private:
     void init();
@@ -48,6 +49,7 @@ private:
 
     QWidget *gridWidgetDiskPie;
     QGridLayout *gridLayoutDiskPie;
+    QPieSeries *mDiskPieSeries;
 
     QList<int> chartColors;
 

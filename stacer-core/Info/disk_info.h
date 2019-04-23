@@ -4,6 +4,7 @@
 #include "Utils/command_util.h"
 #include "Utils/file_util.h"
 #include <QStorageInfo>
+#include <QSet>
 #include "stacer-core_global.h"
 
 #define PROC_MOUNTS "/proc/mounts"
@@ -17,6 +18,8 @@ public:
     void updateDiskInfo();
     QList<quint64> getDiskIO() const;
     QString getDiskName() const;
+    QList<QString> fileSystemTypes();
+    QList<QString> devices();
 
 private:
     QList<Disk*> disks;
@@ -26,6 +29,7 @@ class Disk {
 public:
     QString name;
     QString device;
+    QString fileSystemType;
     quint64 size;
     quint64 free;
     quint64 used;

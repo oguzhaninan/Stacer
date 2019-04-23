@@ -42,6 +42,8 @@ public:
     QStringList getUserList() const;
     QStringList getGroupList() const;
 
+    QList<QString> getDevices();
+    QList<QString> getFileSystemTypes();
 private:
     static InfoManager *instance;
 

@@ -90,6 +90,16 @@ QList<quint64> InfoManager::getDiskIO()
     return di.getDiskIO();
 }
 
+QList<QString> InfoManager::getFileSystemTypes()
+{
+    return di.fileSystemTypes();
+}
+
+QList<QString> InfoManager::getDevices()
+{
+    return di.devices();
+}
+
 /********************
  * Network Provider
  *******************/

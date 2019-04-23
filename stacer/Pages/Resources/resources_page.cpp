@@ -55,30 +55,36 @@ void ResourcesPage::init()
     initDiskPieChart();
 }
 
-void ResourcesPage::initDiskPieChart()
+void ResourcesPage::diskPieSeriesCustomize()
 {
-    QPieSeries *series = new QPieSeries();
-
-    for (const Disk *disk : InfoManager::ins()->getDisks()) {
-        series->append(disk->name, disk->size);
-    }
-
-    for (int i = 0; i < series->count(); ++i) {
-        QPieSlice *slice = series->slices().at(i);
+    for (int i = 0; i < mDiskPieSeries->count(); ++i) {
+        QPieSlice *slice = mDiskPieSeries->slices().at(i);
         slice->setBrush(QColor((i < chartColors.count() ? chartColors.at(i) : i - chartColors.count())));
-        slice->setBorderColor(QColor(Qt::white));
+        slice->setBorderColor(QColor(Qt::lightGray));
         connect(slice, &QPieSlice::hovered, this, [=](bool show) {
             slice->setExploded(show);
-            slice->setLabelVisible(show);
-            slice->setLabel(QString::number(slice->value()));
+            mChartDiskPie->setTitle(QString("%1 (%2) (%3)")
+                                    .arg(slice->label())
+                                    .arg(FormatUtil::formatBytes(slice->value()))
+                                    .arg(QString().sprintf("%1.2f%%", slice->percentage() * 100)));
         });
     }
+}
 
+void ResourcesPage::initDiskPieChart()
+{
+    mDiskPieSeries = new QPieSeries();
+
+    for (const Disk *disk : InfoManager::ins()->getDisks()) {
+        mDiskPieSeries->append(disk->name, disk->size);
+    }
+
+    diskPieSeriesCustomize();
+
+    mChartDiskPie->legend()->hide();
     mChartDiskPie->setAnimationOptions(QChart::AllAnimations);
-    mChartDiskPie->legend()->setVisible(true);
-    mChartDiskPie->legend()->setAlignment(Qt::AlignRight);
-    mChartDiskPie->addSeries(series);
-    mChartDiskPie->setMinimumHeight(400);
+    mChartDiskPie->addSeries(mDiskPieSeries);
+    mChartDiskPie->setMinimumHeight(500);
 
     QChartView *mChartViewDiskPie = new QChartView(mChartDiskPie);
     mChartViewDiskPie->setRenderHint(QPainter::Antialiasing);
@@ -91,11 +97,11 @@ void ResourcesPage::initDiskPieChart()
     gridWidgetDiskPie->setLayout(gridLayoutDiskPie);
     gridLayoutDiskPie->setContentsMargins(0,0,0,0);
     gridLayoutDiskPie->setHorizontalSpacing(10);
-    gridLayoutDiskPie->setVerticalSpacing(0);
+    gridLayoutDiskPie->setVerticalSpacing(5);
 
     QLabel *lblChartTitle = new QLabel(gridWidgetDiskPie);
     lblChartTitle->setObjectName("lblHistoryTitle");
-    lblChartTitle->setText(tr("Disks"));
+    lblChartTitle->setText(tr("File System"));
 
     QCheckBox *checkHistoryTitle = new QCheckBox(gridWidgetDiskPie);
     checkHistoryTitle->setObjectName("checkHistoryTitle");
@@ -110,12 +116,55 @@ void ResourcesPage::initDiskPieChart()
         gridWidgetDiskPie->show();
     });
 
+    QComboBox *cmbFileSystemType = new QComboBox(gridWidgetDiskPie);
+    cmbFileSystemType->addItem(tr("File System Type"), -1);
+    cmbFileSystemType->addItems(InfoManager::ins()->getFileSystemTypes());
+    connect(cmbFileSystemType, &QComboBox::currentTextChanged, this, [=](const QString text) {
+        mChartDiskPie->removeSeries(mDiskPieSeries);
+        mDiskPieSeries = new QPieSeries();
+
+        for (const Disk *disk : InfoManager::ins()->getDisks()) {
+            if (cmbFileSystemType->currentIndex() != 0 && disk->fileSystemType == text) {
+                mDiskPieSeries->append(disk->name, disk->size);
+            } else if(cmbFileSystemType->currentIndex() == 0) {
+                mDiskPieSeries->append(disk->name, disk->size);
+            }
+        }
+        diskPieSeriesCustomize();
+        emit SignalMapper::ins()->sigChangedAppTheme();
+
+        mChartDiskPie->addSeries(mDiskPieSeries);
+    });
+
+    QComboBox *cmbDevice = new QComboBox(gridWidgetDiskPie);
+    cmbDevice->addItem(tr("Device"));
+    cmbDevice->addItems(InfoManager::ins()->getDevices());
+    connect(cmbDevice, &QComboBox::currentTextChanged, this, [=](const QString text) {
+        mChartDiskPie->removeSeries(mDiskPieSeries);
+        mDiskPieSeries = new QPieSeries();
+
+        for (const Disk *disk : InfoManager::ins()->getDisks()) {
+            if (cmbDevice->currentIndex() != 0 && disk->device == text) {
+                mDiskPieSeries->append(disk->name, disk->size);
+            } else if(cmbDevice->currentIndex() == 0) {
+                mDiskPieSeries->append(disk->name, disk->size);
+            }
+        }
+        diskPieSeriesCustomize();
+        emit SignalMapper::ins()->sigChangedAppTheme();
+
+        mChartDiskPie->addSeries(mDiskPieSeries);
+    });
+
     QSpacerItem *horizontalSpacer = new QSpacerItem(0, 0, QSizePolicy::Expanding, QSizePolicy::Minimum);
 
     gridLayoutDiskPie->addWidget(lblChartTitle, 0, 0);
     gridLayoutDiskPie->addWidget(checkHistoryTitle, 0, 1);
     gridLayoutDiskPie->addItem(horizontalSpacer, 0, 2);
-    gridLayoutDiskPie->addWidget(mChartViewDiskPie, 1, 0, 1, 3);
+    gridLayoutDiskPie->addWidget(cmbDevice, 0, 3);
+    gridLayoutDiskPie->addWidget(cmbFileSystemType, 0, 4);
+
+    gridLayoutDiskPie->addWidget(mChartViewDiskPie, 1, 0, 1, 5);
 
     ui->chartsLayout->addWidget(gridWidgetDiskPie);
 
@@ -125,8 +174,8 @@ void ResourcesPage::initDiskPieChart()
         QString chartGridColor = AppManager::ins()->getStyleValues()->value("@chartGridColor").toString();
         QString historyChartBackground = AppManager::ins()->getStyleValues()->value("@historyChartBackgroundColor").toString();
 
-        for (int i = 0; i < series->count(); ++i) {
-            series->slices().at(i)->setLabelBrush(QColor(chartGridColor));
+        for (int i = 0; i < mDiskPieSeries->count(); ++i) {
+            mDiskPieSeries->slices().at(i)->setLabelBrush(QColor(chartGridColor));
         }
 
         mChartDiskPie->setBackgroundBrush(QColor(historyChartBackground));
