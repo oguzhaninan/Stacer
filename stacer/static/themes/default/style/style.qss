@@ -329,7 +329,7 @@ QLineEdit,
 QPlainTextEdit,
 QSpinBox {
     border-radius: 2;
-    padding: 8;
+    padding: 6;
     background-color: @color01;
     font-size: 10pt;
     color: @color05;
@@ -341,7 +341,7 @@ QPushButton {
 }
 
 QPushButton[accessibleName="danger"] {
-    padding: 7 25;
+    padding: 6 16;
     background-color: @color09;
     color: @color07;
 }
@@ -351,7 +351,7 @@ QPushButton[accessibleName="danger"]:hover {
 }
 
 QPushButton[accessibleName="primary"] {
-    padding: 7 25;
+    padding: 6 16;
     background-color: @color03;
     color: @color07;
 }
@@ -437,6 +437,10 @@ QLabel[accessibleName="dialog-title"] {
 
 #btnResources {
     qproperty-icon: url(:/static/themes/default/img/sidebar-icons/resources.png);
+}
+
+#btnHelpers {
+    qproperty-icon: url(:/static/themes/default/img/sidebar-icons/helpers.png);
 }
 
 #btnAptSourceManager {
@@ -765,16 +769,16 @@ QLabel[accessibleName="dialog-title"] {
     UNINSTALLER PAGE
 *************************/
 
-#UninstallerPage #nav QPushButton {
+#nav QPushButton {
     border-radius: 3;
-    padding: 5 12;
+    padding: 5 10;
     font-size: 10pt;
     background-color: @circleChartBackgroundColor;
     color: @color07;
 }
 
-#UninstallerPage #nav QPushButton:hover,
-#UninstallerPage #nav QPushButton:checked {
+#nav QPushButton:hover,
+#nav QPushButton:checked {
     background-color: @color03;
 }
 

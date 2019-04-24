@@ -77,7 +77,7 @@ void SettingsPage::init()
     // load pages
     ui->cmbStartPage->addItems({
         tr("Dashboard"), tr("Startup Apps"), tr("System Cleaner"), tr("Search"),
-        tr("Services"), tr("Processes"), tr("Uninstaller"), tr("Resources")
+        tr("Services"), tr("Processes"), tr("Helpers"), tr("Uninstaller"), tr("Resources")
     });
 
     ui->cmbStartPage->setCurrentText(mSettingManager->getStartPage());

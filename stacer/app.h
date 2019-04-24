@@ -19,6 +19,7 @@
 #include "Pages/AptSourceManager/apt_source_manager_page.h"
 #include "Pages/GnomeSettings/gnome_settings_page.h"
 #include "Pages/Search/search_page.h"
+#include "Pages/Helpers/helpers_page.h"
 #include "feedback.h"
 
 namespace Ui {
@@ -47,6 +48,7 @@ private slots:
     void on_btnServices_clicked();
     void on_btnSearch_clicked();
     void on_btnUninstaller_clicked();
+    void on_btnHelpers_clicked();
     void on_btnResources_clicked();
     void on_btnProcesses_clicked();
     void on_btnSettings_clicked();
@@ -81,6 +83,7 @@ private:
     APTSourceManagerPage *aptSourceManagerPage;
     GnomeSettingsPage *gnomeSettingsPage;
     SettingsPage *settingsPage;
+    HelpersPage *helpersPage;
 
     QSharedPointer<Feedback> feedback;
 

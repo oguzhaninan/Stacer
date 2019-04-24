@@ -38,6 +38,7 @@ void App::init()
     systemCleanerPage = new SystemCleanerPage(mSlidingStacked);
     servicesPage = new ServicesPage(mSlidingStacked);
     processPage = new ProcessesPage(mSlidingStacked);
+    helpersPage = new HelpersPage(mSlidingStacked);
     uninstallerPage = new UninstallerPage(mSlidingStacked);
     resourcesPage = new ResourcesPage(mSlidingStacked);
     settingsPage = new SettingsPage(mSlidingStacked);
@@ -46,12 +47,12 @@ void App::init()
 
     mListPages = {
         dashboardPage, startupAppsPage, systemCleanerPage, searchPage, servicesPage,
-        processPage, uninstallerPage, resourcesPage, settingsPage
+        processPage, uninstallerPage, resourcesPage, helpersPage, settingsPage
     };
 
     mListSidebarButtons = {
         ui->btnDash, ui->btnStartupApps, ui->btnSystemCleaner, ui->btnSearch, ui->btnServices,
-        ui->btnProcesses, ui->btnUninstaller, ui->btnResources, ui->btnSettings
+        ui->btnProcesses, ui->btnHelpers, ui->btnUninstaller, ui->btnResources, ui->btnSettings
     };
 
     // APT SOURCE MANAGER
@@ -240,6 +241,11 @@ void App::on_btnProcesses_clicked()
 void App::on_btnResources_clicked()
 {
     pageClick(resourcesPage);
+}
+
+void App::on_btnHelpers_clicked()
+{
+    pageClick(helpersPage);
 }
 
 void App::on_btnAptSourceManager_clicked()

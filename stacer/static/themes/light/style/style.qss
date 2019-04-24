@@ -330,7 +330,7 @@ QLineEdit,
 QPlainTextEdit,
 QSpinBox {
     border-radius: 2;
-    padding: 8;
+    padding: 6;
     background-color: @color01;
     font-size: 10pt;
     color: @color02;
@@ -342,7 +342,7 @@ QPushButton {
 }
 
 QPushButton[accessibleName="danger"] {
-    padding: 7 25;
+    padding: 6 16;
     background-color: @color11;
     color: @color05;
 }
@@ -352,7 +352,7 @@ QPushButton[accessibleName="danger"]:hover {
 }
 
 QPushButton[accessibleName="primary"] {
-    padding: 7 25;
+    padding: 6 16;
     background-color: @color03;
     color: @color05;
 }
@@ -438,6 +438,10 @@ QLabel[accessibleName="dialog-title"] {
 
 #btnResources {
     qproperty-icon: url(:/static/themes/default/img/sidebar-icons/resources.png);
+}
+
+#btnHelpers {
+    qproperty-icon: url(:/static/themes/default/img/sidebar-icons/helpers.png);
 }
 
 #btnAptSourceManager {
