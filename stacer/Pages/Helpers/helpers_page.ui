@@ -15,13 +15,13 @@
   </property>
   <layout class="QGridLayout" name="gridLayout">
    <property name="leftMargin">
-    <number>10</number>
+    <number>15</number>
    </property>
    <property name="topMargin">
     <number>10</number>
    </property>
    <property name="rightMargin">
-    <number>10</number>
+    <number>15</number>
    </property>
    <property name="bottomMargin">
     <number>10</number>
@@ -29,7 +29,10 @@
    <property name="spacing">
     <number>10</number>
    </property>
-   <item row="0" column="0">
+   <item row="2" column="0" colspan="3">
+    <widget class="QStackedWidget" name="stackedWidget"/>
+   </item>
+   <item row="0" column="0" colspan="3">
     <widget class="QWidget" name="nav" native="true">
      <layout class="QHBoxLayout" name="navLayout">
       <property name="spacing">
@@ -47,7 +50,7 @@
       <property name="bottomMargin">
        <number>0</number>
       </property>
-      <item>
+      <item alignment="Qt::AlignLeft">
        <widget class="QPushButton" name="btnHostManage">
         <property name="cursor">
          <cursorShape>PointingHandCursor</cursorShape>
@@ -70,42 +73,20 @@
        </widget>
       </item>
       <item>
-       <widget class="QPushButton" name="btnSshManage">
-        <property name="cursor">
-         <cursorShape>PointingHandCursor</cursorShape>
+       <spacer name="horizontalSpacer">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
         </property>
-        <property name="focusPolicy">
-         <enum>Qt::NoFocus</enum>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>40</width>
+          <height>20</height>
+         </size>
         </property>
-        <property name="text">
-         <string>SSH Manage</string>
-        </property>
-        <property name="checkable">
-         <bool>true</bool>
-        </property>
-        <attribute name="buttonGroup">
-         <string notr="true">buttonGroup</string>
-        </attribute>
-       </widget>
+       </spacer>
       </item>
      </layout>
     </widget>
-   </item>
-   <item row="0" column="1" colspan="2">
-    <spacer name="horizontalSpacer">
-     <property name="orientation">
-      <enum>Qt::Horizontal</enum>
-     </property>
-     <property name="sizeHint" stdset="0">
-      <size>
-       <width>40</width>
-       <height>20</height>
-      </size>
-     </property>
-    </spacer>
-   </item>
-   <item row="2" column="0" colspan="3">
-    <widget class="QStackedWidget" name="stackedWidget"/>
    </item>
   </layout>
  </widget>

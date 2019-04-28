@@ -19,7 +19,6 @@ public:
 
 private slots:
     void on_btnHostManage_clicked();
-    void on_btnSshManage_clicked();
     void init();
 
 private:

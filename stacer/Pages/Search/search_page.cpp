@@ -171,6 +171,7 @@ void SearchPage::on_btnAdvancePaneToggle_clicked()
 void SearchPage::on_btnSearchAdvance_clicked()
 {
     QtConcurrent::run(this, &SearchPage::searching);
+    ui->advanceSearchPane->hide();
 }
 
 void SearchPage::searching()

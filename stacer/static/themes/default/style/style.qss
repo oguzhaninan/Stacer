@@ -1058,9 +1058,15 @@ SEARCH
     padding: 4 6;
 }
 
-#btnAdvancePaneToggle {
+#btnAdvancePaneToggle,
+#btnNewHost {
     font-size: 10pt;
     text-decoration: underline;
     color: @color03;
+}
+
+#lblHostTitle {
+    font-size: 11pt;
+    color: @color12;
 }
 

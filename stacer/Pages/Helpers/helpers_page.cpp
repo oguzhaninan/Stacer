@@ -22,16 +22,11 @@ void HelpersPage::init()
     //ui->stackedWidget->addWidget();
 
     Utilities::addDropShadow({
-        ui->btnHostManage, ui->btnSshManage
+        ui->btnHostManage
     }, 40);
 }
 
 void HelpersPage::on_btnHostManage_clicked()
-{
-    ui->stackedWidget->setCurrentIndex(0);
-}
-
-void HelpersPage::on_btnSshManage_clicked()
 {
     ui->stackedWidget->setCurrentIndex(0);
 }
