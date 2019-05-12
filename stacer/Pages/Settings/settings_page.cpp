@@ -35,15 +35,15 @@ void SettingsPage::init()
     ui->cmbLanguages->setCurrentText(apm->getLanguageList().value(lc));
 
     // load themes
-    QMapIterator<QString, QString> theme(apm->getThemeList());
+//    QMapIterator<QString, QString> theme(apm->getThemeList());
 
-    while (theme.hasNext()) {
-        theme.next();
-        ui->cmbThemes->addItem(theme.value(), theme.key());
-    }
+//    while (theme.hasNext()) {
+//        theme.next();
+//        ui->cmbThemes->addItem(theme.value(), theme.key());
+//    }
 
-    QString tn = mSettingManager->getThemeName();
-    ui->cmbThemes->setCurrentText(apm->getThemeList().value(tn));
+//    QString tn = mSettingManager->getThemeName();
+//    ui->cmbThemes->setCurrentText(apm->getThemeList().value(tn));
 
     // load disks
     InfoManager::ins()->updateDiskInfo();
@@ -60,6 +60,9 @@ void SettingsPage::init()
 
     // start on boot
     mStartupAppPath = QStandardPaths::writableLocation(QStandardPaths::ConfigLocation).append("/autostart");
+    if (! QDir(mStartupAppPath).exists()) {
+        QDir().mkdir(mStartupAppPath);
+    }
     mStartupAppPath.append("/stacer.desktop");
 
     QFile startupAppFile(mStartupAppPath);
@@ -89,7 +92,7 @@ void SettingsPage::init()
 
     // effects
     QList<QWidget*> widgets = {
-        ui->cmbLanguages, ui->cmbThemes, ui->cmbDisks, ui->cmbStartPage, ui->btnDonate,
+        ui->cmbLanguages, /*ui->cmbThemes,*/ ui->cmbDisks, ui->cmbStartPage, ui->btnDonate,
         ui->spinCpuPercent, ui->spinMemoryPercent, ui->spinDiskPercent
     };
 
@@ -97,7 +100,7 @@ void SettingsPage::init()
 
     // connects
     connect(ui->cmbLanguages, SIGNAL(currentIndexChanged(int)), this, SLOT(cmbLanguagesChanged(int)));
-    connect(ui->cmbThemes, SIGNAL(currentIndexChanged(int)), this, SLOT(cmbThemesChanged(int)));    
+//    connect(ui->cmbThemes, SIGNAL(currentIndexChanged(int)), this, SLOT(cmbThemesChanged(int)));
     connect(ui->cmbDisks, SIGNAL(currentIndexChanged(int)), this, SLOT(cmbDiskChanged(int)));
     connect(ui->cmbStartPage, SIGNAL(currentIndexChanged(QString)), this, SLOT(cmbStartPageChanged(QString)));
 }
@@ -109,13 +112,13 @@ void SettingsPage::cmbLanguagesChanged(const int &index)
     mSettingManager->setLanguage(langCode);
 }
 
-void SettingsPage::cmbThemesChanged(const int &index)
-{
-    QString themeName = ui->cmbThemes->itemData(index).toString();
+//void SettingsPage::cmbThemesChanged(const int &index)
+//{
+//    QString themeName = ui->cmbThemes->itemData(index).toString();
 
-    mSettingManager->setThemeName(themeName);
-    apm->updateStylesheet();
-}
+//    mSettingManager->setThemeName(themeName);
+//    apm->updateStylesheet();
+//}
 
 void SettingsPage::cmbDiskChanged(const int &index)
 {

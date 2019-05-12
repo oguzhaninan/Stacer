@@ -45,8 +45,8 @@ void SearchPage::init()
     ui->tableFoundResults->horizontalHeader()->setContextMenuPolicy(Qt::CustomContextMenu);
     ui->tableFoundResults->setContextMenuPolicy(Qt::CustomContextMenu);
 
-    connect(ui->tableFoundResults->horizontalHeader(), SIGNAL(customContextMenuRequested(const QPoint&)),
-        this, SLOT(on_tableFoundResults_header_customContextMenuRequested(const QPoint&)));
+    connect(ui->tableFoundResults->horizontalHeader(), &QHeaderView::customContextMenuRequested,
+        this, &SearchPage::tableFoundResults_header_customContextMenuRequested);
 
     loadHeaderMenu();
     loadTableRowMenu();
@@ -345,7 +345,7 @@ QList<QStandardItem*> SearchPage::createRow(const QString &filepath)
     };
 }
 
-void SearchPage::on_tableFoundResults_header_customContextMenuRequested(const QPoint &pos)
+void SearchPage::tableFoundResults_header_customContextMenuRequested(const QPoint &pos)
 {
     QPoint globalPos = ui->tableFoundResults->mapToGlobal(pos);
     QAction *action = mHeaderMenu.exec(globalPos);

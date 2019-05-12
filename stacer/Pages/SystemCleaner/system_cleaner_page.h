@@ -50,8 +50,7 @@ private slots:
     bool cleanValid();
 
     void on_checkSelectAllSystemScan_clicked(bool checked);
-
-    void on_checkBox_clicked(bool checked);
+    void on_checkSelectAll_clicked(bool check);
 
 private:
     void init();

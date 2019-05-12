@@ -20,7 +20,7 @@ AppManager::AppManager()
 
     loadLanguageList();
 
-    loadThemeList();
+//    loadThemeList();
 
     if (mTranslator.load(QString("stacer_%1").arg(mSettingManager->getLanguage()), qApp->applicationDirPath() + "/translations")) {
         qApp->installTranslator(&mTranslator);
@@ -58,23 +58,23 @@ QMap<QString, QString> AppManager::getLanguageList() const
     return mLanguageList;
 }
 
-void AppManager::loadThemeList()
-{
-    QByteArray themesJson = FileUtil::readStringFromFile(":/static/themes.json").toUtf8();
-    QJsonArray themes = QJsonDocument::fromJson(themesJson).array();
+//void AppManager::loadThemeList()
+//{
+//    QByteArray themesJson = FileUtil::readStringFromFile(":/static/themes.json").toUtf8();
+//    QJsonArray themes = QJsonDocument::fromJson(themesJson).array();
 
-    for (int i = 0; i < themes.count(); ++i) {
+//    for (int i = 0; i < themes.count(); ++i) {
 
-        QJsonObject ob = themes.at(i).toObject();
+//        QJsonObject ob = themes.at(i).toObject();
 
-        mThemeList.insert(ob["value"].toString(), ob["text"].toString());
-    }
-}
+//        mThemeList.insert(ob["value"].toString(), ob["text"].toString());
+//    }
+//}
 
-QMap<QString, QString> AppManager::getThemeList() const
-{
-    return mThemeList;
-}
+//QMap<QString, QString> AppManager::getThemeList() const
+//{
+//    return mThemeList;
+//}
 
 void AppManager::updateStylesheet()
 {

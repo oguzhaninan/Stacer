@@ -23,7 +23,7 @@ public:
 private slots:
     void init();
 
-    void cmbThemesChanged(const int &index);
+//    void cmbThemesChanged(const int &index);
     void cmbLanguagesChanged(const int &index);
     void cmbDiskChanged(const int &index);
     void on_checkAutostart_clicked(bool checked);

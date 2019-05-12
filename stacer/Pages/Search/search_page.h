@@ -36,7 +36,7 @@ private slots:
     void on_btnSearchAdvance_clicked();
     void initComboboxValues();
     void on_tableFoundResults_customContextMenuRequested(const QPoint &pos);
-    void on_tableFoundResults_header_customContextMenuRequested(const QPoint &pos);
+    void tableFoundResults_header_customContextMenuRequested(const QPoint &pos);
     void loadTableRowMenu();
     void loadHeaderMenu();
     void loadDataToTable(const QList<QString> &results);

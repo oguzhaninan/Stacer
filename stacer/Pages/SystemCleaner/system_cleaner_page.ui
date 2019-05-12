@@ -38,7 +38,7 @@
       <string notr="true"/>
      </property>
      <property name="currentIndex">
-      <number>0</number>
+      <number>1</number>
      </property>
      <widget class="QWidget" name="cleanerCategories">
       <layout class="QGridLayout" name="gridLayout_3">
@@ -669,7 +669,7 @@
            </spacer>
           </item>
           <item row="4" column="0">
-           <widget class="QCheckBox" name="checkBox">
+           <widget class="QCheckBox" name="checkSelectAll">
             <property name="maximumSize">
              <size>
               <width>16777215</width>

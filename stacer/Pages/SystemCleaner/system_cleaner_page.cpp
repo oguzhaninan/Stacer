@@ -107,10 +107,10 @@ void SystemCleanerPage::on_treeWidgetScanResult_itemClicked(QTreeWidgetItem *ite
 {
     if(column == 0) {
       // new check state
-      Qt::CheckState cs = (item->checkState(column) == Qt::Checked ? Qt::Unchecked : Qt::Checked);
+      Qt::CheckState cs = (item->checkState(column) == Qt::Checked ? Qt::Checked : Qt::Unchecked);
 
       // update check state
-      item->setCheckState(column, cs);
+      //item->setCheckState(column, cs);
 
       // change check state if has children
       for (int i = 0; i < item->childCount(); ++i)
@@ -323,7 +323,7 @@ void SystemCleanerPage::on_checkSelectAllSystemScan_clicked(bool checked)
     ui->checkTrash->setChecked(checked);
 }
 
-void SystemCleanerPage::on_checkBox_clicked(bool checked)
+void SystemCleanerPage::on_checkSelectAll_clicked(bool checked)
 {
     for (int i = 0; i < ui->treeWidgetScanResult->topLevelItemCount(); ++i)
     {
