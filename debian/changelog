@@ -1,17 +1,8 @@
-stacer (1.0.9-1) stable; urgency=medium
+stacer (1.1.0-1) stable; urgency=medium
 
-  * CPU Load Avg history.
-  * I/O rate history. (https://github.com/oguzhaninan/Stacer/issues/45)
-  * Autostart option.
-  * Changing the start page.
-  * Alert messages (Showing a warning after a certain level)
-  * Added tray icon.
-  * APT repository manager. (https://github.com/oguzhaninan/Stacer/issues/36)
-  * Feedback dialog.
-  * Splash Screen.
-  * Gnome and Unity settings page. (for ubuntu)
-  * Service list filter. (https://github.com/oguzhaninan/Stacer/issues/177)
-  * Service description. (https://github.com/oguzhaninan/Stacer/issues/178)
-  * Changing disk. (https://github.com/oguzhaninan/Stacer/issues/179)
+  * Snap package uninstaller.
+  * Advanced file search.
+  * Disk chart.
+  * Host manager.
 
- -- Oguzhan Inan <oguzhan3488@gmail.com>  Sun, 09 Mar 2018 08:52:10 +0300
+ -- Oguzhan Inan <oguzhan3488@gmail.com>  Sun, 13 May 2018 00:50:10 +0300

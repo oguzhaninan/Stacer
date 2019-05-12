@@ -25,8 +25,6 @@ AppManager::AppManager()
     if (mTranslator.load(QString("stacer_%1").arg(mSettingManager->getLanguage()), qApp->applicationDirPath() + "/translations")) {
         qApp->installTranslator(&mTranslator);
         (mSettingManager->getLanguage() == "ar") ? qApp->setLayoutDirection(Qt::RightToLeft) : qApp->setLayoutDirection(Qt::LeftToRight);
-    } else {
-        qCritical() << "Translator could not load.";
     }
 }
 

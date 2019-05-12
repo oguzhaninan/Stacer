@@ -70,7 +70,7 @@ void SearchPage::init()
     QList<QWidget*> widgets = {
         ui->btnBrowseSearchDir, ui->btnSearchAdvance, ui->txtSearchInput, ui->cmbGroups,
         ui->cmbSizeCriteria, ui->cmbSizeUnits, ui->cmbTimeCriteria, ui->cmbTimeType,
-         ui->cmbSearchTypes, ui->tableFoundResults, ui->cmbUsers
+        ui->cmbSearchTypes, ui->tableFoundResults, ui->cmbUsers
     };
 
     Utilities::addDropShadow(widgets, 30);
