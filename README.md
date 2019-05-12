@@ -64,13 +64,13 @@
 
 ### Debian x64
 
-1. Download `stacer_1.0.9_amd64.deb` from the [Stacer releases page](https://github.com/oguzhaninan/Stacer/releases).
+1. Download `stacer_1.1.0_amd64.deb` from the [Stacer releases page](https://github.com/oguzhaninan/Stacer/releases).
 2. Run `sudo dpkg -i stacer*.deb` on the downloaded package.
 3. Launch Stacer using the installed `stacer` command.
 
 ### Fedora x64
 
-1. Download `stacer_1.0.9_amd64.rpm` from the [Stacer releases page](https://github.com/oguzhaninan/Stacer/releases).
+1. Download `stacer_1.1.0_amd64.rpm` from the [Stacer releases page](https://github.com/oguzhaninan/Stacer/releases).
 2. Run `sudo rpm --install stacer*.rpm --nodeps --force` on the downloaded package.
 3. Launch Stacer using the installed `stacer` command.
 
