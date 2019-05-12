@@ -38,7 +38,7 @@
       <string notr="true"/>
      </property>
      <property name="currentIndex">
-      <number>1</number>
+      <number>0</number>
      </property>
      <widget class="QWidget" name="cleanerCategories">
       <layout class="QGridLayout" name="gridLayout_3">
@@ -487,7 +487,7 @@
           <enum>Qt::NoFocus</enum>
          </property>
          <property name="accessibleName">
-          <string notr="true"/>
+          <string notr="true">circle</string>
          </property>
          <property name="text">
           <string>Select All</string>
@@ -646,6 +646,9 @@
               <width>16777215</width>
               <height>20</height>
              </size>
+            </property>
+            <property name="accessibleName">
+             <string>circle</string>
             </property>
             <property name="text">
              <string/>
