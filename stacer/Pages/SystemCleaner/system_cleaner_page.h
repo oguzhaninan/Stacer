@@ -36,7 +36,7 @@ public:
     ~SystemCleanerPage();
 
 private slots:
-    void addTreeRoot(const CleanCategories &cat, const QString &title, const QFileInfoList &infos, bool noChild = false);
+    quint64 addTreeRoot(const CleanCategories &cat, const QString &title, const QFileInfoList &infos, bool noChild = false);
     void addTreeChild(const CleanCategories &cat, const QString &text, const quint64 &size);
     void addTreeChild(const QString &data, const QString &text, const quint64 &size, QTreeWidgetItem *parent);
 
