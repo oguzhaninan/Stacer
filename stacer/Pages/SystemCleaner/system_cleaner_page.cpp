@@ -47,7 +47,7 @@ void SystemCleanerPage::init()
     });
 }
 
-void SystemCleanerPage::addTreeRoot(const CleanCategories &cat, const QString &title, const QFileInfoList &infos, bool noChild)
+quint64 SystemCleanerPage::addTreeRoot(const CleanCategories &cat, const QString &title, const QFileInfoList &infos, bool noChild)
 {
     QTreeWidgetItem *root = new QTreeWidgetItem(ui->treeWidgetScanResult);
     root->setData(2, 0, cat);
@@ -82,6 +82,8 @@ void SystemCleanerPage::addTreeRoot(const CleanCategories &cat, const QString &t
     }
 
     root->setText(1, QString("%1").arg(FormatUtil::formatBytes(totalSize)));
+
+    return totalSize;
 }
 
 void SystemCleanerPage::addTreeChild(const QString &data, const QString &text, const quint64 &size, QTreeWidgetItem *parent)
@@ -136,41 +138,45 @@ void SystemCleanerPage::systemScan()
 
         ui->treeWidgetScanResult->clear();
 
+        quint64 totalSize = 0;
+
         // Package Caches
         if (ui->checkPackageCache->isChecked()) {
-            addTreeRoot(PACKAGE_CACHE,
+            totalSize += addTreeRoot(PACKAGE_CACHE,
                         ui->lblPackageCache->text(),
                         tmr->getPackageCaches());
         }
 
         // Crash Reports
         if (ui->checkCrashReports->isChecked()) {
-            addTreeRoot(CRASH_REPORTS,
+            totalSize += addTreeRoot(CRASH_REPORTS,
                         ui->lblCrashReports->text(),
                         im->getCrashReports());
         }
 
         // Application Logs
         if (ui->checkAppLog->isChecked()) {
-            addTreeRoot(APPLICATION_LOGS,
+            totalSize += addTreeRoot(APPLICATION_LOGS,
                         ui->lblAppLog->text(),
                         im->getAppLogs());
         }
 
         // Application Cache
         if (ui->checkAppCache->isChecked()) {
-            addTreeRoot(APPLICATION_CACHES,
+            totalSize += addTreeRoot(APPLICATION_CACHES,
                         ui->lblAppCache->text(),
                         im->getAppCaches());
         }
 
         // Trash
         if(ui->checkTrash->isChecked()) {
-            addTreeRoot(TRASH,
+            totalSize += addTreeRoot(TRASH,
                         ui->lblTrash->text(),
                         { QFileInfo(QDir::homePath() + "/.local/share/Trash/") },
                         true);
         }
+
+        ui->lblTotalBytes->setText(tr("Total size: %1").arg(FormatUtil::formatBytes(totalSize)));
 
         // scan results page
         ui->stackedWidget->setCurrentIndex(1);
