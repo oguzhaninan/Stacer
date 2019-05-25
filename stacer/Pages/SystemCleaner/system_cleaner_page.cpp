@@ -1,4 +1,5 @@
-﻿#include "system_cleaner_page.h"
+﻿#include "byte_tree_widget.h"
+#include "system_cleaner_page.h"
 #include "ui_system_cleaner_page.h"
 
 SystemCleanerPage::~SystemCleanerPage()
@@ -88,21 +89,15 @@ quint64 SystemCleanerPage::addTreeRoot(const CleanCategories &cat, const QString
 
 void SystemCleanerPage::addTreeChild(const QString &data, const QString &text, const quint64 &size, QTreeWidgetItem *parent)
 {
-    QTreeWidgetItem *item = new QTreeWidgetItem(parent);
+    ByteTreeWidget *item = new ByteTreeWidget(parent);
+    item->setValues(text, size, data);
     item->setIcon(0, QIcon::fromTheme(text, mDefaultIcon));
-    item->setText(0, text);
-    item->setText(1, FormatUtil::formatBytes(size));
-    item->setData(2, 0, data);
-    item->setCheckState(0, Qt::Unchecked);
 }
 
 void SystemCleanerPage::addTreeChild(const CleanCategories &cat, const QString &text, const quint64 &size)
 {
-    QTreeWidgetItem *item = new QTreeWidgetItem(ui->treeWidgetScanResult);
-    item->setText(0, text);
-    item->setText(1, FormatUtil::formatBytes(size));
-    item->setData(2, 0, cat);
-    item->setCheckState(0, Qt::Unchecked);
+    ByteTreeWidget *item = new ByteTreeWidget(ui->treeWidgetScanResult);
+    item->setValues(text, size, cat);
 }
 
 void SystemCleanerPage::on_treeWidgetScanResult_itemClicked(QTreeWidgetItem *item, const int &column)
