@@ -1,5 +1,4 @@
 #include "byte_tree_widget.h"
-#include <iostream>
 
 void ByteTreeWidget::setValues(const QString &text, const quint64 &size, const QVariant &data) {
     this->setText(0, text);
