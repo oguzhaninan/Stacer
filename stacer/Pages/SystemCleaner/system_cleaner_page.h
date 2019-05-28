@@ -51,6 +51,7 @@ private slots:
 
     void on_checkSelectAllSystemScan_clicked(bool checked);
     void on_checkSelectAll_clicked(bool check);
+    void on_cbSortBy_currentIndexChanged(int idx);
 
 private:
     void init();

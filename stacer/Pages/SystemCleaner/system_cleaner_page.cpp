@@ -1,6 +1,7 @@
-﻿#include "byte_tree_widget.h"
-#include "system_cleaner_page.h"
+﻿#include "system_cleaner_page.h"
 #include "ui_system_cleaner_page.h"
+#include "byte_tree_widget.h"
+#include <iostream>
 
 SystemCleanerPage::~SystemCleanerPage()
 {
@@ -46,6 +47,11 @@ void SystemCleanerPage::init()
         mLoadingMovie_2->start();
         ui->lblLoadingCleaner->hide();
     });
+
+    // needed to suppress qt warnings (signal/slot <> threads)
+    qRegisterMetaType<QList<QPersistentModelIndex>>();
+    qRegisterMetaType<QAbstractItemModel::LayoutChangeHint>();
+    qRegisterMetaType<Qt::SortOrder>();
 }
 
 quint64 SystemCleanerPage::addTreeRoot(const CleanCategories &cat, const QString &title, const QFileInfoList &infos, bool noChild)
@@ -130,7 +136,9 @@ void SystemCleanerPage::systemScan()
         ui->checkAppLog->setEnabled(false);
         ui->checkAppCache->setEnabled(false);
         ui->checkTrash->setEnabled(false);
+        ui->checkSelectAllSystemScan->setEnabled(false);
 
+        ui->treeWidgetScanResult->setSortingEnabled(false);
         ui->treeWidgetScanResult->clear();
 
         quint64 totalSize = 0;
@@ -172,6 +180,9 @@ void SystemCleanerPage::systemScan()
         }
 
         ui->lblTotalBytes->setText(tr("Total size: %1").arg(FormatUtil::formatBytes(totalSize)));
+
+        ui->treeWidgetScanResult->setSortingEnabled(true);
+        on_cbSortBy_currentIndexChanged(ui->cbSortBy->currentIndex());
 
         // scan results page
         ui->stackedWidget->setCurrentIndex(1);
@@ -312,6 +323,7 @@ void SystemCleanerPage::on_btnBackToCategories_clicked()
     ui->checkTrash->setEnabled(true);
     ui->treeWidgetScanResult->clear();
     ui->stackedWidget->setCurrentIndex(0);
+    ui->checkSelectAllSystemScan->setEnabled(true);
     ui->checkSelectAllSystemScan->setChecked(false);
 }
 
@@ -333,5 +345,15 @@ void SystemCleanerPage::on_checkSelectAll_clicked(bool checked)
 
         for (int j = 0; j < it->childCount(); ++j)
             it->child(j)->setCheckState(0, (checked ? Qt::Checked : Qt::Unchecked));
+    }
+}
+
+void SystemCleanerPage::on_cbSortBy_currentIndexChanged(int idx)
+{
+    switch (idx) {
+        case 0: ui->treeWidgetScanResult->sortItems(0, Qt::AscendingOrder); break;
+        case 1: ui->treeWidgetScanResult->sortItems(0, Qt::DescendingOrder); break;
+        case 2: ui->treeWidgetScanResult->sortItems(1, Qt::AscendingOrder); break;
+        case 3: ui->treeWidgetScanResult->sortItems(1, Qt::DescendingOrder); break;
     }
 }
