@@ -35,6 +35,7 @@ SOURCES += \
     Managers/info_manager.cpp \
     Pages/Resources/history_chart.cpp \
     Pages/SystemCleaner/system_cleaner_page.cpp \
+    Pages/SystemCleaner/byte_tree_widget.cpp \
     Pages/Uninstaller/uninstaller_page.cpp \
     Pages/Services/services_page.cpp \
     Pages/Resources/resources_page.cpp \
@@ -69,6 +70,7 @@ HEADERS += \
     Managers/info_manager.h \
     Pages/Resources/history_chart.h \
     Pages/SystemCleaner/system_cleaner_page.h \
+    Pages/SystemCleaner/byte_tree_widget.h \
     Pages/Uninstaller/uninstaller_page.h \
     Pages/Resources/resources_page.h \
     Pages/Processes/processes_page.h \
