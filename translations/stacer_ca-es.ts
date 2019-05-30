@@ -639,7 +639,7 @@
     </message>
     <message>
         <location filename="../stacer/Pages/Resources/resources_page.cpp" line="118"/>
-        <source>%1 Minute Avarage: %2</source>
+        <source>%1 Minute Average: %2</source>
         <translation>%1 minut mitjana: %2</translation>
     </message>
     <message>
