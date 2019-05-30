@@ -254,7 +254,7 @@ void ResourcesPage::updateCpuLoadAvg()
 
         seriesList.at(j)->insert(0, QPointF(0, avg));
 
-        seriesList.at(j)->setName(tr("%1 Minute Avarage: %2")
+        seriesList.at(j)->setName(tr("%1 Minute Average: %2")
                                   .arg(minutes[j])
                                   .arg(avg));
 
