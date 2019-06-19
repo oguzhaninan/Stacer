@@ -65,8 +65,12 @@
 3. Launch Stacer using the installed `stacer` command.
 
 ### Fedora
+1. Download `stacer_1.1.0_amd64.rpm` from the [Stacer releases page](https://github.com/oguzhaninan/Stacer/releases).
+2. Run `sudo rpm --install stacer*.rpm --nodeps --force` on the downloaded package.
+3. Launch Stacer using the installed `stacer` command.
 
-1. Install via DNF: `sudo dnf install stacer`
+### Fedora (with DNF)
+1. Run: `sudo dnf install stacer`
 2. Launch Stacer using the installed `stacer` command.
 
 ## Build from source with CMake (Qt Version Qt 5.x)
