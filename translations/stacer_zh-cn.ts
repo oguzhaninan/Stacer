@@ -21,12 +21,12 @@
     <message>
         <location filename="../stacer/Pages/AptSourceManager/apt_source_edit.ui" line="55"/>
         <source>Options</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">选项</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/AptSourceManager/apt_source_edit.ui" line="71"/>
         <source>Cancel</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">取消</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/AptSourceManager/apt_source_edit.ui" line="87"/>
@@ -100,12 +100,12 @@
     <message>
         <location filename="../stacer/Pages/AptSourceManager/apt_source_manager_page.ui" line="371"/>
         <source>Cancel</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">取消</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/AptSourceManager/apt_source_manager_page.ui" line="419"/>
         <source>Select to delete or edit.</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">选中以删除或编辑.</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/AptSourceManager/apt_source_manager_page.cpp" line="25"/>
@@ -171,7 +171,7 @@
     <message>
         <location filename="../stacer/app.ui" line="194"/>
         <source>Services</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">服务</translation>
     </message>
     <message>
         <location filename="../stacer/app.ui" line="334"/>
@@ -186,12 +186,12 @@
     <message>
         <location filename="../stacer/app.ui" line="403"/>
         <source>Feedback</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">反馈</translation>
     </message>
     <message>
         <location filename="../stacer/app.cpp" line="111"/>
         <source>Quit</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">退出</translation>
     </message>
 </context>
 <context>
@@ -416,37 +416,37 @@
     <message>
         <location filename="../stacer/feedback.ui" line="14"/>
         <source>Feedback</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">反馈</translation>
     </message>
     <message>
         <location filename="../stacer/feedback.ui" line="38"/>
         <source>Name</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">姓名</translation>
     </message>
     <message>
         <location filename="../stacer/feedback.ui" line="45"/>
         <source>Email Address</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">邮件地址</translation>
     </message>
     <message>
         <location filename="../stacer/feedback.ui" line="68"/>
         <source>Send</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">发送</translation>
     </message>
     <message>
         <location filename="../stacer/feedback.ui" line="94"/>
         <source>Message</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">正文</translation>
     </message>
     <message>
         <location filename="../stacer/feedback.ui" line="104"/>
         <source>Send a Feedback</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">发送反馈</translation>
     </message>
     <message>
         <location filename="../stacer/feedback.cpp" line="46"/>
         <source>Email address is not valid !</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">无效的邮件地址!</translation>
     </message>
     <message>
         <location filename="../stacer/feedback.cpp" line="51"/>
@@ -456,7 +456,7 @@
     <message>
         <location filename="../stacer/feedback.cpp" line="61"/>
         <source>Sending..</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">发送中..</translation>
     </message>
     <message>
         <location filename="../stacer/feedback.cpp" line="79"/>
@@ -736,17 +736,17 @@
     <message>
         <location filename="../stacer/Pages/Settings/settings_page.ui" line="110"/>
         <source>Memory Percent</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">内存占比</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/Settings/settings_page.ui" line="204"/>
         <source>Disk Percent</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">磁盘占比</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/Settings/settings_page.ui" line="233"/>
         <source>Disks</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">磁盘分区</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/Settings/settings_page.ui" line="246"/>
@@ -756,22 +756,22 @@
     <message>
         <location filename="../stacer/Pages/Settings/settings_page.ui" line="259"/>
         <source>Autostart Stacer</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Stacer自启动</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/Settings/settings_page.ui" line="317"/>
         <source>Alert messages (Show a warning after the specified percentage)</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">警报消息（在超过指定百分比后显示警告）</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/Settings/settings_page.ui" line="422"/>
         <source>Start Page</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">开始页面</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/Settings/settings_page.ui" line="301"/>
         <source>CPU Percent</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">CPU占比</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/Settings/settings_page.ui" line="324"/>
@@ -781,7 +781,7 @@
     <message>
         <location filename="../stacer/Pages/Settings/settings_page.ui" line="355"/>
         <source>Donate</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">捐赠</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/Settings/settings_page.ui" line="97"/>
@@ -829,12 +829,12 @@
     <message>
         <location filename="../stacer/Pages/StartupApps/startup_app.ui" line="128"/>
         <source>Edit App</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">编辑应用</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/StartupApps/startup_app.ui" line="150"/>
         <source>Delete App</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">删除应用</translation>
     </message>
 </context>
 <context>
@@ -908,7 +908,7 @@
     <message>
         <location filename="../stacer/Pages/SystemCleaner/system_cleaner_page.ui" line="63"/>
         <source>Crash Reports</source>
-        <translation>奔溃报告</translation>
+        <translation>崩溃报告</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/SystemCleaner/system_cleaner_page.ui" line="177"/>
@@ -984,7 +984,7 @@
     <message>
         <location filename="../stacer/Pages/GnomeSettings/unity_settings.ui" line="65"/>
         <source>Applications</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">应用</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/GnomeSettings/unity_settings.ui" line="108"/>
@@ -1010,7 +1010,7 @@
         <location filename="../stacer/Pages/GnomeSettings/unity_settings.ui" line="196"/>
         <location filename="../stacer/Pages/GnomeSettings/unity_settings.ui" line="683"/>
         <source>General</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">通用</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/GnomeSettings/unity_settings.ui" line="229"/>
