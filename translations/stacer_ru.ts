@@ -79,7 +79,7 @@
     <message>
         <location filename="../stacer/Pages/AptSourceManager/apt_source_manager_page.ui" line="125"/>
         <source>Not Found APT Repositories</source>
-        <translation type="unfinished"></translation>
+        <translation>Не найдены APT репозитории</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/AptSourceManager/apt_source_manager_page.ui" line="269"/>
@@ -95,22 +95,22 @@
         <location filename="../stacer/Pages/AptSourceManager/apt_source_manager_page.ui" line="338"/>
         <location filename="../stacer/Pages/AptSourceManager/apt_source_manager_page.cpp" line="86"/>
         <source>Add Repository</source>
-        <translation type="unfinished"></translation>
+        <translation>Добавить репозиторий</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/AptSourceManager/apt_source_manager_page.ui" line="371"/>
         <source>Cancel</source>
-        <translation type="unfinished"></translation>
+        <translation>Отмена</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/AptSourceManager/apt_source_manager_page.ui" line="419"/>
         <source>Select to delete or edit.</source>
-        <translation type="unfinished"></translation>
+        <translation>Выберите для удаления или редактирования.</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/AptSourceManager/apt_source_manager_page.cpp" line="25"/>
         <source>example %1</source>
-        <translation type="unfinished"></translation>
+        <translation>пример %1</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/AptSourceManager/apt_source_manager_page.cpp" line="59"/>
@@ -141,7 +141,7 @@
     <message>
         <location filename="../stacer/app.ui" line="135"/>
         <source>Startup Apps</source>
-        <translation type="unfinished"></translation>
+        <translation>Запускаемые приложения</translation>
     </message>
     <message>
         <location filename="../stacer/app.ui" line="163"/>
@@ -171,12 +171,12 @@
     <message>
         <location filename="../stacer/app.ui" line="194"/>
         <source>Services</source>
-        <translation type="unfinished"></translation>
+        <translation>Службы</translation>
     </message>
     <message>
         <location filename="../stacer/app.ui" line="334"/>
         <source>Gnome Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Настройки Gnome</translation>
     </message>
     <message>
         <location filename="../stacer/app.ui" line="362"/>
@@ -186,12 +186,12 @@
     <message>
         <location filename="../stacer/app.ui" line="403"/>
         <source>Feedback</source>
-        <translation type="unfinished"></translation>
+        <translation>Обратная связь</translation>
     </message>
     <message>
         <location filename="../stacer/app.cpp" line="111"/>
         <source>Quit</source>
-        <translation type="unfinished"></translation>
+        <translation>Выход</translation>
     </message>
 </context>
 <context>
@@ -416,58 +416,58 @@
     <message>
         <location filename="../stacer/feedback.ui" line="14"/>
         <source>Feedback</source>
-        <translation type="unfinished"></translation>
+        <translation>Отправить отзыв</translation>
     </message>
     <message>
         <location filename="../stacer/feedback.ui" line="38"/>
         <source>Name</source>
-        <translation type="unfinished"></translation>
+        <translation>Имя</translation>
     </message>
     <message>
         <location filename="../stacer/feedback.ui" line="45"/>
         <source>Email Address</source>
-        <translation type="unfinished"></translation>
+        <translation>Электронная почта</translation>
     </message>
     <message>
         <location filename="../stacer/feedback.ui" line="68"/>
         <source>Send</source>
-        <translation type="unfinished"></translation>
+        <translation>Отправить</translation>
     </message>
     <message>
         <location filename="../stacer/feedback.ui" line="94"/>
         <source>Message</source>
-        <translation type="unfinished"></translation>
+        <translation>Сообщение</translation>
     </message>
     <message>
         <location filename="../stacer/feedback.ui" line="104"/>
         <source>Send a Feedback</source>
-        <translation type="unfinished"></translation>
+        <translation>Отправить отзыв</translation>
     </message>
     <message>
         <location filename="../stacer/feedback.cpp" line="46"/>
         <source>Email address is not valid !</source>
-        <translation type="unfinished"></translation>
+        <translation>Некорректный адрес электронной почты!</translation>
     </message>
     <message>
         <location filename="../stacer/feedback.cpp" line="51"/>
         <source>Your message must be at least 25 characters !</source>
-        <translation type="unfinished"></translation>
+        <translation>Ваше сообщение должно быть больше 25 символов!</translation>
     </message>
     <message>
         <location filename="../stacer/feedback.cpp" line="61"/>
         <source>Sending..</source>
-        <translation type="unfinished"></translation>
+        <translation>Отправка..</translation>
     </message>
     <message>
         <location filename="../stacer/feedback.cpp" line="79"/>
         <source>&lt;font color=&apos;#2ecc71&apos;&gt;Your Feedback has been successfully sended.&lt;/font&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;font color=&apos;#2ecc71&apos;&gt;Ваш отзыв был отправлен.&lt;/font&gt;</translation>
     </message>
     <message>
         <location filename="../stacer/feedback.cpp" line="81"/>
         <location filename="../stacer/feedback.cpp" line="86"/>
         <source>Something went wrong, try again !</source>
-        <translation type="unfinished"></translation>
+        <translation>Что-то пошло не так, попробуйте еще раз!</translation>
     </message>
     <message>
         <location filename="../stacer/feedback.cpp" line="89"/>
@@ -477,7 +477,7 @@
     <message>
         <location filename="../stacer/feedback.cpp" line="94"/>
         <source>Fields cannot be left blank !</source>
-        <translation type="unfinished"></translation>
+        <translation>Поля нельзя оставлять пустыми!</translation>
     </message>
 </context>
 <context>
@@ -485,12 +485,12 @@
     <message>
         <location filename="../stacer/Pages/GnomeSettings/gnome_settings_page.ui" line="14"/>
         <source>Gnome Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Настройки Gnome</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/GnomeSettings/gnome_settings_page.ui" line="49"/>
         <source>Unity Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Настройки Unity</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/GnomeSettings/gnome_settings_page.ui" line="81"/>
@@ -500,7 +500,7 @@
     <message>
         <location filename="../stacer/Pages/GnomeSettings/gnome_settings_page.ui" line="110"/>
         <source>Appearance</source>
-        <translation type="unfinished"></translation>
+        <translation>Внешний вид</translation>
     </message>
 </context>
 <context>
@@ -605,27 +605,27 @@
     <message>
         <location filename="../stacer/Pages/Resources/resources_page.cpp" line="14"/>
         <source>History of CPU</source>
-        <translation type="unfinished"></translation>
+        <translation>Использование процессора</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/Resources/resources_page.cpp" line="15"/>
         <source>History of CPU Load Averages</source>
-        <translation type="unfinished"></translation>
+        <translation>Средняя загрузка процессора</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/Resources/resources_page.cpp" line="16"/>
         <source>History of Disk Read Write</source>
-        <translation type="unfinished"></translation>
+        <translation>Диск</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/Resources/resources_page.cpp" line="17"/>
         <source>History of Memory</source>
-        <translation type="unfinished"></translation>
+        <translation>Память и раздел подкачки</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/Resources/resources_page.cpp" line="18"/>
         <source>History of Network</source>
-        <translation type="unfinished"></translation>
+        <translation>Загрузка сети</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/Resources/resources_page.cpp" line="75"/>
@@ -673,7 +673,7 @@
     <message>
         <location filename="../stacer/Pages/Services/services_page.ui" line="14"/>
         <source>Services</source>
-        <translation type="unfinished"></translation>
+        <translation>Службы</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/Services/services_page.ui" line="137"/>
@@ -693,32 +693,32 @@
     <message>
         <location filename="../stacer/Pages/Services/services_page.cpp" line="27"/>
         <source>Running Status</source>
-        <translation type="unfinished"></translation>
+        <translation>Статус</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/Services/services_page.cpp" line="27"/>
         <source>Running</source>
-        <translation type="unfinished"></translation>
+        <translation>Запущена</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/Services/services_page.cpp" line="27"/>
         <source>Not Running</source>
-        <translation type="unfinished"></translation>
+        <translation>Не запущена</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/Services/services_page.cpp" line="28"/>
         <source>Startup Status</source>
-        <translation type="unfinished"></translation>
+        <translation>Автозапуск</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/Services/services_page.cpp" line="28"/>
         <source>Enabled</source>
-        <translation type="unfinished"></translation>
+        <translation>Включено</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/Services/services_page.cpp" line="28"/>
         <source>Disabled</source>
-        <translation type="unfinished"></translation>
+        <translation>Отключено</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/Services/services_page.cpp" line="75"/>
@@ -736,17 +736,17 @@
     <message>
         <location filename="../stacer/Pages/Settings/settings_page.ui" line="110"/>
         <source>Memory Percent</source>
-        <translation type="unfinished"></translation>
+        <translation>Загрузка памяти</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/Settings/settings_page.ui" line="204"/>
         <source>Disk Percent</source>
-        <translation type="unfinished"></translation>
+        <translation>Загрузка диска</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/Settings/settings_page.ui" line="233"/>
         <source>Disks</source>
-        <translation type="unfinished"></translation>
+        <translation>Диски</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/Settings/settings_page.ui" line="246"/>
@@ -756,22 +756,22 @@
     <message>
         <location filename="../stacer/Pages/Settings/settings_page.ui" line="259"/>
         <source>Autostart Stacer</source>
-        <translation type="unfinished"></translation>
+        <translation>Автозапуск Stacer</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/Settings/settings_page.ui" line="317"/>
         <source>Alert messages (Show a warning after the specified percentage)</source>
-        <translation type="unfinished"></translation>
+        <translation>Предупреждающие сообщения (Показывать предупреждение после указанного процента)</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/Settings/settings_page.ui" line="422"/>
         <source>Start Page</source>
-        <translation type="unfinished"></translation>
+        <translation>Стартовый экран</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/Settings/settings_page.ui" line="301"/>
         <source>CPU Percent</source>
-        <translation type="unfinished"></translation>
+        <translation>Загрузка ЦП</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/Settings/settings_page.ui" line="324"/>
@@ -781,7 +781,7 @@
     <message>
         <location filename="../stacer/Pages/Settings/settings_page.ui" line="355"/>
         <source>Donate</source>
-        <translation type="unfinished"></translation>
+        <translation>Пожертвовать</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/Settings/settings_page.ui" line="97"/>
@@ -796,7 +796,7 @@
     <message>
         <location filename="../stacer/Pages/Settings/settings_page.cpp" line="74"/>
         <source>Startup Apps</source>
-        <translation type="unfinished"></translation>
+        <translation>Запускаемые приложения</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/Settings/settings_page.cpp" line="74"/>
@@ -806,7 +806,7 @@
     <message>
         <location filename="../stacer/Pages/Settings/settings_page.cpp" line="75"/>
         <source>Services</source>
-        <translation type="unfinished"></translation>
+        <translation>Службы</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/Settings/settings_page.cpp" line="75"/>
@@ -829,12 +829,12 @@
     <message>
         <location filename="../stacer/Pages/StartupApps/startup_app.ui" line="128"/>
         <source>Edit App</source>
-        <translation type="unfinished"></translation>
+        <translation>Редактировать</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/StartupApps/startup_app.ui" line="150"/>
         <source>Delete App</source>
-        <translation type="unfinished"></translation>
+        <translation>Удалить</translation>
     </message>
 </context>
 <context>
@@ -880,7 +880,7 @@
     <message>
         <location filename="../stacer/Pages/StartupApps/startup_apps_page.ui" line="14"/>
         <source>Startup Apps</source>
-        <translation type="unfinished"></translation>
+        <translation>Автозапуск приложений</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/StartupApps/startup_apps_page.ui" line="101"/>
@@ -895,7 +895,7 @@
     <message>
         <location filename="../stacer/Pages/StartupApps/startup_apps_page.cpp" line="89"/>
         <source>Startup Applications (%1)</source>
-        <translation type="unfinished"></translation>
+        <translation>Автоматически запускаемые приложения (%1)</translation>
     </message>
 </context>
 <context>
@@ -1004,7 +1004,7 @@
     <message>
         <location filename="../stacer/Pages/GnomeSettings/unity_settings.ui" line="186"/>
         <source>Search</source>
-        <translation type="unfinished"></translation>
+        <translation>Поиск</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/GnomeSettings/unity_settings.ui" line="196"/>
@@ -1169,7 +1169,7 @@
     <message>
         <location filename="../stacer/Pages/GnomeSettings/window_manager_settings.ui" line="90"/>
         <source>General</source>
-        <translation type="unfinished"></translation>
+        <translation>Основные</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/GnomeSettings/window_manager_settings.ui" line="100"/>
@@ -1194,7 +1194,7 @@
     <message>
         <location filename="../stacer/Pages/GnomeSettings/window_manager_settings.ui" line="257"/>
         <source>Additional</source>
-        <translation type="unfinished"></translation>
+        <translation>Дополнительно</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/GnomeSettings/window_manager_settings.ui" line="267"/>
