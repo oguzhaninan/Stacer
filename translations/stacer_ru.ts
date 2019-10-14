@@ -6,32 +6,32 @@
     <message>
         <location filename="../stacer/Pages/AptSourceManager/apt_source_edit.ui" line="14"/>
         <source>APT Repository Edit</source>
-        <translation type="unfinished"></translation>
+        <translation>Редактирование APT репозитория</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/AptSourceManager/apt_source_edit.ui" line="38"/>
         <source>APT Repository</source>
-        <translation type="unfinished"></translation>
+        <translation>APT репозиторий</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/AptSourceManager/apt_source_edit.ui" line="48"/>
         <source>Components</source>
-        <translation type="unfinished"></translation>
+        <translation>Компоненты</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/AptSourceManager/apt_source_edit.ui" line="55"/>
         <source>Options</source>
-        <translation type="unfinished"></translation>
+        <translation>Параметры</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/AptSourceManager/apt_source_edit.ui" line="71"/>
         <source>Cancel</source>
-        <translation type="unfinished"></translation>
+        <translation>Отмена</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/AptSourceManager/apt_source_edit.ui" line="87"/>
         <source>Fields cannot be left blank. </source>
-        <translation type="unfinished">Необходимо заполнить поля. </translation>
+        <translation>Необходимо заполнить поля. </translation>
     </message>
     <message>
         <location filename="../stacer/Pages/AptSourceManager/apt_source_edit.ui" line="94"/>
@@ -41,7 +41,7 @@
     <message>
         <location filename="../stacer/Pages/AptSourceManager/apt_source_edit.ui" line="110"/>
         <source>Save</source>
-        <translation type="unfinished">Сохранить</translation>
+        <translation>Сохранить</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/AptSourceManager/apt_source_edit.ui" line="133"/>
@@ -74,7 +74,7 @@
     <message>
         <location filename="../stacer/Pages/AptSourceManager/apt_source_manager_page.ui" line="14"/>
         <source>APT Repository Manager</source>
-        <translation type="unfinished"></translation>
+        <translation>Менеджер APT репозиториев</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/AptSourceManager/apt_source_manager_page.ui" line="125"/>
@@ -115,7 +115,7 @@
     <message>
         <location filename="../stacer/Pages/AptSourceManager/apt_source_manager_page.cpp" line="59"/>
         <source>APT Repositories (%1)</source>
-        <translation type="unfinished"></translation>
+        <translation>APT репозиториев (%1)</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/AptSourceManager/apt_source_manager_page.cpp" line="66"/>
@@ -128,7 +128,7 @@
     <message>
         <location filename="../stacer/Pages/AptSourceManager/apt_source_repository_item.cpp" line="34"/>
         <source>%1 (Source Code)</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 (Исходный код)</translation>
     </message>
 </context>
 <context>
@@ -151,7 +151,7 @@
     <message>
         <location filename="../stacer/app.ui" line="306"/>
         <source>APT Repository Manager</source>
-        <translation type="unfinished"></translation>
+        <translation>Менеджер APT репозиториев</translation>
     </message>
     <message>
         <location filename="../stacer/app.ui" line="250"/>
@@ -209,7 +209,7 @@
     <message>
         <location filename="../stacer/Pages/GnomeSettings/appearance_settings.ui" line="100"/>
         <source>Screen Keyboard</source>
-        <translation type="unfinished"></translation>
+        <translation>Экранная клавиатура</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/GnomeSettings/appearance_settings.ui" line="136"/>
@@ -229,7 +229,7 @@
     <message>
         <location filename="../stacer/Pages/GnomeSettings/appearance_settings.ui" line="252"/>
         <source>Icons</source>
-        <translation type="unfinished"></translation>
+        <translation>Иконки</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/GnomeSettings/appearance_settings.ui" line="282"/>
@@ -239,27 +239,27 @@
     <message>
         <location filename="../stacer/Pages/GnomeSettings/appearance_settings.ui" line="308"/>
         <source>Trash Icon</source>
-        <translation type="unfinished"></translation>
+        <translation>Иконка корзины</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/GnomeSettings/appearance_settings.ui" line="321"/>
         <source>Mounted Volumes Icon</source>
-        <translation type="unfinished"></translation>
+        <translation>Иконка примонтированных томов</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/GnomeSettings/appearance_settings.ui" line="347"/>
         <source>Show Desktop Icons</source>
-        <translation type="unfinished"></translation>
+        <translation>Показывать иконки на рабочем столе</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/GnomeSettings/appearance_settings.ui" line="373"/>
         <source>Network Icon</source>
-        <translation type="unfinished"></translation>
+        <translation>Иконка сети</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/GnomeSettings/appearance_settings.cpp" line="71"/>
         <source>None</source>
-        <translation type="unfinished"></translation>
+        <translation>Не выбрано</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/GnomeSettings/appearance_settings.cpp" line="71"/>
@@ -1179,17 +1179,17 @@
     <message>
         <location filename="../stacer/Pages/GnomeSettings/window_manager_settings.ui" line="155"/>
         <source>Right click</source>
-        <translation type="unfinished"></translation>
+        <translation>Правый клик</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/GnomeSettings/window_manager_settings.ui" line="168"/>
         <source>Double click</source>
-        <translation type="unfinished"></translation>
+        <translation>Двойной клик</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/GnomeSettings/window_manager_settings.ui" line="181"/>
         <source>Middle click</source>
-        <translation type="unfinished"></translation>
+        <translation>Клик средней кнопкой</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/GnomeSettings/window_manager_settings.ui" line="257"/>
@@ -1199,22 +1199,22 @@
     <message>
         <location filename="../stacer/Pages/GnomeSettings/window_manager_settings.ui" line="267"/>
         <source>Workspace Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Настройка рабочего окружения</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/GnomeSettings/window_manager_settings.ui" line="310"/>
         <source>Vertical workspaces</source>
-        <translation type="unfinished"></translation>
+        <translation>Вертикальных рабочих столов</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/GnomeSettings/window_manager_settings.ui" line="333"/>
         <source>Workspace switcher</source>
-        <translation type="unfinished"></translation>
+        <translation>Переключение рабочих столов</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/GnomeSettings/window_manager_settings.ui" line="356"/>
         <source>Horizontal workspaces</source>
-        <translation type="unfinished"></translation>
+        <translation>Горизонтальных рабочих столов</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/GnomeSettings/window_manager_settings.ui" line="379"/>
@@ -1234,12 +1234,12 @@
     <message>
         <location filename="../stacer/Pages/GnomeSettings/window_manager_settings.ui" line="483"/>
         <source>Hardware Acceleration</source>
-        <translation type="unfinished"></translation>
+        <translation>Аппаратное ускорение</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/GnomeSettings/window_manager_settings.ui" line="538"/>
         <source>Text quality</source>
-        <translation type="unfinished"></translation>
+        <translation>Качество текста</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/GnomeSettings/window_manager_settings.cpp" line="66"/>
@@ -1249,17 +1249,17 @@
     <message>
         <location filename="../stacer/Pages/GnomeSettings/window_manager_settings.cpp" line="66"/>
         <source>Good</source>
-        <translation type="unfinished"></translation>
+        <translation>Хорошее</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/GnomeSettings/window_manager_settings.cpp" line="66"/>
         <source>Best</source>
-        <translation type="unfinished"></translation>
+        <translation>Наилучшее</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/GnomeSettings/window_manager_settings.cpp" line="68"/>
         <source>Click</source>
-        <translation type="unfinished"></translation>
+        <translation>Клик</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/GnomeSettings/window_manager_settings.cpp" line="68"/>
@@ -1279,27 +1279,27 @@
     <message>
         <location filename="../stacer/Pages/GnomeSettings/window_manager_settings.cpp" line="80"/>
         <source>Maximize</source>
-        <translation type="unfinished"></translation>
+        <translation>Развернуть</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/GnomeSettings/window_manager_settings.cpp" line="80"/>
         <source>Maximize Horizontally</source>
-        <translation type="unfinished"></translation>
+        <translation>Развернуть по горизонтали</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/GnomeSettings/window_manager_settings.cpp" line="81"/>
         <source>Maximize Vertically</source>
-        <translation type="unfinished"></translation>
+        <translation>Развернуть по вертикали</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/GnomeSettings/window_manager_settings.cpp" line="81"/>
         <source>Minimize</source>
-        <translation type="unfinished"></translation>
+        <translation>Сворачивать</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/GnomeSettings/window_manager_settings.cpp" line="82"/>
         <source>None</source>
-        <translation type="unfinished"></translation>
+        <translation>Не выбрано</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/GnomeSettings/window_manager_settings.cpp" line="82"/>
@@ -1309,7 +1309,7 @@
     <message>
         <location filename="../stacer/Pages/GnomeSettings/window_manager_settings.cpp" line="82"/>
         <source>Menu</source>
-        <translation type="unfinished"></translation>
+        <translation>Меню</translation>
     </message>
 </context>
 </TS>
