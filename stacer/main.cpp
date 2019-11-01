@@ -1,3 +1,4 @@
+
 #include <QApplication>
 #include <QSplashScreen>
 #include <QDebug>
@@ -56,6 +57,13 @@ int main(int argc, char *argv[])
     qApp->setApplicationDisplayName("Stacer");
     qApp->setApplicationVersion("1.1.0");
     qApp->setWindowIcon(QIcon(":/static/logo.png"));
+
+    {
+        QCommandLineParser parser;
+        parser.addVersionOption();
+        parser.addHelpOption();
+        parser.process(app);
+    }
 
     QFontDatabase::addApplicationFont(":/static/font/Ubuntu-R.ttf");
 
