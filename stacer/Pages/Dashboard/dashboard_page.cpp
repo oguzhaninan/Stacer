@@ -3,6 +3,10 @@
 
 #include "utilities.h"
 
+#include <QNetworkAccessManager>
+#include <QNetworkReply>
+#include <QNetworkRequest>
+
 DashboardPage::~DashboardPage()
 {
     delete ui;
@@ -58,7 +62,7 @@ void DashboardPage::init()
     ui->widgetUpdateBar->hide();
 
     // check update
-    QtConcurrent::run(this, &DashboardPage::checkUpdate);
+    checkUpdate();
     connect(this, &DashboardPage::sigShowUpdateBar, ui->widgetUpdateBar, &QWidget::show);
 
     QList<QWidget*> widgets = {
@@ -70,30 +74,28 @@ void DashboardPage::init()
 
 void DashboardPage::checkUpdate()
 {
-    QString requestResult;
-
-    if (CommandUtil::isExecutable("curl")) {
-        try {            
-            requestResult = CommandUtil::exec("curl", { "https://api.github.com/repos/oguzhaninan/Stacer/releases/latest" });
-        } catch (const QString &ex) {
-            qCritical() << ex;
-        }
-
-        if (! requestResult.isEmpty()) {
-            QJsonDocument result = QJsonDocument::fromJson(requestResult.toUtf8());
-
-            QRegExp ex("([0-9].[0-9].[0-9])");
+    QNetworkAccessManager * nam = new QNetworkAccessManager(this);
+    const QNetworkRequest updateCheckRequest(QUrl("https://api.github.com/repos/oguzhaninan/Stacer/releases/latest"));
+    connect(nam,&QNetworkAccessManager::finished,this,[this](QNetworkReply * reply){
+        if(reply->error()==QNetworkReply::NoError)
+        {
+            const QString requestResult= reply->readAll();
+            const QJsonDocument result = QJsonDocument::fromJson(requestResult.toUtf8());
+            const QRegExp ex("([0-9].[0-9].[0-9])");
             ex.indexIn(result.object().value("tag_name").toString());
 
-            QString version;
             if (ex.matchedLength() > 0)
-                version = ex.cap();
+            {
+                const QString version = ex.cap();
 
-            if (qApp->applicationVersion() != version) {
-                emit sigShowUpdateBar();
+                if (qApp->applicationVersion() != version) {
+                    emit sigShowUpdateBar();
+                }
             }
         }
-    }
+
+    });
+    nam->get(updateCheckRequest);
 }
 
 void DashboardPage::on_btnDownloadUpdate_clicked()
