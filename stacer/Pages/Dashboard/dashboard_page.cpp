@@ -43,7 +43,7 @@ void DashboardPage::init()
     connect(mTimer, &QTimer::timeout, this, &DashboardPage::updateMemoryBar);
     connect(mTimer, &QTimer::timeout, this, &DashboardPage::updateNetworkBar);
 
-    QTimer *timerDisk = new QTimer;
+    QTimer *timerDisk = new QTimer(this);
     connect(timerDisk, &QTimer::timeout, this, &DashboardPage::updateDiskBar);
     timerDisk->start(5 * 1000);
 
@@ -116,8 +116,9 @@ void DashboardPage::systemInformationInit()
         << tr("CPU Core: %1").arg(sysInfo.getCpuCore())
         << tr("CPU Speed: %1").arg(sysInfo.getCpuSpeed());
 
-    QStringListModel *systemInfoModel = new QStringListModel(infos);
-
+    QStringListModel *systemInfoModel = new QStringListModel(infos,ui->listViewSystemInfo);
+    const auto oldModel = ui->listViewSystemInfo->selectionModel();
+    delete  oldModel;
     ui->listViewSystemInfo->setModel(systemInfoModel);
 }
 

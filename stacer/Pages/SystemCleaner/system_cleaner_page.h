@@ -32,7 +32,7 @@ public:
     };
 
 public:
-    explicit SystemCleanerPage(QWidget *parent = 0);
+    explicit SystemCleanerPage(QWidget *parent = nullptr);
     ~SystemCleanerPage();
 
 private slots:

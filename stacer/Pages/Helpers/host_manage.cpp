@@ -132,11 +132,11 @@ void HostManage::on_btnNewHost_clicked()
 
 void HostManage::loadTableRowMenu()
 {
-    QAction *actionOpenFolder = new QAction(QIcon(":/static/themes/common/img/folder.png"), tr("Edit"));
+    QAction *actionOpenFolder = new QAction(QIcon(":/static/themes/common/img/folder.png"), tr("Edit"),&mTableRowMenu);
     actionOpenFolder->setData("edit");
     mTableRowMenu.addAction(actionOpenFolder);
 
-    QAction *actionDelete = new QAction(QIcon(":/static/themes/common/img/delete.png"), tr("Delete"));
+    QAction *actionDelete = new QAction(QIcon(":/static/themes/common/img/delete.png"), tr("Delete"),&mTableRowMenu);
     actionDelete->setData("delete");
     mTableRowMenu.addAction(actionDelete);
 }

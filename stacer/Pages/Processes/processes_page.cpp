@@ -69,15 +69,17 @@ void ProcessesPage::init()
 void ProcessesPage::loadHeaderMenu()
 {
     int i = 0;
+    QList<QAction*> actionList;
+    actionList.reserve(mHeaders.size());
     for (const QString &header : mHeaders) {
-        QAction *action = new QAction(header);
+        QAction *action = new QAction(header,&mHeaderMenu);
         action->setCheckable(true);
         action->setChecked(true);
         action->setData(i++);
+        actionList.push_back(action);
 
-        mHeaderMenu.addAction(action);
     }
-
+    mHeaderMenu.addActions(actionList);
     // exclude headers
     QList<int> hiddenHeaders = { 3, 6, 7, 8, 9, 10, 11 };
 
