@@ -5,6 +5,8 @@
 #include <QStandardPaths>
 #include <QDebug>
 
+#include <memory>
+
 QString CommandUtil::sudoExec(const QString &cmd, QStringList args, QByteArray data)
 {
     args.push_front(cmd);
@@ -22,7 +24,7 @@ QString CommandUtil::sudoExec(const QString &cmd, QStringList args, QByteArray d
 
 QString CommandUtil::exec(const QString &cmd, QStringList args, QByteArray data)
 {
-    QProcess* process = new QProcess;
+    std::unique_ptr<QProcess> process(new QProcess());
     process->start(cmd, args);
 
     if (! data.isEmpty()) {

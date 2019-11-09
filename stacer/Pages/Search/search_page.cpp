@@ -94,15 +94,17 @@ void SearchPage::loadTableRowMenu()
 void SearchPage::loadHeaderMenu()
 {
     int i = 0;
+    QList<QAction*> actionList;
+    actionList.reserve(mTableHeaders.size());
+
     for (const QString &header : mTableHeaders) {
-        QAction *action = new QAction(header);
+        QAction *action = new QAction(header,&mHeaderMenu);
         action->setCheckable(true);
         action->setChecked(true);
         action->setData(i++);
-
-        mHeaderMenu.addAction(action);
+        actionList.push_back(action);
     }
-
+    mHeaderMenu.addActions(actionList);
     // exclude headers
     QList<int> hiddenHeaders = { 4, 6, 7, 8 };
 
