@@ -127,6 +127,7 @@ void DashboardPage::systemInformationInit()
 void DashboardPage::updateCpuBar()
 {
     int cpuUsedPercent = im->getCpuPercents().at(0);
+    double cpuCurrentClockGHz = im->getCpuClock()/1000.0;
 
     // alert message
     int cpuAlerPercent = mSettingManager->getCpuAlertPercent();
@@ -142,7 +143,7 @@ void DashboardPage::updateCpuBar()
         }
     }
 
-    mCpuBar->setValue(cpuUsedPercent, QString("%1%").arg(cpuUsedPercent));
+    mCpuBar->setValue(cpuUsedPercent, QString("%1 GHz\n%2%").arg(cpuCurrentClockGHz, 0, 'f', 2).arg(cpuUsedPercent));
 }
 
 void DashboardPage::updateMemoryBar()

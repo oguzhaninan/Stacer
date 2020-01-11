@@ -44,6 +44,11 @@ QList<double> InfoManager::getCpuLoadAvgs() const
     return ci.getLoadAvgs();
 }
 
+double InfoManager::getCpuClock() const
+{
+    return ci.getAvgClock();
+}
+
 /*
  * Memory Provider
  */
