@@ -6,7 +6,7 @@
 #include "Utils/command_util.h"
 #include "Info/cpu_info.h"
 
-#define PROC_CPUINFO "/proc/cpuinfo"
+#define LSCPU_COMMAND "LANG=nl_NL.UTF-8 lscpu"
 
 #include "stacer-core_global.h"
 
