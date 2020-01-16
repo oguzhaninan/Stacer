@@ -18,6 +18,7 @@ public:
     quint8 getCpuCoreCount() const;
     QList<int> getCpuPercents() const;
     QList<double> getCpuLoadAvgs() const;
+    double getCpuClock() const;
 
     quint64 getSwapUsed() const;
     quint64 getSwapTotal() const;

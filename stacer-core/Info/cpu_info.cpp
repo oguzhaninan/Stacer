@@ -1,5 +1,7 @@
 #include "cpu_info.h"
 
+#include "command_util.h"
+
 quint8 CpuInfo::getCpuCoreCount() const
 {
     static quint8 count = 0;
@@ -28,6 +30,25 @@ QList<double> CpuInfo::getLoadAvgs() const
     }
 
     return avgs;
+}
+
+double CpuInfo::getAvgClock() const
+{
+    QStringList lines = CommandUtil::exec("bash",{"-c", LSCPU_COMMAND}).split('\n');
+    QString clockMHz = lines.filter(QRegExp("^CPU MHz")).first().split(":").last();
+    return clockMHz.toDouble();
+}
+
+QList<double> CpuInfo::getClocks() const
+{
+    QStringList lines = FileUtil::readListFromFile(PROC_CPUINFO)
+            .filter(QRegExp("^cpu MHz"));
+
+    QList<double> clocks;
+    for(auto line: lines){
+        clocks.push_back(line.split(":").last().toDouble());
+    }
+    return clocks;
 }
 
 QList<int> CpuInfo::getCpuPercents() const
