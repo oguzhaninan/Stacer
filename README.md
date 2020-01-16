@@ -73,6 +73,10 @@
 1. Run: `sudo dnf install stacer`
 2. Launch Stacer using the installed `stacer` command.
 
+### Nixpkgs
+1. Run: `nix-env -iA nixpkgs.stacer`
+2. Launch Stacer using the installed `stacer` command.
+
 ## Build from source with CMake (Qt Version Qt 5.x)
 1. mkdir build && cd build
 2. cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_PREFIX_PATH=/qt/path/bin ..
