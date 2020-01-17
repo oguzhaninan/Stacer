@@ -34,8 +34,8 @@ QList<double> CpuInfo::getLoadAvgs() const
 
 double CpuInfo::getAvgClock() const
 {
-    QStringList lines = CommandUtil::exec("bash",{"-c", LSCPU_COMMAND}).split('\n');
-    QString clockMHz = lines.filter(QRegExp("^CPU MHz")).first().split(":").last();
+    const QStringList lines = CommandUtil::exec("bash",{"-c", LSCPU_COMMAND}).split('\n');
+    const QString clockMHz = lines.filter(QRegExp("^CPU MHz")).first().split(":").last();
     return clockMHz.toDouble();
 }
 
