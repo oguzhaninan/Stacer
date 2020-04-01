@@ -27,6 +27,13 @@
 	</a>
 </p>	
 
+## Sponsors
+<p align="center">
+    <a href="https://icsdefense.net">
+	<img width="250px" src="https://icsdefense.net/wp-content/uploads/2019/12/Turkuaz.png"/>
+</a>  
+</p>
+
 ## Reviews
 <p align="left">
     <a href="http://www.omgubuntu.co.uk/2017/01/stacer-system-optimizer-for-ubuntu">
@@ -35,9 +42,6 @@
     <a href="http://www.diolinux.com.br/2017/02/stacer-um-programa-para-otimizar-o-ubuntu.html">
 		<img width="170px" src="http://coletivo.semanadolinux.com.br/images/site/diolinux.png"/>
 	</a>    
-    <a href="https://www.genbeta.com/linux/stacer-una-app-todo-en-uno-que-te-deja-monitorizar-y-optimizar-el-sistema-en-ubuntu">
-		<img width="155px" src="http://seanfee.com/wp-content/uploads/2014/04/Logo_genbeta.jpg"/>
-	</a>
     <a href="http://www.dobreprogramy.pl/Stacer-program-do-optymalizacji-Ubuntu-ktory-wyglada-jakby-uciekl-z-Windowsa,News,78941.html">
 		<img width="155px" src="http://storage.dobreprogramy.pl/artykuly/9urodziny/logoDP-napis.png"/>
 	</a>
