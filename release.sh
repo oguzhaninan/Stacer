@@ -1,5 +1,5 @@
 #!/bin/bash
-VERSION=1.1.0hamonikr
+VERSION=1.1.0
 RELEASE=Release
 DIR=stacer-$VERSION
 
