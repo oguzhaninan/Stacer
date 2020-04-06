@@ -23,7 +23,7 @@ mv translations/*.qm $RELEASE/$DIR/stacer/translations
 wget -cO lqt "https://github.com/probonopd/linuxdeployqt/releases/download/continuous/linuxdeployqt-continuous-x86_64.AppImage"
 chmod +x lqt
 unset QTDIR; unset QT_PLUGIN_PATH; unset LD_LIBRARY_PATH
-./lqt $RELEASE/$DIR/stacer/stacer -bundle-non-qt-libs -no-translations
+./lqt $RELEASE/$DIR/stacer/stacer -bundle-non-qt-libs -no-translations -unsupported-allow-new-glibc
 rm lqt 
 
 if [ $1 = "deb" ]; then
