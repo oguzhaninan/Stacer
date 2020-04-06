@@ -131,6 +131,7 @@ TRANSLATIONS += \
     ../translations/stacer_hi.ts \
     ../translations/stacer_it.ts \
     ../translations/stacer_kn.ts \
+    ../translations/stacer_ko.ts \    
     ../translations/stacer_ml.ts \
     ../translations/stacer_nl.ts \
     ../translations/stacer_oc.ts \
