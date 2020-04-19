@@ -21,12 +21,12 @@
     <message>
         <location filename="../stacer/Pages/AptSourceManager/apt_source_edit.ui" line="55"/>
         <source>Options</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">الخيارات</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/AptSourceManager/apt_source_edit.ui" line="71"/>
         <source>Cancel</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">إلغاء</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/AptSourceManager/apt_source_edit.ui" line="87"/>
@@ -46,17 +46,17 @@
     <message>
         <location filename="../stacer/Pages/AptSourceManager/apt_source_edit.ui" line="133"/>
         <source>Distribution</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">التوزيعة</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/AptSourceManager/apt_source_edit.ui" line="152"/>
         <source>Source</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">المصدر</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/AptSourceManager/apt_source_edit.ui" line="177"/>
         <source>Binary</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">الحزمة</translation>
     </message>
 </context>
 <context>
@@ -69,7 +69,7 @@
     <message>
         <location filename="../stacer/Pages/AptSourceManager/apt_source_manager_page.ui" line="226"/>
         <source>Edit</source>
-        <translation type="unfinished">تحرير</translation>
+        <translation type="unfinished">تعديل</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/AptSourceManager/apt_source_manager_page.ui" line="14"/>
@@ -79,7 +79,7 @@
     <message>
         <location filename="../stacer/Pages/AptSourceManager/apt_source_manager_page.ui" line="125"/>
         <source>Not Found APT Repositories</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">لم يتم العثور على مستودعات الAPT.</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/AptSourceManager/apt_source_manager_page.ui" line="269"/>
@@ -95,17 +95,17 @@
         <location filename="../stacer/Pages/AptSourceManager/apt_source_manager_page.ui" line="338"/>
         <location filename="../stacer/Pages/AptSourceManager/apt_source_manager_page.cpp" line="86"/>
         <source>Add Repository</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">إضافة مستودع</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/AptSourceManager/apt_source_manager_page.ui" line="371"/>
         <source>Cancel</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">إلغاء</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/AptSourceManager/apt_source_manager_page.ui" line="419"/>
         <source>Select to delete or edit.</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">حدد للحذف أو التعديل.</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/AptSourceManager/apt_source_manager_page.cpp" line="25"/>
@@ -136,12 +136,12 @@
     <message>
         <location filename="../stacer/app.ui" line="101"/>
         <source>Dashboard</source>
-        <translation>الرئيسية</translation>
+        <translation>لوحة التحكم</translation>
     </message>
     <message>
         <location filename="../stacer/app.ui" line="135"/>
         <source>Startup Apps</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">تطبيقات بدء التشغيل</translation>
     </message>
     <message>
         <location filename="../stacer/app.ui" line="163"/>
@@ -171,7 +171,7 @@
     <message>
         <location filename="../stacer/app.ui" line="194"/>
         <source>Services</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">الخدمات</translation>
     </message>
     <message>
         <location filename="../stacer/app.ui" line="334"/>
@@ -186,12 +186,12 @@
     <message>
         <location filename="../stacer/app.ui" line="403"/>
         <source>Feedback</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">المراجعة</translation>
     </message>
     <message>
         <location filename="../stacer/app.cpp" line="111"/>
         <source>Quit</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">خروج</translation>
     </message>
 </context>
 <context>
@@ -199,7 +199,7 @@
     <message>
         <location filename="../stacer/Pages/GnomeSettings/appearance_settings.ui" line="44"/>
         <source>Screen Applications</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">التطبيقات</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/GnomeSettings/appearance_settings.ui" line="74"/>
@@ -229,7 +229,7 @@
     <message>
         <location filename="../stacer/Pages/GnomeSettings/appearance_settings.ui" line="252"/>
         <source>Icons</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">الأيقونات</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/GnomeSettings/appearance_settings.ui" line="282"/>
@@ -259,7 +259,7 @@
     <message>
         <location filename="../stacer/Pages/GnomeSettings/appearance_settings.cpp" line="71"/>
         <source>None</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">لا شيء</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/GnomeSettings/appearance_settings.cpp" line="71"/>
@@ -297,7 +297,7 @@
     <message>
         <location filename="../stacer/Pages/Dashboard/dashboard_page.ui" line="20"/>
         <source>Dashboard</source>
-        <translation type="unfinished">الرئيسية</translation>
+        <translation type="unfinished">>لوحة التحكم</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/Dashboard/dashboard_page.ui" line="156"/>
@@ -332,7 +332,7 @@
     <message>
         <location filename="../stacer/Pages/Dashboard/dashboard_page.cpp" line="17"/>
         <source>DOWNLOAD</source>
-        <translation>تنزيل</translation>
+        <translation>تحميل</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/Dashboard/dashboard_page.cpp" line="18"/>
@@ -426,48 +426,48 @@
     <message>
         <location filename="../stacer/feedback.ui" line="45"/>
         <source>Email Address</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">عنوان البريد الإلكتروني</translation>
     </message>
     <message>
         <location filename="../stacer/feedback.ui" line="68"/>
         <source>Send</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">إرسال</translation>
     </message>
     <message>
         <location filename="../stacer/feedback.ui" line="94"/>
         <source>Message</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">الرسالة</translation>
     </message>
     <message>
         <location filename="../stacer/feedback.ui" line="104"/>
         <source>Send a Feedback</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">إرسال المراجعة</translation>
     </message>
     <message>
         <location filename="../stacer/feedback.cpp" line="46"/>
         <source>Email address is not valid !</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"> البريد الإلكتروني غير صالح!</translation>
     </message>
     <message>
         <location filename="../stacer/feedback.cpp" line="51"/>
         <source>Your message must be at least 25 characters !</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">يجب أن تتكون رسالتك من 25 حرفًا على الأقل!</translation>
     </message>
     <message>
         <location filename="../stacer/feedback.cpp" line="61"/>
         <source>Sending..</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">إرسال..</translation>
     </message>
     <message>
         <location filename="../stacer/feedback.cpp" line="79"/>
         <source>&lt;font color=&apos;#2ecc71&apos;&gt;Your Feedback has been successfully sended.&lt;/font&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">&lt;font color=&apos;#2ecc71&apos;&gt;تم إرسال مراجعتك بنجاح.&lt;/font&gt;</translation>
     </message>
     <message>
         <location filename="../stacer/feedback.cpp" line="81"/>
         <location filename="../stacer/feedback.cpp" line="86"/>
         <source>Something went wrong, try again !</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">حدث خطأ ما حاول مرة أخرى !</translation>
     </message>
     <message>
         <location filename="../stacer/feedback.cpp" line="89"/>
@@ -477,7 +477,7 @@
     <message>
         <location filename="../stacer/feedback.cpp" line="94"/>
         <source>Fields cannot be left blank !</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">الحقول لا يمكن تركها فارغة !</translation>
     </message>
 </context>
 <context>
@@ -597,7 +597,7 @@
     <message>
         <location filename="../stacer/Managers/setting_manager.cpp" line="61"/>
         <source>Dashboard</source>
-        <translation type="unfinished">الرئيسية</translation>
+        <translation type="unfinished">لوحة التحكم</translation>
     </message>
 </context>
 <context>
@@ -791,12 +791,12 @@
     <message>
         <location filename="../stacer/Pages/Settings/settings_page.cpp" line="74"/>
         <source>Dashboard</source>
-        <translation type="unfinished">الرئيسية</translation>
+        <translation type="unfinished">لوحة التحكم</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/Settings/settings_page.cpp" line="74"/>
         <source>Startup Apps</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">تطبيقات بدء التشغيل</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/Settings/settings_page.cpp" line="74"/>
@@ -880,7 +880,7 @@
     <message>
         <location filename="../stacer/Pages/StartupApps/startup_apps_page.ui" line="14"/>
         <source>Startup Apps</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">تطبيقات بدء التشغيل</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/StartupApps/startup_apps_page.ui" line="101"/>
@@ -1161,7 +1161,7 @@
     <message>
         <location filename="../stacer/Pages/GnomeSettings/unity_settings.ui" line="971"/>
         <source>Show my name</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">أظهر إسمي</translation>
     </message>
 </context>
 <context>
