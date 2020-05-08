@@ -82,10 +82,10 @@
 2. Launch Stacer using the installed `stacer` command.
 
 ## Build from source with CMake (Qt Version Qt 5.x)
-1. mkdir build && cd build
-2. cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_PREFIX_PATH=/qt/path/bin ..
-3. make -j $(nproc)
-4. output/bin/stacer
+1. `mkdir build && cd build`
+2. `cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_PREFIX_PATH=/qt/path/bin ..`
+3. `make -j $(nproc)`
+4. `output/bin/stacer`
 
 ## Screenshots
 
