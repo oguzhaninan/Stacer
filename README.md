@@ -30,7 +30,7 @@
 ## Sponsors
 <p align="center">
     <a href="https://icsdefense.net">
-	<img width="250px" src="https://icsdefense.net/wp-content/uploads/2019/12/Turkuaz.png"/>
+	<img width="250px" src="https://i.imgur.com/nbJiRr2.png"/>
 </a>  
 </p>
 
