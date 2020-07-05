@@ -15,7 +15,7 @@ class InfoManager
 public:
     static InfoManager *ins();
 
-    quint8 getCpuCoreCount() const;
+    int getCpuCoreCount() const;
     QList<int> getCpuPercents() const;
     QList<double> getCpuLoadAvgs() const;
     double getCpuClock() const;
