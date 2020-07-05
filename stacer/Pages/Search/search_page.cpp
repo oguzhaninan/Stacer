@@ -335,16 +335,21 @@ QList<QStandardItem*> SearchPage::createRow(const QString &filepath)
     i_lastModify->setData(fileInfo->lastModified().toString(mSearchResultDateFormat), rowRole);
     i_lastModify->setData(fileInfo->lastModified().toString(mSearchResultDateFormat), Qt::ToolTipRole);
 
+    QList<QStandardItem*> result {
+        i_name, i_path, i_size, i_user, i_group,
+        i_creationTime, i_lastAccess, i_lastModify
+    };
+
+#if (QT_VERSION >= QT_VERSION_CHECK(5, 10, 0))
     QStandardItem *i_lastChange = new QStandardItem(fileInfo->metadataChangeTime().toString(mSearchResultDateFormat));
     i_lastChange->setData(fileInfo->metadataChangeTime().toString(mSearchResultDateFormat), rowRole);
     i_lastChange->setData(fileInfo->metadataChangeTime().toString(mSearchResultDateFormat), Qt::ToolTipRole);
+    result.push_back(i_lastChange);
+#endif
 
     delete fileInfo;
 
-    return {
-        i_name, i_path, i_size, i_user, i_group,
-        i_creationTime, i_lastAccess, i_lastModify, i_lastChange
-    };
+    return result;
 }
 
 void SearchPage::tableFoundResults_header_customContextMenuRequested(const QPoint &pos)
