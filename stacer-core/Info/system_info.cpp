@@ -15,8 +15,16 @@ SystemInfo::SystemInfo()
         QRegExp regexp("\\s+");
         QString space(" ");
 
-        QString modelLine = lines.filter(QRegExp("^Model name")).first();
-        QString speedLine = lines.filter(QRegExp("^CPU max MHz")).first();
+        auto filterModel = lines.filter(QRegExp("^Model name"));
+        QString modelLine = filterModel.isEmpty() ? "error missing model:error missing model" : filterModel.first();
+        auto filterSpeed = lines.filter(QRegExp("^CPU max MHz"));
+        QString speedLine = "error:0.0";
+        if (filterSpeed.isEmpty())
+        {
+            // fallback to CPU MHz
+            filterSpeed = lines.filter(QRegExp("^CPU MHz"));
+            speedLine = filterSpeed.isEmpty() ? speedLine : filterSpeed.first();
+        }
 
         model = modelLine.split(":").last();
         speed = speedLine.split(":").last();
