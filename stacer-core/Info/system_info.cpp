@@ -32,7 +32,7 @@ SystemInfo::SystemInfo()
     }
 
     CpuInfo ci;
-    this->cpuCore = QString::number(ci.getCpuCoreCount());
+    this->cpuCore = QString::number(ci.getCpuPhysicalCoreCount());
 
     // get username
     QString name = qgetenv("USER");

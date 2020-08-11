@@ -29,7 +29,7 @@ QStringList InfoManager::getGroupList() const
 /*
  * CPU Provider
  */
-quint8 InfoManager::getCpuCoreCount() const
+int InfoManager::getCpuCoreCount() const
 {
     return ci.getCpuCoreCount();
 }
