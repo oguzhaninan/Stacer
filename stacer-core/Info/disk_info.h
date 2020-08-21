@@ -25,7 +25,7 @@ private:
     QList<Disk*> disks;
 };
 
-struct Disk {	
+struct Disk {
     QString name;
     QString device;
     QString fileSystemType;
