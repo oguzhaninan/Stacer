@@ -20,6 +20,7 @@ public:
     QStringList getDiskNames() const;
     QList<QString> fileSystemTypes();
     QList<QString> devices();
+    ~DiskInfo();
 
 private:
     QList<Disk*> disks;
