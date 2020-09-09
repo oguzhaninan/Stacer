@@ -1,11 +1,36 @@
 #include "dashboard_page.h"
 #include "ui_dashboard_page.h"
 
+
 #include "utilities.h"
 
+#include <pugixml.hpp>
+
+#include <algorithm>
+#include <numeric>
 #include <QNetworkAccessManager>
 #include <QNetworkReply>
 #include <QNetworkRequest>
+
+#include <cstdio>
+#include <iostream>
+#include <memory>
+#include <stdexcept>
+#include <string>
+#include <array>
+
+std::string exec(const char* cmd) {
+    std::array<char, 128> buffer;
+    std::string result;
+    std::unique_ptr<FILE, decltype(&pclose)> pipe(popen(cmd, "r"), pclose);
+    if (!pipe) {
+        throw std::runtime_error("popen() failed!");
+    }
+    while (fgets(buffer.data(), buffer.size(), pipe.get()) != nullptr) {
+        result += buffer.data();
+    }
+    return result;
+}
 
 DashboardPage::~DashboardPage()
 {
@@ -18,6 +43,7 @@ DashboardPage::DashboardPage(QWidget *parent) :
     mCpuBar(new CircleBar(tr("CPU"), {"#A8E063", "#56AB2F"}, this)),
     mMemBar(new CircleBar(tr("MEMORY"), {"#FFB75E", "#ED8F03"}, this)),
     mDiskBar(new CircleBar(tr("DISK"), {"#DC2430", "#7B4397"}, this)),
+    mGPUBar(new CircleBar(tr("GPU"), {"#6A5ACDX","#0000ff"}, this)),
     mDownloadBar(new LineBar(tr("DOWNLOAD"), this)),
     mUploadBar(new LineBar(tr("UPLOAD"), this)),
     mTimer(new QTimer(this)),
@@ -37,6 +63,7 @@ void DashboardPage::init()
     ui->circleBarsLayout->addWidget(mCpuBar);
     ui->circleBarsLayout->addWidget(mMemBar);
     ui->circleBarsLayout->addWidget(mDiskBar);
+    ui->circleBarsLayout->addWidget(mGPUBar);
 
     // line bars
     ui->lineBarsLayout->addWidget(mDownloadBar);
@@ -46,6 +73,7 @@ void DashboardPage::init()
     connect(mTimer, &QTimer::timeout, this, &DashboardPage::updateCpuBar);
     connect(mTimer, &QTimer::timeout, this, &DashboardPage::updateMemoryBar);
     connect(mTimer, &QTimer::timeout, this, &DashboardPage::updateNetworkBar);
+    connect(mTimer, &QTimer::timeout, this, &DashboardPage::updateGPUBar);
 
     QTimer *timerDisk = new QTimer(this);
     connect(timerDisk, &QTimer::timeout, this, &DashboardPage::updateDiskBar);
@@ -57,6 +85,7 @@ void DashboardPage::init()
     updateCpuBar();
     updateMemoryBar();
     updateDiskBar();
+    updateGPUBar();
     updateNetworkBar();
 
     ui->widgetUpdateBar->hide();
@@ -66,7 +95,7 @@ void DashboardPage::init()
     connect(this, &DashboardPage::sigShowUpdateBar, ui->widgetUpdateBar, &QWidget::show);
 
     QList<QWidget*> widgets = {
-        mCpuBar, mMemBar, mDiskBar, mDownloadBar, mUploadBar
+        mCpuBar, mMemBar, mDiskBar, mGPUBar, mDownloadBar, mUploadBar
     };
 
     Utilities::addDropShadow(widgets, 60);
@@ -116,7 +145,9 @@ void DashboardPage::systemInformationInit()
         << tr("Kernel Release: %1").arg(sysInfo.getKernel())
         << tr("CPU Model: %1").arg(sysInfo.getCpuModel())
         << tr("CPU Core: %1").arg(sysInfo.getCpuCore())
-        << tr("CPU Speed: %1").arg(sysInfo.getCpuSpeed());
+        << tr("CPU Speed: %1").arg(sysInfo.getCpuSpeed())
+        << tr("GPU model: %1").arg(sysInfo.getCpuModel());
+
 
     QStringListModel *systemInfoModel = new QStringListModel(infos,ui->listViewSystemInfo);
     const auto oldModel = ui->listViewSystemInfo->selectionModel();
@@ -126,7 +157,10 @@ void DashboardPage::systemInformationInit()
 
 void DashboardPage::updateCpuBar()
 {
-    int cpuUsedPercent = im->getCpuPercents().at(0);
+
+    QList<int> list_percents_cpu_utilisation = im->getCpuPercents();
+
+    double cpuUsedPercent = std::accumulate(list_percents_cpu_utilisation.begin(),list_percents_cpu_utilisation.end(),0.)/list_percents_cpu_utilisation.size();
     double cpuCurrentClockGHz = im->getCpuClock()/1000.0;
 
     // alert message
@@ -143,7 +177,7 @@ void DashboardPage::updateCpuBar()
         }
     }
 
-    mCpuBar->setValue(cpuUsedPercent, QString("%1 GHz\n%2%").arg(cpuCurrentClockGHz, 0, 'f', 2).arg(cpuUsedPercent));
+    mCpuBar->setValue(cpuUsedPercent, QString("%1 GHz\n%2%").arg(cpuCurrentClockGHz, 0, 'f', 2).arg(cpuUsedPercent, 0, 'f', 2));
 }
 
 void DashboardPage::updateMemoryBar()
@@ -175,6 +209,45 @@ void DashboardPage::updateMemoryBar()
     mMemBar->setValue(memUsedPercent, QString("%1 / %2")
                      .arg(f_memUsed)
                      .arg(f_memTotal));
+}
+
+void DashboardPage::updateGPUBar()
+{
+    int cpuUsedPercent = im->getCpuPercents().at(0);
+    double cpuCurrentClockGHz = im->getCpuClock()/1000.0;
+
+    std::string xml_return = exec("nvidia-smi -q -x"); // get the xml query from nvidia-smi
+    pugi::xml_document doc;
+
+    //pugi::xml_parse_result results = doc.load_string(xml_return.c_str());
+
+    std::vector<double> gpu_utilisation;
+    std::vector<double> gpu_memory_used;
+    std::vector<double> gpu_memory_total;
+
+    std::string local_string_gpu_memory_total;
+    std::string local_string_gpu_memory_used;
+
+    for (pugi::xml_node gpu: doc.child("nvidia_smi_log").children("gpu")){
+        local_string_gpu_memory_total = gpu.child("fb_memory_usage").attribute("total").as_string();
+        gpu_memory_total.push_back(std::stod(local_string_gpu_memory_total.erase(local_string_gpu_memory_total.find(" MB"))));
+    }
+
+    // alert message
+    int cpuAlerPercent = mSettingManager->getCpuAlertPercent();
+    if (cpuAlerPercent > 0) {
+        static bool isShow = true;
+        if (cpuUsedPercent > cpuAlerPercent && isShow) {
+            AppManager::ins()->getTrayIcon()->showMessage(tr("High CPU Usage"),
+                                                          tr("The amount of CPU used is over %1%.").arg(cpuAlerPercent),
+                                                          QSystemTrayIcon::Warning);
+            isShow = false;
+        } else if (cpuUsedPercent < cpuAlerPercent) {
+            isShow = true;
+        }
+    }
+
+    mGPUBar->setValue(cpuUsedPercent, QString("%1 GHz\n%2%").arg(cpuCurrentClockGHz, 0, 'f', 2).arg(cpuUsedPercent));
 }
 
 void DashboardPage::updateDiskBar()

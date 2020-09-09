@@ -8,6 +8,7 @@
 #include <QJsonArray>
 #include <QDesktopServices>
 #include <QtConcurrent>
+#include <QObject>
 
 #include "Managers/info_manager.h"
 #include "circlebar.h"
@@ -36,6 +37,7 @@ private slots:
     void updateMemoryBar();
     void updateDiskBar();
     void updateNetworkBar();
+    void updateGPUBar();
 
     void on_btnDownloadUpdate_clicked();
 
@@ -49,6 +51,7 @@ private:
     CircleBar* mCpuBar;
     CircleBar* mMemBar;
     CircleBar* mDiskBar;
+    CircleBar* mGPUBar;
 
     LineBar *mDownloadBar;
     LineBar *mUploadBar;
