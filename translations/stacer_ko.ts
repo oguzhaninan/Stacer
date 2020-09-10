@@ -337,6 +337,11 @@
         <translation type="unfinished">다운로드</translation>
     </message>
     <message>
+        <location filename="../stacer/Pages/Dashboard/dashboard_page.cpp" line="44"/>
+        <source>CPU</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <location filename="../stacer/Pages/Dashboard/dashboard_page.cpp" line="45"/>
         <source>MEMORY</source>
         <translation type="unfinished">메모리</translation>
@@ -345,6 +350,11 @@
         <location filename="../stacer/Pages/Dashboard/dashboard_page.cpp" line="46"/>
         <source>DISK</source>
         <translation type="unfinished">디스크</translation>
+    </message>
+    <message>
+        <location filename="../stacer/Pages/Dashboard/dashboard_page.cpp" line="47"/>
+        <source>GPU</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../stacer/Pages/Dashboard/dashboard_page.cpp" line="48"/>
@@ -362,92 +372,87 @@
         <translation type="unfinished">업로드 속도</translation>
     </message>
     <message>
-        <location filename="../stacer/Pages/Dashboard/dashboard_page.cpp" line="147"/>
+        <location filename="../stacer/Pages/Dashboard/dashboard_page.cpp" line="164"/>
         <source>Hostname: %1</source>
         <translation type="unfinished">호스트명: %1</translation>
     </message>
     <message>
-        <location filename="../stacer/Pages/Dashboard/dashboard_page.cpp" line="148"/>
+        <location filename="../stacer/Pages/Dashboard/dashboard_page.cpp" line="165"/>
         <source>Platform: %1</source>
         <translation type="unfinished">플랫폼: %1</translation>
     </message>
     <message>
-        <location filename="../stacer/Pages/Dashboard/dashboard_page.cpp" line="149"/>
+        <location filename="../stacer/Pages/Dashboard/dashboard_page.cpp" line="166"/>
         <source>Distribution: %1</source>
         <translation type="unfinished">운영체제: %1</translation>
     </message>
     <message>
-        <location filename="../stacer/Pages/Dashboard/dashboard_page.cpp" line="150"/>
+        <location filename="../stacer/Pages/Dashboard/dashboard_page.cpp" line="167"/>
         <source>Kernel Release: %1</source>
         <translation type="unfinished">커널 버전: %1</translation>
     </message>
     <message>
-        <location filename="../stacer/Pages/Dashboard/dashboard_page.cpp" line="151"/>
+        <location filename="../stacer/Pages/Dashboard/dashboard_page.cpp" line="168"/>
         <source>CPU Model: %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../stacer/Pages/Dashboard/dashboard_page.cpp" line="153"/>
-        <source>CPU Speed: %1</source>
+        <location filename="../stacer/Pages/Dashboard/dashboard_page.cpp" line="171"/>
+        <source>GPU version: %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../stacer/Pages/Dashboard/dashboard_page.cpp" line="378"/>
+        <location filename="../stacer/Pages/Dashboard/dashboard_page.cpp" line="172"/>
+        <source>GPU CUDA: %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../stacer/Pages/Dashboard/dashboard_page.cpp" line="396"/>
         <source>High Disk Usage</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../stacer/Pages/Dashboard/dashboard_page.cpp" line="379"/>
+        <location filename="../stacer/Pages/Dashboard/dashboard_page.cpp" line="397"/>
         <source>The amount of disk used is over %1%.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../stacer/Pages/Dashboard/dashboard_page.cpp" line="417"/>
-        <location filename="../stacer/Pages/Dashboard/dashboard_page.cpp" line="421"/>
+        <location filename="../stacer/Pages/Dashboard/dashboard_page.cpp" line="435"/>
+        <location filename="../stacer/Pages/Dashboard/dashboard_page.cpp" line="439"/>
         <source>Total: %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../stacer/Pages/Dashboard/dashboard_page.cpp" line="152"/>
+        <location filename="../stacer/Pages/Dashboard/dashboard_page.cpp" line="169"/>
         <source>CPU Core: %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../stacer/Pages/Dashboard/dashboard_page.cpp" line="44"/>
-        <source>__CPU__</source>
+        <location filename="../stacer/Pages/Dashboard/dashboard_page.cpp" line="170"/>
+        <source>CPU Speed: %1 GHz</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../stacer/Pages/Dashboard/dashboard_page.cpp" line="47"/>
-        <source>__GPU__</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../stacer/Pages/Dashboard/dashboard_page.cpp" line="154"/>
-        <source>GPU model: %1</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../stacer/Pages/Dashboard/dashboard_page.cpp" line="176"/>
-        <location filename="../stacer/Pages/Dashboard/dashboard_page.cpp" line="280"/>
-        <location filename="../stacer/Pages/Dashboard/dashboard_page.cpp" line="336"/>
+        <location filename="../stacer/Pages/Dashboard/dashboard_page.cpp" line="194"/>
+        <location filename="../stacer/Pages/Dashboard/dashboard_page.cpp" line="298"/>
+        <location filename="../stacer/Pages/Dashboard/dashboard_page.cpp" line="354"/>
         <source>High CPU Usage</source>
         <translation type="unfinished">높은 CPU 사용율</translation>
     </message>
     <message>
-        <location filename="../stacer/Pages/Dashboard/dashboard_page.cpp" line="177"/>
-        <location filename="../stacer/Pages/Dashboard/dashboard_page.cpp" line="281"/>
-        <location filename="../stacer/Pages/Dashboard/dashboard_page.cpp" line="337"/>
+        <location filename="../stacer/Pages/Dashboard/dashboard_page.cpp" line="195"/>
+        <location filename="../stacer/Pages/Dashboard/dashboard_page.cpp" line="299"/>
+        <location filename="../stacer/Pages/Dashboard/dashboard_page.cpp" line="355"/>
         <source>The amount of CPU used is over %1%.</source>
         <translation type="unfinished">%1% 이상의 CPU를 사용 중입니다.</translation>
     </message>
     <message>
-        <location filename="../stacer/Pages/Dashboard/dashboard_page.cpp" line="205"/>
+        <location filename="../stacer/Pages/Dashboard/dashboard_page.cpp" line="223"/>
         <source>High Memory Usage</source>
         <translation type="unfinished">높은 메모리 사용율</translation>
     </message>
     <message>
-        <location filename="../stacer/Pages/Dashboard/dashboard_page.cpp" line="206"/>
+        <location filename="../stacer/Pages/Dashboard/dashboard_page.cpp" line="224"/>
         <source>The amount of memory used is over %1%.</source>
         <translation type="unfinished">%1% 이상의 메모리를 사용 중입니다.</translation>
     </message>
@@ -753,77 +758,77 @@
 <context>
     <name>ResourcesPage</name>
     <message>
-        <location filename="../stacer/Pages/Resources/resources_page.cpp" line="14"/>
+        <location filename="../stacer/Pages/Resources/resources_page.cpp" line="18"/>
         <source>History of CPU</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../stacer/Pages/Resources/resources_page.cpp" line="15"/>
+        <location filename="../stacer/Pages/Resources/resources_page.cpp" line="19"/>
         <source>History of CPU Load Averages</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../stacer/Pages/Resources/resources_page.cpp" line="16"/>
+        <location filename="../stacer/Pages/Resources/resources_page.cpp" line="20"/>
         <source>History of Disk Read Write</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../stacer/Pages/Resources/resources_page.cpp" line="17"/>
+        <location filename="../stacer/Pages/Resources/resources_page.cpp" line="21"/>
         <source>History of Memory</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../stacer/Pages/Resources/resources_page.cpp" line="18"/>
+        <location filename="../stacer/Pages/Resources/resources_page.cpp" line="22"/>
         <source>History of Network</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../stacer/Pages/Resources/resources_page.cpp" line="104"/>
+        <location filename="../stacer/Pages/Resources/resources_page.cpp" line="108"/>
         <source>File System</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../stacer/Pages/Resources/resources_page.cpp" line="120"/>
+        <location filename="../stacer/Pages/Resources/resources_page.cpp" line="124"/>
         <source>File System Type</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../stacer/Pages/Resources/resources_page.cpp" line="140"/>
+        <location filename="../stacer/Pages/Resources/resources_page.cpp" line="144"/>
         <source>Device</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../stacer/Pages/Resources/resources_page.cpp" line="214"/>
+        <location filename="../stacer/Pages/Resources/resources_page.cpp" line="218"/>
         <source>Read: %1/s Total: %2</source>
         <translation type="unfinished">읽기: %1/s 전체: %2</translation>
     </message>
     <message>
-        <location filename="../stacer/Pages/Resources/resources_page.cpp" line="220"/>
+        <location filename="../stacer/Pages/Resources/resources_page.cpp" line="224"/>
         <source>Write: %1/s Total: %2</source>
         <translation type="unfinished">쓰기: %1/s 전체: %2</translation>
     </message>
     <message>
-        <location filename="../stacer/Pages/Resources/resources_page.cpp" line="257"/>
+        <location filename="../stacer/Pages/Resources/resources_page.cpp" line="261"/>
         <source>%1 Minute Average: %2</source>
         <translation type="unfinished">%1 분 평균: %2</translation>
     </message>
     <message>
-        <location filename="../stacer/Pages/Resources/resources_page.cpp" line="303"/>
+        <location filename="../stacer/Pages/Resources/resources_page.cpp" line="307"/>
         <source>Download: %1/s Total: %2</source>
         <translation type="unfinished">다운로드: %1/s 전체: %2</translation>
     </message>
     <message>
-        <location filename="../stacer/Pages/Resources/resources_page.cpp" line="308"/>
+        <location filename="../stacer/Pages/Resources/resources_page.cpp" line="312"/>
         <source>Upload: %1/s  Total: %2</source>
         <translation type="unfinished">업로드: %1/s  전체: %2</translation>
     </message>
     <message>
-        <location filename="../stacer/Pages/Resources/resources_page.cpp" line="352"/>
+        <location filename="../stacer/Pages/Resources/resources_page.cpp" line="356"/>
         <source>Swap: %1 (%2%) %3</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../stacer/Pages/Resources/resources_page.cpp" line="361"/>
+        <location filename="../stacer/Pages/Resources/resources_page.cpp" line="365"/>
         <source>Memory: %1 (%2%) %3</source>
         <translation type="unfinished"></translation>
     </message>

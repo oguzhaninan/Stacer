@@ -4,13 +4,13 @@
 
 #include "utilities.h"
 
-#include "pugixml.hpp"
-
 #include <algorithm>
 #include <numeric>
 #include <QNetworkAccessManager>
 #include <QNetworkReply>
 #include <QNetworkRequest>
+
+#include "pugixml.hpp"
 
 #include <cstdio>
 #include <iostream>
@@ -41,10 +41,10 @@ DashboardPage::~DashboardPage()
 DashboardPage::DashboardPage(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::DashboardPage),
-    mCpuBar(new CircleBar(tr("__CPU__"), {"#A8E063", "#56AB2F"}, this)),
+    mCpuBar(new CircleBar(tr("CPU"), {"#A8E063", "#56AB2F"}, this)),
     mMemBar(new CircleBar(tr("MEMORY"), {"#FFB75E", "#ED8F03"}, this)),
     mDiskBar(new CircleBar(tr("DISK"), {"#DC2430", "#7B4397"}, this)),
-    mGPUUtilisationBar(new CircleBar(tr("__GPU__"), {"#7FFF00","#0000ff"}, this)),
+    mGPUUtilisationBar(new CircleBar(tr("GPU"), {"#7FFF00","#0000ff"}, this)),
     mGPUMemoryBar(new CircleBar(tr("GPU MEMORY"), {"#DEB887","#0000ff"}, this)),
     mDownloadBar(new LineBar(tr("DOWNLOAD"), this)),
     mUploadBar(new LineBar(tr("UPLOAD"), this)),
@@ -137,9 +137,26 @@ void DashboardPage::on_btnDownloadUpdate_clicked()
     QDesktopServices::openUrl(QUrl("https://github.com/oguzhaninan/Stacer/releases/latest"));
 }
 
+bool find_driver_version(pugi::xml_node node)
+{
+    return strcmp(node.name(), "driver_version") == 0;
+}
+
+bool find_cuda_version(pugi::xml_node node)
+{
+    return strcmp(node.name(), "cuda_version") == 0;
+}
+
 void DashboardPage::systemInformationInit()
 {
     // get system information
+    std::string xml_return = exec("nvidia-smi -q -x"); // get the xml query from nvidia-smi
+    pugi::xml_document doc;
+    pugi::xml_parse_result result = doc.load_string(xml_return.c_str());
+
+    std::string GPU_driver = doc.first_child().find_node(find_driver_version).first_child().value();
+    std::string cuda_driver = doc.first_child().find_node(find_cuda_version).first_child().value();
+    
     SystemInfo sysInfo;
 
     QStringList infos;
@@ -150,8 +167,9 @@ void DashboardPage::systemInformationInit()
         << tr("Kernel Release: %1").arg(sysInfo.getKernel())
         << tr("CPU Model: %1").arg(sysInfo.getCpuModel())
         << tr("CPU Core: %1").arg(sysInfo.getCpuCore())
-        << tr("CPU Speed: %1").arg(sysInfo.getCpuSpeed())
-        << tr("GPU model: %1").arg(sysInfo.getCpuModel());
+        << tr("CPU Speed: %1 GHz").arg(im->getCpuClock()/1000.0,2,'f',1)
+        << tr("GPU version: %1").arg(QString::fromStdString(GPU_driver))
+        << tr("GPU CUDA: %1").arg(QString::fromStdString(cuda_driver));
 
 
     QStringListModel *systemInfoModel = new QStringListModel(infos,ui->listViewSystemInfo);
@@ -342,7 +360,7 @@ void DashboardPage::updateGPUUtilisationBar()
         }
     }
 
-    mGPUUtilisationBar->setValue(sum_utilisation/number_gpu, QString("%1 %/%2 %").arg(sum_utilisation, 3, 'f', 0).arg(number_gpu*100., 3, 'f', 0));
+    mGPUUtilisationBar->setValue(sum_utilisation/number_gpu, QString(" %1 Percents / %2 ").arg(sum_utilisation, 3, 'f', 0).arg(number_gpu*100., 3, 'f', 0));
 }
 
 void DashboardPage::updateDiskBar()

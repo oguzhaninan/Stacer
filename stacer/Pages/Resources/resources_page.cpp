@@ -8,6 +8,10 @@ ResourcesPage::~ResourcesPage()
 }
 
 ResourcesPage::ResourcesPage(QWidget *parent) :
+
+
+
+
     QWidget(parent),
     ui(new Ui::ResourcesPage),
     im(InfoManager::ins()),
