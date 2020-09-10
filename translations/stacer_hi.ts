@@ -337,112 +337,119 @@
         <translation>डाउनलोड</translation>
     </message>
     <message>
-        <location filename="../stacer/Pages/Dashboard/dashboard_page.cpp" line="43"/>
-        <source>CPU</source>
-        <translation>CPU</translation>
-    </message>
-    <message>
-        <location filename="../stacer/Pages/Dashboard/dashboard_page.cpp" line="44"/>
+        <location filename="../stacer/Pages/Dashboard/dashboard_page.cpp" line="45"/>
         <source>MEMORY</source>
         <translation>याद</translation>
     </message>
     <message>
-        <location filename="../stacer/Pages/Dashboard/dashboard_page.cpp" line="45"/>
+        <location filename="../stacer/Pages/Dashboard/dashboard_page.cpp" line="46"/>
         <source>DISK</source>
         <translation>डिस्क</translation>
     </message>
     <message>
-        <location filename="../stacer/Pages/Dashboard/dashboard_page.cpp" line="46"/>
-        <source>GPU</source>
+        <location filename="../stacer/Pages/Dashboard/dashboard_page.cpp" line="48"/>
+        <source>GPU MEMORY</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../stacer/Pages/Dashboard/dashboard_page.cpp" line="47"/>
+        <location filename="../stacer/Pages/Dashboard/dashboard_page.cpp" line="49"/>
         <source>DOWNLOAD</source>
         <translation>डाउनलोड</translation>
     </message>
     <message>
-        <location filename="../stacer/Pages/Dashboard/dashboard_page.cpp" line="48"/>
+        <location filename="../stacer/Pages/Dashboard/dashboard_page.cpp" line="50"/>
         <source>UPLOAD</source>
         <translation>अपलोड</translation>
     </message>
     <message>
-        <location filename="../stacer/Pages/Dashboard/dashboard_page.cpp" line="142"/>
+        <location filename="../stacer/Pages/Dashboard/dashboard_page.cpp" line="147"/>
         <source>Hostname: %1</source>
         <translation>होस्ट का नाम: %1</translation>
     </message>
     <message>
-        <location filename="../stacer/Pages/Dashboard/dashboard_page.cpp" line="143"/>
+        <location filename="../stacer/Pages/Dashboard/dashboard_page.cpp" line="148"/>
         <source>Platform: %1</source>
         <translation>मंच: %1</translation>
     </message>
     <message>
-        <location filename="../stacer/Pages/Dashboard/dashboard_page.cpp" line="144"/>
+        <location filename="../stacer/Pages/Dashboard/dashboard_page.cpp" line="149"/>
         <source>Distribution: %1</source>
         <translation>वितरण: %1</translation>
     </message>
     <message>
-        <location filename="../stacer/Pages/Dashboard/dashboard_page.cpp" line="145"/>
+        <location filename="../stacer/Pages/Dashboard/dashboard_page.cpp" line="150"/>
         <source>Kernel Release: %1</source>
         <translation>कर्नेल रिलीज: %1</translation>
     </message>
     <message>
-        <location filename="../stacer/Pages/Dashboard/dashboard_page.cpp" line="146"/>
+        <location filename="../stacer/Pages/Dashboard/dashboard_page.cpp" line="151"/>
         <source>CPU Model: %1</source>
         <translation>CPU आदर्श: %1</translation>
     </message>
     <message>
-        <location filename="../stacer/Pages/Dashboard/dashboard_page.cpp" line="148"/>
+        <location filename="../stacer/Pages/Dashboard/dashboard_page.cpp" line="153"/>
         <source>CPU Speed: %1</source>
         <translation>CPU गति: %1</translation>
     </message>
     <message>
-        <location filename="../stacer/Pages/Dashboard/dashboard_page.cpp" line="147"/>
-        <source>CPU Core: %1</source>
-        <translation>CPU कोर: %1</translation>
-    </message>
-    <message>
-        <location filename="../stacer/Pages/Dashboard/dashboard_page.cpp" line="149"/>
-        <source>GPU model: %1</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../stacer/Pages/Dashboard/dashboard_page.cpp" line="171"/>
-        <location filename="../stacer/Pages/Dashboard/dashboard_page.cpp" line="241"/>
-        <source>High CPU Usage</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../stacer/Pages/Dashboard/dashboard_page.cpp" line="172"/>
-        <location filename="../stacer/Pages/Dashboard/dashboard_page.cpp" line="242"/>
-        <source>The amount of CPU used is over %1%.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../stacer/Pages/Dashboard/dashboard_page.cpp" line="200"/>
-        <source>High Memory Usage</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../stacer/Pages/Dashboard/dashboard_page.cpp" line="201"/>
-        <source>The amount of memory used is over %1%.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../stacer/Pages/Dashboard/dashboard_page.cpp" line="283"/>
+        <location filename="../stacer/Pages/Dashboard/dashboard_page.cpp" line="378"/>
         <source>High Disk Usage</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../stacer/Pages/Dashboard/dashboard_page.cpp" line="284"/>
+        <location filename="../stacer/Pages/Dashboard/dashboard_page.cpp" line="379"/>
         <source>The amount of disk used is over %1%.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../stacer/Pages/Dashboard/dashboard_page.cpp" line="322"/>
-        <location filename="../stacer/Pages/Dashboard/dashboard_page.cpp" line="326"/>
+        <location filename="../stacer/Pages/Dashboard/dashboard_page.cpp" line="417"/>
+        <location filename="../stacer/Pages/Dashboard/dashboard_page.cpp" line="421"/>
         <source>Total: %1</source>
-        <translation>कुल: %1</translation>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../stacer/Pages/Dashboard/dashboard_page.cpp" line="152"/>
+        <source>CPU Core: %1</source>
+        <translation>CPU कोर: %1</translation>
+    </message>
+    <message>
+        <location filename="../stacer/Pages/Dashboard/dashboard_page.cpp" line="44"/>
+        <source>__CPU__</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../stacer/Pages/Dashboard/dashboard_page.cpp" line="47"/>
+        <source>__GPU__</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../stacer/Pages/Dashboard/dashboard_page.cpp" line="154"/>
+        <source>GPU model: %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../stacer/Pages/Dashboard/dashboard_page.cpp" line="176"/>
+        <location filename="../stacer/Pages/Dashboard/dashboard_page.cpp" line="280"/>
+        <location filename="../stacer/Pages/Dashboard/dashboard_page.cpp" line="336"/>
+        <source>High CPU Usage</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../stacer/Pages/Dashboard/dashboard_page.cpp" line="177"/>
+        <location filename="../stacer/Pages/Dashboard/dashboard_page.cpp" line="281"/>
+        <location filename="../stacer/Pages/Dashboard/dashboard_page.cpp" line="337"/>
+        <source>The amount of CPU used is over %1%.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../stacer/Pages/Dashboard/dashboard_page.cpp" line="205"/>
+        <source>High Memory Usage</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../stacer/Pages/Dashboard/dashboard_page.cpp" line="206"/>
+        <source>The amount of memory used is over %1%.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

@@ -37,7 +37,8 @@ private slots:
     void updateMemoryBar();
     void updateDiskBar();
     void updateNetworkBar();
-    void updateGPUBar();
+    void updateGPUUtilisationBar();
+    void updateGPUMemoryBar();
 
     void on_btnDownloadUpdate_clicked();
 
@@ -51,7 +52,8 @@ private:
     CircleBar* mCpuBar;
     CircleBar* mMemBar;
     CircleBar* mDiskBar;
-    CircleBar* mGPUBar;
+    CircleBar* mGPUUtilisationBar;
+    CircleBar* mGPUMemoryBar;
 
     LineBar *mDownloadBar;
     LineBar *mUploadBar;
