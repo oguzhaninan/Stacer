@@ -1,8 +1,11 @@
 #ifndef GPUINFO_H
 #define GPUINFO_H
 
+#include "pugixml.hpp"
+
 #include <QDebug>
 #include <QVector>
+#include <string>
 
 #include "Utils/file_util.h"
 
@@ -11,9 +14,12 @@
 class STACERCORESHARED_EXPORT GpuInfo
 {
 public:
-    int getCpuPhysicalCoreCount() const;
-    int getCpuCoreCount() const;
-    QList<int> getCpuPercents() const;
+    bool load_correct_version() const();
+    std::string getGPUDriverVersion() const;
+    std::string getGPUCudaVersion() const;
+    int getGPUPhysicalCoreCount() const;
+    int getGPUCoreCount() const;
+    QList<int> getGPUPercents() const;
     QList<double> getLoadAvgs() const;
     double getAvgClock() const;
     QList<double> getClocks() const;

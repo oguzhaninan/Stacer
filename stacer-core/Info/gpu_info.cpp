@@ -2,6 +2,78 @@
 
 #include "command_util.h"
 
+bool find_driver_version_xml(pugi::xml_node node)
+{
+    return strcmp(node.name(), "driver_version") == 0;
+}
+
+bool find_cuda_version_xml(pugi::xml_node node)
+{
+    return strcmp(node.name(), "cuda_version") == 0;
+}
+
+bool find_gpu_xml(pugi::xml_node node)
+{
+    return strcmp(node.name(), "gpu") == 0;
+}
+
+bool find_memory_xml(pugi::xml_node node)
+{
+    return strcmp(node.name(), "fb_memory_usage") == 0;
+}
+
+bool find_memory_tol_xml(pugi::xml_node node)
+{
+    return strcmp(node.name(), "total") == 0;
+}
+
+bool find_memory_used_xml(pugi::xml_node node)
+{
+    return strcmp(node.name(), "used") == 0;
+}
+
+bool find_gpu_utilisation_xml(pugi::xml_node node)
+{
+    return strcmp(node.name(), "utilization") == 0;
+}
+
+bool find_gpu_used_xml(pugi::xml_node node)
+{
+    return strcmp(node.name(), "gpu_util") == 0;
+}
+
+int GpuInfo::load_correct_version() const:
+{
+    
+}
+
+
+pugi::xml_document GpuInfo::getXMLnvidiasmi() const
+// Load the file and return the documents for further processing
+{
+    std::string xml_return = exec("nvidia-smi -q -x"); // get the xml query from nvidia-smi
+    pugi::xml_document doc;
+    pugi::xml_parse_result result = doc.load_string(xml_return.c_str());
+
+    return doc
+}
+
+std::string GpuInfo::getGPUDriverVersion_nvidiasmi() const
+// Get the gpu driver version from the nvidia smi
+{
+    pugi::xml_document doc = GpuInfo::getXMLnvidiasmi()
+
+    return doc.first_child().find_node(find_driver_version).first_child().value();
+}
+
+std::string GpuInfo::getGPUDriverVersion_nvidiasmi() const
+// Get the gpu driver version from the nvidia smi
+{
+    pugi::xml_document doc = GpuInfo::getXMLnvidiasmi()
+
+    return doc.first_child().find_node(find_cuda_version).first_child().value();
+}
+
 // int GpuInfo::getCpuPhysicalCoreCount() const
 // {
 //     static int count = 0;
