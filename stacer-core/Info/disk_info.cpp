@@ -55,30 +55,36 @@ QList<QString> DiskInfo::fileSystemTypes()
 
 QList<quint64> DiskInfo::getDiskIO() const
 {
-    static QString diskName = getDiskName();
+    static QStringList diskNames = getDiskNames();
 
     QList<quint64> diskReadWrite;
+    quint64 totalRead = 0;
+    quint64 totalWrite = 0;
 
-    QStringList diskStat = FileUtil::readStringFromFile(QString("/sys/block/%1/stat").arg(diskName))
-            .trimmed()
-            .split(QRegExp("\\s+"));
+    for (const QString diskName : diskNames) {
+      QStringList diskStat = FileUtil::readStringFromFile(QString("/sys/block/%1/stat").arg(diskName))
+              .trimmed()
+              .split(QRegExp("\\s+"));
 
-    if (diskStat.count() > 7) {
-        diskReadWrite.append(diskStat.at(2).toLongLong() * 512);
-        diskReadWrite.append(diskStat.at(6).toLongLong() * 512);
+      if (diskStat.count() > 7) {
+          totalRead = totalRead + (diskStat.at(2).toLongLong() * 512);
+          totalWrite = totalWrite + (diskStat.at(6).toLongLong() * 512);
+      }
     }
+    diskReadWrite.append(totalRead);
+    diskReadWrite.append(totalWrite);
 
     return diskReadWrite;
 }
 
-QString DiskInfo::getDiskName() const
+QStringList DiskInfo::getDiskNames() const
 {
     QDir blocks("/sys/block");
-
+    QStringList disks;
     for (const QFileInfo entryInfo : blocks.entryInfoList(QDir::AllEntries | QDir::NoDotAndDotDot)) {
         if (QFile::exists(QString("%1/device").arg(entryInfo.absoluteFilePath()))) {
-            return entryInfo.baseName();
+            disks.append(entryInfo.baseName());
         }
     }
-    return QString();
+    return disks;
 }
