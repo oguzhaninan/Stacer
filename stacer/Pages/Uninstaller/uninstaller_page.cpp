@@ -195,13 +195,13 @@ void UninstallerPage::on_btnSnapPackages_clicked()
 void UninstallerPage::on_listWidgetSnapPackages_itemClicked(QListWidgetItem *item)
 {
     //item->setCheckState(item->checkState() == Qt::Checked ? Qt::Unchecked : Qt::Checked);
-    ui->btnUninstall->setText(tr("Uninstal Selected (%1)")
+    ui->btnUninstall->setText(tr("Uninstall Selected (%1)")
                               .arg(getSelectedSnapPackages().count() + getSelectedPackages().count()));
 }
 
 void UninstallerPage::on_listWidgetPackages_itemClicked(QListWidgetItem *item)
 {
     //item->setCheckState(item->checkState() == Qt::Checked ? Qt::Unchecked : Qt::Checked);
-    ui->btnUninstall->setText(tr("Uninstal Selected (%1)")
+    ui->btnUninstall->setText(tr("Uninstall Selected (%1)")
                               .arg(getSelectedSnapPackages().count() + getSelectedPackages().count()));
 }
