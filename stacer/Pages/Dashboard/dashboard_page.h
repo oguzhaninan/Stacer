@@ -14,6 +14,8 @@
 #include "circlebar.h"
 #include "linebar.h"
 
+#include "utilities.h"
+
 #include "Managers/setting_manager.h"
 
 namespace Ui {
@@ -62,6 +64,8 @@ private:
     InfoManager *im;
 
     SettingManager *mSettingManager;
+    
+    SystemInfo sysInfo;
 };
 
 #endif // DASHBOARDPAGE_H

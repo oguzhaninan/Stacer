@@ -23,6 +23,7 @@ SettingsPage::SettingsPage(QWidget *parent) :
 
 void SettingsPage::init()
 {
+
     // load languages
     QMapIterator<QString, QString> lang(apm->getLanguageList());
 

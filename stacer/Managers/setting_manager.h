@@ -12,6 +12,8 @@ namespace SettingKeys {
     const QString CPUAlertPercent("CPUAlertPercent");
     const QString MemoryAlertPercent("MemoryAlertPercent");
     const QString DiskAlertPercent("DiskAlertPercent");
+    const QString GPUMemoryAlertPercent("GPUMemoryAlertPercent");
+    const QString GPUUsageAlertPercent("GPUUsageAlertPercent");
     const QString AppQuitDialogDontAsk("AppQuitDialogDontAsk");
     const QString AppQuitDialogChoice("AppQuitDialogChoice");
 }
@@ -43,6 +45,12 @@ public:
 
     void setDiskAlertPercent(const int value);
     int getDiskAlertPercent() const;
+
+    void setGPUMemoryAlertPercent(const int value);
+    int getGPUMemoryAlertPercent() const;
+
+    void setGPUUsageAlertPercent(const int value);
+    int getGPUUsageAlertPercent() const;
 
     void setAppQuitDialogDontAsk(const bool value);
     bool getAppQuitDialogDontAsk() const;

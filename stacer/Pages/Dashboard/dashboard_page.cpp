@@ -1,16 +1,11 @@
 #include "dashboard_page.h"
 #include "ui_dashboard_page.h"
 
-
-#include "utilities.h"
-
 #include <algorithm>
 #include <numeric>
 #include <QNetworkAccessManager>
 #include <QNetworkReply>
 #include <QNetworkRequest>
-
-#include "pugixml.hpp"
 
 #include <cstdio>
 #include <iostream>
@@ -19,19 +14,6 @@
 #include <string>
 #include <array>
 #include <numeric>
-
-std::string exec(const char* cmd) {
-    std::array<char, 128> buffer;
-    std::string result;
-    std::unique_ptr<FILE, decltype(&pclose)> pipe(popen(cmd, "r"), pclose);
-    if (!pipe) {
-        throw std::runtime_error("popen() failed!");
-    }
-    while (fgets(buffer.data(), buffer.size(), pipe.get()) != nullptr) {
-        result += buffer.data();
-    }
-    return result;
-}
 
 DashboardPage::~DashboardPage()
 {
@@ -61,11 +43,15 @@ DashboardPage::DashboardPage(QWidget *parent) :
 
 void DashboardPage::init()
 {
+    sysInfo = SystemInfo();
     // Circle bars
     ui->circleBarsLayout->addWidget(mCpuBar);
     ui->circleBarsLayout->addWidget(mMemBar);
-    ui->circleBarsLayout->addWidget(mGPUUtilisationBar);
-    ui->circleBarsLayout->addWidget(mGPUMemoryBar);
+    if(sysInfo.sucessGPUInfo){
+        ui->circleBarsLayout->addWidget(mGPUUtilisationBar);
+        ui->circleBarsLayout->addWidget(mGPUMemoryBar);
+    }
+
     ui->circleBarsLayout->addWidget(mDiskBar);
 
     // line bars
@@ -76,8 +62,11 @@ void DashboardPage::init()
     connect(mTimer, &QTimer::timeout, this, &DashboardPage::updateCpuBar);
     connect(mTimer, &QTimer::timeout, this, &DashboardPage::updateMemoryBar);
     connect(mTimer, &QTimer::timeout, this, &DashboardPage::updateNetworkBar);
-    connect(mTimer, &QTimer::timeout, this, &DashboardPage::updateGPUUtilisationBar);
-    connect(mTimer, &QTimer::timeout, this, &DashboardPage::updateGPUMemoryBar);
+    if(sysInfo.sucessGPUInfo){
+        connect(mTimer, &QTimer::timeout, this, &DashboardPage::updateGPUUtilisationBar);
+        connect(mTimer, &QTimer::timeout, this, &DashboardPage::updateGPUMemoryBar);
+    }
+
 
     QTimer *timerDisk = new QTimer(this);
     connect(timerDisk, &QTimer::timeout, this, &DashboardPage::updateDiskBar);
@@ -89,8 +78,11 @@ void DashboardPage::init()
     updateCpuBar();
     updateMemoryBar();
     updateDiskBar();
-    updateGPUUtilisationBar();
-    updateGPUMemoryBar();
+    if(sysInfo.sucessGPUInfo){
+        updateGPUUtilisationBar();
+        updateGPUMemoryBar();
+    }
+
     updateNetworkBar();
 
     ui->widgetUpdateBar->hide();
@@ -98,12 +90,18 @@ void DashboardPage::init()
     // check update
     checkUpdate();
     connect(this, &DashboardPage::sigShowUpdateBar, ui->widgetUpdateBar, &QWidget::show);
-
     QList<QWidget*> widgets = {
-        mCpuBar, mMemBar, mDiskBar, mGPUMemoryBar, mDownloadBar, mUploadBar
-    };
+            mCpuBar, mMemBar, mDiskBar, mDownloadBar, mUploadBar
+        };
+    if(sysInfo.sucessGPUInfo){
+        widgets.insert(3,mGPUMemoryBar);
+        widgets.insert(3,mGPUUtilisationBar);
+    }
+
 
     Utilities::addDropShadow(widgets, 60);
+
+
 }
 
 void DashboardPage::checkUpdate()
@@ -137,27 +135,10 @@ void DashboardPage::on_btnDownloadUpdate_clicked()
     QDesktopServices::openUrl(QUrl("https://github.com/oguzhaninan/Stacer/releases/latest"));
 }
 
-bool find_driver_version(pugi::xml_node node)
-{
-    return strcmp(node.name(), "driver_version") == 0;
-}
-
-bool find_cuda_version(pugi::xml_node node)
-{
-    return strcmp(node.name(), "cuda_version") == 0;
-}
-
 void DashboardPage::systemInformationInit()
 {
     // get system information
-    std::string xml_return = exec("nvidia-smi -q -x"); // get the xml query from nvidia-smi
-    pugi::xml_document doc;
-    pugi::xml_parse_result result = doc.load_string(xml_return.c_str());
-
-    std::string GPU_driver = doc.first_child().find_node(find_driver_version).first_child().value();
-    std::string cuda_driver = doc.first_child().find_node(find_cuda_version).first_child().value();
-    
-    SystemInfo sysInfo;
+    //SystemInfo sysInfo;
 
     QStringList infos;
     infos
@@ -167,10 +148,14 @@ void DashboardPage::systemInformationInit()
         << tr("Kernel Release: %1").arg(sysInfo.getKernel())
         << tr("CPU Model: %1").arg(sysInfo.getCpuModel())
         << tr("CPU Core: %1").arg(sysInfo.getCpuCore())
-        << tr("CPU Speed: %1 GHz").arg(im->getCpuClock()/1000.0,2,'f',1)
-        << tr("GPU version: %1").arg(QString::fromStdString(GPU_driver))
-        << tr("GPU CUDA: %1").arg(QString::fromStdString(cuda_driver));
+        << tr("CPU Speed: %1 GHz").arg(im->getCpuClock()/1000.0,2,'f',1);
 
+    if(sysInfo.sucessGPUInfo){
+    infos
+        << tr("GPU Driver Version: %1").arg(sysInfo.getGPUDriverVersion())
+        << tr("GPU Accelerator: %1").arg(sysInfo.getGPUAcceleratorVersion())
+        << tr("GPU Number Nodes: %1").arg(sysInfo.getGPUCoreString());
+    }
 
     QStringListModel *systemInfoModel = new QStringListModel(infos,ui->listViewSystemInfo);
     const auto oldModel = ui->listViewSystemInfo->selectionModel();
@@ -234,131 +219,55 @@ void DashboardPage::updateMemoryBar()
                      .arg(f_memTotal));
 }
 
-bool find_gpu(pugi::xml_node node)
-{
-    return strcmp(node.name(), "gpu") == 0;
-}
-
-bool find_memory(pugi::xml_node node)
-{
-    return strcmp(node.name(), "fb_memory_usage") == 0;
-}
-
-bool find_memory_tol(pugi::xml_node node)
-{
-    return strcmp(node.name(), "total") == 0;
-}
-
-bool find_memory_used(pugi::xml_node node)
-{
-    return strcmp(node.name(), "used") == 0;
-}
-
 void DashboardPage::updateGPUMemoryBar()
 {
-    int cpuUsedPercent = im->getCpuPercents().at(0);
-    double cpuCurrentClockGHz = im->getCpuClock()/1000.0;
 
-    std::string xml_return = exec("nvidia-smi -q -x"); // get the xml query from nvidia-smi
-    pugi::xml_document doc;
-    pugi::xml_parse_result result = doc.load_string(xml_return.c_str());//"<mesh name='sphere'><bounds>0 0 1 1</bounds></mesh>");//xml_return.c_str());//xml_return, size_t(xml_return));
+    std::vector<double> gpu_memory_used = im->getGPUMemoryUsage();
+    std::vector<double> gpu_memory_total = sysInfo.getGPUTotalMemory();
 
-    std::string local_string_gpu_memory_total;
-    std::string local_string_gpu_memory_used;
-    std::string local_string_gpu_utilisation;
-
-    std::vector<double> gpu_utilisation;
-    std::vector<double> gpu_memory_used;
-    std::vector<double> gpu_memory_total;
-
-    pugi::xml_node node_inside;
-
-    for (pugi::xml_node gpu: doc.first_child().children("gpu"))
-    {
-
-        //local_string_gpu_memory_total
-        local_string_gpu_memory_total = gpu.find_node(find_memory).find_node(find_memory_tol).first_child().value();
-        gpu_memory_total.push_back(std::stod(local_string_gpu_memory_total.erase(local_string_gpu_memory_total.find(" MiB"))));
-
-        local_string_gpu_memory_used = gpu.find_node(find_memory).find_node(find_memory_used).first_child().value();
-        gpu_memory_used.push_back(std::stod(local_string_gpu_memory_used.erase(local_string_gpu_memory_used.find(" MiB"))));
-
-    }
 
     double sum_total_memory = std::accumulate(gpu_memory_total.begin(), gpu_memory_total.end(), decltype(gpu_memory_total)::value_type(0))/1e3;
     double sum_used_memory = std::accumulate(gpu_memory_used.begin(), gpu_memory_used.end(), decltype(gpu_memory_used)::value_type(0))/1e3;
 
 
-
-    // alert message
-    int cpuAlerPercent = mSettingManager->getCpuAlertPercent();
-    if (cpuAlerPercent > 0) {
-        static bool isShow = true;
-        if (cpuUsedPercent > cpuAlerPercent && isShow) {
-            AppManager::ins()->getTrayIcon()->showMessage(tr("High CPU Usage"),
-                                                          tr("The amount of CPU used is over %1%.").arg(cpuAlerPercent),
-                                                          QSystemTrayIcon::Warning);
-            isShow = false;
-        } else if (cpuUsedPercent < cpuAlerPercent) {
-            isShow = true;
-        }
-    }
+    // // alert message
+    // int cpuAlerPercent = mSettingManager->getCpuAlertPercent();
+    // if (cpuAlerPercent > 0) {
+    //     static bool isShow = true;
+    //     if (cpuUsedPercent > cpuAlerPercent && isShow) {
+    //         AppManager::ins()->getTrayIcon()->showMessage(tr("High CPU Usage"),
+    //                                                       tr("The amount of CPU used is over %1%.").arg(cpuAlerPercent),
+    //                                                       QSystemTrayIcon::Warning);
+    //         isShow = false;
+    //     } else if (cpuUsedPercent < cpuAlerPercent) {
+    //         isShow = true;
+    //     }
+    // }
 
     mGPUMemoryBar->setValue(sum_used_memory/sum_total_memory*100, QString("%1 GiB/%2 GiB").arg(sum_used_memory, 0, 'f', 1).arg(sum_total_memory, 0, 'f', 1));
 }
 
-bool find_gpu_utilisation(pugi::xml_node node)
-{
-    return strcmp(node.name(), "utilization") == 0;
-}
-
-
-bool find_gpu_used(pugi::xml_node node)
-{
-    return strcmp(node.name(), "gpu_util") == 0;
-}
-
 void DashboardPage::updateGPUUtilisationBar()
 {
-    int cpuUsedPercent = im->getCpuPercents().at(0);
-    double cpuCurrentClockGHz = im->getCpuClock()/1000.0;
-
-    std::string xml_return = exec("nvidia-smi -q -x"); // get the xml query from nvidia-smi
-    pugi::xml_document doc;
-    pugi::xml_parse_result result = doc.load_string(xml_return.c_str());//"<mesh name='sphere'><bounds>0 0 1 1</bounds></mesh>");//xml_return.c_str());//xml_return, size_t(xml_return));
-
-    std::string local_string_gpu_utilisation;
-
-    std::vector<double> gpu_utilisation;
-
-    pugi::xml_node node_inside;
-
-    for (pugi::xml_node gpu: doc.first_child().children("gpu"))
-    {
-
-        //local_string_gpu_memory_total
-        local_string_gpu_utilisation = gpu.find_node(find_gpu_utilisation).find_node(find_gpu_used).first_child().value();
-        gpu_utilisation.push_back(std::stod(local_string_gpu_utilisation.erase(local_string_gpu_utilisation.find(" %"))));
-
-    }
+    std::vector<double> gpu_utilisation = im->getGPUUsage();
 
     double sum_utilisation = std::accumulate(gpu_utilisation.begin(), gpu_utilisation.end(), decltype(gpu_utilisation)::value_type(0));
 
     size_t number_gpu = gpu_utilisation.size();
 
-    // alert message
-    int cpuAlerPercent = mSettingManager->getCpuAlertPercent();
-    if (cpuAlerPercent > 0) {
-        static bool isShow = true;
-        if (cpuUsedPercent > cpuAlerPercent && isShow) {
-            AppManager::ins()->getTrayIcon()->showMessage(tr("High CPU Usage"),
-                                                          tr("The amount of CPU used is over %1%.").arg(cpuAlerPercent),
-                                                          QSystemTrayIcon::Warning);
-            isShow = false;
-        } else if (cpuUsedPercent < cpuAlerPercent) {
-            isShow = true;
-        }
-    }
+    // // alert message
+    // int cpuAlerPercent = mSettingManager->getCpuAlertPercent();
+    // if (cpuAlerPercent > 0) {
+    //     static bool isShow = true;
+    //     if (cpuUsedPercent > cpuAlerPercent && isShow) {
+    //         AppManager::ins()->getTrayIcon()->showMessage(tr("High CPU Usage"),
+    //                                                       tr("The amount of CPU used is over %1%.").arg(cpuAlerPercent),
+    //                                                       QSystemTrayIcon::Warning);
+    //         isShow = false;
+    //     } else if (cpuUsedPercent < cpuAlerPercent) {
+    //         isShow = true;
+    //     }
+    // }
 
     mGPUUtilisationBar->setValue(sum_utilisation/number_gpu, QString(" %1 Percents / %2 ").arg(sum_utilisation, 3, 'f', 0).arg(number_gpu*100., 3, 'f', 0));
 }

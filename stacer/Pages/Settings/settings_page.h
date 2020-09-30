@@ -7,6 +7,7 @@
 #include "Managers/app_manager.h"
 #include "Managers/setting_manager.h"
 #include "signal_mapper.h"
+#include <Info/system_info.h>
 
 namespace Ui {
     class SettingsPage;
@@ -43,6 +44,8 @@ private:
     QString mStartupAppPath;
 
     SettingManager *mSettingManager;
+
+    SystemInfo si;
 };
 
 #endif // SETTINGS_PAGE_H

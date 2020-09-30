@@ -6,6 +6,7 @@
 
 #include "history_chart.h"
 #include "Managers/info_manager.h"
+#include <Info/system_info.h>
 #include <QChart>
 #include <QSpacerItem>
 
@@ -27,6 +28,8 @@ private slots:
     void updateDiskReadWrite();
     void updateMemoryChart();
     void updateNetworkChart();
+    void updateGPUMemoryChart();
+    void updateGPUUsageChart();
     void initDiskPieChart();
     void diskPieSeriesCustomize();
 
@@ -37,12 +40,15 @@ private:
     Ui::ResourcesPage *ui;
 
     InfoManager *im;
+    SystemInfo si;
 
     HistoryChart *mChartCpu;
     HistoryChart *mChartCpuLoadAvg;
     HistoryChart *mChartDiskReadWrite;
     HistoryChart *mChartMemory;
     HistoryChart *mChartNetwork;
+    HistoryChart *mChartGPUMemory;
+    HistoryChart *mChartGPUUsage;
 
     QChartView *mChartViewDiskPie;
     QChart *mChartDiskPie;

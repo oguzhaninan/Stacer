@@ -20,6 +20,9 @@ public:
     QList<double> getCpuLoadAvgs() const;
     double getCpuClock() const;
 
+    std::vector<double> getGPUMemoryUsage() const;
+    std::vector<double> getGPUUsage() const;
+
     quint64 getSwapUsed() const;
     quint64 getSwapTotal() const;
     quint64 getMemUsed() const;
@@ -50,6 +53,7 @@ private:
 
 private:
     CpuInfo ci;
+    GpuInfo gi;
     DiskInfo di;
     MemoryInfo mi;
     NetworkInfo ni;
