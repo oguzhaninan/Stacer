@@ -29,8 +29,8 @@
 
 ## Sponsors
 <p align="center">
-    <a href="https://icsdefense.net">
-	<img width="250px" src="https://i.imgur.com/nbJiRr2.png"/>
+    <a href="https://binalyze.com/">
+	<img width="180px" src="https://binalyze.com/wp-content/uploads/2020/09/binalyze-1-1.png" />
 </a>  
 </p>
 
