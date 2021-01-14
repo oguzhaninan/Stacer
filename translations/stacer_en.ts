@@ -371,7 +371,7 @@
     </message>
     <message>
         <location filename="../stacer/Pages/Dashboard/dashboard_page.cpp" line="116"/>
-        <source>CPU Core: %1</source>
+        <source>CPU Cores: %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
