@@ -345,7 +345,7 @@ void ResourcesPage::updateMemoryChart()
 
     // Swap
     double percent = 0;
-    if (im->getSwapTotal()) // aritmetic exception control
+    if (im->getSwapTotal()) // arithmetic exception control
         percent = ((double) im->getSwapUsed() / (double) im->getSwapTotal()) * 100.0;
 
     seriesList.at(0)->insert(0, QPointF(0, percent));
