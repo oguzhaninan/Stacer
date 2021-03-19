@@ -7,7 +7,7 @@ before_install:
 - sudo apt-get update -qq
 install:
 - sudo apt-get -y -qq install cmake
-- sudo apt-get -y -qq install libgl1-mesa-dev qt59base qt59imageformats qt59svg qt59charts-no-lgpl qt59tools
+- sudo apt-get -y -qq install libgl1-mesa-dev qt59base qt59imageformats qt59svg qt59charts-no-lgpl qt59tools libpugixml-dev
 - source /opt/qt*/bin/qt*-env.sh
 before_script:
 - mkdir build && cd build

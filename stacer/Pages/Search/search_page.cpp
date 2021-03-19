@@ -335,9 +335,9 @@ QList<QStandardItem*> SearchPage::createRow(const QString &filepath)
     i_lastModify->setData(fileInfo->lastModified().toString(mSearchResultDateFormat), rowRole);
     i_lastModify->setData(fileInfo->lastModified().toString(mSearchResultDateFormat), Qt::ToolTipRole);
 
-    QStandardItem *i_lastChange = new QStandardItem(fileInfo->metadataChangeTime().toString(mSearchResultDateFormat));
-    i_lastChange->setData(fileInfo->metadataChangeTime().toString(mSearchResultDateFormat), rowRole);
-    i_lastChange->setData(fileInfo->metadataChangeTime().toString(mSearchResultDateFormat), Qt::ToolTipRole);
+    QStandardItem *i_lastChange = new QStandardItem(fileInfo->lastModified().toString(mSearchResultDateFormat));
+    i_lastChange->setData(fileInfo->lastModified().toString(mSearchResultDateFormat), rowRole);
+    i_lastChange->setData(fileInfo->lastModified().toString(mSearchResultDateFormat), Qt::ToolTipRole);
 
     delete fileInfo;
 

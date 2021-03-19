@@ -8,11 +8,18 @@ ResourcesPage::~ResourcesPage()
 }
 
 ResourcesPage::ResourcesPage(QWidget *parent) :
+
+
+
+
     QWidget(parent),
     ui(new Ui::ResourcesPage),
     im(InfoManager::ins()),
+    si(SystemInfo()),
     mChartCpu(new HistoryChart(tr("History of CPU"), im->getCpuCoreCount(), nullptr, this)),
     mChartCpuLoadAvg(new HistoryChart(tr("History of CPU Load Averages"), 3, nullptr, this)),
+    mChartGPUMemory(new HistoryChart(tr("History of GPU Memory"), si.getGPUCore(), nullptr, this)),
+    mChartGPUUsage(new HistoryChart(tr("History of GPU Usage"), si.getGPUCore(), nullptr, this)),
     mChartDiskReadWrite(new HistoryChart(tr("History of Disk Read Write"), 2, new QCategoryAxis, this)),
     mChartMemory(new HistoryChart(tr("History of Memory"), 2, nullptr, this)),
     mChartNetwork(new HistoryChart(tr("History of Network"), 2, new QCategoryAxis, this)),
@@ -36,7 +43,12 @@ void ResourcesPage::init()
     mChartCpu->setYMax(100);
     mChartMemory->setYMax(100);
 
-    QList<QWidget*> widgets = { mChartCpu, mChartCpuLoadAvg, mChartDiskReadWrite, mChartMemory, mChartNetwork };
+    QList<QWidget*> widgets = { mChartCpu, mChartCpuLoadAvg, mChartMemory, mChartDiskReadWrite, mChartNetwork };
+
+    if(si.sucessGPUInfo){
+        widgets.insert(2,mChartGPUMemory);
+        widgets.insert(2,mChartGPUUsage);
+    }
 
     for (QWidget *widget : widgets) {
         ui->chartsLayout->addWidget(widget);
@@ -46,6 +58,12 @@ void ResourcesPage::init()
 
     connect(mTimer, &QTimer::timeout, this, &ResourcesPage::updateCpuChart);
     connect(mTimer, &QTimer::timeout, this, &ResourcesPage::updateCpuLoadAvg);
+    if(si.sucessGPUInfo){
+        connect(mTimer, &QTimer::timeout, this, &ResourcesPage::updateGPUMemoryChart);
+        mChartGPUMemory->setYMax(100);
+        connect(mTimer, &QTimer::timeout, this, &ResourcesPage::updateGPUUsageChart);
+        mChartGPUUsage->setYMax(100);
+    }
     connect(mTimer, &QTimer::timeout, this, &ResourcesPage::updateDiskReadWrite);
     connect(mTimer, &QTimer::timeout, this, &ResourcesPage::updateMemoryChart);
     connect(mTimer, &QTimer::timeout, this, &ResourcesPage::updateNetworkChart);
@@ -390,6 +408,59 @@ void ResourcesPage::updateCpuChart()
     }
 
     mChartCpu->setSeriesList(seriesList);
+
+    second++;
+}
+
+void ResourcesPage::updateGPUMemoryChart()
+{
+    static int second = 0;
+
+    std::vector<double> GPUMemory = im->getGPUMemoryUsage();
+    std::vector<double> GPUMemoryTotal = si.getGPUTotalMemory();
+
+    QVector<QSplineSeries *> seriesList = mChartGPUMemory->getSeriesList();
+
+    for (int j = 0; j < seriesList.count(); j++){
+        double p = GPUMemory.at(j)/GPUMemoryTotal.at(j)*100;
+
+        for (int i = 0; i < (second < 61 ? second : 61); i++)
+            seriesList.at(j)->replace(i, (i+1), seriesList.at(j)->at(i).y());
+
+        seriesList.at(j)->insert(0, QPointF(0, p));
+
+        seriesList.at(j)->setName(si.getGPUName().at(j));
+
+        if(second > 61) seriesList.at(j)->removePoints(61, 1);
+    }
+
+    mChartGPUMemory->setSeriesList(seriesList);
+
+    second++;
+}
+
+void ResourcesPage::updateGPUUsageChart()
+{
+    static int second = 0;
+
+    std::vector<double> GPUUsage = im->getGPUUsage();
+
+    QVector<QSplineSeries *> seriesList = mChartGPUUsage->getSeriesList();
+
+    for (int j = 0; j < seriesList.count(); j++){
+        double p = GPUUsage.at(j);
+
+        for (int i = 0; i < (second < 61 ? second : 61); i++)
+            seriesList.at(j)->replace(i, (i+1), seriesList.at(j)->at(i).y());
+
+        seriesList.at(j)->insert(0, QPointF(0, p));
+
+        seriesList.at(j)->setName(si.getGPUName().at(j));
+
+        if(second > 61) seriesList.at(j)->removePoints(61, 1);
+    }
+
+    mChartGPUUsage->setSeriesList(seriesList);
 
     second++;
 }

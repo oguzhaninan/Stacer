@@ -1,0 +1,16 @@
+--2020-09-09 22:45:40--  https://github.com/probonopd/linuxdeployqt/releases/download/continuous/linuxdeployqt-continuous-x86_64.AppImage
+Resolving github.com (github.com)... 140.82.121.3
+Connecting to github.com (github.com)|140.82.121.3|:443... connected.
+HTTP request sent, awaiting response... 302 Found
+Location: https://github-production-release-asset-2e65be.s3.amazonaws.com/67432158/89792280-d22d-11ea-8cba-0cd718617423?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIWNJYAX4CSVEH53A%2F20200909%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20200909T214338Z&X-Amz-Expires=300&X-Amz-Signature=dafa5123b7805939699a022ed66fa8f6129810f30384b0d54bb8cc53ea22d439&X-Amz-SignedHeaders=host&actor_id=0&key_id=0&repo_id=67432158&response-content-disposition=attachment%3B%20filename%3Dlinuxdeployqt-continuous-x86_64.AppImage&response-content-type=application%2Foctet-stream [following]
+--2020-09-09 22:45:40--  https://github-production-release-asset-2e65be.s3.amazonaws.com/67432158/89792280-d22d-11ea-8cba-0cd718617423?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIWNJYAX4CSVEH53A%2F20200909%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20200909T214338Z&X-Amz-Expires=300&X-Amz-Signature=dafa5123b7805939699a022ed66fa8f6129810f30384b0d54bb8cc53ea22d439&X-Amz-SignedHeaders=host&actor_id=0&key_id=0&repo_id=67432158&response-content-disposition=attachment%3B%20filename%3Dlinuxdeployqt-continuous-x86_64.AppImage&response-content-type=application%2Foctet-stream
+Resolving github-production-release-asset-2e65be.s3.amazonaws.com (github-production-release-asset-2e65be.s3.amazonaws.com)... 52.216.206.171
+Connecting to github-production-release-asset-2e65be.s3.amazonaws.com (github-production-release-asset-2e65be.s3.amazonaws.com)|52.216.206.171|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 14729256 (14M) [application/octet-stream]
+Saving to: ‘lqt’
+
+lqt                                      85%[=================================================================>            ]  12.04M  4.33MB/s               lqt                                      91%[======================================================================>       ]  12.90M  4.33MB/s               lqt                                      98%[===========================================================================>  ]  13.81M  4.34MB/s    eta 0s     lqt                                     100%[=============================================================================>]  14.05M  4.33MB/s    in 3.2s    
+
+2020-09-09 22:45:43 (4.33 MB/s) - ‘lqt’ saved [14729256/14729256]
+

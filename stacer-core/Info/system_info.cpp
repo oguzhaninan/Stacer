@@ -42,6 +42,19 @@ SystemInfo::SystemInfo()
     CpuInfo ci;
     this->cpuCore = QString::number(ci.getCpuPhysicalCoreCount());
 
+    GpuInfo gi;
+    this->sucessGPUInfo = gi.finding_GPU_info;
+    if(gi.finding_GPU_info){
+        this->gpuNode = gi.getGPUPhysicalCoreCount(gi);
+        this->gpuNodeString = QString::number(this->gpuNode);
+        this->GPUDriverVersion = gi.getGPUDriverVersion(gi);
+        this->GPUAcceleratorVersion = gi.getGPUAcceleratorVersion(gi);
+        this->GPUTotalMemory = gi.getGPUMemoryTotal(gi);
+        this->gpuNames = gi.getGPUName(gi);
+    }
+
+
+
     // get username
     QString name = qgetenv("USER");
 
@@ -56,6 +69,36 @@ SystemInfo::SystemInfo()
     }
 
    this->username = name;
+}
+
+std::vector<double> SystemInfo::getGPUTotalMemory() const
+{
+    return GPUTotalMemory;
+}
+
+QString SystemInfo::getGPUCoreString() const
+{
+    return gpuNodeString;
+}
+
+QString SystemInfo::getGPUDriverVersion() const
+{
+    return GPUDriverVersion;
+}
+
+QStringList SystemInfo::getGPUName() const
+{
+    return gpuNames;
+}
+
+QString SystemInfo::getGPUAcceleratorVersion() const
+{
+    return GPUAcceleratorVersion;
+}
+
+int SystemInfo::getGPUCore() const
+{
+    return gpuNode;
 }
 
 QString SystemInfo::getUsername() const

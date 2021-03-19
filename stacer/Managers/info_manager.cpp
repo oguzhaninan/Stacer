@@ -50,6 +50,21 @@ double InfoManager::getCpuClock() const
 }
 
 /*
+* GPU provider
+*/
+std::vector<double> InfoManager::getGPUMemoryUsage() const
+{
+    return gi.getGPUMemoryUsage(gi);
+}
+
+std::vector<double> InfoManager::getGPUUsage() const
+{
+    return gi.getGPUUsage(gi);
+}
+
+
+
+/*
  * Memory Provider
  */
 void InfoManager::updateMemoryInfo()

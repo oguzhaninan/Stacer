@@ -81,6 +81,26 @@ int SettingManager::getMemoryAlertPercent() const
     return mSettings->value(SettingKeys::MemoryAlertPercent, 0).toInt();
 }
 
+void SettingManager::setGPUMemoryAlertPercent(const int value)
+{
+    mSettings->setValue(SettingKeys::GPUMemoryAlertPercent, value);
+}
+
+int SettingManager::getGPUMemoryAlertPercent() const
+{
+    return mSettings->value(SettingKeys::GPUMemoryAlertPercent, 0).toInt();
+}
+
+void SettingManager::setGPUUsageAlertPercent(const int value)
+{
+    mSettings->setValue(SettingKeys::GPUUsageAlertPercent, value);
+}
+
+int SettingManager::getGPUUsageAlertPercent() const
+{
+    return mSettings->value(SettingKeys::GPUUsageAlertPercent, 0).toInt();
+}
+
 void SettingManager::setDiskAlertPercent(const int value)
 {
     mSettings->setValue(SettingKeys::DiskAlertPercent, value);

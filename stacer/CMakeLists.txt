@@ -29,6 +29,9 @@ find_package(Qt5LinguistTools)
 qt5_create_translation(QM_FILES  ${PROJECT_NAME}_translations  ${${PROJECT_NAME}_srcs})
 set_directory_properties(PROPERTIES  ADDITIONAL_MAKE_CLEAN_FILES  "${QM_FILES}")
 
+# Get the pugixml library
+find_package(pugixml)
+
 set(CMAKE_AUTOUIC ON)
 set(CMAKE_AUTORCC ON)
 
@@ -39,7 +42,7 @@ add_executable(${PROJECT_NAME}
 )
 
 target_link_libraries(${PROJECT_NAME}
-  stacer-core  Qt5::Core  Qt5::Gui  Qt5::Widgets  Qt5::Charts  Qt5::Svg  Qt5::Concurrent
+  stacer-core  Qt5::Core  Qt5::Gui  Qt5::Widgets  Qt5::Charts  Qt5::Svg  Qt5::Concurrent pugixml
 )
 
 # Running LTO in Release builds, if the C++ compiler is GNU GCC
