@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.1" language="pt_BR">
+<TS version="2.1" language="pt_PT">
 <context>
     <name>APTSourceEdit</name>
     <message>
@@ -41,7 +41,7 @@
     <message>
         <location filename="../stacer/Pages/AptSourceManager/apt_source_edit.ui" line="110"/>
         <source>Save</source>
-        <translation>Salvar</translation>
+        <translation>Guardar</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/AptSourceManager/apt_source_edit.ui" line="133"/>
@@ -74,7 +74,7 @@
     <message>
         <location filename="../stacer/Pages/AptSourceManager/apt_source_manager_page.ui" line="14"/>
         <source>APT Repository Manager</source>
-        <translation>Gerenciador de Repositório APT</translation>
+        <translation>Gestor de Repositório APT</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/AptSourceManager/apt_source_manager_page.ui" line="125"/>
@@ -84,7 +84,7 @@
     <message>
         <location filename="../stacer/Pages/AptSourceManager/apt_source_manager_page.ui" line="269"/>
         <source>Delete</source>
-        <translation>Excluir</translation>
+        <translation>Apagar</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/AptSourceManager/apt_source_manager_page.ui" line="308"/>
@@ -120,7 +120,7 @@
     <message>
         <location filename="../stacer/Pages/AptSourceManager/apt_source_manager_page.cpp" line="66"/>
         <source>Save</source>
-        <translation>Salvar</translation>
+        <translation>Guardar</translation>
     </message>
 </context>
 <context>
@@ -141,7 +141,7 @@
     <message>
         <location filename="../stacer/app.ui" line="135"/>
         <source>Startup Apps</source>
-        <translation>Aplicativos de Inicialização</translation>
+        <translation>Programas no Arranque</translation>
     </message>
     <message>
         <location filename="../stacer/app.ui" line="163"/>
@@ -151,7 +151,7 @@
     <message>
         <location filename="../stacer/app.ui" line="306"/>
         <source>APT Repository Manager</source>
-        <translation>Gerenciador de Respositório APT</translation>
+        <translation>Gestor de Respositório APT</translation>
     </message>
     <message>
         <location filename="../stacer/app.ui" line="250"/>
@@ -199,12 +199,12 @@
     <message>
         <location filename="../stacer/Pages/GnomeSettings/appearance_settings.ui" line="44"/>
         <source>Screen Applications</source>
-        <translation>Aplicativos de Tela</translation>
+        <translation>Aplicativos do Écrã</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/GnomeSettings/appearance_settings.ui" line="74"/>
         <source>Screen Reader</source>
-        <translation>Leitor de Tela</translation>
+        <translation>Leitor de Écrã</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/GnomeSettings/appearance_settings.ui" line="100"/>
@@ -239,7 +239,7 @@
     <message>
         <location filename="../stacer/Pages/GnomeSettings/appearance_settings.ui" line="308"/>
         <source>Trash Icon</source>
-        <translation>Ícone da Lixeira</translation>
+        <translation>Ícone da Reciclagem</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/GnomeSettings/appearance_settings.ui" line="321"/>
@@ -269,7 +269,7 @@
     <message>
         <location filename="../stacer/Pages/GnomeSettings/appearance_settings.cpp" line="71"/>
         <source>Centered</source>
-        <translation>Centralizado</translation>
+        <translation>Centrado</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/GnomeSettings/appearance_settings.cpp" line="72"/>
@@ -284,7 +284,7 @@
     <message>
         <location filename="../stacer/Pages/GnomeSettings/appearance_settings.cpp" line="72"/>
         <source>Zoom</source>
-        <translation>Ampliar</translation>
+        <translation>Ampliação</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/GnomeSettings/appearance_settings.cpp" line="72"/>
@@ -377,32 +377,32 @@
     <message>
         <location filename="../stacer/Pages/Dashboard/dashboard_page.cpp" line="133"/>
         <source>High CPU Usage</source>
-        <translation>Alto uso do CPU</translation>
+        <translation>Utilização do CPU elevada</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/Dashboard/dashboard_page.cpp" line="134"/>
         <source>The amount of CPU used is over %1%.</source>
-        <translation>A quantidade de uso da CPU está acima de %1%.</translation>
+        <translation>A quantidade de utilização do CPU está acima de %1%.</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/Dashboard/dashboard_page.cpp" line="162"/>
         <source>High Memory Usage</source>
-        <translation>Alto Uso da Memória</translation>
+        <translation>Utilização da Memória muito alta</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/Dashboard/dashboard_page.cpp" line="163"/>
         <source>The amount of memory used is over %1%.</source>
-        <translation>A quantidade de uso da memória está acima de %1%</translation>
+        <translation>A quantidade de utilização da memória está acima de %1%</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/Dashboard/dashboard_page.cpp" line="202"/>
         <source>High Disk Usage</source>
-        <translation>Alto uso de Disco</translation>
+        <translation>Utilização do Disco muito alta</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/Dashboard/dashboard_page.cpp" line="203"/>
         <source>The amount of disk used is over %1%.</source>
-        <translation>A quantidade de uso do disco está acima de %1%</translation>
+        <translation>A quantidade de utilização do disco está acima de %1%</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/Dashboard/dashboard_page.cpp" line="241"/>
@@ -451,17 +451,17 @@
     <message>
         <location filename="../stacer/feedback.cpp" line="51"/>
         <source>Your message must be at least 25 characters !</source>
-        <translation>Sua mensagem deve ter ao menos 25 caracteres !</translation>
+        <translation>A sua mensagem deve ter pelo menos 25 caracteres !</translation>
     </message>
     <message>
         <location filename="../stacer/feedback.cpp" line="61"/>
         <source>Sending..</source>
-        <translation>Enviando..</translation>
+        <translation>A Enviar..</translation>
     </message>
     <message>
         <location filename="../stacer/feedback.cpp" line="79"/>
         <source>&lt;font color=&apos;#2ecc71&apos;&gt;Your Feedback has been successfully sended.&lt;/font&gt;</source>
-        <translation>&lt;font color=&apos;#2ecc71&apos;&gt;Seu Comentário foi enviado com sucesso.&lt;/font&gt;</translation>
+        <translation>&lt;font color=&apos;#2ecc71&apos;&gt;O seu Comentário foi enviado com sucesso.&lt;/font&gt;</translation>
     </message>
     <message>
         <location filename="../stacer/feedback.cpp" line="81"/>
@@ -472,7 +472,7 @@
     <message>
         <location filename="../stacer/feedback.cpp" line="89"/>
         <source>Save</source>
-        <translation>Salvar</translation>
+        <translation>Guardar</translation>
     </message>
     <message>
         <location filename="../stacer/feedback.cpp" line="94"/>
@@ -495,7 +495,7 @@
     <message>
         <location filename="../stacer/Pages/GnomeSettings/gnome_settings_page.ui" line="81"/>
         <source>Window Manager</source>
-        <translation>Gerenciador de Janelas</translation>
+        <translation>Gestor de Janelas</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/GnomeSettings/gnome_settings_page.ui" line="110"/>
@@ -524,12 +524,12 @@
     <message>
         <location filename="../stacer/Pages/Processes/processes_page.ui" line="217"/>
         <source>End Process</source>
-        <translation>Finalizar processo</translation>
+        <translation>Terminar processo</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/Processes/processes_page.cpp" line="27"/>
         <source>User</source>
-        <translation>Usuário</translation>
+        <translation>Utilizador</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/Processes/processes_page.cpp" line="26"/>
@@ -549,7 +549,7 @@
     <message>
         <location filename="../stacer/Pages/Processes/processes_page.cpp" line="27"/>
         <source>Start Time</source>
-        <translation>Tempo de Inicialização</translation>
+        <translation>Tempo de Arranque</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/Processes/processes_page.cpp" line="27"/>
@@ -564,7 +564,7 @@
     <message>
         <location filename="../stacer/Pages/Processes/processes_page.cpp" line="28"/>
         <source>Nice</source>
-        <translation>Legal</translation>
+        <translation>Correcto</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/Processes/processes_page.cpp" line="28"/>
@@ -640,7 +640,7 @@
     <message>
         <location filename="../stacer/Pages/Resources/resources_page.cpp" line="118"/>
         <source>%1 Minute Average: %2</source>
-        <translation>%1 Taxa de Minuto: %2</translation>
+        <translation>%1 Média por Minuto: %2</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/Resources/resources_page.cpp" line="164"/>
@@ -708,7 +708,7 @@
     <message>
         <location filename="../stacer/Pages/Services/services_page.cpp" line="28"/>
         <source>Startup Status</source>
-        <translation>Status de Iniciaização</translation>
+        <translation>Status de Arranque</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/Services/services_page.cpp" line="28"/>
@@ -736,12 +736,12 @@
     <message>
         <location filename="../stacer/Pages/Settings/settings_page.ui" line="110"/>
         <source>Memory Percent</source>
-        <translation>Percentual de Memória</translation>
+        <translation>Percentagem de Memória</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/Settings/settings_page.ui" line="204"/>
         <source>Disk Percent</source>
-        <translation>Percentual de Disco</translation>
+        <translation>Percentagem do Disco</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/Settings/settings_page.ui" line="233"/>
@@ -761,7 +761,7 @@
     <message>
         <location filename="../stacer/Pages/Settings/settings_page.ui" line="317"/>
         <source>Alert messages (Show a warning after the specified percentage)</source>
-        <translation>Mensagens de Alerta (Mostra um aviso depois de uma porcentagem espefíciada)</translation>
+        <translation>Mensagens de Alerta (Mostra um aviso depois de uma percentagem espefíciada)</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/Settings/settings_page.ui" line="422"/>
@@ -771,7 +771,7 @@
     <message>
         <location filename="../stacer/Pages/Settings/settings_page.ui" line="301"/>
         <source>CPU Percent</source>
-        <translation>Percentual do CPU</translation>
+        <translation>Percentagem do CPU</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/Settings/settings_page.ui" line="324"/>
@@ -834,7 +834,7 @@
     <message>
         <location filename="../stacer/Pages/StartupApps/startup_app.ui" line="150"/>
         <source>Delete App</source>
-        <translation>Deletar Aplicativo</translation>
+        <translation>Apagar Ficheiro</translation>
     </message>
 </context>
 <context>
@@ -847,7 +847,7 @@
     <message>
         <location filename="../stacer/Pages/StartupApps/startup_app_edit.ui" line="74"/>
         <source>Save</source>
-        <translation>Salvar</translation>
+        <translation>Guardar</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/StartupApps/startup_app_edit.ui" line="44"/>
@@ -923,12 +923,12 @@
     <message>
         <location filename="../stacer/Pages/SystemCleaner/system_cleaner_page.ui" line="363"/>
         <source>Trash</source>
-        <translation>Lixeira</translation>
+        <translation>Reciclagem</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/SystemCleaner/system_cleaner_page.ui" line="401"/>
         <source>Package Caches</source>
-        <translation>Pacote Caches</translation>
+        <translation>Caches dos Pacotes</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/SystemCleaner/system_cleaner_page.ui" line="521"/>
@@ -938,7 +938,7 @@
     <message>
         <location filename="../stacer/Pages/SystemCleaner/system_cleaner_page.cpp" line="32"/>
         <source>File Name</source>
-        <translation>Nome do arquivo</translation>
+        <translation>Nome do ficheiro</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/SystemCleaner/system_cleaner_page.cpp" line="32"/>
@@ -948,7 +948,7 @@
     <message>
         <location filename="../stacer/Pages/SystemCleaner/system_cleaner_page.cpp" line="285"/>
         <source>%1 size files cleaned.</source>
-        <translation>arquivos de tamanho %1 limpos.</translation>
+        <translation>ficheiros de tamanho %1 limpos.</translation>
     </message>
 </context>
 <context>
@@ -989,12 +989,12 @@
     <message>
         <location filename="../stacer/Pages/GnomeSettings/unity_settings.ui" line="108"/>
         <source>Show &quot;Recently Used&quot; applications</source>
-        <translation>Mostrar Aplicativos &quot;Usados Recentemente&quot;</translation>
+        <translation>Mostrar Programas &quot;Usados Recentemente&quot;</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/GnomeSettings/unity_settings.ui" line="134"/>
         <source>Enable search of your files</source>
-        <translation>Habilitar pesquisa de seus arquivos</translation>
+        <translation>Habilitar pesquisa nos seus ficheiros</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/GnomeSettings/unity_settings.ui" line="160"/>
@@ -1046,12 +1046,12 @@
     <message>
         <location filename="../stacer/Pages/GnomeSettings/unity_settings.ui" line="412"/>
         <source>Reveal Sensitivity</source>
-        <translation>Revelar Sensibilidade</translation>
+        <translation>Mostrar Sensibilidade</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/GnomeSettings/unity_settings.ui" line="438"/>
         <source>Reveal Location</source>
-        <translation>Revelar Localização</translation>
+        <translation>Mostrar Localização</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/GnomeSettings/unity_settings.ui" line="464"/>
@@ -1101,7 +1101,7 @@
     <message>
         <location filename="../stacer/Pages/GnomeSettings/unity_settings.ui" line="726"/>
         <source>Search online sources</source>
-        <translation>Buscando recursos online</translation>
+        <translation>Procurar recursos online</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/GnomeSettings/unity_settings.ui" line="752"/>
@@ -1136,7 +1136,7 @@
     <message>
         <location filename="../stacer/Pages/GnomeSettings/unity_settings.ui" line="888"/>
         <source>24-Hour Time</source>
-        <translation>Tempo de 24h</translation>
+        <translation>Dia de 24h</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/GnomeSettings/unity_settings.ui" line="910"/>
@@ -1161,7 +1161,7 @@
     <message>
         <location filename="../stacer/Pages/GnomeSettings/unity_settings.ui" line="971"/>
         <source>Show my name</source>
-        <translation>Mostrar meu nome</translation>
+        <translation>Mostrar o meu nome</translation>
     </message>
 </context>
 <context>
@@ -1269,7 +1269,7 @@
     <message>
         <location filename="../stacer/Pages/GnomeSettings/window_manager_settings.cpp" line="68"/>
         <source>Mouse</source>
-        <translation>Mouse</translation>
+        <translation>Rato</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/GnomeSettings/window_manager_settings.cpp" line="80"/>
@@ -1304,7 +1304,7 @@
     <message>
         <location filename="../stacer/Pages/GnomeSettings/window_manager_settings.cpp" line="82"/>
         <source>Lower</source>
-        <translation>Lento</translation>
+        <translation>Inferior</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/GnomeSettings/window_manager_settings.cpp" line="82"/>
