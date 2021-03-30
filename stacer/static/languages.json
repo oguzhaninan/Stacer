@@ -1,6 +1,7 @@
 [
 	{"value" : "ar", "text": "العربية"},
 	{"value" : "ca-es", "text": "Català"},
+	{"value" : "cs", "text": "Čeština"},
 	{"value" : "de", "text": "Deutsch"},
 	{"value" : "en", "text": "English"},
 	{"value" : "ko", "text": "한국어"},
