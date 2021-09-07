@@ -16,9 +16,9 @@
 class STACERCORESHARED_EXPORT CpuInfo
 {
 public:
-    int getCpuPhysicalCoreCount() const;
+    static int getCpuPhysicalCoreCount() ;
     static int getCpuCoreCount();
-    QList<int> getCpuPercents() const;
+    static QList<int> getCpuPercents() ;
     static QList<double> getLoadAvgs();
     static double getAvgClock();
     static QList<double> getClocks();

@@ -1,9 +1,9 @@
 #include "cpu_info.h"
-#include "command_util.h"
+#include "Utils/command_util.h"
 
 #include <QRegularExpression>
 
-int CpuInfo::getCpuPhysicalCoreCount() const
+int CpuInfo::getCpuPhysicalCoreCount()
 {
     static int count = 0;
 
@@ -11,25 +11,25 @@ int CpuInfo::getCpuPhysicalCoreCount() const
         QStringList cpuinfo = FileUtil::readListFromFile(PROC_CPUINFO);
 
         if (! cpuinfo.isEmpty()) {
-	    QSet<QPair<int, int> > physicalCoreSet;
-	    int physical = 0;
-	    int core = 0;
-	    for (auto & line : cpuinfo) {
-	        if (line.startsWith("physical id")) {
-                QStringList fields = line.split(": ");
-                if (fields.size() > 1)
-                    physical = fields[1].toInt();
+            QSet<QPair<int, int> > physicalCoreSet;
+            int physical = 0;
+            int core = 0;
+            for (auto & line : cpuinfo) {
+                if (line.startsWith("physical id")) {
+                    QStringList fields = line.split(": ");
+                    if (fields.size() > 1)
+                        physical = fields[1].toInt();
+                }
+                if (line.startsWith("core id")) {
+                    QStringList fields = line.split(": ");
+                    if (fields.size() > 1)
+                        core = fields[1].toInt();
+                    // We assume core id appears after physical id.
+                    physicalCoreSet.insert(qMakePair(physical, core));
+                }
             }
-            if (line.startsWith("core id")) {
-                QStringList fields = line.split(": ");
-                if (fields.size() > 1)
-                    core = fields[1].toInt();
-                // We assume core id appears after physical id.
-                physicalCoreSet.insert(qMakePair(physical, core));
-            }
-	    }
-	    count = physicalCoreSet.size();
-	}
+            count = physicalCoreSet.size();
+        }
     }
 
     return count;
@@ -84,7 +84,7 @@ QList<double> CpuInfo::getClocks()
     return clocks;
 }
 
-QList<int> CpuInfo::getCpuPercents() const
+QList<int> CpuInfo::getCpuPercents()
 {
     QList<double> cpuTimes;
 
