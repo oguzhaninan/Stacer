@@ -1,10 +1,5 @@
 #include "file_util.h"
 
-FileUtil::FileUtil()
-{
-
-}
-
 QString FileUtil::readStringFromFile(const QString &path, const QIODevice::OpenMode &mode)
 {
     QSharedPointer<QFile> file(new QFile(path));
@@ -35,7 +30,7 @@ bool FileUtil::writeFile(const QString &path, const QString &content, const QIOD
     if(file.open(mode))
     {
         QTextStream stream(&file);
-        stream << content.toUtf8() << endl;
+        stream << content.toUtf8() << Qt::endl;
 
         file.close();
 

@@ -4,9 +4,7 @@
 
 QString FormatUtil::formatBytes(const quint64 &bytes)
 {
-#define formatUnit(v, u, t) QString().sprintf("%.1f %s", \
-    ((double) v / (double) u), t)
-
+#define formatUnit(v, u, t) QString().asprintf("%.1f %s", ((double) v / (double) u), t)
     if (bytes == 1L) // bytes
         return QString("%1 byte").arg(bytes);
     else if (bytes < KIBI) // bytes

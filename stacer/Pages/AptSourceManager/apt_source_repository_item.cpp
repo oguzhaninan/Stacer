@@ -28,7 +28,7 @@ void APTSourceRepositoryItem::init()
     // example "deb [arch=amd64] http://packages.microsoft.com/repos/vscode stable main"
     QString source = mAptSource->source;
 
-    source.remove(QRegExp("\\s[\\[]+.*[\\]]+"));
+    source.remove(QRegularExpression("\\s[\\[]+.*[\\]]+"));
 
     if (mAptSource->isSource) {
         ui->lblAptSourceName->setText(tr("%1 (Source Code)").arg(source));

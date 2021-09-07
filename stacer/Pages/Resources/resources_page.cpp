@@ -66,7 +66,7 @@ void ResourcesPage::diskPieSeriesCustomize()
             mChartDiskPie->setTitle(QString("%1 (%2) (%3)")
                                     .arg(slice->label())
                                     .arg(FormatUtil::formatBytes(slice->value()))
-                                    .arg(QString().sprintf("%1.2f%%", slice->percentage() * 100)));
+                                    .arg(QString().asprintf("%1.2f%%", slice->percentage() * 100)));
         });
     }
 }
@@ -351,7 +351,7 @@ void ResourcesPage::updateMemoryChart()
     seriesList.at(0)->insert(0, QPointF(0, percent));
     seriesList.at(0)->setName(tr("Swap: %1 (%2%) %3")
                               .arg(FormatUtil::formatBytes(im->getSwapUsed()))
-                              .arg(QString().sprintf("%.1f",percent))
+                              .arg(QString().asprintf("%.1f",percent))
                               .arg(FormatUtil::formatBytes(im->getSwapTotal())));
 
     // Memory
@@ -360,7 +360,7 @@ void ResourcesPage::updateMemoryChart()
     seriesList.at(1)->insert(0, QPointF(0, percent2));
     seriesList.at(1)->setName(tr("Memory: %1 (%2%) %3")
                               .arg(FormatUtil::formatBytes(im->getMemUsed()))
-                              .arg(QString().sprintf("%.1f",percent2))
+                              .arg(QString().asprintf("%.1f",percent2))
                               .arg(FormatUtil::formatBytes(im->getMemTotal())));
 
     mChartMemory->setSeriesList(seriesList);

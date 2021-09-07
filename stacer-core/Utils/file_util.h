@@ -23,7 +23,7 @@ public:
   static quint64 getFileSize(const QString &path);
 
 private:
-  FileUtil();
+  FileUtil() = default;
 };
 
 #endif // FILEUTIL_H

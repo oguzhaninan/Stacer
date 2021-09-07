@@ -22,7 +22,12 @@ ServicesPage::ServicesPage(QWidget *parent) :
 void ServicesPage::init()
 {
     connect(this, &ServicesPage::loadServicesS, this, &ServicesPage::loadServices);
+
+#if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
+    QtConcurrent::run(&ServicesPage::getServices, this);
+#else
     QtConcurrent::run(this, &ServicesPage::getServices);
+#endif
 
     ui->cmbRunningStatus->addItems({ tr("Running Status"), tr("Running"), tr("Not Running") });
     ui->cmbStartupStatus->addItems({ tr("Startup Status"), tr("Enabled"), tr("Disabled") });

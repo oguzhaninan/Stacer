@@ -1,28 +1,28 @@
 #include "system_info.h"
 
+#include <QRegularExpression>
 #include <QObject>
-#include <iostream>
 
 SystemInfo::SystemInfo()
 {
     QString unknown(QObject::tr("Unknown"));
-    QString model = nullptr;
-    QString speed = nullptr;
+    QString model;
+    QString speed;
 
     try{
         QStringList lines = CommandUtil::exec("bash",{"-c", LSCPU_COMMAND}).split('\n');  //run command in English language (guaratee same behaviour across languages)
 
-        QRegExp regexp("\\s+");
+        QRegularExpression regexp("\\s+");
         QString space(" ");
 
-        auto filterModel = lines.filter(QRegExp("^Model name"));
+        auto filterModel = lines.filter(QRegularExpression("^Model name"));
         QString modelLine = filterModel.isEmpty() ? "error missing model:error missing model" : filterModel.first();
-        auto filterSpeed = lines.filter(QRegExp("^CPU max MHz"));
+        auto filterSpeed = lines.filter(QRegularExpression("^CPU max MHz"));
         QString speedLine = "error:0.0";
         if (filterSpeed.isEmpty())
         {
             // fallback to CPU MHz
-            filterSpeed = lines.filter(QRegExp("^CPU MHz"));
+            filterSpeed = lines.filter(QRegularExpression("^CPU MHz"));
             speedLine = filterSpeed.isEmpty() ? speedLine : filterSpeed.first();
         }
 
@@ -63,12 +63,12 @@ QString SystemInfo::getUsername() const
     return username;
 }
 
-QString SystemInfo::getHostname() const
+QString SystemInfo::getHostname()
 {
     return QSysInfo::machineHostName();
 }
 
-QStringList SystemInfo::getUserList() const
+QStringList SystemInfo::getUserList()
 {
     QStringList passwdUsers = FileUtil::readListFromFile("/etc/passwd");
     QStringList users;
@@ -80,7 +80,7 @@ QStringList SystemInfo::getUserList() const
     return users;
 }
 
-QStringList SystemInfo::getGroupList() const
+QStringList SystemInfo::getGroupList()
 {
     QStringList groupFile = FileUtil::readListFromFile("/etc/group");
     QStringList groups;
@@ -92,19 +92,19 @@ QStringList SystemInfo::getGroupList() const
     return groups;
 }
 
-QString SystemInfo::getPlatform() const
+QString SystemInfo::getPlatform()
 {
     return QString("%1 %2")
             .arg(QSysInfo::kernelType())
             .arg(QSysInfo::currentCpuArchitecture());
 }
 
-QString SystemInfo::getDistribution() const
+QString SystemInfo::getDistribution()
 {
     return QSysInfo::prettyProductName();
 }
 
-QString SystemInfo::getKernel() const
+QString SystemInfo::getKernel()
 {
     return QSysInfo::kernelVersion();
 }
@@ -124,21 +124,21 @@ QString SystemInfo::getCpuCore() const
     return this->cpuCore;
 }
 
-QFileInfoList SystemInfo::getCrashReports() const
+QFileInfoList SystemInfo::getCrashReports()
 {
     QDir reports("/var/crash");
 
     return reports.entryInfoList(QDir::Files);
 }
 
-QFileInfoList SystemInfo::getAppLogs() const
+QFileInfoList SystemInfo::getAppLogs()
 {
     QDir logs("/var/log");
 
     return logs.entryInfoList(QDir::Files | QDir::Dirs | QDir::NoDotAndDotDot);
 }
 
-QFileInfoList SystemInfo::getAppCaches() const
+QFileInfoList SystemInfo::getAppCaches()
 {
     QString homePath = QStandardPaths::writableLocation(QStandardPaths::HomeLocation);
 

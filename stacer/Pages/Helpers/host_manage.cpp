@@ -67,7 +67,7 @@ void HostManage::loadHostItems()
     {
         if (! line.trimmed().startsWith("#") && ! line.trimmed().isEmpty())
         {
-            QStringList lineItems = line.trimmed().split(QRegExp("\\s+"));
+            QStringList lineItems = line.trimmed().split(QRegularExpression("\\s+"));
 
             if (lineItems.count() > 1) {
                 HostItem hItem;

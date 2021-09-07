@@ -1,5 +1,7 @@
 #include "unity_settings.h"
 #include "ui_unity_settings.h"
+
+#include <QRegularExpression>
 #include <QDebug>
 
 UnitySettings::~UnitySettings()
@@ -86,7 +88,7 @@ void UnitySettings::init()
         ui->radioLauncherVisiblePrimaryDesktop->setChecked(true);
     }
 
-    if (launcherPosition.contains(QRegExp("Left", Qt::CaseInsensitive))) {
+    if (launcherPosition.contains(QRegularExpression("Left", QRegularExpression::CaseInsensitiveOption))) {
         ui->radioLauncherPositionLeft->setChecked(true);
     } else {
         ui->radioLauncherPositionBottom->setChecked(true);
@@ -96,7 +98,7 @@ void UnitySettings::init()
 
     ui->checkBackgroundBlur->setChecked(dashBlur);
 
-    if (searchOnlineResource.contains(QRegExp("all", Qt::CaseInsensitive))) {
+    if (searchOnlineResource.contains(QRegularExpression("all", QRegularExpression::CaseInsensitiveOption))) {
         ui->checkSearchOnlineResource->setChecked(true);
     }
 
@@ -110,7 +112,7 @@ void UnitySettings::init()
 
     ui->checkDateTime->setChecked(showDateTime);
 
-    if (timeFormat.contains(QRegExp("24-hour", Qt::CaseInsensitive))) {
+    if (timeFormat.contains(QRegularExpression("24-hour", QRegularExpression::CaseInsensitiveOption))) {
         ui->check24Hour->setChecked(true);
     }
 

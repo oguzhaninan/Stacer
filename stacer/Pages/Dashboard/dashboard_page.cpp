@@ -74,26 +74,25 @@ void DashboardPage::init()
 
 void DashboardPage::checkUpdate()
 {
-    QNetworkAccessManager * nam = new QNetworkAccessManager(this);
+    auto * nam = new QNetworkAccessManager(this);
     const QNetworkRequest updateCheckRequest(QUrl("https://api.github.com/repos/oguzhaninan/Stacer/releases/latest"));
     connect(nam,&QNetworkAccessManager::finished,this,[this](QNetworkReply * reply){
         if(reply->error()==QNetworkReply::NoError)
         {
             const QString requestResult= reply->readAll();
             const QJsonDocument result = QJsonDocument::fromJson(requestResult.toUtf8());
-            const QRegExp ex("([0-9].[0-9].[0-9])");
-            ex.indexIn(result.object().value("tag_name").toString());
+            const QRegularExpression ex("([0-9].[0-9].[0-9])");
+            QRegularExpressionMatch match;
+            if (-1 != result.object().value("tag_name").toString().indexOf(ex)) {
+                if (match.capturedLength() > 0) {
+                    const QString version = match.captured();
 
-            if (ex.matchedLength() > 0)
-            {
-                const QString version = ex.cap();
-
-                if (qApp->applicationVersion() != version) {
-                    emit sigShowUpdateBar();
+                    if (qApp->applicationVersion() != version) {
+                        emit sigShowUpdateBar();
+                    }
                 }
             }
         }
-
     });
     nam->get(updateCheckRequest);
 }

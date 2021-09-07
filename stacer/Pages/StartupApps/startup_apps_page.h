@@ -29,7 +29,7 @@ public slots:
 
 private slots:
     void init();
-    void openStartupAppEdit(const QString filePath = QString());
+    void openStartupAppEdit(const QString& filePath = QString());
     void setAppCount();
 
 private:
@@ -41,7 +41,7 @@ private:
     QFileSystemWatcher mFileSystemWatcher;
     QString mAutostartPath;
 
-    bool checkIfDisabled(const QString& as_path);
+    static bool checkIfDisabled(const QString& as_path);
 };
 
 #endif // STARTUPAPPSPAGE_H

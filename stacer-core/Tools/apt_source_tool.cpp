@@ -1,6 +1,8 @@
 #include "apt_source_tool.h"
 #include "Utils/command_util.h"
 #include "Utils/file_util.h"
+
+#include <QRegularExpression>
 #include <QDebug>
 
 bool AptSourceTool::checkSourceRepository()
@@ -81,7 +83,7 @@ QList<APTSourcePtr> AptSourceTool::getSourceList()
     // example "deb [arch=amd64] http://packages.microsoft.com/repos/vscode stable main"
     for (const QFileInfo &info : infoList) {
 
-        QStringList fileContent = FileUtil::readListFromFile(info.absoluteFilePath()).filter(QRegExp("^\\s{0,}#{0,}\\s{0,}deb"));
+        QStringList fileContent = FileUtil::readListFromFile(info.absoluteFilePath()).filter(QRegularExpression("^\\s{0,}#{0,}\\s{0,}deb"));
 
         for (const QString &line : fileContent) {
             QString _line = line.trimmed();
@@ -94,15 +96,17 @@ QList<APTSourcePtr> AptSourceTool::getSourceList()
             _line.remove('#'); // remove comment
 
             // if has options
-            QRegExp regexOption("(\\s[\\[]+.*[\\]]+)");
-            regexOption.indexIn(_line);
-            if (regexOption.matchedLength() > 0) {
-                aptSource->options = regexOption.cap().trimmed();
+            QRegularExpression regexOption("(\\s[\\[]+.*[\\]]+)");
+            QRegularExpressionMatch match;
+            if (-1 != _line.indexOf(regexOption, 0, &match)) {
+                if (match.capturedLength() > 0) {
+                    aptSource->options = match.captured().trimmed();
+                }
             }
             // remove options
             _line.remove(regexOption);
 
-            QStringList sourceColumns = _line.trimmed().split(QRegExp("\\s+"));
+            QStringList sourceColumns = _line.trimmed().split(QRegularExpression("\\s+"));
             bool isBinary = sourceColumns.first() == "deb";
             bool isSource = sourceColumns.first() == "deb-src";
 

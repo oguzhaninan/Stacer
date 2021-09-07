@@ -1,4 +1,6 @@
 #include "memory_info.h"
+
+#include <QRegularExpression>
 #include <QDebug>
 
 MemoryInfo::MemoryInfo():
@@ -19,8 +21,8 @@ MemoryInfo::MemoryInfo():
 void MemoryInfo::updateMemoryInfo()
 {
     QStringList lines = FileUtil::readListFromFile(PROC_MEMINFO)
-            .filter(QRegExp("^MemTotal|^MemFree|^Buffers|^Cached|^SwapTotal|^SwapFree|^Shmem|^SReclaimable"));
-    QRegExp sep("\\s+");
+            .filter(QRegularExpression("^MemTotal|^MemFree|^Buffers|^Cached|^SwapTotal|^SwapFree|^Shmem|^SReclaimable"));
+    QRegularExpression sep("\\s+");
 
 #define getValue(l) lines.at(l).split(sep).at(1).toLong() << 10;
     memTotal = getValue(0);

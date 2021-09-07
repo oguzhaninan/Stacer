@@ -129,7 +129,7 @@ void APTSourceManagerPage::on_txtSearchAptSource_textChanged(const QString &val)
         QListWidgetItem *item = ui->listWidgetAptSources->item(i);
         if (item) {
             bool isContain = item->data(5).toString().contains(val, Qt::CaseInsensitive);
-            ui->listWidgetAptSources->setItemHidden(item, ! isContain);
+            item->setHidden(! isContain);
         }
     }
 }

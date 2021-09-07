@@ -1,6 +1,7 @@
 Stacer.pro.*
 dist/
 build/
+cmake-build-*/
 #*.AppImage
 .vscode
 Release/

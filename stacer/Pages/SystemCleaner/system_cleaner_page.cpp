@@ -25,7 +25,7 @@ SystemCleanerPage::SystemCleanerPage(QWidget *parent) :
 
 void SystemCleanerPage::init()
 {
-    // treview settings
+    // preview settings
     ui->treeWidgetScanResult->setColumnCount(2);
     ui->treeWidgetScanResult->setColumnWidth(0, 600);
 
@@ -55,7 +55,7 @@ void SystemCleanerPage::init()
 
 quint64 SystemCleanerPage::addTreeRoot(const CleanCategories &cat, const QString &title, const QFileInfoList &infos, bool noChild)
 {
-    QTreeWidgetItem *root = new QTreeWidgetItem(ui->treeWidgetScanResult);
+    auto *root = new QTreeWidgetItem(ui->treeWidgetScanResult);
     root->setData(2, 0, cat);
     root->setData(2, 1, title);
     if (! infos.isEmpty())
@@ -94,14 +94,14 @@ quint64 SystemCleanerPage::addTreeRoot(const CleanCategories &cat, const QString
 
 void SystemCleanerPage::addTreeChild(const QString &data, const QString &text, const quint64 &size, QTreeWidgetItem *parent)
 {
-    ByteTreeWidget *item = new ByteTreeWidget(parent);
+    auto *item = new ByteTreeWidget(parent);
     item->setValues(text, size, data);
     item->setIcon(0, QIcon::fromTheme(text, mDefaultIcon));
 }
 
 void SystemCleanerPage::addTreeChild(const CleanCategories &cat, const QString &text, const quint64 &size)
 {
-    ByteTreeWidget *item = new ByteTreeWidget(ui->treeWidgetScanResult);
+    auto *item = new ByteTreeWidget(ui->treeWidgetScanResult);
     item->setValues(text, size, cat);
 }
 
@@ -114,7 +114,7 @@ void SystemCleanerPage::on_treeWidgetScanResult_itemClicked(QTreeWidgetItem *ite
       // update check state
       //item->setCheckState(column, cs);
 
-      // change check state if has children
+      // change check state if it has children
       for (int i = 0; i < item->childCount(); ++i)
         item->child(i)->setCheckState(column, cs);
     }
@@ -249,7 +249,7 @@ void SystemCleanerPage::systemClean()
             }
 
             // Trash
-            else if (cat == CleanCategories::TRASH) {
+            else {
 
                 if (it->checkState(0) == Qt::Checked) {
 
@@ -272,7 +272,7 @@ void SystemCleanerPage::systemClean()
         }
 
         for (int i = 0; i < tree->topLevelItemCount(); ++i) {
-            // clear removed childs
+            // clear removed children
             for (QTreeWidgetItem *item : children) {
                 tree->topLevelItem(i)->removeChild(item);
             }
@@ -302,12 +302,20 @@ void SystemCleanerPage::systemClean()
 
 void SystemCleanerPage::on_btnScan_clicked()
 {
+#if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
+    QtConcurrent::run(&SystemCleanerPage::systemScan, this);
+#else
     QtConcurrent::run(this, &SystemCleanerPage::systemScan);
+#endif
 }
 
 void SystemCleanerPage::on_btnClean_clicked()
 {
+#if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
+    QtConcurrent::run(&SystemCleanerPage::systemClean, this);
+#else
     QtConcurrent::run(this, &SystemCleanerPage::systemClean);
+#endif
 }
 
 void SystemCleanerPage::on_btnBackToCategories_clicked()

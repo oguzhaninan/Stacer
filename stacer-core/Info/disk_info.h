@@ -17,9 +17,9 @@ public:
     QList<Disk*> getDisks() const;
     void updateDiskInfo();
     QList<quint64> getDiskIO() const;
-    QStringList getDiskNames() const;
-    QList<QString> fileSystemTypes();
-    QList<QString> devices();
+    static QStringList getDiskNames();
+    static QList<QString> fileSystemTypes();
+    static QList<QString> devices();
     ~DiskInfo();
 
 private:

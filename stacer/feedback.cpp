@@ -2,6 +2,7 @@
 #include "ui_feedback.h"
 #include "Utils/command_util.h"
 
+#include <QRegularExpression>
 #include <QJsonDocument>
 #include <QJsonObject>
 #include <QDebug>
@@ -26,8 +27,7 @@ Feedback::Feedback(QWidget *parent) :
 
 void Feedback::init()
 {
-    mMailRegex.setCaseSensitivity(Qt::CaseInsensitive);
-    mMailRegex.setPatternSyntax(QRegExp::RegExp);
+    mMailRegex.setPatternOptions(QRegularExpression::CaseInsensitiveOption);
 
     connect(this, &Feedback::clearInputsS,     this, &Feedback::clearInputs);
     connect(this, &Feedback::setErrorMessageS, this, &Feedback::setErrorMessage);
@@ -40,7 +40,7 @@ void Feedback::on_btnSend_clicked()
     QString email = ui->txtEmail->text();
     QString message = ui->txtMessage->toPlainText();
 
-    bool isEmailValid = mMailRegex.exactMatch(email);
+    bool isEmailValid = mMailRegex.match(email).hasMatch();
 
     if (! isEmailValid) {
         emit setErrorMessageS(tr("Email address is not valid !"));
