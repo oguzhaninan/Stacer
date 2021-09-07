@@ -23,8 +23,8 @@ SystemInfo::SystemInfo()
         {
             // fallback to CPU MHz
             filterSpeed = lines.filter(QRegularExpression("^CPU MHz"));
-            speedLine = filterSpeed.isEmpty() ? speedLine : filterSpeed.first();
         }
+        speedLine = filterSpeed.isEmpty() ? speedLine : filterSpeed.first();
 
         model = modelLine.split(":").last();
         speed = speedLine.split(":").last();
