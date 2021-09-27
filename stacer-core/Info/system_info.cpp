@@ -135,7 +135,8 @@ QFileInfoList SystemInfo::getAppLogs() const
 {
     QDir logs("/var/log");
 
-    return logs.entryInfoList(QDir::Files | QDir::Dirs | QDir::NoDotAndDotDot);
+    //remove only files not directory ex. apache2 (log directory)
+    return logs.entryInfoList(QDir::Files | QDir::NoDotAndDotDot);
 }
 
 QFileInfoList SystemInfo::getAppCaches() const
