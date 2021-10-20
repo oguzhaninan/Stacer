@@ -1262,7 +1262,7 @@
     <message>
         <location filename="../stacer/Pages/Helpers/host_manage.cpp" line="35"/>
         <source>Full Qualified</source>
-        <translation>Kvalificera namn</translation>
+        <translation>Kvalificerat namn</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/Helpers/host_manage.cpp" line="35"/>
