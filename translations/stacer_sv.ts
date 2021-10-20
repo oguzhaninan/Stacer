@@ -1024,7 +1024,7 @@
     </message>
     <message>
         <location filename="../stacer/Pages/Settings/settings_page.ui" line="329"/>
-        <source>App Quit Don't Ask</source>
+        <source>App Quit Don&apos;t Ask</source>
         <translation>Fråga inte vid avslut</translation>
     </message>
     <message>
@@ -1038,39 +1038,49 @@
         <translation>Tema</translation>
     </message>
     <message>
-        <location filename="../stacer/Pages/Settings/settings_page.cpp" line="74"/>
+        <location filename="../stacer/Pages/Settings/settings_page.cpp" line="82"/>
         <source>Dashboard</source>
         <translation>Instrumentpanel</translation>
     </message>
     <message>
-        <location filename="../stacer/Pages/Settings/settings_page.cpp" line="74"/>
+        <location filename="../stacer/Pages/Settings/settings_page.cpp" line="82"/>
         <source>Startup Apps</source>
         <translation>Uppstartsprogram</translation>
     </message>
     <message>
-        <location filename="../stacer/Pages/Settings/settings_page.cpp" line="74"/>
+        <location filename="../stacer/Pages/Settings/settings_page.cpp" line="82"/>
         <source>System Cleaner</source>
-        <translation>Systemrensare</translation>
+        <translation>Systemstädare</translation>
     </message>
     <message>
-        <location filename="../stacer/Pages/Settings/settings_page.cpp" line="75"/>
+        <location filename="../stacer/Pages/Settings/settings_page.cpp" line="82"/>
+        <source>Search</source>
+        <translation>Sök</translation>
+    </message>
+    <message>
+        <location filename="../stacer/Pages/Settings/settings_page.cpp" line="83"/>
         <source>Services</source>
         <translation>Tjänster</translation>
     </message>
     <message>
-        <location filename="../stacer/Pages/Settings/settings_page.cpp" line="75"/>
+        <location filename="../stacer/Pages/Settings/settings_page.cpp" line="83"/>
         <source>Processes</source>
         <translation>Processer</translation>
     </message>
     <message>
-        <location filename="../stacer/Pages/Settings/settings_page.cpp" line="75"/>
+        <location filename="../stacer/Pages/Settings/settings_page.cpp" line="83"/>
         <source>Uninstaller</source>
         <translation>Avinstallerare</translation>
     </message>
     <message>
-        <location filename="../stacer/Pages/Settings/settings_page.cpp" line="75"/>
+        <location filename="../stacer/Pages/Settings/settings_page.cpp" line="83"/>
         <source>Resources</source>
         <translation>Resurser</translation>
+    </message>
+    <message>
+        <location filename="../stacer/Pages/Settings/settings_page.cpp" line="83"/>
+        <source>Helpers</source>
+        <translation>Hjälpare</translation>
     </message>
 </context>
 <context>
@@ -1537,12 +1547,6 @@
         <location filename="../stacer/Pages/GnomeSettings/window_manager_settings.ui" line="267"/>
         <source>Workspace Settings</source>
         <translation>Inställningar för arbetsytor</translation>
-    </message>
-    <message>
-        <location filename="../stacer/Pages/GnomeSettings/window_manager_settings.ui" line="310"/>
-        <location filename="../stacer/Pages/Settings/settings_page.ui" line="329"/>
-        <source>App Quit Don&apos;t Ask</source>
-        <translation>Fråga inte vid programavslut</translation>
     </message>
     <message>
         <source>Vertical workspaces</source>
