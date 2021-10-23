@@ -6,57 +6,57 @@
     <message>
         <location filename="../stacer/Pages/AptSourceManager/apt_source_edit.ui" line="14"/>
         <source>APT Repository Edit</source>
-        <translation type="unfinished"></translation>
+        <translation>Redigera APT programkälla</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/AptSourceManager/apt_source_edit.ui" line="38"/>
         <source>APT Repository</source>
-        <translation type="unfinished"></translation>
+        <translation>APT programkälla</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/AptSourceManager/apt_source_edit.ui" line="48"/>
         <source>Components</source>
-        <translation type="unfinished"></translation>
+        <translation>Komponenter</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/AptSourceManager/apt_source_edit.ui" line="55"/>
         <source>Options</source>
-        <translation type="unfinished"></translation>
+        <translation>Alternativ</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/AptSourceManager/apt_source_edit.ui" line="71"/>
         <source>Cancel</source>
-        <translation type="unfinished"></translation>
+        <translation>Avbryt</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/AptSourceManager/apt_source_edit.ui" line="87"/>
         <source>Fields cannot be left blank. </source>
-        <translation type="unfinished">Fälten kan inte lämnas blankt. </translation>
+        <translation>Inga fält kan lämnas tomma. </translation>
     </message>
     <message>
         <location filename="../stacer/Pages/AptSourceManager/apt_source_edit.ui" line="94"/>
         <source>URI</source>
-        <translation type="unfinished"></translation>
+        <translation>URI</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/AptSourceManager/apt_source_edit.ui" line="110"/>
         <source>Save</source>
-        <translation type="unfinished">Spara</translation>
+        <translation>Spara</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/AptSourceManager/apt_source_edit.ui" line="133"/>
         <source>Distribution</source>
-        <translation type="unfinished"></translation>
+        <translation>Distribution</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/AptSourceManager/apt_source_edit.ui" line="152"/>
         <source>Source</source>
-        <translation type="unfinished"></translation>
+        <translation>Källa</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/AptSourceManager/apt_source_edit.ui" line="177"/>
         <source>Binary</source>
-        <translation type="unfinished"></translation>
+        <translation>Binär</translation>
     </message>
 </context>
 <context>
@@ -64,63 +64,63 @@
     <message>
         <location filename="../stacer/Pages/AptSourceManager/apt_source_manager_page.ui" line="188"/>
         <source>Search...</source>
-        <translation type="unfinished">Sök...</translation>
+        <translation>Sök...</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/AptSourceManager/apt_source_manager_page.ui" line="226"/>
         <source>Edit</source>
-        <translation type="unfinished">Redigera</translation>
+        <translation>Redigera</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/AptSourceManager/apt_source_manager_page.ui" line="14"/>
         <source>APT Repository Manager</source>
-        <translation type="unfinished"></translation>
+        <translation>APT programkällor</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/AptSourceManager/apt_source_manager_page.ui" line="125"/>
         <source>Not Found APT Repositories</source>
-        <translation type="unfinished"></translation>
+        <translation>Inga APT programkällor hittades</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/AptSourceManager/apt_source_manager_page.ui" line="269"/>
         <source>Delete</source>
-        <translation type="unfinished">Radera</translation>
+        <translation>Ta bort</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/AptSourceManager/apt_source_manager_page.ui" line="308"/>
         <source>Enable Source</source>
-        <translation type="unfinished"></translation>
+        <translation>Aktivera källa</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/AptSourceManager/apt_source_manager_page.ui" line="338"/>
         <location filename="../stacer/Pages/AptSourceManager/apt_source_manager_page.cpp" line="86"/>
         <source>Add Repository</source>
-        <translation type="unfinished"></translation>
+        <translation>Lägg till programkälla</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/AptSourceManager/apt_source_manager_page.ui" line="371"/>
         <source>Cancel</source>
-        <translation type="unfinished"></translation>
+        <translation>Avbryt</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/AptSourceManager/apt_source_manager_page.ui" line="419"/>
         <source>Select to delete or edit.</source>
-        <translation type="unfinished"></translation>
+        <translation>Markera för att ta bort eller redigera.</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/AptSourceManager/apt_source_manager_page.cpp" line="25"/>
         <source>example %1</source>
-        <translation type="unfinished"></translation>
+        <translation>exempel %1</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/AptSourceManager/apt_source_manager_page.cpp" line="59"/>
         <source>APT Repositories (%1)</source>
-        <translation type="unfinished"></translation>
+        <translation>APT programkällor (%1)</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/AptSourceManager/apt_source_manager_page.cpp" line="66"/>
         <source>Save</source>
-        <translation type="unfinished">Spara</translation>
+        <translation>Spara</translation>
     </message>
 </context>
 <context>
@@ -128,7 +128,7 @@
     <message>
         <location filename="../stacer/Pages/AptSourceManager/apt_source_repository_item.cpp" line="34"/>
         <source>%1 (Source Code)</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 (Källkod)</translation>
     </message>
 </context>
 <context>
@@ -141,7 +141,7 @@
     <message>
         <location filename="../stacer/app.ui" line="135"/>
         <source>Startup Apps</source>
-        <translation type="unfinished"></translation>
+        <translation>Uppstartsprogram</translation>
     </message>
     <message>
         <location filename="../stacer/app.ui" line="163"/>
@@ -151,7 +151,7 @@
     <message>
         <location filename="../stacer/app.ui" line="306"/>
         <source>APT Repository Manager</source>
-        <translation type="unfinished"></translation>
+        <translation>APT programkällor</translation>
     </message>
     <message>
         <location filename="../stacer/app.ui" line="250"/>
@@ -171,12 +171,12 @@
     <message>
         <location filename="../stacer/app.ui" line="194"/>
         <source>Services</source>
-        <translation type="unfinished"></translation>
+        <translation>Tjänster</translation>
     </message>
     <message>
         <location filename="../stacer/app.ui" line="334"/>
         <source>Gnome Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Gnome-inställningar</translation>
     </message>
     <message>
         <location filename="../stacer/app.ui" line="362"/>
@@ -186,12 +186,12 @@
     <message>
         <location filename="../stacer/app.ui" line="403"/>
         <source>Feedback</source>
-        <translation type="unfinished"></translation>
+        <translation>Återkoppling</translation>
     </message>
     <message>
         <location filename="../stacer/app.cpp" line="111"/>
         <source>Quit</source>
-        <translation type="unfinished"></translation>
+        <translation>Avsluta</translation>
     </message>
 </context>
 <context>
@@ -199,97 +199,97 @@
     <message>
         <location filename="../stacer/Pages/GnomeSettings/appearance_settings.ui" line="44"/>
         <source>Screen Applications</source>
-        <translation type="unfinished"></translation>
+        <translation>Skärmprogram</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/GnomeSettings/appearance_settings.ui" line="74"/>
         <source>Screen Reader</source>
-        <translation type="unfinished"></translation>
+        <translation>Skärmläsare</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/GnomeSettings/appearance_settings.ui" line="100"/>
         <source>Screen Keyboard</source>
-        <translation type="unfinished"></translation>
+        <translation>Skärmtangentbord</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/GnomeSettings/appearance_settings.ui" line="136"/>
         <source>Background Image Mode</source>
-        <translation type="unfinished"></translation>
+        <translation>Bakgrundsbild</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/GnomeSettings/appearance_settings.ui" line="166"/>
         <source>Desktop Mode</source>
-        <translation type="unfinished"></translation>
+        <translation>Skrivbord</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/GnomeSettings/appearance_settings.ui" line="204"/>
         <source>Login Mode</source>
-        <translation type="unfinished"></translation>
+        <translation>Inloggning</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/GnomeSettings/appearance_settings.ui" line="252"/>
         <source>Icons</source>
-        <translation type="unfinished"></translation>
+        <translation>Ikoner</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/GnomeSettings/appearance_settings.ui" line="282"/>
         <source>Home Icon</source>
-        <translation type="unfinished"></translation>
+        <translation>Hem</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/GnomeSettings/appearance_settings.ui" line="308"/>
         <source>Trash Icon</source>
-        <translation type="unfinished"></translation>
+        <translation>Papperskorg</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/GnomeSettings/appearance_settings.ui" line="321"/>
         <source>Mounted Volumes Icon</source>
-        <translation type="unfinished"></translation>
+        <translation>Monterade enheter</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/GnomeSettings/appearance_settings.ui" line="347"/>
         <source>Show Desktop Icons</source>
-        <translation type="unfinished"></translation>
+        <translation>Visa skrivbordsikoner</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/GnomeSettings/appearance_settings.ui" line="373"/>
         <source>Network Icon</source>
-        <translation type="unfinished"></translation>
+        <translation>Nätverk</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/GnomeSettings/appearance_settings.cpp" line="71"/>
         <source>None</source>
-        <translation type="unfinished"></translation>
+        <translation>Ingen</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/GnomeSettings/appearance_settings.cpp" line="71"/>
         <source>Wallpaper</source>
-        <translation type="unfinished"></translation>
+        <translation>Skrivbordsbakgrund</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/GnomeSettings/appearance_settings.cpp" line="71"/>
         <source>Centered</source>
-        <translation type="unfinished"></translation>
+        <translation>Centrerad</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/GnomeSettings/appearance_settings.cpp" line="72"/>
         <source>Scaled</source>
-        <translation type="unfinished"></translation>
+        <translation>Skalad</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/GnomeSettings/appearance_settings.cpp" line="72"/>
         <source>Stretched</source>
-        <translation type="unfinished"></translation>
+        <translation>Utsträckt</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/GnomeSettings/appearance_settings.cpp" line="72"/>
         <source>Zoom</source>
-        <translation type="unfinished"></translation>
+        <translation>Zooma</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/GnomeSettings/appearance_settings.cpp" line="72"/>
         <source>Spanned</source>
-        <translation type="unfinished"></translation>
+        <translation>Mosaik</translation>
     </message>
 </context>
 <context>
@@ -297,17 +297,17 @@
     <message>
         <location filename="../stacer/Pages/Dashboard/dashboard_page.ui" line="20"/>
         <source>Dashboard</source>
-        <translation type="unfinished">Instrumentpanel</translation>
+        <translation>Instrumentpanel</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/Dashboard/dashboard_page.ui" line="156"/>
         <source>SYSTEM INFO</source>
-        <translation>SYSTEMINFO</translation>
+        <translation>SYSTEMINFORMATION</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/Dashboard/dashboard_page.ui" line="230"/>
         <source>There are update currently available.</source>
-        <translation>Det finns förnärvarande tillgängliga uppdateringar.</translation>
+        <translation>Det finns en uppdatering tillgänglig.</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/Dashboard/dashboard_page.ui" line="246"/>
@@ -357,7 +357,7 @@
     <message>
         <location filename="../stacer/Pages/Dashboard/dashboard_page.cpp" line="114"/>
         <source>Kernel Release: %1</source>
-        <translation>Kernelutgåva: %1</translation>
+        <translation>Linux-kärna: %1</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/Dashboard/dashboard_page.cpp" line="115"/>
@@ -377,38 +377,38 @@
     <message>
         <location filename="../stacer/Pages/Dashboard/dashboard_page.cpp" line="133"/>
         <source>High CPU Usage</source>
-        <translation type="unfinished"></translation>
+        <translation>Hög CPU-belastning</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/Dashboard/dashboard_page.cpp" line="134"/>
         <source>The amount of CPU used is over %1%.</source>
-        <translation type="unfinished"></translation>
+        <translation>CPU-belastningen överstiger %1%.</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/Dashboard/dashboard_page.cpp" line="162"/>
         <source>High Memory Usage</source>
-        <translation type="unfinished"></translation>
+        <translation>Hög minnesanvändning</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/Dashboard/dashboard_page.cpp" line="163"/>
         <source>The amount of memory used is over %1%.</source>
-        <translation type="unfinished"></translation>
+        <translation>Minnesanvändningen överstiger %1%.</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/Dashboard/dashboard_page.cpp" line="202"/>
         <source>High Disk Usage</source>
-        <translation type="unfinished"></translation>
+        <translation>Hög diskbelastning</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/Dashboard/dashboard_page.cpp" line="203"/>
         <source>The amount of disk used is over %1%.</source>
-        <translation type="unfinished"></translation>
+        <translation>Diskbelastningen överstiger %1%.</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/Dashboard/dashboard_page.cpp" line="241"/>
         <location filename="../stacer/Pages/Dashboard/dashboard_page.cpp" line="245"/>
         <source>Total: %1</source>
-        <translation>Total: %1</translation>
+        <translation>Totalt: %1</translation>
     </message>
 </context>
 <context>
@@ -416,68 +416,68 @@
     <message>
         <location filename="../stacer/feedback.ui" line="14"/>
         <source>Feedback</source>
-        <translation type="unfinished"></translation>
+        <translation>Återkoppling</translation>
     </message>
     <message>
         <location filename="../stacer/feedback.ui" line="38"/>
         <source>Name</source>
-        <translation type="unfinished"></translation>
+        <translation>Namn</translation>
     </message>
     <message>
         <location filename="../stacer/feedback.ui" line="45"/>
         <source>Email Address</source>
-        <translation type="unfinished"></translation>
+        <translation>E-postadress</translation>
     </message>
     <message>
         <location filename="../stacer/feedback.ui" line="68"/>
         <source>Send</source>
-        <translation type="unfinished"></translation>
+        <translation>Skicka</translation>
     </message>
     <message>
         <location filename="../stacer/feedback.ui" line="94"/>
         <source>Message</source>
-        <translation type="unfinished"></translation>
+        <translation>Meddelande</translation>
     </message>
     <message>
         <location filename="../stacer/feedback.ui" line="104"/>
         <source>Send a Feedback</source>
-        <translation type="unfinished"></translation>
+        <translation>Skicka återkoppling</translation>
     </message>
     <message>
         <location filename="../stacer/feedback.cpp" line="46"/>
         <source>Email address is not valid !</source>
-        <translation type="unfinished"></translation>
+        <translation>E-postadressen är inte giltig!</translation>
     </message>
     <message>
         <location filename="../stacer/feedback.cpp" line="51"/>
         <source>Your message must be at least 25 characters !</source>
-        <translation type="unfinished"></translation>
+        <translation>Det meddelande måste innehålla minst 25 tecken!</translation>
     </message>
     <message>
         <location filename="../stacer/feedback.cpp" line="61"/>
         <source>Sending..</source>
-        <translation type="unfinished"></translation>
+        <translation>Skickar...</translation>
     </message>
     <message>
         <location filename="../stacer/feedback.cpp" line="79"/>
         <source>&lt;font color=&apos;#2ecc71&apos;&gt;Your Feedback has been successfully sended.&lt;/font&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;font color=&apos;#2ecc71&apos;&gt;Din återkoppling har skickats.&lt;/font&gt;</translation>
     </message>
     <message>
         <location filename="../stacer/feedback.cpp" line="81"/>
         <location filename="../stacer/feedback.cpp" line="86"/>
         <source>Something went wrong, try again !</source>
-        <translation type="unfinished"></translation>
+        <translation>Något gick fel, försök igen!</translation>
     </message>
     <message>
         <location filename="../stacer/feedback.cpp" line="89"/>
         <source>Save</source>
-        <translation type="unfinished">Spara</translation>
+        <translation>Spara</translation>
     </message>
     <message>
         <location filename="../stacer/feedback.cpp" line="94"/>
         <source>Fields cannot be left blank !</source>
-        <translation type="unfinished"></translation>
+        <translation>Inga fält kan lämnas tomma!</translation>
     </message>
 </context>
 <context>
@@ -485,22 +485,266 @@
     <message>
         <location filename="../stacer/Pages/GnomeSettings/gnome_settings_page.ui" line="14"/>
         <source>Gnome Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Gnome-inställningar</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/GnomeSettings/gnome_settings_page.ui" line="49"/>
         <source>Unity Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Unity-inställningar</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/GnomeSettings/gnome_settings_page.ui" line="81"/>
         <source>Window Manager</source>
-        <translation type="unfinished"></translation>
+        <translation>Fönsterhanterare</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/GnomeSettings/gnome_settings_page.ui" line="110"/>
         <source>Appearance</source>
-        <translation type="unfinished"></translation>
+        <translation>Utseende</translation>
+    </message>
+</context>
+<context>
+    <name>SearchPage</name>
+    <message>
+        <location filename="../stacer/Pages/Search/search_page.ui" line="14"/>
+        <source>Search</source>
+        <translation>Sök</translation>
+    </message>
+    <message>
+        <location filename="../stacer/Pages/Search/search_page.ui" line="101"/>
+        <source>Browse...</source>
+        <translation>Bläddra...</translation>
+    </message>
+    <message>
+        <location filename="../stacer/Pages/Search/search_page.ui" line="113"/>
+        <source>Search...</source>
+        <translation>Sök...</translation>
+    </message>
+    <message>
+        <location filename="../stacer/Pages/Search/search_page.ui" line="211"/>
+        <source>Case Insensitive</source>
+        <translation>Skiftlägesokänslig</translation>
+    </message>
+    <message>
+        <location filename="../stacer/Pages/Search/search_page.ui" line="298"/>
+        <source> minute</source>
+        <translation> minut</translation>
+    </message>
+    <message>
+        <location filename="../stacer/Pages/Search/search_page.ui" line="370"/>
+        <source>Search as Root</source>
+        <translation>Sök som root</translation>
+    </message>
+    <message>
+        <location filename="../stacer/Pages/Search/search_page.ui" line="377"/>
+        <source>Owner</source>
+        <translation>Ägare</translation>
+    </message>
+    <message>
+        <location filename="../stacer/Pages/Search/search_page.ui" line="406"/>
+        <source>RegEx</source>
+        <translation>RegEx</translation>
+    </message>
+    <message>
+        <location filename="../stacer/Pages/Search/search_page.ui" line="483"/>
+        <source>Permissions</source>
+        <translation>Rättigheter</translation>
+    </message>
+    <message>
+        <location filename="../stacer/Pages/Search/search_page.ui" line="514"/>
+        <source>Readable</source>
+        <translation>Läsbar</translation>
+    </message>
+    <message>
+        <location filename="../stacer/Pages/Search/search_page.ui" line="530"/>
+        <source>Writable</source>
+        <translation>Skrivbar</translation>
+    </message>
+    <message>
+        <location filename="../stacer/Pages/Search/search_page.ui" line="546"/>
+        <source>Executable</source>
+        <translation>Körbar</translation>
+    </message>
+    <message>
+        <location filename="../stacer/Pages/Search/search_page.ui" line="555"/>
+        <source>Time</source>
+        <translation>Tid</translation>
+    </message>
+    <message>
+        <location filename="../stacer/Pages/Search/search_page.ui" line="584"/>
+        <source>Empty</source>
+        <translation>Tom</translation>
+    </message>
+    <message>
+        <location filename="../stacer/Pages/Search/search_page.ui" line="591"/>
+        <source>File or Folder:</source>
+        <translation>Fil eller mapp:</translation>
+    </message>
+    <message>
+        <location filename="../stacer/Pages/Search/search_page.ui" line="607"/>
+        <source>Invert</source>
+        <translation>Invertera</translation>
+    </message>
+    <message>
+        <location filename="../stacer/Pages/Search/search_page.ui" line="650"/>
+        <source>Advanced Search</source>
+        <translation>Avancerat sök</translation>
+    </message>
+    <message>
+        <location filename="../stacer/Pages/Search/search_page.ui" line="690"/>
+        <source>BETA version</source>
+        <translation>BETA-version</translation>
+    </message>
+    <message>
+        <location filename="../stacer/Pages/Search/search_page.cpp" line="25"/>
+        <source>Name</source>
+        <translation>Namn</translation>
+    </message>
+    <message>
+        <location filename="../stacer/Pages/Search/search_page.cpp" line="25"/>
+        <source>Path</source>
+        <translation>Sökväg</translation>
+    </message>
+    <message>
+        <location filename="../stacer/Pages/Search/search_page.cpp" line="25"/>
+        <source>Size</source>
+        <translation>Storlek</translation>
+    </message>
+    <message>
+        <location filename="../stacer/Pages/Search/search_page.cpp" line="25"/>
+        <source>User</source>
+        <translation>Användare</translation>
+    </message>
+    <message>
+        <location filename="../stacer/Pages/Search/search_page.cpp" line="25"/>
+        <source>Group</source>
+        <translation>Grupp</translation>
+    </message>
+    <message>
+        <location filename="../stacer/Pages/Search/search_page.cpp" line="26"/>
+        <source>Creation Time</source>
+        <translation>Skapad</translation>
+    </message>
+    <message>
+        <location filename="../stacer/Pages/Search/search_page.cpp" line="26"/>
+        <source>Last Access</source>
+        <translation>Senast använd</translation>
+    </message>
+    <message>
+        <location filename="../stacer/Pages/Search/search_page.cpp" line="26"/>
+        <source>Last Modification</source>
+        <translation>Modifierad</translation>
+    </message>
+    <message>
+        <location filename="../stacer/Pages/Search/search_page.cpp" line="26"/>
+        <source>Last Change</source>
+        <translation>Senast ändrad</translation>
+    </message>
+    <message>
+        <location filename="../stacer/Pages/Search/search_page.cpp" line="81"/>
+        <source>Open Folder</source>
+        <translation>Öppna mapp</translation>
+    </message>
+    <message>
+        <location filename="../stacer/Pages/Search/search_page.cpp" line="85"/>
+        <source>Move Trash</source>
+        <translation>Flytta till papperskorg</translation>
+    </message>
+    <message>
+        <location filename="../stacer/Pages/Search/search_page.cpp" line="89"/>
+        <source>Delete</source>
+        <translation>Ta bort</translation>
+    </message>
+    <message>
+        <location filename="../stacer/Pages/Search/search_page.cpp" line="122"/>
+        <location filename="../stacer/Pages/Search/search_page.cpp" line="125"/>
+        <location filename="../stacer/Pages/Search/search_page.cpp" line="133"/>
+        <location filename="../stacer/Pages/Search/search_page.cpp" line="142"/>
+        <source>Choose</source>
+        <translation>Välj</translation>
+    </message>
+    <message>
+        <location filename="../stacer/Pages/Search/search_page.cpp" line="128"/>
+        <source>All</source>
+        <translation>Alla</translation>
+    </message>
+    <message>
+        <location filename="../stacer/Pages/Search/search_page.cpp" line="129"/>
+        <source>File</source>
+        <translation>Fil</translation>
+    </message>
+    <message>
+        <location filename="../stacer/Pages/Search/search_page.cpp" line="130"/>
+        <source>Directory</source>
+        <translation>Katalog</translation>
+    </message>
+    <message>
+        <location filename="../stacer/Pages/Search/search_page.cpp" line="131"/>
+        <source>Symbolic Link</source>
+        <translation>Symbolisk länk</translation>
+    </message>
+    <message>
+        <location filename="../stacer/Pages/Search/search_page.cpp" line="134"/>
+        <source>Access</source>
+        <translation>Åtkomst</translation>
+    </message>
+    <message>
+        <location filename="../stacer/Pages/Search/search_page.cpp" line="135"/>
+        <source>Modify</source>
+        <translation>Modifiera</translation>
+    </message>
+    <message>
+        <location filename="../stacer/Pages/Search/search_page.cpp" line="136"/>
+        <source>Change</source>
+        <translation>Ändra</translation>
+    </message>
+    <message>
+        <location filename="../stacer/Pages/Search/search_page.cpp" line="138"/>
+        <location filename="../stacer/Pages/Search/search_page.cpp" line="143"/>
+        <source>Smaller</source>
+        <translation>Mindre än</translation>
+    </message>
+    <message>
+        <location filename="../stacer/Pages/Search/search_page.cpp" line="139"/>
+        <location filename="../stacer/Pages/Search/search_page.cpp" line="144"/>
+        <source>Equal</source>
+        <translation>Lika med</translation>
+    </message>
+    <message>
+        <location filename="../stacer/Pages/Search/search_page.cpp" line="140"/>
+        <location filename="../stacer/Pages/Search/search_page.cpp" line="145"/>
+        <source>Greater</source>
+        <translation>Större än</translation>
+    </message>
+    <message>
+        <location filename="../stacer/Pages/Search/search_page.cpp" line="155"/>
+        <source>Select Directory</source>
+        <translation>Välj katalog</translation>
+    </message>
+    <message>
+        <location filename="../stacer/Pages/Search/search_page.cpp" line="161"/>
+        <source>Directory: %1</source>
+        <translation>Katalog: %1</translation>
+    </message>
+    <message>
+        <location filename="../stacer/Pages/Search/search_page.cpp" line="170"/>
+        <source>Advanced Search %1</source>
+        <translation>Avancerat sök %1</translation>
+    </message>
+    <message>
+        <location filename="../stacer/Pages/Search/search_page.cpp" line="183"/>
+        <source>Select the search directory.</source>
+        <translation>Välj sökkatalog.</translation>
+    </message>
+    <message>
+        <location filename="../stacer/Pages/Search/search_page.cpp" line="281"/>
+        <source>Somethings went wrong, try again.</source>
+        <translation>Något gick fel, försök igen.</translation>
+    </message>
+    <message>
+        <location filename="../stacer/Pages/Search/search_page.cpp" line="297"/>
+        <source>%1 files found. Showing %2 of them.</source>
+        <translation>%1 filer hittades. Visar %2 av dem.</translation>
     </message>
 </context>
 <context>
@@ -529,12 +773,12 @@
     <message>
         <location filename="../stacer/Pages/Processes/processes_page.cpp" line="26"/>
         <source>Resident Memory</source>
-        <translation>Residentminne</translation>
+        <translation>Minne</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/Processes/processes_page.cpp" line="26"/>
         <source>%Memory</source>
-        <translation>%Minne</translation>
+        <translation>% Minne</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/Processes/processes_page.cpp" line="26"/>
@@ -554,7 +798,7 @@
     <message>
         <location filename="../stacer/Pages/Processes/processes_page.cpp" line="27"/>
         <source>State</source>
-        <translation>Tillstånd</translation>
+        <translation>Status</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/Processes/processes_page.cpp" line="27"/>
@@ -564,7 +808,7 @@
     <message>
         <location filename="../stacer/Pages/Processes/processes_page.cpp" line="28"/>
         <source>Nice</source>
-        <translation>Trevlig</translation>
+        <translation>Prioritet</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/Processes/processes_page.cpp" line="28"/>
@@ -589,7 +833,7 @@
     <message>
         <location filename="../stacer/Pages/Processes/processes_page.cpp" line="210"/>
         <source>Refresh (%1)</source>
-        <translation>Uppdatera (%1)</translation>
+        <translation>Uppdateringsintervall (%1)</translation>
     </message>
 </context>
 <context>
@@ -597,7 +841,7 @@
     <message>
         <location filename="../stacer/Managers/setting_manager.cpp" line="61"/>
         <source>Dashboard</source>
-        <translation type="unfinished">Instrumentpanel</translation>
+        <translation>Instrumentpanel</translation>
     </message>
 </context>
 <context>
@@ -605,67 +849,67 @@
     <message>
         <location filename="../stacer/Pages/Resources/resources_page.cpp" line="14"/>
         <source>History of CPU</source>
-        <translation type="unfinished"></translation>
+        <translation>Processorhistorik</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/Resources/resources_page.cpp" line="15"/>
         <source>History of CPU Load Averages</source>
-        <translation type="unfinished"></translation>
+        <translation>Historik över processorns medelbelastning</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/Resources/resources_page.cpp" line="16"/>
         <source>History of Disk Read Write</source>
-        <translation type="unfinished"></translation>
+        <translation>Historik över diskanvändning</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/Resources/resources_page.cpp" line="17"/>
         <source>History of Memory</source>
-        <translation type="unfinished"></translation>
+        <translation>Historik över minnesanvändning</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/Resources/resources_page.cpp" line="18"/>
         <source>History of Network</source>
-        <translation type="unfinished"></translation>
+        <translation>Nätverkshistorik</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/Resources/resources_page.cpp" line="75"/>
         <source>Read: %1/s Total: %2</source>
-        <translation type="unfinished"></translation>
+        <translation>Läs: %1/s  Totalt: %2</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/Resources/resources_page.cpp" line="81"/>
         <source>Write: %1/s Total: %2</source>
-        <translation type="unfinished"></translation>
+        <translation>Skriv: %1/s  Totalt: %2</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/Resources/resources_page.cpp" line="118"/>
         <source>%1 Minute Average: %2</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 minut(er) medelvärde: %2</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/Resources/resources_page.cpp" line="164"/>
         <source>Download: %1/s Total: %2</source>
-        <translation type="unfinished"></translation>
+        <translation>Nerladdning: %1/s  Totalt: %2</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/Resources/resources_page.cpp" line="169"/>
         <source>Upload: %1/s  Total: %2</source>
-        <translation type="unfinished"></translation>
+        <translation>Uppladdning: %1/s  Totalt: %2</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/Resources/resources_page.cpp" line="213"/>
         <source>Swap: %1 (%2%) %3</source>
-        <translation type="unfinished"></translation>
+        <translation>Växlingsutrymme: %1 (%2%) %3</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/Resources/resources_page.cpp" line="222"/>
         <source>Memory: %1 (%2%) %3</source>
-        <translation type="unfinished"></translation>
+        <translation>Minne: %1 (%2%) %3</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/Resources/resources_page.ui" line="14"/>
         <source>Resources</source>
-        <translation type="unfinished">Resurser</translation>
+        <translation>Resurser</translation>
     </message>
 </context>
 <context>
@@ -673,12 +917,12 @@
     <message>
         <location filename="../stacer/Pages/Services/services_page.ui" line="14"/>
         <source>Services</source>
-        <translation type="unfinished"></translation>
+        <translation>Tjänster</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/Services/services_page.ui" line="137"/>
         <source>Startup at boot ?</source>
-        <translation>Uppstart vid boot ?</translation>
+        <translation>Starta vid systemstart?</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/Services/services_page.ui" line="190"/>
@@ -688,37 +932,37 @@
     <message>
         <location filename="../stacer/Pages/Services/services_page.ui" line="244"/>
         <source>Not Found System Service</source>
-        <translation>Ingen systemtjänst funnen</translation>
+        <translation>Ingen systemtjänst hittades</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/Services/services_page.cpp" line="27"/>
         <source>Running Status</source>
-        <translation type="unfinished"></translation>
+        <translation>Körstatus</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/Services/services_page.cpp" line="27"/>
         <source>Running</source>
-        <translation type="unfinished"></translation>
+        <translation>Körs</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/Services/services_page.cpp" line="27"/>
         <source>Not Running</source>
-        <translation type="unfinished"></translation>
+        <translation>Körs inte</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/Services/services_page.cpp" line="28"/>
         <source>Startup Status</source>
-        <translation type="unfinished"></translation>
+        <translation>Startstatus</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/Services/services_page.cpp" line="28"/>
         <source>Enabled</source>
-        <translation type="unfinished"></translation>
+        <translation>Aktiverad</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/Services/services_page.cpp" line="28"/>
         <source>Disabled</source>
-        <translation type="unfinished"></translation>
+        <translation>Inaktiverad</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/Services/services_page.cpp" line="75"/>
@@ -731,22 +975,22 @@
     <message>
         <location filename="../stacer/Pages/Settings/settings_page.ui" line="20"/>
         <source>Settings</source>
-        <translation type="unfinished">Inställningar</translation>
+        <translation>Inställningar</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/Settings/settings_page.ui" line="110"/>
         <source>Memory Percent</source>
-        <translation type="unfinished"></translation>
+        <translation>Minnesanvändning</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/Settings/settings_page.ui" line="204"/>
         <source>Disk Percent</source>
-        <translation type="unfinished"></translation>
+        <translation>Diskanvändning</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/Settings/settings_page.ui" line="233"/>
         <source>Disks</source>
-        <translation type="unfinished"></translation>
+        <translation>Diskar</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/Settings/settings_page.ui" line="246"/>
@@ -756,32 +1000,37 @@
     <message>
         <location filename="../stacer/Pages/Settings/settings_page.ui" line="259"/>
         <source>Autostart Stacer</source>
-        <translation type="unfinished"></translation>
+        <translation>Starta Stacer automatiskt</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/Settings/settings_page.ui" line="317"/>
         <source>Alert messages (Show a warning after the specified percentage)</source>
-        <translation type="unfinished"></translation>
+        <translation>Varningsmeddelande (Visa en varning efter specificerad procentsats)</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/Settings/settings_page.ui" line="422"/>
         <source>Start Page</source>
-        <translation type="unfinished"></translation>
+        <translation>Startsida</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/Settings/settings_page.ui" line="301"/>
         <source>CPU Percent</source>
-        <translation type="unfinished"></translation>
+        <translation>CPU-belastning</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/Settings/settings_page.ui" line="324"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Created by &lt;a href=&quot;https://github.com/oguzhaninan&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#007af4;&quot;&gt;Oğuzhan İNAN&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Skapat av &lt;a href=&quot;https://github.com/oguzhaninan&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#007af4;&quot;&gt;Oğuzhan İNAN&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+    </message>
+    <message>
+        <location filename="../stacer/Pages/Settings/settings_page.ui" line="329"/>
+        <source>App Quit Don&apos;t Ask</source>
+        <translation>Fråga inte vid avslut</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/Settings/settings_page.ui" line="355"/>
         <source>Donate</source>
-        <translation type="unfinished"></translation>
+        <translation>Donera</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/Settings/settings_page.ui" line="97"/>
@@ -789,39 +1038,49 @@
         <translation>Tema</translation>
     </message>
     <message>
-        <location filename="../stacer/Pages/Settings/settings_page.cpp" line="74"/>
+        <location filename="../stacer/Pages/Settings/settings_page.cpp" line="82"/>
         <source>Dashboard</source>
-        <translation type="unfinished">Instrumentpanel</translation>
+        <translation>Instrumentpanel</translation>
     </message>
     <message>
-        <location filename="../stacer/Pages/Settings/settings_page.cpp" line="74"/>
+        <location filename="../stacer/Pages/Settings/settings_page.cpp" line="82"/>
         <source>Startup Apps</source>
-        <translation type="unfinished"></translation>
+        <translation>Uppstartsprogram</translation>
     </message>
     <message>
-        <location filename="../stacer/Pages/Settings/settings_page.cpp" line="74"/>
+        <location filename="../stacer/Pages/Settings/settings_page.cpp" line="82"/>
         <source>System Cleaner</source>
-        <translation type="unfinished">Systemrensare</translation>
+        <translation>Systemstädare</translation>
     </message>
     <message>
-        <location filename="../stacer/Pages/Settings/settings_page.cpp" line="75"/>
+        <location filename="../stacer/Pages/Settings/settings_page.cpp" line="82"/>
+        <source>Search</source>
+        <translation>Sök</translation>
+    </message>
+    <message>
+        <location filename="../stacer/Pages/Settings/settings_page.cpp" line="83"/>
         <source>Services</source>
-        <translation type="unfinished"></translation>
+        <translation>Tjänster</translation>
     </message>
     <message>
-        <location filename="../stacer/Pages/Settings/settings_page.cpp" line="75"/>
+        <location filename="../stacer/Pages/Settings/settings_page.cpp" line="83"/>
         <source>Processes</source>
-        <translation type="unfinished">Processer</translation>
+        <translation>Processer</translation>
     </message>
     <message>
-        <location filename="../stacer/Pages/Settings/settings_page.cpp" line="75"/>
+        <location filename="../stacer/Pages/Settings/settings_page.cpp" line="83"/>
         <source>Uninstaller</source>
-        <translation type="unfinished">Avinstallerare</translation>
+        <translation>Avinstallerare</translation>
     </message>
     <message>
-        <location filename="../stacer/Pages/Settings/settings_page.cpp" line="75"/>
+        <location filename="../stacer/Pages/Settings/settings_page.cpp" line="83"/>
         <source>Resources</source>
-        <translation type="unfinished">Resurser</translation>
+        <translation>Resurser</translation>
+    </message>
+    <message>
+        <location filename="../stacer/Pages/Settings/settings_page.cpp" line="83"/>
+        <source>Helpers</source>
+        <translation>Hjälpare</translation>
     </message>
 </context>
 <context>
@@ -829,12 +1088,12 @@
     <message>
         <location filename="../stacer/Pages/StartupApps/startup_app.ui" line="128"/>
         <source>Edit App</source>
-        <translation type="unfinished"></translation>
+        <translation>Redigera programmet</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/StartupApps/startup_app.ui" line="150"/>
         <source>Delete App</source>
-        <translation type="unfinished"></translation>
+        <translation>Ta bort programmet</translation>
     </message>
 </context>
 <context>
@@ -852,17 +1111,17 @@
     <message>
         <location filename="../stacer/Pages/StartupApps/startup_app_edit.ui" line="44"/>
         <source>Fields cannot be left blank. </source>
-        <translation>Fälten kan inte lämnas blankt. </translation>
+        <translation>Inga fält kan lämnas tomma. </translation>
     </message>
     <message>
         <location filename="../stacer/Pages/StartupApps/startup_app_edit.ui" line="58"/>
         <source>App Comment</source>
-        <translation>Appkommentar</translation>
+        <translation>Programkommentar</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/StartupApps/startup_app_edit.ui" line="51"/>
         <source>App Name</source>
-        <translation>Appnamn</translation>
+        <translation>Programnamn</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/StartupApps/startup_app_edit.ui" line="97"/>
@@ -872,7 +1131,7 @@
     <message>
         <location filename="../stacer/Pages/StartupApps/startup_app_edit.ui" line="87"/>
         <source>Application</source>
-        <translation>Applikation</translation>
+        <translation>Program</translation>
     </message>
 </context>
 <context>
@@ -880,7 +1139,7 @@
     <message>
         <location filename="../stacer/Pages/StartupApps/startup_apps_page.ui" line="14"/>
         <source>Startup Apps</source>
-        <translation type="unfinished"></translation>
+        <translation>Uppstartsprogram</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/StartupApps/startup_apps_page.ui" line="101"/>
@@ -890,12 +1149,12 @@
     <message>
         <location filename="../stacer/Pages/StartupApps/startup_apps_page.ui" line="201"/>
         <source>Not Found Startup Apps</source>
-        <translation>Ej funna uppstartsprogram</translation>
+        <translation>Inga uppstartsprogram hittades</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/StartupApps/startup_apps_page.cpp" line="89"/>
         <source>Startup Applications (%1)</source>
-        <translation type="unfinished"></translation>
+        <translation>Uppstartsprogram (%1)</translation>
     </message>
 </context>
 <context>
@@ -903,7 +1162,7 @@
     <message>
         <location filename="../stacer/Pages/SystemCleaner/system_cleaner_page.ui" line="14"/>
         <source>System Cleaner</source>
-        <translation type="unfinished">Systemrensare</translation>
+        <translation>Systemrensare</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/SystemCleaner/system_cleaner_page.ui" line="63"/>
@@ -913,22 +1172,27 @@
     <message>
         <location filename="../stacer/Pages/SystemCleaner/system_cleaner_page.ui" line="177"/>
         <source>Application Logs</source>
-        <translation>Applikationsloggar</translation>
+        <translation>Programloggar</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/SystemCleaner/system_cleaner_page.ui" line="215"/>
         <source>Application Caches</source>
-        <translation>Applikationscaches</translation>
+        <translation>Programcache</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/SystemCleaner/system_cleaner_page.ui" line="363"/>
         <source>Trash</source>
-        <translation>Skräp</translation>
+        <translation>Papperskorgen</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/SystemCleaner/system_cleaner_page.ui" line="401"/>
         <source>Package Caches</source>
-        <translation>Paketcaches</translation>
+        <translation>Paketcache</translation>
+    </message>
+    <message>
+        <location filename="../stacer/Pages/SystemCleaner/system_cleaner_page.ui" line="493"/>
+        <source>Select All</source>
+        <translation>Markera alla</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/SystemCleaner/system_cleaner_page.ui" line="521"/>
@@ -948,7 +1212,7 @@
     <message>
         <location filename="../stacer/Pages/SystemCleaner/system_cleaner_page.cpp" line="285"/>
         <source>%1 size files cleaned.</source>
-        <translation>%1 storlek filer rensades.</translation>
+        <translation>%1 filer togs bort.</translation>
     </message>
 </context>
 <context>
@@ -956,17 +1220,17 @@
     <message>
         <location filename="../stacer/Pages/Uninstaller/uninstallerpage.ui" line="140"/>
         <source>Uninstall Selected</source>
-        <translation>Avinstallera markerade</translation>
+        <translation>Avinstallera markerat</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/Uninstaller/uninstallerpage.ui" line="192"/>
         <source>Not Found Installed Packages</source>
-        <translation>Installerade paket ej funna.</translation>
+        <translation>Inga installerade paket hittades</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/Uninstaller/uninstallerpage.ui" line="14"/>
         <source>Uninstaller</source>
-        <translation type="unfinished">Avinstallerare</translation>
+        <translation>Avinstallerare</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/Uninstaller/uninstallerpage.ui" line="90"/>
@@ -976,7 +1240,91 @@
     <message>
         <location filename="../stacer/Pages/Uninstaller/uninstaller_page.cpp" line="67"/>
         <source>System Installed Packages (%1)</source>
-        <translation>Systemets installerade Paket (%1)</translation>
+        <translation>Installerade paket (%1)</translation>
+    </message>
+</context>
+<context>
+    <name>HelpersPage</name>
+    <message>
+        <location filename="../stacer/Pages/Helpers/helpers_page.ui" line="14"/>
+        <source>Helpers</source>
+        <translation>Hjälpare</translation>
+    </message>
+    <message>
+        <location filename="../stacer/Pages/Helpers/helpers_page.ui" line="62"/>
+        <source>Host Manage</source>
+        <translation>Värdhantering</translation>
+    </message>
+</context>
+<context>
+    <name>HostManage</name>
+    <message>
+        <location filename="../stacer/Pages/Helpers/host_manage.cpp" line="24"/>
+        <location filename="../stacer/Pages/Helpers/host_manage.cpp" line="98"/>
+        <source>Hosts (%1)</source>
+        <translation>Värdnamn (%1)</translation>
+    </message>
+    <message>
+        <location filename="../stacer/Pages/Helpers/host_manage.cpp" line="35"/>
+        <source>IP Address</source>
+        <translation>IP-adress</translation>
+    </message>
+    <message>
+        <location filename="../stacer/Pages/Helpers/host_manage.cpp" line="35"/>
+        <source>Full Qualified</source>
+        <translation>Kvalificerat namn</translation>
+    </message>
+    <message>
+        <location filename="../stacer/Pages/Helpers/host_manage.cpp" line="35"/>
+        <location filename="../stacer/Pages/Helpers/host_manage.ui" line="160"/>
+        <source>Aliases</source>
+        <translation>Alias</translation>
+    </message>
+    <message>
+        <location filename="../stacer/Pages/Helpers/host_manage.cpp" line="135"/>
+        <source>Edit</source>
+        <translation>Redigera</translation>
+    </message>
+    <message>
+        <location filename="../stacer/Pages/Helpers/host_manage.cpp" line="139"/>
+        <source>Delete</source>
+        <translation>Ta bort</translation>
+    </message>
+    <message>
+        <location filename="../stacer/Pages/Helpers/host_manage.ui" line="153"/>
+        <location filename="../stacer/Pages/Helpers/host_manage.cpp" line="147"/>
+        <source>The IP and Fully Qualified fields are required.</source>
+        <translation>IP och fullt kvalificerad krävs.</translation>
+    </message>
+    <message>
+        <location filename="../stacer/Pages/Helpers/host_manage.ui" line="63"/>
+        <source>Save Changes</source>
+        <translation>Spara ändringar</translation>
+    </message>
+    <message>
+        <location filename="../stacer/Pages/Helpers/host_manage.ui" line="110"/>
+        <source>New Host</source>
+        <translation>Nytt värdnamn</translation>
+    </message>
+    <message>
+        <location filename="../stacer/Pages/Helpers/host_manage.ui" line="146"/>
+        <source>IP Address *</source>
+        <translation>IP-adress *</translation>
+    </message>
+    <message>
+        <location filename="../stacer/Pages/Helpers/host_manage.ui" line="153"/>
+        <source>Fully Qualified Name *</source>
+        <translation>Fullt kvalificerat namn *</translation>
+    </message>
+    <message>
+        <location filename="../stacer/Pages/Helpers/host_manage.ui" line="176"/>
+        <source>Save</source>
+        <translation>Spara</translation>
+    </message>
+    <message>
+        <location filename="../stacer/Pages/Helpers/host_manage.ui" line="192"/>
+        <source>Cancel</source>
+        <translation>Avbryt</translation>
     </message>
 </context>
 <context>
@@ -984,184 +1332,183 @@
     <message>
         <location filename="../stacer/Pages/GnomeSettings/unity_settings.ui" line="65"/>
         <source>Applications</source>
-        <translation type="unfinished"></translation>
+        <translation>Program</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/GnomeSettings/unity_settings.ui" line="108"/>
         <source>Show &quot;Recently Used&quot; applications</source>
-        <translation type="unfinished"></translation>
+        <translation>Visa &quot;Nyligen använda&quot; program</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/GnomeSettings/unity_settings.ui" line="134"/>
         <source>Enable search of your files</source>
-        <translation type="unfinished"></translation>
+        <translation>Aktivera sökning efter filer</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/GnomeSettings/unity_settings.ui" line="160"/>
         <source>Show &quot;More Suggestions&quot;</source>
-        <translation type="unfinished"></translation>
+        <translation>Visa &quot;Fler förslag&quot;</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/GnomeSettings/unity_settings.ui" line="186"/>
         <source>Search</source>
-        <translation type="unfinished"></translation>
+        <translation>Sök</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/GnomeSettings/unity_settings.ui" line="196"/>
         <location filename="../stacer/Pages/GnomeSettings/unity_settings.ui" line="683"/>
         <source>General</source>
-        <translation type="unfinished"></translation>
+        <translation>Allmänt</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/GnomeSettings/unity_settings.ui" line="229"/>
         <location filename="../stacer/Pages/GnomeSettings/unity_settings.ui" line="660"/>
         <source>Transparency Level</source>
-        <translation type="unfinished"></translation>
+        <translation>Transparensnivå</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/GnomeSettings/unity_settings.ui" line="280"/>
         <source>Behaviour</source>
-        <translation type="unfinished"></translation>
+        <translation>Beteende</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/GnomeSettings/unity_settings.ui" line="323"/>
         <source>Auto Hide</source>
-        <translation type="unfinished"></translation>
+        <translation>Dölj automatiskt</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/GnomeSettings/unity_settings.ui" line="339"/>
         <source>Left Side</source>
-        <translation type="unfinished"></translation>
+        <translation>Vänster sida</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/GnomeSettings/unity_settings.ui" line="380"/>
         <source>Minimize applications with clicking</source>
-        <translation type="unfinished"></translation>
+        <translation>Minimera program med klick</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/GnomeSettings/unity_settings.ui" line="396"/>
         <source>Top-Left Corner</source>
-        <translation type="unfinished"></translation>
+        <translation>Vänster överkant hörn</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/GnomeSettings/unity_settings.ui" line="412"/>
         <source>Reveal Sensitivity</source>
-        <translation type="unfinished"></translation>
+        <translation>Avslöja känslighet</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/GnomeSettings/unity_settings.ui" line="438"/>
         <source>Reveal Location</source>
-        <translation type="unfinished"></translation>
+        <translation>Avslöja plats</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/GnomeSettings/unity_settings.ui" line="464"/>
         <source>Launcher</source>
-        <translation type="unfinished"></translation>
+        <translation>Programstartare</translation>
     </message>
     <message>
-        <location filename="../stacer/Pages/GnomeSettings/unity_settings.ui" line="474"/>
         <source>Appearance</source>
-        <translation type="unfinished"></translation>
+        <translation>Utseende</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/GnomeSettings/unity_settings.ui" line="507"/>
         <source>Left</source>
-        <translation type="unfinished"></translation>
+        <translation>Vänster</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/GnomeSettings/unity_settings.ui" line="526"/>
         <source>Bottom</source>
-        <translation type="unfinished"></translation>
+        <translation>Underkant</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/GnomeSettings/unity_settings.ui" line="542"/>
         <source>Visibility</source>
-        <translation type="unfinished"></translation>
+        <translation>Synlighet</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/GnomeSettings/unity_settings.ui" line="558"/>
         <source>Primary Desktop</source>
-        <translation type="unfinished"></translation>
+        <translation>Primärt skrivbord</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/GnomeSettings/unity_settings.ui" line="612"/>
         <source>Icon size</source>
-        <translation type="unfinished"></translation>
+        <translation>Ikonstorlek</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/GnomeSettings/unity_settings.ui" line="628"/>
         <source>All Desktops</source>
-        <translation type="unfinished"></translation>
+        <translation>Alla skrivbord</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/GnomeSettings/unity_settings.ui" line="644"/>
         <source>Position</source>
-        <translation type="unfinished"></translation>
+        <translation>Position</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/GnomeSettings/unity_settings.ui" line="726"/>
         <source>Search online sources</source>
-        <translation type="unfinished"></translation>
+        <translation>Sök källor online</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/GnomeSettings/unity_settings.ui" line="752"/>
         <source>Background Blur</source>
-        <translation type="unfinished"></translation>
+        <translation>Bakgrundsoskärpa</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/GnomeSettings/unity_settings.ui" line="778"/>
         <source>Panel</source>
-        <translation type="unfinished"></translation>
+        <translation>Panel</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/GnomeSettings/unity_settings.ui" line="801"/>
         <source>Indicators</source>
-        <translation type="unfinished"></translation>
+        <translation>Indikatorer</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/GnomeSettings/unity_settings.ui" line="840"/>
         <source>Date</source>
-        <translation type="unfinished"></translation>
+        <translation>Datum</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/GnomeSettings/unity_settings.ui" line="862"/>
         <source>Calendar</source>
-        <translation type="unfinished"></translation>
+        <translation>Kalender</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/GnomeSettings/unity_settings.ui" line="875"/>
         <source>Date &amp; Time</source>
-        <translation type="unfinished"></translation>
+        <translation>Datum &amp; tid</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/GnomeSettings/unity_settings.ui" line="888"/>
         <source>24-Hour Time</source>
-        <translation type="unfinished"></translation>
+        <translation>24-timmars tid</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/GnomeSettings/unity_settings.ui" line="910"/>
         <source>Weekday</source>
-        <translation type="unfinished"></translation>
+        <translation>Veckodag</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/GnomeSettings/unity_settings.ui" line="923"/>
         <source>Include</source>
-        <translation type="unfinished"></translation>
+        <translation>Inkludera</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/GnomeSettings/unity_settings.ui" line="945"/>
         <source>Seconds</source>
-        <translation type="unfinished"></translation>
+        <translation>Sekunder</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/GnomeSettings/unity_settings.ui" line="958"/>
         <source>Volume</source>
-        <translation type="unfinished"></translation>
+        <translation>Volym</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/GnomeSettings/unity_settings.ui" line="971"/>
         <source>Show my name</source>
-        <translation type="unfinished"></translation>
+        <translation>Visa mitt namn</translation>
     </message>
 </context>
 <context>
@@ -1169,147 +1516,146 @@
     <message>
         <location filename="../stacer/Pages/GnomeSettings/window_manager_settings.ui" line="90"/>
         <source>General</source>
-        <translation type="unfinished"></translation>
+        <translation>Allmänt</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/GnomeSettings/window_manager_settings.ui" line="100"/>
         <source>Titlebar Actions</source>
-        <translation type="unfinished"></translation>
+        <translation>Namnfältsåtgärder</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/GnomeSettings/window_manager_settings.ui" line="155"/>
         <source>Right click</source>
-        <translation type="unfinished"></translation>
+        <translation>Högerklick</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/GnomeSettings/window_manager_settings.ui" line="168"/>
         <source>Double click</source>
-        <translation type="unfinished"></translation>
+        <translation>Dubbelklick</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/GnomeSettings/window_manager_settings.ui" line="181"/>
         <source>Middle click</source>
-        <translation type="unfinished"></translation>
+        <translation>Mushjulsklick</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/GnomeSettings/window_manager_settings.ui" line="257"/>
         <source>Additional</source>
-        <translation type="unfinished"></translation>
+        <translation>Ytterligare</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/GnomeSettings/window_manager_settings.ui" line="267"/>
         <source>Workspace Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Inställningar för arbetsytor</translation>
     </message>
     <message>
-        <location filename="../stacer/Pages/GnomeSettings/window_manager_settings.ui" line="310"/>
         <source>Vertical workspaces</source>
-        <translation type="unfinished"></translation>
+        <translation>Vertikala arbetsytor</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/GnomeSettings/window_manager_settings.ui" line="333"/>
         <source>Workspace switcher</source>
-        <translation type="unfinished"></translation>
+        <translation>Arbetsyteväxlare</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/GnomeSettings/window_manager_settings.ui" line="356"/>
         <source>Horizontal workspaces</source>
-        <translation type="unfinished"></translation>
+        <translation>Horisontella arbetsytor</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/GnomeSettings/window_manager_settings.ui" line="379"/>
         <source>Focus Behaviour</source>
-        <translation type="unfinished"></translation>
+        <translation>Fokusbeteende</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/GnomeSettings/window_manager_settings.ui" line="409"/>
         <source>Focus mode</source>
-        <translation type="unfinished"></translation>
+        <translation>Fokusläge</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/GnomeSettings/window_manager_settings.ui" line="460"/>
         <source>Raise on click</source>
-        <translation type="unfinished"></translation>
+        <translation>Ta fram vid klick</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/GnomeSettings/window_manager_settings.ui" line="483"/>
         <source>Hardware Acceleration</source>
-        <translation type="unfinished"></translation>
+        <translation>Hårdvaruacceleration</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/GnomeSettings/window_manager_settings.ui" line="538"/>
         <source>Text quality</source>
-        <translation type="unfinished"></translation>
+        <translation>Textkvalitet</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/GnomeSettings/window_manager_settings.cpp" line="66"/>
         <source>Fast</source>
-        <translation type="unfinished"></translation>
+        <translation>Snabb</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/GnomeSettings/window_manager_settings.cpp" line="66"/>
         <source>Good</source>
-        <translation type="unfinished"></translation>
+        <translation>Bra</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/GnomeSettings/window_manager_settings.cpp" line="66"/>
         <source>Best</source>
-        <translation type="unfinished"></translation>
+        <translation>Bäst</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/GnomeSettings/window_manager_settings.cpp" line="68"/>
         <source>Click</source>
-        <translation type="unfinished"></translation>
+        <translation>Klick</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/GnomeSettings/window_manager_settings.cpp" line="68"/>
         <source>Sloppy</source>
-        <translation type="unfinished"></translation>
+        <translation>Slarvig</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/GnomeSettings/window_manager_settings.cpp" line="68"/>
         <source>Mouse</source>
-        <translation type="unfinished"></translation>
+        <translation>Mus</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/GnomeSettings/window_manager_settings.cpp" line="80"/>
         <source>Toggle Shade</source>
-        <translation type="unfinished"></translation>
+        <translation>Skugga av/på</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/GnomeSettings/window_manager_settings.cpp" line="80"/>
         <source>Maximize</source>
-        <translation type="unfinished"></translation>
+        <translation>Maximera</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/GnomeSettings/window_manager_settings.cpp" line="80"/>
         <source>Maximize Horizontally</source>
-        <translation type="unfinished"></translation>
+        <translation>Maximera horisontellt</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/GnomeSettings/window_manager_settings.cpp" line="81"/>
         <source>Maximize Vertically</source>
-        <translation type="unfinished"></translation>
+        <translation>Maximera vertikalt</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/GnomeSettings/window_manager_settings.cpp" line="81"/>
         <source>Minimize</source>
-        <translation type="unfinished"></translation>
+        <translation>Minimera</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/GnomeSettings/window_manager_settings.cpp" line="82"/>
         <source>None</source>
-        <translation type="unfinished"></translation>
+        <translation>Ingen</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/GnomeSettings/window_manager_settings.cpp" line="82"/>
         <source>Lower</source>
-        <translation type="unfinished"></translation>
+        <translation>Lägre</translation>
     </message>
     <message>
         <location filename="../stacer/Pages/GnomeSettings/window_manager_settings.cpp" line="82"/>
         <source>Menu</source>
-        <translation type="unfinished"></translation>
+        <translation>Meny</translation>
     </message>
 </context>
 </TS>
