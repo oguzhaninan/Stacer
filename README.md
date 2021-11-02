@@ -27,13 +27,6 @@
 	</a>
 </p>	
 
-## Sponsors
-<p align="center">
-    <a href="https://binalyze.com/">
-	<img width="180px" src="https://binalyze.com/wp-content/uploads/2020/09/binalyze-1-1.png" />
-</a>  
-</p>
-
 ## Reviews
 <p align="left">
     <a href="http://www.omgubuntu.co.uk/2017/01/stacer-system-optimizer-for-ubuntu">
