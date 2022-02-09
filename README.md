@@ -57,7 +57,10 @@
 
 
 ### Arch Linux (AUR)
-1. Install the stacer package with a AUR helper of your choice.
+1. Install the stacer package with a AUR helper of your choice eg.
+`yay -Syyu stacer`
+`paru -S stacer`
+`pacaur -a stacer`
 
 ### Debian x64
 
