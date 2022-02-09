@@ -60,7 +60,7 @@
 1. Install the stacer package with a AUR helper of your choice eg.
 2. `yay -Syyu stacer`
 3. `paru -S stacer`
-4 .`pacaur -a stacer`
+4. `pacaur -a stacer`
 
 ### Debian x64
 
