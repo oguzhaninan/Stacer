@@ -150,7 +150,7 @@ void App::createTrayActions()
         connect(mTrayIcon, &QSystemTrayIcon::activated, this, [=](QSystemTrayIcon::ActivationReason){
             setVisible(true);
             activateWindow();	
-        }));
+        });
 
         mTrayMenu->addAction(action);
     }
