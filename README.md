@@ -55,6 +55,13 @@
 2. `sudo apt-get update`   
 3. `sudo apt-get install stacer -y`
 
+
+### Arch Linux (AUR)
+1. Install the stacer package with a AUR helper of your choice eg.
+2. `yay -Syyu stacer`
+3. `paru -S stacer`
+4. `pacaur -a stacer`
+
 ### Debian x64
 
 1. Download `stacer_1.1.0_amd64.deb` from the [Stacer releases page](https://github.com/oguzhaninan/Stacer/releases).
