@@ -147,6 +147,11 @@ void App::createTrayActions()
         connect(action, &QAction::triggered, [=] {
             clickSidebarButton(toolTip, true);
         });
+        connect(mTrayIcon, &QSystemTrayIcon::activated, this, [=](QSystemTrayIcon::ActivationReason){
+            setVisible(true);
+            activateWindow();	
+        });
+
         mTrayMenu->addAction(action);
     }
 
