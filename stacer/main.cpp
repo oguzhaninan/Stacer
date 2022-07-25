@@ -59,10 +59,27 @@ int main(int argc, char *argv[])
     qApp->setWindowIcon(QIcon(":/static/logo.png"));
 
     {
+       QCommandLineOption hideOption("hide", "Hide Stacer while launching.");
+       QCommandLineOption noSplashOption("nosplash", "Hide splash screen while launching.");    
         QCommandLineParser parser;
         parser.addVersionOption();
         parser.addHelpOption();
+	    parser.addOption(hideOption);
+        parser.addOption(noSplashOption);
         parser.process(app);
+    }
+
+    bool isHide = false;
+    bool isNoSplash = false;
+    
+    QLatin1String hideOption("--hide");
+    QLatin1String noSplashOption("--nosplash");
+    
+    for (size_t i = 1; i < argc; ++i) {
+      if (QString(argv[i]) == hideOption)
+        isHide = true;
+      else if (QString(argv[i]) == noSplashOption) 
+        isNoSplash = true;
     }
 
     QFontDatabase::addApplicationFont(":/static/font/Ubuntu-R.ttf");
@@ -71,15 +88,13 @@ int main(int argc, char *argv[])
 
     QSplashScreen *splash = new QSplashScreen(pixSplash);
 
-    splash->show();
+    if (!isNoSplash) splash->show();
 
     app.processEvents();
 
     App w;
 
-    QLatin1String hideOption("--hide");
-
-    if (argc < 2 || QString(argv[1]) != hideOption) {
+    if (argc < 2 || !isHide) {
         w.show();
     }
 
