@@ -70,7 +70,7 @@
 
 ### Debian sid / Ubuntu 20.04+
 
-1. Run as root `apt install stacer`
+1. Run as root `sudo apt install stacer`
 
 ### Fedora
 1. Download `stacer_1.1.0_amd64.rpm` from the [Stacer releases page](https://github.com/oguzhaninan/Stacer/releases).
