@@ -1,5 +1,9 @@
 
 <p align="center">
+⚠️ <b>This project has been abandoned. There will be no further releases </b>⚠️
+</p>
+
+<p align="center">
     <img src="https://raw.githubusercontent.com/oguzhaninan/Stacer/native/screenshots/header.png" width="800">    
 </p>
 <p align="center">
@@ -19,7 +23,6 @@
 	<a href="https://github.com/oguzhaninan/Stacer/releases">
 		<img alt="Github All Releases" src="https://img.shields.io/github/downloads/oguzhaninan/stacer/total.svg"/>
 	</a>
-
 </p>
 <p align="center">
 	<a href="https://sourceforge.net/projects/stacer/files/" >
@@ -31,13 +34,7 @@
 <p align="left">
     <a href="http://www.omgubuntu.co.uk/2017/01/stacer-system-optimizer-for-ubuntu">
 		<img width="65px" src="https://oguzhaninan.github.io/Stacer-Web/images/sites/site0.png"/>
-	</a>        
-    <a href="http://www.diolinux.com.br/2017/02/stacer-um-programa-para-otimizar-o-ubuntu.html">
-		<img width="170px" src="http://coletivo.semanadolinux.com.br/images/site/diolinux.png"/>
-	</a>    
-    <a href="http://www.dobreprogramy.pl/Stacer-program-do-optymalizacji-Ubuntu-ktory-wyglada-jakby-uciekl-z-Windowsa,News,78941.html">
-		<img width="155px" src="http://storage.dobreprogramy.pl/artykuly/9urodziny/logoDP-napis.png"/>
-	</a>
+	</a>      
     <a href="http://blog.desdelinux.net/optimizar-debian-ubuntu-linux-mint-derivados-stacer/">
 		<img width="155px" src="http://i.imgur.com/eV1WxYZ.png"/>
 	</a>
