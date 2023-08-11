@@ -1,5 +1,5 @@
 
-QT       += core gui charts svg concurrent
+QT       += core gui charts svg concurrent network
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 

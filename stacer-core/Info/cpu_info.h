@@ -16,15 +16,15 @@
 class STACERCORESHARED_EXPORT CpuInfo
 {
 public:
-    int getCpuPhysicalCoreCount() const;
-    int getCpuCoreCount() const;
-    QList<int> getCpuPercents() const;
-    QList<double> getLoadAvgs() const;
-    double getAvgClock() const;
-    QList<double> getClocks() const;
+    static int getCpuPhysicalCoreCount() ;
+    static int getCpuCoreCount();
+    static QList<int> getCpuPercents() ;
+    static QList<double> getLoadAvgs();
+    static double getAvgClock();
+    static QList<double> getClocks();
 
 private:
-    int getCpuPercent(const QList<double> &cpuTimes, const int &processor = 0) const;
+    static int getCpuPercent(const QList<double> &cpuTimes, const int &processor = 0);
 };
 
 #endif // CPUINFO_H

@@ -43,7 +43,7 @@ SOURCES += \
     Tools/gnome_settings_tool.cpp
 
 HEADERS += \
-        stacer-core_global.h \ 
+    stacer-core_global.h \
     Utils/command_util.h \
     Info/network_info.h \
     Info/cpu_info.h \

@@ -28,7 +28,6 @@ private slots:
     void cmbDiskChanged(const int &index);
     void on_checkAutostart_clicked(bool checked);
     void on_btnDonate_clicked();
-    void cmbStartPageChanged(const QString text);
     void on_spinCpuPercent_valueChanged(int value);
     void on_spinMemoryPercent_valueChanged(int value);
     void on_spinDiskPercent_valueChanged(int value);

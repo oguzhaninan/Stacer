@@ -1,6 +1,7 @@
 #ifndef UTILITIES_H
 #define UTILITIES_H
 
+#include <QRegularExpression>
 #include <QWidget>
 #include <QGraphicsDropShadowEffect>
 
@@ -14,10 +15,10 @@ public:
     }
 
     static void
-    addDropShadow(QList<QWidget *> widgets, const int alpha, const int blur = 15)
+    addDropShadow(const QList<QWidget *>& widgets, const int alpha, const int blur = 15)
     {
         for (QWidget *widget: widgets) {
-            QGraphicsDropShadowEffect *effect = new QGraphicsDropShadowEffect(widget);
+            auto *effect = new QGraphicsDropShadowEffect(widget);
             effect->setBlurRadius(blur);
             effect->setColor(QColor(0, 0, 0, alpha));
             effect->setOffset(0);
@@ -26,7 +27,7 @@ public:
     }
 
     static QString
-    getDesktopValue(const QRegExp &val, const QStringList &lines)
+    getDesktopValue(const QRegularExpression &val, const QStringList &lines)
     {
         QStringList filteredList = lines.filter(val);
         if (filteredList.count() > 0) {

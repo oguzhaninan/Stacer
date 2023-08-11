@@ -68,7 +68,7 @@ void SettingsPage::init()
     QFile startupAppFile(mStartupAppPath);
     if (startupAppFile.exists()) {
         QStringList appContent = FileUtil::readListFromFile(mStartupAppPath);
-        QString isHidden = Utilities::getDesktopValue(QRegExp("^Hidden=.*"), appContent).toLower();
+        QString isHidden = Utilities::getDesktopValue(QRegularExpression("^Hidden=.*"), appContent).toLower();
         ui->checkAutostart->setChecked(isHidden == "false");
     } else {
         ui->checkAutostart->setChecked(false);
@@ -102,7 +102,15 @@ void SettingsPage::init()
     connect(ui->cmbLanguages, SIGNAL(currentIndexChanged(int)), this, SLOT(cmbLanguagesChanged(int)));
 //    connect(ui->cmbThemes, SIGNAL(currentIndexChanged(int)), this, SLOT(cmbThemesChanged(int)));
     connect(ui->cmbDisks, SIGNAL(currentIndexChanged(int)), this, SLOT(cmbDiskChanged(int)));
-    connect(ui->cmbStartPage, SIGNAL(currentIndexChanged(QString)), this, SLOT(cmbStartPageChanged(QString)));
+#if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
+    connect(ui->cmbStartPage, &QComboBox::currentIndexChanged, [=](int index) {
+        mSettingManager->setStartPage(ui->cmbStartPage->itemText(index));
+    });
+#else
+    connect(ui->cmbStartPage, QOverload<const QString &>::of(&QComboBox::currentIndexChanged), [=](const QString &text){
+        mSettingManager->setStartPage(text);
+    });
+#endif
 }
 
 void SettingsPage::cmbLanguagesChanged(const int &index)
@@ -147,11 +155,6 @@ void SettingsPage::on_checkAutostart_clicked(bool checked)
 void SettingsPage::on_btnDonate_clicked()
 {
     QDesktopServices::openUrl(QUrl("https://www.patreon.com/oguzhaninan"));
-}
-
-void SettingsPage::cmbStartPageChanged(const QString text)
-{
-    mSettingManager->setStartPage(text);
 }
 
 void SettingsPage::on_spinCpuPercent_valueChanged(int value)

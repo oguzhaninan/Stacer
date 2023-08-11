@@ -13,7 +13,7 @@ bool GnomeSettingsTool::checkUnityAvailable()
 
     try {
         QString result = CommandUtil::exec("gsettings", args);
-        QStringList schemas = result.split('\n'); //.filter(QRegExp(GSchemas::Unity::Shell));
+        QStringList schemas = result.split('\n'); //.filter(QRegularExpression(GSchemas::Unity::Shell));
 
         QStringList keys = {
             GSchemas::Unity::Shell, GSchemas::Unity::Launcher, GSchemas::Unity::Lens, GSchemas::Unity::AppLens,

@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.1 FATAL_ERROR)
+cmake_minimum_required(VERSION 3.14 FATAL_ERROR)
 project(Stacer)
 
 # Adding features(build cache + faster linkers) and reasonable defaults(Debug build by default)
@@ -13,12 +13,14 @@ set(PROJECT_ROOT "${CMAKE_CURRENT_SOURCE_DIR}")
 
 # Activating MOC and searching for the Qt5 dependencies
 set(CMAKE_AUTOMOC ON)
-find_package(Qt5  COMPONENTS  Core Gui Widgets Charts Svg Concurrent REQUIRED)
+find_package(QT NAMES Qt6 Qt5 COMPONENTS Core REQUIRED)
+find_package(Qt${QT_VERSION_MAJOR} COMPONENTS Core Network Gui Widgets Charts Svg Concurrent REQUIRED)
 
 # Setting the minimum C++ standard and passing the Qt-specific define
 set(CMAKE_CXX_STANDARD           11)
 set(CMAKE_CXX_EXTENSIONS         YES)
 set(CMAKE_CXX_STANDARD_REQUIRED  YES)
+set(CMAKE_DEBUG_POSTFIX          d)
 add_definitions(-DQT_DEPRECATED_WARNINGS)
 
 # Subprojects

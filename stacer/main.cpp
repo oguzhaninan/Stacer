@@ -42,7 +42,7 @@ void messageHandler(QtMsgType type, const QMessageLogContext &context, const QSt
 
         if (file.open(QIODevice::WriteOnly | openMode)) {
             QTextStream stream(&file);
-            stream << text << endl;
+            stream << text << Qt::endl;
 
             file.close();
         }
@@ -86,7 +86,7 @@ int main(int argc, char *argv[])
 
     QPixmap pixSplash(":/static/splashscreen.png");
 
-    QSplashScreen *splash = new QSplashScreen(pixSplash);
+    auto *splash = new QSplashScreen(pixSplash);
 
     if (!isNoSplash) splash->show();
 

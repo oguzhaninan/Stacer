@@ -31,8 +31,13 @@ void UninstallerPage::init()
     QList<QWidget*> widgets = { ui->txtPackageSearch, ui->btnUninstall, ui->btnSystemPackages, ui->btnSnapPackages };
     Utilities::addDropShadow(widgets, 40);
 
+#if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
+    QtConcurrent::run(&UninstallerPage::loadPackages, this);
+    QtConcurrent::run(&UninstallerPage::loadSnapPackages, this);
+#else
     QtConcurrent::run(this, &UninstallerPage::loadPackages);
     QtConcurrent::run(this, &UninstallerPage::loadSnapPackages);
+#endif
 
     connect(SignalMapper::ins(), &SignalMapper::sigUninstallStarted, this, &UninstallerPage::uninstallStarted);
     connect(SignalMapper::ins(), &SignalMapper::sigUninstallFinished, this, &UninstallerPage::loadPackages);

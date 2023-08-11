@@ -1,8 +1,9 @@
 #include "cpu_info.h"
+#include "Utils/command_util.h"
 
-#include "command_util.h"
+#include <QRegularExpression>
 
-int CpuInfo::getCpuPhysicalCoreCount() const
+int CpuInfo::getCpuPhysicalCoreCount()
 {
     static int count = 0;
 
@@ -10,32 +11,31 @@ int CpuInfo::getCpuPhysicalCoreCount() const
         QStringList cpuinfo = FileUtil::readListFromFile(PROC_CPUINFO);
 
         if (! cpuinfo.isEmpty()) {
-	    QSet<QPair<int, int> > physicalCoreSet;
-	    int physical = 0;
-	    int core = 0;
-	    for (int i = 0; i < cpuinfo.size(); ++i) {
-	        const QString& line = cpuinfo[i];
-		if (line.startsWith("physical id")) {
-		    QStringList fields = line.split(": ");
-		    if (fields.size() > 1)
-		        physical = fields[1].toInt();
-		}
-		if (line.startsWith("core id")) {
-		    QStringList fields = line.split(": ");
-		    if (fields.size() > 1)
-		        core = fields[1].toInt();
-		    // We assume core id appears after physical id.
-		    physicalCoreSet.insert(qMakePair(physical, core));
-		}
-	    }
-	    count = physicalCoreSet.size();
-	}
+            QSet<QPair<int, int> > physicalCoreSet;
+            int physical = 0;
+            int core = 0;
+            for (auto & line : cpuinfo) {
+                if (line.startsWith("physical id")) {
+                    QStringList fields = line.split(": ");
+                    if (fields.size() > 1)
+                        physical = fields[1].toInt();
+                }
+                if (line.startsWith("core id")) {
+                    QStringList fields = line.split(": ");
+                    if (fields.size() > 1)
+                        core = fields[1].toInt();
+                    // We assume core id appears after physical id.
+                    physicalCoreSet.insert(qMakePair(physical, core));
+                }
+            }
+            count = physicalCoreSet.size();
+        }
     }
 
     return count;
 }
 
-int CpuInfo::getCpuCoreCount() const
+int CpuInfo::getCpuCoreCount()
 {
     static quint8 count = 0;
 
@@ -43,17 +43,17 @@ int CpuInfo::getCpuCoreCount() const
         QStringList cpuinfo = FileUtil::readListFromFile(PROC_CPUINFO);
 
         if (! cpuinfo.isEmpty())
-            count = cpuinfo.filter(QRegExp("^processor")).count();
+            count = cpuinfo.filter(QRegularExpression("^processor")).count();
     }
 
     return count;
 }
 
-QList<double> CpuInfo::getLoadAvgs() const
+QList<double> CpuInfo::getLoadAvgs()
 {
     QList<double> avgs = {0, 0, 0};
 
-    QStringList strListAvgs = FileUtil::readStringFromFile(PROC_LOADAVG).split(QRegExp("\\s+"));
+    QStringList strListAvgs = FileUtil::readStringFromFile(PROC_LOADAVG).split(QRegularExpression("\\s+"));
 
     if (strListAvgs.count() > 2) {
         avgs.clear();
@@ -65,26 +65,26 @@ QList<double> CpuInfo::getLoadAvgs() const
     return avgs;
 }
 
-double CpuInfo::getAvgClock() const
+double CpuInfo::getAvgClock()
 {
     const QStringList lines = CommandUtil::exec("bash",{"-c", LSCPU_COMMAND}).split('\n');
-    const QString clockMHz = lines.filter(QRegExp("^CPU MHz")).first().split(":").last();
+    const QString clockMHz = lines.filter(QRegularExpression("^CPU MHz")).first().split(":").last();
     return clockMHz.toDouble();
 }
 
-QList<double> CpuInfo::getClocks() const
+QList<double> CpuInfo::getClocks()
 {
     QStringList lines = FileUtil::readListFromFile(PROC_CPUINFO)
-            .filter(QRegExp("^cpu MHz"));
+            .filter(QRegularExpression("^cpu MHz"));
 
     QList<double> clocks;
-    for(auto line: lines){
+    for(const auto& line: lines){
         clocks.push_back(line.split(":").last().toDouble());
     }
     return clocks;
 }
 
-QList<int> CpuInfo::getCpuPercents() const
+QList<int> CpuInfo::getCpuPercents()
 {
     QList<double> cpuTimes;
 
@@ -112,7 +112,7 @@ QList<int> CpuInfo::getCpuPercents() const
              - guest_nice: running a niced guest
         */
 
-        QRegExp sep("\\s+");
+        QRegularExpression sep("\\s+");
         int count = CpuInfo::getCpuCoreCount() + 1;
         for (int i = 0; i < count; ++i)
         {
@@ -130,7 +130,7 @@ QList<int> CpuInfo::getCpuPercents() const
     return cpuPercents;
 }
 
-int CpuInfo::getCpuPercent(const QList<double> &cpuTimes, const int &processor) const
+int CpuInfo::getCpuPercent(const QList<double> &cpuTimes, const int &processor)
 {
     const int N = getCpuCoreCount()+1;
 
