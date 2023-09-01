@@ -42,12 +42,6 @@ target_link_libraries(${PROJECT_NAME}
   stacer-core  Qt5::Core  Qt5::Gui  Qt5::Widgets  Qt5::Charts  Qt5::Svg  Qt5::Concurrent
 )
 
-# Running LTO in Release builds, if the C++ compiler is GNU GCC
-if("${CMAKE_BUILD_TYPE}" STREQUAL "Release"  AND  "${CMAKE_CXX_COMPILER_ID}" STREQUAL "GNU")
-  target_compile_options(${PROJECT_NAME}  PRIVATE  "-flto")
-  list(APPEND CMAKE_EXE_LINKER_FLAGS "-flto")
-endif()
-
 install(
   TARGETS  ${PROJECT_NAME}
   CONFIGURATIONS Release RelWithDebInfo MinSizeRel # Not allowing to install an unoptimized build
