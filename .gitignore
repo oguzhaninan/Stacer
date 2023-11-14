@@ -4,3 +4,4 @@ build/
 #*.AppImage
 .vscode
 Release/
+.idea/custom-compiler.xml
