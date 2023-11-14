@@ -38,7 +38,7 @@ void SettingManager::setThemeName(const QString &value)
 
 QString SettingManager::getThemeName() const
 {
-    return "default"; //mSettings->value(SettingKeys::ThemeName, "default").toString();
+    return mSettings->value(SettingKeys::ThemeName, "default").toString();
 }
 
 void SettingManager::setDiskName(const QString &value)
@@ -89,24 +89,4 @@ void SettingManager::setDiskAlertPercent(const int value)
 int SettingManager::getDiskAlertPercent() const
 {
     return mSettings->value(SettingKeys::DiskAlertPercent, 0).toInt();
-}
-
-void SettingManager::setAppQuitDialogDontAsk(const bool value)
-{
-    mSettings->setValue(SettingKeys::AppQuitDialogDontAsk, value);
-}
-
-bool SettingManager::getAppQuitDialogDontAsk() const
-{
-    return mSettings->value(SettingKeys::AppQuitDialogDontAsk, false).toBool();
-}
-
-void SettingManager::setAppQuitDialogChoice(const QString &value)
-{
-    mSettings->setValue(SettingKeys::AppQuitDialogChoice, value);
-}
-
-QString SettingManager::getAppQuitDialogChoice() const
-{
-    return mSettings->value(SettingKeys::AppQuitDialogChoice, "close").toString();
 }

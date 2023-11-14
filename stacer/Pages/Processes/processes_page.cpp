@@ -21,7 +21,7 @@ ProcessesPage::ProcessesPage(QWidget *parent) :
 }
 
 void ProcessesPage::init()
-{
+{    
     mHeaders = QStringList {
         "PID", tr("Resident Memory"), tr("%Memory"), tr("Virtual Memory"),
         tr("User"), "%CPU", tr("Start Time"), tr("State"), tr("Group"),
@@ -47,6 +47,7 @@ void ProcessesPage::init()
     ui->tableProcess->horizontalHeader()->setFixedHeight(36);
     ui->tableProcess->horizontalHeader()->setDefaultAlignment(Qt::AlignLeft | Qt::AlignVCenter);
     ui->tableProcess->horizontalHeader()->setCursor(Qt::PointingHandCursor);
+
     ui->tableProcess->horizontalHeader()->resizeSection(0, 70);
 
     loadProcesses();
@@ -69,26 +70,25 @@ void ProcessesPage::init()
 void ProcessesPage::loadHeaderMenu()
 {
     int i = 0;
-    QList<QAction*> actionList;
-    actionList.reserve(mHeaders.size());
     for (const QString &header : mHeaders) {
-        QAction *action = new QAction(header,&mHeaderMenu);
+        QAction *action = new QAction(header);
         action->setCheckable(true);
         action->setChecked(true);
         action->setData(i++);
-        actionList.push_back(action);
 
+        mHeaderMenu.addAction(action);
     }
-    mHeaderMenu.addActions(actionList);
-    // exclude headers
-    QList<int> hiddenHeaders = { 3, 6, 7, 8, 9, 10, 11 };
+
+// exclude headers
+#define ex(n) mHeaders.indexOf(n)
+    QList<int> hiddenHeaders = { ex("Start Time"), ex("State"), ex("Group"),
+                                 ex("Nice"), ex("CPU Time"), ex("Session"), ex("Virtual Memory") };
+#undef ex
 
     QList<QAction*> actions = mHeaderMenu.actions();
     for (const int i : hiddenHeaders) {
-        if (i < mHeaders.count()) {
-            ui->tableProcess->horizontalHeader()->setSectionHidden(i, true);
-            actions.at(i)->setChecked(false);
-        }
+        ui->tableProcess->horizontalHeader()->setSectionHidden(i, true);
+        actions.at(i)->setChecked(false);
     }
 }
 
@@ -102,6 +102,7 @@ void ProcessesPage::loadProcesses()
 
     QList<Process> processes = im->getProcesses();
     QString username = im->getUserName();
+
 
     if (ui->checkAllProcesses->isChecked()) {
         for (const Process &proc : processes) {
@@ -118,7 +119,7 @@ void ProcessesPage::loadProcesses()
     ui->lblProcessTitle->setText(tr("Processes (%1)").arg(mItemModel->rowCount()));
 
     // selected item
-    if (! selecteds.isEmpty()) {
+    if(! selecteds.isEmpty()) {
         mSeletedRowModel = selecteds.first();
 
         for (int i = 0; i < mSortFilterModel->rowCount(); ++i) {

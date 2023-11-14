@@ -1,8 +1,6 @@
 #include "app.h"
 #include "ui_app.h"
 #include "utilities.h"
-#include <QStyle>
-#include <QDebug>
 
 App::~App()
 {
@@ -34,11 +32,9 @@ void App::init()
 
     dashboardPage = new DashboardPage(mSlidingStacked);
     startupAppsPage = new StartupAppsPage(mSlidingStacked);
-    searchPage = new SearchPage(mSlidingStacked);
     systemCleanerPage = new SystemCleanerPage(mSlidingStacked);
     servicesPage = new ServicesPage(mSlidingStacked);
     processPage = new ProcessesPage(mSlidingStacked);
-    helpersPage = new HelpersPage(mSlidingStacked);
     uninstallerPage = new UninstallerPage(mSlidingStacked);
     resourcesPage = new ResourcesPage(mSlidingStacked);
     settingsPage = new SettingsPage(mSlidingStacked);
@@ -46,13 +42,13 @@ void App::init()
     ui->pageContentLayout->addWidget(mSlidingStacked);
 
     mListPages = {
-        dashboardPage, startupAppsPage, systemCleanerPage, searchPage, servicesPage,
-        processPage, uninstallerPage, resourcesPage, helpersPage, settingsPage
+        dashboardPage, startupAppsPage, systemCleanerPage, servicesPage,
+        processPage, uninstallerPage, resourcesPage, settingsPage
     };
 
     mListSidebarButtons = {
-        ui->btnDash, ui->btnStartupApps, ui->btnSystemCleaner, ui->btnSearch, ui->btnServices,
-        ui->btnProcesses, ui->btnHelpers, ui->btnUninstaller, ui->btnResources, ui->btnSettings
+        ui->btnDash, ui->btnStartupApps, ui->btnSystemCleaner, ui->btnServices,
+        ui->btnProcesses, ui->btnUninstaller, ui->btnResources, ui->btnSettings
     };
 
     // APT SOURCE MANAGER
@@ -91,52 +87,12 @@ void App::init()
     createTrayActions();
 
     mTrayIcon->show();
-
-    createQuitMessageBox();
-}
-
-void App::createQuitMessageBox()
-{
-    mBtnQuit = new QPushButton(tr("Quit"), this);
-    mBtnQuit->setAccessibleName("danger");
-    mBtnContinue = new QPushButton(tr("Continue"), this);
-    mBtnContinue->setAccessibleName("primary");
-    mQuitMsgBox = new QMessageBox(this);
-    QCheckBox *check = new QCheckBox("Don't ask again.");
-    check->setAccessibleName("circle");
-    mQuitMsgBox->setWindowTitle(tr("Quit"));
-    mQuitMsgBox->setText(tr("Will the program continue to work in the system tray?"));
-    mQuitMsgBox->addButton(mBtnQuit, QMessageBox::YesRole);
-    mQuitMsgBox->addButton(mBtnContinue, QMessageBox::NoRole);
-    mQuitMsgBox->setCheckBox(check);
-
-    connect(check, &QCheckBox::toggled, [this](bool checked) {
-        SettingManager::ins()->setAppQuitDialogDontAsk(checked);
-    });
 }
 
 void App::closeEvent(QCloseEvent *event)
 {
-    if (SettingManager::ins()->getAppQuitDialogDontAsk()) {
-        if (SettingManager::ins()->getAppQuitDialogChoice() == "close") {
-            event->accept();
-        } else {
-            event->ignore();
-            hide();
-        }
-    } else {
-        mQuitMsgBox->exec();
-        if (mQuitMsgBox->clickedButton() == mBtnContinue) {
-            SettingManager::ins()->setAppQuitDialogChoice("hide");
-            event->ignore();
-            hide();
-        } else if (mQuitMsgBox->clickedButton() == mBtnQuit) {
-            SettingManager::ins()->setAppQuitDialogChoice("close");
-            event->accept();
-        } else {
-            event->ignore();
-        }
-    }
+    event->ignore();
+    hide();
 }
 
 void App::createTrayActions()
@@ -147,11 +103,6 @@ void App::createTrayActions()
         connect(action, &QAction::triggered, [=] {
             clickSidebarButton(toolTip, true);
         });
-        connect(mTrayIcon, &QSystemTrayIcon::activated, this, [=](QSystemTrayIcon::ActivationReason){
-            setVisible(true);
-            activateWindow();	
-        });
-
         mTrayMenu->addAction(action);
     }
 
@@ -223,11 +174,6 @@ void App::on_btnSystemCleaner_clicked()
     pageClick(systemCleanerPage);
 }
 
-void App::on_btnSearch_clicked()
-{
-    pageClick(searchPage);
-}
-
 void App::on_btnServices_clicked()
 {
     pageClick(servicesPage);
@@ -246,11 +192,6 @@ void App::on_btnProcesses_clicked()
 void App::on_btnResources_clicked()
 {
     pageClick(resourcesPage);
-}
-
-void App::on_btnHelpers_clicked()
-{
-    pageClick(helpersPage);
 }
 
 void App::on_btnAptSourceManager_clicked()

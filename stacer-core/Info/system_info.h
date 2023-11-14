@@ -6,7 +6,7 @@
 #include "Utils/command_util.h"
 #include "Info/cpu_info.h"
 
-#define LSCPU_COMMAND "LANG=nl_NL.UTF-8 lscpu"
+#define PROC_CPUINFO "/proc/cpuinfo"
 
 #include "stacer-core_global.h"
 
@@ -28,10 +28,6 @@ public:
     QFileInfoList getAppLogs() const;
     QFileInfoList getAppCaches() const;
 
-    QStringList getUserList() const;
-    QStringList getGroupList() const;
-
-private slots:
 private:
     QString cpuCore;
     QString cpuModel;

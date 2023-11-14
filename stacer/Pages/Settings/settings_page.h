@@ -23,7 +23,7 @@ public:
 private slots:
     void init();
 
-//    void cmbThemesChanged(const int &index);
+    void cmbThemesChanged(const int &index);
     void cmbLanguagesChanged(const int &index);
     void cmbDiskChanged(const int &index);
     void on_checkAutostart_clicked(bool checked);
@@ -32,7 +32,6 @@ private slots:
     void on_spinCpuPercent_valueChanged(int value);
     void on_spinMemoryPercent_valueChanged(int value);
     void on_spinDiskPercent_valueChanged(int value);
-    void on_checkAppQuitDontAsk_clicked(bool checked);
 
 private:
     Ui::SettingsPage *ui;

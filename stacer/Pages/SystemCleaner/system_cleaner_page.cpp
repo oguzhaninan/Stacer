@@ -1,6 +1,5 @@
 ﻿#include "system_cleaner_page.h"
 #include "ui_system_cleaner_page.h"
-#include "byte_tree_widget.h"
 
 SystemCleanerPage::~SystemCleanerPage()
 {
@@ -36,24 +35,19 @@ void SystemCleanerPage::init()
     connect(SignalMapper::ins(), &SignalMapper::sigChangedAppTheme, [=] {
         QString themeName = SettingManager::ins()->getThemeName();
 
-        mLoadingMovie = new QMovie(QString(":/static/themes/%1/img/scanLoading.gif").arg(themeName),{},this);
+        mLoadingMovie = new QMovie(QString(":/static/themes/%1/img/scanLoading.gif").arg(themeName));
         ui->lblLoadingScanner->setMovie(mLoadingMovie);
         mLoadingMovie->start();
         ui->lblLoadingScanner->hide();
 
-        mLoadingMovie_2 = new QMovie(QString(":/static/themes/%1/img/loading.gif").arg(themeName),{},this);
+        mLoadingMovie_2 = new QMovie(QString(":/static/themes/%1/img/loading.gif").arg(themeName));
         ui->lblLoadingCleaner->setMovie(mLoadingMovie_2);
         mLoadingMovie_2->start();
         ui->lblLoadingCleaner->hide();
     });
-
-    // needed to suppress qt warnings (signal/slot <> threads)
-    qRegisterMetaType<QList<QPersistentModelIndex>>();
-    qRegisterMetaType<QAbstractItemModel::LayoutChangeHint>();
-    qRegisterMetaType<Qt::SortOrder>();
 }
 
-quint64 SystemCleanerPage::addTreeRoot(const CleanCategories &cat, const QString &title, const QFileInfoList &infos, bool noChild)
+void SystemCleanerPage::addTreeRoot(const CleanCategories &cat, const QString &title, const QFileInfoList &infos, bool noChild)
 {
     QTreeWidgetItem *root = new QTreeWidgetItem(ui->treeWidgetScanResult);
     root->setData(2, 0, cat);
@@ -88,31 +82,35 @@ quint64 SystemCleanerPage::addTreeRoot(const CleanCategories &cat, const QString
     }
 
     root->setText(1, QString("%1").arg(FormatUtil::formatBytes(totalSize)));
-
-    return totalSize;
 }
 
 void SystemCleanerPage::addTreeChild(const QString &data, const QString &text, const quint64 &size, QTreeWidgetItem *parent)
 {
-    ByteTreeWidget *item = new ByteTreeWidget(parent);
-    item->setValues(text, size, data);
+    QTreeWidgetItem *item = new QTreeWidgetItem(parent);
     item->setIcon(0, QIcon::fromTheme(text, mDefaultIcon));
+    item->setText(0, text);
+    item->setText(1, FormatUtil::formatBytes(size));
+    item->setData(2, 0, data);
+    item->setCheckState(0, Qt::Unchecked);
 }
 
 void SystemCleanerPage::addTreeChild(const CleanCategories &cat, const QString &text, const quint64 &size)
 {
-    ByteTreeWidget *item = new ByteTreeWidget(ui->treeWidgetScanResult);
-    item->setValues(text, size, cat);
+    QTreeWidgetItem *item = new QTreeWidgetItem(ui->treeWidgetScanResult);
+    item->setText(0, text);
+    item->setText(1, FormatUtil::formatBytes(size));
+    item->setData(2, 0, cat);
+    item->setCheckState(0, Qt::Unchecked);
 }
 
 void SystemCleanerPage::on_treeWidgetScanResult_itemClicked(QTreeWidgetItem *item, const int &column)
 {
     if(column == 0) {
       // new check state
-      Qt::CheckState cs = (item->checkState(column) == Qt::Checked ? Qt::Checked : Qt::Unchecked);
+      Qt::CheckState cs = (item->checkState(column) == Qt::Checked ? Qt::Unchecked : Qt::Checked);
 
       // update check state
-      //item->setCheckState(column, cs);
+      item->setCheckState(column, cs);
 
       // change check state if has children
       for (int i = 0; i < item->childCount(); ++i)
@@ -135,53 +133,46 @@ void SystemCleanerPage::systemScan()
         ui->checkAppLog->setEnabled(false);
         ui->checkAppCache->setEnabled(false);
         ui->checkTrash->setEnabled(false);
-        ui->checkSelectAllSystemScan->setEnabled(false);
 
-        ui->treeWidgetScanResult->setSortingEnabled(false);
+        QThread::sleep(1);
+
         ui->treeWidgetScanResult->clear();
-
-        quint64 totalSize = 0;
 
         // Package Caches
         if (ui->checkPackageCache->isChecked()) {
-            totalSize += addTreeRoot(PACKAGE_CACHE,
+            addTreeRoot(PACKAGE_CACHE,
                         ui->lblPackageCache->text(),
                         tmr->getPackageCaches());
         }
 
         // Crash Reports
         if (ui->checkCrashReports->isChecked()) {
-            totalSize += addTreeRoot(CRASH_REPORTS,
+            addTreeRoot(CRASH_REPORTS,
                         ui->lblCrashReports->text(),
                         im->getCrashReports());
         }
 
         // Application Logs
         if (ui->checkAppLog->isChecked()) {
-            totalSize += addTreeRoot(APPLICATION_LOGS,
+            addTreeRoot(APPLICATION_LOGS,
                         ui->lblAppLog->text(),
                         im->getAppLogs());
         }
 
         // Application Cache
         if (ui->checkAppCache->isChecked()) {
-            totalSize += addTreeRoot(APPLICATION_CACHES,
+            addTreeRoot(APPLICATION_CACHES,
                         ui->lblAppCache->text(),
                         im->getAppCaches());
         }
 
         // Trash
         if(ui->checkTrash->isChecked()) {
-            totalSize += addTreeRoot(TRASH,
+            addTreeRoot(TRASH,
                         ui->lblTrash->text(),
-                        { QFileInfo(QDir::homePath() + "/.local/share/Trash/") },
+                        { QFileInfo("/home/oguzhan/.local/share/Trash/") },
                         true);
         }
-
-        ui->lblTotalBytes->setText(tr("Total size: %1").arg(FormatUtil::formatBytes(totalSize)));
-
-        ui->treeWidgetScanResult->setSortingEnabled(true);
-        on_cbSortBy_currentIndexChanged(ui->cbSortBy->currentIndex());
 
         // scan results page
         ui->stackedWidget->setCurrentIndex(1);
@@ -322,37 +313,4 @@ void SystemCleanerPage::on_btnBackToCategories_clicked()
     ui->checkTrash->setEnabled(true);
     ui->treeWidgetScanResult->clear();
     ui->stackedWidget->setCurrentIndex(0);
-    ui->checkSelectAllSystemScan->setEnabled(true);
-    ui->checkSelectAllSystemScan->setChecked(false);
-}
-
-void SystemCleanerPage::on_checkSelectAllSystemScan_clicked(bool checked)
-{
-    ui->checkAppCache->setChecked(checked);
-    ui->checkAppLog->setChecked(checked);
-    ui->checkCrashReports->setChecked(checked);
-    ui->checkPackageCache->setChecked(checked);
-    ui->checkTrash->setChecked(checked);
-}
-
-void SystemCleanerPage::on_checkSelectAll_clicked(bool checked)
-{
-    for (int i = 0; i < ui->treeWidgetScanResult->topLevelItemCount(); ++i)
-    {
-        QTreeWidgetItem *it = ui->treeWidgetScanResult->topLevelItem(i);
-        it->setCheckState(0, (checked ? Qt::Checked : Qt::Unchecked));
-
-        for (int j = 0; j < it->childCount(); ++j)
-            it->child(j)->setCheckState(0, (checked ? Qt::Checked : Qt::Unchecked));
-    }
-}
-
-void SystemCleanerPage::on_cbSortBy_currentIndexChanged(int idx)
-{
-    switch (idx) {
-        case 0: ui->treeWidgetScanResult->sortItems(0, Qt::AscendingOrder); break;
-        case 1: ui->treeWidgetScanResult->sortItems(0, Qt::DescendingOrder); break;
-        case 2: ui->treeWidgetScanResult->sortItems(1, Qt::AscendingOrder); break;
-        case 3: ui->treeWidgetScanResult->sortItems(1, Qt::DescendingOrder); break;
-    }
 }

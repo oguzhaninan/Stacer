@@ -1,5 +1,0 @@
-#!/bin/sh
-
-ln -sf "/usr/share/stacer/stacer" "/usr/bin/stacer"
-
-exit 0

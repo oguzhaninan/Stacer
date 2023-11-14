@@ -12,7 +12,6 @@ public:
 
     QList<Service> getServices() const;
     QStringList getPackages() const;
-    QStringList getSnapPackages() const;
     QFileInfoList getPackageCaches() const;
 
     bool changeServiceStatus(const QString &sname, bool status) const;
@@ -21,7 +20,6 @@ public:
     bool serviceIsEnabled(const QString &sname) const;
 
     void uninstallPackages(const QStringList &packages);    
-    bool uninstallSnapPackages(const QStringList packages);
 
     bool checkSourceRepository() const;
     QList<APTSourcePtr> getSourceList() const;

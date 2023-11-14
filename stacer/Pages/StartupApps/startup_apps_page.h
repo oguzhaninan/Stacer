@@ -40,8 +40,6 @@ private:
 
     QFileSystemWatcher mFileSystemWatcher;
     QString mAutostartPath;
-
-    bool checkIfDisabled(const QString& as_path);
 };
 
 #endif // STARTUPAPPSPAGE_H

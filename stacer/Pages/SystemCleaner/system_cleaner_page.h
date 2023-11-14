@@ -6,7 +6,6 @@
 #include <QMap>
 #include <QMovie>
 #include <QDebug>
-#include <QDir>
 #include <QtConcurrent>
 #include <QThread>
 #include "Managers/app_manager.h"
@@ -32,11 +31,11 @@ public:
     };
 
 public:
-    explicit SystemCleanerPage(QWidget *parent = nullptr);
+    explicit SystemCleanerPage(QWidget *parent = 0);
     ~SystemCleanerPage();
 
 private slots:
-    quint64 addTreeRoot(const CleanCategories &cat, const QString &title, const QFileInfoList &infos, bool noChild = false);
+    void addTreeRoot(const CleanCategories &cat, const QString &title, const QFileInfoList &infos, bool noChild = false);
     void addTreeChild(const CleanCategories &cat, const QString &text, const quint64 &size);
     void addTreeChild(const QString &data, const QString &text, const quint64 &size, QTreeWidgetItem *parent);
 
@@ -48,10 +47,6 @@ private slots:
     void systemScan();
     void systemClean();
     bool cleanValid();
-
-    void on_checkSelectAllSystemScan_clicked(bool checked);
-    void on_checkSelectAll_clicked(bool check);
-    void on_cbSortBy_currentIndexChanged(int idx);
 
 private:
     void init();

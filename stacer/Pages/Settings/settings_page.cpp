@@ -35,15 +35,15 @@ void SettingsPage::init()
     ui->cmbLanguages->setCurrentText(apm->getLanguageList().value(lc));
 
     // load themes
-//    QMapIterator<QString, QString> theme(apm->getThemeList());
+    QMapIterator<QString, QString> theme(apm->getThemeList());
 
-//    while (theme.hasNext()) {
-//        theme.next();
-//        ui->cmbThemes->addItem(theme.value(), theme.key());
-//    }
+    while (theme.hasNext()) {
+        theme.next();
+        ui->cmbThemes->addItem(theme.value(), theme.key());
+    }
 
-//    QString tn = mSettingManager->getThemeName();
-//    ui->cmbThemes->setCurrentText(apm->getThemeList().value(tn));
+    QString tn = mSettingManager->getThemeName();
+    ui->cmbThemes->setCurrentText(apm->getThemeList().value(tn));
 
     // load disks
     InfoManager::ins()->updateDiskInfo();
@@ -53,16 +53,11 @@ void SettingsPage::init()
         ui->cmbDisks->addItem(QString("%1  (%2)").arg(disk->device).arg(disk->name), disk->name);
     }
 
-    QString dk = mSettingManager->getDiskName().isEmpty() ? QStorageInfo::root().displayName() : mSettingManager->getDiskName();
-    if (! dk.isEmpty()) {
-        ui->cmbDisks->setCurrentIndex(ui->cmbDisks->findData(dk));
-    }
+    QString dk = mSettingManager->getDiskName();
+    ui->cmbDisks->setCurrentIndex(ui->cmbDisks->findData(dk));
 
     // start on boot
     mStartupAppPath = QStandardPaths::writableLocation(QStandardPaths::ConfigLocation).append("/autostart");
-    if (! QDir(mStartupAppPath).exists()) {
-        QDir().mkdir(mStartupAppPath);
-    }
     mStartupAppPath.append("/stacer.desktop");
 
     QFile startupAppFile(mStartupAppPath);
@@ -74,13 +69,10 @@ void SettingsPage::init()
         ui->checkAutostart->setChecked(false);
     }
 
-    // app quit dont ask
-    ui->checkAppQuitDontAsk->setChecked(mSettingManager->getAppQuitDialogDontAsk());
-
     // load pages
     ui->cmbStartPage->addItems({
-        tr("Dashboard"), tr("Startup Apps"), tr("System Cleaner"), tr("Search"),
-        tr("Services"), tr("Processes"), tr("Helpers"), tr("Uninstaller"), tr("Resources")
+        tr("Dashboard"), tr("Startup Apps"), tr("System Cleaner"),
+        tr("Services"), tr("Processes"), tr("Uninstaller"), tr("Resources")
     });
 
     ui->cmbStartPage->setCurrentText(mSettingManager->getStartPage());
@@ -92,7 +84,7 @@ void SettingsPage::init()
 
     // effects
     QList<QWidget*> widgets = {
-        ui->cmbLanguages, /*ui->cmbThemes,*/ ui->cmbDisks, ui->cmbStartPage, ui->btnDonate,
+        ui->cmbLanguages, ui->cmbThemes, ui->cmbDisks, ui->cmbStartPage, ui->btnDonate,
         ui->spinCpuPercent, ui->spinMemoryPercent, ui->spinDiskPercent
     };
 
@@ -100,7 +92,7 @@ void SettingsPage::init()
 
     // connects
     connect(ui->cmbLanguages, SIGNAL(currentIndexChanged(int)), this, SLOT(cmbLanguagesChanged(int)));
-//    connect(ui->cmbThemes, SIGNAL(currentIndexChanged(int)), this, SLOT(cmbThemesChanged(int)));
+    connect(ui->cmbThemes, SIGNAL(currentIndexChanged(int)), this, SLOT(cmbThemesChanged(int)));    
     connect(ui->cmbDisks, SIGNAL(currentIndexChanged(int)), this, SLOT(cmbDiskChanged(int)));
     connect(ui->cmbStartPage, SIGNAL(currentIndexChanged(QString)), this, SLOT(cmbStartPageChanged(QString)));
 }
@@ -112,13 +104,13 @@ void SettingsPage::cmbLanguagesChanged(const int &index)
     mSettingManager->setLanguage(langCode);
 }
 
-//void SettingsPage::cmbThemesChanged(const int &index)
-//{
-//    QString themeName = ui->cmbThemes->itemData(index).toString();
+void SettingsPage::cmbThemesChanged(const int &index)
+{
+    QString themeName = ui->cmbThemes->itemData(index).toString();
 
-//    mSettingManager->setThemeName(themeName);
-//    apm->updateStylesheet();
-//}
+    mSettingManager->setThemeName(themeName);
+    apm->updateStylesheet();
+}
 
 void SettingsPage::cmbDiskChanged(const int &index)
 {
@@ -167,9 +159,4 @@ void SettingsPage::on_spinMemoryPercent_valueChanged(int value)
 void SettingsPage::on_spinDiskPercent_valueChanged(int value)
 {
     mSettingManager->setDiskAlertPercent(value);
-}
-
-void SettingsPage::on_checkAppQuitDontAsk_clicked(bool checked)
-{
-    mSettingManager->setAppQuitDialogDontAsk(checked);
 }
