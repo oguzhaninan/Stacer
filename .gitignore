@@ -5,3 +5,4 @@ build/
 .vscode
 Release/
 .idea/custom-compiler.xml
+buildStacer-Jordan.sh
