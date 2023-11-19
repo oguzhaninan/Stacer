@@ -9,6 +9,7 @@
 #include <QTimer>
 #include <QMenu>
 #include <QAction>
+#include <QPushButton>
 
 #include "Managers/info_manager.h"
 
@@ -38,7 +39,6 @@ private slots:
 
 private:
     Ui::ProcessesPage *ui;
-
     QStandardItemModel *mItemModel;
     QSortFilterProxyModel *mSortFilterModel;
     QModelIndex mSeletedRowModel;
@@ -46,6 +46,7 @@ private:
     QMenu mHeaderMenu;
     QTimer *mTimer;
     InfoManager *im;
+    int limitPass;
 };
 
 #endif // PROCESSESPAGE_H

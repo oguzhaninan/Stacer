@@ -35,6 +35,8 @@ add_executable(${PROJECT_NAME}
   ${${PROJECT_NAME}_srcs}
   "${CMAKE_CURRENT_SOURCE_DIR}/static.qrc"
   ${QM_FILES}
+        limit_process_widget.h
+        limit_process_widget.cpp
 )
 
 target_link_libraries(${PROJECT_NAME}

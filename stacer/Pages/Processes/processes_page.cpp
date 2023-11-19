@@ -1,6 +1,8 @@
+#include <QWidgetAction>
 #include "processes_page.h"
 #include "ui_processes_page.h"
 #include "utilities.h"
+#include "limit_process_widget.h"
 
 ProcessesPage::~ProcessesPage()
 {
@@ -217,6 +219,78 @@ void ProcessesPage::on_btnLimitProcess_clicked() // ui file: line 205
     // Captures the PID for the highlighted process
     pid_t pid = mSeletedRowModel.data(1).toInt();
 
+    QModelIndexList selected = ui->tableProcess->selectionModel()->selectedRows();
+
+    if (ui->checkAllProcesses->isChecked())
+    {
+        QMessageBox messageBox;
+        messageBox.setText(QString("Please select only one process to limit."));
+        messageBox.setWindowTitle(QString("Invalid Selection"));
+        messageBox.exec();
+    }
+    else if(!selected.isEmpty())
+    {
+        QPushButton *btn = ui->btnLimitProcess;
+
+        QMenu *limitProcessMenu = new QMenu(this);
+
+        LimitProcessWidget *ramLimit = new LimitProcessWidget("RAM Limit");
+        LimitProcessWidget *cpuLimit = new LimitProcessWidget("CPU Limit");
+
+        QAction *setRAMLimit = limitProcessMenu->addAction("RAM Limit");
+        setRAMLimit->setProperty("widget", QVariant::fromValue<QWidget *>(ramLimit));
+
+        QAction *setCPULimit = limitProcessMenu->addAction("CPU Limit");
+        setCPULimit->setProperty("widget", QVariant::fromValue<QWidget *>(cpuLimit));
+
+        QObject::connect(setRAMLimit, &QAction::triggered, [ramLimit, btn]() {
+            ramLimit->show();
+        });
+        QObject::connect(setCPULimit, &QAction::triggered, [cpuLimit, btn]() {
+            cpuLimit->show();
+        });
+
+        limitProcessMenu->exec(btn->mapToGlobal(QPoint(0, btn->height())));
+
+        QMessageBox messageBox;
+        messageBox.setText(QString("Continuing Execution"));
+        messageBox.setWindowTitle(QString("Message"));
+        messageBox.exec();
+
+        /*
+        if (limitProcessMenu->) {
+
+            QMessageBox messageBox;
+            messageBox.setText(QString("ram limit set"));
+            messageBox.setWindowTitle(QString("Success"));
+            messageBox.exec();
+
+            ramLimit->close();
+            cpuLimit->close();
+            limitProcessMenu->close();
+        }
+        else if (cpuLimit->limitSet) {
+
+            QMessageBox messageBox;
+            messageBox.setText(QString("cpu limit set"));
+            messageBox.setWindowTitle(QString("Success"));
+            messageBox.exec();
+
+            cpuLimit->close();
+            ramLimit->close();
+            limitProcessMenu->close();
+        }
+         */
+
+    }
+    else
+    {
+        QMessageBox messageBox;
+        messageBox.setText(QString("Please select a process to limit"));
+        messageBox.setWindowTitle(QString("Invalid Selection"));
+        messageBox.exec();
+    }
+
     // If pid contains a valid process ID from a selected process
     if (pid) {
         // Retrieve's the username from the table
@@ -226,10 +300,10 @@ void ProcessesPage::on_btnLimitProcess_clicked() // ui file: line 205
             // Check if table username matches user logged into Linux
             if (selectedUname == im->getUserName()) {
                 // Call exec as that user
-                CommandUtil::exec("kill", { QString::number(pid) });
+                // CommandUtil::exec("kill", { QString::number(pid) });
             } else {
                 // Otherwise execute the call as superuser
-                CommandUtil::sudoExec("kill", { QString::number(pid) });
+                // CommandUtil::sudoExec("kill", { QString::number(pid) });
             }
         } catch (QString &ex) {
             qCritical() << ex;
