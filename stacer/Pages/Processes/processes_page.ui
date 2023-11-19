@@ -202,7 +202,39 @@
         </property>
        </spacer>
       </item>
-      <item>
+      <item>                                                # Limit process button
+       <widget class="QPushButton" name="btnLimitProcess">
+        <property name="cursor">
+         <cursorShape>PointingHandCursor</cursorShape>
+        </property>
+        <property name="focusPolicy">
+         <enum>Qt::NoFocus</enum>
+        </property>
+        <property name="accessibleName">
+         <string notr="true">primary</string>
+        </property>
+        <property name="text">
+         <string>Limit Process</string>
+        </property>
+       </widget>
+      </item>
+      <item>                                                # Remove limit button
+       <widget class="QPushButton" name="btnRemoveLimit">
+        <property name="cursor">
+         <cursorShape>PointingHandCursor</cursorShape>
+        </property>
+        <property name="focusPolicy">
+         <enum>Qt::NoFocus</enum>
+        </property>
+        <property name="accessibleName">
+         <string notr="true">primary</string>
+        </property>
+        <property name="text">
+         <string>Remove Limit</string>
+        </property>
+       </widget>
+      </item>
+      <item>                                                # End process button
        <widget class="QPushButton" name="btnEndProcess">
         <property name="cursor">
          <cursorShape>PointingHandCursor</cursorShape>

@@ -211,17 +211,74 @@ void ProcessesPage::on_sliderRefresh_valueChanged(const int &i)
     mTimer->setInterval(i * 1000);
 }
 
-void ProcessesPage::on_btnEndProcess_clicked()
+/* Limit Process Button */
+void ProcessesPage::on_btnLimitProcess_clicked() // ui file: line 205
 {
+    // Captures the PID for the highlighted process
     pid_t pid = mSeletedRowModel.data(1).toInt();
 
+    // If pid contains a valid process ID from a selected process
     if (pid) {
+        // Retrieve's the username from the table
         QString selectedUname = mSortFilterModel->index(mSeletedRowModel.row(), 4).data(1).toString();
 
         try {
+            // Check if table username matches user logged into Linux
             if (selectedUname == im->getUserName()) {
+                // Call exec as that user
                 CommandUtil::exec("kill", { QString::number(pid) });
             } else {
+                // Otherwise execute the call as superuser
+                CommandUtil::sudoExec("kill", { QString::number(pid) });
+            }
+        } catch (QString &ex) {
+            qCritical() << ex;
+        }
+    }
+}
+
+/* Remove Limit Button */
+void ProcessesPage::on_btnRemoveLimit_clicked() // ui file: line 221
+{
+    // Captures the PID for the highlighted process
+    pid_t pid = mSeletedRowModel.data(1).toInt();
+    // If pid contains a valid process ID from a selected process
+    if (pid) {
+        // Retrieve's the username from the table
+        QString selectedUname = mSortFilterModel->index(mSeletedRowModel.row(), 4).data(1).toString();
+
+        try {
+            // Check if table username matches user logged into Linux
+            if (selectedUname == im->getUserName()) {
+                // Call exec as that user
+                CommandUtil::exec("kill", { QString::number(pid) });
+            } else {
+                // Otherwise execute the call as superuser
+                CommandUtil::sudoExec("kill", { QString::number(pid) });
+            }
+        } catch (QString &ex) {
+            qCritical() << ex;
+        }
+    }
+}
+
+/* End Process Button */
+void ProcessesPage::on_btnEndProcess_clicked()
+{
+    // Captures the PID for the highlighted process
+    pid_t pid = mSeletedRowModel.data(1).toInt();
+    // If pid contains a valid process ID from a selected process
+    if (pid) {
+        // Retrieve's the username from the table
+        QString selectedUname = mSortFilterModel->index(mSeletedRowModel.row(), 4).data(1).toString();
+
+        try {
+            // Check if table username matches user logged into Linux
+            if (selectedUname == im->getUserName()) {
+                // Call exec as that user
+                CommandUtil::exec("kill", { QString::number(pid) });
+            } else {
+                // Otherwise execute the call as superuser
                 CommandUtil::sudoExec("kill", { QString::number(pid) });
             }
         } catch (QString &ex) {

@@ -31,7 +31,9 @@ private slots:
     QList<QStandardItem *> createRow(const Process &proc);
     void on_txtProcessSearch_textChanged(const QString &val);
     void on_sliderRefresh_valueChanged(const int &i);
-    void on_btnEndProcess_clicked();
+    void on_btnLimitProcess_clicked(); // ui file: line 205
+    void on_btnRemoveLimit_clicked(); // ui file: line 221
+    void on_btnEndProcess_clicked(); // ui file: line 237
     void on_tableProcess_customContextMenuRequested(const QPoint &pos);
 
 private:
