@@ -62,17 +62,6 @@ QAbstractScrollArea::corner {
 }
 
 /*************
-    QMessageBox
-**************/
-QMessageBox {
-    background-color: #212f3c;
-}
-
-QMessageBox QLabel {
-    color: #fefefe;
-}
-
-/*************
     QMenu
 **************/
 QMenu {
@@ -176,11 +165,11 @@ QToolTip {
     Not Found
 ***************/
 
-#notFoundWidget, QWidget[accessibleName="notFoundWidget"] {
+#notFoundWidget {
     background: url(:/static/themes/common/img/not-found.png) no-repeat top center;
 }
 
-#notFoundWidget QLabel, QWidget[accessibleName="notFoundWidget"] {
+#notFoundWidget QLabel {
     color: @color02;
     font-size: 13pt;
 }
@@ -330,7 +319,7 @@ QLineEdit,
 QPlainTextEdit,
 QSpinBox {
     border-radius: 2;
-    padding: 6;
+    padding: 8;
     background-color: @color01;
     font-size: 10pt;
     color: @color02;
@@ -342,7 +331,7 @@ QPushButton {
 }
 
 QPushButton[accessibleName="danger"] {
-    padding: 6 16;
+    padding: 7 25;
     background-color: @color11;
     color: @color05;
 }
@@ -352,7 +341,7 @@ QPushButton[accessibleName="danger"]:hover {
 }
 
 QPushButton[accessibleName="primary"] {
-    padding: 6 16;
+    padding: 7 25;
     background-color: @color03;
     color: @color05;
 }
@@ -384,11 +373,12 @@ QLabel[accessibleName="dialog-title"] {
 
 #sidebar QPushButton {
     border: 0px;
-    height: 42;
+    width: 44;
+    height: 44;
     border-style: solid;
     color: @color01;
-    margin: 0 0;
-    border-radius: 0;
+    margin: 3 8;
+    border-radius: 2;
 }
 
 #sidebar QPushButton:checked,
@@ -420,10 +410,6 @@ QLabel[accessibleName="dialog-title"] {
     qproperty-icon: url(:/static/themes/default/img/sidebar-icons/startup-apps.png);
 }
 
-#btnSearch {
-    qproperty-icon: url(:/static/themes/default/img/sidebar-icons/search.png);
-}
-
 #btnServices {
     qproperty-icon: url(:/static/themes/default/img/sidebar-icons/services.png);
 }
@@ -440,10 +426,6 @@ QLabel[accessibleName="dialog-title"] {
     qproperty-icon: url(:/static/themes/default/img/sidebar-icons/resources.png);
 }
 
-#btnHelpers {
-    qproperty-icon: url(:/static/themes/default/img/sidebar-icons/helpers.png);
-}
-
 #btnAptSourceManager {
     qproperty-icon: url(:/static/themes/default/img/sidebar-icons/ppa-manager.png);
 }
@@ -454,10 +436,6 @@ QLabel[accessibleName="dialog-title"] {
 
 #btnSettings {
     qproperty-icon: url(:/static/themes/default/img/sidebar-icons/settings.png);
-}
-
-#btnFirewall {
-    qproperty-icon: url(:/static/themes/default/img/sidebar-icons/firewall.png);
 }
 
 #btnFeedback {
@@ -533,13 +511,12 @@ QLabel[accessibleName="dialog-title"] {
     SYSTEM CLEANER PAGE
 ***************************/
 
-#SystemCleanerPage QCheckBox[accessibleName=circle]::indicator {
+#SystemCleanerPage QCheckBox::indicator {
     width: 26;
     height: 26;
 }
 
-#cleanerCategories QLabel,
-#checkSelectAllSystemScan {
+#cleanerCategories QLabel {
     font-size: 11pt;
     color: @color02;
 }
@@ -770,19 +747,6 @@ QLabel[accessibleName="dialog-title"] {
     UNINSTALLER PAGE
 ************************/
 
-#UninstallerPage #nav QPushButton {
-    border-radius: 3;
-    padding: 5 12;
-    font-size: 10pt;
-    background-color: @color02;
-    color: @color07;
-}
-
-#UninstallerPage #nav QPushButton:hover,
-#UninstallerPage #nav QPushButton:checked {
-    background-color: @color03;
-}
-
 #lblPackagesTitle {
     color: @color03;
     padding: 10 0;
@@ -798,43 +762,43 @@ QLabel[accessibleName="dialog-title"] {
     color: @color08;
 }
 
-#listWidgetPackages, #listWidgetSnapPackages
+#listWidgetPackages {
     border:0;
     background-color: transparent;
     font-size:11pt;
 }
 
-#listWidgetPackages::indicator, #listWidgetSnapPackages::indicator {
+#listWidgetPackages::indicator {
     min-width: 16;
     min-height: 16;
 }
 
-#listWidgetPackages::indicator:unchecked, #listWidgetSnapPackages::indicator:unchecked {
+#listWidgetPackages::indicator:unchecked {
     image: url(:/static/themes/common/img/un-check.png);
 }
 
-#listWidgetPackages::indicator:checked, #listWidgetSnapPackages::indicator:checked {
+#listWidgetPackages::indicator:checked {
     image: url(:/static/themes/default/img/check.png);
 }
 
-#listWidgetPackages::item, #listWidgetSnapPackages::item {
+#listWidgetPackages::item {
     border-radius: 2;
     min-height: 40;
     max-height: 40;
     background-color: @color01;
 }
 
-#listWidgetPackages::item:text, #listWidgetSnapPackages::item:text {
+#listWidgetPackages::item:text {
     color: @color02;
     padding-left: 15;
 }
 
-#listWidgetPackages::item:selected, #listWidgetSnapPackages::item:selected {
+#listWidgetPackages::item:selected {
     background-color: @color07;
     border: 0;
 }
 
-#listWidgetPackages::item:hover, #listWidgetSnapPackages::item:hover {
+#listWidgetPackages::item:hover {
     background-color: @color07;
 }
 /***************
@@ -1010,21 +974,4 @@ QLabel[accessibleName="dialog-title"] {
 
 #scrollAreaUnityContents {
     background-color: @pageContent;
-}
-
-/*******************************
-SEARCH
-*******************************/
-#txtSearchInput {
-    padding: 5 12 5 24;
-    border-radius: 12;
-    background: @color01 url(:/static/themes/default/img/search.png) no-repeat left center;
-    border: 1px solid @color02;
-    color: @color12;
-}
-
-#btnSearchAdvance {
-    padding: 3;
-    background-color: @color03;
-    color: @color07;
 }

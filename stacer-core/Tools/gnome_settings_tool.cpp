@@ -13,23 +13,15 @@ bool GnomeSettingsTool::checkUnityAvailable()
 
     try {
         QString result = CommandUtil::exec("gsettings", args);
-        QStringList schemas = result.split('\n'); //.filter(QRegExp(GSchemas::Unity::Shell));
+        QStringList schemas = result.split('\n').filter(QRegExp(GSchemas::Unity::Shell));
 
-        QStringList keys = {
-            GSchemas::Unity::Shell, GSchemas::Unity::Launcher, GSchemas::Unity::Lens, GSchemas::Unity::AppLens,
-            GSchemas::Unity::FileLens, GSchemas::Unity::DateTime, GSchemas::Unity::Sound, GSchemas::Unity::Session
-        };
-        for (const QString schema: schemas) {
-            if (! keys.contains(schema.trimmed())) {
-                return false;
-            }
-        }
+        return ! schemas.isEmpty();
 
     } catch(const QString &ex) {
         qWarning() << ex;
     }
 
-    return true;
+    return false;
 }
 
 QVariant GnomeSettingsTool::getValue(const QString schema, const QString key, const QString schemaPath)

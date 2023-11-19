@@ -1,41 +1,6 @@
 #include "cpu_info.h"
 
-#include "command_util.h"
-
-int CpuInfo::getCpuPhysicalCoreCount() const
-{
-    static int count = 0;
-
-    if (! count) {
-        QStringList cpuinfo = FileUtil::readListFromFile(PROC_CPUINFO);
-
-        if (! cpuinfo.isEmpty()) {
-	    QSet<QPair<int, int> > physicalCoreSet;
-	    int physical = 0;
-	    int core = 0;
-	    for (int i = 0; i < cpuinfo.size(); ++i) {
-	        const QString& line = cpuinfo[i];
-		if (line.startsWith("physical id")) {
-		    QStringList fields = line.split(": ");
-		    if (fields.size() > 1)
-		        physical = fields[1].toInt();
-		}
-		if (line.startsWith("core id")) {
-		    QStringList fields = line.split(": ");
-		    if (fields.size() > 1)
-		        core = fields[1].toInt();
-		    // We assume core id appears after physical id.
-		    physicalCoreSet.insert(qMakePair(physical, core));
-		}
-	    }
-	    count = physicalCoreSet.size();
-	}
-    }
-
-    return count;
-}
-
-int CpuInfo::getCpuCoreCount() const
+quint8 CpuInfo::getCpuCoreCount() const
 {
     static quint8 count = 0;
 
@@ -63,25 +28,6 @@ QList<double> CpuInfo::getLoadAvgs() const
     }
 
     return avgs;
-}
-
-double CpuInfo::getAvgClock() const
-{
-    const QStringList lines = CommandUtil::exec("bash",{"-c", LSCPU_COMMAND}).split('\n');
-    const QString clockMHz = lines.filter(QRegExp("^CPU MHz")).first().split(":").last();
-    return clockMHz.toDouble();
-}
-
-QList<double> CpuInfo::getClocks() const
-{
-    QStringList lines = FileUtil::readListFromFile(PROC_CPUINFO)
-            .filter(QRegExp("^cpu MHz"));
-
-    QList<double> clocks;
-    for(auto line: lines){
-        clocks.push_back(line.split(":").last().toDouble());
-    }
-    return clocks;
 }
 
 QList<int> CpuInfo::getCpuPercents() const

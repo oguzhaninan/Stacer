@@ -26,8 +26,6 @@ private slots:
     void clearInputs();
     void disableElements(const bool status);
 
-    void on_btnClose_clicked();
-
 private:
     void init();
 

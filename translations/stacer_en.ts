@@ -371,7 +371,7 @@
     </message>
     <message>
         <location filename="../stacer/Pages/Dashboard/dashboard_page.cpp" line="116"/>
-        <source>CPU Cores: %1</source>
+        <source>CPU Core: %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -639,7 +639,7 @@
     </message>
     <message>
         <location filename="../stacer/Pages/Resources/resources_page.cpp" line="118"/>
-        <source>%1 Minute Average: %2</source>
+        <source>%1 Minute Avarage: %2</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

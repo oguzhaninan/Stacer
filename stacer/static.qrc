@@ -73,10 +73,5 @@
         <file>static/themes/light/img/fit.png</file>
         <file>static/themes/light/img/trash.png</file>
         <file>static/themes/common/img/package.png</file>
-        <file>static/themes/default/img/sidebar-icons/search.png</file>
-        <file>static/themes/common/img/folder.png</file>
-        <file>static/themes/common/img/trash_2.png</file>
-        <file>static/themes/common/img/delete.png</file>
-        <file>static/themes/default/img/sidebar-icons/helpers.png</file>
     </qresource>
 </RCC>

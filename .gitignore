@@ -4,3 +4,5 @@ build/
 #*.AppImage
 .vscode
 Release/
+.idea/custom-compiler.xml
+buildStacer-Jordan.sh

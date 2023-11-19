@@ -1,8 +1,0 @@
-stacer (1.1.0-1) stable; urgency=medium
-
-  * Snap package uninstaller.
-  * Advanced file search.
-  * Disk chart.
-  * Host manager.
-
- -- Oguzhan Inan <oguzhan3488@gmail.com>  Sun, 13 May 2018 00:50:10 +0300

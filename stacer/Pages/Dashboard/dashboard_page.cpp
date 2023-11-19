@@ -3,10 +3,6 @@
 
 #include "utilities.h"
 
-#include <QNetworkAccessManager>
-#include <QNetworkReply>
-#include <QNetworkRequest>
-
 DashboardPage::~DashboardPage()
 {
     delete ui;
@@ -47,7 +43,7 @@ void DashboardPage::init()
     connect(mTimer, &QTimer::timeout, this, &DashboardPage::updateMemoryBar);
     connect(mTimer, &QTimer::timeout, this, &DashboardPage::updateNetworkBar);
 
-    QTimer *timerDisk = new QTimer(this);
+    QTimer *timerDisk = new QTimer;
     connect(timerDisk, &QTimer::timeout, this, &DashboardPage::updateDiskBar);
     timerDisk->start(5 * 1000);
 
@@ -62,7 +58,7 @@ void DashboardPage::init()
     ui->widgetUpdateBar->hide();
 
     // check update
-    checkUpdate();
+    QtConcurrent::run(this, &DashboardPage::checkUpdate);
     connect(this, &DashboardPage::sigShowUpdateBar, ui->widgetUpdateBar, &QWidget::show);
 
     QList<QWidget*> widgets = {
@@ -74,28 +70,30 @@ void DashboardPage::init()
 
 void DashboardPage::checkUpdate()
 {
-    QNetworkAccessManager * nam = new QNetworkAccessManager(this);
-    const QNetworkRequest updateCheckRequest(QUrl("https://api.github.com/repos/oguzhaninan/Stacer/releases/latest"));
-    connect(nam,&QNetworkAccessManager::finished,this,[this](QNetworkReply * reply){
-        if(reply->error()==QNetworkReply::NoError)
-        {
-            const QString requestResult= reply->readAll();
-            const QJsonDocument result = QJsonDocument::fromJson(requestResult.toUtf8());
-            const QRegExp ex("([0-9].[0-9].[0-9])");
-            ex.indexIn(result.object().value("tag_name").toString());
+    QString requestResult;
 
-            if (ex.matchedLength() > 0)
-            {
-                const QString version = ex.cap();
-
-                if (qApp->applicationVersion() != version) {
-                    emit sigShowUpdateBar();
-                }
-            }
+    if (CommandUtil::isExecutable("curl")) {
+        try {            
+            requestResult = CommandUtil::exec("curl", { "https://api.github.com/repos/oguzhaninan/Stacer/releases/latest" });
+        } catch (const QString &ex) {
+            qCritical() << ex;
         }
 
-    });
-    nam->get(updateCheckRequest);
+        if (! requestResult.isEmpty()) {
+            QJsonDocument result = QJsonDocument::fromJson(requestResult.toUtf8());
+
+            QRegExp ex("([0-9].[0-9].[0-9])");
+            ex.indexIn(result.object().value("tag_name").toString());
+
+            QString version;
+            if (ex.matchedLength() > 0)
+                version = ex.cap();
+
+            if (qApp->applicationVersion() != version) {
+                emit sigShowUpdateBar();
+            }
+        }
+    }
 }
 
 void DashboardPage::on_btnDownloadUpdate_clicked()
@@ -118,16 +116,14 @@ void DashboardPage::systemInformationInit()
         << tr("CPU Core: %1").arg(sysInfo.getCpuCore())
         << tr("CPU Speed: %1").arg(sysInfo.getCpuSpeed());
 
-    QStringListModel *systemInfoModel = new QStringListModel(infos,ui->listViewSystemInfo);
-    const auto oldModel = ui->listViewSystemInfo->selectionModel();
-    delete  oldModel;
+    QStringListModel *systemInfoModel = new QStringListModel(infos);
+
     ui->listViewSystemInfo->setModel(systemInfoModel);
 }
 
 void DashboardPage::updateCpuBar()
 {
     int cpuUsedPercent = im->getCpuPercents().at(0);
-    double cpuCurrentClockGHz = im->getCpuClock()/1000.0;
 
     // alert message
     int cpuAlerPercent = mSettingManager->getCpuAlertPercent();
@@ -143,7 +139,7 @@ void DashboardPage::updateCpuBar()
         }
     }
 
-    mCpuBar->setValue(cpuUsedPercent, QString("%1 GHz\n%2%").arg(cpuCurrentClockGHz, 0, 'f', 2).arg(cpuUsedPercent));
+    mCpuBar->setValue(cpuUsedPercent, QString("%1%").arg(cpuUsedPercent));
 }
 
 void DashboardPage::updateMemoryBar()
@@ -190,11 +186,7 @@ void DashboardPage::updateDiskBar()
         }
 
         if (! disk) {
-            for (Disk *d: im->getDisks())
-                if (d->name.trimmed() == QStorageInfo::root().displayName().trimmed())
-                    disk = d;
-            if (! disk)
-                disk = im->getDisks().at(0);
+            disk = im->getDisks().at(0);
         }
 
         int diskPercent = 0;

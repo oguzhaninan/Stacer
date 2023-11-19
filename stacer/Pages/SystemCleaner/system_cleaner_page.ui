@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1025</width>
-    <height>736</height>
+    <width>784</width>
+    <height>507</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -31,9 +31,6 @@
    </property>
    <item>
     <widget class="QStackedWidget" name="stackedWidget">
-     <property name="accessibleName">
-      <string notr="true"/>
-     </property>
      <property name="styleSheet">
       <string notr="true"/>
      </property>
@@ -60,7 +57,7 @@
        <property name="verticalSpacing">
         <number>20</number>
        </property>
-       <item row="3" column="3" alignment="Qt::AlignHCenter">
+       <item row="2" column="3" alignment="Qt::AlignHCenter">
         <widget class="QLabel" name="lblCrashReports">
          <property name="text">
           <string>Crash Reports</string>
@@ -73,7 +70,7 @@
          </property>
         </widget>
        </item>
-       <item row="2" column="3" alignment="Qt::AlignHCenter|Qt::AlignTop">
+       <item row="1" column="3" alignment="Qt::AlignHCenter|Qt::AlignTop">
         <widget class="QLabel" name="lblCrashReportsImg">
          <property name="minimumSize">
           <size>
@@ -101,7 +98,7 @@
          </property>
         </widget>
        </item>
-       <item row="4" column="5" alignment="Qt::AlignHCenter|Qt::AlignTop">
+       <item row="3" column="5" alignment="Qt::AlignHCenter">
         <widget class="QCheckBox" name="checkAppCache">
          <property name="sizePolicy">
           <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
@@ -123,7 +120,7 @@
          </property>
         </widget>
        </item>
-       <item row="11" column="2" colspan="5">
+       <item row="7" column="2" colspan="5">
         <spacer name="verticalSpacer_4">
          <property name="orientation">
           <enum>Qt::Vertical</enum>
@@ -136,7 +133,7 @@
          </property>
         </spacer>
        </item>
-       <item row="2" column="1">
+       <item row="1" column="1">
         <spacer name="horizontalSpacer_2">
          <property name="orientation">
           <enum>Qt::Horizontal</enum>
@@ -149,7 +146,7 @@
          </property>
         </spacer>
        </item>
-       <item row="2" column="5" alignment="Qt::AlignHCenter">
+       <item row="1" column="5" alignment="Qt::AlignHCenter">
         <widget class="QLabel" name="lblAppCacheImg">
          <property name="minimumSize">
           <size>
@@ -174,7 +171,7 @@
          </property>
         </widget>
        </item>
-       <item row="3" column="4" alignment="Qt::AlignHCenter">
+       <item row="2" column="4" alignment="Qt::AlignHCenter">
         <widget class="QLabel" name="lblAppLog">
          <property name="text">
           <string>Application Logs</string>
@@ -187,7 +184,7 @@
          </property>
         </widget>
        </item>
-       <item row="2" column="6" alignment="Qt::AlignHCenter">
+       <item row="1" column="6" alignment="Qt::AlignHCenter">
         <widget class="QLabel" name="lblTrashImg">
          <property name="minimumSize">
           <size>
@@ -212,7 +209,7 @@
          </property>
         </widget>
        </item>
-       <item row="3" column="5" alignment="Qt::AlignHCenter">
+       <item row="2" column="5" alignment="Qt::AlignHCenter">
         <widget class="QLabel" name="lblAppCache">
          <property name="text">
           <string>Application Caches</string>
@@ -225,7 +222,7 @@
          </property>
         </widget>
        </item>
-       <item row="2" column="2" alignment="Qt::AlignHCenter">
+       <item row="1" column="2" alignment="Qt::AlignHCenter">
         <widget class="QLabel" name="lblPackageCacheImg">
          <property name="minimumSize">
           <size>
@@ -253,7 +250,7 @@
          </property>
         </widget>
        </item>
-       <item row="4" column="6" alignment="Qt::AlignHCenter|Qt::AlignTop">
+       <item row="3" column="6" alignment="Qt::AlignHCenter">
         <widget class="QCheckBox" name="checkTrash">
          <property name="sizePolicy">
           <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
@@ -275,7 +272,7 @@
          </property>
         </widget>
        </item>
-       <item row="4" column="3" alignment="Qt::AlignHCenter|Qt::AlignTop">
+       <item row="3" column="3" alignment="Qt::AlignHCenter">
         <widget class="QCheckBox" name="checkCrashReports">
          <property name="sizePolicy">
           <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
@@ -297,7 +294,7 @@
          </property>
         </widget>
        </item>
-       <item row="7" column="4" alignment="Qt::AlignHCenter">
+       <item row="5" column="4" alignment="Qt::AlignHCenter">
         <widget class="QPushButton" name="btnScan">
          <property name="minimumSize">
           <size>
@@ -322,7 +319,7 @@
          </property>
         </widget>
        </item>
-       <item row="6" column="4">
+       <item row="4" column="4">
         <spacer name="verticalSpacer_5">
          <property name="orientation">
           <enum>Qt::Vertical</enum>
@@ -338,7 +335,7 @@
          </property>
         </spacer>
        </item>
-       <item row="4" column="2" alignment="Qt::AlignHCenter|Qt::AlignTop">
+       <item row="3" column="2" alignment="Qt::AlignHCenter">
         <widget class="QCheckBox" name="checkPackageCache">
          <property name="sizePolicy">
           <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
@@ -360,7 +357,7 @@
          </property>
         </widget>
        </item>
-       <item row="3" column="6" alignment="Qt::AlignHCenter">
+       <item row="2" column="6" alignment="Qt::AlignHCenter">
         <widget class="QLabel" name="lblTrash">
          <property name="text">
           <string>Trash</string>
@@ -373,7 +370,7 @@
          </property>
         </widget>
        </item>
-       <item row="2" column="4" alignment="Qt::AlignHCenter|Qt::AlignTop">
+       <item row="1" column="4" alignment="Qt::AlignHCenter|Qt::AlignTop">
         <widget class="QLabel" name="lblLogImage">
          <property name="minimumSize">
           <size>
@@ -398,7 +395,7 @@
          </property>
         </widget>
        </item>
-       <item row="3" column="2" alignment="Qt::AlignHCenter">
+       <item row="2" column="2" alignment="Qt::AlignHCenter">
         <widget class="QLabel" name="lblPackageCache">
          <property name="text">
           <string>Package Caches</string>
@@ -411,7 +408,7 @@
          </property>
         </widget>
        </item>
-       <item row="4" column="4" alignment="Qt::AlignHCenter|Qt::AlignTop">
+       <item row="3" column="4" alignment="Qt::AlignHCenter">
         <widget class="QCheckBox" name="checkAppLog">
          <property name="sizePolicy">
           <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
@@ -433,7 +430,7 @@
          </property>
         </widget>
        </item>
-       <item row="2" column="8">
+       <item row="1" column="8">
         <spacer name="horizontalSpacer_3">
          <property name="orientation">
           <enum>Qt::Horizontal</enum>
@@ -459,7 +456,7 @@
          </property>
         </spacer>
        </item>
-       <item row="9" column="4" alignment="Qt::AlignHCenter">
+       <item row="6" column="4" alignment="Qt::AlignHCenter">
         <widget class="QLabel" name="lblLoadingScanner">
          <property name="minimumSize">
           <size>
@@ -469,34 +466,6 @@
          </property>
          <property name="text">
           <string/>
-         </property>
-        </widget>
-       </item>
-       <item row="10" column="4" alignment="Qt::AlignHCenter|Qt::AlignTop">
-        <widget class="QCheckBox" name="checkSelectAllSystemScan">
-         <property name="sizePolicy">
-          <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
-           <horstretch>0</horstretch>
-           <verstretch>0</verstretch>
-          </sizepolicy>
-         </property>
-         <property name="cursor">
-          <cursorShape>PointingHandCursor</cursorShape>
-         </property>
-         <property name="focusPolicy">
-          <enum>Qt::NoFocus</enum>
-         </property>
-         <property name="accessibleName">
-          <string notr="true">circle</string>
-         </property>
-         <property name="text">
-          <string>Select All</string>
-         </property>
-         <property name="iconSize">
-          <size>
-           <width>30</width>
-           <height>30</height>
-          </size>
          </property>
         </widget>
        </item>
@@ -540,105 +509,6 @@
           <property name="verticalSpacing">
            <number>10</number>
           </property>
-          <item row="0" column="1" alignment="Qt::AlignHCenter">
-           <widget class="QLabel" name="lblRemovedTotalSize">
-            <property name="minimumSize">
-             <size>
-              <width>20</width>
-              <height>0</height>
-             </size>
-            </property>
-            <property name="styleSheet">
-             <string notr="true"/>
-            </property>
-            <property name="text">
-             <string/>
-            </property>
-           </widget>
-          </item>
-          <item row="6" column="1">
-           <widget class="QLabel" name="lblLoadingCleaner">
-            <property name="minimumSize">
-             <size>
-              <width>100</width>
-              <height>20</height>
-             </size>
-            </property>
-            <property name="maximumSize">
-             <size>
-              <width>16777215</width>
-              <height>20</height>
-             </size>
-            </property>
-            <property name="accessibleName">
-             <string>circle</string>
-            </property>
-            <property name="text">
-             <string/>
-            </property>
-           </widget>
-          </item>
-          <item row="5" column="1">
-           <widget class="QPushButton" name="btnClean">
-            <property name="sizePolicy">
-             <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-              <horstretch>0</horstretch>
-              <verstretch>0</verstretch>
-             </sizepolicy>
-            </property>
-            <property name="minimumSize">
-             <size>
-              <width>100</width>
-              <height>100</height>
-             </size>
-            </property>
-            <property name="maximumSize">
-             <size>
-              <width>100</width>
-              <height>100</height>
-             </size>
-            </property>
-            <property name="cursor">
-             <cursorShape>PointingHandCursor</cursorShape>
-            </property>
-            <property name="focusPolicy">
-             <enum>Qt::NoFocus</enum>
-            </property>
-            <property name="styleSheet">
-             <string notr="true"/>
-            </property>
-            <property name="text">
-             <string/>
-            </property>
-           </widget>
-          </item>
-          <item row="4" column="0">
-           <widget class="QCheckBox" name="checkSelectAll">
-            <property name="maximumSize">
-             <size>
-              <width>16777215</width>
-              <height>16777215</height>
-             </size>
-            </property>
-            <property name="font">
-             <font>
-              <pointsize>10</pointsize>
-             </font>
-            </property>
-            <property name="cursor">
-             <cursorShape>PointingHandCursor</cursorShape>
-            </property>
-            <property name="focusPolicy">
-             <enum>Qt::NoFocus</enum>
-            </property>
-            <property name="accessibleName">
-             <string>circle</string>
-            </property>
-            <property name="text">
-             <string>Select All</string>
-            </property>
-           </widget>
-          </item>
           <item row="0" column="0" alignment="Qt::AlignLeft">
            <widget class="QPushButton" name="btnBackToCategories">
             <property name="cursor">
@@ -662,8 +532,8 @@
             </property>
            </widget>
           </item>
-          <item row="5" column="0">
-           <spacer name="horizontalSpacer_4">
+          <item row="3" column="3">
+           <spacer name="horizontalSpacer_5">
             <property name="orientation">
              <enum>Qt::Horizontal</enum>
             </property>
@@ -675,24 +545,8 @@
             </property>
            </spacer>
           </item>
-          <item row="4" column="3">
-           <widget class="QLabel" name="lblTotalBytes">
-            <property name="sizePolicy">
-             <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
-              <horstretch>0</horstretch>
-              <verstretch>0</verstretch>
-             </sizepolicy>
-            </property>
-            <property name="text">
-             <string/>
-            </property>
-            <property name="alignment">
-             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-            </property>
-           </widget>
-          </item>
-          <item row="5" column="3">
-           <spacer name="horizontalSpacer_5">
+          <item row="3" column="0">
+           <spacer name="horizontalSpacer_4">
             <property name="orientation">
              <enum>Qt::Horizontal</enum>
             </property>
@@ -732,17 +586,11 @@
             <property name="horizontalScrollMode">
              <enum>QAbstractItemView::ScrollPerItem</enum>
             </property>
-            <property name="sortingEnabled">
-             <bool>true</bool>
-            </property>
             <property name="animated">
              <bool>true</bool>
             </property>
             <attribute name="headerVisible">
-             <bool>true</bool>
-            </attribute>
-            <attribute name="headerShowSortIndicator" stdset="0">
-             <bool>true</bool>
+             <bool>false</bool>
             </attribute>
             <column>
              <property name="text">
@@ -751,62 +599,74 @@
             </column>
            </widget>
           </item>
-          <item row="0" column="3">
-           <layout class="QHBoxLayout" name="horizontalLayout">
-            <item>
-             <widget class="QLabel" name="lblSortBy">
-              <property name="text">
-               <string>Sort by: </string>
-              </property>
-              <property name="alignment">
-               <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-              </property>
-             </widget>
-            </item>
-            <item>
-             <widget class="QComboBox" name="cbSortBy">
-              <property name="currentIndex">
-               <number>3</number>
-              </property>
-              <item>
-               <property name="text">
-                <string>Name</string>
-               </property>
-               <property name="icon">
-                <iconset resource="../../static.qrc">
-                 <normaloff>:/static/themes/default/img/asc.png</normaloff>:/static/themes/default/img/asc.png</iconset>
-               </property>
-              </item>
-              <item>
-               <property name="text">
-                <string>Name</string>
-               </property>
-               <property name="icon">
-                <iconset resource="../../static.qrc">
-                 <normaloff>:/static/themes/default/img/dsc.png</normaloff>:/static/themes/default/img/dsc.png</iconset>
-               </property>
-              </item>
-              <item>
-               <property name="text">
-                <string>Size</string>
-               </property>
-               <property name="icon">
-                <iconset resource="../../static.qrc">
-                 <normaloff>:/static/themes/default/img/asc.png</normaloff>:/static/themes/default/img/asc.png</iconset>
-               </property>
-              </item>
-              <item>
-               <property name="text">
-                <string>Size</string>
-               </property>
-               <property name="icon">
-                <iconset resource="../../static.qrc">
-                 <normaloff>:/static/themes/default/img/dsc.png</normaloff>:/static/themes/default/img/dsc.png</iconset>
-               </property>
-              </item>
-             </widget>
-            </item>
-           </layout>
+          <item row="3" column="1" alignment="Qt::AlignHCenter">
+           <widget class="QPushButton" name="btnClean">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>100</width>
+              <height>100</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>100</width>
+              <height>100</height>
+             </size>
+            </property>
+            <property name="cursor">
+             <cursorShape>PointingHandCursor</cursorShape>
+            </property>
+            <property name="focusPolicy">
+             <enum>Qt::NoFocus</enum>
+            </property>
+            <property name="styleSheet">
+             <string notr="true"/>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="1" alignment="Qt::AlignHCenter">
+           <widget class="QLabel" name="lblRemovedTotalSize">
+            <property name="minimumSize">
+             <size>
+              <width>20</width>
+              <height>0</height>
+             </size>
+            </property>
+            <property name="styleSheet">
+             <string notr="true"/>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+           </widget>
+          </item>
+          <item row="4" column="1">
+           <widget class="QLabel" name="lblLoadingCleaner">
+            <property name="minimumSize">
+             <size>
+              <width>100</width>
+              <height>20</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>16777215</width>
+              <height>20</height>
+             </size>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+           </widget>
           </item>
          </layout>
         </widget>

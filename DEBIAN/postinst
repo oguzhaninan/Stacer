@@ -1,0 +1,3 @@
+#!/bin/bash
+
+ln -sf "/usr/share/stacer/stacer" "/usr/bin/stacer"

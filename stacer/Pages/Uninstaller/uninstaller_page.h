@@ -32,14 +32,7 @@ private slots:
     void on_txtPackageSearch_textChanged(const QString &val);
     void on_btnUninstall_clicked();
     QStringList getSelectedPackages();
-    QStringList getSelectedSnapPackages();
     void loadPackages();
-    void loadSnapPackages();
-    void on_btnSystemPackages_clicked();
-    void on_btnSnapPackages_clicked();
-
-    void on_listWidgetSnapPackages_itemClicked(QListWidgetItem *item);
-    void on_listWidgetPackages_itemClicked(QListWidgetItem *item);
 
 private:
     Ui::UninstallerPage *ui;

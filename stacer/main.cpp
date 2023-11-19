@@ -1,4 +1,3 @@
-
 #include <QApplication>
 #include <QSplashScreen>
 #include <QDebug>
@@ -55,32 +54,8 @@ int main(int argc, char *argv[])
 
     qApp->setApplicationName("stacer");
     qApp->setApplicationDisplayName("Stacer");
-    qApp->setApplicationVersion("1.1.0");
+    qApp->setApplicationVersion("1.0.9");
     qApp->setWindowIcon(QIcon(":/static/logo.png"));
-
-    {
-       QCommandLineOption hideOption("hide", "Hide Stacer while launching.");
-       QCommandLineOption noSplashOption("nosplash", "Hide splash screen while launching.");    
-        QCommandLineParser parser;
-        parser.addVersionOption();
-        parser.addHelpOption();
-	    parser.addOption(hideOption);
-        parser.addOption(noSplashOption);
-        parser.process(app);
-    }
-
-    bool isHide = false;
-    bool isNoSplash = false;
-    
-    QLatin1String hideOption("--hide");
-    QLatin1String noSplashOption("--nosplash");
-    
-    for (size_t i = 1; i < argc; ++i) {
-      if (QString(argv[i]) == hideOption)
-        isHide = true;
-      else if (QString(argv[i]) == noSplashOption) 
-        isNoSplash = true;
-    }
 
     QFontDatabase::addApplicationFont(":/static/font/Ubuntu-R.ttf");
 
@@ -88,13 +63,17 @@ int main(int argc, char *argv[])
 
     QSplashScreen *splash = new QSplashScreen(pixSplash);
 
-    if (!isNoSplash) splash->show();
+    splash->show();
 
     app.processEvents();
 
+    qInstallMessageHandler(messageHandler);
+
     App w;
 
-    if (argc < 2 || !isHide) {
+    QLatin1String hideOption("--hide");
+
+    if (argc < 2 || QString(argv[1]) != hideOption) {
         w.show();
     }
 

@@ -18,8 +18,6 @@
 #include "Pages/Settings/settings_page.h"
 #include "Pages/AptSourceManager/apt_source_manager_page.h"
 #include "Pages/GnomeSettings/gnome_settings_page.h"
-#include "Pages/Search/search_page.h"
-#include "Pages/Helpers/helpers_page.h"
 #include "feedback.h"
 
 namespace Ui {
@@ -46,9 +44,7 @@ private slots:
     void on_btnSystemCleaner_clicked();
     void on_btnStartupApps_clicked();
     void on_btnServices_clicked();
-    void on_btnSearch_clicked();
     void on_btnUninstaller_clicked();
-    void on_btnHelpers_clicked();
     void on_btnResources_clicked();
     void on_btnProcesses_clicked();
     void on_btnSettings_clicked();
@@ -61,7 +57,6 @@ private:
     QWidget *getPageByTitle(const QString &title);
     void checkSidebarButtonByTooltip(const QString &text);
     void createTrayActions();
-    void createQuitMessageBox();
 
 private:
     Ui::App *ui;
@@ -75,7 +70,6 @@ private:
     DashboardPage *dashboardPage;
     StartupAppsPage *startupAppsPage;
     SystemCleanerPage *systemCleanerPage;
-    SearchPage *searchPage;
     ServicesPage *servicesPage;
     ProcessesPage *processPage;
     UninstallerPage *uninstallerPage;
@@ -83,16 +77,12 @@ private:
     APTSourceManagerPage *aptSourceManagerPage;
     GnomeSettingsPage *gnomeSettingsPage;
     SettingsPage *settingsPage;
-    HelpersPage *helpersPage;
 
     QSharedPointer<Feedback> feedback;
 
     QSystemTrayIcon *mTrayIcon;
 
     QMenu *mTrayMenu;
-
-    QPushButton *mBtnQuit, *mBtnContinue;
-    QMessageBox *mQuitMsgBox;
 };
 
 #endif // APP_H

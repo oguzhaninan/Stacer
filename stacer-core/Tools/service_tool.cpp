@@ -22,8 +22,7 @@ QList<Service> ServiceTool::getServicesWithSystemctl()
                 .filter(QRegExp("[^@].service"));
 
         QRegExp sep("\\s+");
-        services.reserve(lines.size());
-        for (const QString &line : lines)
+        for (const QString line : lines)
         {
             // e.g apache2.service          [enabled|disabled]
             QStringList s = line.trimmed().split(sep);
@@ -33,7 +32,9 @@ QList<Service> ServiceTool::getServicesWithSystemctl()
             bool status = ! s.last().trimmed().compare("enabled");
             bool active = serviceIsActive(s.first().trimmed());
 
-            services.push_back({name, description, status, active});
+            Service service(name, description, status, active);
+
+            services << service;
         }
 
     } catch(QString &ex) {

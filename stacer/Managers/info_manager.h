@@ -15,10 +15,9 @@ class InfoManager
 public:
     static InfoManager *ins();
 
-    int getCpuCoreCount() const;
+    quint8 getCpuCoreCount() const;
     QList<int> getCpuPercents() const;
     QList<double> getCpuLoadAvgs() const;
-    double getCpuClock() const;
 
     quint64 getSwapUsed() const;
     quint64 getSwapTotal() const;
@@ -40,11 +39,7 @@ public:
     void updateProcesses();
     QList<Process> getProcesses() const;
     QString getUserName() const;
-    QStringList getUserList() const;
-    QStringList getGroupList() const;
 
-    QList<QString> getDevices();
-    QList<QString> getFileSystemTypes();
 private:
     static InfoManager *instance;
 

@@ -36,10 +36,6 @@ public:
     static QStringList getPacmanPackages();
     static bool pacmanRemovePackages(QStringList packages);
 
-    // Snap
-    static QStringList getSnapPackages();
-    static bool snapRemovePackages(QStringList packages);
-
     static const PackageTools currentPackageTool;
 };
 

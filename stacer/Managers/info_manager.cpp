@@ -16,20 +16,10 @@ QString InfoManager::getUserName() const
     return si.getUsername();
 }
 
-QStringList InfoManager::getUserList() const
-{
-    return si.getUserList();
-}
-
-QStringList InfoManager::getGroupList() const
-{
-    return si.getGroupList();
-}
-
 /*
  * CPU Provider
  */
-int InfoManager::getCpuCoreCount() const
+quint8 InfoManager::getCpuCoreCount() const
 {
     return ci.getCpuCoreCount();
 }
@@ -42,11 +32,6 @@ QList<int> InfoManager::getCpuPercents() const
 QList<double> InfoManager::getCpuLoadAvgs() const
 {
     return ci.getLoadAvgs();
-}
-
-double InfoManager::getCpuClock() const
-{
-    return ci.getAvgClock();
 }
 
 /*
@@ -93,16 +78,6 @@ void InfoManager::updateDiskInfo()
 QList<quint64> InfoManager::getDiskIO()
 {
     return di.getDiskIO();
-}
-
-QList<QString> InfoManager::getFileSystemTypes()
-{
-    return di.fileSystemTypes();
-}
-
-QList<QString> InfoManager::getDevices()
-{
-    return di.devices();
 }
 
 /********************
