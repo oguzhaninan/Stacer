@@ -9,6 +9,8 @@ LimitProcessWidget::LimitProcessWidget(const QString& optionName, QWidget* paren
 {
     QVBoxLayout* layout = new QVBoxLayout(this);
 
+    currentOptionName = optionName;
+
     QLabel* nameLabel = new QLabel(optionName, this);
     layout->addWidget(nameLabel);
 
@@ -45,7 +47,8 @@ void LimitProcessWidget::onConfirmClicked() {
     messageBox.setText(QString("Counter set to: %1").arg(counter));
     messageBox.setWindowTitle(QString("Success"));
     messageBox.exec();
-    ProcessesPage::onLimitProcessConfirm(counter);
+
+    ProcessesPage::onLimitProcessConfirm(counter, currentOptionName);
     limitSet = true;
     this->close();
 

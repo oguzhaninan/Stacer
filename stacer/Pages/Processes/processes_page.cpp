@@ -1,4 +1,5 @@
 #include <QWidgetAction>
+#include <iostream>
 #include "processes_page.h"
 #include "ui_processes_page.h"
 #include "utilities.h"
@@ -270,7 +271,7 @@ void ProcessesPage::on_btnLimitProcess_clicked() // ui file: line 205
 
 }
 
-void ProcessesPage::onLimitProcessConfirm(int limitValue) {
+void ProcessesPage::onLimitProcessConfirm(int limitValue, QString currentOptionName) {
 
     // If pid contains a valid process ID from a selected process
     if (staticPID) {
@@ -278,12 +279,28 @@ void ProcessesPage::onLimitProcessConfirm(int limitValue) {
         try {
             // Check if table username matches user logged into Linux
             if (staticUIDSelected == staticUID) {
-                QMessageBox messageBox;
-                messageBox.setText(QString("It Worked!!"));
-                messageBox.setWindowTitle(QString("Success"));
-                messageBox.exec();
-                // Call exec as that user
-                // CommandUtil::exec("kill", { QString::number(pid) });
+                // Convert integers to strings
+                std::string processIDStr = std::to_string(staticPID);
+                std::string limitValueStr = std::to_string(limitValue);
+                if (currentOptionName == "RAM Limit") {
+                    // Construct the prlimit command
+                    std::string command = "prlimit --pid " + processIDStr + " --rss=" + limitValueStr;
+
+                    // Convert the command string to a const char* for system function
+                    const char *command_cstr = command.c_str();
+
+                    // Execute the prlimit command
+                    int result = std::system(command_cstr);
+
+                    if (result == 0) {
+                        std::cout << "Resource limit set successfully!" << std::endl;
+                    } else {
+                        std::cerr << "Failed to set resource limit!" << std::endl;
+                    }
+                }
+                else if (currentOptionName == "CPU Limit") {
+                    std::cout << "CPU Limit Functionality Incomplete!" << std::endl;
+                }
             } else {
                 // Otherwise execute the call as superuser
                 // CommandUtil::sudoExec("kill", { QString::number(pid) });

@@ -25,6 +25,7 @@ public:
     LimitProcessWidget(const QString& optionName, QWidget* parent = nullptr);
     bool limitSet;
     int counter;
+    QString currentOptionName;
 
 
 public slots:

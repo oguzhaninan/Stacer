@@ -24,7 +24,7 @@ class ProcessesPage : public QWidget
 public:
     explicit ProcessesPage(QWidget *parent = 0);
     ~ProcessesPage();
-    static void onLimitProcessConfirm(int limitValue);
+    static void onLimitProcessConfirm(int limitValue, QString currentOptionName);
 
 private slots:
     void init();
