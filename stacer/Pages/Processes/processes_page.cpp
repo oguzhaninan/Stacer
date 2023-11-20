@@ -4,6 +4,10 @@
 #include "utilities.h"
 #include "limit_process_widget.h"
 
+static pid_t staticPID = 0;
+static QString staticUIDSelected = "";
+static QString staticUID = "";
+
 ProcessesPage::~ProcessesPage()
 {
     delete ui;
@@ -216,8 +220,7 @@ void ProcessesPage::on_sliderRefresh_valueChanged(const int &i)
 /* Limit Process Button */
 void ProcessesPage::on_btnLimitProcess_clicked() // ui file: line 205
 {
-    // Captures the PID for the highlighted process
-    pid_t pid = mSeletedRowModel.data(1).toInt();
+
 
     QModelIndexList selected = ui->tableProcess->selectionModel()->selectedRows();
 
@@ -252,35 +255,9 @@ void ProcessesPage::on_btnLimitProcess_clicked() // ui file: line 205
 
         limitProcessMenu->exec(btn->mapToGlobal(QPoint(0, btn->height())));
 
-        QMessageBox messageBox;
-        messageBox.setText(QString("Continuing Execution"));
-        messageBox.setWindowTitle(QString("Message"));
-        messageBox.exec();
-
-        /*
-        if (limitProcessMenu->) {
-
-            QMessageBox messageBox;
-            messageBox.setText(QString("ram limit set"));
-            messageBox.setWindowTitle(QString("Success"));
-            messageBox.exec();
-
-            ramLimit->close();
-            cpuLimit->close();
-            limitProcessMenu->close();
-        }
-        else if (cpuLimit->limitSet) {
-
-            QMessageBox messageBox;
-            messageBox.setText(QString("cpu limit set"));
-            messageBox.setWindowTitle(QString("Success"));
-            messageBox.exec();
-
-            cpuLimit->close();
-            ramLimit->close();
-            limitProcessMenu->close();
-        }
-         */
+        staticPID = mSeletedRowModel.data(1).toInt();
+        staticUIDSelected = mSortFilterModel->index(mSeletedRowModel.row(), 4).data(1).toString();
+        staticUID = im->getUserName();
 
     }
     else
@@ -291,14 +268,20 @@ void ProcessesPage::on_btnLimitProcess_clicked() // ui file: line 205
         messageBox.exec();
     }
 
+}
+
+void ProcessesPage::onLimitProcessConfirm(int limitValue) {
+
     // If pid contains a valid process ID from a selected process
-    if (pid) {
-        // Retrieve's the username from the table
-        QString selectedUname = mSortFilterModel->index(mSeletedRowModel.row(), 4).data(1).toString();
+    if (staticPID) {
 
         try {
             // Check if table username matches user logged into Linux
-            if (selectedUname == im->getUserName()) {
+            if (staticUIDSelected == staticUID) {
+                QMessageBox messageBox;
+                messageBox.setText(QString("It Worked!!"));
+                messageBox.setWindowTitle(QString("Success"));
+                messageBox.exec();
                 // Call exec as that user
                 // CommandUtil::exec("kill", { QString::number(pid) });
             } else {

@@ -26,8 +26,10 @@ public:
     bool limitSet;
     int counter;
 
+
 public slots:
     void onSetCounterClicked();
     void onConfirmClicked();
+
 };
 #endif //STACER_LIMIT_PROCESS_WIDGET_H

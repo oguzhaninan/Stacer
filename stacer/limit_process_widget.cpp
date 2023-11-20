@@ -2,6 +2,7 @@
 // Created by jordan on 11/18/23.
 //
 #include "limit_process_widget.h"
+#include <QScreen>
 
 LimitProcessWidget::LimitProcessWidget(const QString& optionName, QWidget* parent)
 : QWidget(parent), counter(0)
@@ -22,12 +23,16 @@ LimitProcessWidget::LimitProcessWidget(const QString& optionName, QWidget* paren
     connect(confirmButton, &QPushButton::clicked, this, &LimitProcessWidget::onConfirmClicked);
     layout->addWidget(confirmButton);
 
-    limitSet = false;
+    QScreen *screen = QGuiApplication::primaryScreen();
+    QRect screenGeometry = screen->availableGeometry();
+
+    move(screenGeometry.width() / 2 - width() / 2, screenGeometry.height() / 2 - height() / 2);
 }
+
 
 void LimitProcessWidget::onSetCounterClicked() {
     bool ok;
-    int value = QInputDialog::getInt(this, "Set Counter", "Enter counter value:", counter, 0, 100, 1, &ok);
+    int value = QInputDialog::getInt(this, "Set Counter", "Enter counter value:", counter, 0, 2097152, 1, &ok);
     if (ok) {
         counter = value;
         // Update counter label
@@ -40,8 +45,10 @@ void LimitProcessWidget::onConfirmClicked() {
     messageBox.setText(QString("Counter set to: %1").arg(counter));
     messageBox.setWindowTitle(QString("Success"));
     messageBox.exec();
-    this->close();
+    ProcessesPage::onLimitProcessConfirm(counter);
     limitSet = true;
+    this->close();
+
 }
 
 
