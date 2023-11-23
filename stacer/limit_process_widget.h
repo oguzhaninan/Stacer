@@ -22,15 +22,14 @@ class LimitProcessWidget : public QWidget {
     Q_OBJECT
 
 public:
-    LimitProcessWidget(const QString& optionName, QWidget* parent = nullptr);
-    bool limitSet;
-    int counter;
-    QString currentOptionName;
+    LimitProcessWidget(const QString& optionName, QWidget* parent = nullptr); // Constructor
+    int counter; // User input value for limit quantity
+    QString currentOptionName; // Used to determine which command to send to the shell
 
 
 public slots:
-    void onSetCounterClicked();
-    void onConfirmClicked();
+    void onSetCounterClicked(); // Button behavior for setting limit quantity
+    void onConfirmClicked();    // Button behavior for confirming limit quantity
 
 };
 #endif //STACER_LIMIT_PROCESS_WIDGET_H
