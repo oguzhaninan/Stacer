@@ -10,6 +10,7 @@
 #include <QMenu>
 #include <QAction>
 #include <QPushButton>
+#include <unordered_map>
 
 #include "Managers/info_manager.h"
 

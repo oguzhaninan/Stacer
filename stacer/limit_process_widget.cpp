@@ -39,7 +39,8 @@ LimitProcessWidget::LimitProcessWidget(const QString& optionName, QWidget* paren
     QScreen *screen = QGuiApplication::primaryScreen();
     QRect screenGeometry = screen->availableGeometry();
 
-    move(screenGeometry.width() / 2 - width() / 2, screenGeometry.height() / 2 - height() / 2);
+    // move(screenGeometry.width() / 2 - width() / 2, screenGeometry.height() / 2 - height() / 2);
+    move(screenGeometry.width() / 2, screenGeometry.height() / 2);
 }
 
 
