@@ -1,0 +1,35 @@
+/home/zakerydesktop/.local/share/JetBrains/Toolbox/apps/clion/bin/cmake/linux/x64/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" -S /home/zakerydesktop/Desktop/codingDev/StacerDev/Stacer -B /home/zakerydesktop/Desktop/codingDev/StacerDev/Stacer/cmake-build-debug
+-- The C compiler identification is GNU 11.4.0
+-- The CXX compiler identification is GNU 11.4.0
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: /usr/bin/cc - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /usr/bin/c++ - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- [cxxbasics] `CXXBASICS_C_COMPILER_TARGET_ARCH` set to "x86_64"
+-- [cxxbasics] `CXXBASICS_CXX_COMPILER_TARGET_ARCH` set to "x86_64"
+-- [cxxbasics][✓] CMAKE_C_COMPILER(/usr/bin/cc)'s linker is set to: GNU gold linker
+-- [cxxbasics][✓] CMAKE_CXX_COMPILER(/usr/bin/c++)'s linker is set to: GNU gold linker
+-- [cxxbasics][✗] Could not set a compiler cache tool for the C compiler
+-- [cxxbasics][✗] Could not set a compiler cache tool for the CXX compiler
+CMake Error at /usr/lib/x86_64-linux-gnu/cmake/Qt5/Qt5Config.cmake:28 (find_package):
+  Could not find a package configuration file provided by "Qt5Charts" with
+  any of the following names:
+
+    Qt5ChartsConfig.cmake
+    qt5charts-config.cmake
+
+  Add the installation prefix of "Qt5Charts" to CMAKE_PREFIX_PATH or set
+  "Qt5Charts_DIR" to a directory containing one of the above files.  If
+  "Qt5Charts" provides a separate development package or SDK, be sure it has
+  been installed.
+Call Stack (most recent call first):
+  CMakeLists.txt:16 (find_package)
+
+
+-- Configuring incomplete, errors occurred!

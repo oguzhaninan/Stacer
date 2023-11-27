@@ -3,4 +3,10 @@ dist/
 build/
 #*.AppImage
 .vscode
+<<<<<<< Updated upstream
 Release/
+=======
+Release/
+.idea/custom-compiler.xml
+buildStacer-Jordan.sh
+>>>>>>> Stashed changes

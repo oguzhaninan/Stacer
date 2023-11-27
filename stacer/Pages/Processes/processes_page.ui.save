@@ -1,6 +1,222 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>ProcessesPage</class>
+ <widget class="QWidget" name="ProcessesPage">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>835</width>
+    <height>612</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Processes</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true"/>
+  </property>
+  <layout class="QGridLayout" name="gridLayout">
+   <property name="leftMargin">
+    <number>20</number>
+   </property>
+   <property name="topMargin">
+    <number>5</number>
+   </property>
+   <property name="rightMargin">
+    <number>20</number>
+   </property>
+   <property name="bottomMargin">
+    <number>20</number>
+   </property>
+   <property name="horizontalSpacing">
+    <number>0</number>
+   </property>
+   <property name="verticalSpacing">
+    <number>5</number>
+   </property>
+   <item row="1" column="0">
+    <layout class="QHBoxLayout" name="topLayout">
+     <property name="spacing">
+      <number>10</number>
+     </property>
+     <property name="leftMargin">
+      <number>5</number>
+     </property>
+     <property name="topMargin">
+      <number>0</number>
+     </property>
+     <property name="rightMargin">
+      <number>10</number>
+     </property>
+     <item>
+      <widget class="QLabel" name="lblProcessTitle">
+       <property name="text">
+        <string>Processes</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QCheckBox" name="checkAllProcesses">
+       <property name="cursor">
+        <cursorShape>PointingHandCursor</cursorShape>
+       </property>
+       <property name="focusPolicy">
+        <enum>Qt::NoFocus</enum>
+       </property>
+       <property name="accessibleName">
+        <string notr="true">circle</string>
+       </property>
+       <property name="text">
+        <string>All Processes</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <spacer name="horizontalSpacer">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>40</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item alignment="Qt::AlignRight">
+      <widget class="QLineEdit" name="txtProcessSearch">
+       <property name="font">
+        <font>
+         <pointsize>10</pointsize>
+        </font>
+       </property>
+       <property name="placeholderText">
+        <string>Search...</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+   <item row="3" column="0">
+    <widget class="QTableView" name="tableProcess">
+     <property name="focusPolicy">
+      <enum>Qt::NoFocus</enum>
+     </property>
+     <property name="frameShape">
+      <enum>QFrame::NoFrame</enum>
+     </property>
+     <property name="frameShadow">
+      <enum>QFrame::Sunken</enum>
+     </property>
+     <property name="sizeAdjustPolicy">
+      <enum>QAbstractScrollArea::AdjustToContents</enum>
+     </property>
+     <property name="editTriggers">
+      <set>QAbstractItemView::NoEditTriggers</set>
+     </property>
+     <property name="selectionMode">
+      <enum>QAbstractItemView::SingleSelection</enum>
+     </property>
+     <property name="selectionBehavior">
+      <enum>QAbstractItemView::SelectRows</enum>
+     </property>
+     <property name="textElideMode">
+      <enum>Qt::ElideMiddle</enum>
+     </property>
+     <property name="gridStyle">
+      <enum>Qt::SolidLine</enum>
+     </property>
+     <property name="sortingEnabled">
+      <bool>true</bool>
+     </property>
+     <property name="wordWrap">
+      <bool>true</bool>
+     </property>
+     <property name="cornerButtonEnabled">
+      <bool>true</bool>
+     </property>
+     <attribute name="horizontalHeaderCascadingSectionResizes">
+      <bool>false</bool>
+     </attribute>
+     <attribute name="horizontalHeaderStretchLastSection">
+      <bool>true</bool>
+     </attribute>
+     <attribute name="verticalHeaderVisible">
+      <bool>false</bool>
+     </attribute>
+    </widget>
+   </item>
+   <item row="4" column="0">
+    <widget class="QWidget" name="bottomWidget" native="true">
+     <layout class="QHBoxLayout" name="bottomLayout">
+      <property name="spacing">
+       <number>10</number>
+      </property>
+      <property name="leftMargin">
+       <number>0</number>
+      </property>
+      <property name="topMargin">
+       <number>5</number>
+      </property>
+      <property name="rightMargin">
+       <number>0</number>
+      </property>
+      <property name="bottomMargin">
+       <number>0</number>
+      </property>
+      <item alignment="Qt::AlignLeft|Qt::AlignVCenter">
+       <widget class="QLabel" name="lblRefresh">
+        <property name="text">
+         <string notr="true">Refresh (1)</string>
+        </property>
+       </widget>
+      </item>
+      <item alignment="Qt::AlignLeft|Qt::AlignVCenter">
+       <widget class="QSlider" name="sliderRefresh">
+        <property name="cursor">
+         <cursorShape>PointingHandCursor</cursorShape>
+        </property>
+        <property name="focusPolicy">
+         <enum>Qt::NoFocus</enum>
+        </property>
+        <property name="styleSheet">
+         <string notr="true"/>
+        </property>
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <spacer name="horizontalSpacer_2">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>40</width>
+          <height>20</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item>
+      User
+Given this code
+#include <QWidgetAction>
+#include <iostream>
 #include "processes_page.h"
 #include "ui_processes_page.h"
 #include "utilities.h"
+#include "limit_process_widget.h"
+
+// Static variables for process limiting
+static pid_t staticPID = 0;
+static QString staticUIDSelected = "";
+static QString staticUID = "";
+static std::unordered_map<pid_t, std::string> cpuLimits;
 
 ProcessesPage::~ProcessesPage()
 {
@@ -21,7 +237,7 @@ ProcessesPage::ProcessesPage(QWidget *parent) :
 }
 
 void ProcessesPage::init()
-{
+{    
     mHeaders = QStringList {
         "PID", tr("Resident Memory"), tr("%Memory"), tr("Virtual Memory"),
         tr("User"), "%CPU", tr("Start Time"), tr("State"), tr("Group"),
@@ -47,6 +263,7 @@ void ProcessesPage::init()
     ui->tableProcess->horizontalHeader()->setFixedHeight(36);
     ui->tableProcess->horizontalHeader()->setDefaultAlignment(Qt::AlignLeft | Qt::AlignVCenter);
     ui->tableProcess->horizontalHeader()->setCursor(Qt::PointingHandCursor);
+
     ui->tableProcess->horizontalHeader()->resizeSection(0, 70);
 
     loadProcesses();
@@ -60,8 +277,6 @@ void ProcessesPage::init()
     connect(ui->tableProcess->horizontalHeader(), SIGNAL(customContextMenuRequested(const QPoint&)),
         this, SLOT(on_tableProcess_customContextMenuRequested(const QPoint&)));
 
-    connect(ui->btnSetCPUPriority, &QPushButton::clicked, this, &ProcessesPage::on_btnSetCPUPriority_clicked);
-
     loadHeaderMenu();
 
     Utilities::addDropShadow(ui->btnEndProcess, 60);
@@ -71,26 +286,25 @@ void ProcessesPage::init()
 void ProcessesPage::loadHeaderMenu()
 {
     int i = 0;
-    QList<QAction*> actionList;
-    actionList.reserve(mHeaders.size());
     for (const QString &header : mHeaders) {
-        QAction *action = new QAction(header,&mHeaderMenu);
+        QAction *action = new QAction(header);
         action->setCheckable(true);
         action->setChecked(true);
         action->setData(i++);
-        actionList.push_back(action);
 
+        mHeaderMenu.addAction(action);
     }
-    mHeaderMenu.addActions(actionList);
-    // exclude headers
-    QList<int> hiddenHeaders = { 3, 6, 7, 8, 9, 10, 11 };
+
+// exclude headers
+#define ex(n) mHeaders.indexOf(n)
+    QList<int> hiddenHeaders = { ex("Start Time"), ex("State"), ex("Group"),
+                                 ex("Nice"), ex("CPU Time"), ex("Session"), ex("Virtual Memory") };
+#undef ex
 
     QList<QAction*> actions = mHeaderMenu.actions();
     for (const int i : hiddenHeaders) {
-        if (i < mHeaders.count()) {
-            ui->tableProcess->horizontalHeader()->setSectionHidden(i, true);
-            actions.at(i)->setChecked(false);
-        }
+        ui->tableProcess->horizontalHeader()->setSectionHidden(i, true);
+        actions.at(i)->setChecked(false);
     }
 }
 
@@ -104,6 +318,7 @@ void ProcessesPage::loadProcesses()
 
     QList<Process> processes = im->getProcesses();
     QString username = im->getUserName();
+
 
     if (ui->checkAllProcesses->isChecked()) {
         for (const Process &proc : processes) {
@@ -120,7 +335,7 @@ void ProcessesPage::loadProcesses()
     ui->lblProcessTitle->setText(tr("Processes (%1)").arg(mItemModel->rowCount()));
 
     // selected item
-    if (! selecteds.isEmpty()) {
+    if(! selecteds.isEmpty()) {
         mSeletedRowModel = selecteds.first();
 
         for (int i = 0; i < mSortFilterModel->rowCount(); ++i) {
@@ -212,8 +427,6 @@ void ProcessesPage::on_sliderRefresh_valueChanged(const int &i)
     mTimer->setInterval(i * 1000);
 }
 
-<<<<<<< Updated upstream
-=======
 /* Limit Process Button */
 void ProcessesPage::on_btnLimitProcess_clicked() // ui file: line 205
 {
@@ -281,43 +494,6 @@ void ProcessesPage::on_btnLimitProcess_clicked() // ui file: line 205
     }
 
 }
-
-void ProcessesPage::on_btnSetCPUPriority_clicked()
-{
-    // Retrieve the selected process PID
-    pid_t pid = mSeletedRowModel.data(1).toInt();
-
-    if (pid) {
-        try {
-            // Create a menu for setting CPU priority
-            QMenu cpuPriorityMenu;
-
-            // Create actions for low, medium, and high priorities
-            QAction *setLowPriority = cpuPriorityMenu.addAction("Low Priority");
-            QAction *setMediumPriority = cpuPriorityMenu.addAction("Medium Priority");
-            QAction *setHighPriority = cpuPriorityMenu.addAction("High Priority");
-
-            // Execute the menu at the cursor position
-            QAction *selectedAction = cpuPriorityMenu.exec(QCursor::pos());
-
-            // Determine the selected CPU priority and set it accordingly
-            if (selectedAction == setLowPriority) {
-                CommandUtil::sudoExec("renice", { "-n", "10", QString::number(pid) });
-            } else if (selectedAction == setMediumPriority) {
-                CommandUtil::sudoExec("renice", { "0", QString::number(pid) });
-            } else if (selectedAction == setHighPriority) {
-                CommandUtil::sudoExec("renice", { "-n", "-10", QString::number(pid) });
-            }
-        } catch (QString &ex) {
-            qCritical() << ex;
-        }
-    }
-}
-
-
-
-
-
 
 void ProcessesPage::onLimitProcessConfirm(int limitValue, QString currentOptionName) {
 
@@ -482,18 +658,22 @@ void ProcessesPage::on_btnRemoveLimit_clicked() // ui file: line 221
 }
 
 /* End Process Button */
->>>>>>> Stashed changes
 void ProcessesPage::on_btnEndProcess_clicked()
 {
+    // Captures the PID for the highlighted process
     pid_t pid = mSeletedRowModel.data(1).toInt();
-
+    // If pid contains a valid process ID from a selected process
     if (pid) {
+        // Retrieve's the username from the table
         QString selectedUname = mSortFilterModel->index(mSeletedRowModel.row(), 4).data(1).toString();
 
         try {
+            // Check if table username matches user logged into Linux
             if (selectedUname == im->getUserName()) {
+                // Call exec as that user
                 CommandUtil::exec("kill", { QString::number(pid) });
             } else {
+                // Otherwise execute the call as superuser
                 CommandUtil::sudoExec("kill", { QString::number(pid) });
             }
         } catch (QString &ex) {
@@ -512,3 +692,70 @@ void ProcessesPage::on_tableProcess_customContextMenuRequested(const QPoint &pos
         ui->tableProcess->horizontalHeader()->setSectionHidden(action->data().toInt(), ! action->isChecked());
     }
 }
+
+
+How could I add it so that a button exits that can set CPU priority based on low medium and high priority, without additional libraries.
+2 / 2
+ChatGPT
+
+To add functionality to set CPU priority based on low, medium, and high priorities without additional libraries, you can create a new button and associated functions. Here's a step-by-step guide on how you can achieve this:
+      <item>
+	
+
+
+      <item>                                                # Limit process button
+       <widget class="QPushButton" name="btnLimitProcess">
+        <property name="cursor">
+         <cursorShape>PointingHandCursor</cursorShape>
+        </property>
+        <property name="focusPolicy">
+         <enum>Qt::NoFocus</enum>
+        </property>
+        <property name="accessibleName">
+         <string notr="true">primary</string>
+        </property>
+        <property name="text">
+         <string>Limit Process</string>
+        </property>
+       </widget>
+      </item>
+      <item>                                                # Remove limit button
+       <widget class="QPushButton" name="btnRemoveLimit">
+        <property name="cursor">
+         <cursorShape>PointingHandCursor</cursorShape>
+        </property>
+        <property name="focusPolicy">
+         <enum>Qt::NoFocus</enum>
+        </property>
+        <property name="accessibleName">
+         <string notr="true">primary</string>
+        </property>
+        <property name="text">
+         <string>Remove Limit</string>
+        </property>
+       </widget>
+      </item>
+      <item>                                                # End process button
+       <widget class="QPushButton" name="btnEndProcess">
+        <property name="cursor">
+         <cursorShape>PointingHandCursor</cursorShape>
+        </property>
+        <property name="focusPolicy">
+         <enum>Qt::NoFocus</enum>
+        </property>
+        <property name="accessibleName">
+         <string notr="true">primary</string>
+        </property>
+        <property name="text">
+         <string>End Process</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
