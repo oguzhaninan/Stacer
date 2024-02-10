@@ -227,7 +227,7 @@
       <item alignment="Qt::AlignLeft|Qt::AlignVCenter">
        <widget class="QLabel" name="lblUpdateBarText">
         <property name="text">
-         <string>There are update currently available.</string>
+         <string>There are updates currently available.</string>
         </property>
        </widget>
       </item>

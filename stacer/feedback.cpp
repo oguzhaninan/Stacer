@@ -76,7 +76,7 @@ void Feedback::on_btnSend_clicked()
 
                 if (response.value("success").toBool()) {
                     emit clearInputs();
-                    emit setErrorMessageS(tr("<font color='#2ecc71'>Your Feedback has been successfully sended.</font>"));
+                    emit setErrorMessageS(tr("<font color='#2ecc71'>Your Feedback has been successfully sent.</font>"));
                 } else {
                     emit setErrorMessageS(tr("Something went wrong, try again !"));
                 }

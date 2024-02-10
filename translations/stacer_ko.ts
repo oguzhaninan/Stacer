@@ -306,7 +306,7 @@
     </message>
     <message>
         <location filename="../stacer/Pages/Dashboard/dashboard_page.ui" line="230"/>
-        <source>There are update currently available.</source>
+        <source>There are updates currently available.</source>
         <translation type="unfinished">프로그램의 최신 업데이트가 있습니다.</translation>
     </message>
     <message>
@@ -440,7 +440,7 @@
     </message>
     <message>
         <location filename="../stacer/feedback.ui" line="104"/>
-        <source>Send a Feedback</source>
+        <source>Send Feedback</source>
         <translation type="unfinished">피드백 보내기</translation>
     </message>
     <message>
@@ -460,7 +460,7 @@
     </message>
     <message>
         <location filename="../stacer/feedback.cpp" line="79"/>
-        <source>&lt;font color=&apos;#2ecc71&apos;&gt;Your Feedback has been successfully sended.&lt;/font&gt;</source>
+        <source>&lt;font color=&apos;#2ecc71&apos;&gt;Your Feedback has been successfully sent.&lt;/font&gt;</source>
         <translation type="unfinished">&lt;font color=&apos;#2ecc71&apos;&gt;피드백 메세지가 성공적으로 전달되었습니다.&lt;/font&gt;</translation>
     </message>
     <message>

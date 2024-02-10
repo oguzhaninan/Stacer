@@ -306,7 +306,7 @@
     </message>
     <message>
         <location filename="../stacer/Pages/Dashboard/dashboard_page.ui" line="230"/>
-        <source>There are update currently available.</source>
+        <source>There are updates currently available.</source>
         <translation>Új frissítés érhető el.</translation>
     </message>
     <message>
@@ -440,7 +440,7 @@
     </message>
     <message>
         <location filename="../stacer/feedback.ui" line="104"/>
-        <source>Send a Feedback</source>
+        <source>Send Feedback</source>
         <translation>Visszajelzés Küldése</translation>
     </message>
     <message>
@@ -460,7 +460,7 @@
     </message>
     <message>
         <location filename="../stacer/feedback.cpp" line="79"/>
-        <source>&lt;font color=&apos;#2ecc71&apos;&gt;Your Feedback has been successfully sended.&lt;/font&gt;</source>
+        <source>&lt;font color=&apos;#2ecc71&apos;&gt;Your Feedback has been successfully sent.&lt;/font&gt;</source>
         <translation>&lt;font color=&apos;#2ecc71&apos;&gt;A visszajelzést sikeresen elküldte.&lt;/font&gt;</translation>
     </message>
     <message>
