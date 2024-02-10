@@ -53,7 +53,7 @@
     </message>
     <message>
         <location filename="../stacer/Pages/Dashboard/dashboard_page.ui" line="240"/>
-        <source>There are update currently available.</source>
+        <source>There are updates currently available.</source>
         <translation>Доступно оновлення.</translation>
     </message>
     <message>

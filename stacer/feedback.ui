@@ -75,7 +75,7 @@
       <string notr="true">dialog-title</string>
      </property>
      <property name="text">
-      <string>Send a Feedback</string>
+      <string>Send Feedback</string>
      </property>
      <property name="alignment">
       <set>Qt::AlignCenter</set>

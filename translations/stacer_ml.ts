@@ -316,7 +316,7 @@
     </message>
     <message>
         <location filename="../stacer/Pages/Dashboard/dashboard_page.ui" line="230"/>
-        <source>There are update currently available.</source>
+        <source>There are updates currently available.</source>
         <translation>നിലവിൽ അപ്ഡേറ്റുകൾ ലഭ്യമാണ്.</translation>
     </message>
     <message>
@@ -450,7 +450,7 @@
     </message>
     <message>
         <location filename="../stacer/feedback.ui" line="104"/>
-        <source>Send a Feedback</source>
+        <source>Send Feedback</source>
         <translation>പ്രതികരണം അയക്കുക</translation>
     </message>
     <message>
@@ -470,7 +470,7 @@
     </message>
     <message>
         <location filename="../stacer/feedback.cpp" line="79"/>
-        <source>&lt;font color=&apos;#2ecc71&apos;&gt;Your Feedback has been successfully sended.&lt;/font&gt;</source>
+        <source>&lt;font color=&apos;#2ecc71&apos;&gt;Your Feedback has been successfully sent.&lt;/font&gt;</source>
         <translation>&lt;font color=&apos;#2ecc71&apos;&gt;നിങ്ങളുടെ പ്രതികരണം വിജയകരമായി അയച്ചു.&lt;/font&gt;</translation>
     </message>
     <message>
